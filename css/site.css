@@ -83,7 +83,7 @@ code {
 
 article {
   padding-bottom: 50px;
-
+  border-bottom: 1px solid;
 }
 .article-content {
   line-height: 1.8em;
