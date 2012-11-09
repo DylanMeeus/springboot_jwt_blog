@@ -3,5 +3,5 @@
  <ShortName>Jose on Code</ShortName>
  <Description>Jose on Code</Description>
  <Developer>Jose F. Romaniello</Developer>
- <Url type="text/html" method="get" template="http://joseoncode.com/search/?q={searchTerms}"/>
+ <Url type="text/html" method="get" template="http://blog.qraftlabs.com/search/?q={searchTerms}"/>
 </OpenSearchDescription>

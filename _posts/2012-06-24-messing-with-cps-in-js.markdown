@@ -2,6 +2,10 @@
 layout: post
 title: "Messing with CPS in JavaScript"
 date: 2012-06-24 21:00
+author:
+  name: José
+  url: http://joseoncode.com
+  mail: jfromaniello@gmail.com
 tags: 
 - javascript
 - node
