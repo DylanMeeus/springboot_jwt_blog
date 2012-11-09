@@ -95,7 +95,7 @@ code {
 }
 
 .entry-content {
-  font-family: 'ABeeZee', sans-serif;
-  /*font-family: "DejaVu serif", Constantia, serif;*/
+  /*font-family: 'ABeeZee', sans-serif;*/
+  font-family: "DejaVu serif", Constantia, serif;
   line-height: 24px;
 }
