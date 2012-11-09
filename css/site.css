@@ -87,8 +87,15 @@ ul.archive {
 pre {
   display: block; 
   font-family:Consolas,'Lucida Console','DejaVu Sans Mono',monospace;
+  font-family: 'Source Code Pro', sans-serif;
 }
 
 code {
   overflow-x: scroll;
+}
+
+.entry-content {
+  font-family: 'ABeeZee', sans-serif;
+  /*font-family: "DejaVu serif", Constantia, serif;*/
+  line-height: 24px;
 }
