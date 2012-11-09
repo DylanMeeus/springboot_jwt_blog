@@ -7,25 +7,13 @@ body {
   margin-left: auto;
 }
 
-header {
+header .logo {
   width: 100%;
+  height:160px; 
+  background:url(/imgs/logo2.png) center center no-repeat;
 }
 
-header h1 {
-  color: #4789B9;
-  font-size: 70px;
-  padding: 10px;
-  margin: 10px;
-  padding-bottom: 0;
-  text-align: center;
-}
-
-header h1 a {
-  color: #4789B9;
-  text-decoration: none;
-}
-
-header h1 a:hover {
+header a:hover {
   color: #313131;
   background-color: white;
   text-decoration: none;
@@ -38,6 +26,7 @@ header p {
   padding: 0;
   margin-top: 10px;
   font-style: italic;
+  padding-top: 100px;
 }
 
 header i {
@@ -101,7 +90,7 @@ article {
 .entry-meta {
   font-style: normal;
   color: #162A39;
-  font-size: 11px;
+  font-size: 9px;
   margin-top: -14px;
 }
 
