@@ -75,23 +75,19 @@ li {
   line-height: 28px;
 }
 
-.entry-meta {
-  font-style: italic;
-  color: #162A39;
-}
-
 ul.archive {
   font-size: 20px;
 }
 
 pre {
   display: block; 
-  font-family:Consolas,'Lucida Console','DejaVu Sans Mono',monospace;
-  font-family: 'Source Code Pro', sans-serif;
+  /*font-family:Consolas,'Lucida Console','DejaVu Sans Mono',monospace;*/
 }
 
 code {
+  font-family: 'Source Code Pro', sans-serif;
   overflow-x: scroll;
+  font-size: 12px;
 }
 
 .entry-content {
@@ -99,3 +95,25 @@ code {
   font-family: "DejaVu serif", Constantia, serif;
   line-height: 24px;
 }
+
+.entry-meta {
+  font-style: normal;
+  color: #162A39;
+  font-size: 11px;
+  margin-top: -14px;
+}
+
+blockquote {
+  font-style: italic;
+  font-family:'Courier New', Courier, monospace;
+  padding:20px;
+  background:#fff;
+}
+
+/*blockquote p:before {
+  content: '" ';
+}*/
+/*
+blockquote p:after {
+  content: ' "';
+}*/

@@ -12,7 +12,7 @@ tags:
 I wont explain what is [Continuation Passing Style](http://en.wikipedia.org/wiki/Continuation-passing_style).
 
 The example
-===========
+-----------
 
 Imagine that we need to create a function to retrieve the **arrival date** for a given **flight number** and **departure date**. The **departure date** is optional and if not specified, then we have to fetch the last flight with the flight number first. 
 
@@ -70,7 +70,7 @@ Now is better. By sure you can do something better than this using one of the ga
 But for the sake of this experiment let's try to do something different now.
 
 A CPS IF statement
-==================
+------------------
 
 With a function like this:
 
@@ -102,14 +102,14 @@ The first callback: **fetch the last flight** is executed only if the condition 
 This simple example reads better than the standard IF and in my experience it makes much more sense with more complicated things.
 
 What we did?
-============
+------------
 
 What I did was to create an alternative IF construct with Continuation Passing Style and then what I accomplish is to use everything in this function as **Continuation Passing Style**. You can do the same for **loops** for instance (serial / parallel).
 
 In other words I just bring [LISP](http://www.n-a-n-o.com/lisp/cmucl-tutorials/LISP-tutorial-17.html) to js.
 
 The other way!
-==============
+--------------
 
 Another way is to avoid CPS at all. If you look at:
 
@@ -122,7 +122,7 @@ Another way is to avoid CPS at all. If you look at:
 All those languages has an alternative syntax to execute asynchronous methods *without continuation passing style* and GRANTED you will find that those play nice with the non-cps constructs.
 
 Conclusion
-==========
+----------
 
 I think work flows with CPS invocation are better and easy to follow with **continuation passing style statements** than with the standard constructs.
 
