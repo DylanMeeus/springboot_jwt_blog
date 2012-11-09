@@ -1,0 +1,91 @@
+body {
+  font-family: georgia;
+  width: 700px;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+}
+
+header {
+  width: 100%;
+}
+
+header h1 {
+  color: #4789B9;
+  font-size: 70px;
+  padding: 10px;
+  margin: 10px;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+header h1 a {
+  color: #4789B9;
+  text-decoration: none;
+}
+
+header h1 a:hover {
+  color: #313131;
+  background-color: white;
+  text-decoration: none;
+}
+
+header p {
+  color: #1C425F;
+  font-size: 20px;
+  text-align: center;
+  padding: 0;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+header i {
+  font-size: 70px;
+  font-style: normal;
+  color: #313131;
+}
+
+aside {
+  float: right;
+  width: 20%;
+}
+
+#container {
+  width: 80%;
+}
+
+.search {
+  border: 1px solid;
+  text-align: center;
+}
+
+a {
+  color: #87AAC5;
+  /*text-decoration: none;*/
+}
+
+a:hover {
+  color: white;
+  background-color: #162A39;
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: square;
+  line-height: 28px;
+}
+
+.entry-meta {
+  font-style: italic;
+  color: #162A39;
+}
+
+ul.archive {
+  font-size: 20px;
+}
+
+pre {
+  display: block; 
+  overflow-x: scroll;
+}

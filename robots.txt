@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://joseoncode.com/sitemap.xml

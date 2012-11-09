@@ -1,0 +1,12 @@
+---
+layout: default
+meta-robots: "noodp, noydir, noindex, noarchive, follow"
+---
+
+<h1> Posts tagged as: {{ page.tag }} </h1><br>
+<ul>
+{% for post in site.tags[page.tag] %}
+{% include archive_post.html %}
+{% endfor %}
+</ul>
+

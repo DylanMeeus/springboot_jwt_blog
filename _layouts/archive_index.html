@@ -1,0 +1,11 @@
+---
+layout: default
+meta-robots: "noodp, noydir, noindex, noarchive, follow"
+---
+
+<h1> Posts archive: {{ page.period["month"] }} - {{page.period["year"]}} </h1><br>
+<ul>
+{% for post in page.period_posts %}
+{% include archive_post.html %}
+{% endfor %}
+</ul>

@@ -1,0 +1,5 @@
+markdown: rdiscount
+pygments: true
+paginate: 15
+permalink: pretty
+pygments:  true

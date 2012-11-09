@@ -1,0 +1,26 @@
+<article class="hentry">
+	<h2 class="entry-title">
+	<a rel="bookmark" title="Permalink to {{ page.title }}" 
+		href="{{ page.url }}">
+		{{ page.title }}</a>
+	</h2>
+	{% include entry_metadata.html %}
+	<div class="entry-content" >
+  	{{ page.content }}
+  	</div>
+  	<div class="entry-utility">
+  		<span class="cat-links">Posted in
+  		{% for tag in page.tags %}
+		  	<a href="/tag/{{tag}}" rel="nofollow">{{tag}}</a>
+			{% endfor %}
+  		</span> 
+  		
+  		<span class="meta-sep meta-sep-tag-links">|</span> 
+  		
+  		<span class="comments-link">
+  			<a title="Comment on PsWatch: {{ page.title }}" 
+  				href="http://joseoncode.com{{ page.url }}#disqus_thread">0 Comments and 0 Reactions</a>
+  		</span>
+  	</div>
+</article>
+<hr />
