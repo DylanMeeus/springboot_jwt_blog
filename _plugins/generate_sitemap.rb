@@ -81,8 +81,6 @@ module Jekyll
 
       #Add first pages
       result += entry("/", Time.new, "daily", site, "1.0")
-      result += entry("/about-me/", DateTime.new(2010, 12, 1, 12, 0, 0, 0), "never", site, "1.0")
-      result += entry("/contact-me/",  DateTime.new(2010, 12, 1, 12, 0, 0, 0), "never", site, "1.0")
       # result += entry("/#{Time.new.year}/#{Time.new.month}/",  Time.new, "weekly", site, "1.0")
       
 
