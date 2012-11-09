@@ -81,13 +81,13 @@ ul.archive {
 
 pre {
   display: block; 
-  /*font-family:Consolas,'Lucida Console','DejaVu Sans Mono',monospace;*/
 }
 
 code {
   font-family: 'Source Code Pro', sans-serif;
   overflow-x: scroll;
   font-size: 12px;
+  line-height: 1.5em;
 }
 
 .entry-content {
