@@ -2,20 +2,14 @@
 layout: default
 ---
 
-<div class="hentry">
+<article>
 	<h1 class="entry-title">{{ page.title }}</h1>
 	{% include entry_metadata.html %}
-	<div class="entry-content" >
+	<div class="article-content" >
 	{{ content }}
 	</div>
-</div>
-<div id="related" class="entry-meta">
-	Tags: 
-	{% for tag in page.tags %}
-  	<a href="/tag/{{tag}}" rel="nofollow">{{tag}}</a>
-	{% endfor %}
-    <br>
-</div>
+</article>
+
 <br>
 <g:plusone annotation="inline"></g:plusone>
 

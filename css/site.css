@@ -52,7 +52,7 @@ aside {
 }
 
 #container {
-  width: 85%;
+  width: 80%;
 }
 
 .search {
@@ -90,9 +90,11 @@ code {
   line-height: 1.5em;
 }
 
-.entry-content {
-  /*font-family: 'ABeeZee', sans-serif;*/
-  /*font-family: "DejaVu serif", Constantia, serif;*/
+article {
+  padding-bottom: 50px;
+
+}
+.article-content {
   line-height: 1.8em;
 }
 
