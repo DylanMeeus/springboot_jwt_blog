@@ -1,5 +1,6 @@
 markdown: rdiscount
 pygments: true
 paginate: 15
+exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor]
 permalink: pretty
 pygments:  true
