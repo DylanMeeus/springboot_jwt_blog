@@ -92,7 +92,7 @@ code {
 
 .entry-content {
   /*font-family: 'ABeeZee', sans-serif;*/
-  font-family: "DejaVu serif", Constantia, serif;
+  /*font-family: "DejaVu serif", Constantia, serif;*/
   line-height: 1.8em;
 }
 
@@ -105,15 +105,5 @@ code {
 
 blockquote {
   font-style: italic;
-  font-family:'Courier New', Courier, monospace;
-  padding:20px;
-  background:#fff;
+  padding:10px;
 }
-
-/*blockquote p:before {
-  content: '" ';
-}*/
-/*
-blockquote p:after {
-  content: ' "';
-}*/
