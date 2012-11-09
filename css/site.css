@@ -62,7 +62,6 @@ aside {
 
 a {
   color: #87AAC5;
-  /*text-decoration: none;*/
 }
 
 a:hover {
@@ -87,6 +86,9 @@ ul.archive {
 
 pre {
   display: block; 
-  overflow-x: scroll;
   font-family:Consolas,'Lucida Console','DejaVu Sans Mono',monospace;
+}
+
+code {
+  overflow-x: scroll;
 }
