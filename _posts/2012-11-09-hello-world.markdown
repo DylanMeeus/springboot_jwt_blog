@@ -8,7 +8,7 @@ author:
   mail: matias.woloski@qraftlabs.com
 ---
 
-Hello, we are [qraftlabs][], a group of people who value quality crafted software. We love to share what we do with the community, so this space will serve that purpose!
+Hello, we are [qraftlabs][], a group of people who value quality crafted software. We love to share what we do with the community. Hopefully this space will serve that purpose!
 
 
 [qraftlabs]: http://qraftlabs.com "quality and craft"
