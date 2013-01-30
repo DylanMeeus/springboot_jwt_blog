@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    <link href='http://fonts.googleapis.com/css?family=ABeeZee|Source+Code+Pro|Open+Sans:300,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=ABeeZee|Source+Code+Pro|Open+Sans:300,600,800' rel='stylesheet' type='text/css'>
 
     <title>{{ page.title }}</title>
 
@@ -25,29 +25,45 @@
 </head>
 <body>
 
-    <header>
-        <a href="/">
-        <div class="logo depth">Auth0</div>
-        </a>
-    </header>
-    <aside>
-        <nav>
+    <div class="header">
+        <div class="header-container">
+            <a href="http://auth0.com">
+                <div class="logo">
+                </div>
+                <h1 title="Auth0" class="depth">Auth0</h1>
+            </a>
             <ul>
                 <li>
-                    <a type="application/rss+xml" 
-                        rel="alternate nofollow" 
-                        title="Jose on Code! Posts RSS feed" 
-                        href="http://feeds.feedburner.com/qraftlabs">RSS</a>
+                    <a href="https://docs.auth0.com">Docs</a>
+                </li>
+                <li>
+                    <a href="/">Blog</a>
                 </li>
             </ul>
-        </nav>
-        {% include search_box.html %}
-    </aside>    
+        </div>
+    </div>
+    <div class="inset">
+        <div class="main-container">
+            <aside>
+                <nav>
+                    <ul>
+                        <li>
+                            <a type="application/rss+xml" 
+                                rel="alternate nofollow" 
+                                title="Jose on Code! Posts RSS feed" 
+                                href="http://feeds.feedburner.com/qraftlabs">RSS</a>
+                        </li>
+                    </ul>
+                </nav>
+                {% include search_box.html %}
+            </aside>    
 
-    
-    <div id="container">
-        <div id="content">
-            {{ content }}
+            
+            <div id="container">
+                <div id="content">
+                    {{ content }}
+                </div>
+            </div>
         </div>
     </div>
 
