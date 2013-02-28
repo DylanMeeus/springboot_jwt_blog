@@ -15,6 +15,6 @@ Auth0 allows developers to easily connect their apps with common enterprise iden
 
 We offer automated on-boarding and setup, single-sign-on, a uniform and simple to use API for querying user directories, and logging and auditing.
 
-![](auth0-hilevel-arch.png)
+![](img/auth0-hilevel-arch.png)
 
 Auth0 is offered as a service, but supports multi-modal deployments: runs in the public cloud, private cloud or as a software appliance on-premises.
