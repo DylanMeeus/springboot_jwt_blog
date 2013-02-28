@@ -5,6 +5,7 @@ date: 2012-02-10 10:00
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
+  url:  http://www.twitter.com/eugenio_pace
 ---
 
 We are very excited to announce [Auth0 (AuthZero)](http://www.auth0.com).
