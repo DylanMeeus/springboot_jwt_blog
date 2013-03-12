@@ -13,7 +13,7 @@ One such scenario is a company that is using __SharePoint on-premises__ and has 
 
 ![SharePoint Federation](/img/auth0-sp-O365-goog.png)
 
-With Auth0 this is straight forward, as we support SharePoint out of the box. You simply need 2 lines of JavaScript to initiate login (using [Auth0 Login Widget](https://app.auth0.com/#/sdk/widget)).
+With Auth0 this is straight forward, as we support SharePoint out of the box. You simply need 2 lines of JavaScript to initiate login (using __Auth0 Login Widget__).
 
 ![](/img/auth0-sp-login-widget.png)
 
