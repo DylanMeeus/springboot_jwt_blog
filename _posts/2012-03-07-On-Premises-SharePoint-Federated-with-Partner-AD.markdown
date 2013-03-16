@@ -22,7 +22,7 @@ This short demo shows:
 
 A frequent question we get is whether the login experience is extensible and customizable. 
 
-The __Auth0 Login Widget__ is designed to get you going quikly and is fully customizable. And is optional. You have full control of the login process. 
+The __Auth0 Login Widget__ is designed to get you going quickly and is fully customizable. And is optional. You have full control of the login process. 
 
 For example, Fabrikom is likely to have a URL for its own employees (who generally wouldn't need a selector) and a different URL for partners (who will likely need the selector). Another popular option is to use vanity URLs, or something like:
 
