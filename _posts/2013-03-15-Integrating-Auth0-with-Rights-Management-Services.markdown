@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Integrating Auth0 with Rights Management Services"
-date: 2012-03-15 08:20
+date: 2013-03-15 08:20
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
