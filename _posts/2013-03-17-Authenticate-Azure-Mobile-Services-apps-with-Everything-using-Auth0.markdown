@@ -11,7 +11,7 @@ author:
 
 WAMS already ships with support for single-sign-on with social identity providers (e.g Facebook, LiveID), but no support for enterprise providers: Google Apps, Office 365 and Active Directory; or even custom SQL user databases. Even for social providers, it currently doesn't allow finer grain control on what information the user has to consent to disclose. 
 
-For Microsoft Accounts (LiveID), for example, WAMS will ask the user for the following rights: name, gender, display picture, contacts and friends. You might not need all these, and you might turn away customers by asking to much.
+For Microsoft Accounts (LiveID), for example, WAMS will ask the user for the following rights: name, gender, display picture, contacts and friends. You might not need all these, and you might turn away customers by asking too much.
 
 Auth0 addresses these two issues:
 
