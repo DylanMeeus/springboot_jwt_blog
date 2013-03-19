@@ -22,7 +22,7 @@ Auth0 addresses these two issues:
 
 Enabling WAMS integration is as simple as entering the WAMS masterkey in Auth0 (so we can sign the token). That's it!
 
-![](/img/auth0-wams.png)
+![Azure Mobile Services Authentication](/img/auth0-wams.png)
 
 After enabling the add-on, Auth0 will generate JSON Web Token that you can then use to call WAMS endpoints.
 
@@ -33,14 +33,14 @@ This is how it works on a sample test app we wrote:
 - John taps on __Login with Widget__
 - Using the Auth0 helper library for iOS, the __Auth0 Login Widget__ is displayed
 
-![](/img/auth0-wams-ios1.png)
+![iphone SSO](/img/auth0-wams-ios1.png)
 
 - John selects Active Directory for the list
 - Auth0 sends John to AD for authentication
 - Upon successful authentication, Auth0 returns a JWT (seen on the debug screen on top)
 - The app calls the WAMS endpoint with the JWT 
 
-![](/img/auth0-wams-ios2.png)
+![iphone SSO](/img/auth0-wams-ios2.png)
 
 The code behind the login process is very straight forward using the helper libraries we ship with __Auth0 SDK__:
 
