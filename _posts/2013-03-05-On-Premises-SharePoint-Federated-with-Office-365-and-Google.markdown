@@ -28,7 +28,7 @@ This short demo shows exactly this scenario:
 
 In the next post we will cover a natural extension of this first scenario: federating with a partner company using Active Directory.
 
-
+[Try Auth0 yourself!](http://www.auth0.com)
 
 
 

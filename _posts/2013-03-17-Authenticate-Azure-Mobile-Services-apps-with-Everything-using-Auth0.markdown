@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Auth0 and Azure Mobile Services"
+title: "Authenticate Azure Mobile Services Apps with Everything using Auth0"
 date: 2013-03-17 11:00
 author: 
   name: Eugenio Pace
@@ -9,7 +9,7 @@ author:
 
 [Windows Azure Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/) (WAMS) is a really neat technology by Microsoft to get you started very quickly with simple mobile apps. It's a _"Mobile Backend as a Service"_. It also provides a nice extensibility model for more advanced scenarios with server-side JavaScript. 
 
-WAMS already ships with support for single-sign-on with social identity providers (e.g Facebook, LiveID), but no support for enterprise providers: Google Apps, Office 365 and Active Directory. Even for social providers, it currently doesn't allow finer grain control on what information the user has to consent to disclose. 
+WAMS already ships with support for single-sign-on with social identity providers (e.g Facebook, LiveID), but no support for enterprise providers: Google Apps, Office 365 and Active Directory; or even custom SQL user databases. Even for social providers, it currently doesn't allow finer grain control on what information the user has to consent to disclose. 
 
 For Microsoft Accounts (LiveID), for example, WAMS will ask the user for the following rights: name, gender, display picture, contacts and friends. You might not need all these, and you might turn away customers by asking to much.
 
@@ -86,3 +86,5 @@ All token negotiation is handled by the __Auth0Client__ class. Calling WAMS is e
 	}	
 
 >[Matias'](https://twitter.com/woloski) demo'ed this integration on his webcast on [CloudCover](http://blog.auth0.com/2012/03/03/Real-World-Windows-Azure-with-Auth0-Matias-on-CloudCover/). (see from minute 13 to 19).
+
+[Try Auth0 yourself!](http://www.auth0.com)

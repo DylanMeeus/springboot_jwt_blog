@@ -38,3 +38,5 @@ The __Auth0 Provisioning Widget__ is using Auth0 API under the hood to create a 
 
 > __A final note of this example:__ the connection to Active Directory is done here through ADFS (Active Directory Federation Services). We assume that the partner has deployed it already. But what if the don't have it?
 Auth0 provides you with __Auth0 AD Connector__. A simple component your partner would deploy and you are done with minimal intrusiveness. 
+
+[Try Auth0 yourself!](http://www.auth0.com)

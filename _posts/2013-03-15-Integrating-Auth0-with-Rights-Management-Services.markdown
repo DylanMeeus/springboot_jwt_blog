@@ -52,3 +52,5 @@ Now, let's walk through an end to end use case:
 Simple, secure collaboration!
 
 > This is one of many Auth0 extensions that augment Auth0 functionality with specific features like RMS.
+
+[Try Auth0 yourself!](http://www.auth0.com)
