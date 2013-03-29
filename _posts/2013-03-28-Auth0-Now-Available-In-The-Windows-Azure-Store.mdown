@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Auth0 now available in the Windows Azure Store"
+date: 2013-03-28 10:00
+author: 
+  name: Eugenio Pace
+  mail: eugeniop@auth0.com
+---
+
+We are very happy to announce that Auth0 is now available in the Windows Azure Store as an Add-on. 
+
+![azure store addon](/img/auth0-azurestore-portal.png)
+
+Integrating it into your Azure apps is now even easier, and takes just 2 steps:
+
+###1. Enter the name of your Auth0 instance:
+
+![azure store addon](/img/auth0-azurestore-name.png)
+
+###2. Complete the purchase:
+
+![azure store addon](/img/auth0-azurestore-purchase.png)
+
+After a couple minutes, your instance of Auth0 will be provisioned and ready to use right from the Windows Azure Portal. 
+
+![azure store addon](/img/auth0-azurestore-manage.png)
+
+When you click on __"Manage"__, you will be taken to Auth0's dashboard. No other credentials are required as we are completely integrated with Azure. 
+
+You'll see a welcome message from [Matias](https://twitter.com/woloski) and links to [tutorials](https://docs.auth0.com/azure-tutorial) to get you started:
+
+![azure store addon](/img/auth0-azurestore-auth0portal-welcome.png)
+
+That's it! Feedback is very much welcome. Please connect with us on the [our chat room](http://chat.auth0.com) or send us a [message](mailto://support.auth0.com).
+
+We want to thank the Windows Azure team for their support in getting this done. A special thanks to [Bilal Aslam](http://www.linkedin.com/in/bilalaslam)!
+
+> During the beta period we are offering Auth0 for free up to 1000 users. That should give you plenty of room for testing. 
