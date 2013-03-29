@@ -17,6 +17,10 @@ Integrating it into your Azure apps is now even easier, and takes just 2 steps:
 
 ![azure store addon](/img/auth0-azurestore-name.png)
 
+This name will be used to generate your own domain in Auth0:
+
+	https://{NAME}.auth0.com
+
 ###2. Complete the purchase:
 
 ![azure store addon](/img/auth0-azurestore-purchase.png)
@@ -34,5 +38,7 @@ You'll see a welcome message from [Matias](https://twitter.com/woloski) and link
 That's it! Feedback is very much welcome. Please connect with us on the [our chat room](http://chat.auth0.com) or send us a [message](mailto://support.auth0.com).
 
 We want to thank the Windows Azure team for their support in getting this done. A special thanks to [Bilal Aslam](http://www.linkedin.com/in/bilalaslam)!
+
+If you are developing on node.js, and are interested in creating add-ons for Windows Azure, check out the basic template we published [here](https://github.com/auth0/node-azure-store).
 
 > During the beta period we are offering Auth0 for free up to 1000 users. That should give you plenty of room for testing. 
