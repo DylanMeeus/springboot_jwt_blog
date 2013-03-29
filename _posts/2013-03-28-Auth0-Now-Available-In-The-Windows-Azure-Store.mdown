@@ -19,7 +19,7 @@ Integrating it into your Azure apps is now even easier, and takes just 2 steps:
 
 This name will be used to generate your own domain in Auth0:
 
-	https://{NAME}.auth0.com
+> https://{NAME}.auth0.com
 
 ###2. Complete the purchase:
 
