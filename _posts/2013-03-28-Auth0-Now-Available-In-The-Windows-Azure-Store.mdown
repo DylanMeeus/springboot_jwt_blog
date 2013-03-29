@@ -39,6 +39,6 @@ That's it! Feedback is very much welcome. Please connect with us on the [our cha
 
 We want to thank the Windows Azure team for their support in getting this done. A special thanks to [Bilal Aslam](http://www.linkedin.com/in/bilalaslam)!
 
-If you are developing on node.js, and are interested in creating add-ons for Windows Azure, check out the basic template we published [here](https://github.com/auth0/node-azure-store).
+If you are developing on node.js, and are interested in creating add-ons for Windows Azure, check out the basic template we published [here](https://github.com/auth0/node-azure-store). It'll save you some time.
 
 > During the beta period we are offering Auth0 for free up to 1000 users. That should give you plenty of room for testing. 
