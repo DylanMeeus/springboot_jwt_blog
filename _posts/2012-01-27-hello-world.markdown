@@ -4,8 +4,9 @@ title: "hello world!"
 date: 2012-01-27 15:14
 author: 
   name: Matias Woloski
-  url: http://woloski.com
   mail: matias@auth0.com
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
 We are live!

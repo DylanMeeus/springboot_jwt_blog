@@ -4,3 +4,6 @@ paginate: 15
 exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, Rakefile]
 permalink: pretty
 pygments:  true
+only_first_p:
+    show_read_more_link: true
+    read_more_link_text: 'Read more'

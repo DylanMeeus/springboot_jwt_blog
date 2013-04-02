@@ -6,7 +6,11 @@ author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url:  http://www.twitter.com/eugenio_pace
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
+
+{% excerpt %} 
 
 We are very excited to announce [Auth0 (AuthZero)](http://www.auth0.com).
 
@@ -19,3 +23,5 @@ We offer automated on-boarding and setup, single-sign-on, a uniform and simple t
 ![](/img/auth0-hilevel-arch.png)
 
 Auth0 is offered as a service, but supports multi-modal deployments: runs in the public cloud, private cloud or as a software appliance on-premises.
+
+{% endexcerpt %} 

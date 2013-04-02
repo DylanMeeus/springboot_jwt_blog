@@ -5,11 +5,17 @@ date: 2013-03-17 11:00
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
+
+{% excerpt %} 
 
 [Windows Azure Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/) (WAMS) is a really neat technology by Microsoft to get you started very quickly with simple mobile apps. It's a _"Mobile Backend as a Service"_. It also provides a nice extensibility model for more advanced scenarios with server-side JavaScript. 
 
 WAMS already ships with support for single-sign-on with social identity providers (e.g Facebook, LiveID), but no support for enterprise providers: Google Apps, Office 365 and Active Directory; or even custom SQL user databases. Even for social providers, it currently doesn't allow finer grain control on what information the user has to consent to disclose. 
+
+{% endexcerpt %} 
 
 For Microsoft Accounts (LiveID), for example, WAMS will ask the user for the following rights: name, gender, display picture, contacts and friends. You might not need all these, and you might turn away customers by asking too much.
 

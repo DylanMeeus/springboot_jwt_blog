@@ -13,7 +13,10 @@ body {
   background: -o-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
   background: linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
-  background-color: #fdfdfd;
+  background-color: #e8ebef;
+  background-image: url("/img/old_mathematics.png");
+  font-family: 'Open Sans';
+  margin: 0;
 }
 
 .header {
@@ -79,29 +82,25 @@ body {
   padding-top: 20px;
 }
 
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #005580;
+  text-decoration: underline;
+}
+
 aside {
   float: right;
   width: 15%;
-}
-
-#container {
-  width: 80%;
 }
 
 .search {
   border: 1px solid;
   text-align: center;
   width: 100%;
-}
-
-a {
-  color: #87AAC5;
-}
-
-a:hover {
-  color: white;
-  background-color: #162A39;
-  text-decoration: underline;
 }
 
 li {
@@ -138,10 +137,12 @@ article h1 {
 }
 
 .entry-meta {
-  font-style: normal;
-  color: #162A39;
-  font-size: 9px;
-  margin-top: -14px;
+  color: #aaa;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+  position: relative;
+  font-size: 13px;
 }
 
 blockquote {
@@ -178,4 +179,134 @@ blockquote {
 .depth:after {
   top: 2px;
   left: 2px;
+}
+
+ul.archive li {
+  list-style-type: none;
+}
+
+.blog-post {
+  width: 788px;
+  margin: 9px auto 45px;
+  background: url(/img/center.png);
+  background-size: 788px 43px;
+  position: relative;  
+}
+
+.blog-post h1 a {
+  color: #222;
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 3px;
+  text-decoration: none
+}
+
+.blog-post h1 a:hover {
+  color: rgb(140, 175, 209);
+}
+
+div.blog-post div.inner {
+  margin: 0 5px;
+  padding: 50px 60px 40px;
+}
+
+.blog-post p {
+  font-size: 13px;
+  line-height: 21px;
+  margin-bottom: 21px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.blog-post div.entry-meta a.author {
+  position: absolute;
+  left: -97px;
+  top: -45px;
+}
+
+.blog-post div.entry-meta a.author img {
+  position: relative;
+  z-index: 20;
+  top: 2px;
+  left: 3px;
+  border: 0;
+  margin: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
+.blog-post div.entry-meta a.author::before {
+  content: " ";
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 66px;
+  height: 66px;
+  z-index: 30;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+  -ms-box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+  -o-box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+}
+
+div.blog-post div.entry-meta a.author::after {
+  content: " ";
+  width: 72px;
+  height: 72px;
+  top: 0;
+  left: 1px;
+  background: #fff;
+  background: transparent;
+  background: -webkit-linear-gradient(#fff, #eee);
+  background: -moz-linear-gradient(#fff, #eee);
+  background: -ms-linear-gradient(#fff, #eee);
+  background: -o-linear-gradient(#fff, #eee);
+  background: linear-gradient(#fff, #eee);
+  -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
+  -ms-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
+  -o-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+}
+
+.blog-post::before {
+  height: 7px;
+  top: -7px;
+  background: url(/img/top.png);
+  background-size: 788px 7px;
+}
+
+.blog-post::after {
+  height: 14px;
+  bottom: -14px;
+  background: url(/img/bottom.png);
+  background-size: 788px 14px;
+}
+
+.blog-post::before, div.blog-post::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 788px;
 }

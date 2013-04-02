@@ -2,15 +2,16 @@
 layout: default
 ---
 
-<article>
-	<h1 class="entry-title">{{ page.title }}</h1>
-	{% include entry_metadata.html %}
-	<div class="article-content" >
-	{{ content }}
-	</div>
-</article>
-
-<br>
+<div class="blog-post"> 
+    <div class="inner">
+        <h1><a href="{{page.url}}" title="Published: {{ page.date | date: "%B %d, %Y" }}">{{ page.title }}</a></h1>
+        {% include entry_metadata.html %}
+        <div class="article-content" >
+        {{ content }}
+        </div>
+    </div>
+</div>
+<br />
 <g:plusone annotation="inline"></g:plusone>
 
 <div id="disqus_thread">

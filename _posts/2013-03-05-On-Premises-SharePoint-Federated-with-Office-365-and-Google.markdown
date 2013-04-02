@@ -5,7 +5,11 @@ date: 2013-03-04 17:39
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
+
+{% excerpt %} 
 
 Auth0 is about making identity simple. And even simpler for the most common and recurrent scenarios.
 
@@ -14,6 +18,8 @@ One such scenario is a company that is using __SharePoint on-premises__ and has 
 ![SharePoint Federation](/img/auth0-sp-O365-goog.png)
 
 With Auth0 this is straight forward, as we support SharePoint out of the box. You simply need 2 lines of JavaScript to initiate login (using __Auth0 Login Widget__).
+
+{% endexcerpt %} 
 
 ![](/img/auth0-sp-login-widget.png)
 

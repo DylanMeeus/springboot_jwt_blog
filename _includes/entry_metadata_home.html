@@ -1,0 +1,12 @@
+  <div class="entry-meta">
+    <a href="{{post.author.url}}" class="author"><img src="{{post.author.avatar}}" width="68" height="68"></a>
+    <span class="meta-prep meta-prep-author">By </span>
+    <span class="author vcard">
+      <a href="{{post.author.url}}">{{post.author.name}}</a>
+    </span>
+    <span class="meta-sep meta-sep-entry-date"> | </span>
+    <span class="meta-prep meta-prep-entry-date">Published: </span>
+    <span class="entry-date">
+      <abbr title="{{ post.date | date: "%B %d, %Y" }}" class="published updated">{{ post.date | date: "%B %d, %Y" }}</abbr>
+    </span>
+  </div>

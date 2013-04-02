@@ -5,11 +5,17 @@ date: 2013-03-07 15:09
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
+
+{% excerpt %} 
 
 We are going to extend the scenario described in the [previous post](http://blog.auth0.com/2012/03/04/On-Premises-SharePoint-Federated-with-Office-365-and-Google/), so Fabrikom can accept users from another partner company. This time, their users will authenticate with an on-premises Active Directory.
 
 ![Federation Active Directory](/img/auth0-sp-O365-ad.png)
+
+{% endexcerpt %} 
 
 Again, with Auth0 this is very simple. Because Fabrikom's SharePoint is already configured to use Auth0, all it needs to do is add a new connection with its partner's AD.
 

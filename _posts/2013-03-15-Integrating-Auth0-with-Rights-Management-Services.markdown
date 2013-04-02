@@ -5,7 +5,11 @@ date: 2013-03-15 08:20
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
+
+{% excerpt %} 
 
 Here's another scenario supported by Auth0 out of the box, with no special configuration. 
 
@@ -22,6 +26,8 @@ They need to specify and enforce specific rights on these documents:
 With Auth0, you can now extend RMS to users outside your domain, and continue to benefit from these access policies:
 
 ![RMS federation google](/img/auth0-rms.png)
+
+{% endexcerpt %} 
 
 There's only __one__ (yes, just one) thing you need to do to enable this. You need to install "Federation" support in RMS and when it asks for the URL, you simply enter:
 

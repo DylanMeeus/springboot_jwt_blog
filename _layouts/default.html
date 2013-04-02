@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    <link href='http://fonts.googleapis.com/css?family=ABeeZee|Source+Code+Pro|Open+Sans:300,600,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=ABeeZee|Source+Code+Pro|Open+Sans:300,600,700,800' rel='stylesheet' type='text/css'>
 
     <title>{{ page.title }}</title>
 
@@ -16,11 +16,11 @@
     {% endif %}
     
     {% if page.url %}
-    <link rel="canonical" href="http://blog.qraftlabs.com{{page.url | replace:'index.html',''}}" />
+    <link rel="canonical" href="http://blog.auth0.com{{page.url | replace:'index.html',''}}" />
     {% endif %}
 
     <link rel="shortcut icon" href="/img/logo-small.png" />
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/qraftlabs">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/auth0">
     <link type="application/opensearchdescription+xml" rel="search" href="/osd.xml"/>
     <link rel="stylesheet" href="/css/site.css" />
 </head>
@@ -44,21 +44,6 @@
         </div>
     </div>
     <div class="main-container">
-        <aside>
-            <nav>
-                <ul>
-                    <li>
-                        <a type="application/rss+xml" 
-                            rel="alternate nofollow" 
-                            title="Jose on Code! Posts RSS feed" 
-                            href="http://feeds.feedburner.com/qraftlabs">RSS</a>
-                    </li>
-                </ul>
-            </nav>
-            {% include search_box.html %}
-        </aside>    
-
-        
         <div id="container">
             <div id="content">
                 {{ content }}

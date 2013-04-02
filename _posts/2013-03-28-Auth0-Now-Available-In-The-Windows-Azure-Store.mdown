@@ -5,11 +5,17 @@ date: 2013-03-28 10:00
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
+  url: http://twitter.com/eugenio_pace
+  avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
+
+{% excerpt %} 
 
 We are very happy to announce that Auth0 is now available in the Windows Azure Store as an Add-on. 
 
 ![azure store addon](/img/auth0-azurestore-portal.png)
+
+{% endexcerpt %} 
 
 Integrating it into your Azure apps is now even easier, and takes just 2 steps:
 
