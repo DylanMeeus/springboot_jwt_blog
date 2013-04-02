@@ -7,7 +7,18 @@ Archives include: "by tags" and "by time" archives.
     <div class="inner">
       <h1><a href="{{post.url}}" title="Published: {{ post.date | date: "%B %d, %Y" }}">{{ post.title }}</a></h1>
       {% include entry_metadata_home.html %}
-      <div>{{ post.content }}</div>
+      {% if post.excerpt %}
+          <div>
+            {% if post.excerpt.is_a?(Array) %}
+              {{ post.excerpt[0] | markdownify }}
+            {% else %}
+              {{ post.excerpt | markdownify }}
+            {% endif %}
+            <a class="readmore" href="{{ post.url }}">Read more...</a>
+          </div>
+      {% else %}
+          <div>{{ post }}</div>
+      {% endif %}
     </div>
   </div>
 </li>
