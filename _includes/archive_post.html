@@ -9,11 +9,7 @@ Archives include: "by tags" and "by time" archives.
       {% include entry_metadata_home.html %}
       {% if post.excerpt %}
           <div>
-            {% if post.excerpt.is_a?(Array) %}
-              {{ post.excerpt.at(0) | markdownify }}
-            {% else %}
-              {{ post.excerpt | markdownify }}
-            {% endif %}
+            {{ post.excerpt | markdownify }}
             <a class="readmore" href="{{ post.url }}">Read more...</a>
           </div>
       {% else %}
