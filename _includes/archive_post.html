@@ -10,7 +10,7 @@ Archives include: "by tags" and "by time" archives.
       {% if post.excerpt %}
           <div>
             {% if post.excerpt.is_a?(Array) %}
-              {{ post.excerpt[0] | markdownify }}
+              {{ post.excerpt.at(0) | markdownify }}
             {% else %}
               {{ post.excerpt | markdownify }}
             {% endif %}
