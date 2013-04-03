@@ -207,7 +207,7 @@ ul.archive li {
 
 div.blog-post div.inner {
   margin: 0 5px;
-  padding: 50px 60px 40px;
+  padding: 20px 45px 40px;
 }
 
 .blog-post p {
@@ -219,7 +219,7 @@ div.blog-post div.inner {
 
 .blog-post div.entry-meta a.author {
   position: absolute;
-  left: -97px;
+  left: -85px;
   top: -45px;
 }
 
