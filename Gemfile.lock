@@ -7,19 +7,19 @@ GEM
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
     daemons (1.1.9)
-    directory_watcher (1.4.1)
+    directory_watcher (1.5.1)
     eventmachine (1.0.0)
-    fast-stemmer (1.0.1)
-    jekyll (0.11.0)
-      albino (>= 1.3.2)
-      classifier (>= 1.3.1)
-      directory_watcher (>= 1.1.1)
-      kramdown (>= 0.13.2)
-      liquid (>= 1.9.0)
-      maruku (>= 0.5.9)
+    fast-stemmer (1.0.2)
+    jekyll (0.11.2)
+      albino (~> 1.3)
+      classifier (~> 1.3)
+      directory_watcher (~> 1.1)
+      kramdown (~> 0.13)
+      liquid (~> 2.3)
+      maruku (~> 0.5)
     jekyll_ext (0.1.4)
-    kramdown (0.14.0)
-    liquid (2.2.2)
+    kramdown (0.14.2)
+    liquid (2.3.0)
     maruku (0.6.1)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
@@ -39,9 +39,10 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   eventmachine (>= 1.0.0.beta.2)
-  jekyll
+  jekyll (= 0.11.2)
   jekyll_ext
-  liquid (<= 2.2.2)
+  liquid (~> 2.3.0)
+  maruku
   rack (= 1.1.0)
   rack-contrib
   rdiscount
