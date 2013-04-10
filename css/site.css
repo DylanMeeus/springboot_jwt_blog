@@ -326,3 +326,11 @@ div.blog-post div.entry-meta a.author::after {
   position: absolute;
   width: 788px;
 }
+
+p.small-image {
+  text-align: center;
+}
+
+p.small-image img {
+  width: 60%;
+}
