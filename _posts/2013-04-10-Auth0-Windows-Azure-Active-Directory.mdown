@@ -58,7 +58,7 @@ Auth0 uses a non-intrusive, standard, small footprint approach for identity inte
 
 ###2. Sign up companies with the Provisioning Widget
 
-If your app will accept users from **multiple** Azure AD domains, you will need to configure it for multitenancy (see [tutorial](http://www.windowsazure.com/en-us/develop/net/tutorials/multitenant-apps-for-active-directory/))
+If your app will accept users from **multiple** Azure AD domains, you will need to configure it for multitenancy (see the [tutorial by Microsoft](http://www.windowsazure.com/en-us/develop/net/tutorials/multitenant-apps-for-active-directory/))
 
 We have simplified this process with the __Auth0 Provisioning Widget__. With just a couple lines of JavaScript code your app can signup users from any organization, using __any__ identity system: Azure AD, Google Apps, AD, etc.
 
@@ -74,7 +74,7 @@ Here is how it would look (you would probably fire this from the control panel o
 
 This provides an easy way to add Single Sign On capability to your enterprise customers. You can also control the full user experience using the provisioning API instead of the widget.
 
-###3. Query users from any providers
+###3. Query users from any provider
 
 Once the organization/s have been provisioned through Auth0, you can query users of those organiztions through the __Auth0 Users API__. A very simple to use abstraction on a "Directory". Azure AD Graph API is of course different from Google Apps, or (on-premises) AD, or a Membership database. And [social logins](http://blog.auth0.com/2013/04/02/Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook/) like LinkedIn, Google or Facebook; have no direct notion of a "Directory", but they do have equivalent concepts that bind people together (e.g. Friends, Contacts, Network). 
 
