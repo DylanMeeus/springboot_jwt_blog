@@ -4,10 +4,10 @@ layout: nil
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>qraftlabs</title>
-    <link>http://blog.qraftlabs.com/</link>
-    <atom:link href="http://blog.qraftlabs.com/rss.xml" rel="self" type="application/rss+xml" />
-    <description>qraftlabs's blog</description>
+    <title>Auth0 Blog</title>
+    <link>http://blog.auth0.com/</link>
+    <atom:link href="http://blog.auth0.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Auth0 Blog</description>
     <language>en-us</language>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
@@ -15,10 +15,10 @@ layout: nil
     {% for post in site.posts limit:10 %}
     <item>
       <title>{{ post.title }}</title>
-      <link>http://blog.qraftlabs.com{{ post.url }}</link>
+      <link>http://blog.auth0.com{{ post.url }}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>{{post.author.mail}} ({{post.author.name}})</author>
-      <guid>http://blog.qraftlabs.com{{ post.id }}</guid>
+      <guid>http://blog.auth0.com{{ post.id }}</guid>
       <description>{{ post.content | xml_escape }}</description>
     </item>
     {% endfor %}
