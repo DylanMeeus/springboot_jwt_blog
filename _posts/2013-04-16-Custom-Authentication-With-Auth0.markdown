@@ -9,7 +9,7 @@ author:
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% endexcerpt %}
+{% excerpt %}
 
 Many companies rely on databases to store user credetnials. Either becuase they use pre-built systems like ASP.NET Membership, or because they wanted to keep those users outside their main identity system (e.g. Active Directory) or just because of historical reasons ... (a.k.a. legacy)
 
@@ -21,7 +21,7 @@ Once setup is done (a very simple process in itself), you can continue to levera
 
 Here's the entire process in less than 3 minutes:
 
-{% excerpt %}
+{% endexcerpt %}
 
 <iframe width="700" height="394" src="http://www.youtube.com/embed/p3rK7fgPEN0?rel=0" frameborder="0" allowfullscreen></iframe>
 
