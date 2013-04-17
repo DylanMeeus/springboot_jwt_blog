@@ -9,7 +9,7 @@ author:
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %}
+{% endexcerpt %}
 
 Many companies rely on databases to store user credetnials. Either becuase they use pre-built systems like ASP.NET Membership, or because they wanted to keep those users outside their main identity system (e.g. Active Directory) or just because of historical reasons ... (a.k.a. legacy)
 
