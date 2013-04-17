@@ -11,7 +11,7 @@ author:
 
 {% excerpt %}
 
-Many companies rely on databases to store user credetnials. Either becuase they use pre-built systems like ASP.NET Membership, or because they wanted to keep those users outside their main identity system (e.g. Active Directory) or just because of historical reasons ... (a.k.a. legacy)
+Many companies rely on databases to store user credentials. Either because they use pre-built systems like ASP.NET Membership, or because they wanted to keep those users outside their main identity system (e.g. Active Directory) or just because of historical reasons ... (a.k.a. legacy)
 
 In fact, one of the most requested features in ADFS was the ability to authenticate users _outside_ AD. A very annoying limitation in the product, that still has not been addressed.
 
