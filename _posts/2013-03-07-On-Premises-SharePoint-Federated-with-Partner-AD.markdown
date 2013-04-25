@@ -11,7 +11,7 @@ author:
 
 {% excerpt %} 
 
-We are going to extend the scenario described in the [previous post](http://blog.auth0.com/2012/03/04/On-Premises-SharePoint-Federated-with-Office-365-and-Google/), so Fabrikom can accept users from another partner company. This time, their users will authenticate with an on-premises Active Directory.
+We are going to extend the scenario described in the [previous post](http://blog.auth0.com/2013/03/04/On-Premises-SharePoint-Federated-with-Office-365-and-Google/), so Fabrikom can accept users from another partner company. This time, their users will authenticate with an on-premises Active Directory.
 
 ![Federation Active Directory](/img/auth0-sp-O365-ad.png)
 
