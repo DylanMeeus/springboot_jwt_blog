@@ -56,7 +56,7 @@ Twitter is often a good sensor of how an event is going:
 
 ## Some pictures
 
-<iframe src="https://cloudup.com/cJ28lIHJjXp?chrome=0" style="width: 100%; height: 400px"></iframe>
+<iframe src="https://cloudup.com/cJ28lIHJjXp?chromeless" style="width: 100%; height: 400px"></iframe>
 
 ## The Bootcamp content is Open Sourced on GitHub!
 
