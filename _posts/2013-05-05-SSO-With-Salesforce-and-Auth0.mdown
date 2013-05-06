@@ -25,7 +25,7 @@ Salesforce implements the SAML Protocol for authentication and identity federati
 
 ##Setup
 
-Configuring Salesforce in Auth0 is reduced to a single checkbox: __enable__. Can you think a simpler way?
+Configuring Salesforce in Auth0 is reduced to a single checkbox: __enable__. Can you think of a simpler way?
 
 ![](/img/salesforce-auth0-setup.png)
 
@@ -39,7 +39,7 @@ You are done!
 
 ##Demo
 
-In this ver short demo you will see SSO opn Salesforce with users authenticating in Office365:
+In this very short demo you will see SSO open Salesforce with users authenticating in Office365:
 
 <iframe width="700" height="394" src="http://www.youtube.com/embed/bpJxCcQG4xY?rel=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
 
