@@ -11,7 +11,7 @@ author:
 
 {% excerpt %}
 
-We keep adding great apps to Auth0's portfolio. You can now setup SSO with [Dropbox](www.dropbox.com) in just a few simple steps.
+We keep adding great apps to Auth0's portfolio. You can now setup SSO with [Dropbox](http://www.dropbox.com) in just a few simple steps.
 
 As usual, any of our [supported Identity Providers](https://docs.auth0.com/identityproviders) would work of course.
 
