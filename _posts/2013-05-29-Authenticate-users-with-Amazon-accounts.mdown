@@ -13,7 +13,7 @@ author:
 
 Today Amazon announced [a new Login Service](http://login.amazon.com), which allows you to connect with millions of their customers:
 
-######From their [press release](http://phx.corporate-ir.net/phoenix.zhtml?c=176060&p=irol-newsArticle&ID=1824961&highlight=):
+From their [press release](http://phx.corporate-ir.net/phoenix.zhtml?c=176060&p=irol-newsArticle&ID=1824961&highlight=):
 > Today, Amazon launched __Login with Amazon__, a new service that will enable the over 200 million active Amazon customers to securely and simply login to apps, games, and websites. Login with Amazon allows developers to easily reduce sign-in friction for their customers, leading to higher engagement and order conversion.
 
 The good news for those using Auth0, is that connecting with Amazon is just a click away. We launched support for Amazon today:
