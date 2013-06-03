@@ -1,31 +1,34 @@
 ---
+published: "true"
 layout: post
-title: "Introducing Db Connections"
-date: 2013-05-31 19:50
+title: Introducing Db Connections
+date: "2013-05-31 19:50"
 author: 
   name: José F. Romaniello
-  url:  http://joseoncode.com
-  mail: jfromaniello@gmail.com
-  avatar: https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png
+  url: "http://joseoncode.com"
+  mail: "jfromaniello@gmail.com"
+  avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
+
 ---
 
 Last month we released a type of connection called "Custom Connections" (read more [here](http://blog.auth0.com/2013/04/16/Custom-Authentication-With-Auth0/)). Suppose you have a customer that _wants to use your product with his own users directory_, but he doesn't have any of the supported authentication providers. So, he download a component and Auth0 guides him to connect his directory or database in few simple steps on behalf of your application. This works very well and we are seeing more adoption. 
 
 Few weeks ago, we were really amazed to discover some people using Custom Connections for a use case it wasn't meant to. Imagine you already have a database of users for your product and you want to move to Auth0 single-sign on.
 
-### Database Connections
+### Enter Database Connections
 
-Database connections works exactly like "Custom Connections" but with some advantages:
+Database Connections works exactly like "Custom Connections" but with some advantages:
 
 -   you don't have to deploy another application
 -   seamless widget integration 
 -   a whole set of templates for your needs
+-   develop, try and debug in the cloud without needing to install any tool
 
-### Tell Auth0 how to connect to your users database
+### Example: ASP.NET Membership Provider
 
-You write an script inside auth0 to connect to your users database:
+We would start by creating a new Database Connection from the side bar, then we click on the customize button. Then we can pick the ASP.NET Membership Provider from the list:
 
-![](/img/db-connections-01.png)
+![](/public/img/db-connections-01.png)
 
 ### Start from a template
 
@@ -66,4 +69,3 @@ Ask username and password in the same place:
 ### Get started today
 
 Read the [tutorial](http://docs.auth0.com/) in our documentation page to get started.
-
