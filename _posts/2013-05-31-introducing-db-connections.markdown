@@ -10,10 +10,11 @@ author:
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 
 ---
+{% excerpt %} 
 
-Last month we released a type of connection called "Custom Connections" (read more [here](http://blog.auth0.com/2013/04/16/Custom-Authentication-With-Auth0/)). Suppose you have a customer that _wants to use your product with his own users directory_, but he doesn't have any of the supported authentication providers. So, he download a component and Auth0 guides him to connect his directory or database in few simple steps on behalf of your application. This works very well and we are seeing more adoption. 
+Since we released the beta, one of the things our customers have been telling us, is they want us to support a "username/password" authentication. They want to have a single uniform authentication across all the options: social providers, enterprise (like Google Apps or Active Directory) and now the good old username and password.
 
-Few weeks ago, we were really amazed to discover some people using Custom Connections for a use case it wasn't meant to. Imagine you already have a database of users for your product and you want to move to Auth0 single-sign on.
+{% endexcerpt %}
 
 ### Enter Database Connections
 
@@ -26,46 +27,34 @@ Database Connections works exactly like "Custom Connections" but with some advan
 
 ### Example: ASP.NET Membership Provider
 
-We would start by creating a new Database Connection from the side bar, then we click on the customize button. Then we can pick the ASP.NET Membership Provider from the list:
+Suppose we have already started to build a product using the standard [ASP.NET Membership Provider](http://msdn.microsoft.com/en-us/library/yh26yfzy(v=vs.100).aspx). ASP.NET Membership autogenerates a set of tables and relationships in Sql Server as shown here:
 
-![](/public/img/db-connections-01.png)
+![](http://blog.auth0.com.s3.amazonaws.com/A4N95VJO07-1200x1200.jpeg)
 
-### Start from a template
+We would start by creating a new Database Connection in Auth0. Then we can pick the ASP.NET Membership Provider from the list:
 
-We have packed some script templates:
+![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.13.08%20PM.png)
 
-![](/img/db-connections-02.png)
+We can tweak the script to fit our needs:
 
-### Debug your scritps
+![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.18.50%20PM.png)
 
-Use `console.log` to print debug information in your try box:
+Connection strings and passwords should be stored as configuration settings in the bottom pane:
 
-![](/img/db-connections-03.png)
+![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.20.08%20PM.png)
 
-### Sandboxed API
+We can open at anytime the Try window to run our script:
 
-You can use any of these APIs inside your scripts:
+![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.22.15%20PM.png)
 
--  [mysql](https://github.com/felixge/node-mysql)
--  [sqlserver](https://github.com/pekim/tedious)
--  [request](https://github.com/mikeal/request)
--  [crypto](http://nodejs.org/api/crypto.html)
--  [Buffer](http://nodejs.org/api/buffer.html)
--  [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/)
--  [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
+In order to debug the script you can take advantage of `console.log`:
 
-### Securely store your secrets
+![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.27.28%20PM.png)
 
-Configuration settings are encrypted with AES 256 CBC using your own private key certificate. 
+After we have finished the script, the login widget in our site will look like this:
 
-![](/img/db-connections-04.png)
-
-### Seamless widget integration
-
-Ask username and password in the same place:
-
-![](/img/db-connections-05.png)
+![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.31.49%20PM.png)
 
 ### Get started today
 
-Read the [tutorial](http://docs.auth0.com/) in our documentation page to get started.
+Read the [tutorial](https://docs.auth0.com/mysql-connection-tutorial) in our documentation page to get started.
