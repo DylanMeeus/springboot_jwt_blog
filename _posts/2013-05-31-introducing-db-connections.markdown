@@ -12,9 +12,13 @@ author:
 ---
 {% excerpt %} 
 
-Since we released the beta, one of the things our customers have been telling us, is they want us to support a "username/password" authentication. They want to have a single uniform authentication across all the options: social providers, enterprise (like Google Apps or Active Directory) and now the good old username and password.
+Since we released the beta, one of the things our customers have been telling us, is they want us to support a "username/password" authentication. Auth0 is being used today by two different audiences:
 
 {% endexcerpt %}
+
+-   **Cloud apps**: they want to have a single uniform authentication and login analytics, across all the options: social providers, enterprise providers (like Google Apps or Active Directory, SAML Providers) and now, username and password. 
+
+-   **Organizations**: our enterprise customers, typically have already a dozen (sometimes more) of "identity silos" created for different apps, at different times and they want to consolidate those databases.
 
 ### Enter Database Connections
 
@@ -27,7 +31,7 @@ Database Connections works exactly like "Custom Connections" but with some advan
 
 ### Example: ASP.NET Membership Provider
 
-Suppose we have already started to build a product using the standard [ASP.NET Membership Provider](http://msdn.microsoft.com/en-us/library/yh26yfzy(v=vs.100).aspx). ASP.NET Membership autogenerates a set of tables and relationships in Sql Server as shown here:
+Suppose we have already started to build a product using the standard [ASP.NET Membership Provider](http://msdn.microsoft.com/en-us/library/yh26yfzy.aspx). ASP.NET Membership autogenerates a set of tables and relationships in Sql Server as shown here:
 
 ![](http://blog.auth0.com.s3.amazonaws.com/A4N95VJO07-1200x1200.jpeg)
 
@@ -50,6 +54,10 @@ We can open at anytime the Try window to run our script:
 In order to debug the script you can take advantage of `console.log`:
 
 ![](http://blog.auth0.com.s3.amazonaws.com/Screen%20Shot%202013-06-03%20at%205.27.28%20PM.png)
+
+When the login is succesful you will see a green border and the result profile:
+
+![ss-2013-06-04T10-51-04.png](http://blog.auth0.com.s3.amazonaws.com/ss-2013-06-04T10-51-04.png)
 
 After we have finished the script, the login widget in our site will look like this:
 
