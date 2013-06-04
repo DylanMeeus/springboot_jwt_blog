@@ -334,3 +334,12 @@ p.small-image {
 p.small-image img {
   width: 60%;
 }
+
+.blog-post img {
+  max-width: 100%;
+}
+
+#disqus_thread {
+  border-top: 2px solid rgba(0,49,79,0.08);
+  padding-top: 10px;
+}
