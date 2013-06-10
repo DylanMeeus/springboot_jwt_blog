@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
- <ShortName>Jose on Code</ShortName>
- <Description>Jose on Code</Description>
- <Developer>Jose F. Romaniello</Developer>
- <Url type="text/html" method="get" template="http://blog.qraftlabs.com/search/?q={searchTerms}"/>
+ <ShortName>Auth0</ShortName>
+ <Description>Auth0</Description>
+ <Developer>Auth0</Developer>
+ <Url type="text/html" method="get" template="http://blog.auth0.com/search/?q={searchTerms}"/>
 </OpenSearchDescription>
