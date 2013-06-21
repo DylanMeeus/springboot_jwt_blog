@@ -14,55 +14,50 @@ A new sample is now available on [our repo](https://github.com/auth0/Auth0-Andro
 
 All interactions are encapuslated in an `Activity` that you can call like in this example below:
 
-```
-Button login = (Button) findViewById(R.id.login);
-login.setOnClickListener(new View.OnClickListener() {
-    public void onClick(View v) {
-        Intent authActivity = new Intent(MainActivity.this,
-                com.auth0.sdk.auth0sample.AuthenticationActivity.class);
+    Button login = (Button) findViewById(R.id.login);
+    login.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent authActivity = new Intent(MainActivity.this,
+                    com.auth0.sdk.auth0sample.AuthenticationActivity.class);
 
-        AuthenticationActivitySetup setup;
-        setup = new AuthenticationActivitySetup(Tenant, ClientID, Callback, Connection);
+            AuthenticationActivitySetup setup;
+            setup = new AuthenticationActivitySetup(Tenant, ClientID, Callback, Connection);
 
-        authActivity.putExtra(AuthenticationActivity.AUTHENTICATION_SETUP, setup);
+            authActivity.putExtra(AuthenticationActivity.AUTHENTICATION_SETUP, setup);
 
-        startActivityForResult(authActivity, AuthenticationActivity.AUTH_REQUEST_COMPLETE);
-    }
-});
-```
+            startActivityForResult(authActivity, AuthenticationActivity.AUTH_REQUEST_COMPLETE);
+        }
+    });
+
 {% endexcerpt %}
 
 The result is returned using the standard method of overriding the `onActivityResult` method:
 
-```
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent authActivityResult) {
-    super.onActivityResult(requestCode, resultCode, authActivityResult);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent authActivityResult) {
+        super.onActivityResult(requestCode, resultCode, authActivityResult);
 
-    switch(requestCode)
-    {
-        case AuthenticationActivity.AUTH_REQUEST_COMPLETE:
-            if(resultCode==RESULT_OK)
-            {
-                AuthenticationActivityResult result;
-                result = (AuthenticationActivityResult) authActivityResult.getSerializableExtra(AuthenticationActivity.AUTHENTICATION_RESULT);
+        switch(requestCode)
+        {
+            case AuthenticationActivity.AUTH_REQUEST_COMPLETE:
+                if(resultCode==RESULT_OK)
+                {
+                    AuthenticationActivityResult result;
+                    result = (AuthenticationActivityResult) authActivityResult.getSerializableExtra(AuthenticationActivity.AUTHENTICATION_RESULT);
 
-                ((TextView) findViewById(R.id.access_token)).setText(result.accessToken);
-                ((TextView) findViewById(R.id.jwt)).setText(result.JsonWebToken);
-            }
-            break;
+                    ((TextView) findViewById(R.id.access_token)).setText(result.accessToken);
+                    ((TextView) findViewById(R.id.jwt)).setText(result.JsonWebToken);
+                }
+                break;
+        }
     }
-}
-```
 
 The `AuthenticationActivityResult` class is just a container for the two tokens you can use to call APIs:
 
-```
-public class AuthenticationActivityResult implements Serializable {
-    public String accessToken;
-    public String JsonWebToken;
-}
-```
+    public class AuthenticationActivityResult implements Serializable {
+        public String accessToken;
+        public String JsonWebToken;
+    }
 
 If your app in Auth0 is created as __Windows Azure Mobile Services__:
 
