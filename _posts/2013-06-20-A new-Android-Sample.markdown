@@ -14,7 +14,7 @@ A new sample is now available on [our repo](https://github.com/auth0/Auth0-Andro
 
 All interactions are encapuslated in an `Activity` that you can call like in this example below:
 
-```java
+```
 Button login = (Button) findViewById(R.id.login);
 login.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
@@ -34,7 +34,7 @@ login.setOnClickListener(new View.OnClickListener() {
 
 The result is returned using the standard method of overriding the `onActivityResult` method:
 
-```java
+```
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent authActivityResult) {
     super.onActivityResult(requestCode, resultCode, authActivityResult);
@@ -57,7 +57,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent authActi
 
 The `AuthenticationActivityResult` class is just a container for the two tokens you can use to call APIs:
 
-```java
+```
 public class AuthenticationActivityResult implements Serializable {
     public String accessToken;
     public String JsonWebToken;
@@ -70,7 +70,7 @@ If your app in Auth0 is created as __Windows Azure Mobile Services__:
 
 Then the Json Web Token will be compatible with what __Mobile Services__ expects.
 
-An end tutorial is available [here](https://docs.auth0.com/android-tutorial).
+An end to end tutorial is available [here](https://docs.auth0.com/android-tutorial).
 
 > We are working on a similar sample using Xamarin. Stay tuned!
 
