@@ -91,6 +91,6 @@ All token negotiation is handled by the __Auth0Client__ class. Calling WAMS is e
     	}];
 	}	
 
->[Matias'](https://twitter.com/woloski) demo'ed this integration on his webcast on [CloudCover](http://blog.auth0.com/2012/03/03/Real-World-Windows-Azure-with-Auth0-Matias-on-CloudCover/). (see from minute 13 to 19).
+>[Matias'](https://twitter.com/woloski) demo'ed this integration on his webcast on [CloudCover](http://blog.auth0.com/2013/03/03/Real-World-Windows-Azure-with-Auth0-Matias-on-CloudCover/). (see from minute 13 to 19).
 
 [Try Auth0 yourself!](http://www.auth0.com)
