@@ -17,7 +17,7 @@ WAMS already ships with support for single-sign-on with social identity provider
 
 {% endexcerpt %} 
 
-For Microsoft Accounts (LiveID), for example, WAMS will ask the user for the following rights: name, gender, display picture, contacts and friends. You might not need all these, and you might turn away customers by asking too much.
+For Microsoft Accounts (Live ID), for example, WAMS will ask the user for the following rights: name, gender, display picture, contacts and friends. You might not need all these, and you might turn away customers by asking too much.
 
 Auth0 addresses these two issues:
 
