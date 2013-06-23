@@ -343,3 +343,45 @@ p.small-image img {
   border-top: 2px solid rgba(0,49,79,0.08);
   padding-top: 10px;
 }
+
+ul.archive {
+  padding: 0;
+}
+
+@media (max-width: 480px) { 
+  .header-container h1 {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .blog-post h1 a {
+    font-size: 25px;
+  }
+  div.blog-post div.inner {
+    margin: 0 5px;
+    padding: 5px 23px 4px;
+  }
+  .blog-post div.entry-meta a.author{
+    display: none;
+  }
+  .blog-post {
+    width: 95%;
+    background-size: 100%;
+  }
+  .blog-post::before {
+    background-size: 100% 9px;
+    background-repeat: no-repeat;
+  }
+  .blog-post::after {
+    background-size: 100% 9px;
+    background-repeat: no-repeat;
+  }
+  .blog-post::before, div.blog-post::after{
+    width: 100%;
+  }
+  .article-content ul {
+    padding-left: 10px;
+  }
+}
+
