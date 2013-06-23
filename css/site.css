@@ -349,8 +349,14 @@ ul.archive {
 }
 
 @media (max-width: 480px) { 
-  .header-container h1 {
-    display: none;
+  .header h1 {
+      color: #FFFFFF;
+      float: left;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0;
+      margin: 22px -3px 0;
+      text-shadow: 0 2px 3px #666666;
   }
 }
 
