@@ -16,9 +16,6 @@ We will cover all things identity in Azure Mobile Services: from how to use stan
 
 Session is on Friday 28th, 2PM, South Hall, East Mezzanine room 202. See you there!
 
-__Update:__
-The Auth0 specific section/demos start @ 00:48:15.
-
 {% endexcerpt %}
 
 [Try Auth0 yourself!](http://developers.auth0.com)
