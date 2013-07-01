@@ -23,7 +23,7 @@ As many others, Box implements the SAML Protocol for authentication and identity
 
 ##Setup
 
-Configuring Box in Auth0 takes reduced to just a single checkbox. That's all!
+Configuring Box in Auth0 takes just a single checkbox. That's all!
 
 ![](https://puu.sh/3sjU4.png)
 
@@ -35,5 +35,7 @@ You will need to contact Box support team to enable SAML on your account. To mak
 4. The redirectURL.
 
 Once configuration is completed on their side, you are done!
+
+We want to thank Arif Shenoy, Nick Lee & Weisen Li from Box, for their help, and great support. 
 
 [Try Auth0 yourself!](http://www.auth0.com)
