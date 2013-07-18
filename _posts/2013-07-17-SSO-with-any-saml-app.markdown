@@ -11,7 +11,7 @@ author:
 
 {% excerpt %}
 
-You probably noticed that we are ading apps at a very fast pace. This past week we added [SpringCM](http://www.springcm.com) and [EchoSign](http://www.echosign.com). And we have a few more in the pipeline, as customers request them. There's no magic here, and we are a small team. So, how we do it? The secret is that it really takes very little effort. Auth0 ships with a generic __SAML App__ that is completely configurable:
+You probably noticed that we are adding apps at a very fast pace. This past week we added [SpringCM](http://www.springcm.com) and [EchoSign](http://www.echosign.com). And we have a few more in the pipeline, as customers request them. There's no magic here, and we are a small team. So, how we do it? The secret is that it really takes very little effort. Auth0 ships with a generic __SAML App__ that is completely configurable:
 
 ![](/img/saml2-config.png)
 
@@ -19,9 +19,9 @@ Supported apps like Box, Dropbox, Zendesk, Salesforce, SprinCM, EchoSign, etc. a
 
 ###Any app that supports __SAML__ is automagically supported by Auth0.
 
-> Special kudos to [SpringCM](http://www.springcm.com) and [EchoSign](http://www.echosign.com) for a fantastic onboarding experience and great support. 
+The integrations that have taken longer to publish, are with those companies that have chosen not to offer a self-service experience, and require us to call their support and enable/setup the feature for us. Human intervention adds a lot of latency in the process.
 
-The integrations that have taken longer to publish, are with those companies that have chosen not to offer a self-service experience, and requires us to call their support and enable/setup the feature for us. Human intervention adds a lot of latency in the process.
+> Special kudos to [SpringCM](http://www.springcm.com) and [EchoSign](http://www.echosign.com) for a fantastic onboarding experience and great support. 
 
 {% endexcerpt %}
 
@@ -35,7 +35,7 @@ We've even included an online __SAML debugger__ that shows exactly the `SAMLResp
 
 ![](/img/saml-debugger.png)
 
-You can easily look for attributes, mappings, signatures and other SAML artifacts to pin point misconfigurations.
+You can easily look for attributes, mappings, signatures and other SAML artifacts to quickly identify mis-configurations.
 
 So, if you don't see the app you need on our list, fear not! Use this feature or let us know: [support@auth0.com](mailto://support@auth0.com)
 
