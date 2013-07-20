@@ -15,7 +15,7 @@ You probably noticed that we are adding apps at a very fast pace. This past week
 
 ![](/img/saml2-config.png)
 
-Supported apps like Box, Dropbox, Zendesk, Salesforce, SprinCM, EchoSign, etc. are just _templates_ to simplify and streamline configuration. But they are not strictly needed. 
+Supported apps like Box, Dropbox, Zendesk, Salesforce, SpringCM, EchoSign, etc. are just _templates_ to simplify and streamline configuration. But they are not strictly needed. 
 
 ###Any app that supports __SAML__ is automagically supported by Auth0.
 
