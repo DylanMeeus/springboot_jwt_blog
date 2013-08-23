@@ -19,6 +19,7 @@ We are very excited to announce the release of the [Auth0 Component](http://comp
 
 The API is straight forward and very easy to use. It works with iOS and Android:
 
+<pre>
     var auth0 = new Auth0Client(
         "{subDomain}",
         "{clientID}",
@@ -29,12 +30,13 @@ The API is straight forward and very easy to use. It works with iOS and Android:
               var facebook_token = t.Result.Profile["identities"][0]["access_token"];
               var email = t.Result.Profile["email"].ToString();
  	          });
+</pre>
 
 The code above will display the [Auth0 login widget](https://docs.auth0.com/login-widget) as seen in the picture above.
 
-As is it delivered as a component, so you can get it straight into Xamarin Studio.
+It is delivered as a [component](http://components.xamarin.com/), so you can get it straight into Xamarin Studio.
 
-What you get back is the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls with your API.
+What you get back after login is the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls with your API.
 
 Here's a quick end to end demo (use full screen):
 
@@ -44,6 +46,6 @@ Last but not least, if you have **Windows Azure Mobile Services** enabled in Aut
 
 We want to thank the folks at Xamarin for their support and great experience! 
 
-> The sample image was generated with the awesome [placeit](http://placeit.breezi.com/).
+The sample image was generated with the awesome [placeit](http://placeit.breezi.com/).
 
 [Try Auth0 yourself!](http://www.auth0.com)
