@@ -19,8 +19,6 @@ We are very excited to announce the release of the [Auth0 Component](http://comp
 
 The API is straight forward and very easy to use. It works with iOS and Android:
 
-  using Auth0.SDK;
-
   var auth0 = new Auth0Client(
       "{subDomain}",
       "{clientID}",
