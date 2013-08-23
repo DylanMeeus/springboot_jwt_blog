@@ -15,13 +15,13 @@ We are very excited to announce the release of the [Auth0 Component](http://comp
 
 Beacuse it is available as a component, you can get it right from Xamarin Studio:
 
-![](img/xamarin-studio-auth0.png)
+![](/img/xamarin-studio-auth0.png)
 
 {% endexcerpt %}
 
 The API is straight forward and very easy to use. It works with iOS and Android:
 
-```
+```cs
 using Auth0.SDK;
 
 var auth0 = new Auth0Client(
@@ -29,31 +29,27 @@ var auth0 = new Auth0Client(
     "{clientID}",
     "{clientSecret}");
 
-// 'this' could be a Context object (Android) or UIViewController, UIView, UIBarButtonItem (iOS)
 auth0.LoginAsync (this)
      .ContinueWith(t => { 
-     /* 
-        Use t.Result to do wonderful things, e.g.: 
-          - get user email => t.Result.Profile["email"].ToString()
-          - get facebook/google/twitter/etc access token => t.Result.Profile["identities"][0]["access_token"]
-          - get Windows Azure AD groups => t.Result.Profile["groups"]
-          - etc.
-    */ });
-
+          var facebook_token = t.Result.Profile["identities"][0]["access_token"];
+          var email = t.Result.Profile["email"].ToString();
+ 	 });
 ```
 
 The code above will display the [Auth0 login widget](https://docs.auth0.com/login-widget):
 
 ![](http://components.xamarin.com/resources/icons/component-283/Auth0-Xamarin-iOS-602-400-slideshow-resize.png)
 
-You get back the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls against your API.
+You get back the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls with your API.
 
-Here's a quick end to end demo:
+Here's a quick end to end demo (use full screen):
 
 <iframe width="700" height="315" src="//www.youtube.com/embed/7enbd_BQRdE?rel=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
 
-Last but not least, if you have *Windows Azure Mobile Services* enabled in Auth0, then you can use the token to call WAMS endpoints with no changes or additional code.
+Last but not least, if you have **Windows Azure Mobile Services** enabled in Auth0, then you can use the token to call WAMS endpoints with no changes or additional code. Auth0 will generate [the right JWT](https://docs.auth0.com/jwt#5) for you.
 
-We want to thank the folks at Xamarin for their support and great experience!
+We want to thank the folks at Xamarin for their support and great experience! 
+
+> The sample image was generated with the awesome [placeit](http://placeit.breezi.com/).
 
 [Try Auth0 yourself!](http://www.auth0.com)
