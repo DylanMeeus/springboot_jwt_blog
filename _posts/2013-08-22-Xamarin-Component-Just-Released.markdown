@@ -20,6 +20,7 @@ We are very excited to announce the release of the [Auth0 Component](http://comp
 The API is straight forward and very easy to use. It works with iOS and Android:
 
 ```cs
+
 using Auth0.SDK;
 
 var auth0 = new Auth0Client(
@@ -32,6 +33,7 @@ auth0.LoginAsync (this)
           var facebook_token = t.Result.Profile["identities"][0]["access_token"];
           var email = t.Result.Profile["email"].ToString();
  	 });
+
 ```
 
 The code above will display the [Auth0 login widget](https://docs.auth0.com/login-widget) as seen in the picture above.
