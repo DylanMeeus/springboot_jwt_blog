@@ -11,11 +11,9 @@ author:
 
 {% excerpt %}
 
-We are very excited to announce the release of the [Auth0 Component](http://components.xamarin.com/view/Auth0Client/) for Xamarin. As with the other SDKs we released (and [available on Github](http://github.com/auth0)), this streamlines authentication with any of our [supported identity providers](http://docs.auth0.com/identityproviders). 
+We are very excited to announce the release of the [Auth0 Component](http://components.xamarin.com/view/Auth0Client/) for Xamarin. As with the other SDKs we released (and [available on Github](http://github.com/auth0)), its goal is to streamline authentication with any of our [supported identity providers](http://docs.auth0.com/identityproviders). Consumer or Enterprise.
 
-Beacuse it is available as a component, you can get it right from Xamarin Studio:
-
-![](/img/xamarin-studio-auth0.png)
+![](http://components.xamarin.com/resources/icons/component-283/Auth0-Xamarin-iOS-602-400-slideshow-resize.png)
 
 {% endexcerpt %}
 
@@ -36,11 +34,11 @@ auth0.LoginAsync (this)
  	 });
 ```
 
-The code above will display the [Auth0 login widget](https://docs.auth0.com/login-widget):
+The code above will display the [Auth0 login widget](https://docs.auth0.com/login-widget) as seen in the picture above.
 
-![](http://components.xamarin.com/resources/icons/component-283/Auth0-Xamarin-iOS-602-400-slideshow-resize.png)
+As is it delivered as a component, so you can get it straight into Xamarin Studio.
 
-You get back the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls with your API.
+What you get back is the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls with your API.
 
 Here's a quick end to end demo (use full screen):
 
