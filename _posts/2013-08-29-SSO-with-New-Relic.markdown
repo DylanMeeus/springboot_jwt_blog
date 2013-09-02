@@ -11,17 +11,17 @@ author:
 
 {% excerpt %}
 
-A few days ago we released integration between [Auth0](http://developers.auth0.com/newrelic) and [New Relic](http://newrelic.com/auth0). You can now login to New Relic with your Github, Google, Amazon, Twitter, Active Directory or LDAP accounts. [See here for a complete list of supported identity providers](http://docs.auth0.com/identityproviders). Consumer or Enterprise.
+A few days ago we released integration between [Auth0](http://developers.auth0.com/newrelic) and [New Relic](http://newrelic.com/auth0). You can now login to New Relic with your Github, Google, Amazon, Twitter, Active Directory or LDAP accounts. [See here for a complete list of supported identity providers in Auth0](http://docs.auth0.com/identityproviders): Consumer and Enterprise.
 
 As with other integrations we have published, setup takes minutes and is very straight-forward:
 
-## Add New Relic from the dashboard:
+### Add New Relic from the dashboard:
 
 ![](/img/newrelic-create.png)
 
 {% endexcerpt %}
 
-## Enter your New Relic Account and follow a few simple steps:
+### Enter your New Relic Account and follow a few simple steps:
 
 ![](/img/newrelic-tutorial.png)
 
