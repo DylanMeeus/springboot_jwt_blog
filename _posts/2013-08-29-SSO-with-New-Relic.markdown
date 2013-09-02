@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SSO with New Relic"
-date: 2013-08-25 5:18
+date: 2013-08-29 5:18
 author: 
   name: Eugenio Pace
   mail: eugeniop@auth0.com
@@ -11,7 +11,7 @@ author:
 
 {% excerpt %}
 
-We just released integration between [Auth0](http://developers.auth0.com/newrelic) and [New Relic](http://newrelic.com/auth0). You can now login to New Relic with your Github, Google, Twitter, Active Directory or LDAP accounts. [See here for a complete list of supported identity providers](http://docs.auth0.com/identityproviders). Consumer or Enterprise.
+A few days ago we released integration between [Auth0](http://developers.auth0.com/newrelic) and [New Relic](http://newrelic.com/auth0). You can now login to New Relic with your Github, Google, Amazon, Twitter, Active Directory or LDAP accounts. [See here for a complete list of supported identity providers](http://docs.auth0.com/identityproviders). Consumer or Enterprise.
 
 As with other integrations we have published, setup takes minutes and is very straight-forward:
 
