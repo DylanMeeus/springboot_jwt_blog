@@ -29,7 +29,7 @@ __New granular scope:__
 
 ![New granular scope](http://blog.auth0.com.s3.amazonaws.com/ss-2013-09-27T15-25-52_safe_save_152637.png)
 
-In order to have access to this API your google client has to have enabled the "Admin SDK" service in the [Google API Console](https://code.google.com/apis/console) as follows:
+In order to have access to this API enable the "Admin SDK" service in the [Google API Console](https://code.google.com/apis/console) as follows:
 
 ![ss-2013-09-27T15-33-02.png](http://blog.auth0.com.s3.amazonaws.com/ss-2013-09-27T15-33-02.png)
 
