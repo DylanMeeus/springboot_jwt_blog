@@ -26,21 +26,15 @@ I'll also use __OpenID Connect__ as the underlying protocol.
 
 The first thing you have to do, is tell Heroku that you want to use Auth0. For this, just run this command:
 
-```
-heroku addon:add auth0
-```
+    heroku addon:add auth0
 
 This command also creates some basic configuration. I want to use the same settings to develop on my local machine. So I run this command to get these config settings and copy them to a `.env` file:
 
-```
-heroku config -s | grep 'AUTH0_CLIENT_ID\|AUTH0_CLIENT_SECRET\|AUTH0_DOMAIN' | tee -a .env
-```
+    heroku config -s | grep 'AUTH0_CLIENT_ID\|AUTH0_CLIENT_SECRET\|AUTH0_DOMAIN' | tee -a .env
 
 I will also add a callback url pointing to our dev box:
 
-```
-echo "\nAUTH0_CALLBACK_URL=http://localhost:5000/callback" >> .env
-```
+    echo "\nAUTH0_CALLBACK_URL=http://localhost:5000/callback" >> .env
 
 We will see more about how these parameters are used in the code below.
 
@@ -49,81 +43,72 @@ We will see more about how these parameters are used in the code below.
 
 Because we are using node.js we will use `Passport` as the authenitcation middleware. Auth0 ships with a passport strategy `Passport-Auth0` to save you time:
 
-```
-npm install passport passport-auth0 --save
-```
+    npm install passport passport-auth0 --save
 
 Add a new module called `setup_passport.js` with the following content: 
 
-```
-var passport = require('passport');
-var Auth0Strategy = require('passport-auth0');
+    var passport = require('passport');
+    var Auth0Strategy = require('passport-auth0');
 
-var strategy = new Auth0Strategy({  
-    domain: process.env['AUTH0_DOMAIN'],
-    clientID: process.env['AUTH0_CLIENT_ID'],
-    clientSecret: process.env['AUTH0_CLIENT_SECRET'],
-    callbackURL: process.env['AUTH0_CALLBACK_URL']
-  }, function(accessToken, refreshToken, profile, done) {
-    console.log('profile is', profile);
-    return done(null, profile);
-  });
+    var strategy = new Auth0Strategy({  
+        domain: process.env['AUTH0_DOMAIN'],
+        clientID: process.env['AUTH0_CLIENT_ID'],
+        clientSecret: process.env['AUTH0_CLIENT_SECRET'],
+        callbackURL: process.env['AUTH0_CALLBACK_URL']
+      }, function(accessToken, refreshToken, profile, done) {
+        console.log('profile is', profile);
+        return done(null, profile);
+      });
 
-passport.use(strategy);
+    passport.use(strategy);
 
-// you can use this section to keep a smaller payload
-passport.serializeUser(function(user, done) {
-  done(null, user); 
-});
+    // you can use this section to keep a smaller payload
+    passport.serializeUser(function(user, done) {
+      done(null, user); 
+    });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
+    passport.deserializeUser(function(user, done) {
+      done(null, user);
+    });
 
-module.exports = strategy; 
-
-```
+    module.exports = strategy; 
 
 > Notice the __process.env[...]__ calls? These are just retrieving the config parameters from the __.env__ file.
 
 Next step is to configure our express app:
 
-```
-app.configure (function () {
-  this.use(express.cookieParser());
-  this.use(express.session({secret: 'foo'}));
+    app.configure (function () {
+      this.use(express.cookieParser());
+      this.use(express.session({secret: 'foo'}));
 
-  //..
-  this.use(passport.initialize());
-  this.use(passport.session());
-  //..
+      //..
+      this.use(passport.initialize());
+      this.use(passport.session());
+      //..
 
-  this.use(app.router);
-});
+      this.use(app.router);
+    });
 
-// Auth0 callback handler
-app.get('/callback', 
-  passport.authenticate('auth0'), 
-  function(req, res) {
-    res.redirect("/");
-  });
+    // Auth0 callback handler
+    app.get('/callback', 
+      passport.authenticate('auth0'), 
+      function(req, res) {
+        res.redirect("/");
+      });
 
-app.get('/', function (req, res) {
-  res.render('home', {
-    user: req.user, //use this to display user information
-    env: process.env
-  }) 
-});
-```
+    app.get('/', function (req, res) {
+      res.render('home', {
+        user: req.user, //use this to display user information
+        env: process.env
+      }) 
+    });
 
 ## Add Auth0 Login Widget
 
 This is not required but we provide a beautiful, ready to use, fully customizable login widget. We will add this code to one of our home pages:
 
-```
-<script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%= env["AUTH0_CLIENT_ID"] %>&redirect_uri=<%= env["AUTH0_CALLBACK_URL"] %>">></script>
-<button onclick="window.Auth0.signIn({onestep: true})">Login</button>
-```
+    <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%= env["AUTH0_CLIENT_ID"] %>&redirect_uri=<%= env["AUTH0_CALLBACK_URL"] %>">></script>
+    <button onclick="window.Auth0.signIn({onestep: true})">Login</button>
 
 ## Verify everything is working
 
@@ -137,9 +122,7 @@ With almost no effort you already have __Google__ authentication but also __User
 
 By default the add-on comes with Google and Username & Password, you can disable these or enable new ones. Let's try out Salesforce as an Identity provider:
 
-```
-heroku addons:open auth0
-```
+    heroku addons:open auth0
 
 Enabling Salesforce is as simple as turning the switch to __ON__:
 
@@ -163,28 +146,27 @@ You usually will want your application's logo there. Follow the instructions ava
 
 Suppose now you need your app to work with Salesforce's API. Since you are already loged in with Salesforce, you can use the access_token from the profile as follows:
 
-```
-app.post('/chatter', function (req, res) {
-  if (!req.user || req.user.identities[0].provider !== 'salesforce') {
-    return res.redirect('/');
-  }
+    app.post('/chatter', function (req, res) {
+      if (!req.user || req.user.identities[0].provider !== 'salesforce') {
+        return res.redirect('/');
+      }
 
-  var access_token = req.user.identities[0].access_token;
-  var urls = req.user._json.urls;
-  var salesforce_client = new Salesforce(access_token, urls);
+      var access_token = req.user.identities[0].access_token;
+      var urls = req.user._json.urls;
+      var salesforce_client = new Salesforce(access_token, urls);
 
-  salesforce_client.getGroups(function (err, groups) {
-    if (err) return res.send(500);
-    salesforce_client.postToChatter({
-      group:   groups[0],
-      message: req.body.message
-    }, function (err) {
-      if (err) return res.send(500);
-      res.redirect('/');
+      salesforce_client.getGroups(function (err, groups) {
+        if (err) return res.send(500);
+        salesforce_client.postToChatter({
+          group:   groups[0],
+          message: req.body.message
+        }, function (err) {
+          if (err) return res.send(500);
+          res.redirect('/');
+        });
+      });
     });
-  });
-});
-```
+
 This endpoint does a POST to the chatter feed of the first group using [Salesforce's Chatter API](http://www.salesforce.com/us/developer/docs/chatterapi/) and redirects back to the home page. I wrote a very small wrapper of Salesforce REST API [here](https://github.com/auth0/heroku-salesforce/blob/master/lib/salesforce.js). 
 
 The result is this:
