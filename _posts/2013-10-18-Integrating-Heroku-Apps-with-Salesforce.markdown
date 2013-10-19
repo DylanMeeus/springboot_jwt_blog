@@ -12,7 +12,7 @@ author:
 
 {% excerpt %} 
 
-In this post, I'll show you how easy it is with Auth0 to get an app running on Heroku, authenticating users with Google, SalesForce and more traditional Usernames & Passwords.
+In this post, I'll show you how easy it is with Auth0 to get an app running on Heroku, authenticating users with Google, Salesforce and more traditional Usernames & Passwords.
 
 > Check the link at the end of the post for the complete source of the example.
 
