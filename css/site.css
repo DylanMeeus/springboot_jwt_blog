@@ -19,7 +19,7 @@ body {
   margin: 0;
 }
 
-.header {
+.theheader {
   background-color: #394755;
   height: 76px;
   -webkit-box-shadow: -5px 6px 15px -5px rgba(0, 0, 0, 0.50);
@@ -57,7 +57,7 @@ body {
   color: #eee;
 }
 
-.header h1 {
+.theheader h1 {
   float: left;
   margin: 0;
   letter-spacing: 1px;
@@ -68,7 +68,7 @@ body {
   text-shadow: 0px 2px 3px #666;
 }
 
-.header .logo {
+.theheader .logo {
   background: url("/img/logo-small.png") 0 50% no-repeat;
   width: 40px;
   height: 76px;
@@ -349,7 +349,7 @@ ul.archive {
 }
 
 @media (max-width: 480px) { 
-  .header h1 {
+  .theheader h1 {
       color: #FFFFFF;
       float: left;
       font-size: 22px;

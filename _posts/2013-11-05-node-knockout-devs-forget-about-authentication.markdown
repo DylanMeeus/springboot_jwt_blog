@@ -24,7 +24,7 @@ Here's how:
 
 {% endexcerpt %} 
 
-<a href="https://developers.auth0.com" target="_blank">Create an account in Auth0</a>.
+<a href="javascript: widget.show()">Create an account in Auth0</a>.
 
 Add the following code to your client side and server side:
 
@@ -91,7 +91,17 @@ Once the user is logged in, you can call your APIs sending the token in the Auth
 We also support [passport.js](http://passportjs.org/) for server side auhtentication. Here is a tutorial [docs.auth0.com/nodejs-tutorial](https://docs.auth0.com/nodejs-tutorial).
 
 **Don't want to use the widget?**
-The [widget is customizable](https://docs.auth0.com/login-widget) but if you want to have your own login UI, you can use Auth0 API instead: [github.com/auth0/auth0.js](http://github.com/auth0/auth0.js).
+The [widget is customizable](https://docs.auth0.com/login-widget2) but if you want to have your own login UI, you can use Auth0 API instead: [github.com/auth0/auth0.js](http://github.com/auth0/auth0.js).
 
 During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and twitter ([@authzero](http://authzero.com)) to help you out if you have any issue.
 
+Happy Noding!
+
+<script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-1.1.1.min.js"></script>
+<script type="text/javascript">
+    var widget = new Auth0Widget({
+        domain:       'auth0.auth0.com',
+        clientID:     'zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 
+        callbackURL:  'https://app.auth0.com/callback'
+    });
+</script>
