@@ -16,16 +16,17 @@ Node Knockout is a 48-hour hackathon where devs across the world gather in teams
 
 The knockout time goes really fast. Don't waste time on things that are not the core of your idea.
 
-**Auth0 takes authentication out of your way**. Auth0 allows you to connect with [+10 identity providers](https://docs.auth0.com/identityproviders): Amazon, Google, Facebook, Twitter, LiveID, GitHub, 37Signals, PayPal, LinkedIn, Yandex, Fitbit. And also provides a **username/passwords** store (including signup and forgot password flow). It all works out of the box with a few lines of code.
+**Auth0 takes authentication out of your way**. Auth0 allows you to connect with [+10 identity providers](https://docs.auth0.com/identityproviders): Amazon, Google, Facebook, Twitter, LiveID, GitHub, 37Signals, PayPal, LinkedIn, Yandex, Fitbit. It also provides a ready to use **username/password** store (including signup and forgot password flow). It all works out of the box with just a few lines of code.
 
 <div style="text-align:center"><img src="/img/login-widget.gif" alt="Auth0 Login Widget"></div>
 
-## Quick Start
+## Quick Start in 3 easy steps:
+
+###1. <a href="javascript: widget.show()">Create a free account in Auth0</a>
 
 {% endexcerpt %} 
 
-<a href="javascript: widget.show()">Create a free account in Auth0</a>.
-
+###2. Add code to your app
 Add the following code to your HTML and node app:
 
 <div style="float: left; width: 48%; padding-right: 10px; text-align:center;font-weight: bold">BROWSER</div>
@@ -76,6 +77,7 @@ app.post('/api/foo',
 </code>
 </pre>
 <div style="clear: both;"></div>
+###3. Call your APIs
 Once the user is logged in, you can call your APIs sending the token in the Authorization header.
 
 	$.ajaxSetup({
@@ -87,15 +89,19 @@ Once the user is logged in, you can call your APIs sending the token in the Auth
 	  }
 	});
 
+###You are done!
+
+---
+
 **Want to use passport.js?**
 We also support [passport.js](http://passportjs.org/) for server side auhtentication. Here is a tutorial [docs.auth0.com/nodejs-tutorial](https://docs.auth0.com/nodejs-tutorial).
 
-**Don't want to use the widget?**
-The [widget is customizable](https://docs.auth0.com/login-widget2) but if you want to have your own login UI, you can use Auth0 API instead: [github.com/auth0/auth0.js](http://github.com/auth0/auth0.js).
+**Don't want to use the Login Widget?**
+The [widget is customizable](https://docs.auth0.com/login-widget2) but if you want to have your own login UI, you can use Auth0's API instead: [github.com/auth0/auth0.js](http://github.com/auth0/auth0.js).
 
 > By using Auth0 you don't have to worry about about user management, single sign on, flow user attributes across layers of your app, integrate with social providers and enterprises and see who is using your app.
 
-During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and twitter ([@authzero](http://authzero.com)) to help you out if you have any issue.
+During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and Twitter ([@authzero](http://authzero.com)) to help you out if you have any issue.
 
 Happy Noding!
 
