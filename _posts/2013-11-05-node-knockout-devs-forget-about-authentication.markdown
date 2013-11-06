@@ -20,13 +20,13 @@ The knockout time goes really fast. Don't waste time on things that are not the 
 
 <div style="text-align:center"><img src="/img/login-widget.gif" alt="Auth0 Login Widget"></div>
 
-Here's how:
+## Quick Start
 
 {% endexcerpt %} 
 
-<a href="javascript: widget.show()">Create an account in Auth0</a>.
+<a href="javascript: widget.show()">Create a free account in Auth0</a>.
 
-Add the following code to your client side and server side:
+Add the following code to your HTML and node app:
 
 <div style="float: left; width: 48%; padding-right: 10px; text-align:center;font-weight: bold">BROWSER</div>
 <div style="float: left; width: 48%; text-align:center;font-weight: bold">SERVER</div>
@@ -93,7 +93,7 @@ We also support [passport.js](http://passportjs.org/) for server side auhtentica
 **Don't want to use the widget?**
 The [widget is customizable](https://docs.auth0.com/login-widget2) but if you want to have your own login UI, you can use Auth0 API instead: [github.com/auth0/auth0.js](http://github.com/auth0/auth0.js).
 
-> By using Auth0 you don't have to worry about about user management, single sign on, flow the user attributes between layers of your app, integrate with social providers and enterprises and see who is using your app.
+> By using Auth0 you don't have to worry about about user management, single sign on, flow user attributes across layers of your app, integrate with social providers and enterprises and see who is using your app.
 
 During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and twitter ([@authzero](http://authzero.com)) to help you out if you have any issue.
 
