@@ -2,7 +2,7 @@
 published: "true"
 layout: post
 title: Node Knockout Devs - Forget about Authentication!
-date: "2013-11-05 10:30"
+date: "2013-11-06 10:30"
 author: 
   name: Matias Woloski
   mail: matias@auth0.com
@@ -92,6 +92,8 @@ We also support [passport.js](http://passportjs.org/) for server side auhtentica
 
 **Don't want to use the widget?**
 The [widget is customizable](https://docs.auth0.com/login-widget2) but if you want to have your own login UI, you can use Auth0 API instead: [github.com/auth0/auth0.js](http://github.com/auth0/auth0.js).
+
+> By using Auth0 you don't have to worry about about user management, single sign on, flow the user attributes between layers of your app, integrate with social providers and enterprises and see who is using your app.
 
 During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and twitter ([@authzero](http://authzero.com)) to help you out if you have any issue.
 
