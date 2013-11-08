@@ -34,7 +34,7 @@ Add the following code to your HTML and node app:
 <pre style="float: left; width: 48%; padding-right: 10px;margin:0">
 <code>&lt;button onclick="auth0.show()">Login&lt;/button>
 
-&lt;script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-1.1.1.min.js">&lt;/script>
+&lt;script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-1.3.1.min.js">&lt;/script>
 
 &lt;script type="text/javascript">
 var auth0 = new Auth0Widget({
@@ -105,7 +105,7 @@ During the event we'll be available on our chat room [http://chat.auth0.com](htt
 
 Happy Noding!
 
-<script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-1.1.1.min.js"></script>
+<script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-1.3.1.min.js"></script>
 <script type="text/javascript">
     var widget = new Auth0Widget({
         domain:       'auth0.auth0.com',
