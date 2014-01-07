@@ -179,4 +179,4 @@ In upcoming posts we will revisit:
 
 ### Bottom Line
 
-When building Single Page Applications, consider using a token-based authentication design over cookie-based authentication. Leave a comment or discuss on HN.
+When building Single Page Applications, consider using a token-based authentication design over cookie-based authentication. Leave a comment or [discuss on HN](https://news.ycombinator.com/item?id=7018529).
