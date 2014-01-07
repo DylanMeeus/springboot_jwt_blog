@@ -391,3 +391,17 @@ ul.archive {
   }
 }
 
+#auth0 {
+  padding: 60px;
+  border-top: 2px solid rgba(0,49,79,0.08);
+  line-height: 25px;
+  color: #727272;
+  background-color: #FAFAFA;
+}
+
+#auth0 img {
+  float: left;
+  margin-right: 20px;
+  height: 50px;
+}
+}
