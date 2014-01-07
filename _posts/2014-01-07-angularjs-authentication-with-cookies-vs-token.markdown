@@ -1,7 +1,7 @@
 ---
 published: "true"
 layout: post
-title: AngularJs Cookie-based Authentication vs Token-based
+title: Cookies vs Tokens. Getting auth right with Angular.JS
 date: "2014-01-07 12:30"
 author: 
   name: Alberto Pose
@@ -46,7 +46,7 @@ What are the benefits of using a token-based approach?
 
 ## Implementation
 
-Asuming you have a node.js app, below you can find the components of this architecgure.
+Asuming you have a node.js app, below you can find the components of this architecture.
 
 ### Server Side
 
@@ -177,6 +177,6 @@ In upcoming posts we will revisit:
 * How to handle social authentication?
 * How to handle session expiration?
 
-### The Bottom Line
+### Bottom Line
 
 When building Single Page Applications, consider using a token-based authentication design over cookie-based authentication. Leave a comment or discuss on HN.
