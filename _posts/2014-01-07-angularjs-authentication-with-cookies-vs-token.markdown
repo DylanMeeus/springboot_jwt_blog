@@ -3,26 +3,26 @@ published: "true"
 layout: post
 title: Cookies vs Tokens. Getting auth right with Angular.JS
 date: "2014-01-07 12:30"
-author: 
+author:
   name: Alberto Pose
   mail: alberto@auth0.com
   url: http://twitter.com/thepose
   avatar: https://pbs.twimg.com/profile_images/3275858589/fd80792e3615b83c812c27353608ca10_bigger.jpeg
 ---
 
-{% excerpt %} 
+{% excerpt %}
 
-<img src="http://3.bp.blogspot.com/-XNdtXyNMD0Q/TV9JaeGA3SI/AAAAAAAACvI/lKMMTCXxiJ4/s1600/Cookies+002.jpg" style="width: 400px; margin-left: auto; margin-right: auto; display: block;" />
+<img src="/img/poisoned-cookies.jpg" style="width: 400px; margin-left: auto; margin-right: auto; display: block;" />
 
 ### Introduction
 
-There are basically two different ways of implementing server side authentication for apps with a frontend and an API: 
+There are basically two different ways of implementing server side authentication for apps with a frontend and an API:
 
 * The most adopted one, is **Cookie-Based Authentication** (you can find an example [here](http://frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/)) that uses server side cookies to authenticate the user on every request.
 
-* A newer approach, **Token-Based Authentication**, relies on a signed token that is sent to the server on each request. 
+* A newer approach, **Token-Based Authentication**, relies on a signed token that is sent to the server on each request.
 
-{% endexcerpt %} 
+{% endexcerpt %}
 
 ### Token based vs. Cookie based
 
@@ -108,7 +108,7 @@ The first step on the client side using AngularJS is to retrieve the JWT Token. 
         <input type="submit" value="Login" />
       </form>
     </div>
-  
+
 And a controller where to handle the submit action:
 
     myApp.controller('UserCtrl', function ($scope, $http, $window) {

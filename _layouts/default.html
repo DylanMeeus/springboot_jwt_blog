@@ -4,18 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:600,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:600,800' rel='stylesheet' type='text/css'>
 
     <title>{{ page.title }}</title>
 
     {% if page.meta-robots %}
     <meta name="robots" content="{{ page.meta-robots }}" />
     {% endif %}
-    
+
     {% if paginator.page > 1 %}
     <meta name="robots" content="noindex, noarchive, follow" />
     {% endif %}
-    
+
     {% if page.url %}
     <link rel="canonical" href="http://blog.auth0.com{{page.url | replace:'index.html',''}}" />
     {% endif %}
@@ -60,12 +60,12 @@
         (function () {
             var s = document.createElement('script'); s.async = true;
             s.type = 'text/javascript';
-            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-    <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/rainbow.min.css">
-    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+    <link rel="stylesheet" href="//yandex.st/highlightjs/7.3/styles/rainbow.min.css">
+    <script src="//yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
 
@@ -81,5 +81,5 @@
       })();
 
     </script>
-</body> 
+</body>
 </html>
