@@ -38,6 +38,7 @@ In our previous article, we wrote about the benefits of a token-based architectu
 - **Hard to configure**: The configuration is error prone. A year ago I wrote [passport-socketio](http://github.com/jfromaniello/passport.socketio) that basically bridges the passport information stored in the express session with socket.io auth. Looking at the [issues](http://github.com/jfromaniello/passport.socketio/issues), most of the problems are related to the configuration or people being unfamiliar with `passport.js`.
 - **Not ready for devices**: If you are connecting to a socket from a device, cookies are not there (well, they are but you have to get into cookie containers and what not), so you end up implementing something different for a device.
 - **Requires session configuration**: you have to rely on a session store (e.g. Mongodb, Redis, or store the session on a cookie).
+- **PHP + Socket.IO**: Reading the PHP cookie and session from node is not easy, [here is a blogpost explaining it](http://simplapi.wordpress.com/2012/04/13/php-and-node-js-session-share-redi/). Same thing applies to other technologies (django, java, etc.).
 
 ## Authenticating Sockets using Tokens
 
