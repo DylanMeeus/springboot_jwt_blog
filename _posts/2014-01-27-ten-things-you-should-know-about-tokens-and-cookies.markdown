@@ -230,7 +230,7 @@ That's it. Please leave a comment if there are more things that you think needs 
 
 Happy tokenizing!
 
-_Photo taken from: http://www.b-token.eu/en/coins/embossed-tokens_
+_Photo taken from: http://alfanatic.webs.com/_
 
 
 
