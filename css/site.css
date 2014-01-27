@@ -103,7 +103,12 @@ aside {
   width: 100%;
 }
 
-li {
+ol li {
+  line-height: 28px;
+  font-size: 13px;
+}
+
+ul li {
   list-style-type: square;
   line-height: 28px;
 }
