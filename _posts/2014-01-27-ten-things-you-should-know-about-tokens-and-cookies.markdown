@@ -21,11 +21,15 @@ Couple weeks ago we published a short article about [cookies vs tokens in the co
 
 ##1. Tokens and browser refresh
 
+**tl;dr: tokens need to be stored somewhere (local/session storage or cookies)**
+
 In the context of tokens being used on single page applications, some people have brought up the issue about refreshing the browser, and what happens with the token. The answer is simple: you have to [store the token somewhere: in session storage, local storage or a client side cookie](https://github.com/auth0/angular-token-auth/blob/master/auth.client.js#L31). Most session storage polyfills fallback to cookies when the browser doesn't support it.
 
 If you are wondering _"but if I store the token in the cookie I'm back to square one"_. Not really, in this case you are using cookies as a storage mechanism, [not as an authentication mechanism](http://sitr.us/2011/08/26/cookies-are-bad-for-you.html) (i.e. the cookie won't be used by the web framework to authenticate a user, hence no XSRF attack)
 
 ##2. Token lifetime/expiration and revocation
+
+**tl;dr: tokens can expire like cookies, but you have more control**
 
 Tokens have an expiration (in [JSON Web Tokens](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-15#section-4.1.4) is represented by `exp` property), otherwise someone could authenticate forever to the API once they logged in at least once. Cookies also have expiration for the same reasons. 
 
@@ -63,6 +67,8 @@ You can even store in the token the original issue date, and enforce a re-login 
 If you need revocation of tokens (useful if tokens are long-lived) you will need to have some sort of registry of issued tokens to check against.
 
 ##3. Tokens, sub domains and local/session storage
+
+**tl;dr: local/session storage won't work across domains, use a marker cookie**
 
 If you set a cookie's domain to `.yourdomain.com` it can be accessed from `yourdomain.com` and `app.yourdomain.com`, making it easier to detect from the main domain (where you probably have, let's say, your marketing site) that the user is already logged in and redirect her to `app.yourdomain.com`. 
 
@@ -103,6 +109,8 @@ One small caveat, the `OPTIONS` request won't have the Authorization header itse
 
 ##5. Tokens and file downloads
 
+**tl;dr: when you need to stream something, use signed requests**
+
 When using cookies, you can trigger a file download and stream the contents easily. However, in the tokens world, where the request is done via XHR, you can't rely on that. The way you solve this is by generating a signed request like AWS does, for example. [Hawk Bewits](https://github.com/hueniverse/hawk) is a nice framework to enable this:
 
 ####__Request__:
@@ -120,6 +128,8 @@ You would then redirect to `/download-file/123?ticket=lahdoiasdhoiwdowijaksjdoai
 
 ##6. Tokens and lack of HttpOnly flag
 
+**tl;dr: it's easier to deal with xss than xsrf**
+
 Cookies have this feature that allows setting an `HttpOnly` flag from server side so they can only be accessed on the server and not from JavaScript. This is useful because it protects the content of that cookie to be accessed by injected client-side code (XSS).
 
 Since tokens are stored in local/session storage or a client side cookie, they are open to an XSS attack getting the attacker access to the token. This is a valid concern, and for that reason you should keep your tokens expiration low. 
@@ -128,6 +138,8 @@ But if you think about the attack surface on cookies, one of the main ones is XS
 
 
 ##7. Token size impact on perf
+
+**tl;dr: the token gets sent on every request, watch out its size**
 
 Every time you make an API request you have to send the token in the `Authorization` header. 
 
@@ -163,6 +175,8 @@ It is worth mentioning that you could also have the session stored completely on
 
 ##8. Tokens and confidential / sensitive information
 
+**tl;dr: if you store confidential info, encrypt the token**
+
 The signature on the token prevents tampering with it. TLS/SSL prevents man in the middle attacks. But if the payload contains sensitive information about the user (e.g. SSN, whatever), you can also encrypt them. The [JWT spec](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token) points to the [JWE spec](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption) but most of the libraries don't implement JWE yet, so the simplest thing is to just encrypt with AES-CBC as shown below.
 
     app.post('/authenticate', function (req, res) {
@@ -185,6 +199,8 @@ Needless to say, this requires TLS/SSL implemented. Otherwise, someone could get
 
 ##9. Tokens and OAuth
 
+**tl;dr: you can use JWT in OAuth**
+
 Tokens are usually associated with OAuth. [OAuth 2](http://tools.ietf.org/html/rfc6749) is an authorization protocol that solves identity delegation. The user is prompted for consent to access his/her data and the authorization server gives back an `access_token` that can be used to call the APIs acting as that user. 
 
 Typically these tokens are opaque. They are called `bearer` tokens and are random strings that will be stored in some kind of hash-table storage on the server (db, cache, etc.) together with an expiration, the scope requested (e.g. access to friend list) and the user who gave consent. Later, when the API is called, this token is sent and the server lookup on the hash-table, rehydrating the context to make the authorization decision (did it expire? does this token has the right scope associated for the API that wants to be accessed?). 
@@ -192,6 +208,8 @@ Typically these tokens are opaque. They are called `bearer` tokens and are rando
 The main difference between these tokens and the ones we've been discussing is that signed tokens (e.g.: JWT) are "stateless". They don't need to be stored on a hash-table, hence it's a more lightweight approach. OAuth2 does not dictate the format of the `access_token` so you could return a JWT from the authorization server containing the scope/permissions and the expiration.
 
 ##10. Tokens and fine-grained authorization
+
+**tl;dr: tokens are not silver bullets, think about your authorization use cases carefully**
 
 Couple of years ago we helped a big company implement a token-based architecture. This was a 100.000+ employees company with tons of information to protect. They wanted to have a centralized organization-wide store for "authentication & authorization". Think about "user X can read field id and name of clincial trial Y for hospital Z on country W" use cases. This fine-grained authorization, as you can imagine, can get unmanageable pretty quickly, not only technically but also administratively. 
 
