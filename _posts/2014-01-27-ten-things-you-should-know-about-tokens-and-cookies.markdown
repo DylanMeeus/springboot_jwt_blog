@@ -90,6 +90,8 @@ It could happen that the cookie exists but the token was deleted or something el
 
 ##4. Tokens, CORS and the Authorization header
 
+**tl;dr: preflight requests will be sent on each CORS**
+
 Someone pointed out that the Authorization header is not a [simple header](http://www.w3.org/TR/cors/), hence a pre-flight request would be required for all the requests to a particular URLs.
 
     OPTIONS https://api.foo.com/bar

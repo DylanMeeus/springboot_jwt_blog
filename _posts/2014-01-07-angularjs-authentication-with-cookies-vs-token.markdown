@@ -177,6 +177,11 @@ In upcoming posts we will revisit:
 * How to handle social authentication?
 * How to handle session expiration?
 
+<h3 style="color: rgb(255, 90, 136)"> UPDATE: we published two new blog posts</h3>
+
+* [Token based authentication in realtime frameworks like Socket.io](/2014/01/15/auth-with-socket-io/)
+* [10 Things you should know about Tokens](/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
+
 ### Bottom Line
 
 When building Single Page Applications, consider using a token-based authentication design over cookie-based authentication. Leave a comment or [discuss on HN](https://news.ycombinator.com/item?id=7018529).
