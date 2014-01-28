@@ -207,7 +207,7 @@ The signature on the token prevents tampering with it. TLS/SSL prevents man in t
     
 Of course you can use the approach on #7 and keep confidential info in a database.
 
-**UPDATE**: Pedro Felix correctly pointed out that MAC-then-encrypt is vulnerable to [Vaudenay-style attacks](http://www.thoughtcrime.org/blog/the-cryptographic-doom-principle/). I updated the code to do encrypt-then-MAC.
+**UPDATE**: [Pedro Felix](https://twitter.com/pmhsfelix) correctly pointed out that MAC-then-encrypt is vulnerable to [Vaudenay-style attacks](http://www.thoughtcrime.org/blog/the-cryptographic-doom-principle/). I updated the code to do encrypt-then-MAC.
 
 <a name="token-oauth"></a>
 ##9. JSON Web Tokens can be used in OAuth
