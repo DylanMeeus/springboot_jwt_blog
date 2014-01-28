@@ -231,7 +231,9 @@ We ended up working more on the information architecture side of things to make 
 
 ----
 
-That's it. Please leave a comment if there are more things that you think needs to be addressed.
+**Disclaimer**: when dealing with security, make sure you do the proper due dilligence. Any code/recommendation that you get here is provided as-is.
+
+Please leave a comment if there are more things that you think needs to be addressed.
 
 Happy tokenizing!
 
