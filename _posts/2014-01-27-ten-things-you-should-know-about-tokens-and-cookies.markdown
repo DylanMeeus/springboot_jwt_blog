@@ -188,9 +188,14 @@ The signature on the token prevents tampering with it. TLS/SSL prevents man in t
 
     app.post('/authenticate', function (req, res) {
       // validate user
-      var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
 
-      res.json({ token: encryptAesSha256('shhhh', token) });
+      // encrypt profile
+      var encrypted = { token: encryptAesSha256('shhhh', JSON.stringify(profile)) };
+
+      // sing the token
+      var token = jwt.sign(encrypted, secret, { expiresInMinutes: 60*5 });
+
+      res.json({ token: token });
     }
   
     function encryptAesSha256 (password, textToEncrypt) {
@@ -202,7 +207,7 @@ The signature on the token prevents tampering with it. TLS/SSL prevents man in t
     
 Of course you can use the approach on #7 and keep confidential info in a database.
 
-Needless to say, this requires TLS/SSL implemented. Otherwise, someone could get a hold of a token by simply sniffing the network.
+**UPDATE**: Pedro Felix correctly pointed out that MAC-then-encrypt is vulnerable to [Vaudenay-style attacks](http://www.thoughtcrime.org/blog/the-cryptographic-doom-principle/). I updated the code to do encrypt-then-MAC.
 
 <a name="token-oauth"></a>
 ##9. JSON Web Tokens can be used in OAuth
