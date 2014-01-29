@@ -132,7 +132,7 @@ When using cookies, you can trigger a file download and stream the contents easi
 
     ticket=lahdoiasdhoiwdowijaksjdoaisdjoasidja
 
-This ticket is stateless and it is built based on the URL: host + query + headers + timestamp + HMAC, and has an expiration. So it can be used in the next, say 5 minutes, to download the file.
+This ticket is stateless and it is built based on the URL: host + path + query + headers + timestamp + HMAC, and has an expiration. So it can be used in the next, say 5 minutes, to download the file.
 
 You would then redirect to `/download-file/123?ticket=lahdoiasdhoiwdowijaksjdoaisdjoasidja`. The server will check that the ticket is valid and continue with business as usual.
 
