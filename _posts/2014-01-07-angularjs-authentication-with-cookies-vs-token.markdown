@@ -182,6 +182,15 @@ In upcoming posts we will revisit:
 * [Token based authentication in realtime frameworks like Socket.io](/2014/01/15/auth-with-socket-io/)
 * [10 Things you should know about Tokens](/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 
+
 ### Bottom Line
 
 When building Single Page Applications, consider using a token-based authentication design over cookie-based authentication. Leave a comment or [discuss on HN](https://news.ycombinator.com/item?id=7018529).
+
+### Aside: how it works with Auth0?
+
+Auth0 issue **JSON Web Tokens** on every login. That means that you can have a solid identity infrastructure, including **Single Sign On**, **User Management**, support for **Social**, **Enterprise** and **your own database** of users with just a few lines of code. We implemented a tight integration with Angular: <https://github.com/auth0/auth0-angular>
+
+<a href="https://docs.google.com/a/auth10.com/drawings/d/1ErB68gFj55Yg-ck1_CZByEwN5ql0Pj2Mzd-6S5umv2o/edit"><img src="https://docs.google.com/drawings/d/1ErB68gFj55Yg-ck1_CZByEwN5ql0Pj2Mzd-6S5umv2o/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;"></a>
+
+More about Auth0 and Angular: <https://github.com/auth0/auth0-angular>
