@@ -1,0 +1,18 @@
+---
+layout: nil
+---
+<div class="news">
+    <img src="{{ site.posts[0].author.avatar }}">
+    <h5>
+        Latest from Auth0
+    </h5>
+    <h4>
+        {{site.posts[0].title}}
+    </h4><small>{{ site.posts[0].date | date: "%B %-d" }} by {{site.posts[0].author.name}}</small>
+    <p>
+        {{ site.posts[0].excerpt | markdownify | strip_html | truncate: 140 }}
+    </p>
+    <p>
+        <a href="http://blog.auth0.com{{ site.posts[0].url }}">Read More</a>
+    </p>
+</div>
