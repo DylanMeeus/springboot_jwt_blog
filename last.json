@@ -1,0 +1,10 @@
+---
+layout: nil
+---
+{
+    "avatar": "{{ site.posts[0].author.avatar }}",
+    "title": "{{site.posts[0].title}}",
+    "excerpt": "{{ site.posts[0].excerpt | markdownify | strip_html | truncate: 140 | strip_newlines }}",
+    "link": "http://blog.auth0.com{{ site.posts[0].url }}",
+    "date": "{{ site.posts[0].date | date: "%B %-d" }}"
+}
