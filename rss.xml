@@ -17,11 +17,12 @@ layout: nil
       <title>{{ post.title }}</title>
       <link>http://blog.auth0.com{{ post.url }}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-      <author>{{post.author.mail}} ({{post.author.name}})</author>
+      <author>{{post.author.name}}</author>
+      <avatar>{{post.author.avatar}}</avatar>
       <guid>http://blog.auth0.com{{ post.id }}</guid>
       <description>{{ post.content | xml_escape }}</description>
     </item>
     {% endfor %}
 
-  </channel> 
+  </channel>
 </rss>
