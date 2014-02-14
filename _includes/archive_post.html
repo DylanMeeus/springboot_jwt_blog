@@ -15,7 +15,7 @@ Archives include: "by tags" and "by time" archives.
       {% if post.excerpt %}
           <div class="entry-content">
             {{ post.excerpt | markdownify }}
-            <a class="readmore" href="{{ post.url }}">Read more...</a>
+            <a class="readmore" href="{{ post.url }}">Read more</a>
           </div>
       {% else %}
           <div class="entry-content">{{ post.content }}</div>
