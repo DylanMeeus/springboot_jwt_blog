@@ -24,7 +24,7 @@ ul.archive li.post {
   margin-bottom: 60px;
   border-bottom: 1px solid #f1f1f1;
 }
-ul.archive li.post img {
+ul.archive li.post .entry-content img {
   display: none !important;
 }
 .entry-title {
