@@ -106,7 +106,7 @@ A simple js client side code that uses this server is shown bellow:
         query: 'token=' + token
       });
 
-      socket.on('authenticated', function () {
+      socket.on('connect', function () {
         console.log('authenticated');
       }).on('disconnect', function () {
         console.log('disconnected');
