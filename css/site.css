@@ -33,8 +33,10 @@ ul.archive li.post .entry-content img {
 .author img {
   border-radius: 100px;
   position: absolute;
-  left: -100px;
-  top: 0;
+  left: -80px;
+  top: 4px;
+  width: 56px;
+  height: 56px;
 }
 .entry-meta {
   font-size: 12px;
