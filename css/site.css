@@ -5,6 +5,12 @@ h4,
 h5 {
   color: #000;
 }
+a {
+  color: #4e7ac7;
+}
+.entry-title {
+  font-weight: bold;
+}
 #container.container {
   max-width: 700px;
 }
@@ -50,15 +56,12 @@ ul.archive li.post {
   font-weight: bold;
   margin-top: 30px;
   display: inline-block;
-  font-size: 13px;
-  background: #4e7ac7;
-  border-radius: 100px;
-  padding: 4px 20px;
-  color: #fff;
+  font-size: 16px;
+  color: #4e7ac7;
+  letter-spacing: 1px;
 }
 .readmore:hover {
-  background: #1b3054;
-  color: #fff;
+  color: #1b3054;
 }
 .blog-single {
   margin-top: 50px;
@@ -91,11 +94,10 @@ pre.prettyprint {
   border-radius: 3px;
 }
 #auth0 {
-  background: #ecf0f1;
+  border: 1px #ecf0f1 solid;
   padding: 10px;
   text-align: center;
   border-radius: 3px;
   margin: 30px 0;
   overflow: hidden;
-  border: 0 !important;
 }

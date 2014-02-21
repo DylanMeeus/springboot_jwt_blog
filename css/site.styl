@@ -1,6 +1,12 @@
 h1,h2,h3,h4,h5
 	color: black
 
+a 
+	color: #4E7AC7
+
+.entry-title 
+	font-weight: bold
+
 #container.container
 	max-width: 700px;
 
@@ -45,14 +51,11 @@ ul.archive
 	font-weight: bold
 	margin-top: 30px;
 	display: inline-block
-	font-size: 13px
-	background: #4E7AC7
-	border-radius: 100px;
-	padding: 4px 20px;
-	color: white;
+	font-size: 16px
+	color: #4E7AC7
+	letter-spacing: 1px;
 	&:hover 
-		background: darken(#4E7AC7, 60%);
-		color: white;
+		color: darken(#4E7AC7, 60%);
 
 .blog-single
 	margin-top: 50px;
@@ -80,10 +83,9 @@ pre.prettyprint
 	border-radius: 3px;
 
 #auth0 
-	background: #ecf0f1;
+	border: 1px  #ecf0f1 solid;
 	padding: 10px;
 	text-align: center
 	border-radius: 3px;
 	margin: 30px 0;
 	overflow: hidden
-	border: 0 !important;
