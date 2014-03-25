@@ -1,6 +1,38 @@
 body {
   padding-top: 90px;
 }
+p,
+li {
+  color: #4d4d4d;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+pre {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1 {
+  margin-top: 0;
+}
+p,
+li {
+  color: #4d4d4d;
+}
+.try-code a.btn {
+  margin-top: 0;
+  background: #3cc8f4;
+}
+.try-code a.btn i {
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
+}
+.try-code a.btn:hover {
+  background: #0b9cc9;
+}
 header.site-header {
   background: rgba(255,255,255,0.9);
 }

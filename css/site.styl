@@ -1,5 +1,36 @@
+color_blue = #14204d;
+color_blue_light = #3cc8f4;
+color_red = #eb5422;
+color_grey = #d1d2d4;
+
 body 
 	padding-top: 90px;
+
+p,li
+	color: #4d4d4d;
+
+h1, h2,h3,h4,h5, pre
+	margin-top: 20px;
+	margin-bottom: 20px;
+i
+	// display: none
+
+h1
+	margin-top: 0;
+
+p,li
+	color: #4d4d4d;
+
+.try-code
+	a.btn 
+		margin-top: 0;
+		background: color_blue_light;
+		i 
+			position: relative;
+			top: 3px;
+			margin-right: 10px;
+		&:hover
+			background: darken(color_blue_light, 30%);
 
 header.site-header
 	background: rgba(255,255,255,.9);

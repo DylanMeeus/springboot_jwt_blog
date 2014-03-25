@@ -92,9 +92,9 @@ Here is a short video showing the whole process:
 </a>
 
 
-<div class="try-banner" style="margin: 0">
-    <a href="https://github.com/auth0/auth0-s3-sample" class="signup-button btn btn-success btn-lg">See the Code</a>
-    <a href="https://github.com/auth0/auth0-s3-sample" class="signup-button btn btn-success btn-lg">Live Demo</a>
+<div class="try-banner try-code" style="margin: 0">
+    <a href="https://github.com/auth0/auth0-s3-sample" class="btn btn-default btn-lg"><i class=" icon-1392070209-icon-social-github icon"></i>See the Code</a>
+    <a href="https://github.com/auth0/auth0-s3-sample" class="btn btn-default btn-lg"><i class=" icon-budicon-698 icon"></i>Live Demo</a>
 </div>
 
 ## AWS APIs supported
