@@ -14,7 +14,11 @@ author:
 
 ---
 
+{% excerpt %}
+
 In the past, we've talked about how it's becoming so much easier to write client side apps that are still fully secure thanks to JSON Web Tokens: ([Cookies vs Tokens](blog.auth0.com/2014/01/07/angularjs-authentication-with-cookies-vs-token), [Token-based auth with socket.io](http://blog.auth0.com/2014/01/15/auth-with-socket-io/) and [10 things you should know about tokens](http://blog.auth0.com/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)).
+
+{% endexcerpt %}
 
 In this article, we will show how to use AWS APIs from the client side, without the need to go through a server. The process is illustrated in the following diagram:
 
