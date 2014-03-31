@@ -30,7 +30,6 @@ We are assuming you have an AWS account and Auth0 account.
 
 First, we initialize the JavaScript login widget and call `.signin`.
 
-      // sign in
       var widget = new Auth0Widget({ domain: 'yours.auth0.com', clientID: 'your-client-id', callbackURL: 'your-callback-url' });
 
       widget.signin();
@@ -84,17 +83,18 @@ We are using the [AWS JavaScript SDK](https://github.com/aws/aws-sdk-js).
 
 Here is a short video showing the whole process:
 
+<div style="text-align: center">
 <a href="http://cloudup.com/iC6DMMtQmRE" target="_new">
 <video id="awsvideo" loop="">
   <source src="http://i.cloudup.com/transcoded/nPO3q3LWIn.mp4">
   <img src="http://cloudup.com/iC6DMMtQmRE+">
 </video>
 </a>
-
+</div>
 
 <div class="try-banner try-code" style="margin: 0">
-    <a href="https://github.com/auth0/auth0-s3-sample" class="btn btn-default btn-lg"><i class=" icon-1392070209-icon-social-github icon"></i>See the Code</a>
-    <a href="https://github.com/auth0/auth0-s3-sample" class="btn btn-default btn-lg"><i class=" icon-budicon-698 icon"></i>Live Demo</a>
+    <a href="https://github.com/auth0/auth0-s3-sample" target="_new" class="btn btn-default btn-lg"><i class=" icon-1392070209-icon-social-github icon"></i>Code</a>
+    <a href="http://auth0.github.io/auth0-s3-sample/" target="_new" class="btn btn-default btn-lg"><i class=" icon-budicon-698 icon"></i>Demo</a>
 </div>
 
 ## AWS APIs supported
@@ -107,6 +107,6 @@ This technique could be also used for any AWS API, besides S3:
 
 For a complete list of AWS services theta support IAM policies see: <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SpecificProducts.html>
 
-Also, AWS recently announced their support for [Creating Temporary Security Credentials for Mobile Apps using Google, Facebook or Amazon Login](http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html). That works similarly to what we are showing here, however it only supports these 3 identity providers: Amazon, Facebook and Google. With Auth0 you can expand this to work with  any identity provider: your own username/passwords, enterprise credentials or a long list of social providers.
+Finally, AWS recently announced their support for [Creating Temporary Security Credentials for Mobile Apps using Google, Facebook or Amazon Login](http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html). That works similarly to what we are showing here, however it only supports these 3 identity providers: Amazon, Facebook and Google. With Auth0 you can expand this to work with  any identity provider: your own username/passwords, enterprise credentials or a long list of social providers.
 
 Tokens FTW!
