@@ -56,6 +56,8 @@ Auth0 lets you outsource the authentication by relying on the built-in user/pass
 
 [![outsource users and password](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/database.gif)](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/database.gif)
 
+We provide templates to connect with SQL Server Membership, SQL Azure, Mongo, MySQL, Postgress, among many other options. 
+
 ---
 
 <a name="4"></a>
