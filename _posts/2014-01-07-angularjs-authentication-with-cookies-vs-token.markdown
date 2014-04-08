@@ -50,13 +50,14 @@ Asuming you have a node.js app, below you can find the components of this archit
 
 ### Server Side
 
-Let's start by installing `express-jwt`:
+Let's start by installing `express-jwt` and `jsonwebtoken`:
 
-    $ npm install express-jwt
+    $ npm install express-jwt jsonwebtoken
 
 Configure the express middleware to protect every call to `/api`.
 
     var expressJwt = require('express-jwt');
+    var jwt = require('jsonwebtoken');
 
     // We are going to protect /api routes with JWT
     app.use('/api', expressJwt({secret: secret}));
