@@ -11,6 +11,8 @@ author:
 
 {% excerpt %} 
 
+**UPDATE: This article is a bit old at this point. Please refer to this tutorial to get an idea of how to integrate with Windows Azure Mobile Services. <https://docs.auth0.com/wams>**
+
 [Windows Azure Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/) (WAMS) is a really neat technology by Microsoft to get you started very quickly with simple mobile apps. It's a _"Mobile Backend as a Service"_. It also provides a nice extensibility model for more advanced scenarios with server-side JavaScript. 
 
 WAMS already ships with support for single-sign-on with social identity providers (e.g Facebook, LiveID), but no support for enterprise providers: Google Apps, Office 365 and Active Directory; or even custom SQL user databases. Even for social providers, it currently doesn't allow finer grain control on what information the user has to consent to disclose. 
