@@ -11,7 +11,7 @@ author:
 
 {% excerpt %} 
 
-**UPDATE: This article is a bit old at this point. Please refer to this tutorial to get an idea of how to integrate with Windows Azure Mobile Services. <https://docs.auth0.com/wams>**
+**UPDATE: This article is a bit old at this point. Please refer to this tutorial for an updated version of the Windows Azure Mobile Services integration: <https://docs.auth0.com/wams>**
 
 [Windows Azure Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/) (WAMS) is a really neat technology by Microsoft to get you started very quickly with simple mobile apps. It's a _"Mobile Backend as a Service"_. It also provides a nice extensibility model for more advanced scenarios with server-side JavaScript. 
 
