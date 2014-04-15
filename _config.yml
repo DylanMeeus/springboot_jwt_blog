@@ -6,6 +6,7 @@ permalink: pretty
 pygments:  true
 excerpt_separator: '<!-- more -->'
 baseurl: '/blog'
+encoding: utf-8
 only_first_p:
   show_read_more_link: true
   read_more_link_text: 'Read more'
