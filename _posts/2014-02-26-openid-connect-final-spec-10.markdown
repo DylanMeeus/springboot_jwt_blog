@@ -11,7 +11,7 @@ author:
 ---
 
 
-<img src="http://openid.bitbucket.org/openid_connect.png" style="width: 225px; margin-left: 30px; display: block;float:right">
+<img src="https://s3.amazonaws.com/blog.auth0.com/openid_connect.png" style="width: 225px; margin-left: 30px; display: block;float:right">
 
 [OpenID Connect](http://openid.net/connect/) final specs 1.0 were [published today](http://techcrunch.com/2014/02/26/openid-foundation-launches-openid-connect-identity-protocol-with-support-from-google-microsoft-others/)! This is a milestone for the identity community and we are happy to have been part of its development.
 
