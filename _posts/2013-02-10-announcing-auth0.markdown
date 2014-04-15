@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing Auth0"
 date: 2013-02-10 10:00
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url:  http://www.twitter.com/eugenio_pace
@@ -10,7 +10,6 @@ author:
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %} 
 
 We are very excited to announce [Auth0 (AuthZero)](http://www.auth0.com).
 
@@ -20,8 +19,8 @@ Auth0 allows developers to easily connect their apps with common enterprise iden
 
 We offer automated on-boarding and setup, single-sign-on, a uniform and simple to use API for querying user directories, and logging and auditing.
 
-![](/img/auth0-hilevel-arch.png)
+![](https://s3.amazonaws.com/blog.auth0.com/img/auth0-hilevel-arch.png)
 
 Auth0 is offered as a service, but supports multi-modal deployments: runs in the public cloud, private cloud or as a software appliance on-premises.
 
-{% endexcerpt %} 
+<!-- more -->

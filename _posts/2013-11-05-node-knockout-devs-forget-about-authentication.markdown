@@ -3,28 +3,27 @@ published: "true"
 layout: post
 title: Node Knockout Devs - Forget about Authentication!
 date: "2013-11-06 10:30"
-author: 
+author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
-{% excerpt %} 
 
-Node Knockout is a 48-hour hackathon where devs across the world gather in teams and implement an application using node.js. 
+Node Knockout is a 48-hour hackathon where devs across the world gather in teams and implement an application using node.js.
 
 The knockout time goes really fast. Don't waste time on things that are not the core of your idea.
 
 **Auth0 takes authentication out of your way**. Auth0 allows you to connect with [+10 identity providers](https://docs.auth0.com/identityproviders): Amazon, Google, Facebook, Twitter, LiveID, GitHub, 37Signals, PayPal, LinkedIn, Yandex, Fitbit. It also provides a ready to use **username/password** store (including signup and forgot password flow). It all works out of the box with just a few lines of code.
 
-<div style="text-align:center"><img src="/img/login-widget.gif" alt="Auth0 Login Widget"></div>
+<div style="text-align:center"><img src="https://s3.amazonaws.com/blog.auth0.com/img/login-widget.gif" alt="Auth0 Login Widget"></div>
 
 ## Quick Start in 3 easy steps:
 
 ###1. <a href="javascript: widget.show()">Create a free account in Auth0</a>
 
-{% endexcerpt %} 
+<!-- more -->
 
 ###2. Add code to your app
 Add the following code to your HTML and node app:
@@ -68,7 +67,7 @@ app.configure(function() {
   app.use('/api', authenticate);
 });
 
-app.post('/api/foo', 
+app.post('/api/foo',
   function(req, res) {
     // req.user will have all the user attributes
     res.send(200);
@@ -82,8 +81,8 @@ Once the user is logged in, you can call your APIs sending the token in the Auth
 
 	$.ajaxSetup({
 	  'beforeSend': function(xhr) {
-		if ($.cookie('id_token')) {        
-	      xhr.setRequestHeader('Authorization', 
+		if ($.cookie('id_token')) {
+	      xhr.setRequestHeader('Authorization',
 	       		'Bearer ' + $.cookie('id_token'));
 	    }
 	  }
@@ -109,7 +108,7 @@ Happy Noding!
 <script type="text/javascript">
     var widget = new Auth0Widget({
         domain:       'auth0.auth0.com',
-        clientID:     'zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 
+        clientID:     'zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI',
         callbackURL:  'https://app.auth0.com/callback'
     });
 </script>

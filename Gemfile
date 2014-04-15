@@ -1,12 +1,5 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'eventmachine', '>=1.0.0.beta.2'
-gem 'liquid', '~>2.3.0'
-gem 'RedCloth'
-gem 'jekyll', '=0.11.2'
-gem 'jekyll_ext'
-gem 'maruku'
-gem 'rdiscount'
-gem 'rack', "= 1.1.0"
-gem 'rack-contrib'
-gem 'thin'
+gem 'jekyll', '1.5.1'
+gem 'psych', '~> 2.0.5'
+gem 'rdiscount', '~> 2.1.7.1'

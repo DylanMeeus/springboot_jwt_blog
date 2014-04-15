@@ -2,32 +2,31 @@
 layout: post
 title: "Auth0 adds support for LinkedIn, PayPal, GitHub, Twitter and Facebook"
 date: 2013-04-02 10:00
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %} 
 
 If your app uses Auth0 for authenticating users, adding SSO with LinkedIn, PayPal, GitHub, Twitter and Facebook is just a click away:
 
-![SSO LinkedIn PayPal Twitter Facebook](/img/auth0-li-pp-gh-tw-fb.png)
+![SSO LinkedIn PayPal Twitter Facebook](https://s3.amazonaws.com/blog.auth0.com/img/auth0-li-pp-gh-tw-fb.png)
 
 Each provider configuration page will allow you to fine tune the information you'd like your customers to disclose. As an example, when selecting PayPal you can choose to request:
 
-{% endexcerpt %} 
+<!-- more -->
 
-![SSO PayPal](/img/auth0-paypal.png)
+![SSO PayPal](https://s3.amazonaws.com/blog.auth0.com/img/auth0-paypal.png)
 
 Facebook is particularly prolific in profile scopes, but we've added explanations to each one to help you choose the right ones:
 
-![SSO PayPal](/img/auth0-fb.png)
+![SSO PayPal](https://s3.amazonaws.com/blog.auth0.com/img/auth0-fb.png)
 
 Registration of apps with each of these providers is different and sometimes difficult to find online. We've documented all of them, accesible right from each configuration screen:
 
-![SSO GitHub](/img/auth0-github.png)
+![SSO GitHub](https://s3.amazonaws.com/blog.auth0.com/img/auth0-github.png)
 
 Here's a list for your reference:
 
@@ -39,7 +38,7 @@ Here's a list for your reference:
 
 Finally, the __Auth0 Login Widget__ will show the new connections if you enable them:
 
-![SSO social login widget](/img/auth0-social-login-widget.png)
+![SSO social login widget](https://s3.amazonaws.com/blog.auth0.com/img/auth0-social-login-widget.png)
 
 
 [Try Auth0 yourself!](http://www.auth0.com)

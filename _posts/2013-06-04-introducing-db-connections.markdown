@@ -3,20 +3,19 @@ published: "true"
 layout: post
 title: Introducing Db Connections
 date: "2013-06-04 19:50"
-author: 
+author:
   name: José F. Romaniello
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 
 ---
-{% excerpt %} 
 
 Since we released the beta, one of the things our customers have been telling us, is they want us to support a "username/password" authentication. Auth0 is being used today by two different audiences:
 
-{% endexcerpt %}
+<!-- more -->
 
--   **Cloud apps**: they want to have a single uniform authentication and login analytics, across all the options: social providers, enterprise providers (like Google Apps or Active Directory, SAML Providers) and now, username and password. 
+-   **Cloud apps**: they want to have a single uniform authentication and login analytics, across all the options: social providers, enterprise providers (like Google Apps or Active Directory, SAML Providers) and now, username and password.
 
 -   **Organizations**: our enterprise customers, typically have already a dozen (sometimes more) of "identity silos" created for different apps, at different times and they want to consolidate those databases.
 
@@ -25,7 +24,7 @@ Since we released the beta, one of the things our customers have been telling us
 Database Connections works exactly like "Custom Connections" but with some advantages:
 
 -   you don't have to deploy another application
--   seamless widget integration 
+-   seamless widget integration
 -   a whole set of templates for your needs
 -   develop, try and debug in the cloud without needing to install any tool
 

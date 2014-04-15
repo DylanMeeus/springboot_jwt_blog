@@ -1,19 +1,18 @@
 ---
 published: "true"
 layout: post
-title: Closing 2013 - Update on Auth0 
+title: Closing 2013 - Update on Auth0
 date: "2013-12-28 10:30"
-author: 
+author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
-{% excerpt %} 
 
-For the last few months, we've been working on many new features and improvements to the platform. 
-We have reached **1700+ subscribers** to our service, and there are now many companies using the private cloud/on-premises appliance daily. Thanks for your support, feedback and business! 
+For the last few months, we've been working on many new features and improvements to the platform.
+We have reached **1700+ subscribers** to our service, and there are now many companies using the private cloud/on-premises appliance daily. Thanks for your support, feedback and business!
 
 As this first year closes for us, we wanted to share some of the highlights of Auth0, and the functionality we've added in these past months:
 
@@ -30,7 +29,7 @@ As this first year closes for us, we wanted to share some of the highlights of A
   <li><a href="#10">10. A Robust online infrastructure</a></li>
 </ol>
 
-{% endexcerpt %} 
+<!-- more -->
 
 ---
 
@@ -56,7 +55,7 @@ Auth0 lets you outsource the authentication by relying on the built-in user/pass
 
 [![outsource users and password](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/database.gif)](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/database.gif)
 
-We provide templates to connect with SQL Server Membership, SQL Azure, Mongo, MySQL, Postgress, among many other options. 
+We provide templates to connect with SQL Server Membership, SQL Azure, Mongo, MySQL, Postgress, among many other options.
 
 ---
 
@@ -103,7 +102,7 @@ In addition to that, you can now [associate multiple accounts](https://docs.auth
 
 <a name="8"></a>
 ### 8. Waste no time remembering passwords
-Your team is using New Relic, Zendesk, CloudBees, Amnazon Web Services, Salesforce, Echosign, Office365, Google Apps and other great apps. However, each of them might require another user and password to remember. 
+Your team is using New Relic, Zendesk, CloudBees, Amnazon Web Services, Salesforce, Echosign, Office365, Google Apps and other great apps. However, each of them might require another user and password to remember.
 
 Auth0 easily integrates with __+1000 of apps__ that are SAML, WS-Fed or OAuth capable. You will enter your password once in your identity provider of choice (e.g. GitHub, Google Apps, Windows Azure AD or regular AD) and will be logged in to all these apps seamlessly.
 
@@ -113,9 +112,9 @@ Auth0 easily integrates with __+1000 of apps__ that are SAML, WS-Fed or OAuth ca
 
 <a name="9"></a>
 ### 9. Deploy Auth0 Anywhere
-Need a private deployment of Auth0? Do you have special privacy requirements? Looking at replacing your current ADFS deployment as you expand your use cases? 
+Need a private deployment of Auth0? Do you have special privacy requirements? Looking at replacing your current ADFS deployment as you expand your use cases?
 
-We ship the same awesome user experience we have with the Auth0 service with the __Auth0 Appliance__. We can run on-premises, or in any of the popular hosting environments: Amazon Web Services, Windows Azure, Rackspace, DigitalOcean, Joyent and others. 
+We ship the same awesome user experience we have with the Auth0 service with the __Auth0 Appliance__. We can run on-premises, or in any of the popular hosting environments: Amazon Web Services, Windows Azure, Rackspace, DigitalOcean, Joyent and others.
 
 [![appliance](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/6qEyXQC65J.png)](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/6qEyXQC65J.png)
 

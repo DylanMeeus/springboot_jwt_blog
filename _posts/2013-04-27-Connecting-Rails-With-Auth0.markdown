@@ -2,14 +2,13 @@
 layout: post
 title: "Connecting Rails With Auth0"
 date: 2013-04-27 10:15
-author: 
+author:
   name: Ezequiel Morito
   mail: ezequiel@auth0.com
   url: https://github.com/ezequielm
   avatar: https://secure.gravatar.com/avatar/6c62cc9e6d7c17e49debf1bc3755fe3a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
 ---
 
-{% excerpt %}
 
 We have good news for our colleagues developing on Ruby. Last week we relased the [Auth0 OmniAuth Strategy](https://github.com/auth0/ruby-auth0) that makes it a bliss to connect Ruby apps with Auth0.
 
@@ -17,9 +16,9 @@ We have good news for our colleagues developing on Ruby. Last week we relased th
 
 Once you connect to Auth0, you can automagically accept users from __anywhere__: LDAP, AD, SQL, Office365, Google Apps, LiveID, Facebook, Twitter, PayPal, LinkedIn, etc.
 
-{% endexcerpt %}
+<!-- more -->
 
-![](/img/ruby-tutorial.png)
+![](https://s3.amazonaws.com/blog.auth0.com/img/ruby-tutorial.png)
 
 All you need is a couple steps to get it running in your app:
 
@@ -60,8 +59,8 @@ Update the callback routes in the `routes.rb` under `config` folder:
 	match "auth/failure" => "callback#failure"
 
 
-You are essentially done! 
+You are essentially done!
 
 Complete tutorial is available [here](https://docs.auth0.com/rails-tutorial). As with other tutorials, all parameters (e.g. ClientID, ClientSecret, etc.) will be replaced in the docs automagically with your own settings if you are signed up with Auth0.
- 
+
 [Try Auth0 yourself!](http://www.auth0.com)

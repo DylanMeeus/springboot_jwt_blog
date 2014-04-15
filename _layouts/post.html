@@ -6,19 +6,19 @@ layout: default
     .banner{display: none;}
     header.site-header{border-bottom: 1px solid #f1f1f1;}
 </style>
-<div class="blog-post blog-single"> 
+<div class="blog-post blog-single">
     <div class="inner">
         <h1 class="entry-title">
-            <a href="{{page.author.url}}" class="author"><img src="{{page.author.avatar}}" width="68" height="68"></a>
-            <a href="{{page.url}}" title="Published: {{ page.date | date: "%B %d, %Y" }}">{{ page.title }}</a>
+            <a href="{{ site.baseurl }}{{page.author.url}}" class="author"><img src="{{page.author.avatar}}" width="68" height="68"></a>
+            <a href="{{ site.baseurl }}{{page.url}}" title="Published: {{ page.date | date: "%B %d, %Y" }}">{{ page.title }}</a>
         </h1>
-        
+
         {% include entry_metadata.html %}
-        
+
         <div class="entry-content" >
         {{ content }}
         </div>
-        
+
 
 
         <div class="try-banner">
@@ -39,10 +39,10 @@ layout: default
                 /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
                    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
             </style>
-    
+
             <div id="mc_embed_signup">
                 <form action="http://auth0.us5.list-manage1.com/subscribe/post?u=688e8ef231ecb91a2a7481f8f&amp;id=54dd603851" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-                    
+
                     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required=""><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_688e8ef231ecb91a2a7481f8f_54dd603851" value=""></div>

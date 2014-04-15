@@ -11,11 +11,10 @@ author:
 
 ## Introduction
 
-{% excerpt %}
 
 Authentication in realtime frameworks can be challenging. Perhaps this is because the way these systems work is quite different from a regular web app. The risk of not correctly authenticating your sockets traffic is that you could end up sniffing information on other users streams. **The socket server will not automagically know about the logged-in user, thus anyone could join any stream**.
 
-{% endexcerpt %}
+<!-- more -->
 
 This first diagram shows this common misconception:
 

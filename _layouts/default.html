@@ -20,7 +20,7 @@
     {% endif %}
 
     {% if page.url %}
-    <link rel="canonical" href="http://blog.auth0.com{{page.url | replace:'index.html',''}}" />
+    <link rel="canonical" href="{{ site.baseurl }}{{page.url | replace:'index.html',''}}" />
     {% endif %}
 
     <link rel="shortcut icon" href="https://auth0.com/boot/img/favicon.png">
@@ -29,7 +29,7 @@
 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://www.auth0.com/app.css" />
-    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css" />
 </head>
 <body>
 
@@ -72,7 +72,7 @@
 
     <div class="banner">
         <div class="container banner-container">
-            
+
             <i class="icon-budicon-697"></i>
             <h1>Blog</h1>
             <p>Company Updates & Technology Articles </p>
@@ -172,7 +172,7 @@ window.show_widget_demo = function() {
     enableADRealmDiscovery: false
   });
 }
-  
+
 
 
 
@@ -186,22 +186,22 @@ window.show_widget_demo = function() {
     });
 
     $.fn.isOnScreen = function(){
-        
+
         var win = $(window);
-        
+
         var viewport = {
             top : win.scrollTop(),
             left : win.scrollLeft()
         };
         viewport.right = viewport.left + win.width();
         viewport.bottom = viewport.top + win.height();
-        
+
         var bounds = this.offset();
         bounds.right = bounds.left + this.outerWidth();
         bounds.bottom = bounds.top + this.outerHeight();
-        
+
         return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-        
+
     };
     </script>
 

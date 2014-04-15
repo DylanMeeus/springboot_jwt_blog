@@ -2,14 +2,13 @@
 layout: post
 title: "SSO with Dropbox. Only a checkbox away"
 date: 2013-05-22 7:09
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %}
 
 We keep adding great apps to Auth0's portfolio. You can now setup SSO with [Dropbox](http://www.dropbox.com) in just a few simple steps.
 
@@ -19,15 +18,15 @@ As usual, any of our [supported Identity Providers](https://docs.auth0.com/ident
 
 Like other services, Dropbox implements the SAML Protocol for authentication and identity federation. Auth0 bridges SAML-P with whatever your preferred Identity Provider implements: SAML, OAuth 1, OAuth 2, LDAP, a SQL database, __anything__.
 
-{% endexcerpt %}
+<!-- more -->
 
-![](/img/dropbox-architecture.png)
+![](https://s3.amazonaws.com/blog.auth0.com/img/dropbox-architecture.png)
 
 ##Setup
 
 Configuring Dropbox in Auth0 is reduced to a single checkbox: __enable__. That's all you need to do.
 
-![](/img/dropbox-auth0-setup.png)
+![](https://s3.amazonaws.com/blog.auth0.com/img/dropbox-auth0-setup.png)
 
 After you enable it, you will need to complete the configuration on Dropbox. Just follow the instructions on the same page where you enabled it. You need two parameters:
 

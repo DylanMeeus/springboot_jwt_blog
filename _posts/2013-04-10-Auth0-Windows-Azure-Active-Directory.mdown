@@ -2,15 +2,14 @@
 layout: post
 title: "Why Windows Azure AD is important and how Auth0 works with it"
 date: 2013-04-10 18:00
-author: 
+author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
-  
+
 ---
 
-{% excerpt %}
 
 This week Microsoft announced the general availability of Windows Azure Active Directory (read [ScottGu](http://weblogs.asp.net/scottgu/archive/2013/04/08/windows-azure-active-directory-general-availability-new-backup-service-web-site-monitoring-and-diagnostic-improvements.aspx), [Vittorio](http://www.cloudidentity.com/blog/2013/04/08/windows-azure-active-directory-reaches-general-availability/) and [Alex](http://blogs.msdn.com/b/windowsazure/archive/2013/04/08/windows-azure-active-directory-ready-for-production-with-over-265-billion-authentications-amp-2-5-million-organizations-served.aspx) for the official word). We are _very_ happy to see this milestone happening. We've been privileged to have been working with their team for quite some time now, and we think it is great news for the identity community. Congrats again on the release! This opens lots of opportunities for developers.
 
@@ -24,21 +23,21 @@ But what exactly is Azure AD? It [is _not_ a Domain Controller](http://weblogs.a
 
 ## How does Auth0 work with Azure AD?
 
-On our side, we've just completed the integration of Windows Azure AD in Auth0, and it is already enabled for our customers. 
+On our side, we've just completed the integration of Windows Azure AD in Auth0, and it is already enabled for our customers.
 
 <p class="small-image">
-  <a href="/img/waad-auth0-diagram.png" target="_blank"><img src="/img/waad-auth0-diagram.png" alt="Auth0 Windows Azure Active Directory Diagram"></a>
+  <a href="https://s3.amazonaws.com/blog.auth0.com/img/waad-auth0-diagram.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/img/waad-auth0-diagram.png" alt="Auth0 Windows Azure Active Directory Diagram"></a>
 </p>
 
 This means you can integrate your app with a single standard API and you will now enjoy easy access to Windows Azure AD and the rest of the identities we support: **Google Apps**, **on-premises Active Directory** **with** and **without** **ADFS**, user accounts stored in **SQL databases**, **Facebook**, **GitHub**, **LinkedIn**, **Twitter**, **PayPal**, etc.
 
 <p class="small-image">
-  <a href="/img/waad-2.png" target="_blank"><img src="/img/waad-2.png" alt="Windows Azure Active Directory configuration on Auth0 dashboard"></a>
+  <a href="https://s3.amazonaws.com/blog.auth0.com/img/waad-2.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/img/waad-2.png" alt="Windows Azure Active Directory configuration on Auth0 dashboard"></a>
 </p>
 
 In summary, with Auth0 you get:
 
-{% endexcerpt %}
+<!-- more -->
 
 ###1. Support for ANY kind of app
 
@@ -54,7 +53,7 @@ Here is an example for iOS:
     [client showInViewController:self allowsClose:NO withCompletionHandler:^(BOOL authenticated)
 
 
-Auth0 uses a non-intrusive, standard, small footprint approach for identity integration that works with any identity provider. If you are working on a platform not listed above, take into account that anything that talks HTTP(s) can connect with Auth0. 
+Auth0 uses a non-intrusive, standard, small footprint approach for identity integration that works with any identity provider. If you are working on a platform not listed above, take into account that anything that talks HTTP(s) can connect with Auth0.
 
 ###2. Sign up companies with the Provisioning Widget
 
@@ -69,19 +68,19 @@ This single line of code will display the __Auth0 Provisioning Widget__ on your 
 Here is how it would look (you would probably fire this from the control panel of your app)
 
 <p class="small-image">
-  <a href="/img/waad-provisioning.png" target="_blank"><img src="/img/waad-provisioning.png" alt="Provisioning Widget to easily create connections with Windows Azure AD"></a>
+  <a href="https://s3.amazonaws.com/blog.auth0.com/img/waad-provisioning.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/img/waad-provisioning.png" alt="Provisioning Widget to easily create connections with Windows Azure AD"></a>
 </p>
 
 This provides an easy way to add Single Sign On capability to your enterprise customers. You can also control the full user experience using the provisioning API instead of the widget.
 
 ###3. Query users from any provider
 
-Once the organization/s have been provisioned through Auth0, you can query users of those organiztions through the __Auth0 Users API__. A very simple to use abstraction on a "Directory". Azure AD Graph API is of course different from Google Apps, or (on-premises) AD, or a Membership database. And [social logins](http://blog.auth0.com/2013/04/02/Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook/) like LinkedIn, Google or Facebook; have no direct notion of a "Directory", but they do have equivalent concepts that bind people together (e.g. Friends, Contacts, Network). 
+Once the organization/s have been provisioned through Auth0, you can query users of those organiztions through the __Auth0 Users API__. A very simple to use abstraction on a "Directory". Azure AD Graph API is of course different from Google Apps, or (on-premises) AD, or a Membership database. And [social logins](http://blog.auth0.com/2013/04/02/Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook/) like LinkedIn, Google or Facebook; have no direct notion of a "Directory", but they do have equivalent concepts that bind people together (e.g. Friends, Contacts, Network).
 
 This is Auth0 API explorer and we just did a `GET` on `/connections/yourganization2.onmicrosoft.com/users`. We keep the same API for every provider.
 
 <p class="small-image">
-  <a href="/img/waad-api.png" target="_blank"><img src="/img/waad-api.png" alt="Uniform Users API across providers"></a>
+  <a href="https://s3.amazonaws.com/blog.auth0.com/img/waad-api.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/img/waad-api.png" alt="Uniform Users API across providers"></a>
 </p>
 
 ###4. Native support for SharePoint, RMS, CRM, WAMS
@@ -95,7 +94,7 @@ Connecting these apps with Azure AD is fully automated and straight forward. It 
 If you are you building a mobile app on iOS or Android or Windows based devices, then again; authenticating users in Azure AD is readily available:
 
 <p class="small-image">
-  <a href="/img/waad-mobile.png" target="_blank"><img src="/img/waad-mobile.png" alt="Mobile Authentication with Windows Azure AD"></a>
+  <a href="https://s3.amazonaws.com/blog.auth0.com/img/waad-mobile.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/img/waad-mobile.png" alt="Mobile Authentication with Windows Azure AD"></a>
 </p>
 
 And if you enable the Azure Mobile Services add-on, we'll issue a token (JWT) compatible with it.

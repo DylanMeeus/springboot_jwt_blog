@@ -1,8 +1,8 @@
 <article class="hentry">
 	<h2 class="entry-title">
     <a href="{{page.author.url}}" class="author"><img src="{{page.author.avatar}}" width="68" height="68"></a>
-  	<a rel="bookmark" title="Permalink to {{ page.title }}" 
-		href="{{ page.url }}">
+  	<a rel="bookmark" title="Permalink to {{ page.title }}"
+		href="{{ site.baseurl }}{{ page.url }}">
 		{{ page.title }}</a>
 	</h2>
 	{% include entry_metadata.html %}
@@ -12,15 +12,15 @@
   	<div class="entry-utility">
   		<span class="cat-links">Posted in
   		{% for tag in page.tags %}
-		  	<a href="/tag/{{tag}}" rel="nofollow">{{tag}}</a>
+		  	<a href="{{ site.baseurl }}/tag/{{tag}}" rel="nofollow">{{tag}}</a>
 			{% endfor %}
-  		</span> 
-  		
-  		<span class="meta-sep meta-sep-tag-links">|</span> 
-  		
+  		</span>
+
+  		<span class="meta-sep meta-sep-tag-links">|</span>
+
   		<span class="comments-link">
-  			<a title="Comment on PsWatch: {{ page.title }}" 
-  				href="http://blog.qraftlabs.com{{ page.url }}#disqus_thread">0 Comments and 0 Reactions</a>
+  			<a title="Comment on {{ page.title }}"
+  				href="{{ site.baseurl }}{{ page.url }}#disqus_thread">0 Comments and 0 Reactions</a>
   		</span>
   	</div>
 </article>

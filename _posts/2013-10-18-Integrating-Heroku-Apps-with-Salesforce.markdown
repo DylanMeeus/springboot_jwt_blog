@@ -3,14 +3,13 @@ published: "true"
 layout: post
 title: Integrating Heroku Apps with Salesforce
 date: "2013-10-18 19:50"
-author: 
+author:
   name: José F. Romaniello
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 ---
 
-{% excerpt %} 
 
 In this post, I'll show you how easy it is with Auth0 to get an app running on Heroku, authenticating users with Google, Salesforce and more traditional Usernames & Passwords.
 
@@ -18,9 +17,9 @@ In this post, I'll show you how easy it is with Auth0 to get an app running on H
 
 Auth0 ships SDKs for all popluar dev platforms, but for this tutorial I will use a very simple node.js application. If you are a Rails developer, check out our [Rails tutorial](https://devcenter.heroku.com/articles/auth0#using-with-rails)
 
-I'll also use __OpenID Connect__ as the underlying protocol. 
+I'll also use __OpenID Connect__ as the underlying protocol.
 
-{% endexcerpt %}
+<!-- more -->
 
 ## Provision Auth0 add-on in Heroku
 
@@ -45,12 +44,12 @@ Because we are using node.js we will use `Passport` as the authenitcation middle
 
     npm install passport passport-auth0 --save
 
-Add a new module called `setup_passport.js` with the following content: 
+Add a new module called `setup_passport.js` with the following content:
 
     var passport = require('passport');
     var Auth0Strategy = require('passport-auth0');
 
-    var strategy = new Auth0Strategy({  
+    var strategy = new Auth0Strategy({
         domain: process.env['AUTH0_DOMAIN'],
         clientID: process.env['AUTH0_CLIENT_ID'],
         clientSecret: process.env['AUTH0_CLIENT_SECRET'],
@@ -64,14 +63,14 @@ Add a new module called `setup_passport.js` with the following content:
 
     // you can use this section to keep a smaller payload
     passport.serializeUser(function(user, done) {
-      done(null, user); 
+      done(null, user);
     });
 
     passport.deserializeUser(function(user, done) {
       done(null, user);
     });
 
-    module.exports = strategy; 
+    module.exports = strategy;
 
 > Notice the __process.env[...]__ calls? These are just retrieving the config parameters from the __.env__ file.
 
@@ -90,8 +89,8 @@ Next step is to configure our express app:
     });
 
     // Auth0 callback handler
-    app.get('/callback', 
-      passport.authenticate('auth0'), 
+    app.get('/callback',
+      passport.authenticate('auth0'),
       function(req, res) {
         res.redirect("/");
       });
@@ -100,7 +99,7 @@ Next step is to configure our express app:
       res.render('home', {
         user: req.user, //use this to display user information
         env: process.env
-      }) 
+      })
     });
 
 ## Add Auth0 Login Widget
@@ -167,7 +166,7 @@ Suppose now you need your app to work with Salesforce's API. Since you are alrea
       });
     });
 
-This endpoint does a POST to the chatter feed of the first group using [Salesforce's Chatter API](http://www.salesforce.com/us/developer/docs/chatterapi/) and redirects back to the home page. I wrote a very small wrapper of Salesforce REST API [here](https://github.com/auth0/heroku-salesforce/blob/master/lib/salesforce.js). 
+This endpoint does a POST to the chatter feed of the first group using [Salesforce's Chatter API](http://www.salesforce.com/us/developer/docs/chatterapi/) and redirects back to the home page. I wrote a very small wrapper of Salesforce REST API [here](https://github.com/auth0/heroku-salesforce/blob/master/lib/salesforce.js).
 
 The result is this:
 

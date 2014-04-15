@@ -2,14 +2,13 @@
 layout: post
 title: "SSO to Cloud Apps (Salesforce, Zendesk, etc) through Windows Azure Active Directory and Auth0"
 date: 2013-06-05 21:15
-author: 
+author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
-{% excerpt %}
 
 In case you missed it, this week at TechEd, Microsoft announced many changes to the Azure Platform. See [Scott Gu](http://weblogs.asp.net/scottgu/archive/2013/06/03/windows-azure-announcing-major-improvements-for-dev-test-in-the-cloud.aspx) post for details.
 
@@ -21,7 +20,7 @@ This is another great piece of news. Why? Keep reading.
 
 But as I wrote in this [previous post](http://blog.auth0.com/2013/04/10/Auth0-Windows-Azure-Active-Directory/), WAAD is _not exactly_ an Active Directory that you can join machines to. It is more like a combination of AD and ADFS with a more modern API to query the directory. With this new addition you don't needed ADFS on presmises, so it's a very quick deployment.
 
-{% endexcerpt %}
+<!-- more -->
 
 ## Configure Windows Azure Active Directory
 

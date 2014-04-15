@@ -10,13 +10,12 @@ author:
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
-{% excerpt %}
 
 <img src="http://alfanatic.webs.com/alfpogs.jpg" style="width: 225px; margin-left: 30px; display: block;float:right">
 
 Couple weeks ago we published a short article about [cookies vs tokens in the context of single page applications](/2014/01/07/angularjs-authentication-with-cookies-vs-token/), in particular applied to AngularJs apps. It seems the community is interested in this topic, so we published a second article on [token based authentication in realtime frameworks like socket.io](/2014/01/15/auth-with-socket-io/). There is a great interest in this subject so we decided to continue with an article that explores in more detail some of the most common questions around token-based authentication. So here we go...
 
-{% endexcerpt %}
+<!-- more -->
 
 <ol>
   <li><a href="#token-storage">Tokens need to be stored somewhere (local/session storage or cookies)</a></li>

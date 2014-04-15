@@ -2,14 +2,13 @@
 layout: post
 title: "Much better insights into your users"
 date: 2013-10-4 8:15
-author: 
+author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
-{% excerpt %}
 
 We recently released a much improved visualization for Auth0's user log. Auth0 keeps track of many important events related to your users activity: successful logins, unsuccessful attempts, date & time of access, location, OS & browser version, among others.
 
@@ -19,7 +18,7 @@ Here's a quick demo:
 
 ![](https://dl.dropboxusercontent.com/s/mtj2ytwetqjowys/user-details.gif)
 
-{% endexcerpt %}
+<!-- more -->
 
 The Users section is also the launchpad for a number of actions you can perform:
 

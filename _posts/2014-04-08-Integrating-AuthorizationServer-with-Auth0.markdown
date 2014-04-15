@@ -13,7 +13,6 @@ A guest post from identity expert Dominick Baier. Cross posted on [leastprivileg
 
 ---
 
-{% excerpt %}
 
 [AuthorizationServer](https://github.com/thinktecture/Thinktecture.AuthorizationServer) is a lightweight OAuth2 implementation that is designed to integrate with arbitrary identity management systems. I wrote about integration with Thinktecture [IdentityServer](http://leastprivilege.com/2013/06/18/authentication-in-authorizationserver/), [ADFS](http://leastprivilege.com/2013/09/19/adding-oauth2-to-adfs-and-thus-bridging-the-gap-between-modern-applications-and-enterprise-back-ends/) and even plain Windows integrated [authentication](http://leastprivilege.com/2014/01/11/combining-thinktecture-authorizationserver-with-windows-integrated-authentication/) before.
 
@@ -21,7 +20,7 @@ Another really compelling and feature rich identity management is [Auth0](https:
 
 Here’s what I had to do to integrate AuthorizationServer with Auth0.
 
-{% endexcerpt %}
+<!-- more -->
 
 ---
 
@@ -136,7 +135,7 @@ The above endpoint will return an OpenID Connect style JWT identity token. With 
         string issuer = “https://leastprivilege.auth0.com/&#8221;;
         string client_id = “wU…6x”;
         string client_secret = “j6a…Z9″;
-     
+
         public ClaimsPrincipal Validate(string userName, string password)
         {
             var client = new Thinktecture.IdentityModel.Client.OAuth2Client(
@@ -144,7 +143,7 @@ The above endpoint will return an OpenID Connect style JWT identity token. With 
                 client_id,
                 client_secret,
                 OAuth2Client.ClientAuthenticationStyle.PostValues);
-     
+
             var response = client.RequestResourceOwnerPasswordAsync(
                 userName,
                 password,
@@ -153,8 +152,8 @@ The above endpoint will return an OpenID Connect style JWT identity token. With 
                 {
                     { “connection”, “Username-Password-Authentication” }
                 }).Result;
-     
-     
+
+
             if (!response.IsError)
             {
                 return FederatedAuthentication.FederationConfiguration
@@ -162,14 +161,14 @@ The above endpoint will return an OpenID Connect style JWT identity token. With 
                                                 .ClaimsAuthenticationManager
                                                 .Authenticate(“”, ValidateIdentityToken(response.IdentityToken));
             }
-     
+
             throw new InvalidOperationException(response.Error);
         }
-     
+
         private ClaimsPrincipal ValidateIdentityToken(string identityToken)
         {
             var handler = new JwtSecurityTokenHandler();
-              
+
             var parameters = new TokenValidationParameters
             {
                 AllowedAudience = client_id,
@@ -177,7 +176,7 @@ The above endpoint will return an OpenID Connect style JWT identity token. With 
                 SigningToken = new BinarySecretSecurityToken(
                   Base64Url.Decode(client_secret))
             };
-     
+
             return handler.ValidateToken(identityToken, parameters);
         }
     }

@@ -7,19 +7,18 @@ author:
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
-tags: 
+tags:
 - Google Apps
 ---
 
-{% excerpt %}
 
-We are moving from the deprectad [Google Apps Provisioning API](https://developers.google.com/google-apps/provisioning/) to the new [Google Apps Directory API](https://developers.google.com/admin-sdk/directory/). 
+We are moving from the deprectad [Google Apps Provisioning API](https://developers.google.com/google-apps/provisioning/) to the new [Google Apps Directory API](https://developers.google.com/admin-sdk/directory/).
 
 __This will affect you only if you are using Google Apps and the `/users` endpoints of Auth0.
 
-{% endexcerpt %}
+<!-- more -->
 
-Google Apps Provisioning API has been deprectated few months ago, on the other hand the new API has some advantages like providing a public link for the profile photo and having more granular scopes. 
+Google Apps Provisioning API has been deprectated few months ago, on the other hand the new API has some advantages like providing a public link for the profile photo and having more granular scopes.
 
 __Previously permisive scope:__
 

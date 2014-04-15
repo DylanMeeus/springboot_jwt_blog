@@ -2,14 +2,13 @@
 layout: post
 title: "See you at TechEd US 2013!"
 date: 2013-06-02 14:42
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %} 
 
 Going to [TechEd USA](http://northamerica.msteched.com/) this week? So am I! [Nick Harris](https://twitter.com/cloudnick) was very kind to invite us to his session: [Build Real-World Modern Apps with Windows Azure Mobile Services on Windows Store, Windows Phone or Android](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B338)
 
@@ -18,7 +17,7 @@ _Join me for and in-depth walkthrough of everything you need to know to build an
 
 And you probably guessed it right. I'll be covering the _how to work with custom identity_ with Azure Mobile Services.
 
-{% endexcerpt %}
+<!-- more -->
 
 This is a 300 level session, so come prepared for quite a deep dive! Look forward to meeting you there.
 

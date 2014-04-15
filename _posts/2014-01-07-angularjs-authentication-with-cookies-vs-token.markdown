@@ -10,9 +10,8 @@ author:
   avatar: https://pbs.twimg.com/profile_images/3275858589/fd80792e3615b83c812c27353608ca10_bigger.jpeg
 ---
 
-{% excerpt %}
 
-<img src="/img/poisoned-cookies.jpg" style="width: 400px; margin-left: auto; margin-right: auto; display: block;" />
+<img src="https://s3.amazonaws.com/blog.auth0.com/img/poisoned-cookies.jpg" style="width: 400px; margin-left: auto; margin-right: auto; display: block;" />
 
 ### Introduction
 
@@ -22,7 +21,7 @@ There are basically two different ways of implementing server side authenticatio
 
 * A newer approach, **Token-Based Authentication**, relies on a signed token that is sent to the server on each request.
 
-{% endexcerpt %}
+<!-- more -->
 
 ### Token based vs. Cookie based
 

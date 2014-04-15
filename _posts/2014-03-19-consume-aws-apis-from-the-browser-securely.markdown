@@ -14,11 +14,10 @@ author:
 
 ---
 
-{% excerpt %}
 
 In the past, we've talked about how it's becoming so much easier to write client side apps that are still fully secure thanks to JSON Web Tokens: ([Cookies vs Tokens](blog.auth0.com/2014/01/07/angularjs-authentication-with-cookies-vs-token), [Token-based auth with socket.io](http://blog.auth0.com/2014/01/15/auth-with-socket-io/) and [10 things you should know about tokens](http://blog.auth0.com/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)).
 
-{% endexcerpt %}
+<!-- more -->
 
 In this article, we will show how to use AWS APIs from the client side, without the need to go through a server. The process is illustrated in the following diagram:
 
@@ -53,9 +52,9 @@ After the user is logged in, Auth0 will send you a JSON Web Token (JWT). We then
 
 Here's the code:
 
-      var aws_arns = { 
-          role: 'arn:aws:iam::account_number:role/role_name', 
-          principal: 'arn:aws:iam::account_number:saml-provider/provider_name' 
+      var aws_arns = {
+          role: 'arn:aws:iam::account_number:role/role_name',
+          principal: 'arn:aws:iam::account_number:saml-provider/provider_name'
       };
 
       var aws_creds;
@@ -64,11 +63,11 @@ Here's the code:
       });
 
 
-> The `role` and `principal` are values you get from AWS IAM console. You have to do a one-time configuration to add Auth0 as an identity provider, and create a role and a policy. More details here <https://docs.auth0.com/aws-api-setup>. 
+> The `role` and `principal` are values you get from AWS IAM console. You have to do a one-time configuration to add Auth0 as an identity provider, and create a role and a policy. More details here <https://docs.auth0.com/aws-api-setup>.
 
 As an example, this policy gives permission to do everything on an S3 folder under a bucket. The name of the folder gets resolved at runtime depending on the contents of the JSON Web Token. The `user_id` in the JWT will be replaced as the name of the folder (`${saml:sub}` is a placeholder for the `user_id`).
 
-![](https://docs.auth0.com/img/aws-api-setup-9.png)
+![](https://docs.auth0.comhttps://s3.amazonaws.com/blog.auth0.com/img/aws-api-setup-9.png)
 
 ### 3. Upload file using AWS Session Token
 
@@ -78,9 +77,9 @@ Here we set the `bucket.config.credentials` with the AWS Token we've got on Step
                                                     aws_creds.SecretAccessKey,
                                                     aws_creds.SessionToken);
 
-    bucket.putObject({ Key: folder_prefix + user_id + '/' + file.name, 
-                       ContentType: file.type, 
-                       Body: file, 
+    bucket.putObject({ Key: folder_prefix + user_id + '/' + file.name,
+                       ContentType: file.type,
+                       Body: file,
                        ACL: 'private'}, callback);
 
 We are using the [AWS JavaScript SDK](https://github.com/aws/aws-sdk-js).

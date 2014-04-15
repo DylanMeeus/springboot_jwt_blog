@@ -2,14 +2,13 @@
 layout: post
 title: "SSO with Box"
 date: 2013-06-30 7:09
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %}
 
 Another great app is added to the Auth0's portfolio. You can now setup SSO with [Box](http://www.box.com). As usual, it will take just a few, very simple steps.
 
@@ -19,7 +18,7 @@ Any of our [supported Identity Providers](https://docs.auth0.com/identityprovide
 
 As many others, Box implements the SAML Protocol for authentication and identity federation. Auth0 bridges SAML-P with whatever your preferred Identity Provider implements: SAML, OAuth 1, OAuth 2, LDAP, a SQL database, __anything__.
 
-{% endexcerpt %}
+<!-- more -->
 
 ##Setup
 
@@ -31,11 +30,11 @@ You will need to contact Box support team to enable SAML on your account. To mak
 
 1. The signing certificate.
 2. The EntityID.
-3. The claim that identifies your users. 
+3. The claim that identifies your users.
 4. The redirectURL.
 
 Once configuration is completed on their side, you are done!
 
-We want to thank Arif Shenoy, Nick Lee & Weisen Li from Box, for their help, and great support. 
+We want to thank Arif Shenoy, Nick Lee & Weisen Li from Box, for their help, and great support.
 
 [Try Auth0 yourself!](http://www.auth0.com)

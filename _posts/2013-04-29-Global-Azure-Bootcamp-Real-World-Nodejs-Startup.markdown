@@ -2,18 +2,17 @@
 layout: post
 title: "Global Azure Bootcamp - Content Open Sourced and What's Next..."
 date: 2013-04-29 13:15
-author: 
+author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 ---
 
-{% excerpt %}
 
-### Startup in-a-Box Bootcamp 
+### Startup in-a-Box Bootcamp
 
-In partnership with Microsoft, [NXTP Labs](http://www.nxtplabs.com/), [Mural.ly](http://mural.ly) and [Ideame](http://idea.me), [Auth0](http://auth0.com) is very proud to have hosted the the [Global Windows Azure Bootcmap](http://globalwindowsazure.azurewebsites.net) in [Buenos Aires, Argentina](http://azurenodebootcamp.eventbrite.com). 
+In partnership with Microsoft, [NXTP Labs](http://www.nxtplabs.com/), [Mural.ly](http://mural.ly) and [Ideame](http://idea.me), [Auth0](http://auth0.com) is very proud to have hosted the the [Global Windows Azure Bootcmap](http://globalwindowsazure.azurewebsites.net) in [Buenos Aires, Argentina](http://azurenodebootcamp.eventbrite.com).
 
 This is an event that happened simultanesouly around the globe in **93 cities**!
 
@@ -31,16 +30,16 @@ These are some numbers for the day:
    * [Jose Romaniello](http://twitter.com/jfroma) from [Auth0](http://auth0.com)
    * [Sebastian Iacomuzzi](http://twitter.com/sebasiaco) from [Auth0](http://auth0.com)
    * [Fede Jack](http://twitter.com/fedejack) from [Auth0](http://auth0.com)
-   * [Johnny Halife](http://twitter.com/johnnyhalife) from [Mural.ly](http://mural.ly) 
+   * [Johnny Halife](http://twitter.com/johnnyhalife) from [Mural.ly](http://mural.ly)
    * [Juan Pablo Garcia](http://twitter.com/liarjo) from Microsoft
    * [Juan Pablo Garcia](http://twitter.com/jpgd) from [Ideame](http://idea.me)
    * Valentina Milano from Microsoft
-   * [Matias Woloski](http://twitter.com/woloski) from [Auth0](http://auth0.com) 
-   
-{% endexcerpt %}
+   * [Matias Woloski](http://twitter.com/woloski) from [Auth0](http://auth0.com)
 
-Thanks Microsoft for helping with the logistics: venue and food. 
-   
+<!-- more -->
+
+Thanks Microsoft for helping with the logistics: venue and food.
+
 ### Community reaction
 
 Twitter is often a good sensor of how an event is going:
@@ -66,12 +65,12 @@ The best content is the one that people actually use and tweak over time. We dec
 
 ### <https://github.com/auth0/bootcamp-workshop>
 
-<a href="https://github.com/auth0/bootcamp-workshop" target="_blank"><img src="/img/bootcamp-github.png" style="width: 100%"></a>
+<a href="https://github.com/auth0/bootcamp-workshop" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/img/bootcamp-github.png" style="width: 100%"></a>
 
 
 ### Our Vision
 
-Argentina has a vibrant entrepeneur community. There are two accelerators and lots of startups. 
+Argentina has a vibrant entrepeneur community. There are two accelerators and lots of startups.
 
 There's quite a bit of content around the "soft" aspects of building a startup. There are many talks available from successful entrepeneurs, investors. There're meetups on marketing and pitch clinics. There's Palermo Valley. But we felt there were fewer opportunities for technical people to connect and share their experiences.
 
@@ -80,10 +79,10 @@ We often hear questions like:
 * What __options__ do I have for storing data?
 * What are the __pros/cons__ of each option?
 * What are __common mistakes__ people make? How do I __avoid__ them?
-* What does your __build environment__ look like? 
+* What does your __build environment__ look like?
 * What __tools__ you use?
-* How to tell whan something is __hype__ or __real__? 
+* How to tell whan something is __hype__ or __real__?
 
-Given that last Saturday was such a good experience, we asked ourselves: why not do this more often? 
+Given that last Saturday was such a good experience, we asked ourselves: why not do this more often?
 
 So [stay tuned](http://twitter.com/authzero)...we'll have more news to share with you soon.

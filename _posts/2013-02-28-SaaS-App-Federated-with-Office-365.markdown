@@ -2,14 +2,13 @@
 layout: post
 title: "SaaS App Federated with Office 365"
 date: 2013-02-28 10:00
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
-{% excerpt %} 
 
 Auth0 supports many common identity scenarios. One of them is a SaaS app being used by companies with their own identity systems. This is the classic federation scenario.
 
@@ -18,9 +17,9 @@ To illustrate this, lets start by introducing the characters:
 - Fabrikom is a small business, using Office365
 - [MDOCS](http://mdocs.io) is a document sharing app hosted in the cloud
 
-![](/img/auth0-mdocs-0365.png)
+![](https://s3.amazonaws.com/blog.auth0.com/img/auth0-mdocs-0365.png)
 
-{% endexcerpt %} 
+<!-- more -->
 
 There are four challenges here for _MDOCS_:
 
@@ -30,7 +29,7 @@ There are four challenges here for _MDOCS_:
 
 3. How to __query the user directory__ when there is one, so mdocs can implement a "people picker" that is relevant to the organization using the app.
 
-4. How to keep track of who uses what, __for access audit__.  
+4. How to keep track of who uses what, __for access audit__.
 
 ###1. Self-Service on-boarding:
 
