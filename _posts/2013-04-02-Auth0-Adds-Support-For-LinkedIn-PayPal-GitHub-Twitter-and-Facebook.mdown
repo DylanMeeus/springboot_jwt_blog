@@ -41,4 +41,4 @@ Finally, the __Auth0 Login Widget__ will show the new connections if you enable 
 ![SSO social login widget](https://s3.amazonaws.com/blog.auth0.com/img/auth0-social-login-widget.png)
 
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

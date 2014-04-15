@@ -66,4 +66,4 @@ After we have finished the script, the login widget in our site will look like t
 
 Read the [tutorial](https://docs.auth0.com/mysql-connection-tutorial) in our documentation page to get started.
 
-<em>This feature is available in both the enterprise appliance and cloud version. [Try Auth0 yourself!](http://auth0.com)</em>
+<em>This feature is available in both the enterprise appliance and cloud version. [Try Auth0 yourself!](https://auth0.com)</em>

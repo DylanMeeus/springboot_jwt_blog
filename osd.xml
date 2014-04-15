@@ -3,5 +3,5 @@
  <ShortName>Auth0</ShortName>
  <Description>Auth0</Description>
  <Developer>Auth0</Developer>
- <Url type="text/html" method="get" template="http://auth0.com/{{ site.baseurl }}/search/?q={searchTerms}"/>
+ <Url type="text/html" method="get" template="https://auth0.com/{{ site.baseurl }}/search/?q={searchTerms}"/>
 </OpenSearchDescription>

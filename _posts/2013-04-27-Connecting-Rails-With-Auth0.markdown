@@ -63,4 +63,4 @@ You are essentially done!
 
 Complete tutorial is available [here](https://docs.auth0.com/rails-tutorial). As with other tutorials, all parameters (e.g. ClientID, ClientSecret, etc.) will be replaced in the docs automagically with your own settings if you are signed up with Auth0.
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

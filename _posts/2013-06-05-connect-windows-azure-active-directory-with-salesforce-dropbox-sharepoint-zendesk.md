@@ -42,4 +42,4 @@ When you create an Auth0 account, you can go to **Connections** -> **Enterprise*
 
 <div style="text-align: center"><img src="http://blog.auth0.com.s3.amazonaws.com/ss-2013-06-04T20-58-53.png" /></div>
 
-<em>This feature is available in both the enterprise appliance and cloud version. [Try Auth0 yourself!](http://auth0.com)</em>
+<em>This feature is available in both the enterprise appliance and cloud version. [Try Auth0 yourself!](https://auth0.com)</em>

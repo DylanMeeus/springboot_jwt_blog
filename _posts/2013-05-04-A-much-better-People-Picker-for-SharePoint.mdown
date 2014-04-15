@@ -20,7 +20,7 @@ If you enable the __Auth0 People Picker__ you will be able to resolve names and 
 
 ##How does it work?
 
-The __Auth0 People Picker__ uses Auth0's Users API, that offers a uniform, normalized query API across directories and users repositories. (If you have an account with Auth0 you can test this very quickly using the API Explorer. If you don't have an account, [go get one!](http://www.auth0.com)...or read [the docs here](https://docs.auth0.com/api-reference)).
+The __Auth0 People Picker__ uses Auth0's Users API, that offers a uniform, normalized query API across directories and users repositories. (If you have an account with Auth0 you can test this very quickly using the API Explorer. If you don't have an account, [go get one!](https://auth0.com)...or read [the docs here](https://docs.auth0.com/api-reference)).
 
 __Auth0 People Picker__ implements SharePoint's [`SPClaimsProvider` contract](http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.administration.claims.spclaimprovider(v=office.14).aspx):
 
@@ -46,4 +46,4 @@ This is a very short demo of the entire experience:
 
 <iframe width="700" height="394" src="http://www.youtube.com/embed/NP-7wei3e8Q?rel=0" frameborder="0" allowfullscreen></iframe>
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

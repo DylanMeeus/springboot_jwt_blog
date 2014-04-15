@@ -36,4 +36,4 @@ These two are very easily configured with Auth0 dashboard:
 
 Registration of your instance of Auth0 with Amazon is very straightforward and [fully documented](https://docs.auth0.com/amazon-clientid) right were you need it.
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

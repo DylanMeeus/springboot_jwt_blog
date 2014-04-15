@@ -33,4 +33,4 @@ Here's another quick demo:
 
 All this is in production now. Stay tuned for a follow-up post on the Auth0's user store.  Feedback is always welcome. Enjoy!
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

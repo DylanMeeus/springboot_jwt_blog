@@ -27,4 +27,4 @@ And that's it!
 
 Another example of our "just works" approach to identity management in Auth0.
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

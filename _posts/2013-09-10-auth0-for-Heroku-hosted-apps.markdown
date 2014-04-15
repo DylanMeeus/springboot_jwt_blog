@@ -18,4 +18,4 @@ A 3 min video is worth 1,000,000 words. Take a look:
 
 <iframe width="710" height="533" src="//www.youtube.com/embed/Q0MVRgC-ptg?rel=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

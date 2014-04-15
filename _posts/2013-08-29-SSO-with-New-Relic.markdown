@@ -30,4 +30,4 @@ Here's a quick end to end demo that shows login into New Relic with a Github acc
 
 And the best news: __New Relic integration is free for all our editions.__
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

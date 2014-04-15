@@ -42,4 +42,4 @@ In this very short demo you will see SSO open Salesforce with users authenticati
 
 <iframe width="700" height="394" src="http://www.youtube.com/embed/bpJxCcQG4xY?rel=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

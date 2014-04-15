@@ -26,4 +26,4 @@ Here's the entire process in less than 3 minutes:
 
 Notice that authentication with SQL (and MongoDb) is straight forward, but you can actually connect with whatever you want. This video shows an example that uses [edge](https://github.com/tjanczuk/edge) to call .NET code.
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

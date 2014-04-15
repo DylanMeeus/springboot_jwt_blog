@@ -47,4 +47,4 @@ We want to thank the folks at Xamarin for their support and great experience!
 
 The sample image was generated with the awesome [placeit](http://placeit.breezi.com/).
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

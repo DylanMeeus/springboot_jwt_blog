@@ -12,7 +12,7 @@ author:
 
 ### Startup in-a-Box Bootcamp
 
-In partnership with Microsoft, [NXTP Labs](http://www.nxtplabs.com/), [Mural.ly](http://mural.ly) and [Ideame](http://idea.me), [Auth0](http://auth0.com) is very proud to have hosted the the [Global Windows Azure Bootcmap](http://globalwindowsazure.azurewebsites.net) in [Buenos Aires, Argentina](http://azurenodebootcamp.eventbrite.com).
+In partnership with Microsoft, [NXTP Labs](http://www.nxtplabs.com/), [Mural.ly](http://mural.ly) and [Ideame](http://idea.me), [Auth0](https://auth0.com) is very proud to have hosted the the [Global Windows Azure Bootcmap](http://globalwindowsazure.azurewebsites.net) in [Buenos Aires, Argentina](http://azurenodebootcamp.eventbrite.com).
 
 This is an event that happened simultanesouly around the globe in **93 cities**!
 
@@ -27,14 +27,14 @@ These are some numbers for the day:
 * Very high level of satisfaction: **90%** of the attendees rated the event gave at the **highest score**.
 * **6** presentations and Hands on Labs, covering **node.js, mongodb, Windows Azure, Auth0, GitHub and Jenkins**
 * **8** organizers (most of them working on startups) to make sure everyone could get their questions answered:
-   * [Jose Romaniello](http://twitter.com/jfroma) from [Auth0](http://auth0.com)
-   * [Sebastian Iacomuzzi](http://twitter.com/sebasiaco) from [Auth0](http://auth0.com)
-   * [Fede Jack](http://twitter.com/fedejack) from [Auth0](http://auth0.com)
+   * [Jose Romaniello](http://twitter.com/jfroma) from [Auth0](https://auth0.com)
+   * [Sebastian Iacomuzzi](http://twitter.com/sebasiaco) from [Auth0](https://auth0.com)
+   * [Fede Jack](http://twitter.com/fedejack) from [Auth0](https://auth0.com)
    * [Johnny Halife](http://twitter.com/johnnyhalife) from [Mural.ly](http://mural.ly)
    * [Juan Pablo Garcia](http://twitter.com/liarjo) from Microsoft
    * [Juan Pablo Garcia](http://twitter.com/jpgd) from [Ideame](http://idea.me)
    * Valentina Milano from Microsoft
-   * [Matias Woloski](http://twitter.com/woloski) from [Auth0](http://auth0.com)
+   * [Matias Woloski](http://twitter.com/woloski) from [Auth0](https://auth0.com)
 
 <!-- more -->
 

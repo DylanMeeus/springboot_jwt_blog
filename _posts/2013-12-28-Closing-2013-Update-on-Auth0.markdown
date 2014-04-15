@@ -126,7 +126,7 @@ ASCII art FTW!
 ### 10. A Robust online infrastructure
 We know identity is a critical component of most app. If you can't login, nothing works. Since launching, we invested in higher availability and disaster recovery features. Auth0 is tolerant to failures by running on multiple cloud providers, on different geo-locations. We run on __Windows Azure (US West Coast)__ and __Amazon Web Services (East Coast)__ simultaneously. Within each environment we run multiple instances of the service, minimizing the chances of complete downtime.
 
-[![](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/auth0-infrastructure.png)](http://www.auth0.com/trust)
+[![](http://s3.amazonaws.com/blog.auth0.com/newsletter-1/auth0-infrastructure.png)](https://auth0.com/trust)
 
 ---
 

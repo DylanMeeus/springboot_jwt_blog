@@ -37,4 +37,4 @@ Once configuration is completed on their side, you are done!
 
 We want to thank Arif Shenoy, Nick Lee & Weisen Li from Box, for their help, and great support.
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

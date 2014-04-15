@@ -43,4 +43,4 @@ In this very short demo you will see SSO with Dropbox, with users authenticating
 
 <iframe width="700" height="315" src="http://www.youtube.com/embed/NulZ33yrdwE?rel=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

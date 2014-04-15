@@ -51,4 +51,4 @@ In this last video, you will see an _MDOCS_ administrator using Auth0 dashboard.
 
 <iframe width="640" height="480" src="http://www.youtube.com/embed/7UbtRhumX5s?rel=0" frameborder="0" allowfullscreen></iframe>
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

@@ -11,7 +11,7 @@ author:
 ---
 
 
-We are very excited to announce [Auth0 (AuthZero)](http://www.auth0.com).
+We are very excited to announce [Auth0 (AuthZero)](https://auth0.com).
 
 Auth0 is identity management that __"just works"__. It's about removing the pain of developing, deploying, troubleshooting and operating a modern, advanced identity management system.
 

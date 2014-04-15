@@ -24,4 +24,4 @@ author:
 
 ![](https://s3.amazonaws.com/blog.auth0.com/img/vk-scopes.png)
 
-[Попробуйте Auth0 сейчас!](http://auth0.com)
+[Попробуйте Auth0 сейчас!](https://auth0.com)

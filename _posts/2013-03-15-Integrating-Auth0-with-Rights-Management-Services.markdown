@@ -58,4 +58,4 @@ Simple, secure collaboration!
 
 > This is one of many Auth0 extensions that augment Auth0 functionality with specific features like RMS.
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)

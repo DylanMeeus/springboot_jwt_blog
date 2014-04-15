@@ -32,4 +32,4 @@ Designing software for an on-premises deployment is very different from one for 
 
 
 
-[Try Auth0 yourself!](http://www.auth0.com)
+[Try Auth0 yourself!](https://auth0.com)
