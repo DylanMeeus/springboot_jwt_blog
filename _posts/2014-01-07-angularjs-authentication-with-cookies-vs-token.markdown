@@ -179,8 +179,8 @@ In upcoming posts we will revisit:
 
 <h3 style="color: rgb(255, 90, 136)"> UPDATE: we published two new blog posts</h3>
 
-* [Token based authentication in realtime frameworks like Socket.io](2014/01/15/auth-with-socket-io/)
-* [10 Things you should know about Tokens](2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
+* [Token based authentication in realtime frameworks like Socket.io]({{ site.baseurl }}2014/01/15/auth-with-socket-io/)
+* [10 Things you should know about Tokens]({{ site.baseurl }}2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 
 
 ### Bottom Line
