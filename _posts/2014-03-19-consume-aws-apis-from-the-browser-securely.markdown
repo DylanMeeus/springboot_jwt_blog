@@ -87,10 +87,10 @@ We are using the [AWS JavaScript SDK](https://github.com/aws/aws-sdk-js).
 Here is a short video showing the whole process:
 
 <div style="text-align: center">
-<a href="http://cloudup.com/iC6DMMtQmRE" target="_new">
+<a href="https://cloudup.com/iC6DMMtQmRE" target="_new">
 <video id="awsvideo" loop="">
   <source src="http://i.cloudup.com/transcoded/nPO3q3LWIn.mp4">
-  <img src="http://cloudup.com/iC6DMMtQmRE+">
+  <img src="https://cloudup.com/iC6DMMtQmRE+">
 </video>
 </a>
 </div>
