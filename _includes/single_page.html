@@ -2,7 +2,7 @@
 	<h2 class="entry-title">
     <a href="{{page.author.url}}" class="author"><img src="{{page.author.avatar}}" width="68" height="68"></a>
   	<a rel="bookmark" title="Permalink to {{ page.title }}"
-		href="{{ site.baseurl }}{{ page.url }}">
+		href="{{ site.baseurl }}/{{ page.url }}">
 		{{ page.title }}</a>
 	</h2>
 	{% include entry_metadata.html %}
@@ -20,7 +20,7 @@
 
   		<span class="comments-link">
   			<a title="Comment on {{ page.title }}"
-  				href="{{ site.baseurl }}{{ page.url }}#disqus_thread">0 Comments and 0 Reactions</a>
+  				href="{{ site.baseurl }}/{{ page.url }}#disqus_thread">0 Comments and 0 Reactions</a>
   		</span>
   	</div>
 </article>

@@ -6,14 +6,14 @@ Archives include: "by tags" and "by time" archives.
   <div class="blog-post">
     <div class="inner">
       <h2 class="entry-title">
-        <a href="{{ site.baseurl }}{{post.url}}" title="Published: {{ post.date | date: "%B %d, %Y" }}">{{ post.title }}</a>
+        <a href="{{ site.baseurl }}/{{post.url}}" title="Published: {{ post.date | date: "%B %d, %Y" }}">{{ post.title }}</a>
         <a href="{{post.author.url}}" class="author"><img src="{{post.author.avatar}}" width="68" height="68"></a>
       </h2>
       {% include entry_metadata_home.html %}
       {% if post.excerpt %}
           <div class="entry-content">
             {{ post.excerpt | markdownify }}
-            <a class="readmore" href="{{ site.baseurl }}{{ post.url }}">Continue →</a>
+            <a class="readmore" href="{{ site.baseurl }}/{{ post.url }}">Continue →</a>
           </div>
       {% else %}
           <div class="entry-content">{{ post.content }}</div>
