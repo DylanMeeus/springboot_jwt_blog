@@ -8,7 +8,7 @@ layout: nil
 	<link href="https://auth0.com{{ site.baseurl }}/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://auth0.com{{ site.baseurl }}"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>https://auth0.com/{{ site.baseurl }}</id>
+	<id>https://auth0.com{{ site.baseurl }}</id>
 	<author>
 		<name>Auth0</name>
 		<email>helo@auth0.com</email>
