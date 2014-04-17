@@ -13,6 +13,8 @@ author:
 
 This week Microsoft announced the general availability of Windows Azure Active Directory (read [ScottGu](http://weblogs.asp.net/scottgu/archive/2013/04/08/windows-azure-active-directory-general-availability-new-backup-service-web-site-monitoring-and-diagnostic-improvements.aspx), [Vittorio](http://www.cloudidentity.com/blog/2013/04/08/windows-azure-active-directory-reaches-general-availability/) and [Alex](http://blogs.msdn.com/b/windowsazure/archive/2013/04/08/windows-azure-active-directory-ready-for-production-with-over-265-billion-authentications-amp-2-5-million-organizations-served.aspx) for the official word). We are _very_ happy to see this milestone happening. We've been privileged to have been working with their team for quite some time now, and we think it is great news for the identity community. Congrats again on the release! This opens lots of opportunities for developers.
 
+<!-- more -->
+
 ## Why we think Windows Azure AD is important
 
 > Every app that creates a new user database contributes to Global Warming, and kills millions of kittens :-) -- the internet
