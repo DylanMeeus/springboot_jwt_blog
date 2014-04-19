@@ -67,7 +67,7 @@ Here's the code:
 
 As an example, this policy gives permission to do everything on an S3 folder under a bucket. The name of the folder gets resolved at runtime depending on the contents of the JSON Web Token. The `user_id` in the JWT will be replaced as the name of the folder (`${saml:sub}` is a placeholder for the `user_id`).
 
-![](https://docs.auth0.comhttps://s3.amazonaws.com/blog.auth0.com/img/aws-api-setup-9.png)
+![](https://s3.amazonaws.com/blog.auth0.com/img/aws-api-setup-9.png)
 
 ### 3. Upload file using AWS Session Token
 
@@ -89,7 +89,7 @@ Here is a short video showing the whole process:
 <div style="text-align: center">
 <a href="https://cloudup.com/iC6DMMtQmRE" target="_new">
 <video id="awsvideo" loop="">
-  <source src="http://i.cloudup.com/transcoded/nPO3q3LWIn.mp4">
+  <source src="https://i.cloudup.com/transcoded/nPO3q3LWIn.mp4">
   <img src="https://cloudup.com/iC6DMMtQmRE+">
 </video>
 </a>
