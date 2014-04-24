@@ -151,6 +151,9 @@ window.login = function () {
 
 window.signup = function() {
   widget._hideSignIn();
+
+  ga('send', 'event', 'signup', 'open', 'blog');
+
   widget.once('closed', function () {
     $('#a0-widget').remove();
     widget
