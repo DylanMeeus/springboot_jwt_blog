@@ -13,17 +13,17 @@ We’re very pleased to welcome new advisors to Auth0.  Our advisors are soundin
 
 <!-- more -->
 
-<a target="_new" href="http://en.wikipedia.org/wiki/Tim_Bray"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/about/img/tim.png"></div></a>
-
-**[Tim Bray](http://en.wikipedia.org/wiki/Tim_Bray)**
-
-Founder of two companies, maker of Internet standards, veteran of **Sun Microsystems** and **Google**; developer, writer, photographer. "_The best way to introduce new technologies to the Enterprise is to make them popular in the consumer space and among the developer grassroots._"
-
 <a target="_new" href="http://twitter.com/gblock"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/about/img/glenn.png"></div></a>
 
 **[Glenn Block](http://twitter.com/gblock)**
 
 Glenn is arguably one of the reasons why **Microsoft** is more open today. He was a catalyst for several open source efforts at Microsoft including ASP.NET Web API and Microsoft's support for **Node.js in Azure**. He is an active maintainer of several OSS Projects including **scriptcs**. He is now a Product Manager at **Splunk** driving their cross-platform developer experience.
+
+<a target="_new" href="http://en.wikipedia.org/wiki/Tim_Bray"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/about/img/tim.png"></div></a>
+
+**[Tim Bray](http://en.wikipedia.org/wiki/Tim_Bray)**
+
+Founder of two companies, maker of Internet standards, veteran of **Sun Microsystems** and **Google**; developer, writer, photographer. "_The best way to introduce new technologies to the Enterprise is to make them popular in the consumer space and among the developer grassroots._"
 
 <a target="_new" href="http://en.wikipedia.org/wiki/Steve_Coast"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://cloudup.com/cMADHaqEVaK+"></div></a>
 
