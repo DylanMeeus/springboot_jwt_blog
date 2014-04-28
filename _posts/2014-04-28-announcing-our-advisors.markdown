@@ -9,11 +9,7 @@ author:
   avatar: https://auth0.com/about/img/jon.png
 ---
 
-{% excerpt %} 
-
 We’re very pleased to welcome new advisors to Auth0.  Our advisors are sounding boards, mentors, technical consultants, organizational architects, marketing wizards, and much more - we are honored and humbled that such accomplished individuals as Tim, Glenn, and Steve have agreed to join with Nuno and Guillermo in helping us continually make Auth0 an even more useful tool for developers and enterprises.
-
-{% endexcerpt %}
 
 <a target="_new" href="http://en.wikipedia.org/wiki/Tim_Bray"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/about/img/tim.png"></div></a>
 
