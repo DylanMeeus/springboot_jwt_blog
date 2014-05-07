@@ -15,7 +15,7 @@ author:
 ---
 
 
-In the past, we've talked about how it's becoming so much easier to write client side apps that are still fully secure thanks to JSON Web Tokens: ([Cookies vs Tokens](http://blog.auth0.com/2014/01/07/angularjs-authentication-with-cookies-vs-token), [Token-based auth with socket.io](http://blog.auth0.com/2014/01/15/auth-with-socket-io/) and [10 things you should know about tokens](http://blog.auth0.com/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)).
+In the past, we've talked about how it's becoming so much easier to write client side apps that are still fully secure thanks to JSON Web Tokens: ([Cookies vs Tokens]({{ site.baseurl }}/2014/01/07/angularjs-authentication-with-cookies-vs-token), [Token-based auth with socket.io]({{ site.baseurl }}/2014/01/15/auth-with-socket-io/) and [10 things you should know about tokens]({{ site.baseurl }}/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)).
 
 <!-- more -->
 
