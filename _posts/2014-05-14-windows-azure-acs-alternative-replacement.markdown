@@ -13,12 +13,13 @@ author:
 
 When it was released about 4 years ago, ACS was great. It lowered the bar of entry to advanced identity scenarios considerably. Whole chapters of our [Claims Identity Guide](http://www.amazon.com/Claims-Based-Identity-Control-Patterns-Practices/dp/0735640599) were [focused on ACS](http://msdn.microsoft.com/en-us/library/hh446535.aspx)! However since its release: 
 
-* Microsoft has not continued to innovate much on it.
-* It is hard to find updated documentation
-* The dashboard has stayed the same for years
+* There hasn't been much innovation much on it.
+* It is hard to find updated documentation.
+* The dashboard has stayed the same for years.
 * Only a very limited number of IdPs are supported.
 * Visual Studio __Add STS Reference__ and other integrated tools are not available anymore. Configuring ACS on existing solutions is not as easy as it was.
-* Yesterday, Yahoo! connections broke. The issue has not been resolved yet.
+* Yesterday, Yahoo! connections broke. It took a while for it to be resolved.
+* It's roadmap is unclear. 
 
 Many customers with apps configured to use ACS have asked us how difficult it is to replace it with Auth0. It turns out it is very, very easy. 
 
@@ -53,7 +54,7 @@ You are done!
 
 You can of course run the __Add STS Reference__ wizard if you are on VS 2010 or the other integrated tools. We supply a metadata endpoint you can import into your project.
 
-> **Rule Groups**: Also, if you want to do claims transformation Auth0 provides the full JavaScript language and Node.js modules at your disposal to do whatever you can think of. From [simple mappings](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md) to more complex stuff like [tracking sign-ups, enriching User Profile and generating new Leads on Salesforce](https://docs.auth0.com/scenarios-mixpanel-fullcontact-salesforce).
+> **Rule Groups**: Auth0 [rules](https://docs.auth0.com/rules) give you outstanding power to do claims transformation. You have the full JavaScript language and many popular Node.js modules at your disposal to do whatever you can think of. From [simple mappings](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md) to more complex stuff like [tracking sign-ups, enriching User Profile and generating new Leads on Salesforce](https://docs.auth0.com/scenarios-mixpanel-fullcontact-salesforce) and [Multi-factor auth](https://docs.auth0.com/mfa).
 
 ---
 
