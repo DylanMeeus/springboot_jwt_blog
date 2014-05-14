@@ -5,7 +5,7 @@ date: 2014-05-14 08:00
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
-  url: http://twitter.com/eugenio_pace
+  url: https://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 ---
 
@@ -34,13 +34,13 @@ No credit card, no commitment. <a href="#" onclick="javascript:signup();">Signup
 ##2. Register your app
 Go to __Applications__ and click on __NEW__. Select __WS-Fed (WIF) Web App__.
 
-![](http://puu.sh/8LzcB.png)
+![](https://puu.sh/8LzcB.png)
 
 ##3. Enter your App's URLs
 
 These 2 parameters correspond to the __Realm__ and __Return URL__ params you configured in ACS:
 
-![](http://puu.sh/8LsnE.png)
+![](https://puu.sh/8LsnE.png)
 
 Press __SAVE__
 
