@@ -44,6 +44,6 @@ This is a very short demo of the entire experience:
 1. Login to SharePoint with the __Auth0 Login Widget__ using Google
 2. Searching for a user ("eugenio") across all configured connections in Auth0
 
-<iframe width="700" height="394" src="http://www.youtube.com/embed/NP-7wei3e8Q?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="700" height="394" src="https://www.youtube.com/embed/NP-7wei3e8Q?rel=0" frameborder="0" allowfullscreen></iframe>
 
 [Try Auth0 yourself!](https://auth0.com)
