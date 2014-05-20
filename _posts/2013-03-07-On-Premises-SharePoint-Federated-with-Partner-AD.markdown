@@ -23,7 +23,7 @@ This short demo shows:
 -1. John, an employee from Fabrikam's partner company, logs-in into SharePoint with his credentials.
 -2. Notice how "home realm discovery" works. John enters his e-mail address in __Auth0 Login Widget__. As with the previous example, Auth0 will extract the domain and map it to the right Fabrikom connection (Active Directory in this case).
 
-<iframe width="700" height="525" src="http://www.youtube.com/embed/xmGjp1pLbVE?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="700" height="525" src="https://www.youtube.com/embed/xmGjp1pLbVE?rel=0" frameborder="0" allowfullscreen></iframe>
 
 A frequent question we get is whether the login experience is extensible and customizable.
 
