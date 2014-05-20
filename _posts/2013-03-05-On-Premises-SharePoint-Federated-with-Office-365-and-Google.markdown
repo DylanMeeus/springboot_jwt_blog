@@ -29,7 +29,7 @@ This short demo shows exactly this scenario:
 -1. Tom, an employee in Fabrikom logs-in into SharePoint with his Office365 credentials.
 -2. A partner of Fabrikom, logs in with his Gmail account.
 
-<iframe width="700" height="525" src="http://www.youtube.com/embed/QXpjouNt9XM?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="700" height="525" src="https://www.youtube.com/embed/QXpjouNt9XM?rel=0" frameborder="0" allowfullscreen></iframe>
 
 In the next post we will cover a natural extension of this first scenario: federating with a partner company using Active Directory.
 
