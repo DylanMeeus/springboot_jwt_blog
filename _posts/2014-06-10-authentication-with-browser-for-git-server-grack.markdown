@@ -5,7 +5,7 @@ date: 2014-06-10 08:00
 author:
 author:
   name: José F. Romaniello
-  url: "http://joseoncode.com"
+  url: "http://joseoncode.com
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 ---
@@ -93,6 +93,10 @@ GitZero will check the JSON Web Token and validates it using the secret that was
 
 &nbsp;
 
-> **Note 2**: If you only need support for: __Active Directory / LDAP__ connections, or plain __User/Password Databases__. take a look at [GitZero2RO](https://github.com/auth0/gitzero2ro.git) which will work with a regular user/password (not through the browser)
+> **Note 2**: The token will be saved. i.e. you don't have to do this for every git push.
+
+&nbsp;
+
+> **Note 3**: If you only need support for: __Active Directory / LDAP__ connections, or plain __User/Password Databases__. take a look at [GitZero2RO](https://github.com/auth0/gitzero2ro.git) which will work with a regular user/password (not through the browser)
 
 Happy Token Auth!
