@@ -5,7 +5,7 @@ date: 2014-06-10 08:00
 author:
 author:
   name: José F. Romaniello
-  url: "http://joseoncode.com
+  url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 ---
