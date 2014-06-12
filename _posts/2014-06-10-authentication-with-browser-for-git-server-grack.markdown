@@ -18,6 +18,8 @@ What I like the most about using HTTP, is that you can _extend_ it. In particula
 
 So we prototyped with Smart HTTP using [Grack](https://github.com/blog/642-smart-http-support) and integrated that with Auth0. 
 
+<!-- more -->
+
 And this shows how it works:
 
 ![](https://dl.dropboxusercontent.com/u/21665105/gitzero.gif)
