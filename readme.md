@@ -13,7 +13,7 @@ This blog uses [Jekyll](https://github.com/mojombo/jekyll).
 2.  Enter the blog directory and make sure with ruby --version that you are running the right ruby version (.ruby-version file).
 3.  Install dependencies with `bundle install`
 4.  `bundle exec jekyll serve --watch`
-5.  Open http://localhost:4000/blog/. Make sure you don't leave out the traling slash (/), otherwise you will get:
+5.  Open http://localhost:4000/blog/. Make sure you don't leave out the trailing slash (/), otherwise you will get:
 ![error](https://i.cloudup.com/FWLX_cUhXb.png)
 
 
