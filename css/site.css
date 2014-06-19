@@ -47,7 +47,7 @@ h5 {
   color: #000;
 }
 .entry-title {
-  font-weight: bold;
+  font-weight: 300;
 }
 #container.container {
   max-width: 700px;
