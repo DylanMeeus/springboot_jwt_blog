@@ -42,6 +42,7 @@ GEM
     rdiscount (2.1.7.1)
     redcarpet (2.3.0)
     safe_yaml (1.0.2)
+    stringex (2.5.2)
     toml (0.1.1)
       parslet (~> 1.5.0)
     yajl-ruby (1.1.0)
@@ -53,3 +54,4 @@ DEPENDENCIES
   jekyll (= 1.5.1)
   psych (~> 2.0.5)
   rdiscount (~> 2.1.7.1)
+  stringex (~> 2.5.2)

@@ -5,7 +5,9 @@ title: Auth0
 
     <ul class="archive">
         {% for post in paginator.posts %}
-          {% include archive_post.html %}
+          {% unless post.draft %}
+            {% include archive_post.html %}
+          {% endunless %}
         {% endfor %}
     </ul>
 
