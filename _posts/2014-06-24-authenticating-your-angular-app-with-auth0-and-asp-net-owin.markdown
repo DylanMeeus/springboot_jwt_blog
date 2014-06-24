@@ -438,7 +438,7 @@ The implementation for this controller is pretty straight forward. We are just s
 Now to be able to access the secured end point we have to send the JSON Web Token in the authorization header for this request. As you notice, we are not setting the token value inside this controller. The right way to do this is to use AngularJS Interceptors. Thankfully, `auth0-angularjs module makes implementing this very simple. This interceptor will allow us to capture every XHR request and manipulate it before sending it to the back-end API so we'll be able to set the bearer token if the token exists in the cookie store (user is authenticated).
 
 ### Step 2.6: Add the Interceptor and Configure Routes
-All you need to do to add the interceptor is to push it to `$httpProvider service interceptors array. Setting the token with each request will be done by `auth0-angularjs` module automatically after that.
+All you need to do to add the interceptor is to push it to `$httpProvider` service interceptors array. Setting the token with each request will be done by `auth0-angularjs` module automatically after that.
 
 To configure the shipments route we need to map the `shipmentsController` with `shipments` partial view using `$routeProvider` service, so open the `app.js` file again and replace all the code in it with the code snippet below:
 
