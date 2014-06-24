@@ -90,14 +90,16 @@ module Jekyll
       posts = site.site_payload['site']['posts']
 
       for post in posts do
-        if post.data.has_key?('changefreq')
-          changefreq = post.data["changefreq"]
-        else
-          changefreq = "never"
+        unless post.data['draft']
+          if post.data.has_key?('changefreq')
+            changefreq = post.data["changefreq"]
+          else
+            changefreq = "never"
+          end
+          url = post.url
+          url = url[0..-11] if url=~/\/index.html$/
+          result += entry(url, post.date, changefreq, site, "0.9")
         end
-        url = post.url
-        url = url[0..-11] if url=~/\/index.html$/
-        result += entry(url, post.date, changefreq, site, "0.9")
       end
 
         result
