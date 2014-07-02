@@ -94,6 +94,9 @@ ul.archive li.post .entry-content img {
   max-width: 100%;
   height: auto;
 }
+.sharing-buttons {
+  margin-top: 40px;
+}
 .readmore {
   text-transform: uppercase;
   font-weight: bold;
