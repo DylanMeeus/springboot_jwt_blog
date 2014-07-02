@@ -4,3 +4,9 @@
 <meta property="og:site_name" content="Auth0 - Blog" />
 <meta property="og:url" content="https://auth0.com{{ site.url}}{{ page.url }}" />
 <meta property="og:image" content="https://i.cloudup.com/StzWWrY34s.png" />
+
+{% if page.path contains '_posts' %}
+<meta property="og:type" content="article">
+{% else %}
+<meta property="og:type" content="website">
+{% endif %}
