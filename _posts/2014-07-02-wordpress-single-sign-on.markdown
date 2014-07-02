@@ -80,3 +80,7 @@ We would love to hear your feedback. Feel free to join us in our chat room <http
 
 **Plugin**: <http://wordpress.org/plugins/auth0/>
 
+We would like to thanks the crew from [LaunchPeople](http://launchpeople.dk/) who did the initial work for this plugin.
+
+Happy auth!
+
