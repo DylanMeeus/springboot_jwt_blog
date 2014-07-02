@@ -14,7 +14,7 @@ tags:
 - auth0
 ---
 
-![wordpress and auth0](http://blog.auth0.com.s3.amazonaws.com/wp-banner.png)
+![wordpress and auth0](https://s3.amazonaws.com/blog.auth0.com/wp-banner.png)
 
 We recently published the first version of the WordPress plugin for Auth0, which provides:
 
@@ -54,13 +54,13 @@ If you have multiple WordPress instances and you want users to have a single Use
 
 When you install the plugin, the default Login box from Wordpress gets replaced with our Login Widget.
 
-![](http://blog.auth0.com.s3.amazonaws.com/wp-login.png)
+![](https://s3.amazonaws.com/blog.auth0.com/wp-login.png)
 
 Once installed, users can sign in using: Active Directory, ADFS, LDAP, Google Apps, Office365, SQL, PingFederate, Any SAML-P or WS-Federation system, SharePoint Online Apps (beta), Amazon, Facebook, LinkedIn, Twitter, Microsoft Account (formerly LiveID), Google, PayPal, Yahoo!, GitHub, vKontakte, Yandex, 37Signals, Box, Salesforce, Fitbit, Baidu, RenRen, Weibo, AOL, Shopify, WordPress, Dwolla, miiCard, Yammer, SoundCloud, Instagram, Evernote
 
 The plugin comes with an admin page to configure things like: Allow Sign Up, Require Email Verification, Customize Logo, etc.
 
-![](http://blog.auth0.com.s3.amazonaws.com/wp-settings.png)
+![](https://s3.amazonaws.com/blog.auth0.com/wp-settings.png)
 
 ## FAQs
 
