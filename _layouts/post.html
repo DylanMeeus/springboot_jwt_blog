@@ -9,8 +9,8 @@ layout: default
 <div class="blog-post blog-single">
     <div class="inner">
         <h1 class="entry-title">
-            <a href="{{page.author.url}}" class="author"><img src="{{page.author.avatar}}" width="68" height="68"></a>
-            <a href="{{ site.baseurl }}{{page.url}}" title="Published: {{ page.date | date: "%B %d, %Y" }}">{{ page.title }}</a>
+            <a href="{{ page.author.url }}" class="author"><img src="{{ page.author.avatar }}" width="68" height="68"></a>
+            <a href="{{ site.baseurl }}{{ page.url }}" title="Published: {{ page.date | date: "%B %d, %Y" }}">{{ page.title }}</a>
         </h1>
 
         {% include entry_metadata.html %}
@@ -19,7 +19,7 @@ layout: default
         {{ content }}
         </div>
 
-
+        {% include sharing_buttons.html %}
 
         <div class="try-banner">
             <span>Try Auth0 for FREE</span>
