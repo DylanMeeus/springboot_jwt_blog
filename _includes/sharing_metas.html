@@ -8,6 +8,8 @@
 
 {% if page.excerpt %}
 <meta property="og:description" content="{{ page.excerpt | markdownify | strip_html | truncate: 140 | strip_newlines }}" />
+{% else %}
+<meta property="og:description" content="Company Updates & Technology Articles" />
 {% endif %}
 
 {% if page.path contains '_posts' %}
