@@ -1,9 +1,8 @@
 markdown: rdiscount
-pygments: true
 paginate: 15
 exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, Rakefile]
 permalink: pretty
-pygments:  true
+highlighter: pygments
 excerpt_separator: '<!-- more -->'
 baseurl: '/blog'
 encoding: utf-8

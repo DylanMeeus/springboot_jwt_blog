@@ -5,6 +5,10 @@
 <meta property="og:url" content="https://auth0.com{{ site.baseurl }}{{ page.url }}" />
 <meta property="og:image" content="https://i.cloudup.com/StzWWrY34s.png" />
 
+{% if page.excerpt %}
+<meta property="og:description" content="{{ page.excerpt | markdownify | strip_html | truncate: 140 | strip_newlines }}" />
+{% endif %}
+
 {% if page.path contains '_posts' %}
 <meta property="og:type" content="article">
 {% else %}
