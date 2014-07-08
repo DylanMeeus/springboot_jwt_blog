@@ -11,7 +11,7 @@
     <script type="text/javascript" src="//use.typekit.net/iws6ohy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    <script type="text/javascript" src="//d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.4.19.min.js"></script>
+    <script type="text/javascript" src="//cdn.auth0.com/w2/auth0-widget-4.1.min.js"></script>
     {% if page.meta-robots %}
     <meta name="robots" content="{{ page.meta-robots }}" />
     {% endif %}
@@ -126,87 +126,111 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+        window.widget = new Auth0Widget({
+          domain:         'auth0.auth0.com',
+          clientID:       'zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI',
+          callbackURL:    'https://app.auth0.com/callback',
+          dict: {
+            signup: {
+              footerText: 'By signing up, you agree to our <a href="/terms" target="_new">terms of service</a> and <a href="/privacy" target="_new">privacy policy</a>'
+            }
+          },
+          showIcon: true,
+          icon: '//auth0.com/boot/badge.png'
+        });
 
-window.widget = new Auth0Widget({
-  domain:         'auth0.auth0.com',
-  clientID:       'zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI',
-  callbackURL:    'https://app.auth0.com/callback'
-});
+        widget.getClient().getSSOData(false, function (err, data) {
+          if (!data || !data.sso) return;
+          $('.login').remove();
+          $('.signup')
+            .attr('href', 'https://app.auth0.com')
+            .html('Open Dashboard');
+        });
 
-widget.getClient().getSSOData(false, function (err, data) {
-  if (!data || !data.sso) return;
-  $('.login').remove();
-  $('.signup')
-    .attr('href', 'https://app.auth0.com')
-    .html('Open Dashboard');
-});
+        window.login = function () {
+          hideWidget(onclose);
 
-window.login = function () {
-  widget
-    .once('closed', function () {
-      widget.signin({});
-    })._hideSignIn();
-};
+          function onclose() {
+            widget
+            .once('closed', onceclosed)
+            .signin({});
+          }
 
-window.signup = function() {
-  widget._hideSignIn();
-
-  ga('send', 'event', 'signup', 'open', 'blog');
-
-  widget.once('closed', function () {
-    $('#a0-widget').remove();
-    widget
-      .once('closed', function () {
-        show_widget_demo();
-      }).signup({
-        enableReturnUserExperience: false,
-        enableADRealmDiscovery: false
-      });
-  });
-}
-
-window.show_widget_demo = function() {
-  widget.signin({
-    container: 'root',
-    chrome: true,
-    _avoidInitialFocus: true,
-    enableReturnUserExperience: false,
-    enableADRealmDiscovery: false
-  });
-}
-
-
-
-
-    $(function() {
-      $('pre').addClass("prettyprint");
-      // setInterval(function() {
-      //   if ($('video').isOnScreen()) {
-      //       $('video').get(0).play();
-      //     }
-      // }, 1000);
-    });
-
-    $.fn.isOnScreen = function(){
-
-        var win = $(window);
-
-        var viewport = {
-            top : win.scrollTop(),
-            left : win.scrollLeft()
+          function onceclosed() {
+            $('#a0-widget').remove();
+            show_widget_demo();
+            show_small_widget();
+          }
         };
-        viewport.right = viewport.left + win.width();
-        viewport.bottom = viewport.top + win.height();
 
-        var bounds = win.offset();
-        if (!bounds) return;
+        window.signup = function() {
+          hideWidget(onclose);
 
-        bounds.right = bounds.left + win.outerWidth();
-        bounds.bottom = bounds.top + win.outerHeight();
+          function onclose() {
+            widget
+            .once('closed', onceclosed)
+            .once('signup_ready', sendanalytics)
+            .signup({
+              enableReturnUserExperience: true,
+              enableADRealmDiscovery: false
+            });
+          }
 
-        return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+          function sendanalytics() {
+            ga('send', 'event', 'signup', 'open', 'website');
+          }
 
-    };
+          function onceclosed() {
+            $('#a0-widget').remove();
+            show_widget_demo();
+          }
+
+        }
+
+        window.show_widget_demo = function() {
+          if (!$('#root').length) return;
+          // prevent from closing login/signup
+          if ($('#a0-widget').length) return console.log('Widget is already open.');
+
+          widget.signin({
+            container: 'root',
+            chrome: true,
+            _avoidInitialFocus: true,
+            enableReturnUserExperience: false,
+            enableADRealmDiscovery: false
+          });
+        }
+
+        function hideWidget(cb) {
+          widget.once('closed', function() {
+            $('#a0-widget').remove();
+            cb && cb();
+          });
+          widget._hideSignIn();
+        }
+
+        // prettyPrint
+        $(function() {
+          $('pre').addClass("prettyprint");
+        });
+
+        $.fn.isOnScreen = function(){
+            var win = $(window);
+            var viewport = {
+                top : win.scrollTop(),
+                left : win.scrollLeft()
+            };
+            viewport.right = viewport.left + win.width();
+            viewport.bottom = viewport.top + win.height();
+
+            var bounds = win.offset();
+            if (!bounds) return;
+
+            bounds.right = bounds.left + win.outerWidth();
+            bounds.bottom = bounds.top + win.outerHeight();
+
+            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+        };
     </script>
 
     <script type="text/javascript">
