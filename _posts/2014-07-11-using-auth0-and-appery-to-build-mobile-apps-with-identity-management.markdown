@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Auth0 &amp; Appery to build mobile apps with Identity Management"
+title: "Using Auth0 &amp; Appery.io to build mobile apps with Identity Management"
 date: 2014-07-11 12:33
 author:
   name: "Dmitry Zaytsev"
@@ -13,12 +13,12 @@ tags:
 - ios
 - android
 - auth0
-- appery
+- apperyio
 - login
 - signup
 ---
 
-_This is a guest post by Dmitry Zaytsev. He is the Developer Evangelist at [Appery](http://appery.io)_
+_This is a guest post by Dmitry Zaytsev. He is the Developer Evangelist at [Appery.io](http://appery.io)_
 
 
 Building mobile apps with identity management wasn't simple, until now. [Auth0](http://auth0.com/), a cloud service that eliminates the friction of identity for your app, and [Appery.io](http://appery.io/), the only cloud platform with visual development tools and integrated backend services are collaborating to make this happen.  With the jointly created Appery.io Auth0 plugin, you can simplify identity management integration for your app and this post will show you how.
@@ -27,7 +27,7 @@ Register for the Auth0 and Appery.io joint webinar on August 6, 2014 at 11:00 AM
 
 **_Building Secure Mobile Apps in the Cloud with Appery.io and Auth0 Identity Management_**
 
-[Register now](www.exadel.com/08062014Webinar)
+[Register now](http://www.exadel.com/08062014Webinar)
 
 <!-- more -->
 
@@ -117,6 +117,6 @@ Register for Appery.io and Auth0 joint webinar on August 6, 2014 at 11:00 AM PT
 
 **_Building Secure Mobile Apps in the Cloud with Appery.io and Auth0 Identity Management_**
 
-[Register now](www.exadel.com/08062014Webinar)
+[Register now](http://www.exadel.com/08062014Webinar)
 
 
