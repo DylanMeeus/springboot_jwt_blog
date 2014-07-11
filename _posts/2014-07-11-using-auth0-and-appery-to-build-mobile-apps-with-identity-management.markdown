@@ -6,7 +6,7 @@ author:
   name: "Dmitry Zaytsev"
   url: "http://appery.io/"
   mail: "dzaytsev@exadel.com"
-  avatar: "https://cloudup.com/cnDFYIPcKFW+"
+  avatar: "https://cloudup.com/csgyy2LVyeE+"
 tags:
 - authentication
 - mobile
