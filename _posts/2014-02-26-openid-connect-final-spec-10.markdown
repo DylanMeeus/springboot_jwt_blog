@@ -21,7 +21,7 @@ When we started writing the core functionality of [Auth0](https://auth0.com), we
 
 The key advantages of OAuth2 are its simplicity (compared to SAML for example), and the wide availability of libraries already written in different languages and platforms. However, [OAuth2 is not an authentication protocol](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html). We started looking at options for our defualt authentication protocol and we've found [OpenID Connect](http://openid.net/connect) which was promising to do exactly what we envisioned was needed.
 
-I was fortunate to be personally involved from the beginning. My main concern always being, keeping things as simple as possible. Many thanks to [Mike Jones](self-issued.info) for inviting me to join the working group!
+I was fortunate to be personally involved from the beginning. My main concern always being, keeping things as simple as possible. Many thanks to [Mike Jones](http://self-issued.info) for inviting me to join the working group!
 
 ### So what it's OpenID Connect?
 
