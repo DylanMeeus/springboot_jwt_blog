@@ -25,7 +25,7 @@ I was fortunate to be personally involved from the beginning. My main concern al
 
 ### So what it's OpenID Connect?
 
-**The OpenId Connect core spec is OAuth2 + JSON Web Tokens**. Of course it has more than that (session management, dynamic client registration and others), but the core is simple. By having a signed token we can validate that the user is being authenticated to the right application coming from the right identity provider (avoiding the [confused deputy problem](http://en.wikipedia.org/wiki/Confused_deputy_problem)). That token can also be used to flow the identity of the user to an API, very useful in native mobile and single page applications, as we touched on our [Cookies vs. Tokens article](/2014/01/07/angularjs-authentication-with-cookies-vs-token/).
+**The OpenId Connect core spec is OAuth2 + JSON Web Tokens**. Of course it has more than that (session management, dynamic client registration and others), but the core is simple. By having a signed token we can validate that the user is being authenticated to the right application coming from the right identity provider (avoiding the [confused deputy problem](http://en.wikipedia.org/wiki/Confused_deputy_problem)). That token can also be used to flow the identity of the user to an API, very useful in native mobile and single page applications, as we touched on our [Cookies vs. Tokens article]({{ site.baseurl }}/2014/01/07/angularjs-authentication-with-cookies-vs-token/).
 
 JWT popularity is growing every day. Here are some Open Source libraries yuo can use to get started:
 
