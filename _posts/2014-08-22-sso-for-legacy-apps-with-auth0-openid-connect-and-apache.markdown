@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSO for Legacy apps with Auth0 &amp; Apache"
+title: "SSO for Legacy Apps with Auth0, OpenID Connect and Apache"
 date: 2014-08-22 21:57
 author:
   name: "Eugenio Pace"
@@ -25,7 +25,7 @@ Auth0 [SDKs](https://docs.auth0.com) make it really easy to add SSO to any app, 
 A very simple solution is to front any web content with a reverse proxy that itself is capable of negotiating authentication for users. One such proxy with the extensibility required for plugging-in any auth is Apache server.
 
 ##How it works
-Apache has [plugable authentication modules](http://httpd.apache.org/docs/current/mod/mod_auth_basic.html#authbasicprovider) that you can use to protect specific routes. One such module is [mod_auth_openidc](https://github.com/pingidentity/mod_auth_openidc) written by Ping Identity.
+Apache has [plugable authentication modules](http://httpd.apache.org/docs/current/mod/mod_auth_basic.html#authbasicprovider) that you can use to protect specific routes. One such module is [mod_auth_openidc](https://github.com/pingidentity/mod_auth_openidc) written by [Hans Zandbelt](http://hanszandbelt.wordpress.com/).
 
 > __mod_auth_openidc__ is an authentication/authorization module for the Apache 2.x HTTP server that allows users to authenticate using an OpenID Connect enabled Identity Provider.
 
