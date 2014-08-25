@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSO for Legacy apps with Auth0 &amp; and Apache"
+title: "SSO for Legacy apps with Auth0 &amp; Apache"
 date: 2014-08-22 21:57
 author:
   name: "Eugenio Pace"
@@ -31,7 +31,7 @@ Apache has [plugable authentication modules](http://httpd.apache.org/docs/curren
 
 When a user first attempts to access protected content behind the Apache proxy, the module will first redirect the user to the configured OpenID Connect identity provider. After the user is authenticated, access is granted to the actual resource:
 
-<img src="https://docs.google.com/drawings/d/1ePWbU0cqsKuskGrzKZrpwylp3Q10evHKxv_2MvJ5DQw/pub?w=811&amp;h=340">
+![](https://docs.google.com/drawings/d/1ePWbU0cqsKuskGrzKZrpwylp3Q10evHKxv_2MvJ5DQw/pub?w=811&amp;h=340)
 
 Since Auth0 supports the OpenID Connect protocol (among [many others](https://docs.auth0.com/protocols)), it is straight forward to configure the module with it:
 
