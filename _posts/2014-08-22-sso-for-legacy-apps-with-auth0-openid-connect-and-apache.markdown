@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSO for Legacy Apps with Auth0, OpenID Connect and Apache"
+title: "SSO for Legacy Apps with Auth0, OpenID Connect & Apache"
 date: 2014-08-22 21:57
 author:
   name: "Eugenio Pace"
@@ -65,7 +65,7 @@ SSLCertificateKeyFile /home/your_key.key
 
 First, you need to [register a new app](https://app.myauth0.com/#/applications/create) in Auth0. You will get a `clientId` and a `clientSecret`. These two go to the `OIDCClientID` and `OIDCClientSecret` params respectively. Then you need to setup SSL certs and define the protected locations (e.g. `/example` in the config file above).
 
-Of course you will have to replace the Auth0 auth URLs with your actual account (__contoso__ is used in the example above). 
+Of course you will have to replace the Auth0 auth URLs with your actual account (__contoso__ is used in the example above).
 
 Any of [Auth0 supported identity providers](https://docs.auth0.com/identityproviders) would work: __Active Directory__, __LDAP__, __ADFS__, __SAML-P__, __custom databases__ or any of the __30+ social providers__. Auth0 will bridge any protocol implemented by these identity systems with OpenID Connect.
 
