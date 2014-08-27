@@ -22,7 +22,7 @@ tags:
 
 Auth0 [SDKs](https://docs.auth0.com) make it really easy to add SSO to any app, on any platform. But sometimes, apps cannot be modified. What to do then?
 
-A very simple solution is to front any web content with a reverse proxy that itself is capable of negotiating authentication for users. One such proxy with the extensibility required for plugging-in any auth is Apache server.
+A very simple solution is to front any web content with a web server that itself is capable of negotiating authentication for users. One web server with the extensibility required for plugging-in any auth is Apache server.
 
 In this post, we'll learn how to install and configure `mod_auth_openidc` to work with Apache and Auth0.
 
@@ -33,7 +33,7 @@ Apache has [plugable authentication modules](http://httpd.apache.org/docs/curren
 
 > __mod_auth_openidc__ is an authentication/authorization module for the Apache 2.x HTTP server that allows users to authenticate using an OpenID Connect enabled Identity Provider.
 
-When a user first attempts to access protected content behind the Apache proxy, the module will first redirect the user to the configured OpenID Connect identity provider. After the user is authenticated, access is granted to the actual resource:
+When a user first attempts to access protected content behind Apache, the module will first redirect the user to the configured OpenID Connect identity provider. After the user is authenticated, access is granted to the actual resource:
 
 ![image](https://docs.google.com/drawings/d/1ePWbU0cqsKuskGrzKZrpwylp3Q10evHKxv_2MvJ5DQw/pub?w=811&amp;h=340)
 
