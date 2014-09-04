@@ -7,7 +7,7 @@ author:
   name: Alberto Pose
   mail: alberto@auth0.com
   url: http://twitter.com/thepose
-  avatar: https://pbs.twimg.com/profile_images/3275858589/fd80792e3615b83c812c27353608ca10_bigger.jpeg
+  avatar: https://www.gravatar.com/avatar/9d6add4b3a385afde6c23d6d56fbf838?size=200
 ---
 
 
