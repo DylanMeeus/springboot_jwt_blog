@@ -20,4 +20,4 @@ WORKDIR /data
 
 RUN jekyll build
 
-CMD /usr/sbin/nginx -c /etc/nginx/nginx.conf
+CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
