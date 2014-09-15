@@ -28,45 +28,53 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/auth0">
     <link type="application/opensearchdescription+xml" rel="search" href="/osd.xml"/>
 
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://auth0.com/app.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css" />
 </head>
 <body>
     {% include sharing.html %}
 
-    <header class="site-header navbar-fixed-top clearfix">
-        <nav role="navigation" class="navbar navbar-default clearfix">
+    <header class="site-header">
+        <nav role="navigation" class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
                     </button>
-
-                    <h1 class="navbar-brand"><a href="/"><span>Auth0</span></a></h1>
-
+                    <h1 class="navbar-brand">
+                      <a href="/">
+                        <img src="/auth0-styleguide/img/logo.png"><span>Auth0</span>
+                      </a>
+                    </h1>
                 </div>
-
-                <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <div id="navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="https://auth0.com/why-auth0">Why Auth0</a></li>
-                        <li><a href="https://auth0.com/how-it-works">How It Works</a></li>
-                        <li><a href="https://auth0.com/pricing">Pricing</a></li>
+                        <li class="li-why"><a href="https://auth0.com/why-auth0">Why Auth0</a></li>
+                        <li class="li-how"><a href="https://auth0.com/how-it-works">How It Works</a></li>
+                        <li class="li-pricing"><a href="https://auth0.com/pricing">Pricing</a></li>
                     </ul>
-
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://docs.auth0.com">Documentation</a></li>
-                        <li class="active"><a href="/blog">Blog</a></li>
-                        <li><a href="javascript:login()" class="signin-button login">Login</a></li>
-                        <li><a href="javascript:signup()" class="signin-button signup btn btn-sm">Create Free Account</a></li>
+                        <li class="li-docs"><a href="https://docs.auth0.com">Documentation</a></li>
+                        <li class="dropdown">
+                            <span role="button" data-toggle="dropdown" data-target="#" class="btn-dro">More<i class="icon-budicon-460"></i></span>
+                            <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu animated">
+                                <li><a href="https://auth0.com/opensource">Open Source    </a></li>
+                                <li class="divider"></li>
+                                <li> <a href="https://auth0.com/about">About</a></li>
+                                <li><a href="https://auth0.com/customers">Customers</a></li>
+                                <li><a href="https://auth0.com/blog">Blog</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="javascript:login()" class="signin-button login">Login</a></li>
+                        <li><a href="javascript:signup()" class="signin-button btn btn-sm signup">Sign Up</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
 
 
     <div class="banner">
