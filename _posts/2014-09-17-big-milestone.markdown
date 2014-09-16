@@ -29,7 +29,7 @@ We’ve been told by our subscribers that we’re the most innovative identity c
 
 > _“We took a strategic, calculated bet on Auth0. By using Auth0's sophisticated identity infrastructure -- rather than building it ourselves -- we were able to assign two, full-time software engineers to developments directly related to Mindjet's core value proposition, which resulted in higher revenue while saving us a great deal of money.”_ **James Gardner**, SVP of Product at Mindjet
  
-We are using our seed funds to further expand our development [team](mailto:jobs@auth0.com) and to expand our sales and marketing efforts.  
+We are using our seed funds to further expand our [development team](http://auth0.com/jobs) and to expand our [sales](http://auth0.com/jobs) and [marketing](http://auth0.com/jobs) efforts.  
 
 We founded Auth0 to eliminate the pain of authentication and authorization for developers. We’re happy that we’ve been found useful by so many developers already, but there’s still a lot of work to be done. 
 
