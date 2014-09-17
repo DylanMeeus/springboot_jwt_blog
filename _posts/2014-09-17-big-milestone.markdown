@@ -33,7 +33,7 @@ We are using our seed funds to further expand our [development team](http://auth
 
 We founded Auth0 to eliminate the pain of authentication and authorization for developers. We’re happy that we’ve been found useful by so many developers already, but there’s still a lot of work to be done. 
 
-To keep yourselves up to date on our progress, please follow us on twitter: @authzero
+To keep yourselves up to date on our progress, please follow us on twitter: [@authzero](http://twitter.com/authzero)
 
 
 
