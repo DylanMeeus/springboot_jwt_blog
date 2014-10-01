@@ -2,7 +2,6 @@
 layout: post
 title: "Handling JWTs on Angular is finally easier!"
 date: 2014-10-01 18:51
-draft: true
 author:
   name: Martin Gontovnikas
   url: https://twitter.com/mgonto
@@ -25,8 +24,8 @@ Now that we've finished the introduction, let's actually get our hands dirty and
 
 As a reminder, we had 2 main endpoints in our server:
 
-* **`/authenticate`**: It receives a user and returns a [JWT](http://jwt.io/)
-* **`/api/restricted`**: It returns a text if the user sends the JWT correctly.
+* **`/authenticate`**: It receives a user and returns a [JWT](http://jwt.io/). It authenticates the user.
+* **`/api/restricted`**: It returns a text if the user is authenticated (sends the JWT correctly).
 
 Now, we're also making our `/authenticated` endpoint return a **[Refresh Token](http://docs.auth0.com/refresh-token)** as well. JWTs expire at some point in time. **A refresh token can be used to get a new JWT after the original one expires**.
 
