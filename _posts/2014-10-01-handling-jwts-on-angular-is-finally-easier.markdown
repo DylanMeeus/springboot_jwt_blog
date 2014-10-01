@@ -17,7 +17,7 @@ tags:
 
 Following our blog post about [how to use JWTs on AngularJS](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/#comment-1506375766), we've decided to take one step further to make this simpler.
 
-We've created a library called [angular-jwt](https://github.com/auth0/angular-jwt). We'll soon be using this library in our own [auth0-angular](https://github.com/auth0/auth0-angular) to handle JWTs as well.
+**We've created a library called [angular-jwt](https://github.com/auth0/angular-jwt)**. We'll soon be using this library in our own [auth0-angular](https://github.com/auth0/auth0-angular) to handle JWTs as well.
 
 ### Let's get our hands dirty
 
@@ -28,7 +28,7 @@ As a reminder, we had 2 main endpoints in our server:
 * **`/authenticate`**: It receives a user and returns a [JWT](http://jwt.io/)
 * **`/api/restricted`**: It returns a text if the user sends the JWT correctly.
 
-Now, we're also making our `/authenticated` endpoint return a **[Refresh Token](http://docs.auth0.com/refresh-token)** as well. JWTs expire at some point in time. A refresh token can be used to get a new JWT after the original one expires.
+Now, we're also making our `/authenticated` endpoint return a **[Refresh Token](http://docs.auth0.com/refresh-token)** as well. JWTs expire at some point in time. **A refresh token can be used to get a new JWT after the original one expires**.
 
 So, first, let's authenticate the user:
 
@@ -106,6 +106,8 @@ $http({url: '/api/restricted', method: 'GET'})
 That's it :).
 
 Now you're using JWTs to authenticated and to call your API as well as Refresh Tokens to never show the Login Window again to your users. Congrats!
+
+**Now, add [angular-jwt](https://github.com/auth0/angular-jwt) to your `bower.json` or `package.json` and start hacking!**
 
 
 
