@@ -18,6 +18,10 @@ Following our blog post about [how to use JWTs on AngularJS](https://auth0.com/b
 
 **We've created a library called [angular-jwt](https://github.com/auth0/angular-jwt)**. We'll soon be using this library in our own [auth0-angular](https://github.com/auth0/auth0-angular) to handle JWTs as well.
 
+Let's learn how to use it!
+
+<!-- more -->
+
 ### Let's get our hands dirty
 
 Now that we've finished the introduction, let's actually get our hands dirty and let's improve the code we've created in the previous blog post.
