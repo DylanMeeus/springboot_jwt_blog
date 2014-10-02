@@ -2,7 +2,6 @@
 layout: post
 title: "Handling JWTs on Angular is finally easier!"
 date: 2014-10-01 18:51
-draft: true
 author:
   name: Martin Gontovnikas
   url: https://twitter.com/mgonto
