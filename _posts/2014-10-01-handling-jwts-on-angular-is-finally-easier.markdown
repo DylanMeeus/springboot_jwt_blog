@@ -27,7 +27,7 @@ Throughout this article we'll go over some of the common questions asked by our 
 As you know, a [JWT](http://jwt.io/) is a token that's not opaque, thus it has information. To get that information, you can use the following code:
 
 ````js
-angular.module('app', [])
+angular.module('app', ['angular-jwt'])
 .controller('Controller', function Controller(jwtHelper) {
   var aToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQXV0aDAiLCJleHAiOjE0MTIyMzQ3MzB9.ZJzxkw4DNohrdk209erOGyVhfZiAQTRLHMR0BuNUuBA';
 
@@ -43,7 +43,7 @@ angular.module('app', [])
 Most JWTs will eventually [expire](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#expDef). In order to know when and if a token is expired you can use the following code:
 
 ````js
-angular.module('app', [])
+angular.module('app', ['angular-jwt'])
 .controller('Controller', function Controller(jwtHelper) {
   var aToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQXV0aDAiLCJleHAiOjE0MTIyMzQ3MzB9.ZJzxkw4DNohrdk209erOGyVhfZiAQTRLHMR0BuNUuBA';
 
@@ -60,7 +60,7 @@ angular.module('app', [])
 Once you have the JWT, you want to send it to the server on every request in the `Authorization` header. For that, you can use the following code:
 
 ````js
-angular.module('app', [])
+angular.module('app', ['angular-jwt'])
 .config(function Config($httpProvider, jwtInterceptorProvider) {
   jwtInterceptorProvider.tokenGetter = function() {
     return localStorage.getItem('JWT');
@@ -89,7 +89,7 @@ This is how you'd accomplish that with `angular-jwt`:
 
 
 ````js
-angular.module('app', [])
+angular.module('app', ['angular-jwt'])
 .config(function Config($httpProvider, jwtInterceptorProvider) {
   jwtInterceptorProvider.tokenGetter = function(jwtHelper, $http) {
     var jwt = localStorage.getItem('JWT');
