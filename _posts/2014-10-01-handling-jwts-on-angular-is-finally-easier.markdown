@@ -32,7 +32,7 @@ As a reminder, we had 2 main endpoints in our server:
 * **`/authenticate`**: It receives a user and returns a [JWT](http://jwt.io/). It authenticates the user.
 * **`/api/restricted`**: It returns a text if the user is authenticated (sends the JWT correctly).
 
-Now, we're also making our `/authenticated` endpoint return a **[Refresh Token](http://docs.auth0.com/refresh-token)** as well. JWTs expire at some point in time. **A refresh token can be used to get a new JWT after the original one expires**.
+Now, we're also making our `/authenticate` endpoint return a **[Refresh Token](http://docs.auth0.com/refresh-token)** as well. JWTs [expire](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#expDef) at some point in time. **A refresh token can be used to get a new JWT after the original one expires**.
 
 So, first, let's authenticate the user:
 
@@ -60,7 +60,7 @@ myApp.controller('UserCtrl', function ($scope, $http, $window) {
 });
 ````
 
-Please notice that we're saving the `JWT` and the `refreshToken` on `sessionStorage` so that we can send it to the protected API then. We'll now use `angular-jwt` to take care of that:
+Please notice that we're saving the `JWT` and the `refreshToken` in the `sessionStorage` so that we can send it to the protected API then. We'll now use [angular-jwt](https://github.com/auth0/angular-jwt) to take care of that:
 
 ````js
 myApp.config(function(jwtInterceptorProvider, $httpProvider) {
