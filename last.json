@@ -2,7 +2,7 @@
 layout: nil
 ---
 {
-    "avatar": "{{ site.posts[0].author.avatar }}",
+    "avatar": "{{ site.posts[0].author.avatar }}", 
     "title": "{{site.posts[0].title}}",
     "excerpt": "{{ site.posts[0].excerpt | markdownify | strip_html | truncate: 140 | strip_newlines }}",
     "link": "https://auth0.com{{ site.baseurl }}{{ site.posts[0].url }}",
