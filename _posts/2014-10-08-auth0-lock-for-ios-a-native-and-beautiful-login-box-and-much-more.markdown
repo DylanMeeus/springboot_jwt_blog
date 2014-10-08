@@ -2,6 +2,7 @@
 layout: post
 title: "Auth0 Lock for iOS: A native and beautiful Login Box and much more"
 date: 2014-10-08 17:50
+draft: true
 author:
   name: Martin Gontovnikas
   url: https://twitter.com/mgonto
@@ -41,10 +42,6 @@ The main features it provides are:
 * Works with both **Swift and Objective C**
 
 Using it is really easy and straight forward. You can read our [Swift Tutorial](https://docs.auth0.com/native-platforms/ios-swift) and [Objective C](https://docs.auth0.com/native-platforms/ios-objc) tutorial to know how to get it running in your app in less than an hour, and you can also check out the [Swift Sample](https://github.com/auth0/Auth0.iOS/tree/master/Examples/basic-sample-swift) as well as the [Objective C sample](https://github.com/auth0/Auth0.iOS/tree/master/Examples/basic-sample).
-
-Let's see a live demo of how it works:
-
-![Ios Gif](https://cloudup.com/cnccuUlFiYI+)
 
 You can read about its API on the [Github README](https://github.com/auth0/Auth0.iOS/blob/master/README.md) as well as in [CocoaPods](http://cocoapods.org/?q=Auth0.ios)
 
