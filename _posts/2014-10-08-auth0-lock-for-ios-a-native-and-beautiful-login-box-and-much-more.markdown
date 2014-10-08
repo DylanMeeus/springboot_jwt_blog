@@ -40,7 +40,7 @@ The main features it provides are:
 * The ability to do **SSO with 2 or more mobile apps** similar to Facebook and Messenger apps.
 * Works with both **Swift and Objective C**
 
-Using it is really easy and straight forward. You can read our [Swift Tutoria](https://docs.auth0.com/native-platforms/ios-swift) and [Objective C](https://docs.auth0.com/native-platforms/ios-objc) tutorial to know how to get it running in your app in less than an hour, and you can also check out the [Swift Sample](https://github.com/auth0/Auth0.iOS/tree/master/Examples/basic-sample-swift) as well as the [Objective C sample](https://github.com/auth0/Auth0.iOS/tree/master/Examples/basic-sample).
+Using it is really easy and straight forward. You can read our [Swift Tutorial](https://docs.auth0.com/native-platforms/ios-swift) and [Objective C](https://docs.auth0.com/native-platforms/ios-objc) tutorial to know how to get it running in your app in less than an hour, and you can also check out the [Swift Sample](https://github.com/auth0/Auth0.iOS/tree/master/Examples/basic-sample-swift) as well as the [Objective C sample](https://github.com/auth0/Auth0.iOS/tree/master/Examples/basic-sample).
 
 Let's see a live demo of how it works:
 
