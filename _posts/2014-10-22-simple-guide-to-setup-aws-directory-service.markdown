@@ -107,3 +107,19 @@ Click the __Try__ button and enter the user credentials:
 If you see this screen, then everything is working as expected:
 
 ![ss-2014-10-22T14-37-20.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-10-22T14-37-20.png)
+
+## So, what can I do now with Auth0?
+
+When you plug Auth0 to your Active Directory you can:
+
+* Have your custom **web, single page apps and mobile apps** authenticate with the **AWS AD** in minutes
+* Connect the **AWS AD** with **Salesforce**, **Zendesk**, **NewRelic** and other SAML-based application.
+* Connect the **AWS AD** with Open Source platforms like **WordPress**, **Drupal** and **Discourse&&
+* Configure **Single Sign On** between all these applications
+* Add **Multi-factor** authentication to these applications
+* **Extend the user profile** with application-related metadata
+
+![](https://docs.google.com/drawings/d/1Prsiyie3NmAf5JfWHqQn8cl941s_7nN6JkwmQeprUqA/pub?w=1219&h=558)
+
+More information about Auth0: <https://auth0.com/how-it-works>
+
