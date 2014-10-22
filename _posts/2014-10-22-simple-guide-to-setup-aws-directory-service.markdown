@@ -114,7 +114,7 @@ When you plug Auth0 to your Active Directory you can:
 
 * Have your custom **web, single page apps and mobile apps** authenticate with the **AWS AD** in minutes
 * Connect the **AWS AD** with **Salesforce**, **Zendesk**, **NewRelic** and other SAML-based application.
-* Connect the **AWS AD** with Open Source platforms like **WordPress**, **Drupal** and **Discourse&&
+* Connect the **AWS AD** with Open Source platforms like **WordPress**, **Drupal** and **Discourse**
 * Configure **Single Sign On** between all these applications
 * Add **Multi-factor** authentication to these applications
 * **Extend the user profile** with application-related metadata
