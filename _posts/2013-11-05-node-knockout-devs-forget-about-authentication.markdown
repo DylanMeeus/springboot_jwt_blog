@@ -100,7 +100,7 @@ The [widget is customizable](https://docs.auth0.com/login-widget2) but if you wa
 
 > By using Auth0 you don't have to worry about about user management, single sign on, flow user attributes across layers of your app, integrate with social providers and enterprises and see who is using your app.
 
-During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and Twitter ([@authzero](http://authzero.com)) to help you out if you have any issue.
+During the event we'll be available on our chat room [http://chat.auth0.com](http://chat.auth0.com) and Twitter ([@auth0](http://auth0.com)) to help you out if you have any issue.
 
 Happy Noding!
 
