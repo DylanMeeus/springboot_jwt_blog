@@ -16,7 +16,8 @@ tags:
 
 Amazon introduced today a new feature called [AWS Directory Service](http://aws.amazon.com/es/directoryservice/). In a nutshell, it allows:
 
-- It allows companies to connect their existing Active Directory to the cloud or to create complete new Directories from scratch.- Seamless administration of AWS Resources.
+- Connect existing Active Directory to the cloud or to create complete new Directories from scratch.
+- Seamless administration of AWS Resources.
 - Seamless access to AWS applications for end-users.
 - Simplify Deployment of Windows Workloads on AWS.
 - Pay as you go (0.05 $/hr for small installations and $0.15 for large)
