@@ -42,7 +42,7 @@ Using a JSON Web Token offers many advantages:
 
 One of the most interesting benefits of using JWTs is the first one listed above. Back in the old days, when databases were at the center of our client-server applications, we could create users with specific permissions on the database:
 
-<a href="http://blog.auth0.com.s3.amazonaws.com/permissions-sql.png" target="_blank"><img src="http://blog.auth0.com.s3.amazonaws.com/permissions-sql.png"></a>
+<a href="https://s3.amazonaws.com/blog.auth0.com/permissions-sql.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/permissions-sql.png"></a>
 
 _Remember this?_
 
@@ -113,11 +113,11 @@ Documenting an API is equally important. What would be a good way for surfacing 
 
 For Auth0, we decided to build our own documentation using [swagger](http://swagger.io/). Since we are a multi-tenant system, each tenant has an API Key and Secret that is used to sign the token. As a developer, you mark which scopes you need and a token will be auto-generated. You can copy and paste it to [jwt.io](http://jwt.io) to see the structure (this is the __debuggable__ piece, by the way).
 
-<a href="http://blog.auth0.com.s3.amazonaws.com/api-explorer3.gif" target="_blank"><img src="http://blog.auth0.com.s3.amazonaws.com/api-explorer3.gif"></a>
+<a href="https://s3.amazonaws.com/blog.auth0.com/api-explorer3.gif" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/api-explorer3.gif"></a>
 
 Scopes required by each operation are clearly identified:
 
-<a href="http://blog.auth0.com.s3.amazonaws.com/api-scopes2.png" target="_blank"><img src="http://blog.auth0.com.s3.amazonaws.com/api-scopes2.png"></a>
+<a href="https://s3.amazonaws.com/blog.auth0.com/api-scopes2.png" target="_blank"><img src="https://s3.amazonaws.com/blog.auth0.com/api-scopes2.png"></a>
 
 Our token format is a bit different from the one in the example we showed for GitHub. The good thing about JWTs is that they can contain _any_ data structure:
 
