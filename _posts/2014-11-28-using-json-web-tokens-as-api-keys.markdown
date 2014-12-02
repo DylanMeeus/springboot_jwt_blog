@@ -28,8 +28,6 @@ The last couple of months, we've been working on our [API v2](https://docs.auth0
 
 <!-- more -->
 
-Using JWT offers many advantages:
-
 Using a JSON Web Token offers many advantages:
 
 * **Granular Security**: API Keys provide an all-or-nothing access. JSON Web Tokens can provide much finer grained control.
