@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Auth0 Achieves SOC 2 Certification"
-date: 2014-12-10 07:00
+date: 2014-12-11 10:00
 author:
   name: "Eugenio Pace"
   url:  http://www.twitter.com/eugenio_pace
