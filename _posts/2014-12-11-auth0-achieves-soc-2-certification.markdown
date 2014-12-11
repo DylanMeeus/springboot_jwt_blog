@@ -17,8 +17,7 @@ Providing an always-on, highly secure identity service is core to the Auth0 bran
 
 Today, we are going one step further and we are pleased to announce that we have achieved SOC 2 Type 1 certification. 
 
-![](https://docs.google.com/drawings/d/1KkPhXO8DiNsrx9pnYCCc-zvfpgjo-CEsP6qW0pGR5FM/pub?w=229&h=217)
-
+![](https://s3.amazonaws.com/blog.auth0.com/soc2.png)
 
 <!-- more -->
 
