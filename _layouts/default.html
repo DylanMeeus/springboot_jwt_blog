@@ -117,8 +117,7 @@
 
         widget.getClient().getSSOData(false, function (err, data) {
           if (!data || !data.sso) return;
-          $('.login').remove();
-          $('.signup')
+          $('.login')
             .attr('href', 'https://app.auth0.com')
             .html('Open Dashboard');
         });
