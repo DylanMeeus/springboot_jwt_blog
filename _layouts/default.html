@@ -11,7 +11,7 @@
     <script type="text/javascript" src="//use.typekit.net/iws6ohy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    <script type="text/javascript" src="//cdn.auth0.com/w2/auth0-widget-5.0.min.js"></script>
+    <script type="text/javascript" src="//cdn.auth0.com/js/lock-6.min.js"></script>
     <script type="text/javascript" src="//cdn.auth0.com/web-header/latest/standalone.min.js"></script>
     <link rel="stylesheet" href="//cdn.auth0.com/web-header/latest/standalone.min.css" />
 
@@ -104,110 +104,65 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        window.widget = new Auth0Widget({
-          domain:         'auth0.auth0.com',
-          clientID:       'zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI',
-          callbackURL:    'https://app.auth0.com/callback',
+      (function () {
+        var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
+        var options = {
+          callbackURL:    'https://manage.auth0.com/callback',
           dict: {
             signup: {
               footerText: 'By signing up, you agree to our <a href="/terms" target="_new">terms of service</a> and <a href="/privacy" target="_new">privacy policy</a>'
             }
           },
-          showIcon: true,
           icon: '//auth0.com/boot/badge.png'
+        };
+
+        lock.on('signup ready', function () {
+          ga('send', 'event', 'open:signup', 'Lock', 'blog');
         });
 
-        widget.getClient().getSSOData(false, function (err, data) {
+        lock.on('signin ready', function () {
+          ga('send', 'event', 'open:signin', 'Lock', 'blog');
+        });
+
+        lock.getClient().getSSOData(false, function (err, data) {
           if (!data || !data.sso) return;
           $('.login')
             .attr('href', 'https://manage.auth0.com')
             .html('Open Dashboard');
         });
 
-        window.login = function () {
-          hideWidget(onclose);
-
-          function onclose() {
-            widget
-            .once('closed', onceclosed)
-            .signin({});
-          }
-
-          function onceclosed() {
-            $('#a0-widget').remove();
-            show_widget_demo();
-            show_small_widget();
-          }
-        };
+        window.login = function login() {
+          lock.show(options);
+        }
 
         window.signup = function() {
-          hideWidget(onclose);
-
-          function onclose() {
-            widget
-            .once('closed', onceclosed)
-            .once('signup_ready', sendanalytics)
-            .signup({
-              enableReturnUserExperience: true,
-              enableADRealmDiscovery: false
-            });
-          }
-
-          function sendanalytics() {
-            ga('send', 'event', 'signup', 'open', 'website');
-          }
-
-          function onceclosed() {
-            $('#a0-widget').remove();
-            show_widget_demo();
-          }
-
+          lock.showSignup(options);
         }
+      })()
 
-        window.show_widget_demo = function() {
-          if (!$('#root').length) return;
-          // prevent from closing login/signup
-          if ($('#a0-widget').length) return console.log('Widget is already open.');
 
-          widget.signin({
-            container: 'root',
-            chrome: true,
-            _avoidInitialFocus: true,
-            enableReturnUserExperience: false,
-            enableADRealmDiscovery: false
-          });
-        }
+      // prettyPrint
+      $(function() {
+        $('pre').addClass("prettyprint");
+      });
 
-        function hideWidget(cb) {
-          widget.once('closed', function() {
-            $('#a0-widget').remove();
-            cb && cb();
-          });
-          widget._hideSignIn();
-        }
-
-        // prettyPrint
-        $(function() {
-          $('pre').addClass("prettyprint");
-        });
-
-        $.fn.isOnScreen = function(){
-            var win = $(window);
-            var viewport = {
-                top : win.scrollTop(),
-                left : win.scrollLeft()
-            };
-            viewport.right = viewport.left + win.width();
-            viewport.bottom = viewport.top + win.height();
-
-            var bounds = win.offset();
-            if (!bounds) return;
-
-            bounds.right = bounds.left + win.outerWidth();
-            bounds.bottom = bounds.top + win.outerHeight();
-
-            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+      $.fn.isOnScreen = function(){
+        var win = $(window);
+        var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
         };
+        viewport.right = viewport.left + win.width();
+        viewport.bottom = viewport.top + win.height();
+
+        var bounds = win.offset();
+        if (!bounds) return;
+
+        bounds.right = bounds.left + win.outerWidth();
+        bounds.bottom = bounds.top + win.outerHeight();
+
+        return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+      };
     </script>
 
     <script type="text/javascript">
