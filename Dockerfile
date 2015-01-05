@@ -18,6 +18,8 @@ RUN gem install stringex -v  2.5.2
 ADD . /data
 WORKDIR /data
 
+ENV JEKYLL_ENV production
+
 RUN jekyll build
 
 CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
