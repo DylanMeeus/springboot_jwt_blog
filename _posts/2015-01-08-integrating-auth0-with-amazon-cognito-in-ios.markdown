@@ -55,12 +55,10 @@ Now it’s time to start coding our app. In this case, we’ll be using Swift, b
 Add the following dependencies to your `Podfile`
 
 ````ruby
-target "SwiftSample" do
-  pod "Lock", "~> 1.7", :inhibit_warnings => true
-  pod "JWTDecode", "~> 0.2"
-  pod "SimpleKeychain", "~> 0.2"
-  pod 'AWSCognitoSync', "~> 1.0"
-end
+pod "Lock", "~> 1.7", :inhibit_warnings => true
+pod "JWTDecode", "~> 0.2"
+pod "SimpleKeychain", "~> 0.2"
+pod 'AWSCognitoSync', "~> 1.0"
 ````
 ### Logging the User In
 We’ll use [Auth0 Lock for iOS](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement it in [this documentation page](https://auth0.com/docs/native-platforms/ios-swift).
