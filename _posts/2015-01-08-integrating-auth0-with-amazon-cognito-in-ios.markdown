@@ -106,7 +106,7 @@ Now, the user is logged in to Cognito through Auth0. You can now store informati
 let cognitoSync = AWSCognito.defaultCognito()
 let dataset = cognitoSync.openOrCreateDataset("MainDataset")
 // Get an existing value
-dataset!.synchronize().continueWithBlock { (task) -> AnyObject! in
+dataset.synchronize().continueWithBlock { (task) -> AnyObject! in
     dispatch_async(dispatch_get_main_queue(), { () -> Void in
         self.textValue.text = dataset.stringForKey("value")
     })
