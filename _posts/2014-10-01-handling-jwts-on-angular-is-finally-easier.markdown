@@ -47,8 +47,8 @@ angular.module('app', ['angular-jwt'])
 .controller('Controller', function Controller(jwtHelper) {
   var aToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQXV0aDAiLCJleHAiOjE0MTIyMzQ3MzB9.ZJzxkw4DNohrdk209erOGyVhfZiAQTRLHMR0BuNUuBA';
 
-  var expireDate = jwtHelper.getTokenExpirationDate(expToken);
-  var isExpired = jwtHelper.isTokenExpired(expToken);
+  var expireDate = jwtHelper.getTokenExpirationDate(aToken);
+  var isExpired = jwtHelper.isTokenExpired(aToken);
 });
 ````
 
