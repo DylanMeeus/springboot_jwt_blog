@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Auth0 New Pricing"
-date: 2015-01-15 10:00
+date: 2015-01-26 08:00
 author:
   name: "Gianpaolo Carraro"
   url:  http://www.twitter.com/gcarraro
@@ -13,11 +13,11 @@ tags:
 
 ### Introduction
 
-Today we are announcing [new pricing](https://auth0.com/pricing), along with a new free and full-featured [developer plan](https://auth0.com/signup).
+Today we are announcing our [new pricing](https://auth0.com/pricing), along with a new **free** and **full-featured** [developer plan](https://auth0.com/signup).
 
 ### New Pricing
 
-Auth0 subscriptions can now be tailored by:
+Based on the feedback we received over the last few months, Auth0 subscriptions can now be tailored by:
 
 * identity provider types (Social, Social+ and Enterprise) 
 * number of __active__ users 
@@ -25,7 +25,9 @@ Auth0 subscriptions can now be tailored by:
 
 This model greatly enhances the flexibility of our plans, allowing you to purchase custom packages that best fit your needs.
 
-![](https://cloudup.com/c5J8aAgPBa2+)
+You can also commit for a year and get a month free.
+
+![](https://cloudup.com/clRcrHMWgSC+)
 
 ### Always Free for Developers 
 
@@ -33,18 +35,18 @@ We are also changing our developer subscription:
 
 * it now includes **all the features** of the Auth0 platform
 * it is **not** time bound
-* it is **free** for non-production use (up to 50 active users)  
+* it is **free** for non-production use (up to 20 active users)  
 
 Developers can now use the entirety of the Auth0 platform to test all the required use cases and move to a paid plan only when it is the right time to do so. 
 <!-- more -->
 
 ### How the new pricing works 
 
-#### (1) Choose identity provider type
+#### (1) Choose the identity provider type
 
 The first step is to choose the identity provider type you need:
 
-* **Social** : This subscription enables Google, Facebook and Twitter authentication by default, and offers the option to authenticate to [many more popular social IdPs](https://docs.auth0.com/identityproviders).
+* **Social** : This subscription enables Google, Facebook and Twitter authentications by default, and offers the option to authenticate to [many more popular social IdPs](https://docs.auth0.com/identityproviders).
 
 * **Social +** : This subscription includes [all popular social IdPs](https://docs.auth0.com/identityproviders) as well as username and password database management. 
 
