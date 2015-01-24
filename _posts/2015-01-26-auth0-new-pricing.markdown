@@ -13,31 +13,32 @@ tags:
 
 ### Introduction
 
-Today we are announcing our [new pricing](https://auth0.com/pricing), along with a new **free** and **full-featured** [developer plan](https://auth0.com/signup).
+Today we are very pleased to announce Auth0 [new pricing](https://auth0.com/pricing), along with a new **free** and **full-featured** [developer plan](https://auth0.com/signup).
 
 ### New Pricing
 
-Based on the feedback we received over the last few months, Auth0 subscriptions can now be tailored by:
+Based on the feedback we received over the last few months, we have modified our pricing structure to be much more flexible, allowing you to create custom packages that best fit your needs. 
 
-* identity provider types (Social, Social+ and Enterprise) 
+Instead of fixed tiered packages, Auth0 subscriptions can now be tailored by:
+
+* identity provider types: Social, Social+ and Enterprise
 * number of __active__ users 
-* and optional features 
-
-This model greatly enhances the flexibility of our plans, allowing you to purchase custom packages that best fit your needs.
-
-You can also commit for a year and get a month free.
+* optional features, such as premium support or guaranteed SLA
+* and we have also introduced a yearly commitment option
 
 ![](https://cloudup.com/clRcrHMWgSC+)
 
 ### Always Free for Developers 
 
-We are also changing our developer subscription: 
+The other key change is our new developer subscription: 
 
 * it now includes **all the features** of the Auth0 platform
-* it is **not** time bound
+* it has **no** time limit
 * it is **free** for non-production use (up to 20 active users)  
 
-Developers can now use the entirety of the Auth0 platform to test all the required use cases and move to a paid plan only when it is the right time to do so. 
+No more trial period, when you create a free account with Auth0, you now get access to the entirety of the Auth0 platform, for as long as you need. You can test all the required use cases and move to a paid plan only when it is the right time to do so, typically when you go in production.  
+
+The 20 active users limit is well above what we have seen in pre production developer accounts, where the active users are usually the developer herself, a few members of the team and a couple of test users; but don't worry if you are still developing and testing your application and you occasionally spike over 20, we won't block you.
 <!-- more -->
 
 ### How the new pricing works 
@@ -46,7 +47,7 @@ Developers can now use the entirety of the Auth0 platform to test all the requir
 
 The first step is to choose the identity provider type you need:
 
-* **Social** : This subscription enables Google, Facebook and Twitter authentications by default, and offers the option to authenticate to [many more popular social IdPs](https://docs.auth0.com/identityproviders).
+* **Social** : This subscription enables Google, Facebook and Twitter authentication by default, and offers, by selecting the *Any Social IdP* feature, the option to authenticate to [many more popular social IdPs](https://docs.auth0.com/identityproviders).
 
 * **Social +** : This subscription includes [all popular social IdPs](https://docs.auth0.com/identityproviders) as well as username and password database management. 
 
@@ -55,9 +56,15 @@ The first step is to choose the identity provider type you need:
 
 #### (2) Choose how many active users
 
-The second step is to choose how many __active__ users you want to include in your plan. Note that Auth0 counts only __active__ users, not registered users, meaning that you pay only for the actual authentications to your app, API or IoT device and not for dorment people in your database or enterprise. An active user is ___a user that has authenticated at least once in the past 30 days.___ 
+The second step is to choose how many __active__ users you want to include in your plan. Note that Auth0 counts only __active__ users, not registered users, meaning that you pay only for users that actually authenticate to your app, API or IoT device and not for the dorment people in your database or enterprise, which in some cases could be the majority of your population. 
 
-The Auth0 service scales to millions of users per subscriber.  You can choose up to 100,000 Social or Social+ active users and up to 5,000 enterprise __active__ users through our self service platform.  For higher volumes please [contact us](mailto: sales@auth0.com).
+> An active user is ___a user that has authenticated at least once in the past 30 days.___ 
+
+__Active users__ are counted "per application". For example, if you have two distinct applications, let’s say an inventory management application and a timesheet application and your users authenticate against both of them, they will be counted as two __active__ users (one __active__ user per app). 
+
+Note that we define an application as a _client id_ and _client secret_ pair, if multiple applications (e.g. one on iOS and one on Android) share the same _client id_ and _client secret_ pair then, they are a single app in this definition.
+ 
+You can choose up to 100,000 Social or Social+ __active__ users and up to 5,000 enterprise __active__ users through our self service platform.  For higher volumes or specific needs please [contact us](mailto: sales@auth0.com).
 
 #### (3) Choose optional features
 
