@@ -33,7 +33,7 @@ We are also changing our developer subscription:
 
 * it now includes **all the features** of the Auth0 platform
 * it is **not** time bound
-* it is **free** for non-production use (up to 100 active users)  
+* it is **free** for non-production use (up to 50 active users)  
 
 Developers can now use the entirety of the Auth0 platform to test all the required use cases and move to a paid plan only when it is the right time to do so. 
 <!-- more -->
