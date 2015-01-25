@@ -17,7 +17,7 @@ Today we are very pleased to announce Auth0 [new pricing](https://auth0.com/pric
 
 ### New Pricing
 
-Based on the feedback we received over the last few months, we have modified our pricing structure to be much more flexible, allowing you to create custom packages that best fit your needs. 
+Based on the feedback we received over the last few months, we have modified our pricing structure to be much more **flexible**, allowing you to create **custom packages** that best fit your needs.
 
 Instead of fixed tiered packages, Auth0 subscriptions can now be tailored by:
 
@@ -62,7 +62,7 @@ The second step is to choose how many __active__ users you want to include in yo
 
 __Active users__ are counted "per application". For example, if you have two distinct applications, let’s say an inventory management application and a timesheet application and your users authenticate against both of them, they will be counted as two __active__ users (one __active__ user per app). 
 
-Note that we define an application as a _client id_ and _client secret_ pair, if multiple applications (e.g. one on iOS and one on Android) share the same _client id_ and _client secret_ pair then, they are a single app in this definition.
+Note that we define an application as a _client id_ and _client secret_ pair, if multiple applications (say one on iOS and one on Android) share the same _client id_ and _client secret_ pair then, they are a single app in this definition.
  
 You can choose up to 100,000 Social or Social+ __active__ users and up to 5,000 enterprise __active__ users through our self service platform.  For higher volumes or specific needs please [contact us](mailto: sales@auth0.com).
 
@@ -74,7 +74,14 @@ Auth0 is regularly audited for [SOC 2 compliance](http://en.wikipedia.org/wiki/S
 ##### Public Cloud, Private Cloud or On-Prem
 The vast majority of Auth0 subscribers' needs are fulfilled by our public cloud service.  However, if you have compliance or other constraints that require a private cloud or on-prem deployment, please [contact us](mailto:sales@auth0.com).
 
+### Existing Subscribers
+If you are an existing subscriber, you have two options:
+
+* you can stay on your existing plan as long as you like (same price, same __active__ users allowance as you have today) 
+* you move to a new plan that you like better and you will charged accordingly. We will give you a pro-rated refund of the month you have already paid on your current plan. 
+
+As per those of you currently in trial mode, you will automatically be moved to the new free developer account, giving you access to even more features than your current pro account trial.
+
 ### Conclusion
 
 We are very excited about both our new [new pricing](https://auth0.com/pricing) and our new free and full-featured [developer plan](https://auth0.com/signup). Give them a go and do not hesitate to [share your feedback](mailto:sales@auth0.com).  
-
