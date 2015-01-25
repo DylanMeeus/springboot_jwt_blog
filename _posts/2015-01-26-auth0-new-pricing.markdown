@@ -47,11 +47,11 @@ The 20 active users limit is well above what we have seen in pre production deve
 
 The first step is to choose the identity provider type you need:
 
-* **Social** : This subscription enables Google, Facebook and Twitter authentication by default, and offers, by selecting the *Any Social IdP* feature, the option to authenticate to [many more popular social IdPs](https://docs.auth0.com/identityproviders).
+* **Social** : This subscription enables Google, Facebook and Twitter authentication by default, and offers, by selecting the *Any Social IdP* feature, the option to authenticate to [many more popular social IdPs](https://docs.auth0.com/identityproviders#2).
 
 * **Social +** : This subscription includes [all popular social IdPs](https://docs.auth0.com/identityproviders#2) as well as username and password database management. 
 
-* **Enterprise** : In addition to all the Social+ capabilities, this subscription includes support for [all popular enterprise IdPs](https://docs.auth0.com/identityproviders) (e.g. AD, LDAP, ADFS, Google Apps, SAML-P, etc).  The Enterprise subscription optionally supports [3rd party application single sign-on](https://docs.auth0.com/sso) (e.g. SSO for Salesforce, O365, Zendesk and many others). 
+* **Enterprise** : In addition to all the Social+ capabilities, this subscription includes support for [all popular enterprise IdPs](https://docs.auth0.com/identityproviders#1) (e.g. AD, LDAP, ADFS, Google Apps, SAML-P, etc).  The Enterprise subscription optionally supports [3rd party application single sign-on](https://docs.auth0.com/sso) (e.g. SSO for Salesforce, O365, Zendesk and many others). 
 
 
 #### (2) Choose how many active users
