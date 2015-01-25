@@ -26,7 +26,7 @@ Instead of fixed tiered packages, Auth0 subscriptions can now be tailored by:
 * Optional features, such as premium support or guaranteed SLA.
 * and we have also introduced a yearly commitment option.
 
-![](https://cloudup.com/clRcrHMWgSC+)
+![](https://cloudup.com/cBnh8ziTKea+)
 
 ### Always Free for Developers 
 
