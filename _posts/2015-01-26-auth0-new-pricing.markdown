@@ -13,7 +13,7 @@ tags:
 
 ### Introduction
 
-Today we are very pleased to announce Auth0 [new pricing](https://auth0.com/pricing), along with a new **free** and **fully-featured** [developer plan](https://auth0.com/signup).
+Today we are very pleased to announce Auth0 [new pricing](https://auth0.com/pricing), along with a new **free** and **full-featured** [developer plan](https://auth0.com/signup).
 
 ### New Pricing
 
