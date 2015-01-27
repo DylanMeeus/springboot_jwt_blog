@@ -24,8 +24,6 @@ And this shows how it works:
 
 ![](https://dl.dropboxusercontent.com/u/21665105/gitzero.gif)
 
-You can test it yourself at: <http://auth0.com:9292>
-
 This article explains how to run a Git server supporting any authentication provider: social, custom or perhaps more interesting enterprise systems like __Active Directory__, __Google Apps__, __Office365__, __Salesforce__, etc. 
 
 > The nice thing about using this is that you can grant access to Git repositories using Google Apps groups or Office365 Groups. When someone leaves the company you delete the user from the directory and that's it. No need to manage SSH keys.
