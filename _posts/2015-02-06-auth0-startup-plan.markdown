@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Auth0 Startup Plan"
-date: 2015-02-05 08:00
+date: 2015-02-06 08:00
 author:
   name: "Gianpaolo Carraro"
   url:  http://www.twitter.com/gcarraro
