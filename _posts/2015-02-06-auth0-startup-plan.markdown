@@ -12,7 +12,7 @@ tags:
 - price
 ---
 
-Following last month [new pricing announcement](https://auth0.com/pricing) and new free and full-featured [developer plan](https://auth0.com/signup), today we are adding a **Startup Plan** to our pricing. 
+Following last month's [new pricing announcement](https://auth0.com/pricing) and new free and full-featured [developer plan](https://auth0.com/signup), today we are adding a **Startup Plan** to our pricing. 
 
 ### Startup Plan
 
