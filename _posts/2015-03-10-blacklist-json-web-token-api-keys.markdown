@@ -25,12 +25,12 @@ tags:
 
 On a [previous post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) we proposed an approach to using JSON Web Tokens as API Keys, going over some of the benefits of doing so and also providing some examples based on our [API v2 scenarios](https://auth0.com/docs/apiv2). This post follows up by explaining an aspect that was not covered before: how to blacklist a JWT API key so it is no longer valid.
 
-## A real world example
+# A real world example
 Let's for a second assume that GitHub used JSON Web Tokens as API Keys and one of them was accidentaly published on the web. You would want to make sure an app can no longer access your information by revoking that token:
 
 <a href="https://cldup.com/Gl1Yvh8WhS.png" target="_blank"><img src="https://cldup.com/Gl1Yvh8WhS.png"></a>
 
-## Framing the problem
+# Framing the problem
 Providing support for blacklisting JWTs poses the following questions:
 
 1. How are JWTs individually identified?
@@ -40,7 +40,7 @@ Providing support for blacklisting JWTs poses the following questions:
 
 This blog post aims to answer the previous questions by leveraging our experience from implementing this feature in our [API v2](https://docs.auth0.com/apiv2).
 
-### 1. How are JWTs individually identified?
+## 1. How are JWTs individually identified?
 
 To revoke a JWT we need to be able to tell one token apart from another one. The JWT spec proposes the [`jti`](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#jtiDef) (JWT ID) as a means to identify a token. From the specification:
 > The jti (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.
@@ -53,7 +53,7 @@ The tokens accepted by our API use the `aud` claim to determine the tenant for w
 Similarly, if a token does not include the `jti` claim we do not allow it to be revoked.
 
 
-### 2. Who should be able to revoke JWTs?
+## 2. Who should be able to revoke JWTs?
 
 If anyone could revoke our API keys then unfortunately they wouldn't be of much use. We need a way of restricting who can revoke a JWT.
 
@@ -63,7 +63,7 @@ The way we solved it in our API is by defining a specific scope (permission) tha
 > Notice the `blacklist` action nested inside the `scopes` object.
 
 
-### 3. How are tokens revoked?
+## 3. How are tokens revoked?
 
 To blacklist/revoke a token, you need a JWT API key (referred to as `JWT_API_KEY`) like the one described in #2. With it you can issue a `POST` request to `/api/v2/blacklists/tokens` as shown below (new lines added for clarity):
 
@@ -82,7 +82,7 @@ The complete documentation for the endpoint is [here](https://auth0.com/docs/api
 
 To get the revoked tokens you can issue a `GET` to `/api/v2/blacklists/tokens`. You can use the [docs](https://auth0.com/docs/apiv2#!/blacklists/get_tokens) to figure out the how.
 
-### 4. How do we avoid adding overhead?
+## 4. How do we avoid adding overhead?
 You might be thinking:
 
 > Wasn't the whole point of using JWTs avoiding a DB query?
@@ -102,12 +102,12 @@ With that in mind, these are some of the optimizations that you can implement:
 * **Optimization 3**: To reduce the size of the revoked tokens store you could automatically remove JWTs from it once their [`exp`](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#expDef) is reached (assuming there is one).
 
 <a name="impl"></a>
-### Implementation
+## Implementation
 We have shipped version 1.3.0 of the open source [express-jwt](https://github.com/auth0/express-jwt) with support for [multi-tenancy](https://github.com/auth0/express-jwt#multi-tenancy) and [blacklisted tokens](https://github.com/auth0/express-jwt#revoked-tokens). We also put together a [sample](https://github.com/auth0/multitenant-jwt-auth) that shows everything working together. The sample is based on our [API v2](https://docs.auth0.com/apiv2) implementation.
 
 The following code snippets use show the core sample parts:
 
-#### Securing the endpoint
+### Securing the endpoint
 The first thing we have is an API that we would like to protect. The `express-jwt` middleware is configured by providing:
 
 * `secret` - A function in charge of retrieving the secret.
@@ -122,7 +122,7 @@ app.use('/api', expressJwt({
 }));
 ```
 
-#### Handling multi-tenancy
+### Handling multi-tenancy
 The implementation for the `secretCallback` function reads the backing data store to retrieve the secret for a tenant.  It caches the secrets using the tenant identifier as the cache key.
 
 If the data layer provides an encrypted tenant secret, it needs to be decrypted before calling `done`.
@@ -149,7 +149,7 @@ var secretCallback = function(req, payload, done){
 };
 ```
 
-#### Supporting revoked JWTs
+### Supporting revoked JWTs
 Similarly, the `isRevokedCallback` implementation caches whether a token is revoked or not using the `(aud, jti)` pair as the cache key. It also skips the check in case the `jti` claim is not present.
 
 ```javascript
@@ -175,7 +175,7 @@ var isRevokedCallback = function(req, payload, done){
 };
 ```
 
-## Conclusion
+# Conclusion
 Most of the aforementioned content applies to blacklisting JWTs in general, not just JWT API keys.
 
 Hopefully this blog post has provided some useful ideas on how to tackle this problem.
