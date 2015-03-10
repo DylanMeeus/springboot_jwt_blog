@@ -17,7 +17,9 @@ tags:
 - scopes
 ---
 
-<a href="http://www.mxlookups.com/wp-content/uploads/2011/11/blacklist-book-img.jpg" target="_blank"><img src="http://www.mxlookups.com/wp-content/uploads/2011/11/blacklist-book-img.jpg"></a>
+<a href="//cdn.auth0.com/blog/blacklist_header.jpg" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_header.jpg"></a>
+
+---------
 
 **tl;dr**: if you understand why and how to support blacklisting JWTs, then skip to the [code](#impl).
 
@@ -28,7 +30,7 @@ On a [previous post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-
 # A real world example
 Let's for a second assume that GitHub used JSON Web Tokens as API Keys and one of them was accidentaly published on the web. You would want to make sure an app can no longer access your information by revoking that token:
 
-<a href="https://cldup.com/Gl1Yvh8WhS.png" target="_blank"><img src="https://cldup.com/Gl1Yvh8WhS.png"></a>
+<a href="//cdn.auth0.com/blog/blacklist_token.png" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_token.png"></a>
 
 # Framing the problem
 Providing support for blacklisting JWTs poses the following questions:
@@ -40,13 +42,15 @@ Providing support for blacklisting JWTs poses the following questions:
 
 This blog post aims to answer the previous questions by leveraging our experience from implementing this feature in our [API v2](https://docs.auth0.com/apiv2).
 
+<!-- more -->
+
 ## 1. How are JWTs individually identified?
 
 To revoke a JWT we need to be able to tell one token apart from another one. The JWT spec proposes the [`jti`](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#jtiDef) (JWT ID) as a means to identify a token. From the specification:
 > The jti (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.
 
 As a quick reminder, this is how the claims section of one of our JWT API tokens looks like:
-<a href="https://cldup.com/T4yHTrYMG8.png" target="_blank"><img src="https://cldup.com/T4yHTrYMG8.png"></a>
+<a href="//cdn.auth0.com/blog/jwt_blacklist_01.png" target="_blank"><img src="//cdn.auth0.com/blog/jwt_blacklist_01.png"></a>
 
 The tokens accepted by our API use the `aud` claim to determine the tenant for which the JWT is valid. If we use the `(aud, jti)` pair as the token's identifier then each tenant is in charge of guaranteeing that there's no duplication among their tokens.
 
@@ -58,7 +62,7 @@ Similarly, if a token does not include the `jti` claim we do not allow it to be 
 If anyone could revoke our API keys then unfortunately they wouldn't be of much use. We need a way of restricting who can revoke a JWT.
 
 The way we solved it in our API is by defining a specific scope (permission) that allows blacklisting tokens. If you generate a JWT like the one shown in the next figure you will be able to revoke JWTs:
-<a href="https://cldup.com/HH3m6pdM_6.png" target="_blank"><img src="https://cldup.com/HH3m6pdM_6.png"></a>
+<a href="//cdn.auth0.com/blog/jwt_blacklist_02.png" target="_blank"><img src="//cdn.auth0.com/blog/jwt_blacklist_02.png"></a>
 
 > Notice the `blacklist` action nested inside the `scopes` object.
 
