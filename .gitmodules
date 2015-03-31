@@ -1,7 +1,0 @@
-[submodule "units"]
-	path = units
-	url = git@github.com:auth0/blog-units.git
-
-[submodule "css/styleguide"]
-	path = css/styleguide
-	url = git@github.com:auth0/styleguide.git
