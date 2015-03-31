@@ -184,9 +184,8 @@ Recommendations for Library Developers
 
 If the JWT verification uses the `alg` field to select which signing algorithm to use it might vulnerable to the following scenarios:
 
-When `alg` is set to `none` it can allow an attacker to bypass the signature check. It's advisable to restrict the `none` algorithm to development use with a flag or avoid it completely from implementation.
-
-If a library has a `verify` function or method that supports both asymmetric encryption and a hash function, an attacker that has the public key can sign a token hashing it with one of the supported hashing algorithms. As the `verify` function accepts both modes and the `alg` specifies to use the wrong algorithm, an attacker can generate non-trusted JWTs. In that case, the algorithm to use when verifying a token must be either explicitily set by the library user or obtained from the `kid` field inside the JWT.
+ * When `alg` is set to `none` it can allow an attacker to bypass the signature check. It's advisable to restrict the `none` algorithm to development use with a flag or avoid it completely from implementation.
+ * If a library has a `verify` function or method that supports both asymmetric encryption and a hash function, an attacker that has the public key can sign a token hashing it with one of the supported hashing algorithms. As the `verify` function accepts both modes and the `alg` specifies to use the wrong algorithm, an attacker can generate non-trusted JWTs. In that case, the algorithm to use when verifying a token must be either explicitily set by the library user or obtained from the `kid` field inside the JWT.
 
 
 Improving the JWT/JWS standard
