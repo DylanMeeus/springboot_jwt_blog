@@ -9,3 +9,6 @@ encoding: utf-8
 only_first_p:
   show_read_more_link: true
   read_more_link_text: 'Read more'
+stylus:
+  compress: true
+  path: ./css
