@@ -1,3 +1,5 @@
+# SOURCE: https://gist.github.com/adamjspooner/988201
+#
 # A Jekyll plugin to convert .styl to .css
 # This plugin requires the stylus gem, do:
 # $ [sudo] gem install stylus
