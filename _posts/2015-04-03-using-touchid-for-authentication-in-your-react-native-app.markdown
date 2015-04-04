@@ -25,12 +25,12 @@ tags:
 
 ---
 
-A few days ago, Facebook finally made **React Native** available in [Github](https://github.com/facebook/react-native), so we decided, like everybody else, to give it a try.
-After the usual “Hello world” examples and test applications, we were pretty amazed at how easy it was to code a native app with Javascript.
-This is when we decided to to try implementing something a little more complicated like **TouchID authentication**.
+A few days ago, Facebook finally made **React Native** available in [Github](https://github.com/facebook/react-native), so, like everybody else, we decided to give it a try.
+After the usual “Hello, World” examples and test applications, we were pretty amazed at how easy it was to code a native app with Javascript.
+This is when we decided to try implementing something a little more complicated like **TouchID authentication**.
 
 We’ve checked React Native components and couldn’t find one that allows us to use TouchID, so we went back to _good ol’ Objective-C_ since there is no support for _Swift_ yet. We decided to code a [React Native Module](http://facebook.github.io/react-native/docs/nativemodulesios.html#content) that would allow everyone to use TouchID.
-Here in Auth0, we've already implemented a TouchID authentication flow for [Lock](https://github.com/auth0/Lock.iOS-OSX#touchid). Therefore, we decided to reuse that library and wrap it in a React Native compatible library. In other words, we created [Lock.ReactNative](https://github.com/auth0/Lock.ReactNative) with all the necessary mappings to use Lock like this in your React Native app:
+Here in Auth0, we've already implemented a TouchID authentication flow for [Lock](https://github.com/auth0/Lock.iOS-OSX#touchid). So we decided to reuse that library and wrap it in a React Native compatible library. In other words, we created [Lock.ReactNative](https://github.com/auth0/Lock.ReactNative) with all the necessary mappings to use Lock like this in your React Native app:
 
 ```js
 Lock.show({
@@ -55,7 +55,7 @@ Once our React Native app is created, we need to install LockReact as a dependen
 # Run in the React Native app's folder
 pod init
 ```
-Edit the `Podfile` content to look as follows
+Edit the `Podfile` content to look as follows:
 
 ```ruby
 platform :iOS, '8.0'
@@ -75,13 +75,13 @@ open LockReact.xcworkspace
 
 Now, let's create an application in your [Auth0](https://manage.auth0.com/) account and copy the `clientId` and `domain` to the `Info.plist` file
 
-`<Add Gif showing how to create app, copy clientId and domain and pasting on XCode>`
+![Create Auth0 account](https://cdn.auth0.com//blog/react-native-touchid/CreateApp.gif)
 
 ### Make your JS code be able to call a native component
 
 Finally, we need to create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock's native component:
 
-`<INSERT GIF HOW TO CREATE OBJC CLASS>`
+![Create ObjectiveC class](https://cdn.auth0.com//blog/react-native-touchid/CreateClass.gif)
 
 Now, paste the following code into the created classes:
 
@@ -117,11 +117,11 @@ Now, paste the following code into the created classes:
 
 Now we're ready to write some JS code!. We want to show a simple UI like this:
 
-`<Image of Sample App>`
+![Sample app](https://cdn.auth0.com//blog/react-native-touchid/appImage.png)
 
 ### Implementing the UI
 
-First, let's just implement the base UI with a React component.
+First, let's implement the base UI with a React component.
 
 ```js
 // Imports go here
@@ -166,6 +166,9 @@ Then, we call it from the `_onLoginTouchID` method:
 ```js
 Lock.show({
   closable: true,
+  authParams: {
+    connection: 'Username-Password-Authentication',
+  },
   connections: ['touchid'],
 }, (err, profile, token) => {
   if (err) {
@@ -177,9 +180,9 @@ Lock.show({
 });
 ```
 
-Refresh the app and boom. Authenticating with TouchID now works!
+Refresh the app and boom!. Authenticating with TouchID now works.
 
-`<INSERT GIF OF WORKING APP>`
+![Working app](https://cdn.auth0.com//blog/react-native-touchid/AppFlow.gif)
 
 Congrats, you've just added TouchID to your app with less than 20 lines of code :). If you want to see the full code of this sample app, you can go to [this github repository](https://github.com/auth0/Lock.ReactNative/tree/master/Example).
 
