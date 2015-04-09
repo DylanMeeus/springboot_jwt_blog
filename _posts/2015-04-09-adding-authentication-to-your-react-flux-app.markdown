@@ -23,7 +23,7 @@ tags:
 
 ---
 
-Let’s face it. [React](https://facebook.github.io/react/) is the new cool kid on the street. Everybody is working on creating React components because it entails understanding just 2 basic concepts:
+Let’s face it. [React](https://facebook.github.io/react/) is the new cool kid on the block. Everybody is working on creating React components because it entails understanding just 2 basic concepts:
 
 * A component is just a function
 * Single-direction data flow
