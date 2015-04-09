@@ -30,7 +30,7 @@ Let’s face it. [React](https://facebook.github.io/react/) is the new cool kid 
 
 However, once you start creating a bigger app, you realize that just using React isn’t enough. So you start looking at [Flux](https://facebook.github.io/flux/), which is the architecture Facebook uses to create React apps.
 
-As we learned in a [previous blog post](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), learning how to conduct authentication in a Single Page App is extremely hard. We had to learn about tokens, [JWTs](http://jwt.io/) and how to integrate them with SPAs. Learning how to do it with Flux is even harder! That’s why in this blogpost we’ll learn how to add authentication to a React Flux app.
+As we learned in a [previous blog post](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), learning how to conduct authentication in a Single Page App is can get super complex. We had to learn about tokens, [JWTs](http://jwt.io/) and how to integrate them with SPAs. Learning how to do it with Flux is even harder! That’s why in this blogpost we’ll learn how to add authentication to a React Flux app.
 
 ![Image](https://docs.google.com/drawings/d/12Y8gWirtVhvrHrlyc1Z7P59c2NkY6m3zThsSL1L0gP0/pub?w=959&h=638)
 
