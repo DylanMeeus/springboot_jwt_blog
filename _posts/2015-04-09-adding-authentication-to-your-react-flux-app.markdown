@@ -32,7 +32,7 @@ However, once you start creating a bigger app, you realize that just using React
 
 As we learned in a [previous blog post](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), learning how to conduct authentication in a Single Page App is extremely hard. We had to learn about tokens, [JWTs](http://jwt.io/) and how to integrate them with SPAs. Learning how to do it with Flux is even harder! That’s why in this blogpost we’ll learn how to add authentication to a React Flux app.
 
-![Gif](https://cdn.auth0.com/blog/reactFluxApp.gif)
+![Image](https://docs.google.com/drawings/d/12Y8gWirtVhvrHrlyc1Z7P59c2NkY6m3zThsSL1L0gP0/pub?w=959&h=638)
 
 <!-- more -->
 
@@ -44,6 +44,8 @@ We’ll be coding our React app using ES6 thanks to [Browserify](http://browseri
 
 ### Login page
 #### The Login component
+![Login Component](https://docs.google.com/drawings/d/1DVqDnn7YnNd-YJieoAVlwxrGyDpCZEZH9nCpNs3KbO0/pub?w=959&h=638)
+
 First, let’s create our `Login` component. Its main function is rendering an input for the username and password and calling the `AuthService` when the user clicks on the login button.
 
 ```jsx
@@ -86,6 +88,7 @@ reactMixin(Login.prototype, React.addons.LinkedStateMixin);
 ```
 
 #### The AuthService & the LoginAction
+![Authseervice and login action](https://docs.google.com/drawings/d/1FFBWhfS7hqtq4qcXXsNEtOW2T8f5RkEiq50D4MTlDyw/pub?w=959&h=638)
 
 Our AuthService is in charge of calling our [login API](https://github.com/auth0/nodejs-jwt-authentication-sample/blob/master/user-routes.js#L37-L54). The server will validate the username and password and return a token [(JWT)](http://jwt.io/) back to our app. Once we get it, we’ll create a [LoginAction](https://facebook.github.io/flux/docs/todo-list.html#creating-semantic-actions) and send it to all the [Stores](https://facebook.github.io/flux/docs/todo-list.html#creating-stores) using the [Dispatcher](https://facebook.github.io/flux/docs/todo-list.html#creating-a-dispatcher) from Flux.
 
@@ -109,7 +112,7 @@ class AuthService {
         // We get a JWT back.
         let jwt = response.id_token;
         // We trigger the LoginAction with that JWT.
-        LoginActions.userLoggedIn(jwt);
+        LoginActions.loginUser(jwt);
         return true;
     });
   }
@@ -122,14 +125,14 @@ export default new AuthService()
 // LoginAction.js
 // ... imports
 export default {
-  userLoggedIn: (jwt) => {
+  loginUser: (jwt) => {
     // Go to the Home page once the user is logged in
     RouterContainer.get().transitionTo(‘/‘);
     // We save the JWT in localStorage to keep the user authenticated. We’ll learn more about this later.
     localStorage.setItem(‘jwt’, jwt);
     // Send the action to all stores through the Dispatcher
     AppDispatcher.dispatch({
-      actionType: USER_LOGGED_IN,
+      actionType: LOGIN_USER,
       jwt: jwt
     });
   }
@@ -139,6 +142,7 @@ export default {
 You can take a look at the router configuration [on Github](https://github.com/auth0/react-flux-jwt-authentication-sample/blob/gh-pages/src/app.jsx#L11-L29), but it’s important to note that once the `LoginAction` is triggered, the user is successfully authenticated. Therefore, we need to redirect him or her from the Login page to the Home. That’s why we’re adding the URL transition in here.
 
 #### The LoginStore
+![Dispatcher and LoginStore](https://docs.google.com/drawings/d/1_IAM5yjabjPK6EGq7dfliV_rRISTrsT7BlKl9MSX1D0/pub?w=959&h=638)
 
 The LoginStore, like any other store, has 2 functions:
 
@@ -192,6 +196,8 @@ export default new LoginStore();
 
 ### Displaying the user information
 #### Creating an Authenticated component
+![AuthenticatedComponent](https://docs.google.com/drawings/d/1LlRJ_EC6M11wLzGgicTv5DJGOOxMGl4P-yX5LfvGlgs/pub?w=959&h=638)
+
 Now, we can start creating components that require authentication. For that, we’ll create a wrapper (or decorator) component called `AuthenticatedComponent`. It’ll make sure the user is authenticated before displaying its content. If the user isn’t authenticated, it’ll redirect him or her to the Login page. Otherwise, it’ll send the user information to the component it’s wrapping:
 
 ```jsx
@@ -251,6 +257,8 @@ Next, take a look at the `render` method. There, we’re rendering the Component
 Now, let’s create the Home component which will be wrapped by the `AuthenticatedComponent` we’ve just created.
 
 #### Home Page
+![Home](https://docs.google.com/drawings/d/1kZBxoxkMMQe2-VZb1kJPjoQQ3EZ_kJ1lw1Bg2zQ9JG4/pub?w=959&h=638)
+
 The `Home` will display user information. As it’s wrapped by the `AuthenticatedComponent`, we can be sure of 2 things:
 
 * Once the `render` method is called on the `Home` component, we know the user is authenticated. Otherwise, the app would have redirected him to the `Login` page.
@@ -291,7 +299,7 @@ Due to the fact we’re saving the JWT on `localStorage` after a successful auth
 // app.jsx ==> Bootstrap file
 let jwt = localStorage.getItem(‘jwt’);
 if (jwt) {
-  LoginActions.userLoggedIn(jwt);
+  LoginActions.loginUser(jwt);
 }
 ```
 
