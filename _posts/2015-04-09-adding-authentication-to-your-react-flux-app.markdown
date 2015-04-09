@@ -136,7 +136,7 @@ export default {
 }
 ```
 
-You can take a look at the router configuration [on Github](https://github.com/auth0/react-flux-jwt-authentication-sample/blob/gh-pages/src/app.jsx#L11-L29), but it’s important to note that once the `LoginAction` is triggered, the user is successfully authenticated. Therefore, we need to redirect him from the Login page to the Home. That’s why we’re adding the URL transition in here.
+You can take a look at the router configuration [on Github](https://github.com/auth0/react-flux-jwt-authentication-sample/blob/gh-pages/src/app.jsx#L11-L29), but it’s important to note that once the `LoginAction` is triggered, the user is successfully authenticated. Therefore, we need to redirect him or her from the Login page to the Home. That’s why we’re adding the URL transition in here.
 
 #### The LoginStore
 
