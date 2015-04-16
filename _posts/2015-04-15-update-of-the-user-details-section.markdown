@@ -12,13 +12,13 @@ tags:
 ---
 ## tl;dr
   * We have redesigned the user's profile page to use the new [API v2](https://auth0.com/docs/apiv2).
-  * API v2 brings an improved way of handling metadata. (https://auth0.com/docs/apiv2Changes#8). In short, metadata will be stored in a separate section (__app\_metadata__ and __user\_metadata__) on the user structure and not merged with root attributes, which caused confusion before.
+  * API v2 brings an improved way of handling metadata. (https://auth0.com/docs/apiv2Changes#8). In short, metadata will be stored in a separate section (__app\_metadata__ and __user\_metadata__) on the user structure and not merged with root attributes, which had caused confusion before.
   * The data you've modified in our previous dashboard version or using API v1 is now under __app\_metadata__.
   * This is a change on the __Dashboard__, not on the runtime. There are __no breaking changes__ to your apps.
 
 ---
 
-We have redesigned the user's profile page in order to make use of the new [API v2](https://auth0.com/docs/apiv2).
+Good news! We have redesigned the user's profile page in order to make use of the new [API v2](https://auth0.com/docs/apiv2).
 
 User's data is now separated in three sections, each one with different meanings according to what it represents.
 
@@ -30,15 +30,15 @@ On the main section you will find essential data such as the user's email and lo
 
 ### Metadata Section
 
-Then there's the __Metadata__ section which is the part of the user's data that you can modify.
+The __Metadata__ section is the part of the user's data that you can modify.
 
-In the previous user's profile, the _metadata_ was merged with the user's root-level attributes which tended to create confusion. To make everythig more explicit and easier to find, we've decided to keep it separate.
+In the previous user's profile, the _metadata_ was merged with the user's root-level attributes which created some confusion. To make everythig more explicit and easier to find, we've decided to keep it separate.
 
 ![](https://cdn.auth0.com/blog/new-profile-2.png)
 
-If you modified user attributes in the past through the dashboard, you will find the additional attributes under __app\_metadata__ property after this change (since the dashboard was using APIv1).
+If you modified user attributes in the past through the dashboard, you will find the additional attributes under __app\_metadata__  after this change (since the dashboard was using API v1).
 
-> If you want to understand more about when to use __app\_metadata__ vs __user\_metadata__, [read this](https://auth0.com/docs/apiv2Changes#8).
+> [Learn more](https://auth0.com/docs/apiv2Changes#8) about when to use __app\_metadata__ vs __user\_metadata__.
 
 ### Identity Provider Attributes Section
 
@@ -56,6 +56,6 @@ The previous code snippet tries to use the `picture` property from `user_metadat
 
 ### Raw JSON
 
-Finally, you can easily take a look at the raw json format that will be served by our API at the new __Raw JSON__ tab.
+Finally, you can easily take a look at the raw JSON format that will be served by our API at the new __Raw JSON__ tab.
 
 ![](https://cdn.auth0.com/blog/new-profile-4.png)
