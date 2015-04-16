@@ -12,6 +12,7 @@ tags:
 ---
 ---
 **TL;DR**
+
   * We have redesigned the user's profile page to use the new [API v2](https://auth0.com/docs/apiv2).
   * API v2 brings an improved way of handling metadata. [](https://auth0.com/docs/apiv2Changes#8). In short, metadata will be stored in a separate section (__app\_metadata__ and __user\_metadata__) on the user structure and not merged with root attributes, which had caused confusion before.
   * The data you've modified in our previous dashboard version or using API v1 is now under __app\_metadata__.
