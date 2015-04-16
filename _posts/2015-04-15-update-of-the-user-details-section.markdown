@@ -12,8 +12,9 @@ tags:
 ---
 ## tl;dr
   * We have redesigned the user's profile page to use the new [API v2](https://auth0.com/docs/apiv2).
-  * API v2 has a new way of handling metadata (https://auth0.com/docs/apiv2Changes#8). In short, metadata will be stored in a separate section (__app\_metadata__ and __user\_metadata__) on the user structure and not merged with root attributes.
+  * API v2 brings an improved way of handling metadata. (https://auth0.com/docs/apiv2Changes#8). In short, metadata will be stored in a separate section (__app\_metadata__ and __user\_metadata__) on the user structure and not merged with root attributes, which caused confusion before.
   * The data you've modified in our previous dashboard version or using API v1 is now under __app\_metadata__.
+  * This is a change on the __Dashboard__, not on the runtime. There are __no breaking changes__ to your apps.
 
 ---
 
@@ -29,19 +30,19 @@ On the main section you will find essential data such as the user's email and lo
 
 ### Metadata Section
 
-Then  there's the __Metadata__ section which is the part of the user's data that you can modify.
+Then there's the __Metadata__ section which is the part of the user's data that you can modify.
 
-In the previous user's profile, the _metadata_ was merged with the user's root-level attributes which tended to create confusion. To clarify the situation we've decided to keep it separate.
+In the previous user's profile, the _metadata_ was merged with the user's root-level attributes which tended to create confusion. To make everythig more explicit and easier to find, we've decided to keep it separate.
 
 ![](https://cdn.auth0.com/blog/new-profile-2.png)
 
-If you modified user attributes in the past through the dashboard, you will find the modified data under __app\_metadata__ property after this change (since the dashboard was using APIv1).
+If you modified user attributes in the past through the dashboard, you will find the additional attributes under __app\_metadata__ property after this change (since the dashboard was using APIv1).
 
-If you want to understand more about when to use __app\_metadata__ vs __user_metadata__, [read this](https://auth0.com/docs/apiv2Changes#8).
+> If you want to understand more about when to use __app\_metadata__ vs __user\_metadata__, [read this](https://auth0.com/docs/apiv2Changes#8).
 
 ### Identity Provider Attributes Section
 
-Last but not least, there's the __Identity Provider Attributes__ section. Here you will find all the information retrieved from the authentication provider (Facebook, Twitter, Google, SAML, your own provider, etc.).
+Last but not least, there's the __Identity Provider Attributes__ section. Here you will find all the information retrieved from the authentication provider (e.g. Facebook, Twitter, Google, SAML, your own provider, etc.).
 
 ![](https://cdn.auth0.com/blog/new-profile-3.png)
 
