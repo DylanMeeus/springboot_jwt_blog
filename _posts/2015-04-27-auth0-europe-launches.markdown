@@ -6,7 +6,7 @@ author:
   name: José F. Romaniello
   url: http://twitter.com/jfroma
   mail: jose@auth0.com
-  avatar: http://www.gravatar.com/avatar/4d44bd6c8bbd97dfeb5e9c299aaa68c5
+  avatar: https://www.gravatar.com/avatar/4d44bd6c8bbd97dfeb5e9c299aaa68c5
 tags:
 ---
 
