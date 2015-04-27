@@ -10,7 +10,7 @@ author:
 tags:
 - dashboard
 ---
----
+
 **TL;DR**
 
   * We have redesigned the user's profile page to use the new [API v2](https://auth0.com/docs/apiv2).
@@ -18,7 +18,7 @@ tags:
   * The data you've modified in our previous dashboard version or using API v1 is now under __app\_metadata__.
   * This is a change on the __Dashboard__, not on the runtime. There are __no breaking changes__ to your apps.
 
----
+<!-- more -->
 
 Good news! We have redesigned the user's profile page in order to make use of the new [API v2](https://auth0.com/docs/apiv2).
 

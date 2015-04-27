@@ -10,11 +10,9 @@ author:
 tags:
 ---
 
----
-
 Today we're happy to announce the launch of the **Auth0 Europe** region. Auth0 makes identity simple for tens of thousands of developers in more than 150 countries around the world, and now those topographically closer to Frankfurt can enjoy even lower latency logins.  Further, subscribers everywhere that have the compliance requirement of EU data residence can check that box.
 
----
+<!-- more -->
 
 ![](https://cdn.auth0.com/blog/eu-launch.png)
 
@@ -38,3 +36,7 @@ Auth0 has always and will continue to comply with the U.S.-EU Safe Harbor Framew
 As always, we'd be happy to answer any questions or provide assistance related to the new European region, or anything else. Send an email to support@auth0.com, chat with us at https://chat.auth0.com or ask questions at ask.auth0.com.
 
 We look forward to hearing from you!
+
+<a href="https://news.ycombinator.com/submit" class="hn-button" data-title="Auth0 Europe Launches" data-url="https://auth0.com/blog/2015/04/27/auth0-europe-launches/" data-count="horizontal">Vote on Hacker News</a>
+
+<script type="text/javascript">var HN=[];HN.factory=function(e){return function(){HN.push([e].concat(Array.prototype.slice.call(arguments,0)))};},HN.on=HN.factory("on"),HN.once=HN.factory("once"),HN.off=HN.factory("off"),HN.emit=HN.factory("emit"),HN.load=function(){var e="hn-button.js";if(document.getElementById(e))return;var t=document.createElement("script");t.id=e,t.src="//hn-button.herokuapp.com/hn-button.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},HN.load();</script>

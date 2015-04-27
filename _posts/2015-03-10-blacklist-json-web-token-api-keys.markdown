@@ -19,11 +19,10 @@ tags:
 
 <a href="//cdn.auth0.com/blog/blacklist_header.jpg" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_header.jpg"></a>
 
----------
 
 **tl;dr**: if you understand why and how to support blacklisting JWTs, then skip to the [code](#impl).
 
----------
+<!-- more -->
 
 On a [previous post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) we proposed an approach to using JSON Web Tokens as API Keys, going over some of the benefits of doing so and also providing some examples based on our [API v2 scenarios](https://auth0.com/docs/apiv2). This post follows up by explaining an aspect that was not covered before: how to blacklist a JWT API key so it is no longer valid.
 
