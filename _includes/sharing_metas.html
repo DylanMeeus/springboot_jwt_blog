@@ -6,8 +6,8 @@
 <meta property="og:image" content="https://i.cloudup.com/Tty5socUdu.png" />
 <!-- we should add some `each` for declared post images here -->
 
-{% if page.excerpt %}
-<meta property="og:description" content="{{ page.excerpt | markdownify | strip_html | truncate: 140 | strip_newlines }}" />
+{% if page.description %}
+<meta property="og:description" content="{{ page.description | markdownify | strip_html | truncate: 140 | strip_newlines }}" />
 {% else %}
 <meta property="og:description" content="Company Updates & Technology Articles" />
 {% endif %}

@@ -7,6 +7,9 @@ author:
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
+pr: 2
+tags:
+- featured
 ---
 
 ## Introduction

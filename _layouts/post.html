@@ -1,10 +1,6 @@
 ---
 layout: default
 ---
-<style type="text/css">
-    /*.banner{display: none;}*/
-    header.site-header{}
-</style>
 <!-- Twitter Conversion -->
 <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -16,31 +12,26 @@ layout: default
   <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l4rua&p_id=Twitter" />
 </noscript>
 
-<div class="blog-post blog-single">
-    <div class="inner">
-        <h1 class="entry-title">
-            <a href="{{ page.author.url }}" class="author"><img src="{{ page.author.avatar }}" width="68" height="68"></a>
-            <a href="{{ site.baseurl }}{{ page.url }}" title="Published: {{ page.date | date: "%B %d, %Y" }}">{{ page.title }}</a>
-        </h1>
+{% include banner_post.html %}
 
-        {% include entry_metadata.html %}
+<div id="container" class="container">
+    <div class="blog-post blog-single">
+        <div class="inner">
+            <div class="entry-content" >
+            {{ content }}
+            </div>
 
-        <div class="entry-content" >
-        {{ content }}
-        </div>
+            <div class="try-banner">
+                <span>Try Auth0 for FREE</span>
+                <a href="javascript:signup()" class="signup-button btn btn-success btn-lg">Create free Account</a>
+            </div>
 
-        {% include sharing_buttons.html %}
-
-        <div class="try-banner">
-            <span>Try Auth0 for FREE</span>
-            <a href="javascript:signup()" class="signup-button btn btn-success btn-lg">Create free Account</a>
-        </div>
-
-        <div id="disqus_thread">
+            <div id="disqus_thread">
+            </div>
         </div>
     </div>
+    <br />
 </div>
-<br />
 
 <g:plusone annotation="inline"></g:plusone>
 <script type="text/javascript">
