@@ -6,7 +6,7 @@ code_color_yellow = #EACA2C
 code_color_orange = #FF9A57
 code_color_violet = #FF9CE3
 
-.prettyprint {
+.prettyprint, pre {
   color: white;
   background-color: darken(code_color_bg, 40%);
 }
@@ -53,4 +53,17 @@ code_color_violet = #FF9CE3
 
 .prettyprint .atn {
   color: code_color_violet;
+}
+
+pre::-webkit-scrollbar,
+figure .highlight::-webkit-scrollbar {
+    height: .5em;
+    background: rgba(255,255,255,0.25)
+}
+
+pre::-webkit-scrollbar-thumb:horizontal,
+figure .highlight::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(0,0,0,0.15);
+    -webkit-border-radius: 4px;
+    border-radius: 4px
 }
