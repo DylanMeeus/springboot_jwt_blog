@@ -1,4 +1,5 @@
 @import 'lib/mixins'
+@import 'lib/prettyprint'
 
 color_blue = #14204d;
 color_blue_light = #3cc8f4;
@@ -203,8 +204,6 @@ h1,h2,h3,h4,h5
 	color: #333;
 
 #container.container
-	max-width: 800px;
-	
 	+breakpoint("desktop")
 		padding: 0;
 		
@@ -307,6 +306,8 @@ h1,h2,h3,h4,h5
 ul.archive
 	margin: 0;
 	padding: 0;
+	max-width: 800px;
+	margin: 0 auto;
 	
 	.entry-content
 		text-align: center;
@@ -360,6 +361,26 @@ ul.archive
 		padding: 3px 8px;
 		color: color_grey_text;
 		background: lighten(color_grey_text, 90%);
+		
+	ul
+		margin: 40px 0;
+		 
+		li 
+			list-style: none;
+			position: relative;
+			padding-left: 25px;
+			
+			&:before
+				content: "";
+				display: inline-block;
+				height: 6px;
+				width: 6px;
+				background: color_red;
+				position: absolute;
+				top: 0.8em;
+				border-radius: 3px;
+				left: 0;
+				margin-right: 20px;
 		  
 	pre 
 		margin: 40px 0;
@@ -406,25 +427,34 @@ ul.archive
 			margin-right: -20%;
 		
 
-.navigation
-	overflow: hidden
-	margin-bottom: 50px;
-	.nav-previous, .nav-next
-		width: 50%;
-		display: inline-block
-		a
-			font-weight: bold
-			margin-bottom: 100px;
-	.nav-next
-		display: inline-block
-		text-align: right
-		float: right
-
-
 pre.prettyprint
 	padding: 20px !important;
 	border: 0 !important;
 	border-radius: 3px;
+	
+.navigation
+	margin-bottom: 50px;
+	
+	&:before
+		@extend .line;
+	
+	.nav-previous, .nav-next
+		width: 50%;
+		display: inline-block
+		a
+			font-weight: bold;
+			margin-top: 40px;
+			display: inline-block;
+			color: #5c666f;
+			line-height: 40px;
+			padding: 0 20px;
+			border: 1px solid rgba(#5c666f, 0.11);
+			border-radius: 20px;
+			
+	.nav-next
+		display: inline-block
+		text-align: right
+		float: right
 
 #auth0
 	border: 1px  #ecf0f1 solid;

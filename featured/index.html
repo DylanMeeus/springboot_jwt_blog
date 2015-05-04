@@ -7,7 +7,7 @@ featured_tab: active
 
 {% assign featured = site.tags.featured | sort: 'pr' %}
 
-{% for post in featured %}
+{% for post in site.posts %}
   {% if forloop.index == 1 %}
     {% include banner_post.html %}
   {% endif %}
@@ -19,7 +19,7 @@ featured_tab: active
 
 <ul class="archive">
   {% for post in featured limit: 6 %}
-    {% unless post.draft or forloop.index == 1 %}
+    {% unless post.draft %}
       {% include archive_post.html %}
     {% endunless %}
   {% endfor %}
