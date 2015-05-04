@@ -6,7 +6,9 @@ author:
   name: Tim McLean
   url: https://timmclean.net
   avatar: https://www.gravatar.com/avatar/dfea5c5f769cc4a6cce74d3eda20bba3?size=200
+pr: 4
 tags:
+- featured
 - jwt
 - alg
 - security

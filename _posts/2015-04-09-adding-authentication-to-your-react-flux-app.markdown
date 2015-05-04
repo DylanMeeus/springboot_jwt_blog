@@ -7,7 +7,9 @@ author:
   url: https://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764?size=200
+pr: 5
 tags:
+- featured
 - react
 - flux
 - login

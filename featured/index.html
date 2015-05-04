@@ -1,27 +1,28 @@
 ---
 layout: default
-meta-robots: "noodp, noydir, noindex, noarchive, follow"
+title: Auth0 Blog
 is_post_index: true
-is_tag_index: true
+featured_tab: active
 ---
-{% for post in site.tags[page.tag] %}
+
+{% assign featured = site.tags.featured | sort: 'pr' %}
+
+{% for post in featured %}
   {% if forloop.index == 1 %}
     {% include banner_post.html %}
   {% endif %}
 {% endfor %}
 
 <div id="container" class="container">
-  
-  {% include navigation.html %}
 
-  <ul class="archive">
+{% include navigation.html %}
 
-  {% for post in site.tags[page.tag] %}
+<ul class="archive">
+  {% for post in featured limit: 6 %}
     {% unless post.draft or forloop.index == 1 %}
       {% include archive_post.html %}
     {% endunless %}
   {% endfor %}
+</ul>
 
-  </ul>
 </div>
-

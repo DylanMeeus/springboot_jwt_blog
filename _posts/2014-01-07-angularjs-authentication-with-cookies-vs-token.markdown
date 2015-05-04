@@ -8,6 +8,10 @@ author:
   mail: alberto@auth0.com
   url: http://twitter.com/thepose
   avatar: https://www.gravatar.com/avatar/9d6add4b3a385afde6c23d6d56fbf838?size=200
+pr: 1
+tags:
+- featured
+
 ---
 
 

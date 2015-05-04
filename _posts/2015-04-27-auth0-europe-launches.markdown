@@ -7,6 +7,10 @@ author:
   url: http://twitter.com/jfroma
   mail: jose@auth0.com
   avatar: https://www.gravatar.com/avatar/4d44bd6c8bbd97dfeb5e9c299aaa68c5
+design:
+  bg_color: "#203F97"
+  image: https://cldup.com/zUfpvO358b.png
+  image_left: "60%"
 tags:
 ---
 
