@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Design at Auth0"
+title: "Our Design Process"
+description: "Good news! We have redesigned the user's profile page in order to make use of the new API v2."
 date: 2015-05-04 13:24
 author:
   name: Ricky Rauch
@@ -8,7 +9,7 @@ author:
   mail: ricky@auth0.com
   avatar: https://www.gravatar.com/avatar/27396b3fa24389198ef5d3e7e410e9c4?size=60
 design:
-  bg_color: <A HEX BACKGROUND COLOR>
+  bg_color: "#222228"
   image: <A PATH TO A 200x200 IMAGE>
 tags:
 - foo
@@ -17,13 +18,13 @@ For the past year Auth0 has been growing at a fast pace, and as this happens, so
 
 In this post we’ll explain all the learnings we’ve had in implementing practices that help integrate design into our products, guarantee consistency, and optimize design choices.
 
-![](http://assets.auth0.com/blog/design-process/process.png)
+<img src="http://assets.auth0.com/blog/design-process/process.png" class="" />
 
 ### Blueprints
 
 The first practice we introduced was design from blueprints. A blueprint is just a monochrome draft of the final product, with as little focus on styling as possible.
 
-[blueprint to mockup image]
+<img src="http://assets.auth0.com/blog/design-process/blueprint.png" class="expand" />
 
 We go through a lot of feedback from different stakeholders at the company, they might be engineers, marketers, analytics, or our own clients.
 By taking away opinionated factors like color or embellishment from the process, blueprints help us get better feedback and achieve simpler solutions in a short amount of time.
@@ -33,7 +34,7 @@ By taking away opinionated factors like color or embellishment from the process,
 We constantly review previous work when producing new assets to make consistency checks and understand how they have evolved over time, so we don’t repeat mistakes.
 Our website is mapped out on a 1:1 scale with design files and is available on Dropbox to the whole team.
 
-![](http://assets.auth0.com/blog/design-process/dropbox.png)
+<img src="http://assets.auth0.com/blog/design-process/dropbox.png" class="expand" />
 
 Using Sketch has dramatically improved the way we create and export assets. We really think it’s the better tool for the job because it was designed with the web in mind.
 
@@ -52,13 +53,13 @@ The reasoning behind this starts from the design perspective: we set out to only
 In order to maintain stability, we are making these changes progressively. Each page that gets a redesign, gets a mobile-first refactor to go with it.
 A key factor in preventing Responsive Design from getting messy was abstracting all of our media queries to a [stylus mixin] and keeping them as close as possible to their relevant selectors, thus making them harder to overlook and easier to maintain.
 
-<script src="https://gist.github.com/vctrfrnndz/3296c8087c0b07a7ab8a.js"></script>
+[embed code]
 
 ### Styleguide for consistency
 
 Styleguide is one of our most important projects. It’s aim is to help maintain the same look & feel across all of our products and making our front-end code reusable, no matter the specifics of any project’s codebase.
 
-![](http://assets.auth0.com/blog/design-process/styleguide.png)
+<img src="http://assets.auth0.com/blog/design-process/styleguide.png" class="expand" />
 
 Styleguide holds values, patterns and specific components that repeat themselves across pages, enabling designers and engineers to quickly reuse them on any product without worrying at all about markup or css.
 
