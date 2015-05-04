@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Design at Auth0"
-description: "For the past year Auth0 has been growing at a fast pace, and as this happens, so has the number of fronts the Design Team has to tackle."
+description: "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
 date: 2015-05-04 13:24
 author:
   name: Ricky Rauch
@@ -10,10 +10,17 @@ author:
   avatar: https://www.gravatar.com/avatar/27396b3fa24389198ef5d3e7e410e9c4?size=60
 design:
   bg_color: "#222228"
-  image: <A PATH TO A 200x200 IMAGE>
+  image: http://assets.auth0.com/blog/design-process/badge.png
+  image_top: "53%"
+  image_left: "auto"
 tags:
 - foo
 ---
+<style>
+.entry-thumbnail{background: none;}
+</style>
+<img src="http://assets.auth0.com/blog/design-process/sites.png" class="expand" />
+
 For the past year Auth0 has been growing at a fast pace, and as this happens, so has the number of fronts the Design Team has to tackle.
 
 In this post we’ll explain all the learnings we’ve had in implementing practices that help integrate design into our products, guarantee consistency, and optimize design choices.
@@ -63,17 +70,15 @@ Styleguide is one of our most important projects. It’s aim is to help maintain
 
 Styleguide holds values, patterns and specific components that repeat themselves across pages, enabling designers and engineers to quickly reuse them on any product without worrying at all about markup or css.
 
-[footer & header image]
+<img src="http://assets.auth0.com/blog/design-process/consistency.png" class="expand" />
 
 Elements like our Header, Footer and other components are easily maintained on different projects by using jade includes or mixins directly from Styleguide.
 
 By reducing complex html structures and patterns to jade mixins and passing only content as parameters, we optimize development time.
 
-[icons image]
+<img src="http://assets.auth0.com/blog/design-process/icons.png" class="" />
 
 Company colors, typography and icons are kept consistent by using the same set of variables and files for every project.
-
-[consistency image]
 
 We use [semantic versioning] to enforce certain versions of styleguide across projects. This helps maintain stability in our sites when doing heavy updates.
 
