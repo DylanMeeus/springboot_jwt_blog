@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Design at Auth0"
+description: "For the past year Auth0 has been growing at a fast pace, and as this happens, so has the number of fronts the Design Team has to tackle."
 date: 2015-05-04 13:24
 author:
   name: Ricky Rauch

@@ -14,6 +14,12 @@
 
         <h2 class="entry-title"><a href="{{ site.baseurl }}{{current.url}}" title="Published: {{ current.date | date: "%B %d, %Y" }}">{{ current.title }}</a></h2>
 
+        {% if current.description %}
+        <div class="entry-content">
+          {{ current.description | markdownify }}
+        </div>
+        {% endif %}
+
         <div class="post-info">
           <div class="author">
             <a href="{{current.author.url}}"><img src="{{current.author.avatar}}" width="27" height="27"> <span class="name">{{current.author.name}}</span></a>
