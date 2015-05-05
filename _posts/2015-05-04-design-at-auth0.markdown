@@ -87,15 +87,18 @@ Styleguide holds values, patterns, and specific components that repeat themselve
 
 <img src="http://assets.auth0.com/blog/design-process/consistency.png" class="expand" />
 
-- Elements like our Header, Footer, and other components are easily maintained on different projects by sourcing them directly from Styleguide.
+- Elements like our [Header](https://github.com/auth0/web-header), Footer, and other components are easily maintained on different projects by sourcing them directly from [Styleguide](https://styleguide.auth0.com).
 
-- By reducing complex html structures and patterns to jade mixins available through Styleguide and passing only content as parameters, we optimize development time.
+- By reducing complex html structures and patterns to jade mixins available through [Styleguide](https://styleguide.auth0.com) and passing only content as parameters, we optimize development time.
+  <!-- <img src="http://assets.auth0.com/blog/design-process/icons.png" class="" /> -->
 
-<img src="http://assets.auth0.com/blog/design-process/icons.png" class="" />
-
-- Company colors, typography, and icons are kept consistent by using the same set of variables and files for every project.
+- Company [colors](https://styleguide.auth0.com/#colors), [typography](https://styleguide.auth0.com/#typography), and [icons](https://styleguide.auth0.com/#icons) are kept consistent by using the same set of variables and files for every project.
 
 - We use [semantic versioning](http://semver.org/) to enforce certain versions of Styleguide across projects. This helps maintain stability in our sites when we're doing heavy updates.
+
+Today, we can include Styleguide using Bower, Component() or linking [directly from the CDN](https://cdn.auth0.com/styleguide/latest/index.css).
+
+If you are interested, [check the live version](https://styleguide.auth0.com) or [view the code on Github](https://github.com/auth0/styleguide).
 
 ### Design Meetings
 
