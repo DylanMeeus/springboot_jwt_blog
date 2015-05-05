@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Engineering the Design Process at Auth0"
-description: "Learn the design process we use at Auth0."
+description: "Our lessons in defining a cohesive design language <br /> across all our products."
 date: 2015-05-04 13:24
 author:
   name: Ricky Rauch
