@@ -9,6 +9,7 @@ author:
   mail: ntotten@auth0.com
   avatar: https://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=60
 design:
+  bg_color: "#5C7A89"
   image: https://cloudup.com/cfENOYpKxfL+
   image_size: "200%"
   image_opacity: "0.8"

@@ -2,6 +2,7 @@
 published: "true"
 layout: post
 title: Cookies vs Tokens. Getting auth right with Angular.JS
+description: "Using a token-based authentication design over cookie-based authentication."
 date: "2014-01-07 12:30"
 author:
   name: Alberto Pose

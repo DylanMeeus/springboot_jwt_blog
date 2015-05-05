@@ -1,5 +1,9 @@
 {% if current.design.image %}
-  <a href="{{ site.baseurl }}{{current.url}}" class="entry-thumbnail">
+  <a href="{{ site.baseurl }}{{current.url}}" 
+    {% if current.design.bg_merge and is_banner_post %} 
+      style="border-radius: 0;"
+    {% endif %} 
+    class="entry-thumbnail">
     <img 
     style="opacity: {{current.design.image_opacity}}; max-width: {{current.design.image_size}}; left: {{current.design.image_left}}; top: {{current.design.image_top}};"
     src="{{current.design.image}}"
