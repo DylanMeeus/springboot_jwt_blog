@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Design at Auth0"
-description: "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
+title: "Engineering the Design Process at Auth0"
+description: "Learn the design process we use at Auth0."
 date: 2015-05-04 13:24
 author:
   name: Ricky Rauch
@@ -45,23 +45,21 @@ Our website is mapped out on a 1:1 scale with design files and is available to t
 
 Using Sketch has dramatically improved the way we create and export assets. We think it’s the best tool for the job because it was designed with the web in mind.
 
-With its numerous built-in templates, it allows us to jump right into design. We reuse most of our visual components, and working with the all-vector graphics saves us huge amounts of time when we're making changes to them. Exporting 1x, 2x, and SVG assets at a one-click distance is also ridiculously easy.
+<!-- With its numerous built-in templates, it allows us to jump right into design. We reuse most of our visual components, and working with the all-vector graphics saves us huge amounts of time when we're making changes to them. Exporting 1x, 2x, and SVG assets at a one-click distance is also ridiculously easy. -->
 
 ### Mobile first front-end work
 
-Most of the HTML and CSS at Auth0 its handled or refactored by a designer at some point. We’ve set  [clear guidelines](https://github.com/auth0/code-conventions/blob/master/frontend/README.md) for front-end code, and weâ€™ve chosen [stylus](https://learnboost.github.io/stylus/) and [jade](http://jade-lang.com/) to optimize our productivity. As a result, we write concise, clear code much faster.
+Most of the HTML and CSS at Auth0 its handled or refactored by a designer at some point. We’ve set  [clear guidelines](https://github.com/auth0/code-conventions/blob/master/frontend/README.md) for front-end code, and we’ve chosen [stylus](https://learnboost.github.io/stylus/) and [jade](http://jade-lang.com/) to optimize our productivity. As a result, we write concise, clear code much faster.
 
 Over the past year, we started to migrate all of our pages as part of a mobile-first strategy.
 
 The rationale behind this strategy starts with the design perspective: we set out to only present information that we can make available in a way that works on any device. This simplifies our approach to information architecture by getting rid of unnecessary elements and solving problems in the simplest way, which also reduces the potential for errors during development.
 
-[mobile > desktop pages image]
+<img src="http://assets.auth0.com/blog/design-process/mobile-first.png" class="expand" />
 
 In order to maintain stability, we are making these changes progressively. Each page that gets a redesign gets a mobile-first refactor to go with it.
 
-A key factor in preventing Responsive Design from getting messy was abstracting all of our media
-
-queries to a [stylus mixin](https://github.com/auth0/styleguide/blob/master/lib/mixins/index.styl#L11) and keeping them as close as possible to their relevant selectors, thus making them harder to overlook and easier to maintain.
+A key factor in preventing Responsive Design from getting messy was abstracting all of our media queries to a [stylus mixin](https://github.com/auth0/styleguide/blob/master/lib/mixins/index.styl#L11) and keeping them as close as possible to their relevant selectors, thus making them harder to overlook and easier to maintain.
 
 ```css
 .hero-cta
