@@ -11,6 +11,22 @@ This blog uses [Jekyll](https://github.com/mojombo/jekyll).
 
 To add a post to the "Top Reads" section you must add the tag `featured` to it. Use the `pr:` yaml front matter to sort its position. (e.g. `pr: 1` is the top post in the section).
 
+## Add reply links to your posts
+
+![Reply links](https://cldup.com/1GY-mfWcz6.png)
+
+Use yaml front-matter to add reply links to your post on Hacker News or Twitter.
+
+Example:
+```
+---
+reply:
+ hn: https://news.ycombinator.com/item?id=9447536
+ twitter: https://twitter.com/auth0/status/592765437634555904
+---
+```
+
+
 ## Customize your post's design
 
 Use the yaml front matter in your post to customize its design. The `design` variable supports the following parameters. All of these parameters are optional.

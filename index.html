@@ -5,7 +5,7 @@ is_post_index: true
 latest_tab: active
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.posts limit:1 %}
   {% if forloop.index == 1 %}
     {% include banner_post.html %}
   {% endif %}
@@ -16,8 +16,8 @@ latest_tab: active
 {% include navigation.html %}
 
 <ul class="archive">
-    {% for post in paginator.posts %}
-        {% unless post.draft or forloop.index == 1 %}
+    {% for post in paginator.posts offset:1 %}
+        {% unless post.draft %}
           {% include archive_post.html %}
         {% endunless %}
     {% endfor %}
