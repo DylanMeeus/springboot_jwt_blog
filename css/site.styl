@@ -43,6 +43,12 @@ h1
 
 p,li
 	color: #4d4d4d;
+	
+.try-banner
+	margin: 80px -5%;
+	
+	+breakpoint("tablet")
+		margin: 80px -100%;
 
 .try-code
 	a.btn
@@ -58,6 +64,24 @@ p,li
 header.site-header
 	// background: rgba(255,255,255,.9);
 
+
+.icon-circle
+	border: 1px solid #cfcfcf;
+	height: 44px;
+	width: 44px;
+	display: inline-block;
+	border-radius: 50%;
+	position: relative;
+	text-align: center;
+	
+	i 
+		font-style: normal;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+
 .small-caps
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
@@ -66,6 +90,7 @@ header.site-header
 .line
 	content: "";
 	height: 1px;
+	
 	width: 400%;
 	margin-left: -200%;
 	background: color_grey;
@@ -201,9 +226,34 @@ header.site-header
 
 	svg, path
 		fill: currentColor;
-
-
-
+			
+.reply-networks
+	margin-top: 40px;
+	
+	.icon-circle
+		position: relative;
+		top: 18px;
+		border-color: lighten(color_grey_text, 80%);
+		margin-right: 10px;
+		
+	.tw i 
+		position: absolute;
+		top: 60%;
+		left: 55%;
+		font-size: 22px;
+		color: #288ce4;
+		
+	.hn i 
+		color: color_red;
+		font-weight: bold;
+		
+	a 
+		font-weight: normal;
+		color: lighten(color_grey_text, 20%);
+		
+		& + a 
+			margin-left: 40px;
+	
 .navbar-fixed-top
 	padding: inherit;
 
