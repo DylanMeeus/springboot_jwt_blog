@@ -13,7 +13,7 @@ To add a post to the "Top Reads" section you must add the tag `featured` to it. 
 
 ## Add reply links to your posts
 
-!(Reply Links)[https://cldup.com/1GY-mfWcz6.png]
+![https://cldup.com/1GY-mfWcz6.png](Reply Links)
 
 Use yaml front-matter to add reply links to your post on Hacker News or Twitter.
 
