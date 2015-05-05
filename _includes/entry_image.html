@@ -1,7 +1,7 @@
 {% if current.design.image %}
   <a href="{{ site.baseurl }}{{current.url}}" class="entry-thumbnail">
     <img 
-    style="left: {{current.design.image_left}}; top: {{current.design.image_top}};"
+    style="opacity: {{current.design.image_opacity}}; max-width: {{current.design.image_size}}; left: {{current.design.image_left}}; top: {{current.design.image_top}};"
     src="{{current.design.image}}"
     alt="{{ current.title }}">
   </a>
