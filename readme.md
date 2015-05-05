@@ -21,7 +21,7 @@ design:
   bg_color: Set the background color for your post's header. (You can use rgb or hex colors inside double quotes) 
   bg_merge: Set to true to merge your image with your header's background color (default is false)
   image: A url path to your posts image, it will be downsized if too big to fit inside a circle.
-  image-size: Set the maximum size your image will have relative to the circle. (Default is "120%")
+  image_size: Set the maximum size your image will have relative to the circle. (Default is "120%")
   image_top: Set the the top offset relative to the center of the image. (Default is "50%")
   image_left: Set the the left offset relative to the center of the image. (Default is "50%")
 ---
