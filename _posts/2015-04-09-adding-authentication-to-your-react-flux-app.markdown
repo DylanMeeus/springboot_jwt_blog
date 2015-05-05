@@ -9,9 +9,10 @@ author:
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764?size=200
 design:
-  bg_color: "#333"
+  bg_color: "rgb(25, 25, 25)"
+  bg_merge: true
   image: http://assets.auth0.com/blog/react-js/react.png
-  image_size: "100%"
+  image_size: "110%"
 
 pr: 5
 tags:

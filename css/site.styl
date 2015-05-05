@@ -46,9 +46,20 @@ p,li
 	
 .try-banner
 	margin: 80px -5%;
+	background: none;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	
 	+breakpoint("tablet")
 		margin: 80px -100%;
+	
+	span
+		font-size: 16px;
+		display: inline-block;
+		font-weight: normal;
+		text-transform: uppercase;
+		position: relative;
+		top: -5px;
+		opacity: 0.7;
 
 .try-code
 	a.btn
@@ -139,7 +150,7 @@ header.site-header
 
 	+breakpoint("desktop")
 		font-size: 28px;
-		max-width: 600px;
+		max-width: 800px;
 		margin: 25px auto;
 
 	a
@@ -160,6 +171,7 @@ header.site-header
 	background: #EAEEF3;
 	height: 100px;
 	width: 100px;
+	opacity: 1 !important;
 
 	+breakpoint("desktop")
 		height: 125px;
@@ -495,15 +507,16 @@ pre.prettyprint
 
 .navigation
 	margin-bottom: 50px;
+	text-align: center;
 
 	&:before
 		@extend .line;
 
 	.nav-previous, .nav-next
-		width: 50%;
 		display: inline-block
 		a
 			font-weight: bold;
+			margin: 0 20px;
 			margin-top: 40px;
 			display: inline-block;
 			color: #5c666f;
@@ -511,11 +524,6 @@ pre.prettyprint
 			padding: 0 20px;
 			border: 1px solid rgba(#5c666f, 0.11);
 			border-radius: 20px;
-
-	.nav-next
-		display: inline-block
-		text-align: right
-		float: right
 
 #auth0
 	border: 1px  #ecf0f1 solid;

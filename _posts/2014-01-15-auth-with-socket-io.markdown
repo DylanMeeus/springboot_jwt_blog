@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Token-based Authentication with Socket.IO"
+description: "Learn to implement token-based authentication using Socket.IO in this quick tutorial."
 date: 2014-01-15 14:18
 author:
   name: José F. Romaniello
@@ -9,7 +10,8 @@ author:
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 design:
   image: http://assets.auth0.com/blog/design-process/socket-io.png
-  bg_color: "#3b2b40"
+  bg_color: "#030303"
+  bg_merge: true
 
 pr: 2
 tags:
