@@ -290,6 +290,11 @@
 
         // prettyPrint
         $('pre').addClass("prettyprint");
+
+        // Force al content links to blank
+        $('.entry-content a').each(function() {
+          $(this).attr('target', '_blank');
+        });
       });
 
       $.fn.isOnScreen = function(){
