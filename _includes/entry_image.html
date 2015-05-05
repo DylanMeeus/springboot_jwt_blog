@@ -1,3 +1,27 @@
+{% capture opacity %}
+  {% if {{current.design.image_opacity}} %}
+  opacity: {{current.design.image_opacity}};
+  {% endif %}
+{% endcapture %}
+
+{% capture size %}
+  {% if {{current.design.image_size}} %}
+  max-width: {{current.design.image_size}};
+  {% endif %}
+{% endcapture %}
+
+{% capture top %}
+  {% if {{current.design.image_top}} %}
+  top: {{current.design.image_top}};
+  {% endif %}
+{% endcapture %}
+
+{% capture left %}
+  {% if {{current.design.image_left}} %}
+  left: {{current.design.image_left}};
+  {% endif %}
+{% endcapture %}
+
 {% if current.design.image %}
   <a href="{{ site.baseurl }}{{current.url}}" 
     {% if current.design.bg_merge and is_banner_post %} 
@@ -5,7 +29,7 @@
     {% endif %} 
     class="entry-thumbnail">
     <img 
-    style="opacity: {{current.design.image_opacity}}; max-width: {{current.design.image_size}}; left: {{current.design.image_left}}; top: {{current.design.image_top}};"
+    style="{{opacity}} {{size}} {{top}} {{left}}"
     src="{{current.design.image}}"
     alt="{{ current.title }}">
   </a>
