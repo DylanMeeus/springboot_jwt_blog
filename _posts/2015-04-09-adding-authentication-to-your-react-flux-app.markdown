@@ -1,12 +1,19 @@
 ---
 layout: post
 title: "Adding authentication to your React Flux app"
+description: "Let’s face it. React is the new cool kid on the block. Add authentication to your React app by understanding just a few basic concepts."
 date: 2015-04-9 11:22
 author:
   name: Martin Gontovnikas
   url: https://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764?size=200
+design: 
+  bg_color: "#0B8081"
+  image: https://cldup.com/KiKcr1h1Vl.png
+  image_size: "300%"
+  image_top: "12%"
+  image_left: "78%"
 pr: 5
 tags:
 - featured

@@ -7,6 +7,27 @@ This blog uses [Jekyll](https://github.com/mojombo/jekyll).
 
 	rake new_post["title of the new blog post"]
 
+## Manage posts in the "Top Reads" section
+
+To add a post to the "Top Reads" section you must add the tag `featured` to it. Use the `pr:` yaml front matter to sort its position. (e.g. `pr: 1` is the top post in the section).
+
+## Customize your post's design
+
+Use the yaml front matter in your post to customize its design. The `design` variable supports the following parameters. All of these parameters are optional.
+
+```
+---
+design:
+  bg_color: Set the background color for your post's header. (You can use rgb or hex colors inside double quotes) 
+  bg_merge: Set to true to merge your image with your header's background color (default is false)
+  image: A url path to your posts image, it will be downsized if too big to fit inside a circle.
+  image_size: Set the maximum size your image will have relative to the circle. (Default is "120%")
+  image_top: Set the the top offset relative to the center of the image. (Default is "50%")
+  image_left: Set the the left offset relative to the center of the image. (Default is "50%")
+---
+```
+
+
 ## Run
 
 1.  Make sure you have [RVM](http://rvm.io/) or other ruby version manager installed. 

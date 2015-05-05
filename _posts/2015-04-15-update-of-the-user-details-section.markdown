@@ -8,6 +8,11 @@ author:
   url: http://twitter.com/tehsis
   mail: tehsis@auth0.com
   avatar: https://s.gravatar.com/avatar/647b1eea820b3fc8a5aee0383930b888?s=60
+design:
+  image: https://cldup.com/MTjz9l-URX.png
+  image_size: "200%"
+  image_top: "90%"
+  image_left: "90%"
 tags:
 - dashboard
 ---
