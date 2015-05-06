@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Auth0</ShortName>
+  <Description>Auth0</Description>
+  <Developer>Auth0</Developer>
+  <Url type="text/html" method="get" template="https://auth0.com/blog/search/?q={searchTerms}"/>
+</OpenSearchDescription>
