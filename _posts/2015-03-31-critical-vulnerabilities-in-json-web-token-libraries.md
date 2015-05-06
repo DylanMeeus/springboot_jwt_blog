@@ -10,6 +10,7 @@ author:
 design: 
   bg_color: "#1B231C"
   image: https://cldup.com/MNjkZFJXXK.png
+  image_bg_color: "none"
 pr: 4
 tags:
 - featured
