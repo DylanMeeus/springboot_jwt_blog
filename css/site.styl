@@ -45,7 +45,7 @@ p,li
 	color: #4d4d4d;
 	
 .try-banner
-	margin: 80px -5%;
+	margin: 60px -5%;
 	background: none;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	
@@ -528,6 +528,19 @@ pre.prettyprint
 			padding: 0 20px;
 			border: 1px solid rgba(#5c666f, 0.11);
 			border-radius: 20px;
+
+.related-posts
+	grid(1, 20px, ".entry-related")
+	margin-bottom: 80px;
+	
+	+breakpoint("desktop")
+		grid(3, 20px, ".entry-related")
+		
+	.entry-related
+		text-align: center;
+		
+		.entry-title
+			font-size: 18px;
 
 #auth0
 	border: 1px  #ecf0f1 solid;
