@@ -12,7 +12,8 @@ design:
   bg_color: "#222228"
   image: http://assets.auth0.com/blog/design-process/badge.png
   image_bg_color: "#222229"
-  image_size: "150%"
+  image_size: "170%"
+  image_top: "52%"
 tags:
 - foo
 ---
