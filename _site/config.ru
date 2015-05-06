@@ -1,10 +1,16 @@
 require 'rack/contrib/try_static'
 
 use Rack::TryStatic,
-    :root => "_site",
-    :urls => %w[/],
-    :try => ['.html', 'index.html', '/index.html']
+  :urls => ["/img", "/js", "/css"],
+  :root => "_site"
 
 run lambda { |env|
-  return [404, {'Content-Type' => 'text/html'}, ['Not Found']]
+  [
+    200,
+    {
+      'Content-Type'  => 'text/html',
+      'Cache-Control' => '_site, max-age=86400'
+    },
+    File.open('_site/index.html', File::RDONLY)
+  ]
 }

@@ -4,7 +4,7 @@
 	<title>Auth0 blog</title>
 	<link href="https://auth0.com/blog/atom.xml" rel="self" type="application/atom+xml" />
 	<link href="https://auth0.com/blog"/>
-	<updated>2015-05-06T16:17:44-03:00</updated>
+	<updated>2015-05-06T16:23:25-03:00</updated>
 	<id>https://auth0.com/blog</id>
 	<author>
 		<name>Auth0</name>
@@ -1607,7 +1607,7 @@ dataset.synchronize()
 
 &lt;p&gt;Protecting the data and privacy of our customers is a non negotiable aspect of what we do. Our SOC 2 certification provides you with an additional assurance that we have all the right controls in place to protect your data and ensure the availability of our service.&lt;/p&gt;
 
-&lt;p&gt;To request a copy of Auth0 SOC 2 report, please email &lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#116;&amp;#114;&amp;#x75;&amp;#x73;&amp;#x74;&amp;#64;&amp;#97;&amp;#117;&amp;#116;&amp;#x68;&amp;#x30;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;&gt;&amp;#x74;&amp;#x72;&amp;#117;&amp;#x73;&amp;#116;&amp;#64;&amp;#x61;&amp;#x75;&amp;#x74;&amp;#x68;&amp;#48;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#x6d;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To request a copy of Auth0 SOC 2 report, please email &lt;a href=&quot;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#58;&amp;#116;&amp;#x72;&amp;#x75;&amp;#115;&amp;#116;&amp;#x40;&amp;#x61;&amp;#117;&amp;#116;&amp;#x68;&amp;#x30;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;&gt;&amp;#x74;&amp;#x72;&amp;#x75;&amp;#x73;&amp;#x74;&amp;#x40;&amp;#x61;&amp;#x75;&amp;#x74;&amp;#104;&amp;#48;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#109;&lt;/a&gt;&lt;/p&gt;
 </content>
 	</entry>
 	
