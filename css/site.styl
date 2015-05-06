@@ -48,6 +48,7 @@ p,li
 	margin: 60px -5%;
 	background: none;
 	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding-top: 60px;
 	
 	+breakpoint("tablet")
 		margin: 80px -100%;
@@ -111,13 +112,13 @@ header.site-header
 .banner.banner-post
 	background: #354171;
 	padding: 20px 0;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 
 
 	+breakpoint("desktop")
 		padding-top: 135px;
 		padding-bottom: 40px;
-		margin-bottom: 50px;
+		margin-bottom: 30px;
 
 	h1
 		@extend .small-caps;
@@ -313,9 +314,9 @@ h1,h2,h3,h4,h5
 			color: color_grey_text;
 
 		&.active
-			border: 1px solid #E1E1E1;
-			border-radius: 4px 4px 0 0;
-			border-bottom: 0;
+			//border: 1px solid #E1E1E1;
+			//border-radius: 4px 4px 0 0;
+			border-bottom: 1px solid;
 			background: white;
 			position: relative;
 			z-index: 20;
