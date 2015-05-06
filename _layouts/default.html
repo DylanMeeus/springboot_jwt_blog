@@ -4,6 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    {% if page.tags %}
+    <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+    {% endif %}
+
     {% include sharing_metas.html %}
 
     <title>{{ page.title }}</title>
@@ -223,6 +228,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script type="text/javascript">
       (function () {
@@ -294,6 +300,21 @@
         // Force al content links to blank
         $('.entry-content a').each(function() {
           $(this).attr('target', '_blank');
+        });
+
+        $('.post-info time').each(function() {
+          var $current = $(this);
+          var dateString = $current.text();
+          var diff = moment(dateString).diff(moment(new Date()), 'days');
+          var dateFormat;
+
+          dateFormat = moment(dateString).fromNow();
+
+          if(diff > -10) {
+            $current.text(dateFormat);
+          }
+
+          $current.addClass('rendered');
         });
       });
 

@@ -190,7 +190,7 @@ header.site-header
 	grid(1, 0, "> div")
 	line-height: 30px;
 	text-align: center;
-
+	
 	a
 		font-weight: bold;
 		color: currentColor;
@@ -216,7 +216,11 @@ header.site-header
 			text-align: center;
 
 	time
-		opacity: 0.7;
+		opacity: 0;
+		
+		&.rendered
+			opacity: 0.7;
+		
 
 .network
 	color: color_grey_text;
