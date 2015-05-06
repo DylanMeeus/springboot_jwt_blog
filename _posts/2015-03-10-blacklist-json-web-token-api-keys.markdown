@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Blacklisting JSON Web Token API Keys"
+description: "Learn how to blacklist a JWT API key so it is no longer valid."
 date: 2015-03-10 09:00
 author:
   name: Damian Schenkelman
   url: "https://twitter.com/dschenkelman"
   mail: "damian@auth0.com"
   avatar: "https://www.gravatar.com/avatar/1c9619a22f32012221bd59296dc9a1a2?size=200"
+design:
+  bg_color: "#454A33"
+  image: https://cldup.com/CFa762q5FS.png
+  image_size: "200%"
+  image_bg_color: none;
 tags:
 - api
 - jwt
@@ -17,7 +23,7 @@ tags:
 - scopes
 ---
 
-<a href="//cdn.auth0.com/blog/blacklist_header.jpg" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_header.jpg"></a>
+<!-- <a href="//cdn.auth0.com/blog/blacklist_header.jpg" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_header.jpg"></a> -->
 
 
 **tl;dr**: if you understand why and how to support blacklisting JWTs, then skip to the [code](#impl).
