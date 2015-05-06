@@ -13,7 +13,7 @@ design:
   bg_merge: true
   image: http://assets.auth0.com/blog/react-js/react.png
   image_size: "110%"
-
+  image_bg_color: "transparent"
 pr: 5
 tags:
 - featured

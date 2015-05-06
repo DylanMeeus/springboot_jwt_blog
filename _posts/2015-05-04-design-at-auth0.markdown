@@ -11,8 +11,8 @@ author:
 design:
   bg_color: "#222228"
   image: http://assets.auth0.com/blog/design-process/badge.png
-  image_top: "53%"
-  image_left: "auto"
+  image_bg_color: "#222229"
+  image_size: "150%"
 tags:
 - foo
 ---
