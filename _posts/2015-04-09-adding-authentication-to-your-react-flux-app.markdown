@@ -12,8 +12,8 @@ design:
   bg_color: "rgb(25, 25, 25)"
   bg_merge: true
   image: http://assets.auth0.com/blog/react-js/react.png
-  image_size: "110%"
-  image_bg_color: "transparent"
+  image_size: "80%"
+  image_bg_color: "rgb(25, 25, 25)"
 pr: 5
 tags:
 - featured
