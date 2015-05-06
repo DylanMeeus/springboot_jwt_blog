@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://auth0.com/blog/sitemap.xml
