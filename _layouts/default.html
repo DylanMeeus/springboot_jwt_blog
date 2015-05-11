@@ -302,6 +302,22 @@
           $(this).attr('target', '_blank');
         });
 
+        function toggleSticky($nav) {
+          if(!$nav.hasClass('fixed')) {
+            navOffset = $nav.offset().top;
+          }
+
+          if ($(window).scrollTop() > navOffset) {
+              $nav.addClass('fixed');
+          } else {
+            $nav.removeClass('fixed');
+          }
+        }
+
+        $(window).on('scroll', function() {
+          toggleSticky($('[data-sticky]'));
+        });
+
         $('.post-info time').each(function() {
           var $current = $(this);
           var dateString = $current.text();

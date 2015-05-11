@@ -409,10 +409,11 @@ h1,h2,h3,h4,h5
     margin-bottom: 20px;
     
     +breakpoint("desktop")
-    	margin-bottom: 50px;
+    	margin-bottom: 30px;
 
   &
     position: relative;
+    min-height: 55px;
     text-align: center;
     margin-top: -15px;
 
@@ -423,6 +424,15 @@ h1,h2,h3,h4,h5
   	+breakpoint("desktop")
   		height: auto !important;
   		display: block !important;
+  		
+  		&.fixed
+  			position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  background: rgba(255, 255, 255, 0.92);
+			  z-index: 1000;
+			  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
   ul > li
   	@extend .tab;
