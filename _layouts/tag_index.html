@@ -4,15 +4,10 @@ meta-robots: "noodp, noydir, noindex, noarchive, follow"
 is_post_index: true
 is_tag_index: true
 ---
-{% for post in site.posts %}
-  {% if forloop.index == 1 %}
-    {% include banner_post.html %}
-  {% endif %}
-{% endfor %}
+{% include banner_blog.html %}
+{% include navigation.html %}
 
 <div id="container" class="container">
-  
-  {% include navigation.html %}
 
   <ul class="archive">
 

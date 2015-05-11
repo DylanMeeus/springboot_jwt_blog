@@ -5,18 +5,13 @@ is_post_index: true
 latest_tab: active
 ---
 
-{% for post in site.posts limit:1 %}
-  {% if forloop.index == 1 %}
-    {% include banner_post.html %}
-  {% endif %}
-{% endfor %}
+{% include banner_blog.html %}
+{% include navigation.html %}
 
 <div id="container" class="container">
 
-{% include navigation.html %}
-
 <ul class="archive">
-    {% for post in paginator.posts offset:1 %}
+    {% for post in paginator.posts %}
         {% unless post.draft %}
           {% include archive_post.html %}
         {% endunless %}

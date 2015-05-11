@@ -1,26 +1,21 @@
 
-
-<ul class="blog-navigation">
-
-
-  {% if page.is_tag_index %}
-  <li class="tab active"><a href="javascript:;">On {{page.tag}}</a></li>
-  {% else %}
-  <li class="tab {{page.latest_tab}}"><a href="{{ site.baseurl }}/">Latest</a></li>
-  <li class="tab {{page.featured_tab}}"><a href="{{ site.baseurl }}/featured/">Top Reads</a></li>
-  {% endif %}
-
-  <li class="dropdown dropdown-topics">
-    <span role="button" class"btn-dro" data-toggle="dropdown">
-      <span class="text">Topics</span>
-      <i class="icon-budicon-460"></i>
-    </span>
-
-    <ul role="menu" class="dropdown-menu dropdown-menu-right">
-      <li><a href="{{ site.baseurl }}/tag/authentication/">Authentication</a></li>
-      <li><a href="{{ site.baseurl }}/tag/api/">API</a></li>
-      <li><a href="{{ site.baseurl }}/tag/jwt/">JWT</a></li>
-      <li><a href="{{ site.baseurl }}/tag/security/">Security</a></li>
-    </ul>
-  </li>
-</ul>
+<div class="blog-navigation">
+  <button class="jump-to" data-toggle="collapse" data-target="#navigation_menu">Sections <i class="icon-budicon-460"></i></button>
+  <ul class="collapse" id="navigation_menu">
+    <li class="{{page.featured_tab}}"><a href="{{ site.baseurl }}/featured/">
+      <i class="icon-budicon-466"></i> Top Reads</a>
+    </li>
+    <li class="{% if page.tag == 'announcements' %}active{% endif %}">
+      <a href="{{ site.baseurl }}/tag/announcements/"><i class="icon-budicon-799"></i> Announcements</a>
+    </li>
+    <li class="{% if page.tag == 'product' %}active{% endif %} ">
+      <a href="{{ site.baseurl }}/tag/product/"><i class="icon-budicon-705"></i> Product</a>
+    </li>
+    <li class="{% if page.tag == 'authentication' %}active{% endif %}">
+      <a href="{{ site.baseurl }}/tag/authentication/"><i class="icon-budicon-289"></i> Authentication</a>
+    </li>
+    <li class="{% if page.tag == 'security' %}active{% endif %}">
+      <a href="{{ site.baseurl }}/tag/security/"><i class="icon-budicon-285"></i> Security</a>
+    </li>
+  </ul>
+</div>

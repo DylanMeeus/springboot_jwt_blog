@@ -7,15 +7,13 @@ featured_tab: active
 
 {% assign featured = site.tags.featured | sort: 'pr' %}
 
-{% for post in site.posts %}
-  {% if forloop.index == 1 %}
-    {% include banner_post.html %}
-  {% endif %}
-{% endfor %}
+{% include banner_blog.html %}
+
+{% include navigation.html %}
 
 <div id="container" class="container">
 
-{% include navigation.html %}
+
 
 <ul class="archive">
   {% for post in featured limit: 6 %}
