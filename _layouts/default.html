@@ -49,6 +49,9 @@
     </script>
 </head>
 <body>
+    <header class="site-header clearfix">
+    </header>
+
     <script type="text/javascript">
       (function() {
         var header = new WebHeader({ base_url: 'https://auth0.com' });
@@ -60,8 +63,7 @@
     <div id="pjax">
       {% include sharing.html %}
 
-      <header class="site-header clearfix">
-      </header>
+      
       
       
       {{ content }}
@@ -296,15 +298,6 @@
       
       $(function() {
         function initPage() {
-          (function() {
-            var header = new WebHeader({ base_url: 'https://auth0.com' });
-            var rendered_header = $('.site-header > *').length;
-
-            if(!rendered_header) {
-              header.render('header.site-header');
-            }
-          })();
-
           $('.post-info time').each(function() {
             var $current = $(this);
             var dateString = $current.text();
