@@ -49,20 +49,19 @@
     </script>
 </head>
 <body>
-  
+    <script type="text/javascript">
+      (function() {
+        var header = new WebHeader({ base_url: 'https://auth0.com' });
+
+        header.render('header.site-header');
+      })();
+    </script>
 
     <div id="pjax">
       {% include sharing.html %}
 
       <header class="site-header clearfix">
       </header>
-
-      <script type="text/javascript">
-        (function() {
-          var header = new WebHeader({ base_url: 'https://auth0.com' });
-          header.render('header.site-header');
-        })();
-      </script>
       
       
       {{ content }}
@@ -297,6 +296,15 @@
       
       $(function() {
         function initPage() {
+          (function() {
+            var header = new WebHeader({ base_url: 'https://auth0.com' });
+            var rendered_header = $('.site-header > *').length;
+
+            if(!rendered_header) {
+              header.render('header.site-header');
+            }
+          })();
+
           $('.post-info time').each(function() {
             var $current = $(this);
             var dateString = $current.text();
@@ -323,11 +331,31 @@
           });
         }
 
-        $(document).pjax('#pjax a', '#pjax', { fragment: '#pjax' });
+        $(document).pjax('#pjax a:not(.blog-navigation a)', '#pjax', { fragment: '#pjax' });
+
+        $(document).pjax('#pjax .blog-navigation a', '#container', { fragment: '#container' });
+
+        $('body').on('click', '.blog-navigation a', function() {
+          var tabs = $('.blog-navigation li');
+          var activeTab = $(this).parent();
+          
+          $(window).data('navScroll', $(window).scrollTop());
+
+          tabs.removeClass('active');
+          activeTab.addClass('active');
+
+
+        });
 
         $(document)
           .on('pjax:complete', function() {
             initPage();
+
+            var setScroll = parseInt($(window).data('navScroll'));
+
+            if(setScroll) {
+              $(window).scrollTop(setScroll);
+            }
           });
 
         initPage();
