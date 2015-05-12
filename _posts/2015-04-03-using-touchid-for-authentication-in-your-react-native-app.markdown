@@ -1,12 +1,16 @@
 ---
 layout: post
 title: "Using TouchID for Authentication in your React Native app"
+description: "Use our React Native module to authenticate with TouchID."
 date: 2015-04-03 17:47
 author:
   name: Hernan Zalazar
   url: "https://twitter.com/hzalaz"
   mail: "hernan@auth0.com"
   avatar: "https://www.gravatar.com/avatar/b93af62499ed0f76f280acb37913f15d.png?size=200"
+design:
+  bg_color: "#31214D"
+  image: https://cldup.com/PB1nDCYd0B.png
 tags:
 - ios
 - touchid

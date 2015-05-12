@@ -11,7 +11,7 @@ is_tag_index: true
 
   <ul class="archive">
 
-  {% for post in site.tags[page.tag] %}
+  {% for post in site.tags[page.tag] limit: 3 %}
     {% unless post.draft %}
       {% include archive_post.html %}
     {% endunless %}

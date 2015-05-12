@@ -10,13 +10,13 @@ author:
   avatar: https://www.gravatar.com/avatar/27396b3fa24389198ef5d3e7e410e9c4?size=60
 design:
   bg_color: "#222228"
-  image: http://assets.auth0.com/blog/design-process/badge.png
+  image: https://cldup.com/P7V08dAY6M.png
   image_bg_color: "#222229"
-  image_size: "170%"
-  image_top: "52%"
+  image_size: "101%"
 tags:
 - foo
 ---
+<!-- image: https://cldup.com/P7V08dAY6M.png -->
 <style>
 .entry-thumbnail{background: none;}
 </style>

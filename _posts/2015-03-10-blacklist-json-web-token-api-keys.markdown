@@ -21,6 +21,7 @@ tags:
 - blacklist
 - revoke
 - scopes
+- product
 ---
 
 <!-- <a href="//cdn.auth0.com/blog/blacklist_header.jpg" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_header.jpg"></a> -->

@@ -14,6 +14,7 @@ design:
   image_size: "200%"
   image_opacity: "0.8"
 tags:
+- product
 ---
 
 **tl;dr**: Control which apps your users can access with an SSO dashboard. Download the [code](https://github.com/auth0/auth0-sso-dashboard) or [deploy to Heroku](https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fauth0%2Fauth0-sso-dashboard) in 5 minutes.

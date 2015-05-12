@@ -15,6 +15,7 @@ design:
   image_left: "90%"
 tags:
 - dashboard
+- product
 ---
 
 **TL;DR**

@@ -26,6 +26,19 @@ reply:
 ---
 ```
 
+### Dealing with outdated content
+
+![](https://cldup.com/4hWdGjoZGc.png)
+
+To mark a post as outdated, add the `outdated` front matter. Aditionally, you can direct the link in the disclaimer to a specific page using the tag `doc_reference`, otherwise the link will go to the docs homepage.
+
+Example:
+```
+---
+outdated: true
+doc_reference: https://auth0.com/docs/apiv2#!/clients/get_clients_by_id
+---
+```
 
 ### Customize your post's design
 

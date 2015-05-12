@@ -8,9 +8,10 @@ author:
   url: https://timmclean.net
   avatar: https://www.gravatar.com/avatar/dfea5c5f769cc4a6cce74d3eda20bba3?size=200
 design: 
-  bg_color: "#1B231C"
-  image: https://cldup.com/MNjkZFJXXK.png
-  image_bg_color: "none"
+  bg_color: "#49525B"
+  image: https://cldup.com/ZfDpgn223K.png
+  image_size: "50%"
+  image_top: "52%"
 pr: 4
 tags:
 - featured
