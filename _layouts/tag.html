@@ -1,0 +1,24 @@
+---
+layout: default
+meta-robots: "noodp, noydir, noindex, noarchive, follow"
+is_post_index: true
+is_tag_index: true
+---
+{% include banner_blog.html %}
+{% include navigation.html %}
+
+<div id="container" class="container">
+
+  <ul class="archive">
+
+  {% for post in paginator.posts limit: 3 %}
+    {% unless post.draft %}
+      {% include archive_post.html %}
+    {% endunless %}
+  {% endfor %}
+
+  </ul>
+
+  {% include paging.html %}
+</div>
+

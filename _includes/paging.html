@@ -1,0 +1,31 @@
+{% if page.is_tag_index %}
+
+<div class="navigation" id="nav-below">
+    {% if paginator.next_page %}
+    <div class="nav-previous"><a href="{{ site.baseurl }}/tags/{{ page.tag }}/page{{paginator.next_page}}">Older posts</a></div>
+    {% endif %}
+    {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1%}
+        <div class="nav-next"><a href="{{ site.baseurl }}/tags/{{ page.tag }}/">Newer posts</a></div>
+        {% else %}
+        <div class="nav-next"><a href="{{ site.baseurl }}/tags/{{ page.tag }}/page{{paginator.previous_page}}">Newer posts</a></div>
+        {% endif %}
+    {% endif %}
+</div>
+
+{% else %}
+
+<div class="navigation" id="nav-below">
+    {% if paginator.next_page %}
+    <div class="nav-previous"><a href="{{ site.baseurl }}/page{{paginator.next_page}}">Older posts</a></div>
+    {% endif %}
+    {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1%}
+        <div class="nav-next"><a href="{{ site.baseurl }}/">Newer posts</a></div>
+        {% else %}
+        <div class="nav-next"><a href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer posts</a></div>
+        {% endif %}
+    {% endif %}
+</div>
+
+{% endif %}
