@@ -4,7 +4,7 @@ exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, Rakefile]
 permalink: pretty
 highlighter: pygments
 excerpt_separator: '<!-- more -->'
-baseurl: ''
+baseurl: '/blog'
 encoding: utf-8
 only_first_p:
   show_read_more_link: true
