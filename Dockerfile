@@ -14,7 +14,7 @@ ADD nginx.conf /etc/nginx/nginx.conf
 RUN apt-get install -y nodejs npm git git-core
 
 # install gems
-RUN gem install jekyll -v 1.5.1
+RUN gem install jekyll -v 2.4.0
 RUN gem install psych -v 2.0.5
 RUN gem install rdiscount -v 2.1.7.1
 RUN gem install stringex -v  2.5.2
