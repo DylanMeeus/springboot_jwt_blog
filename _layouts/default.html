@@ -59,174 +59,11 @@
         header.render('header.site-header');
       })();
     </script>
-
     <div id="pjax">
-      {% include sharing.html %}
-
-      
-      
-      
+    
       {{ content }}
 
-
-      <div class="container">
-        <footer class="site-footer clearfix">
-          <div class="logo"><img src=
-          "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png" width="30"></div>
-
-          <div class="footer-grid">
-            <div class="column">
-              <div class="item">
-                <h6>Product</h6>
-              </div>
-
-              <div class="item">
-                <a href="/pricing">Pricing</a>
-              </div>
-
-              <div class="item">
-                <a href="/why-auth0">Why Auth0</a>
-              </div>
-
-              <div class="item">
-                <a href="/how-it-works">How It Works</a>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="item">
-                <h6>Company</h6>
-              </div>
-
-              <div class="item">
-                <a href="/about">About Us</a>
-              </div>
-
-              <div class="item">
-                <a href="/blog">Blog</a>
-              </div>
-
-              <div class="item">
-                <a href="/jobs">Jobs</a>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="item">
-                <h6>Security</h6>
-              </div>
-
-              <div class="item">
-                <a href="/availability-trust">Availability &amp; Trust</a>
-              </div>
-
-              <div class="item">
-                <a href="/security">Security</a>
-              </div>
-
-              <div class="item">
-                <a href="/whitehat">White Hat</a>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="item">
-                <h6>Learn</h6>
-              </div>
-
-              <div class="item">
-                <a href="/support">Help &amp; Support</a>
-              </div>
-
-              <div class="item">
-                <a href="https://auth0.com/docs">Documentation</a>
-              </div>
-
-              <div class="item">
-                <a href="/opensource">Open Source</a>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="item">
-                <h6>Extend</h6>
-              </div>
-
-              <div class="item">
-                <a href="/lock">Lock</a>
-              </div>
-
-              <div class="item">
-                <a href="/wordpress">Wordpress</a>
-              </div>
-
-              <div class="item">
-                <a href="https://auth0.com/docs/apiv2">API Explorer</a>
-              </div>
-            </div>
-
-            <div class="contact">
-              <div class="column">
-                <div class="item">
-                  <h6>Contact</h6>
-                </div>
-
-                <div class="item">
-                  <a href="mailto:support@auth0.com">Email Us</a>
-                </div>
-
-                <div class="item">
-                  10777 Main Street<br>
-                  Suite 204<br>
-                  Bellevue, WA 98004
-                </div>
-              </div>
-
-              <div class="column no-heading">
-                <div class="item">
-                  <a href="tel:+18882352699">+1 (888) 235-2699</a>
-                </div>
-
-                <div class="item">
-                  <a href="tel:+14253126521">+1 (425) 312-6521</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="colophon">
-            <div class="column">
-              <div class="social">
-                <div class="twitter">
-                  <iframe class="twitter" frameborder="0" scrolling="no" src=
-                  "//platform.twitter.com/widgets/follow_button.html?screen_name=auth0">
-                  </iframe>
-                </div>
-
-                <div class="facebook">
-                  <iframe class="facebook" frameborder="0" scrolling="no" src=
-                  "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fgetauth0&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;show_count=false&amp;share=false&amp;height=21&amp;appId=507756515938786">
-                  </iframe>
-                </div>
-              </div>
-            </div>
-
-            <div class="column">
-              <ul class="list-inline text-right">
-                <li>
-                  <a href="/privacy">Privacy Policy</a>
-                </li>
-
-                <li>
-                  <a href="/terms">Terms of Service</a>
-                </li>
-
-                <li><span>© 2013-2015 Auth0 All Rights Reserved</span></li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-      </div>
+      {% include footer.html %}
     </div>
 
 
@@ -300,7 +137,7 @@
         function initPage() {
           $('.post-info time').each(function() {
             var $current = $(this);
-            var dateString = $current.text();
+            var dateString = new Date($current.text());
             var diff = moment(dateString).diff(moment(new Date()), 'days');
             var dateFormat;
 
@@ -322,11 +159,16 @@
           $('.entry-content a').each(function() {
             $(this).attr('target', '_blank');
           });
+
+          // Handle scroll pos
+          if($(window).data('navScroll')) {
+            $(window).scrollTop(parseInt($(window).data('navScroll')));
+          }
+
+          $(window).data('navScroll', 0);
         }
 
-        $(document).pjax('#pjax a:not(.blog-navigation a)', '#pjax', { fragment: '#pjax' });
-
-        $(document).pjax('#pjax .blog-navigation a', '#container', { fragment: '#container' });
+        $(document).pjax('#pjax a', '#pjax', { fragment: '#pjax' });
 
         $('body').on('click', '.blog-navigation a', function() {
           var tabs = $('.blog-navigation li');
@@ -336,23 +178,14 @@
 
           tabs.removeClass('active');
           activeTab.addClass('active');
-
-
         });
 
         $(document)
           .on('pjax:complete', function() {
             initPage();
-
-            var setScroll = parseInt($(window).data('navScroll'));
-
-            if(setScroll) {
-              $(window).scrollTop(setScroll);
-            }
           });
 
         initPage();
-
 
         function toggleSticky($nav) {
           if(!$nav.hasClass('fixed')) {
@@ -360,36 +193,22 @@
           }
 
           if ($(window).scrollTop() > navOffset) {
-              $nav.addClass('fixed');
+            $nav.addClass('fixed');
           } else {
             $nav.removeClass('fixed');
           }
         }
 
         $(window).on('scroll', function() {
-          toggleSticky($('[data-sticky]'));
+          var sticky = $('[data-sticky]');
+
+          if(sticky) {
+            toggleSticky(sticky);
+          }
         });
 
         
       });
-
-      $.fn.isOnScreen = function(){
-        var win = $(window);
-        var viewport = {
-          top : win.scrollTop(),
-          left : win.scrollLeft()
-        };
-        viewport.right = viewport.left + win.width();
-        viewport.bottom = viewport.top + win.height();
-
-        var bounds = win.offset();
-        if (!bounds) return;
-
-        bounds.right = bounds.left + win.outerWidth();
-        bounds.bottom = bounds.top + win.outerHeight();
-
-        return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-      };
     </script>
 
     <script type="text/javascript">
