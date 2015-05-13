@@ -1,12 +1,20 @@
 ---
 layout: post
 title: "Critical vulnerabilities in JSON Web Token libraries"
+description: "Wich libraries are vulnerable to attacks and how to prevent them."
 date: 2015-03-31 09:00
 author:
   name: Tim McLean
   url: https://timmclean.net
   avatar: https://www.gravatar.com/avatar/dfea5c5f769cc4a6cce74d3eda20bba3?size=200
+design: 
+  bg_color: "#49525B"
+  image: https://cldup.com/ZfDpgn223K.png
+  image_size: "50%"
+  image_top: "52%"
+pr: 4
 tags:
+- featured
 - jwt
 - alg
 - security

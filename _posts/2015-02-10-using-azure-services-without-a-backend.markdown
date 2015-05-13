@@ -1,11 +1,17 @@
 ---
 layout: post
 title: "Using Azure Services without a Backend"
+description: "Access Azure Storage APIs securely from browsers (i.e. using JavaScript) or native apps, without the need of a backend server."
 date: 2015-02-10 09:00
 author:
   name: Nathan Totten
   url: http://twitter.com/ntotten
   avatar: https://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=60
+design:
+  bg_color: "#006083"
+  image: https://cldup.com/OpoAQoUwkK.png
+  image_size: "150%"
+  image_bg_color: none
 tags:
 - azure
 - delegation

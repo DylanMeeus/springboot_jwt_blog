@@ -1,137 +1,642 @@
+@import 'lib/mixins'
+@import 'lib/prettyprint'
+@import 'lib/nprogress'
 
 color_blue = #14204d;
 color_blue_light = #3cc8f4;
 color_red = #eb5422;
 color_grey = #d1d2d4;
 
+color_grey_text = #5C666F;
+
 body
-	// padding-top: 90px;
+  overflow-x: hidden;
+  min-width: 320px;
+
 @media screen and (min-width: 990px)
-	.header-dark header.site-header h1.navbar-brand a
-		background-image: url("//cdn.auth0.com/styleguide/latest/lib/logos/img/logo-grey.png");
+  .header-dark header.site-header h1.navbar-brand a
+    background-image: url("//cdn.auth0.com/styleguide/latest/lib/logos/img/logo-grey.png");
 
+.container,
+.banner
+  color: color_grey_text;
 
-p,li
-	color: #4d4d4d;
+  p, li
+    color: color_grey_text;
+
+  a
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover
+      opacity: 0.7;
+
+    &:focus
+      text-decoration: none;
 
 h1, h2,h3,h4,h5, pre
-	margin-top: 20px;
-	margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 i
-	// display: none
+  // display: none
 
 h1
-	margin-top: 0;
+  margin-top: 0;
 
 p,li
-	color: #4d4d4d;
+  color: #4d4d4d;
+  
+.try-banner
+  margin: 60px -5%;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 60px;
+  
+  +breakpoint("tablet")
+    margin: 80px -100%;
+  
+  span
+    font-size: 16px;
+    display: inline-block;
+    font-weight: normal;
+    text-transform: uppercase;
+    position: relative;
+    top: -8px;
+    opacity: 0.7;
 
 .try-code
-	a.btn
-		margin-top: 0;
-		background: color_blue_light;
-		i
-			position: relative;
-			top: 3px;
-			margin-right: 10px;
-		&:hover
-			background: darken(color_blue_light, 30%);
+  a.btn
+    margin-top: 0;
+    background: color_blue_light;
+    i
+      position: relative;
+      top: 3px;
+      margin-right: 10px;
+    &:hover
+      background: darken(color_blue_light, 30%);
 
 header.site-header
-	// background: rgba(255,255,255,.9);
+  // background: rgba(255,255,255,.9);
 
+
+.icon-circle
+  border: 1px solid #cfcfcf;
+  height: 44px;
+  width: 44px;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+  
+  i 
+    font-style: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+.small-caps
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: bold;
+
+.line
+  content: "";
+  height: 1px;
+  
+  width: 400%;
+  margin-left: -200%;
+  background: color_grey;
+  display: block;
+  opacity: 0.5;
+
+.banner.banner-post
+  background: #354171;
+  padding: 20px 0;
+  margin-bottom: 15px;
+  
+  .banner-container
+    -webkit-animation: none;
+    animation: none;
+
+
+  +breakpoint("desktop")
+    padding-top: 135px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    
+  &.banner-blog
+    padding-bottom: 40px;
+    background: #232228;
+    position: relative;
+    
+    +breakpoint("desktop")
+    	padding-bottom: 80px;
+    
+    &:before
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -75px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      background: url('https://cldup.com/7KB0QsZkIX.svg') top center no-repeat;
+      
+      +breakpoint("mobile-landscape")
+        bottom: -30px;
+        
+      +breakpoint("desktop")
+        bottom: -130px;
+
+  h1
+    @extend .small-caps;
+    font-size: 14px;
+    opacity: 0.7;
+
+  .entry-content p
+    color: white;
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.7;
+
+  .entry-title
+    +breakpoint("desktop")
+      font-size: 32px;
+
+  a,
+  a:hover
+    color: white;
+
+  .network,
+  .date
+    color: white;
+
+.entry-title
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: center;
+  font-weight: bold;
+
+  +breakpoint("desktop")
+    font-size: 28px;
+    max-width: 800px;
+    margin: 25px auto;
+
+  a
+    font-weight: bold;
+
+    &:hover,
+    &:focus,
+    &:active
+      color: currentColor;
+
+.blog-title
+  @extend .entry-title;
+  font-size: 32px;
+  margin: 12px auto;
+  margin-top: 10px;
+  
+p.blog-description
+  color: white;
+  opacity: 0.7;
+
+.entry-thumbnail
+  margin: 0 auto;
+  margin-top: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #EAEEF3;
+  height: 100px;
+  width: 100px;
+  opacity: 1 !important;
+
+  +breakpoint("desktop")
+    height: 125px;
+    width: 125px;
+
+  img
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 120%;
+    
+.blog-thumbnail
+  @extend .entry-thumbnail;
+  height: 100px;
+  width: 100px;
+  
+  img
+    top: 53%;
+    max-width: 40%;
+
+.post-info
+  grid(1, 0, "> div")
+  line-height: 30px;
+  text-align: center;
+  
+  a
+    font-weight: bold;
+    color: currentColor;
+
+    &:hover,
+    &:focus,
+    &:active
+      color: currentColor;
+
+  +breakpoint("desktop")
+    grid(3, 0, "> div")
+    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .author
+      text-align: left;
+
+    .social-stats
+      text-align: right;
+
+    .date
+      text-align: center;
+
+  time
+    opacity: 0;
+    
+    &.rendered
+      opacity: 0.7;
+    
+
+.network
+  color: color_grey_text;
+  text-decoration: none;
+
+  span
+    opacity: 0.7;
+
+  & + .network
+    margin-left: 20px;
+
+  svg
+    position: relative;
+    top: 5px;
+
+  &[data-type="facebook"] svg
+    top: 2px;
+    left: -2px;
+
+  svg, path
+    fill: currentColor;
+      
+.reply-networks
+  margin-top: 40px;
+  
+  .icon-circle
+    position: relative;
+    top: 18px;
+    border-color: lighten(color_grey_text, 80%);
+    margin-right: 10px;
+    
+  .tw i 
+    position: absolute;
+    top: 60%;
+    left: 55%;
+    font-size: 22px;
+    color: #288ce4;
+    
+  .hn i 
+    color: color_red;
+    font-weight: bold;
+    
+  a 
+    font-weight: normal;
+    color: lighten(color_grey_text, 20%);
+    
+    & + a 
+      margin-left: 40px;
+  
 .navbar-fixed-top
-	padding: inherit;
+  padding: inherit;
 
 h1,h2,h3,h4,h5
-	color: black
-
-.entry-title
-	font-weight: 300
+  color: #333;
 
 #container.container
-	max-width: 700px;
+  +breakpoint("desktop")
+    padding: 0;
+    
+.tab
+	@extend .small-caps;
+	font-weight: normal;
+	display: block;
+	padding: 18px 5px;
+	margin: 0 25px;
+  margin-bottom: -1px;
+  font-size: 13px;
+  
+  i 
+  	position: relative;
+  	top: 2px;
+  	margin-right: 5px;
+  
+  & + li
+  	border-top: 1px solid #ECECEC;
+  	
+  	+breakpoint("desktop")
+  		border-top: 0;
+
+  +breakpoint("desktop")
+  	display: inline-block;
+
+  a
+    color: color_grey_text;
+    
+    &:hover,
+    &:focus,
+    &:active
+    	opacity: 0.5;
+    	text-decoration: none;
+
+  &.active
+    background: #F7F7F7;
+    position: relative;
+    z-index: 20;
+    border-bottom: 1px solid #ECECEC;
+    
+    a
+    	color: currentColor;
+    	font-weight: bold;
+    	text-decoration: none;
+    	
+    	&:hover,
+    	&:focus,
+    	&:active
+    		text-decoration: none;
+    		opacity: 1;
+    
+    +breakpoint("desktop")
+    	background: none;
+    	color: #333;
+    	border-bottom: 1px solid;
+
+.blog-navigation
+	.jump-to
+		outline: none;
+		background: none;
+		display: block;
+		border: 0;
+		width: 100%;
+		border-bottom: 1px solid #ECECEC;
+		color: color_grey_text;
+		font-weight: bold;
+		z-index: 400;
+		position: relative;
+		@extend .tab;
+		
+	 	+breakpoint("desktop")
+	 		display: none;
+	 		
+	 	i 
+	 		margin-left: 5px;
+	 		opacity: 0.5;
+	 		
+  ul, li, &
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+  &:after
+    @extend .line;
+    margin-bottom: 20px;
+    
+    +breakpoint("desktop")
+    	margin-bottom: 30px;
+
+  &
+    position: relative;
+    min-height: 55px;
+    text-align: center;
+    margin-top: -15px;
+
+    +breakpoint("desktop")
+      margin-top: -30px;
+      
+  > ul
+  	+breakpoint("desktop")
+  		height: auto !important;
+  		display: block !important;
+  		
+  		&.fixed
+  			position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  background: rgba(255, 255, 255, 0.92);
+			  z-index: 1000;
+			  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  ul > li
+  	@extend .tab;
+  	text-transform: none;
+  	letter-spacing: normal;
 
 ul.archive
-	margin: 0;
-	padding: 0;
-	li.post
-		list-style: none;
-		padding-bottom: 60px;
-		margin-bottom: 60px;
-		border-bottom: 1px solid #f1f1f1;
-		.entry-content
-			img
-				display: none !important
+  margin: 0;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
 
-.entry-title
-	position: relative;
+  .entry-content
+    text-align: center;
+    margin-bottom: 40px;
+
+  li.post
+    text-align: center;
+    list-style: none;
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+
+    & + li.post
+      &:before
+        @extend .line;
+        position: relative;
+        top: -50px;
+
+    .entry-content
+      img
+        display: none !important
 
 .author
-	img
-		border-radius: 100px;
-		position: absolute;
-		left: -80px
-		top: 4px;
-		width: 56px;
-		height: 56px;
+  .name
+    opacity: 0.7;
 
-.entry-meta
-	font-size: 12px;
-	text-transform: uppercase
-	color: #999;
-	margin: 20px 0;
-	a
-		color: #666;
+  img
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+    top: -2px;
 
 .entry-content
-	font-size: 18px;
-	color: #4d4d4d;
-	line-height: 160%;
+  font-size: 18px;
+  color: #4d4d4d;
+  line-height: 160%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "ff-tisa-web-pro", serif;
 
-	img
-		max-width: 100%;
-		height: auto;
-.sharing-buttons
-	margin-top: 40px;
+  a
+    color: color_grey_text;
+    text-decoration: none;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 50%);
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    background-position: 0 23px;
 
-.readmore
-	text-transform: uppercase
-	font-weight: bold
-	margin-top: 30px;
-	display: inline-block
-	font-size: 16px
-	letter-spacing: 1px;
+  code
+    border-radius: 4px;
+    font-size: 75%;
+    padding: 3px 8px;
+    color: color_grey_text;
+    background: lighten(color_grey_text, 90%);
 
-.blog-single
+  ul
+    margin: 40px 0;
 
-	.entry-meta
-		margin-bottom: 40px
+    li
+      list-style: none;
+      position: relative;
+      padding-left: 25px;
 
-.navigation
-	overflow: hidden
-	margin-bottom: 50px;
-	.nav-previous, .nav-next
-		width: 50%;
-		display: inline-block
-		a
-			font-weight: bold
-			margin-bottom: 100px;
-	.nav-next
-		display: inline-block
-		text-align: right
-		float: right
+      &:before
+        content: "";
+        display: inline-block;
+        height: 6px;
+        width: 6px;
+        background: color_red;
+        position: absolute;
+        top: 0.8em;
+        border-radius: 3px;
+        left: 0;
+        margin-right: 20px;
+
+  pre
+    margin: 40px 0;
+    word-wrap: normal;
+    padding: 20px;
+
+    code
+      font-size: 13px;
+      background: none;
+      color: white;
+      border: 0;
+      padding: 0;
+      white-space: pre;
+
+  h1, h2, h3
+    font-size: 25px;
+    font-weight: bold;
+    margin: 30px 0;
+
+  h3
+    font-size: 20px;
+
+  h4, h5, h6
+    @extend .small-caps;
+    font-size: 14px;
+
+
+  blockquote
+    margin: 60px 0;
+    padding: 50px 40px;
+
+    p
+      margin: 0;
+
+  hr
+    margin: 40px auto;
+    max-width: 30%;
+    border-color: lighten(color_grey_text, 80%);
+
+  img
+    height: auto;
+    max-width: 100%;
+    margin: 40px 0;
+
+  img.expand
+    +breakpoint("desktop")
+      max-width: 140%;
+      margin-left: -20%;
+      margin-right: -20%;
 
 
 pre.prettyprint
-	padding: 20px !important;
-	border: 0 !important;
-	border-radius: 3px;
+  padding: 20px !important;
+  border: 0 !important;
+  border-radius: 3px;
+
+.navigation
+  margin-bottom: 50px;
+  text-align: center;
+
+  &:before
+    @extend .line;
+
+  .nav-previous, .nav-next
+    display: inline-block
+    a
+      font-weight: bold;
+      margin: 0 20px;
+      margin-top: 40px;
+      display: inline-block;
+      color: #5c666f;
+      line-height: 40px;
+      padding: 0 20px;
+      border: 1px solid rgba(#5c666f, 0.11);
+      border-radius: 20px;
+
+.related-posts
+  grid(1, 20px, ".entry-related")
+  margin-bottom: 80px;
+  
+  +breakpoint("desktop")
+    grid(3, 20px, ".entry-related")
+    
+  .entry-related
+    text-align: center;
+    
+    .entry-title
+      font-size: 18px;
+
+.entry-content .alert
+  font-family: "proxima-nova";
+  font-size: 13px;
+  color: gray;
+  line-height: 1.5;
+  margin-top: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: rgba(128, 128, 128, 0.07);
+  position: relative;
+  padding-left: 40px;
+  
+  i 
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    opacity: 0.7;
+  
+  a 
+    text-decoration: underline;
+    color: darken(gray, 20%);
 
 #auth0
-	border: 1px  #ecf0f1 solid;
-	padding: 10px;
-	text-align: center
-	border-radius: 3px;
-	margin: 30px 0;
-	overflow: hidden
+  border: 1px  #ecf0f1 solid;
+  padding: 10px;
+  text-align: center
+  border-radius: 3px;
+  margin: 30px 0;
+  overflow: hidden

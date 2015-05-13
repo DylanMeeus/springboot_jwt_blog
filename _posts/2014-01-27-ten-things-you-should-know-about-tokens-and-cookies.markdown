@@ -2,12 +2,18 @@
 published: "true"
 layout: post
 title: 10 Things You Should Know about Tokens
+description: "Explore in more detail some of the most common questions around token-based authentication."
 date: "2014-01-27 12:30"
 author:
   name: Matias Woloski
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
+design:
+  image: https://cldup.com/_DrZQjW90p.png
+pr: 3
+tags:
+- featured
 ---
 
 

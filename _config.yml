@@ -1,5 +1,5 @@
 markdown: rdiscount
-paginate: 15
+paginate: 5
 exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, Rakefile]
 permalink: pretty
 highlighter: pygments
@@ -12,3 +12,5 @@ only_first_p:
 stylus:
   compress: true
   path: ./css
+values:
+  is_post_index: false

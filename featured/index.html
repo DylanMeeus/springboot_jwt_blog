@@ -1,22 +1,26 @@
 ---
 layout: default
-meta-robots: "noodp, noydir, noindex, noarchive, follow"
+title: Auth0 Blog
 is_post_index: true
-is_tag_index: true
+featured_tab: active
 ---
+
+{% assign featured = site.tags.featured | sort: 'pr' %}
+
 {% include banner_blog.html %}
+
 {% include navigation.html %}
 
 <div id="container" class="container">
 
-  <ul class="archive">
 
-  {% for post in site.tags[page.tag] limit: 3 %}
+
+<ul class="archive">
+  {% for post in featured limit: 6 %}
     {% unless post.draft %}
       {% include archive_post.html %}
     {% endunless %}
   {% endfor %}
+</ul>
 
-  </ul>
 </div>
-

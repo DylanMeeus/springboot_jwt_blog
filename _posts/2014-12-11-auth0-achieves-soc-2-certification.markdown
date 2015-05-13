@@ -1,12 +1,17 @@
 ---
 layout: post
 title: "Auth0 Achieves SOC 2 Certification"
+description: "Providing an always-on, highly secure identity service is core to the Auth0 brand promise."
 date: 2014-12-11 10:00
 author:
   name: "Eugenio Pace"
   url:  http://www.twitter.com/eugenio_pace
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+design:
+  image: https://s3.amazonaws.com/blog.auth0.com/soc2.png
+  image_size: "75%"
+  bg_color: "#333"
 tags:
 - security
 - trust
@@ -17,7 +22,7 @@ Providing an always-on, highly secure identity service is core to the Auth0 bran
 
 Today, we are going one step further and we are pleased to announce that we have achieved SOC 2 Type 1 certification. 
 
-![](https://s3.amazonaws.com/blog.auth0.com/soc2.png)
+<!-- ![](https://s3.amazonaws.com/blog.auth0.com/soc2.png) -->
 
 <!-- more -->
 

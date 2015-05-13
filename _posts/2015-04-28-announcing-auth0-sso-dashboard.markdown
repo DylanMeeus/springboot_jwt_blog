@@ -1,13 +1,20 @@
 ---
 layout: post
 title: "Announcing the Auth0 Open Source Single-Sign-On Dashboard"
+description: "Remembering usernames and passwords and login urls for all of these apps is a pain. With this app we take another step in simplifying the authentication experience."
 date: 2015-04-28 10:00
 author:
   name: Nathan Totten
   url: http://twitter.com/ntotten
   mail: ntotten@auth0.com
   avatar: https://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=60
+design:
+  bg_color: "#4a5259"
+  image: https://cloudup.com/cfENOYpKxfL+
+  image_size: "200%"
+  image_opacity: "0.8"
 tags:
+- product
 ---
 
 **tl;dr**: Control which apps your users can access with an SSO dashboard. Download the [code](https://github.com/auth0/auth0-sso-dashboard) or [deploy to Heroku](https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fauth0%2Fauth0-sso-dashboard) in 5 minutes.

@@ -11,12 +11,14 @@ is_tag_index: true
 
   <ul class="archive">
 
-  {% for post in site.tags[page.tag] limit: 3 %}
+  {% for post in paginator.posts limit: 3 %}
     {% unless post.draft %}
       {% include archive_post.html %}
     {% endunless %}
   {% endfor %}
 
   </ul>
+
+  {% include paging.html %}
 </div>
 

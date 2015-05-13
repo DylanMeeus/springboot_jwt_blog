@@ -1,14 +1,22 @@
 ---
 layout: post
 title: "Auth0 New Pricing"
+description: "We have modified our pricing structure to be much more flexible, allowing you to create custom packages that best fit your needs."
 date: 2015-01-26 08:00
 author:
   name: "Gianpaolo Carraro"
   url:  http://www.twitter.com/gcarraro
   avatar: https://www.gravatar.com/avatar/aad435650eb4a93583d6aaa19f3a91f4.png?s=60
+design:
+  image: https://cldup.com/1RGPQw_s8c.png
+  image_top: "45%"
+  image_size: "180%"
+  image_bg_color: "none"
+  bg_color: "#212430"
 tags:
 - pricing
 - price
+- announcements
 ---
 
 ### Introduction

@@ -1,14 +1,21 @@
 ---
 layout: post
 title: "Update of the user's details section"
+description: "Good news! We have redesigned the user's profile page in order to make use of the new API v2."
 date: 2015-04-15 15:57
 author:
   name: Pablo Terradillos
   url: http://twitter.com/tehsis
   mail: tehsis@auth0.com
   avatar: https://s.gravatar.com/avatar/647b1eea820b3fc8a5aee0383930b888?s=60
+design:
+  image: https://cldup.com/MTjz9l-URX.png
+  image_size: "200%"
+  image_top: "90%"
+  image_left: "90%"
 tags:
 - dashboard
+- product
 ---
 
 **TL;DR**

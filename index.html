@@ -1,25 +1,24 @@
 ---
 layout: default
-title: Auth0
+title: Auth0 Blog
+is_post_index: true
+latest_tab: active
 ---
 
-    <ul class="archive">
-        {% for post in paginator.posts %}
-          {% unless post.draft %}
-            {% include archive_post.html %}
-          {% endunless %}
-        {% endfor %}
-    </ul>
+{% include banner_blog.html %}
 
-<div class="navigation" id="nav-below">
-    {% if paginator.next_page %}
-    <div class="nav-previous"><a href="{{ site.baseurl }}/page{{paginator.next_page}}"><span class="meta-nav">«</span> Older posts</a></div>
-    {% endif %}
-    {% if paginator.previous_page %}
-        {% if paginator.previous_page == 1%}
-        <div class="nav-next"><a href="{{ site.baseurl }}">Newer posts <span class="meta-nav">»</span></a></div>
-        {% else %}
-        <div class="nav-next"><a href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer posts <span class="meta-nav">»</span></a></div>
-        {% endif %}
-    {% endif %}
+{% include navigation.html %}
+
+<div id="container" class="container">
+
+<ul class="archive">
+    {% for post in paginator.posts %}
+        {% unless post.draft %}
+          {% include archive_post.html %}
+        {% endunless %}
+    {% endfor %}
+</ul>
+
+{% include paging.html %}
+
 </div>

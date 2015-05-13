@@ -1,11 +1,16 @@
 ---
 layout: post
 title: "Auth0 Startup Plan"
+description: "Introducing the Startup Plan as part of our new pricing."
 date: 2015-02-06 08:00
 author:
   name: "Gianpaolo Carraro"
   url:  http://www.twitter.com/gcarraro
   avatar: https://www.gravatar.com/avatar/aad435650eb4a93583d6aaa19f3a91f4.png?s=60
+design:
+  bg_color: "#793648"
+  image: https://cldup.com/4qK2xpiiQL.png
+  image_left: 85%
 tags:
 - startup
 - pricing
