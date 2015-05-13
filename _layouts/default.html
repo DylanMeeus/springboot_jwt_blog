@@ -194,10 +194,11 @@
         }
 
         function setEvents() {
+          NProgress.configure({ showSpinner: false, speed: 500 });
+
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax' })
             .on('pjax:click', function() {
-              NProgress.configure({ showSpinner: false });
               NProgress.start();
             })
             .on('pjax:success pjax:popstate', function() {
