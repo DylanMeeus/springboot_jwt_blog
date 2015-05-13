@@ -92,6 +92,7 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="{{ site.baseurl }}/js/vendor/nprogress.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script type="text/javascript">
@@ -195,8 +196,15 @@
         function setEvents() {
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax' })
+            .on('pjax:click', function() {
+              NProgress.configure({ showSpinner: false });
+              NProgress.start();
+            })
             .on('pjax:success pjax:popstate', function() {
+
               initialize();
+
+              NProgress.done();
             });
 
           $('body').on('click', '.blog-navigation a', function() {
