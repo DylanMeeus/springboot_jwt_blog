@@ -218,9 +218,9 @@ export class Home {
  <!-- template -->
  <div class="home">
    <!-- If there's a JWT, we display it -->
-   <pre *if="jwt" class="jwt"><code>{{ jwt }}</code></pre>
+   <pre *if="jwt" class="jwt"><code>{{ "{{jwt" }}}}</code></pre>
    <!-- Here, we're using pipes to display the JSON content of the JWT nicely. We'll learn how to  create the JSON pipe in the next section -->
-   <pre *if="jwt" class="jwt"><code>{{ decodedJ wt | json }}</code></pre>
+   <pre *if="jwt" class="jwt"><code>{{ "{{decodedJwt | json" }}}}</code></pre>
     <!-- Anchor to call the secured API -->
    <p><a (click)="callSecuredApi()">Call Se cure API</a></p>
     <!-- Anchor to log the user out -->
