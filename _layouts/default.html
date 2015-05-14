@@ -88,9 +88,9 @@
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/nprogress.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
@@ -158,6 +158,10 @@
       $(function() {
 
         function initialize() {
+          $('pre code').each(function(i, block) {
+             hljs.highlightBlock(block);
+          });
+
           $('.post-info time').each(function() {
             var $current = $(this);
             var dateString = new Date($current.text());
@@ -172,11 +176,9 @@
 
             $current.addClass('rendered');
           });
+
           // Social Buttons
           $('.social-stats .network').cSButtons();
-
-          // prettyPrint
-          $('pre').addClass("prettyprint");
 
           // Force al content links to blank
           $('.entry-content a').each(function() {
@@ -194,6 +196,11 @@
         }
 
         function setEvents() {
+          hljs.configure({
+            tabReplace: '  ', // 4 spaces
+            classPrefix: ''
+          });
+
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           $(document)
