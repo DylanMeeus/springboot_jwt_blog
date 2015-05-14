@@ -2,12 +2,18 @@
 layout: post
 title: "Creating your first real world Angular 2 app: From authentication to calling an API and everything in between"
 description: "Learn how to create a real world angular 2 app using Pipes, Directives, Components, DI, ES6 and much more! We'll implement from Authentication to calling an API and everything in between"
-date: 2015-05-14 09:54
+date: 2015-05-14 09:54AM
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60design
+design:
+  image: https://angular.io/resources/images/logos/standard/shield-large.png
+  image_size: "75%"
+  image_bg_color: "rgb(1, 70, 166)"
+  bg_color: "rgb(1, 70, 166)"
+  bg_merge: true
 tags:
 - authentication
 - angular2
