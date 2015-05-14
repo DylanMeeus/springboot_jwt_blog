@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Creating your first real world Angular 2 app: From authentication to calling an API and everything in between"
+title: "Creating your first Angular 2 app: From authentication to calling an API and everything in between"
 description: "Learn how to create a real world angular 2 app using Pipes, Directives, Components, DI, ES6 and much more! We'll implement from Authentication to calling an API and everything in between"
 reply:
  twitter: https://twitter.com/auth0/status/598909226111631360
