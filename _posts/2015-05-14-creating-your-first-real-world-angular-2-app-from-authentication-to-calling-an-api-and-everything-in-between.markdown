@@ -81,7 +81,6 @@ export class App {
     router
       .config('/home', Home, 'home')
       .then((_) => router.config('/login', Login, 'login'))
-      .then((_) => router.config('/signup', Signup, 'signup'))
       .then((_) => router.navigate('/home'))
   }
 }
