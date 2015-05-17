@@ -314,6 +314,14 @@ export class LoggedInOutlet extends RouterOutlet {
 }
 ```
 
+## Aside: Using Angular with Auth0
+
+Auth0 issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. We implemented a tight integration with Angular 1. Angular 2 integration is coming as soon as it's on Beta! You can read the [documentation here](https://auth0.com/docs/client-platforms/angularjs) or you can checkout the [SDK on Github](https://github.com/auth0/auth0-angular)
+
+<img src="https://docs.google.com/drawings/d/1ErB68gFj55Yg-ck1_CZByEwN5ql0Pj2Mzd-6S5umv2o/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
+
+
+
 ## Conclusions
 
 In this article, we've learned how to create a multiple page Angular 2 app that uses the new router, pipes, templates, directives and components to implement both authentication and calling an API. You can see the complete example on [Github](https://github.com/auth0/angular2-authentication-sample), as well as a [talk that I did](https://www.youtube.com/watch?v=pgFtp2LgwoE), where this example is live-coded.
