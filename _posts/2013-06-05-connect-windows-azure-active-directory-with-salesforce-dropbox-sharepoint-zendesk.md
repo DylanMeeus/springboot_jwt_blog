@@ -2,6 +2,7 @@
 layout: post
 title: "SSO to Cloud Apps (Salesforce, Zendesk, etc) through Windows Azure Active Directory and Auth0"
 date: 2013-06-05 21:15
+outdated: true
 author:
   name: Matias Woloski
   mail: matias@auth0.com

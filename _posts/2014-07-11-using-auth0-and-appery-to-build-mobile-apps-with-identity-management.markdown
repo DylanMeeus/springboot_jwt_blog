@@ -2,6 +2,7 @@
 layout: post
 title: "Using Auth0 &amp; Appery.io to build mobile apps with Identity Management"
 date: 2014-07-11 12:33
+outdated: true
 author:
   name: "Dmitry Zaytsev"
   url: "http://appery.io/"
@@ -118,5 +119,3 @@ Register for Appery.io and Auth0 joint webinar on August 6, 2014 at 11:00 AM PT
 **_Building Secure Mobile Apps in the Cloud with Appery.io and Auth0 Identity Management_**
 
 [Register now](http://www.exadel.com/08062014Webinar)
-
-

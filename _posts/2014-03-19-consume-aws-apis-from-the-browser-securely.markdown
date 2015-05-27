@@ -3,6 +3,7 @@ published: "true"
 layout: post
 title: Using AWS APIs without a server
 date: "2014-03-25 12:30"
+outdated: true
 author:
   name: Matias Woloski
   mail: matias@auth0.com

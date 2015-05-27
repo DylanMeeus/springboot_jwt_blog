@@ -2,6 +2,7 @@
 layout: post
 title: "Xamarin Component just released"
 date: 2013-08-22 5:18
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

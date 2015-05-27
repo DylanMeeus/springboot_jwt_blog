@@ -16,7 +16,7 @@ tags:
 - scopes
 ---
 
-Most APIs today use an **API Key** to authenticate legitimate clients. **API Keys** are very simple to use from the consumer perspective: 
+Most APIs today use an **API Key** to authenticate legitimate clients. **API Keys** are very simple to use from the consumer perspective:
 
 1. You get an **API key** from the service (in essence a shared secret).
 2. Add the key to an `Authorization` header.
@@ -24,7 +24,7 @@ Most APIs today use an **API Key** to authenticate legitimate clients. **API Key
 
 It can't get simpler than that, but this approach has some limitations.
 
-The last couple of months, we've been working on our [API v2](https://docs.auth0.com/apiv2). We wanted to share what we've learnt implementing a more powerful security model using [JSON Web Tokens](http://jwt.io). 
+The last couple of months, we've been working on our [API v2](https://docs.auth0.com/apiv2). We wanted to share what we've learnt implementing a more powerful security model using [JSON Web Tokens](http://jwt.io).
 
 <!-- more -->
 
@@ -46,7 +46,7 @@ One of the most interesting benefits of using JWTs is the first one listed above
 
 _Remember this?_
 
-APIs are becoming central pieces of our distributed systems architecture. They are now the "gatekeepers" of our data. But in contrast with what was available in databases, virtually all API keys provide all-or-nothing access. Readers will likely be familiar with the `scope` parameter of OAuth2 based systems that offers this finer grained consent to access. 
+APIs are becoming central pieces of our distributed systems architecture. They are now the "gatekeepers" of our data. But in contrast with what was available in databases, virtually all API keys provide all-or-nothing access. Readers will likely be familiar with the `scope` parameter of OAuth2 based systems that offers this finer grained consent to access.
 
 There are many situations in which you want to keep the simplicity of an **API Key** but only for a subset of all possible API operations.
 
@@ -76,8 +76,8 @@ The API endpoint would simply check for the presence of the right **scope** atri
 app.use('/api', express_jwt({secret: SECRET, userProperty: 'token_payload'}));
 
 // for POST /user/repo validate that there is a scope `repo` or `public_repo`
-app.post('/api/user/repo', 
-        check_scopes(['repo', 'public_repo']), 
+app.post('/api/user/repo',
+        check_scopes(['repo', 'public_repo']),
         function(req, res, next) {
     // create a repo
     ....
@@ -100,16 +100,16 @@ function check_scopes(scopes) {
           if(scopes[j] === token.scopes[i]) return next();
       }
     }
-    
+
     return res.send(401, 'insufficient scopes')
-  } 
+  }
 }
-  
+
 ```
 
 > Notice that no one can change the scopes variables. JWTs are digitally signed, so its content cannot be tampered with.  
 
-Documenting an API is equally important. What would be a good way for surfacing this on an API explorer? 
+Documenting an API is equally important. What would be a good way for surfacing this on an API explorer?
 
 For Auth0, we decided to build our own documentation using [swagger](http://swagger.io/). Since we are a multi-tenant system, each tenant has an API Key and Secret that is used to sign the token. As a developer, you mark which scopes you need and a token will be auto-generated. You can copy and paste it to [jwt.io](http://jwt.io) to see the structure (this is the __debuggable__ piece, by the way).
 
@@ -123,7 +123,7 @@ Our token format is a bit different from the one in the example we showed for Gi
 
 ```
 {
-  iat: 1416929061, 
+  iat: 1416929061,
   jti: "802057ff9b5b4eb7fbb8856b6eb2cc5b",
   scopes: {
     users: {

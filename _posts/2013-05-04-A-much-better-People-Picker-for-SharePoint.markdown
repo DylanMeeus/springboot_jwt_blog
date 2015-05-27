@@ -2,6 +2,7 @@
 layout: post
 title: "A much better People Picker for SharePoint"
 date: 2013-05-04 8:29
+outdated: true
 author:
   name: Sebastian Iacomuzzi
   mail: sebastian@auth0.com

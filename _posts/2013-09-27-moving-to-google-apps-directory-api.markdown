@@ -2,6 +2,7 @@
 layout: post
 title: "Moving to Google Apps Directory API"
 date: 2013-09-27 15:05
+outdated: true
 author:
   name: José F. Romaniello
   url: "http://joseoncode.com"

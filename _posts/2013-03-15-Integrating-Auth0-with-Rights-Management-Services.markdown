@@ -2,6 +2,7 @@
 layout: post
 title: "Integrating Auth0 with Rights Management Services"
 date: 2013-03-15 08:20
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

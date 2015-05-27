@@ -2,6 +2,7 @@
 layout: post
 title: "SSO with any SAML App"
 date: 2013-07-17 11:46
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

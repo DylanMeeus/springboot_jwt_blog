@@ -3,6 +3,7 @@ published: "true"
 layout: post
 title: Node Knockout Devs - Forget about Authentication!
 date: "2013-11-06 10:30"
+outdated: true
 author:
   name: Matias Woloski
   mail: matias@auth0.com

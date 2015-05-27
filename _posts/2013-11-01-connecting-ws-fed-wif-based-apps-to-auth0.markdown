@@ -3,6 +3,7 @@ published: "true"
 layout: post
 title: Connecting WS-Fed (WIF) based apps to Auth0
 date: "2013-10-18 19:50"
+outdated: true
 author:
   name: Sebastian Iacomuzzi
   mail: sebastian@auth0.com

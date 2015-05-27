@@ -2,6 +2,7 @@
 layout: post
 title: "SSO for Legacy Apps with Auth0, OpenID Connect & Apache"
 date: 2014-08-22 21:57
+outdated: true
 author:
   name: "Eugenio Pace"
   url:  http://www.twitter.com/eugenio_pace
