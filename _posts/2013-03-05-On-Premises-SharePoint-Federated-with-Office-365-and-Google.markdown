@@ -2,6 +2,7 @@
 layout: post
 title: "On-Premises SharePoint Federated with Office 365 and Google"
 date: 2013-03-04 17:39
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
@@ -34,7 +35,3 @@ This short demo shows exactly this scenario:
 In the next post we will cover a natural extension of this first scenario: federating with a partner company using Active Directory.
 
 [Try Auth0 yourself!](https://auth0.com)
-
-
-
-

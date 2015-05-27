@@ -3,6 +3,7 @@ published: "true"
 layout: post
 title: Introducing Db Connections
 date: "2013-06-04 19:50"
+outdated: true
 author:
   name: José F. Romaniello
   url: "http://joseoncode.com"

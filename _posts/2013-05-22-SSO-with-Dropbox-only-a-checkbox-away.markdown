@@ -2,6 +2,7 @@
 layout: post
 title: "SSO with Dropbox. Only a checkbox away"
 date: 2013-05-22 7:09
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

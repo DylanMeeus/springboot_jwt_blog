@@ -3,6 +3,7 @@ published: "true"
 layout: post
 title: Integrating Heroku Apps with Salesforce
 date: "2013-10-18 19:50"
+outdated: true
 author:
   name: José F. Romaniello
   url: "http://joseoncode.com"

@@ -2,6 +2,7 @@
 layout: post
 title: "Мы добавили поддержку пользователей вКонтакте!"
 date: 2013-06-09 9:53
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

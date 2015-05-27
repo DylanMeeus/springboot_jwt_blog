@@ -2,6 +2,7 @@
 layout: post
 title: "SimpleKeychain: A keychain library with iOS 8 &amp; TouchID support"
 date: 2014-10-27 13:09
+outdated: true
 author:
   name: Hernan Zalazar
   url: "https://twitter.com/hzalaz"
@@ -101,4 +102,3 @@ Add it to your **Swift or Objective C** project now with CocoaPods and start usi
 ```ruby
 pod 'SimpleKeychain', '~> 0.1'
 ```
-

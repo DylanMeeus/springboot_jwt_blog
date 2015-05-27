@@ -2,6 +2,7 @@
 layout: post
 title: "Windows Azure ACS Alternative"
 date: 2014-05-14 08:00
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
@@ -11,7 +12,7 @@ author:
 
 <div style="float: right"><img style="width: 160px" src="https://cloudup.com/cTUURfqMtie+"></div>
 
-When it was released about 4 years ago, ACS was great. It lowered the bar of entry to advanced identity scenarios considerably. Whole chapters of our [Claims Identity Guide](http://www.amazon.com/Claims-Based-Identity-Control-Patterns-Practices/dp/0735640599) were [focused on ACS](http://msdn.microsoft.com/en-us/library/hh446535.aspx)! However since its release: 
+When it was released about 4 years ago, ACS was great. It lowered the bar of entry to advanced identity scenarios considerably. Whole chapters of our [Claims Identity Guide](http://www.amazon.com/Claims-Based-Identity-Control-Patterns-Practices/dp/0735640599) were [focused on ACS](http://msdn.microsoft.com/en-us/library/hh446535.aspx)! However since its release:
 
 * There hasn't been much innovation much on it.
 * It is hard to find updated documentation.
@@ -19,9 +20,9 @@ When it was released about 4 years ago, ACS was great. It lowered the bar of ent
 * Only a very limited number of IdPs are supported.
 * Visual Studio __Add STS Reference__ and other integrated tools are not available anymore. Configuring ACS on existing solutions is not as easy as it was.
 * Yesterday, Yahoo! connections broke. It took a while for it to be resolved.
-* It's roadmap is unclear. 
+* It's roadmap is unclear.
 
-Many customers with apps configured to use ACS have asked us how difficult it is to replace it with Auth0. It turns out it is very, very easy. 
+Many customers with apps configured to use ACS have asked us how difficult it is to replace it with Auth0. It turns out it is very, very easy.
 
 Here's how:
 

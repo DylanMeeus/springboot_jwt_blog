@@ -2,6 +2,7 @@
 layout: post
 title: "Authenticating your Angular app with Auth0 &amp; ASP .Net OWIN"
 date: 2014-06-24 14:01
+outdated: true
 author:
   name: "Taiseer Joudeh"
   url: "http://bitoftech.net/"

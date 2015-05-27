@@ -2,6 +2,7 @@
 layout: post
 title: "A New Android Sample"
 date: 2013-06-20 21:18
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

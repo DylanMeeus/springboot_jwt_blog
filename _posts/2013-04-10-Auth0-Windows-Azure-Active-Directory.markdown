@@ -2,6 +2,7 @@
 layout: post
 title: "Why Windows Azure AD is important and how Auth0 works with it"
 date: 2013-04-10 18:00
+outdated: true
 author:
   name: Matias Woloski
   mail: matias@auth0.com
@@ -104,4 +105,3 @@ And if you enable the Azure Mobile Services add-on, we'll issue a token (JWT) co
 ###6. Sign up from the Azure Store
 
 We are part of the [Windows Azure Store](http://www.windowsazure.com/en-us/store/overview/). With a [few clicks](http://blog.auth0.com/2013/03/28/Auth0-Now-Available-In-The-Windows-Azure-Store/), you can have your own account, for free.
-

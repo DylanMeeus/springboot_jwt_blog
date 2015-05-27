@@ -2,7 +2,7 @@
 layout: post
 title: "Our Response to Heartbleed"
 date: 2014-04-08 15:00
-author: 
+author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace

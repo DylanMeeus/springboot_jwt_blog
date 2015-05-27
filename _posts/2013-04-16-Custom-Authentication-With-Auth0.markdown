@@ -2,6 +2,7 @@
 layout: post
 title: "Custom Authentication With Auth0"
 date: 2013-04-16 14:11
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

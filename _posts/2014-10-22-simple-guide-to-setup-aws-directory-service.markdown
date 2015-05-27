@@ -2,6 +2,7 @@
 layout: post
 title: "Simple Guide to Setup AWS  Directory Service"
 date: 2014-10-22 18:01
+outdated: true
 author:
   name: José F. Romaniello
   url: "http://joseoncode.com"
@@ -123,4 +124,3 @@ When you plug Auth0 to your Active Directory you can:
 ![](https://docs.google.com/drawings/d/1Prsiyie3NmAf5JfWHqQn8cl941s_7nN6JkwmQeprUqA/pub?w=1219&h=558)
 
 More information about Auth0: <https://auth0.com/how-it-works>
-

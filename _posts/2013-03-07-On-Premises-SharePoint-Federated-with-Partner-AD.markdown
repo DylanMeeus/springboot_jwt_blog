@@ -2,6 +2,7 @@
 layout: post
 title: "On-Premises SharePoint Federated with Partner AD"
 date: 2013-03-07 15:09
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

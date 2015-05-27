@@ -2,6 +2,7 @@
 layout: post
 title: "SSO with Salesforce.com and Auth0"
 date: 2013-05-05 8:29
+outdated: true
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

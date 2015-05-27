@@ -2,6 +2,7 @@
 layout: post
 title: "WordPress Single Sign On with Auth0"
 date: 2014-07-02 09:01
+outdated: true
 author:
   name: Ricardo Rauch
   mail: ricky@auth0.com
@@ -83,4 +84,3 @@ We would love to hear your feedback. Feel free to join us in our chat room <http
 We would like to thanks the crew from [LaunchPeople](http://launchpeople.dk/) who did the initial work for this plugin.
 
 Happy auth!
-
