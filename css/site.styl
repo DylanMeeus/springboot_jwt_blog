@@ -48,13 +48,17 @@ p,li
   color: #4d4d4d;
   
 .try-banner
-  margin: 60px -5%;
   background: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 60px;
+  padding-top: 40px;
   
   +breakpoint("tablet")
-    margin: 80px -100%;
+    padding-top: 60px;
+
+  +breakpoint("desktop")
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
   
   span
     font-size: 16px;
@@ -75,10 +79,6 @@ p,li
       margin-right: 10px;
     &:hover
       background: darken(color_blue_light, 30%);
-
-header.site-header
-  // background: rgba(255,255,255,.9);
-
 
 .icon-circle
   border: 1px solid #cfcfcf;
@@ -105,9 +105,7 @@ header.site-header
 .line
   content: "";
   height: 1px;
-  
-  width: 400%;
-  margin-left: -200%;
+  width: 100%;
   background: color_grey;
   display: block;
   opacity: 0.5;
@@ -329,6 +327,8 @@ h1,h2,h3,h4,h5
   color: #333;
 
 #container.container
+  max-width: none;
+  
   +breakpoint("desktop")
     padding: 0;
     
@@ -414,6 +414,8 @@ h1,h2,h3,h4,h5
 
   &:after
     @extend .line;
+    width: 100%;
+    margin: 0;
     margin-bottom: 20px;
     
     +breakpoint("desktop")
@@ -450,7 +452,6 @@ h1,h2,h3,h4,h5
 ul.archive
   margin: 0;
   padding: 0;
-  max-width: 800px;
   margin: 0 auto;
 
   .entry-content
@@ -462,12 +463,14 @@ ul.archive
     list-style: none;
     padding-bottom: 60px;
     margin-bottom: 60px;
+    position: relative;
 
     & + li.post
       &:before
         @extend .line;
-        position: relative;
+        position: absolute;
         top: -50px;
+        left: 0;
 
     .entry-content
       img
@@ -581,12 +584,16 @@ pre.prettyprint
   border: 0 !important;
   border-radius: 3px;
 
-.navigation
+#nav-below.navigation
   margin-bottom: 50px;
   text-align: center;
+  position: relative;
 
   &:before
     @extend .line;
+    position: absolute;
+    top: 0;
+    left: 0;
 
   .nav-previous, .nav-next
     display: inline-block
@@ -616,24 +623,26 @@ pre.prettyprint
 
 .entry-content .alert
   font-family: "proxima-nova";
-  font-size: 13px;
-  color: gray;
+  font-size: 14px;
+  color: white;
   line-height: 1.5;
   margin-top: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  background: rgba(128, 128, 128, 0.07);
+  font-weight: bold;
+  background: rgb(243, 53, 53);
   position: relative;
-  padding-left: 40px;
+  padding-left: 62px;
+  margin-bottom: 40px;
   
   i 
     position: absolute;
     top: 20px;
     left: 15px;
-    opacity: 0.7;
+    opacity: .7;
+    font-size: 27px;
   
   a 
     text-decoration: underline;
-    color: darken(gray, 20%);
+    color: currentColor;
 
 #auth0
   border: 1px  #ecf0f1 solid;
