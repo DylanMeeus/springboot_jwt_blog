@@ -2,7 +2,7 @@
 layout: post
 title: "Engineering the Design Process at Auth0"
 description: "Our lessons in defining a cohesive design language <br /> across all our products."
-date: 2015-05-15 13:24
+date: 2015-06-08 21:24
 draft: false
 author:
   name: Ricky Rauch
@@ -103,7 +103,25 @@ Today, we can include Styleguide using Bower, Component() or linking [directly f
 
 If you are interested, [check the live version](https://styleguide.auth0.com) or [view the code on Github](https://github.com/auth0/styleguide).
 
-### Design Meetings
+## 3. Publish
+
+### Deep testing
+
+Once reached a final step on producing a deliverable we start a rough path of tests by using Heroku or Github Pages as staging deployments. The whole point of this task is to have a last ride before publishing to the open when there is no take-back of the first impression statement.
+
+Some of the things we review here:
+
+Mobile rendering  and response times on different real devices, browsers and networks
+SEO optimizations (title on each page, description, sitemap…)
+Social share media elements like OpenGraph and Twitter Cards
+
+This method has always preceded the finest look and feel in our experience.
+
+<img src="http://assets.auth0.com/blog/design-process/cards.png"  class="expand"/>
+
+And we’ll keep improving our test process to deliver no less than the best.
+
+## Design Meetings
 
 Though we’re still a small group, there are already different kinds of designers on the team, some more adept in usability or visual design, and some more focused on prototyping and code.
 
@@ -117,3 +135,5 @@ That’s it.
 <img src="http://assets.auth0.com/blog/design-process/sites.png" class="expand" />
 
 We’re are always looking for ways to improve and optimize our process. We hope some of our practices can prove useful for anyone interested on collaborating in product design, and if you have suggestions or thoughts we’d be glad to hear them.
+
+Also, [we are hiring](https://auth0.com/jobs)

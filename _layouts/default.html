@@ -81,7 +81,7 @@
 
       <!-- Twitter Conversion -->
       <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
-    
+
       {{ content }}
 
       {% include footer.html %}
@@ -154,7 +154,7 @@
           });
         }
       })()
-      
+
       $(function() {
 
         function initialize() {
@@ -172,6 +172,10 @@
 
             if(diff > -10) {
               $current.text(dateFormat);
+            }
+
+            if (diff === 0) {
+              $current.text('Today');
             }
 
             $current.addClass('rendered');
@@ -218,7 +222,7 @@
           $('body').on('click', '.blog-navigation a', function() {
             var tabs = $('.blog-navigation li');
             var activeTab = $(this).parent();
-            
+
             $(window).data('navScroll', $(window).scrollTop());
 
             tabs.removeClass('active');
@@ -264,6 +268,6 @@
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-    
+
 </body>
 </html>
