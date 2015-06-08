@@ -99,7 +99,7 @@ Styleguide holds values, patterns, and specific components that repeat themselve
 
 - We use [semantic versioning](http://semver.org/) to enforce certain versions of Styleguide across projects. This helps maintain stability in our sites when we're doing heavy updates.
 
-Today, we can include Styleguide using Bower, Component() or linking [directly from the CDN](https://cdn.auth0.com/styleguide/latest/index.css).
+Today, we can include Styleguide using [Bower](http://bower.io/), [Component](http://component.github.io/) or linking [directly from the CDN](https://cdn.auth0.com/styleguide/latest/index.css).
 
 If you are interested, [check the live version](https://styleguide.auth0.com) or [view the code on Github](https://github.com/auth0/styleguide).
 
@@ -128,7 +128,6 @@ Though we’re still a small group, there are already different kinds of designe
 
 We have established weekly design meetings as a simple “show and tell” exercise to feed off each other's work and be in the loop of what’s been going on during the week with other projects. This adds a big picture perspective to all the work that's been done and complements daily feedback by showing the whole team the impact of design on our products.
 
-That’s it.
 
 <img src="http://assets.auth0.com/blog/design-process/sites.png" class="expand" />
 
@@ -136,4 +135,4 @@ We’re are always looking for ways to improve and optimize our process. We hope
 
 Finally, processes are nothing without having great team. I am humbled to work every day with these amazing people: [Victor Fernandez](http://twitter.com/vctrfrnndz), [Benjamin Flores](https://twitter.com/beneliflo_) and [Nicolás Garro]()
 
-Also, [we are hiring](https://auth0.com/jobs)
+If this sparkled some interest, [we are hiring](https://auth0.com/jobs)
