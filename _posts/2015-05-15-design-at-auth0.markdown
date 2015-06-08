@@ -136,4 +136,6 @@ That’s it.
 
 We’re are always looking for ways to improve and optimize our process. We hope some of our practices can prove useful for anyone interested on collaborating in product design, and if you have suggestions or thoughts we’d be glad to hear them.
 
+Finally, processes are nothing without having great team. I am humbled to work every day with these amazing people: [Victor Fernandez](http://twitter.com/vctrfrnndz), [Benjamin Flores](https://twitter.com/beneliflo_) and [Nicolás Garro]()
+
 Also, [we are hiring](https://auth0.com/jobs)
