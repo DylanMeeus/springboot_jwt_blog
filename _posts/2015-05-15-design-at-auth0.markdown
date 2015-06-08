@@ -111,9 +111,7 @@ Once reached a final step on producing a deliverable we start a rough path of te
 
 Some of the things we review here:
 
-Mobile rendering  and response times on different real devices, browsers and networks
-SEO optimizations (title on each page, description, sitemap…)
-Social share media elements like OpenGraph and Twitter Cards
+Mobile rendering  and response times on different real devices, browsers and networks SEO optimizations (title on each page, description, sitemap…) Social share media elements like OpenGraph and Twitter Cards.
 
 This method has always preceded the finest look and feel in our experience.
 
