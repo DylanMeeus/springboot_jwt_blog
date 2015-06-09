@@ -30,13 +30,13 @@ For the past year, Auth0 has been growing at a fast pace and, naturally, so has 
 
 In this post, we’ll explain what we've learned as we’ve implemented practices that help integrate design into our products, guarantee consistency, and optimize design choices.
 
-<img src="http://assets.auth0.com/blog/design-process/process.png" class="" />
+<img src="https://cdn.auth0.com/blog/design-process/process.png" class="" />
 
 ## 1. Blueprints
 
 The first practice we introduced was design from blueprints. A blueprint is just a monochrome draft of the final product, with as little focus on styling as possible.
 
-<img src="http://assets.auth0.com/blog/design-process/blueprint.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/design-process/blueprint.png" class="expand" />
 
 We go through a lot of feedback from different company stakeholders, including engineers, marketers, analytics, and our own clients. By taking subjective factors like color and embellishment out of the process, blueprints help us get better feedback and achieve simpler solutions in a shorter length of time.
 
@@ -48,7 +48,7 @@ We constantly review previous work when producing new assets to check for consis
 
 Our website is mapped out on a 1:1 scale with design files and is available to the whole team on Dropbox.
 
-<img src="http://assets.auth0.com/blog/design-process/dropbox.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/design-process/dropbox.png" class="expand" />
 
 Using Sketch has dramatically improved the way we create and export assets. We think it’s the best tool for the job because it was designed with the Web in mind.
 
@@ -60,7 +60,7 @@ Over the past year, we have started to migrate all of our pages as part of a mob
 
 The rationale behind this strategy starts with the design perspective: we set out to present only information that we can make available in a way that works on any device. This simplifies our approach to information architecture by getting rid of unnecessary elements and solving problems in the simplest way, which also reduces the potential for errors during development.
 
-<img src="http://assets.auth0.com/blog/design-process/mobile-first.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/design-process/mobile-first.png" class="expand" />
 
 To maintain stability, we are making these changes progressively. Each page that gets a redesign gets a mobile-first refactor to go with it.
 
@@ -85,17 +85,17 @@ A key factor in preventing Responsive Design from getting messy was abstracting 
 
 Styleguide is one of our most important projects. Its aim is to help maintain the same look and feel across all of our products and to make our front-end code reusable, no matter the specifics of any project's codebase.
 
-<a href="https://styleguide.auth0.com"><img src="http://assets.auth0.com/blog/design-process/styleguide.png" class="expand" /></a>
+<a href="https://styleguide.auth0.com"><img src="https://cdn.auth0.com/blog/design-process/styleguide.png" class="expand" /></a>
 
 Styleguide holds values, patterns, and specific components that repeat across pages, enabling designers and engineers quickly to reuse them on any product without worrying about markup or CSS.
 
-<img src="http://assets.auth0.com/blog/design-process/consistency.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/design-process/consistency.png" class="expand" />
 
 - Elements like our [header](https://github.com/auth0/web-header), footer, and other components are easily maintained on different projects by sourcing them directly from [Styleguide](https://styleguide.auth0.com).
 
 - By reducing complex html structures and patterns to Jade mixins available through [Styleguide](https://styleguide.auth0.com) and passing only content as parameters, we optimize development time.
 
-<!-- <img src="http://assets.auth0.com/blog/design-process/icons.png" class="" /> -->
+<!-- <img src="https://cdn.auth0.com/blog/design-process/icons.png" class="" /> -->
 
 - Company [colors](https://styleguide.auth0.com/#colors), [typography](https://styleguide.auth0.com/#typography), and [icons](https://styleguide.auth0.com/#icons) are kept consistent by using the same set of variables and files for every project.
 
@@ -117,7 +117,7 @@ Mobile rendering and response times on different real devices, browsers, and net
 
 This method has always preceded the finest look and feel, in our experience.
 
-<img src="http://assets.auth0.com/blog/design-process/cards.png" class="expand"/>
+<img src="https://cdn.auth0.com/blog/design-process/cards.png" class="expand"/>
 
 And we’ll keep improving our test process to deliver no less than the best.
 
@@ -130,7 +130,7 @@ Though we’re still a small group, there are already different kinds of designe
 
 We have established weekly design meetings as a simple “show and tell” exercise to feed off each other's work and be in the loop of what’s been going on during the week with other projects. This adds a big-picture perspective to all the work that's been done and complements daily feedback by showing the whole team the impact of design on our products.
 
-<img src="http://assets.auth0.com/blog/design-process/sites.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/design-process/sites.png" class="expand" />
 
 We’re always looking for ways to improve and optimize our process. We hope that some of our practices can prove useful for anyone interested in collaborating on product design, and if you have suggestions or thoughts, we’d be glad to hear them.
 
