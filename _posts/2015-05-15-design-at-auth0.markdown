@@ -138,7 +138,7 @@ We’re always looking for ways to improve and optimize our process. We hope tha
 
 
 
-Finally, processes are nothing without a great team. I am humbled to work every day with these amazing people: [Victor Fernandez](http://twitter.com/vctrfrnndz), [Benjamin Flores](https://twitter.com/beneliflo_), and [Nicolás Garro]()
+Finally, processes are nothing without a great team. I am humbled to work every day with these amazing people: [Victor Fernandez](http://twitter.com/vctrfrnndz), [Benjamin Flores](https://twitter.com/beneliflo_), and [Nicolás Garro](https://twitter.com/evilrabbit_)
 
 
 
