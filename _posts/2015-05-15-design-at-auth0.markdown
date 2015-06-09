@@ -2,7 +2,7 @@
 layout: post
 title: "Engineering the Design Process at Auth0"
 description: "Our lessons in defining a cohesive design language <br /> across all our products."
-date: 2015-06-08 21:24
+date: 2015-06-09 21:24
 draft: false
 author:
   name: Ricky Rauch
@@ -15,6 +15,8 @@ design:
   image: https://cldup.com/P7V08dAY6M.png
   image_bg_color: "transparent"
   image_size: "101%"
+
+permalink: /2015/06/08/design-at-auth0/
 
 tags:
 - foo
