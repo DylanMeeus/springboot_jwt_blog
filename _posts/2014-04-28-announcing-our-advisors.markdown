@@ -31,13 +31,13 @@ Founder of two companies, maker of Internet standards, veteran of **Sun Microsys
 
 Steve Coast is the founder of **OpenStreetMap**, a global wikipedia of maps. Steve has founded companies, run a successful kickstarter project and worked at two-man development houses right up to a stint at Microsoft. Steve lives in Denver and works for **Telenav** where he helps get OpenStreeMap in to the hands of consumers.
 
-<a target="_new" href="http://twitter.com/dscape"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/lib/about/img/nuno.jpeg"></div></a>
+<a target="_new" href="http://twitter.com/dscape"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/lib/about/img/nuno.png"></div></a>
 
 **[Nuno Job](http://twitter.com/dscape)**
 
 Nuno was Chief Commercial Officer at **Nodejitsu**, responsible for all enterprise customer engagements, and the worlds largest Node.js cloud. A pioneer in document databases at **IBM Research**. A hacker at heart, open-source enthusiast. Founder of **YLD!**, and an advisor to Nodejitsu and many other Node.js businesses.
 
-<a target="_new" href="http://twitter.com/rauchg"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/lib/about/img/rauchg.png"></div></a>
+<a target="_new" href="http://twitter.com/rauchg"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/lib/about/img/guillermo.png"></div></a>
 
 **[Guillermo Rauch](http://twitter.com/rauchg)**
 
