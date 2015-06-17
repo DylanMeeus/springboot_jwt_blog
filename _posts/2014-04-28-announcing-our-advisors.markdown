@@ -13,7 +13,7 @@ We’re very pleased to welcome new advisors to Auth0.  Our advisors are soundin
 
 <!-- more -->
 
-<a target="_new" href="http://twitter.com/gblock"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/lib/about/img/glenn.jpg"></div></a>
+<a target="_new" href="http://twitter.com/gblock"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://auth0.com/lib/about/img/glenn.png"></div></a>
 
 **[Glenn Block](http://twitter.com/gblock)**
 
