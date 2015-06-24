@@ -10,9 +10,12 @@ author:
   url:  http://www.twitter.com/jgelsey
   avatar: https://auth0.com/lib/about/img/jon.png
   twitter: jgelsey
-design: 
+design:
   image: https://cdn.auth0.com/blog/series-a/20k-logo.png
-tags: 
+  image_bg_color: "transparent"
+  bg_color: "#111118"
+
+tags:
 - series A
 - milestone
 - announcement
@@ -29,6 +32,6 @@ Auth0 was founded to simplify identity implementation and management for develop
 
 <a target="_new" href="http://www.bvp.com/team/david-cowan"><div style="float: right;margin: 40px 0px 10px 10px;"><img style="display: block;border-radius: 100px;max-width: 80px;height: 80px;position: relative;margin: auto;" src="https://i.cloudup.com/VCjw8OdnuJ.png"></div></a>
 
-> “It’s now painfully obvious that insecure or incomplete authentication implementations are creating vulnerabilities, jeopardizing customer trust, and hindering enterprise adoption of cloud and mobile services. So Bessemer is thrilled to partner with the best identity team in the world to deliver secure login as a service — as easy to use as Twilio, SendGrid and Stripe.” - **David Cowan**, VeriSign co-founder and partner at BVP. 
+> “It’s now painfully obvious that insecure or incomplete authentication implementations are creating vulnerabilities, jeopardizing customer trust, and hindering enterprise adoption of cloud and mobile services. So Bessemer is thrilled to partner with the best identity team in the world to deliver secure login as a service — as easy to use as Twilio, SendGrid and Stripe.” - **David Cowan**, VeriSign co-founder and partner at BVP.
 
 We look forward to continuing to build and support simple-to-implement, strong identity security for our subscribers. You can read the [full funding announcement press release](http://www.businesswire.com/news/home/20150624005699/en/Auth0-Raises-Series-Led-Bessemer-Pain-Identity#.VYqrSFxVikp) and stay up to date on our progress anytime by following us [@auth0](https://twitter.com/auth0).
