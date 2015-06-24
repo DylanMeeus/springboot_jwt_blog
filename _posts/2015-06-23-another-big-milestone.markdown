@@ -30,4 +30,4 @@ Auth0 was founded to simplify identity implementation and management for develop
 
 > “It’s now painfully obvious that insecure or incomplete authentication implementations are creating vulnerabilities, jeopardizing customer trust, and hindering enterprise adoption of cloud and mobile services. So Bessemer is thrilled to partner with the best identity team in the world to deliver secure login as a service — as easy to use as Twilio, SendGrid and Stripe.” - **David Cowan**, VeriSign co-founder and partner at BVP. 
 
-We look forward to continuing to build and support simple-to-implement, strong identity security for our subscribers. You can read the [full funding announcement press release](https://auth0.com/needslink) and stay up to date on our progress anytime by following us [@auth0](https://twitter.com/auth0).
+We look forward to continuing to build and support simple-to-implement, strong identity security for our subscribers. You can read the [full funding announcement press release](http://www.businesswire.com/news/home/20150624000000/en) and stay up to date on our progress anytime by following us [@auth0](https://twitter.com/auth0).
