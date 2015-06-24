@@ -11,7 +11,7 @@ author:
   avatar: https://auth0.com/lib/about/img/jon.png
   twitter: jgelsey
 design: 
-  image: https://cdn.auth0.com/blog/series-a/new-logo.png
+  image: https://cdn.auth0.com/blog/series-a/20k-logo.png
 tags: 
 - series A
 - milestone
