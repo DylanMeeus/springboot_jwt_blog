@@ -11,7 +11,7 @@ author:
   avatar: https://auth0.com/lib/about/img/jon.png
   twitter: jgelsey
 design:
-  image: https://cdn.auth0.com/blog/series-a/blog-logo-3.png
+  image: https://cdn.auth0.com/blog/series-a/blog-logo-4.png
   image_bg_color: "transparent"
   bg_color: "#111118"
 
@@ -26,7 +26,7 @@ Only nine short months after our [previous funding announcement](https://auth0.c
 
 We’re also proud to announce that our subscriber base has grown to over 24,000 developers at over 20,000 enterprises across more than 150 countries around the world. We’re humbled by the rapid growth that we’ve experienced -- the Series A funding will even further enhance our ability to provide developers and IT staff with strong identity security across their enterprises.
 
-<img src="https://cdn.auth0.com/blog/series-a/chart-2.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/series-a/chart-3.png" class="expand" />
 
 Auth0 was founded to simplify identity implementation and management for developers everywhere. Historically, implementing identity for anything more than the most trivial scenario had always been a massive pain. The friction of traditional identity implementation has often meant that developers are forced to trade strong identity security for on-time product launches. With Auth0, developers and IT staff can now quickly secure modern mobile and web applications, APIs and IoT devices by adding just a few lines of code, regardless of the complexity of the identity environment.  Our goal is to make strong identity security easy to implement with no compromises.
 
