@@ -21,6 +21,7 @@ tags:
 - lock
 - github
 - sample
+- tutorial
 ---
 
 ----
