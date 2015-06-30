@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using Smart Lock on Android in 3 simple steps"
-description: Learn how to use Google Smart Lock, a service that makes handling user's credentials on Android a pain-free process.
+description: In this tutorial, learn how to use Google Smart Lock, a service that makes handling user's credentials on Android a pain-free process.
 date: 2015-06-29 22:16
 author:
   name: Hernan Zalazar
