@@ -10,7 +10,7 @@ author:
   avatar: "https://www.gravatar.com/avatar/b93af62499ed0f76f280acb37913f15d.png?size=200"
 design: 
   bg_color: <A HEX BACKGROUND COLOR>
-  image: http://s1.xyo.net/content/icon/android-app/snaplock-smart-lock-screen-seAo9N4.png?size=BigThumbnail
+  image: https://cdn.auth0.com/blog/smart-lock/smart-lock.png
 tags: 
 - android
 - smart lock
