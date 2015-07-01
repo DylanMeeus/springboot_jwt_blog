@@ -57,7 +57,11 @@ return (done) => {
 }
 ```
 
-The only requirement is that you return an entry function to be run on Webtask.io's servers, here we just send back a simple message. If you run `wt create hello-webtasks.js` you should be given a URL, visit it in you're browser of choice and you can see the message is returned. It's pretty neat, right?
+The only requirement is that you return an entry function to be run on Webtask.io's servers, here we just send back a simple message. Just run:
+
+`$ wt create hello-webtasks.js` 
+
+And you should be given a URL. Visit it in you're browser of choice and you can see the message is returned. It's pretty neat, right?
 
 ![Cool beans.](https://cldup.com/C-syWsAP8w-300x300.jpeg "Hello There!")
 
@@ -114,34 +118,6 @@ We connect to the remote database, put all the words Pocket gives us in an array
 
 Note that we can use `require` just as in regular Node. There is a list of available modules [here](https://tehsis.github.io/webtaskio-canirequire/), with many of them installed in multiple versions for your pleasure.
 
-Our `save_word` function should insert our word with a count '1' if it hasn't been encountered before, and increment our count if it has been. Mongo makes this easy with its update `upsert` option, so something like this should do the trick:
-
-```js
-function save_word(word, db, cb) {
-  const doc       = { word };
-
-  const increment = {
-    $inc: {
-      count: 1
-    }
-  };
-
-  const opts      = {
-    upsert: true
-  };
-
-  db
-    .collection('words')
-    .updateOne(doc, increment, opts, err => {
-      if(err) return cb(err);
-
-      console.log('Successfully saved %s', word);
-
-      cb(null);
-    });
-}
-```
-
 ### Top secrets
 
 Now we need to supply our webtask with access to a database, but we can't just pass our credentials in on the querystring, hardly the safest place for passwords! Instead we'll embed it, encrypted, in our URL. Sounds like it might require some setup, but webtasks supports the passing of encrypted variables out of the box (see [these docs](https://webtask.io/docs/token), for those interested). To pass your secrets safely to your task, just run:
@@ -152,6 +128,8 @@ $ wt create --secret SECRET=<my-darkest-secrets> <my-webtask.js>
 
 And `SECRET` will by passed on `ctx.data`, just like the variables attached on the querystring. If you haven't already set one up, sign up for a sandbox account at [Mongolab](mongolab.com/) and pass in your database's address as a secret `MONGO_URL=mongodb://<your-database>`.
 
+![Secrecy](https://cldup.com/Lc5hSRFyyv.png "Secrecy")
+
 ### If This Then Webtask
 
 ![If This Then [Node]](https://cldup.com/5uH7RXqqBJ-2000x2000.jpeg "We use IFTTT's Maker channel to make the request")
@@ -160,7 +138,11 @@ Connecting your webtask to IFTTT is relatively painless, just setup a recipe to 
 
 ![Edited Url](https://cldup.com/3fo1aICi7t-3000x3000.jpeg "Edited URL")
 
-You can test to see if everything's working by saving something in Pocket and watching your webtask's logs with `wt logs`. Sometimes it takes a little while for IFTTT to send the request (within a couple of minutes), but you should see a bunch of 'Successfully saved' messages in your console.
+You can test to see if everything's working by saving something in Pocket and watching your webtask's logs with: 
+
+`$ wt logs`
+
+Sometimes it takes a little while for IFTTT to send the request (within a couple of minutes), but you should see a bunch of 'Successfully saved' messages in your console.
 
 ![Success.](https://cldup.com/HQXMOnD2dz-2000x2000.jpeg "Nice logging skills.")
 
