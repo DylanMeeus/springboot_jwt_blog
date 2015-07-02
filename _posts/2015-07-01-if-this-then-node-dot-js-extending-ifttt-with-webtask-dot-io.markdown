@@ -63,7 +63,7 @@ The only requirement is that you return an entry function to be run on webtask.i
 
 And you should be given a URL. Visit it in you're browser of choice and you can see the message is returned. It's pretty neat, right?
 
-![Cool beans.](https://cdn.auth0.com/blog/ifttt-tutorial/hello-webtasks.gif "Hello There!")
+![Cool beans.](https://cdn.auth0.com/blog/ifttt-tutorial/hello-webtasks-directors-cut.gif "Hello There!")
 
 Even neater is the ability to add some context to the request through a query string or request body, and access it like so:
 
