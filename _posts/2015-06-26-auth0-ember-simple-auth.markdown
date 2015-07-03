@@ -83,4 +83,4 @@ You can install & run the `auth0-ember-simple-lock` addon, or, to fast forward t
 
 We can't wait to see what you do with ember, make sure you [reach out on Twitter](https://twitter.com/auth0) with what you create.
 
-Happy hacking!
+✌️ Happy hacking!
