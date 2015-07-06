@@ -25,11 +25,11 @@ tags:
 ---
 At Auth0, we’re huge fans of [Ember](http://emberjs.com), the Javascript framework made famous for writing ambitious single page applications (also known as SPA).
 
-Unfortunately, up until now our support and resources for Ember have not equalled our enthusiasm for Ember. Thankfully, starting today, we have some great news —
+Unfortunately, up until now our support and resources for Ember have not equalled our enthusiasm for it. Thankfully, starting today, we have some great news —
 
 ![Auth0 + Ember logos](http://cdn.auth0.com/blog/ember-simple-auth/auth0-ember.png)
 
-# Introducing an official 'ember simple auth' addon
+# Introducing an official 'ember simple auth' add-on
 
 For those familiar with Ember, it might go without saying that “[ember-simple-auth](http://ember-simple-auth.com)” is the most popular authentication helper library around. It implements a strategy based plugin system that allows users to write their own custom authentication strategies.
 
@@ -39,7 +39,7 @@ We'll be maintaining `auth0-ember-simple-auth` on an ongoing basis, so you can r
 
 ## What does it do?
 
-`auth0-ember-simple-auth` is an Ember-cli addon that uses [Lock](https://auth0.com/lock), and, after some simple configuration will allow you to sign up/in and out — protecting whichever pages you've specified in your router.
+`auth0-ember-simple-auth` is an Ember-cli add-on that uses [Lock](https://auth0.com/lock), and, after some simple configuration will allow you to sign up/in and out — protecting whichever pages you've specified in your router.
 
 ```
 // app/routes/application.js
@@ -56,7 +56,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // These options will request a refresh token and launch lock.js in popup mode
       var lockOptions = {authParams:{scope: 'openid offline_access'}};
 
-      // This tells simple-lock to use our `auth0-ember-simple-auth` addon
+      // This tells simple-lock to use our `auth0-ember-simple-auth` add-on
       this.get('session').authenticate('simple-auth-authenticator:lock', lockOptions);
     }
   }
@@ -79,7 +79,7 @@ Now you've already got a secure single page application. Time to focus on writin
 
 ![A sample application in use — Running through an authentication flow](http://cdn.auth0.com/blog/ember-simple-auth/ember-simple-auth.gif)
 
-You can install & run the `auth0-ember-simple-lock` addon, or, to fast forward to a fully working ember application (shown above), you can download the seed project from [your application dashboard](https://manage.auth0.com/#/applications).
+You can install & run the `auth0-ember-simple-lock` add-on, or, to fast forward to a fully working ember application (shown above), you can download the seed project from [your application dashboard](https://manage.auth0.com/#/applications).
 
 We can't wait to see what you do with ember, make sure you [reach out on Twitter](https://twitter.com/auth0) with what you create.
 
