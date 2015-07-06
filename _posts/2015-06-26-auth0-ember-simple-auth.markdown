@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Ember + Auth0"
-description: "Introducing Auth0+Ember simple auth plugin"
-date: 2015-07-03 06:00
+description: "Introducing an official 'ember simple auth' add-on"
+date: 2015-07-06 06:00
 permalink: /2015/06/26/auth0-ember-simple-auth/
 author:
   name: "Ben Schwarz"
@@ -13,7 +13,7 @@ author:
 design:
   image: http://cdn.auth0.com/blog/ember-simple-auth/fingerprint.png
   image_bg_color: "transparent"
-  bg_color: "#714a21"
+  bg_color: "#412b13"
 
 tags:
 - ember
@@ -23,6 +23,10 @@ tags:
 - open source
 
 ---
+__TLDR;__ Install the add-on using ember-cli `ember install auth0-ember-simple-auth`, or checkout the generated [example application](https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/simple) to get started.
+
+-------
+
 At Auth0, we’re huge fans of [Ember](http://emberjs.com), the Javascript framework made famous for writing ambitious single page applications (also known as SPA).
 
 Unfortunately, up until now our support and resources for Ember have not equalled our enthusiasm for it. Thankfully, starting today, we have some great news —
