@@ -8,30 +8,30 @@ author:
   url: "https://twitter.com/woloski"
   mail: "matias@auth0.com"
   avatar: "https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=200"
-design: 
+design:
   image: https://cdn.auth0.com/jwt/icon.svg
-  image_bg_color: "transparent"
-  bg_color: "#111118"
-tags: 
+  image_bg_color: "#000"
+  bg_color: "#000"
+tags:
 - jwt
 - openid connect
 - logo
 ---
 
 
-In 2013, when we started building Auth0, we had to decide which standard we wanted our platform to be built on. Back then there was [WS-Fed](https://en.wikipedia.org/wiki/WS-Federation), and [SAML2](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf). I was very familiar with both, having worked on many projects with Microsoft technologies. My main issue with these standards, was that they were too complex: too many knobs and levers, interop issues, and above all lack of libraries. 
+In 2013, when we started building Auth0, we had to decide which standard we wanted our platform to be built on. Back then there was [WS-Fed](https://en.wikipedia.org/wiki/WS-Federation), and [SAML2](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf). I was very familiar with both, having worked on many projects with Microsoft technologies. My main issue with these standards, was that they were too complex: too many knobs and levers, interop issues, and above all lack of libraries.
 
 <!--more-->
 
-On the other extreme we had OAuth2, which was rapidly being adopted because of its simplicity. It was also being used by Facebook, Google and many others. There were already libraries written in many languages, making it even more appealing. 
+On the other extreme we had OAuth2, which was rapidly being adopted because of its simplicity. It was also being used by Facebook, Google and many others. There were already libraries written in many languages, making it even more appealing.
 
-However, [OAuth2](https://tools.ietf.org/html/rfc6749) was/is an __authorization__ protocol, not one specific for __authentication__ [[1](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)] [[2](http://homakov.blogspot.com.ar/2012/08/oauth2-one-accesstoken-to-rule-them-all.html)]. 
+However, [OAuth2](https://tools.ietf.org/html/rfc6749) was/is an __authorization__ protocol, not one specific for __authentication__ [[1](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)] [[2](http://homakov.blogspot.com.ar/2012/08/oauth2-one-accesstoken-to-rule-them-all.html)].
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) was being drafted as a very thin layer on top of OAuth2 to overcome exactly that issue. With the introduction of [JSON Web Tokens](https://tools.ietf.org/html/rfc7519), there was now a simple way of verifying user identity, and audience (the consumer of these tokens).
 
 Back then it was on [draft-06](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06), and I decided to join the Working Group.
 
-## Why is JWT so popular? 
+## Why is JWT so popular?
 
 ![](https://www.dropbox.com/s/dgq7lx9lj20ikdj/Screenshot%202015-07-18%2017.10.39.png?dl=1)
 
@@ -66,7 +66,7 @@ Here are some initial sketches and colors:
 ![](https://cdn.auth0.com/blog/jwt/jwt_02.jpg)
 ![](https://cdn.auth0.com/blog/jwt/jwt_04.jpg)
 
-We decided to use the starburst shape representing the crypto protection of a JSON Web Token. Multicolored spokes radiate from the centralized hub representing the various claims within a payload. 
+We decided to use the starburst shape representing the crypto protection of a JSON Web Token. Multicolored spokes radiate from the centralized hub representing the various claims within a payload.
 Here is the final symbol:
 
 ![](https://cdn.auth0.com/blog/jwt/jwt_01.jpg)
@@ -80,11 +80,11 @@ JSON Web Token has been abbreviated to the initials JWT and custom lettering was
 
 We redesigned the [jwt.io](http://jwt.io) according to the new branding. The debugger is still the central piece. We added support for RS256 in addition to HS256.
 
-![](https://www.dropbox.com/s/w07y28myru5e1x2/Screenshot%202015-07-18%2015.25.37.png?dl=1)
+<img src="https://cdn.auth0.com/blog/jwt/jwt-1.png" class="expand">
 
 On the libraries section, we improved the readability by color coding each library and use proper logos for each. In addition to that, we added the number of stars of the GitHub repository.
 
-![](https://www.dropbox.com/s/01wst3l1xlgio0v/Screenshot%202015-07-18%2015.27.54.png?dl=1)
+<img src="https://cdn.auth0.com/blog/jwt/jwt-2.png" class="expand">
 
 ## Badges and Others
 
