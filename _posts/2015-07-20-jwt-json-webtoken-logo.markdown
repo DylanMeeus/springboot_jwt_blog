@@ -90,11 +90,11 @@ On the libraries section, we improved the readability by color coding each libra
 
 If your API supports JSON Web Tokens, feel free to add this badge
 
-![](https://cdn.auth0.com/jwt/badge-support.svg)
+![](http://jwt.io/assets/badge-compatible.svg)
 
 If there is some functionallity on your site that uses and exposes JSON Web Tokens, you can use the following button to open the JWT on jwt.io.
 
-![](https://cdn.auth0.com/jwt/badge.svg)
+![](http://jwt.io/assets/badge.svg)
 
 Finally, we also designed some cool JWT t-shirts that you can order from <http://swag.auth0.com>.
 
