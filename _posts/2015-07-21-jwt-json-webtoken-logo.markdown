@@ -33,7 +33,7 @@ Back then it was on [draft-06](https://tools.ietf.org/html/draft-ietf-oauth-json
 
 ## Why is JWT so popular?
 
-![](https://www.dropbox.com/s/dgq7lx9lj20ikdj/Screenshot%202015-07-18%2017.10.39.png?dl=1)
+![](https://cdn.auth0.com/blog/jwtc/jwt-google-trend.png)
 
 I think there are many reasons why JWT are being widely adopted:
 
@@ -45,7 +45,7 @@ I think there are many reasons why JWT are being widely adopted:
 
 About 2 years since the first draft, this simple, yet useful standard expanded:
 
-![](https://cdn.auth0.com/blog/jwt/banner-jwt.png)
+![](https://cdn.auth0.com/blog/jwtc/banner-jwt.png)
 
 * [972 GitHub repos](https://github.com/search?q=jwt) related to JWT.
 * [2600+ StackOverflow](http://stackoverflow.com/search?q=jwt) threads.
@@ -63,18 +63,18 @@ The central component of the branding is a logo symbol representing an individua
 
 Here are some initial sketches and colors:
 
-![](https://cdn.auth0.com/blog/jwt/jwt_02.jpg)
-![](https://cdn.auth0.com/blog/jwt/jwt_04.jpg)
+![](https://cdn.auth0.com/blog/jwtc/jwt_02.jpg)
+![](https://cdn.auth0.com/blog/jwtc/jwt_04.jpg)
 
 We decided to use the starburst shape representing the crypto protection of a JSON Web Token. Multicolored spokes radiate from the centralized hub representing the various claims within a payload.
 Here is the final symbol:
 
-![](https://cdn.auth0.com/blog/jwt/jwt_01.jpg)
+![](https://cdn.auth0.com/blog/jwtc/jwt_01.jpg)
 
 JSON Web Token has been abbreviated to the initials JWT and custom lettering was developed.
 
-![](https://cdn.auth0.com/blog/jwt/jwt_03.jpg)
-![](https://cdn.auth0.com/blog/jwt/jwt_05.jpg)
+![](https://cdn.auth0.com/blog/jwtc/jwt_03.jpg)
+![](https://cdn.auth0.com/blog/jwtc/jwt_05.jpg)
 
 ## New Site
 
@@ -90,11 +90,11 @@ In the libraries section, we improved the readability by color coding each libra
 
 If your API supports JSON Web Tokens, feel free to add this badge
 
-![](http://jwt.io/assets/badge-compatible.svg)
+![](https://cdn.auth0.com/badges/jwt-compatible.svg)
 
 If there is some functionallity on your site that uses and exposes JSON Web Tokens, you can use the following button to open the JWT on jwt.io.
 
-[![](http://jwt.io/assets/badge.svg)](http://jwt.io/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ)
+[![](https://cdn.auth0.com/badges/jwt-view.svg)](http://jwt.io/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ)
 
 The token is sent through the hash like this: `http://jwt.io/#id_token=eyJhbGciOi....`
 
