@@ -24,10 +24,11 @@
 {% endif %}
 
 <!-- Twitter Cards -->
-<meta name="twitter:card" content="summary">
 {% if page.design.image_tw %}
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{page.design.image_tw}}">
 {% else if page.design.image%}
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="{{page.design.image}}">
 {% else %}
 <meta name="twitter:image" content="https://cdn.auth0.com/styleguide/latest/lib/logos/img/favicon.png">
