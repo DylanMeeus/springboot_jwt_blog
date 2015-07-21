@@ -13,6 +13,8 @@ design:
   image_bg_color: "#000"
   bg_color: "#000"
   image_size: "170%"
+  image_fb: http://jwt.io/img/facebook-card.png
+  image_tw: http://jwt.io/img/twitter-card.png
 tags:
 - jwt
 - openid connect
