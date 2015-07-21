@@ -9,15 +9,15 @@ author:
   mail: "matias@auth0.com"
   avatar: "https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=200"
 design:
-  image: https://cdn.auth0.com/jwt/icon.svg
+  image: http://assets.auth0.com/blog/jwt/logo-400.png
   image_bg_color: "#000"
   bg_color: "#000"
+  image_size: "170%"
 tags:
 - jwt
 - openid connect
 - logo
 ---
-
 
 In 2013, when we started building Auth0, we had to decide which standard we wanted our platform to be built on. Back then there was [WS-Fed](https://en.wikipedia.org/wiki/WS-Federation), and [SAML2](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf). I was very familiar with both, having worked on many projects with Microsoft technologies. My main issue with these standards, was that they were too complex: too many knobs and levers, interop issues, and above all lack of libraries.
 
