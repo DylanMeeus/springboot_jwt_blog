@@ -9,7 +9,7 @@ author:
   mail: "matias@auth0.com"
   avatar: "https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=200"
 design:
-  image: http://assets.auth0.com/blog/jwt/logo-400.png
+  image: https://assets.auth0.com/blog/jwt/logo-400.png
   image_bg_color: "#000"
   bg_color: "#000"
   image_size: "170%"
