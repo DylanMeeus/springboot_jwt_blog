@@ -2,7 +2,7 @@
 layout: post
 title: "Ember + Auth0"
 description: "Introducing an official 'ember simple auth' add-on"
-date: 2015-07-06 06:00
+date: 2015-07-23 06:00
 permalink: /2015/06/26/auth0-ember-simple-auth/
 author:
   name: "Ben Schwarz"
@@ -11,7 +11,7 @@ author:
   avatar: https://www.gravatar.com/avatar/42e2ec6a72627f8c15115e279a5f7d8e.png?size=80
   twitter: benschwarz
 design:
-  image: http://cdn.auth0.com/blog/ember-simple-auth/fingerprint.png
+  image: http://assets.auth0.com/blog/ember-simple-auth/ember-logo-small.png
   image_bg_color: "transparent"
   bg_color: "#412b13"
 
@@ -58,7 +58,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // https://auth0.com/docs/libraries/lock/customization
 
       // These options will request a refresh token and launch lock.js in popup mode
-      var lockOptions = {authParams:{scope: 'openid offline_access'}};
+      var lockOptions = {authParams:{scope: 'openid'}};
 
       // This tells simple-lock to use our `auth0-ember-simple-auth` add-on
       this.get('session').authenticate('simple-auth-authenticator:lock', lockOptions);
