@@ -105,6 +105,6 @@ Finally, we designed some cool JWT t-shirts that you can order from [swag.auth0.
 
 ## Acknowledgements
 
-Special thanks to [Ty Wilkins](http://tywilkins.com/) for crafting the logo and lettering, [Ricky Rauch](http://twitter.com/rickyrauch) and [team](http://dribbble.com/auth0) for the awesome looking website, [Guillermo Rauch](http://twitter.com/rauchg) for his constant advice, [Mike Jones](http://self-issued.info) for introducing me into the working group and all of you who [contributed to jwt.io](https://github.com/jsonwebtoken/jsonwebtoken.github.io/graphs/contributors) through GitHub.
+Special thanks to [Ty Wilkins](http://tywilkins.com/) for crafting the logo and lettering, [Ricky Rauch](http://twitter.com/rickyrauch) and [team](http://dribbble.com/auth0) for the awesome looking website, [Alberto Pose](http://twitter.com/thepose) who created the initial jwt.io version and curates the community contributions, [Guillermo Rauch](http://twitter.com/rauchg) for his constant advice, [Mike Jones](http://self-issued.info) for introducing me into the working group and all of you who [contributed to jwt.io](https://github.com/jsonwebtoken/jsonwebtoken.github.io/graphs/contributors) through GitHub.
 
 **JWT all the things!**
