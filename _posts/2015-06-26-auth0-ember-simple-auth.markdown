@@ -11,7 +11,7 @@ author:
   avatar: https://www.gravatar.com/avatar/42e2ec6a72627f8c15115e279a5f7d8e.png?size=80
   twitter: benschwarz
 design:
-  image: http://assets.auth0.com/blog/ember-simple-auth/ember-logo-small.png
+  image: https://cdn.auth0.com/blog/ember-simple-auth/ember-logo-small.png
   image_bg_color: "transparent"
   bg_color: "#412b13"
 
@@ -31,7 +31,7 @@ At Auth0, we’re huge fans of [Ember](http://emberjs.com), the Javascript frame
 
 Unfortunately, up until now our support and resources for Ember have not equalled our enthusiasm for it. Thankfully, starting today, we have some great news —
 
-![Auth0 + Ember logos](http://cdn.auth0.com/blog/ember-simple-auth/auth0-ember.png)
+![Auth0 + Ember logos](https://cdn.auth0.com/blog/ember-simple-auth/auth0-ember.png)
 
 # Introducing an official 'ember simple auth' add-on
 
@@ -81,7 +81,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin);
 
 Now you've already got a secure single page application. Time to focus on writing your app!
 
-![A sample application in use — Running through an authentication flow](http://cdn.auth0.com/blog/ember-simple-auth/ember-simple-auth.gif)
+![A sample application in use — Running through an authentication flow](https://cdn.auth0.com/blog/ember-simple-auth/ember-simple-auth.gif)
 
 You can install & run the `auth0-ember-simple-lock` add-on, or, to fast forward to a fully working ember application (shown above), you can download the seed project from [your application dashboard](https://manage.auth0.com/#/applications).
 
