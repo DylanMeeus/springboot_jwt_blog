@@ -271,7 +271,7 @@
             function onFail(response) {
               console.log(response);
 
-              $module.html(o_content);
+              $module.html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="mailto:support@auth0.com">contact support</a>.</p>');
             }
 
             function onSuccess(response) {
