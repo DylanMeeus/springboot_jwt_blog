@@ -229,6 +229,45 @@
             activeTab.addClass('active');
           });
 
+          if(localStorage.isBlogSubscriber) {
+            // TODO: Un comment before merging
+            // $('form.newsletter-subscriber[data-sticky]').addClass('hide');
+          }
+
+          $('form.newsletter-subscriber').on('submit', function(e) {
+            var $module = $(this);
+            var value = $module.find('input').val();
+
+            e.preventDefault();
+            
+
+            if(isValidEmail(value)) {
+              onSuccess();
+            } else {
+              alert('Please enter a valid email');
+            }
+
+            function isValidEmail(val) {
+              if(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(val)) {
+                return true;
+              }
+            
+              return false;
+            }
+
+            function onSuccess() {
+              localStorage.setItem('isBlogSubscriber', true);
+
+              $module.html('<p class="thanks">Thank you for subscribing!</p>');
+
+              if($module.is('[data-sticky]')) {
+                setTimeout(function() {
+                  $module.addClass('animated fadeOut');
+                }, 1000);
+              }
+            }
+          });
+
           $(window).on('scroll', function() {
             var sticky = $('[data-sticky]');
 

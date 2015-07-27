@@ -410,15 +410,6 @@ h1,h2,h3,h4,h5
     padding: 0;
     margin: 0;
 
-  &:after
-    @extend .line;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 20px;
-
-    +breakpoint("desktop")
-    	margin-bottom: 30px;
-
   &
     position: relative;
     min-height: 55px;
@@ -427,20 +418,25 @@ h1,h2,h3,h4,h5
 
     +breakpoint("desktop")
       margin-top: -30px;
+      
+  [data-sticky]
+    &:after
+      @extend .line;
+      width: 100%;
+      margin: 0;
+        
+    &.fixed
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      z-index: 1000;
 
   > ul
   	+breakpoint("desktop")
   		height: auto !important;
   		display: block !important;
-
-  		&.fixed
-  			position: fixed;
-			  top: 0;
-			  left: 0;
-			  width: 100%;
-			  background: rgba(255, 255, 255, 0.92);
-			  z-index: 1000;
-			  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
   ul > li
   	@extend .tab;
@@ -646,6 +642,79 @@ pre.prettyprint
   a
     text-decoration: underline;
     color: currentColor;
+
+.newsletter-subscriber
+  visibility: hidden;
+  
+  &.is-inline
+    visibility: visible;
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(209, 210, 212, 0.5);
+    background-color: #5C666F;
+    color: white;
+    
+    .thanks
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+    
+    .text
+      font-weight: bold;
+      font-size: 16px;
+      margin-right: 10px;
+      padding: 0;
+    
+    .form-control
+      background: rgba(white, 0.1);
+      color: white;
+      
+      &::-webkit-input-placeholder
+        color: white;
+        opacity: 0.7;
+        
+      &::-moz-placeholder
+        color: white;
+        opacity: 0.7;
+      
+  
+  .text
+    font-size: 12px;
+    padding-top: 8px;
+    
+    +breakpoint("tablet")
+      font-size: 14px;
+      padding: 0;
+
+  &.fixed
+    visibility: visible;
+    
+  > span
+    display: inline-block;
+    
+  .form-control
+    display: inline-block;
+    border: 0;
+    background: rgba(0,0,0,0.05);
+    width: 100%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 35px;
+    width: auto;
+    margin: 10px 15px;
+    margin-right: 5px;
+    
+  button
+    height: 35px;
+    width: 40px;
+    
+    i 
+      font-size: 18px;
+      position: relative;
+      left: -5px;
+      top: -1px;
+    
 
 #auth0
   border: 1px  #ecf0f1 solid;
