@@ -3,15 +3,17 @@ layout: post
 title: "If This Then [Node.js]"
 description: Extending IFTTT With Webtask.io
 date: 2015-07-01 15:39
-author: 
+author:
   name: Milo Mordaunt
   url: https://twitter.com/bananaoomarang
   mail: milo@auth0.com
   avatar: https://en.gravatar.com/userimage/24343392/119d3a13b6da0d9eabbcde831f163c4b.jpeg
-design: 
+design:
   bg_color: "#000"
   image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
-tags: 
+  image_fb: https://cdn.auth0.com/blog/ifttt-tutorial/facebook-card.png
+  image_tw: https://cdn.auth0.com/blog/ifttt-tutorial/twitter-card.png
+tags:
 - webtasks
 - ifttt
 - pocket
@@ -43,7 +45,7 @@ A webtask is a snippet of code that can be called on a simple HTTP request, eith
 You can play with the service and read more about it [here](https://webtask.io/), but what it amounts to is a safe and frictionless way to run custom microservices. Perfect for extending IFTTT.
 
 ## Setup
- 
+
 Firstly we need to install the command line application, to make task management easier. To set it up all we need is:
 
 ```
@@ -85,7 +87,7 @@ Hello milo!
 >Note that you can also add ES6 support to your webtasks easily, just put `"use latest";` at the top, and you're all set!
 
 ## Storing your data
- 
+
 We're going to take the titles and article excerpts that Pocket gives us and log their frequency. Since webtasks provide no guarantees around data survival, we'll need somewhere more persistant for the values to live. Here we'll use Mongo, because it's easy and free to get access to a database ([Mongolab](https://mongolab.com/plans/pricing/)), and pretty terse to code with under Node.
 
 Our webtask might look something like:
@@ -150,7 +152,7 @@ Connecting your webtask to IFTTT is relatively painless, just setup a recipe to 
 
 ![Edited Url](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-config-3.0.1.jpg "Editted URL")
 
-You can test to see if everything's working by saving something in Pocket and watching your webtask's logs with: 
+You can test to see if everything's working by saving something in Pocket and watching your webtask's logs with:
 
 `$ wt logs`
 
@@ -161,7 +163,7 @@ Sometimes it takes a little while for IFTTT to send the request (within a couple
 We can soup it up by ignoring common words and punctuation, saving extra data etc, but the use of webtasks would remain the same.
 
 ## To the backend and beyond
- 
+
 ![Ta da!](https://cdn.auth0.com/blog/ifttt-tutorial/mongo-read.jpg "Ta da!")
 
 The finished recipe can be found [here](https://ifttt.com/recipes/304471-record-most-read-words-to-mongodb), and the source is on [github](https://github.com/bananaoomarang/webtask-ifttt-tutorial), for your viewing pleasure.
