@@ -157,7 +157,69 @@
 
       $(function() {
 
+        function initBlogSubscriber() {
+          if(localStorage.isBlogSubscriber) {
+            $('form.newsletter-subscriber[data-sticky]').addClass('hide');
+          }
+
+          $('form.newsletter-subscriber').on('submit', function(e) {
+            var $module = $(this);
+            var o_content = $module.html();
+            var value = $module.find('input').val();
+
+            e.preventDefault();
+
+            if(isValidEmail(value)) {
+              onValid();
+            } else {
+              alert('Please enter a valid email');
+            }
+
+            function isValidEmail(val) {
+              if(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(val)) {
+                return true;
+              }
+            
+              return false;
+            }
+
+            function onValid() {
+              $module.html('<p class="loading">Sending...</p>');
+
+              $.ajax({
+                type: "POST",
+                url: 'https://webtask.it.auth0.com/api/run/wt-martin-gon_to-0/auth0-blog-user?webtask_no_cache=1',
+                data: {
+                  email: value
+                },
+                success: onSuccess,
+                error: onFail
+              });
+            }
+
+            function onFail(response) {
+              console.log(response);
+
+              $module.html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="mailto:support@auth0.com">contact support</a>.</p>');
+            }
+
+            function onSuccess(response) {
+              localStorage.setItem('isBlogSubscriber', true);
+
+              $module.html('<p class="thanks">Thank you for subscribing!</p>');
+
+              if($module.is('[data-sticky]')) {
+                setTimeout(function() {
+                  $module.addClass('animated fadeOut');
+                }, 1000);
+              }
+            }
+          });
+        }
+
         function initialize() {
+          initBlogSubscriber();
+
           $('pre code').each(function(i, block) {
              hljs.highlightBlock(block);
           });
@@ -227,64 +289,6 @@
 
             tabs.removeClass('active');
             activeTab.addClass('active');
-          });
-
-          if(localStorage.isBlogSubscriber) {
-            $('form.newsletter-subscriber[data-sticky]').addClass('hide');
-          }
-
-          $('form.newsletter-subscriber').on('submit', function(e) {
-            var $module = $(this);
-            var o_content = $module.html();
-            var value = $module.find('input').val();
-
-            e.preventDefault();
-
-            if(isValidEmail(value)) {
-              onValid();
-            } else {
-              alert('Please enter a valid email');
-            }
-
-            function isValidEmail(val) {
-              if(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(val)) {
-                return true;
-              }
-            
-              return false;
-            }
-
-            function onValid() {
-              $module.html('<p class="loading">Sending...</p>');
-
-              $.ajax({
-                type: "POST",
-                url: 'https://webtask.it.auth0.com/api/run/wt-martin-gon_to-0/auth0-blog-user?webtask_no_cache=1',
-                data: {
-                  email: value
-                },
-                success: onSuccess,
-                error: onFail
-              });
-            }
-
-            function onFail(response) {
-              console.log(response);
-
-              $module.html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="mailto:support@auth0.com">contact support</a>.</p>');
-            }
-
-            function onSuccess(response) {
-              localStorage.setItem('isBlogSubscriber', true);
-
-              $module.html('<p class="thanks">Thank you for subscribing!</p>');
-
-              if($module.is('[data-sticky]')) {
-                setTimeout(function() {
-                  $module.addClass('animated fadeOut');
-                }, 1000);
-              }
-            }
           });
 
           $(window).on('scroll', function() {
