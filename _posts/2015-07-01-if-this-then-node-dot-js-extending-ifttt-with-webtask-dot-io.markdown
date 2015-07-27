@@ -9,7 +9,7 @@ author:
   mail: milo@auth0.com
   avatar: https://en.gravatar.com/userimage/24343392/119d3a13b6da0d9eabbcde831f163c4b.jpeg
 design: 
-  bg_color: "#297BC3"
+  bg_color: "#000"
   image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
 tags: 
 - webtasks
