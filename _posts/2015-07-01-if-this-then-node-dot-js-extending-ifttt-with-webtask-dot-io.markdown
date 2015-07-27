@@ -12,13 +12,13 @@ design:
   bg_color: "#000"
   image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
 tags: 
-- webtasks
+- webtask
 - ifttt
 - pocket
 - tutorial
 ---
 
-![Simples](https://docs.google.com/drawings/d/1Ab0L0_5914Xs7wTKzu2uSJuk4_lFoSDUYaHravjlq-8/pub?w=566&h=218)
+![Simples](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png)
 
 If you've ever used [IFTTT](https://ifttt.com) as a developer and thought something like: "Gee, I wish I could write my own scripts as channels", you may just be in luck. When combined with their new ['Maker' Channel](https://ifttt.com/channels/maker), enabling users to call external REST APIs, [webtasks](https://webtask.io) can be used to run arbitrary code, on request.
 
