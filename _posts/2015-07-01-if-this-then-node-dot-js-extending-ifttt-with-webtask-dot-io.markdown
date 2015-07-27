@@ -10,7 +10,7 @@ author:
   avatar: https://en.gravatar.com/userimage/24343392/119d3a13b6da0d9eabbcde831f163c4b.jpeg
 design: 
   bg_color: "#297BC3"
-  image: https://cldup.com/8iklT4GjWO.png
+  image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
 tags: 
 - webtasks
 - ifttt
