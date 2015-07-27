@@ -63,7 +63,7 @@ The only requirement is that you supply an entry function to be run on webtask.i
 
 And you should be given a URL. Visit it in you're browser or console of choice and you can see the message is returned. It's pretty neat, right?
 
-![Cool beans.](https://cdn.auth0.com/blog/ifttt-tutorial/hello-webtasks-directors-cut.gif "Hello There!")
+![Cool beans.](https://cdn.auth0.com/blog/ifttt-tutorial/hello-webtasks-directors-cut-1.0.gif "Hello There!")
 
 Even neater is the ability to add some context to the request through a query string or request body, and access it like so:
 
@@ -138,7 +138,7 @@ $ wt create --secret SECRET=<my-darkest-secrets> <my-webtask.js>
 
 And `SECRET` will by passed on `ctx.data`, just like the variables attached on the querystring. If you haven't already set one up, sign up for a sandbox account at [Mongolab](mongolab.com/) and pass in your database's address as a the secret `MONGO_URL=mongodb://<your-database>`.
 
-![Secrecy](https://cdn.auth0.com/blog/ifttt-tutorial/secrecy-1.0.1.jpg "Secrecy")
+![Secrecy](https://cdn.auth0.com/blog/ifttt-tutorial/secrecy-1.0.3.jpg "Secrecy")
 
 ## If This Then Webtask
 
