@@ -130,7 +130,7 @@ We connect to the remote database, put all the words Pocket gives us in an array
 
 ## Top secrets
 
-Now we need to supply our webtask with access to a database, but a querystring is hardly the safest place for passwords! Instead we'll embed it, encrypted, in our webtask. Sounds like it might need some setup, but webtasks supports the passing of encrypted variables out of the box, by embedding them in a (token)[https://webtask.io/docs/token]. To pass your secrets safely to your task, just run:
+Now we need to supply our webtask with access to a database, but a querystring is hardly the safest place for passwords! Instead we'll embed it, encrypted, in our webtask. Sounds like it might need some setup, but webtasks supports the passing of encrypted variables out of the box, by embedding them in a [token](https://webtask.io/docs/token). To pass your secrets safely to your task, just run:
 
 ```
 $ wt create --secret SECRET=<my-darkest-secrets> <my-webtask.js>
