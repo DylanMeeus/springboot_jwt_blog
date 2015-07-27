@@ -11,7 +11,7 @@ author:
 design: 
   bg_color: "#000"
   image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
-  image_fb: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png
+  image_fb: https://cdn.auth0.com/blog/ifttt-tutorial/facebook-card.png
   image_tw: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png
 tags: 
 - webtask
