@@ -24,6 +24,8 @@ If you've ever used [IFTTT](https://ifttt.com) as a developer and thought someth
 
 In this article we'll build a simple IFTTT channel to log words used in the headers and bylines of articles we save with [Pocket](https://getpocket.com/), a 'read it later service' which bookmarks interesting articles for later, so they are sortable by frequency.
 
+![IFTTT](https://docs.google.com/drawings/d/17bLUFY_iGN6T7V_szV4w6qv286PGHyT4wIwISQGRuw8/pub?w=818&h=210)
+
 ## What's a webtask?
 
 ```js
