@@ -230,19 +230,18 @@
           });
 
           if(localStorage.isBlogSubscriber) {
-            // TODO: Un comment before merging
-            // $('form.newsletter-subscriber[data-sticky]').addClass('hide');
+            $('form.newsletter-subscriber[data-sticky]').addClass('hide');
           }
 
           $('form.newsletter-subscriber').on('submit', function(e) {
             var $module = $(this);
+            var o_content = $module.html();
             var value = $module.find('input').val();
 
             e.preventDefault();
-            
 
             if(isValidEmail(value)) {
-              onSuccess();
+              onValid();
             } else {
               alert('Please enter a valid email');
             }
@@ -255,7 +254,27 @@
               return false;
             }
 
-            function onSuccess() {
+            function onValid() {
+              $module.html('<p class="loading">Sending...</p>');
+
+              $.ajax({
+                type: "POST",
+                url: 'https://webtask.it.auth0.com/api/run/wt-martin-gon_to-0/auth0-blog-user?webtask_no_cache=1',
+                data: {
+                  email: value
+                },
+                success: onSuccess,
+                error: onFail
+              });
+            }
+
+            function onFail(response) {
+              console.log(response);
+
+              $module.html(o_content);
+            }
+
+            function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
