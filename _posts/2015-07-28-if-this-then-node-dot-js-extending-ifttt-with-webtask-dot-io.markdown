@@ -3,7 +3,7 @@ layout: post
 title: "If This Then Node.js"
 description: Extending IFTTT With Webtask.io
 date: 2015-07-28 15:39
-author: 
+author:
   name: Milo Mordaunt
   url: https://twitter.com/bananaoomarang
   mail: milo@auth0.com
@@ -13,14 +13,14 @@ design:
   image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
   image_fb: https://cdn.auth0.com/blog/ifttt-tutorial/facebook-card.png
   image_tw: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card-1.0.png
-tags: 
+tags:
 - webtask
 - ifttt
 - pocket
 - tutorial
 ---
 
-![Simples](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png)
+<img src="https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png" style="border: 2px solid #f4f2ed" />
 
 If you've ever used [IFTTT](https://ifttt.com) as a developer and thought something like: "Gee, I wish I could write my own scripts as channels", you may just be in luck. When combined with their new ['Maker' Channel](https://ifttt.com/channels/maker), enabling users to call external REST APIs, [webtasks](https://webtask.io) can be used to run arbitrary code, on request.
 
