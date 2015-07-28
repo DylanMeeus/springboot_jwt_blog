@@ -25,7 +25,7 @@ tags:
 > tl;dr If you are using [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken), [pyjwt](https://github.com/jpadilla/pyjwt/), [namshi/jose](https://github.com/namshi/jose), [php-jwt](https://github.com/firebase/php-jwt) or [jsjwt](https://github.com/kjur/jsjws) with asymmetric keys (RS256, RS384, RS512, ES256, ES384, ES512) please update to the latest version. See [jwt.io](http://jwt.io) for more information on the vulnerable libraries. *(Updated 2015-04-20)*
 
 
-> This is a guest post from Tim McLean, who is part of the [Auth0 Security Researcher Hall of Fame](https://auth0.com/whitehat#hall-of-fame). Tim normally blogs at [www.timmclean.net](https://www.timmclean.net).
+> This is a guest post from Tim McLean, who is a member of the [Auth0 Security Researcher Hall of Fame](https://auth0.com/whitehat#hall-of-fame). Tim normally blogs at [www.timmclean.net](https://www.timmclean.net).
 
 Recently, while reviewing the security of various JSON Web Token
 implementations, I found many libraries with critical vulnerabilities allowing
