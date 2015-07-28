@@ -27,12 +27,19 @@ layout: default
             </div>
 
             {% include reply_buttons.html %}
+            
+            <div class="bottom-module">
+                <div style="display: none;">
+                    {% include newsletter_inline.html %}
+                </div>
 
-            <div class="try-banner">
-                <span>Try Auth0 for FREE</span>
-                <a href="javascript:signup()" class="signup-button btn btn-success btn-lg">Create free Account</a>
+                <div class="try-banner">
+                    <span>Try Auth0 for FREE</span>
+                    <a href="javascript:signup()" class="signup-button btn btn-success btn-lg">Create free Account</a>
+                </div>
             </div>
 
+            
             {% include related_posts.html %}
 
             <div id="disqus_thread" class="container">
