@@ -205,6 +205,7 @@
 
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
+              window.analytics.track('success:blog-signup', getBasicInfo());
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
