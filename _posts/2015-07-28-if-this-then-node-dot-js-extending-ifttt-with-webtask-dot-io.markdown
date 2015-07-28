@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "If This Then [Node.js]"
+title: "If This Then Node.js"
 description: Extending IFTTT With Webtask.io
 date: 2015-07-28 15:39
 author: 
@@ -12,7 +12,7 @@ design:
   bg_color: "#000"
   image: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-logo.png
   image_fb: https://cdn.auth0.com/blog/ifttt-tutorial/facebook-card.png
-  image_tw: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png
+  image_tw: https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card-1.0.png
 tags: 
 - webtask
 - ifttt
@@ -80,7 +80,7 @@ module.exports = function (ctx, done) {
 Generate a new URL with `wt create`, but this time when you visit it add `&name=<your-name>` to the end of the address, and you're webtask will greet you!
 
 ```
-$ curl https://webtask.it.auth0.com/api/run/<my-container>/hello-world?webtask_no_cache=1&name=milo
+$ curl https://webtask.it.auth0.com/api/run/<yours>/hello-world?webtask_no_cache=1&name=milo
 Hello milo!
 ```
 
@@ -142,15 +142,25 @@ $ wt create --secret SECRET=<my-darkest-secrets> <my-webtask.js>
 
 And `SECRET` will by passed on `ctx.data`, just like the variables attached on the querystring. If you haven't already set one up, sign up for a sandbox account at [Mongolab](mongolab.com/) and pass in your database's address as a the secret `MONGO_URL=mongodb://<your-database>`.
 
-![Secrecy](https://cdn.auth0.com/blog/ifttt-tutorial/secrecy-1.0.3.jpg "Secrecy")
+```
+$ wt create --secret MONGO_URL=mongodb://... pocket-ifttt.js
+https://webtask.it.auth0.com/api/run/<yours>/pocket-ifttt
+```
 
 ## If This Then Webtask
 
-![If This Then [Node]](https://cdn.auth0.com/blog/ifttt-tutorial/recipe.jpg "We use IFTTT's Maker channel to make the request")
+Connecting your webtask to IFTTT is relatively painless, just setup a recipe to be triggered every time you save something to Pocket.
 
-Connecting your webtask to IFTTT is relatively painless, just setup a recipe to be triggered every time you save something to Pocket and configure the 'That' component to be a 'Maker Channel', where we can hand over control to our script. Copy and paste the URL given by `wt create` into the box, but add `&title={{Title}}&excerpt={{Excerpt}}` to the very end. This dumps the data given by the Pocket channel, making it consumable in the webtask's context.
+![](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-step1-1.0.png)
 
-![Edited Url](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-config-3.0.1.jpg "Editted URL")
+And configure the 'That' component to be a 'Maker Channel', where we can hand over control to our script.
+
+![](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-step2-1.0.png)
+
+Copy and paste the URL given by `wt create` into the box, but add `&title={{Title}}&excerpt={{Excerpt}}` to the very end. This dumps the data given by the Pocket channel, making it consumable in the webtask's context.
+
+![Edited URL](https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-maker-1.0.png "Edited URL")
+
 
 You can test to see if everything's working by saving something in Pocket and watching your webtask's logs with: 
 
