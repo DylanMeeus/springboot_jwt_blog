@@ -2,7 +2,7 @@
 <html class="header-dark">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     {% if page.tags %}
@@ -158,6 +158,10 @@
 
       $(function() {
 
+        function isTouch() {
+          return !!('ontouchstart' in window);
+        }
+
         function initBlogSubscriber() {
           if(localStorage.isBlogSubscriber) {
             $('form.newsletter-subscriber[data-sticky]').addClass('hide');
@@ -283,6 +287,21 @@
 
               NProgress.done();
             });
+
+          if(isTouch()) {
+            $('body').on('focusin focus', 'input', function(e) {
+              var pos = $(this).offset().top;
+
+              document.body.scrollTop = pos - 35;
+
+              $('body').addClass('touch-focus');
+            });
+
+            $('body').on('blur', 'input', function() {
+              $('body').removeClass('touch-focus');
+            });
+          }
+          
 
           $('body').on('click', '.blog-navigation a', function() {
             var tabs = $('.blog-navigation li');
