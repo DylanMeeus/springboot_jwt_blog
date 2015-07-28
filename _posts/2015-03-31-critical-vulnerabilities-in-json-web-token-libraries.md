@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Critical vulnerabilities in JSON Web Token libraries"
-description: "Wich libraries are vulnerable to attacks and how to prevent them."
+description: "Which libraries are vulnerable to attacks and how to prevent them."
 date: 2015-03-31 09:00
 author:
   name: Tim McLean
