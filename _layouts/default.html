@@ -96,6 +96,18 @@
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script type="text/javascript">
+
+      var getBasicInfo = function () {
+        return {
+          path: window.location.pathname,
+          url: window.location.toString(),
+          title: document.title,
+          referrer: document.referrer,
+          category: 'Lock',
+          label: 'blog'
+        }
+      };
+
       (function () {
         var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
         var options = {
@@ -107,17 +119,6 @@
           },
           icon: '//cdn.auth0.com/styleguide/latest/lib/logos/img/badge.png'
         };
-
-        function getBasicInfo () {
-          return {
-            path: window.location.pathname,
-            url: window.location.toString(),
-            title: document.title,
-            referrer: document.referrer,
-            category: 'Lock',
-            label: 'blog'
-          }
-        }
 
         lock.on('signup ready', function () {
           if (!window.analytics) return;
@@ -205,6 +206,7 @@
 
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
+
               window.analytics.track('success:blog-signup', getBasicInfo());
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
