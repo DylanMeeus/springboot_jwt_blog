@@ -4,6 +4,7 @@ exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, Rakefile]
 permalink: pretty
 highlighter: pygments
 excerpt_separator: '<!-- more -->'
+url: 'https://auth0.com'
 baseurl: '/blog'
 encoding: utf-8
 only_first_p:
@@ -14,3 +15,5 @@ stylus:
   path: ./css
 values:
   is_post_index: false
+gems:
+  - jekyll-sitemap
