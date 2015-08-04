@@ -140,7 +140,7 @@ Now we need to supply our webtask with access to a database, but a querystring i
 $ wt create --secret SECRET=<my-darkest-secrets> <my-webtask.js>
 ```
 
-And `SECRET` will by passed on `ctx.data`, just like the variables attached on the querystring. If you haven't already set one up, sign up for a sandbox account at [Mongolab](mongolab.com/) and pass in your database's address as a the secret `MONGO_URL=mongodb://<your-database>`.
+And `SECRET` will by passed on `ctx.data`, just like the variables attached on the querystring. If you haven't already set one up, sign up for a sandbox account at [Mongolab](http://mongolab.com) and pass in your database's address as a the secret `MONGO_URL=mongodb://<your-database>`.
 
 ```
 $ wt create --secret MONGO_URL=mongodb://... pocket-ifttt.js
