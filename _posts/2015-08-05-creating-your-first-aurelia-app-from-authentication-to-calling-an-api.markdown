@@ -11,7 +11,7 @@ author:
 design: 
   bg_color: "#646F71"
   image: https://cdn.auth0.com/blog/aurelia-logo.png
-  image_size: "170%"
+  image_size: "70%"
 tags: 
 - aurelia
 - authentication
