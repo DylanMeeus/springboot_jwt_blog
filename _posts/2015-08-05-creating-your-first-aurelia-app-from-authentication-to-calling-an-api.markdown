@@ -10,7 +10,7 @@ author:
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
   bg_color: "#646F71"
-  image: http://aurelia.io/images/logo.png
+  image: https://cdn.auth0.com/blog/aurelia-logo.png
   image_size: "170%"
 tags: 
 - aurelia
