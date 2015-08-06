@@ -4,8 +4,8 @@ title: "Creating your first Aurelia app: From authentication to calling an API"
 description: "Learn how to create a real world Aurelia app using ES6, aurelia-auth and much more! We'll implement from Authentication to calling an API and everything in between"
 date: 2015-08-05 18:28
 author: 
-  name: Ryan
-  url: Chenkie
+  name: Ryan Chenkie
+  url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
@@ -535,6 +535,13 @@ activate() {
 As you can see, the only real difference here is that the GET request we're making is going to the `protected/random-quote` endpoint. If there is no valid JWT in `localStorage`, we won't be able to get to this route. If somehow we got to it, the request would fail because no JWT would be sent to the server.
 
 ![](https://cdn.auth0.com/blog/aurelia/aurelia-super-secret-quote.png?dl=1)
+
+## Aside: Using Angular with Auth0
+
+[Auth0](https://auth0.com) issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. You can use [Lock](https://auth0.com/docs/libraries/lock) to integrate [Auth0](https://auth0.com) with Aurelia as well and avoid having to deal with Authentication!
+
+<img src="https://docs.google.com/drawings/d/1GR-G08qpz_lNS8SELLs0LuWmGa3HQL1Tv4cql1JJx3w/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
+
 
 ## Wrapping Up
 
