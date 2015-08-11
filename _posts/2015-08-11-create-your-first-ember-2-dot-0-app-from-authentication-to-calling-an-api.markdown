@@ -278,7 +278,7 @@ Notice that the component logic is practically the same as what you would put in
 
 ## Aside: Using Ember 2.0 with Auth0
 
-[Auth0](https://auth0.com) issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. You can use our [EmberSDK](https://auth0.com/docs/client-platforms/emberjs) which uses _ember-simple-auth_ to integrate [Auth0](https://auth0.com) with Ember 2.0 to avoid having to deal with Authentication!
+[Auth0](https://auth0.com) issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. You can use our [EmberSDK](https://auth0.com/docs/client-platforms/emberjs) which uses _ember-simple-auth_ to integrate [Auth0](https://auth0.com) with Ember 2.0 to avoid having to deal with Authentication again!
 
 <img src="https://docs.google.com/drawings/d/1NfE-ab1YlggfpsT3RffnAp-B5LaegU-CCzKfB7GU-FE/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
 
