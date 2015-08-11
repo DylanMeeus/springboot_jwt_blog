@@ -276,6 +276,13 @@ Notice that the component logic is practically the same as what you would put in
 
 > **Note**: In the future Ember 2.1, the dev team is planning to add [**Routable components**](https://github.com/emberjs/rfcs/blob/master/text/0015-the-road-to-ember-2-0.md#routeable-components), which will simplify the way in which a route can simple redirect to a component instead of a view.
 
+## Aside: Using Ember 2.0 with Auth0
+
+[Auth0](https://auth0.com) issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. You can use our [EmberSDK](https://auth0.com/docs/client-platforms/emberjs) which uses _ember-simple-auth_ to integrate [Auth0](https://auth0.com) with Ember 2.0 to avoid having to deal with Authentication!
+
+<img src="https://docs.google.com/drawings/d/1NfE-ab1YlggfpsT3RffnAp-B5LaegU-CCzKfB7GU-FE/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
+
+
 ### Summarizing
 
 The following image summarizes the application flow:

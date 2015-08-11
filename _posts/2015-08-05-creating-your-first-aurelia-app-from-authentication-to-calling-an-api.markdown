@@ -536,7 +536,7 @@ As you can see, the only real difference here is that the GET request we're maki
 
 ![](https://cdn.auth0.com/blog/aurelia/aurelia-super-secret-quote.png?dl=1)
 
-## Aside: Using Angular with Auth0
+## Aside: Using Aurelia with Auth0
 
 [Auth0](https://auth0.com) issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. You can use [Lock](https://auth0.com/docs/libraries/lock) to integrate [Auth0](https://auth0.com) with Aurelia as well and avoid having to deal with Authentication!
 
