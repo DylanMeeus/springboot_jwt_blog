@@ -159,6 +159,12 @@
         }
       };
 
+      var getMetrics = function () {
+        return window.metricsLib;
+      };
+
+      var Metrics = getMetrics();
+
       (function () {
         var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
         var options = {
@@ -172,13 +178,13 @@
         };
 
         lock.on('signup ready', function () {
-          if (!metricsLib) return;
-          metricsLib.track('open:signup', getBasicInfo());
+          if (!Metrics) return;
+          Metrics.track('open:signup', getBasicInfo());
         });
 
         lock.on('signin ready', function () {
-          if (!metricsLib) return;
-          metricsLib.track('open:signin', getBasicInfo());
+          if (!Metrics) return;
+          Metrics.track('open:signin', getBasicInfo());
         });
 
         lock.getClient().getSSOData(false, function (err, data) {
@@ -189,8 +195,8 @@
         });
 
         window.login = function login() {
-          if (metricsLib) {
-            metricsLib.track('click:signin', getBasicInfo());
+          if (Metrics) {
+            Metrics.track('click:signin', getBasicInfo());
           }
           lock.hide(function() {
             lock.show(options);
@@ -198,8 +204,8 @@
         }
 
         window.signup = function() {
-          if (metricsLib) {
-            metricsLib.track('click:signup', getBasicInfo());
+          if (Metrics) {
+            Metrics.track('click:signup', getBasicInfo());
           }
           lock.hide(function() {
             lock.showSignup(options);
@@ -262,7 +268,7 @@
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
-              metricsLib.track('success:blog-signup', getBasicInfo());
+              Metrics.track('success:blog-signup', getBasicInfo());
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
@@ -327,7 +333,7 @@
 
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
-          metricsLib.page();
+          Metrics.page();
           
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
@@ -340,7 +346,7 @@
 
               NProgress.done();
 
-              metricsLib.page(false, false, {
+              Metrics.page(false, false, {
                 url: window.location.href,
                 path: window.location.pathname
               });
