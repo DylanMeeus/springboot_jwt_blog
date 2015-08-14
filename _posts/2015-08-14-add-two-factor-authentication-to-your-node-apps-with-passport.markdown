@@ -218,7 +218,7 @@ Auth0 provides convenient 2FA methods that can easily be enabled. Check this out
 
 ![Auth0 2FA](http://assets.auth0.com/blog/twofa/auth0mfa.gif "Easy 2FA with Auth0")
 
-All additional authentication steps can easily be scripted on Auth0 as [rules](https://auth0.com/docs/rules). As you can see MFA is supported natively and can be enabled with just a switch. Follow the instructions, add the client ids for the users you want to enable 2FA and you are done. A piece of cake! You can even do contextual MFA: that is, enable MFA based on certain conditions that can be scripted. Check the [docs](https://auth0.com/docs/mfa).
+All additional authentication steps can easily be scripted on Auth0 as [rules](https://auth0.com/docs/rules). As you can see MFA is supported natively and can be enabled with just a switch. Follow the instructions, add the client ids for the users you want to enable 2FA for and you are done. A piece of cake! You can even do contextual MFA: that is, enable MFA based on certain conditions that can be scripted. Check the [docs](https://auth0.com/docs/mfa).
 
 ## Conclusion
 Adding two factor authentication to your node apps using TOTP and passport.js is fairly easy. Doing so improves the security of your authentication process. Google Authenticator provides a simple and stable client side implementation of the code generating application that any user can install in his or her phone. Just keep in mind what will happen in case a user loses access to his or her code generating device or secret key. Other than that, hack along!
