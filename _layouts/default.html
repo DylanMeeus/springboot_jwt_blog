@@ -87,17 +87,8 @@
     <script src="{{ site.baseurl }}/js/vendor/nprogress.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
+    <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
     <script type="text/javascript">
-      var _prum = [['id', '51728c93abe53d0c08000000'],
-                      ['mark', 'firstbyte', (new Date()).getTime()]];
-         (function() {
-             var s = document.getElementsByTagName('script')[0]
-               , p = document.createElement('script');
-             p.async = 'async';
-             p.src = '//rum-static.pingdom.net/prum.min.js';
-             s.parentNode.insertBefore(p, s);
-         })();
-
       !function(){
         var metricsLib = window.metricsLib = window.metricsLib || [];
         // A list of the methods in metrics.js to stub.
@@ -146,7 +137,7 @@
           }
         };
         var SEGMENT_KEY = {% if 'production' == site.env %} 'aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL' {% else %} 'WqErZyd56ob3pmMDnko55hNgFt8B4Zox' {% endif %};
-        var DWH_ENDPOINT = "#{config['DWH_ENDPOINT']}";
+        var DWH_ENDPOINT = {% if 'production' == site.env %} 'https://dwh-tracking.it.auth0.com/dwh-metrics' {% else %} 'https://auth0-metrics-server.herokuapp.com' {% endif %};
         if (DWH_ENDPOINT) {
           //- We should catch for an undefined DWH_ENDPOINT
           metricsLib.load(SEGMENT_KEY, DWH_ENDPOINT);
@@ -337,7 +328,7 @@
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           metricsLib.page();
-
+          
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
             .on('pjax:click', function() {
@@ -349,7 +340,10 @@
 
               NProgress.done();
 
-              metricsLib.page();
+              metricsLib.page(false, false, {
+                url: window.location.href,
+                path: window.location.pathname
+              });
             });
 
           if(isTouch()) {
