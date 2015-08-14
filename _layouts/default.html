@@ -39,14 +39,6 @@
     <link href="//cdn.auth0.com/styleguide/latest/index.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css" />
-
-    <script type="text/javascript">
-      var segmentKey = {% if 'production' == site.env %} 'aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL' {% else %} 'WqErZyd56ob3pmMDnko55hNgFt8B4Zox' {% endif %};
-      !function(){var analytics=window.analytics=window.analytics||[];if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.0";
-        analytics.load(segmentKey);
-        analytics.page();
-      }}();
-    </script>
 </head>
 <body>
 
@@ -96,6 +88,74 @@
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script type="text/javascript">
+      var _prum = [['id', '51728c93abe53d0c08000000'],
+                      ['mark', 'firstbyte', (new Date()).getTime()]];
+         (function() {
+             var s = document.getElementsByTagName('script')[0]
+               , p = document.createElement('script');
+             p.async = 'async';
+             p.src = '//rum-static.pingdom.net/prum.min.js';
+             s.parentNode.insertBefore(p, s);
+         })();
+
+      !function(){
+        var metricsLib = window.metricsLib = window.metricsLib || [];
+        // A list of the methods in metrics.js to stub.
+        metricsLib.methods = [
+          'segment',
+          'track',
+          'setUserId',
+          'identify',
+          'alias',
+          'page',
+          'getData',
+          'ready',
+          'traits'
+        ];
+        metricsLib.factory = function(method){
+          return function(){
+            var args = Array.prototype.slice.call(arguments);
+            args.unshift(method);
+            metricsLib.push(args);
+            return metricsLib;
+          };
+        };
+        for (var i = 0; i < metricsLib.methods.length; i++) {
+          var key = metricsLib.methods[i];
+          metricsLib[key] = metricsLib.factory(key);
+        }
+        metricsLib.load = function(segmentKey, dwhEndpoint){
+          if(null != window.Auth0Metrics){
+            window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'website');
+          }else{
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = ('https:' === document.location.protocol
+              ? 'https://' : 'http://')
+              + 'cdn.auth0.com/js/m/metrics-1.min.js';
+            script.onerror = function(){
+              console.error("No metrics");
+            }
+            script.onload = function(){
+              // Grab analytics and make it private
+              window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'website');
+            }
+            var first = document.getElementsByTagName('script')[0];
+            first.parentNode.insertBefore(script, first);
+          }
+        };
+        var SEGMENT_KEY = {% if 'production' == site.env %} 'aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL' {% else %} 'WqErZyd56ob3pmMDnko55hNgFt8B4Zox' {% endif %};
+        var DWH_ENDPOINT = "#{config['DWH_ENDPOINT']}";
+        if (DWH_ENDPOINT) {
+          //- We should catch for an undefined DWH_ENDPOINT
+          metricsLib.load(SEGMENT_KEY, DWH_ENDPOINT);
+        } else {
+          console.error("DWH_ENDPOINT must be defined for tracking to work.")
+        }
+        }();
+    </script>
+    <script type="text/javascript">
 
       var getBasicInfo = function () {
         return {
@@ -121,13 +181,13 @@
         };
 
         lock.on('signup ready', function () {
-          if (!window.analytics) return;
-          window.analytics.track('open:signup', getBasicInfo());
+          if (!metricsLib) return;
+          metricsLib.track('open:signup', getBasicInfo());
         });
 
         lock.on('signin ready', function () {
-          if (!window.analytics) return;
-          window.analytics.track('open:signin', getBasicInfo());
+          if (!metricsLib) return;
+          metricsLib.track('open:signin', getBasicInfo());
         });
 
         lock.getClient().getSSOData(false, function (err, data) {
@@ -138,8 +198,8 @@
         });
 
         window.login = function login() {
-          if (window.analytics) {
-            window.analytics.track('click:signin', getBasicInfo());
+          if (metricsLib) {
+            metricsLib.track('click:signin', getBasicInfo());
           }
           lock.hide(function() {
             lock.show(options);
@@ -147,8 +207,8 @@
         }
 
         window.signup = function() {
-          if (window.analytics) {
-            window.analytics.track('click:signup', getBasicInfo());
+          if (metricsLib) {
+            metricsLib.track('click:signup', getBasicInfo());
           }
           lock.hide(function() {
             lock.showSignup(options);
@@ -211,7 +271,7 @@
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
-              window.analytics.track('success:blog-signup', getBasicInfo());
+              metricsLib.track('success:blog-signup', getBasicInfo());
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
@@ -276,6 +336,8 @@
 
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
+          metricsLib.page();
+
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
             .on('pjax:click', function() {
@@ -286,6 +348,8 @@
               initialize();
 
               NProgress.done();
+
+              metricsLib.page();
             });
 
           if(isTouch()) {
@@ -339,6 +403,8 @@
         setEvents();
       });
     </script>
+
+    
 
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
