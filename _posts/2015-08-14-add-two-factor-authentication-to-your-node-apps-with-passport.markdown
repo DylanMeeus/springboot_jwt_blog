@@ -41,7 +41,7 @@ Two-factor authentication has become quite popular. As you may have guessed, it 
 ## Time-based One-time Password Algorithm (or TOTP)
 TOTP is defined in [RFC 6238](https://tools.ietf.org/html/rfc6238). It is free and simple. There are many open-source implementations for both the client-side and server-side components. In particular, Google has developed an application that is freely available for Android, iOS and the web: Google Authenticator. This application allows us to easily integrate TOTP in our developments. We will explore how to do so in the following sections, but first I'll give you a quick summary of TOTP and how it usually works.
 
-![Typical 2FA flowchart](http://assets.auth0.com/blog/twofa/Flowchart.png "Typical 2FA flowchart")
+![Typical 2FA flowchart](http://cdn.auth0.com/blog/twofa/Flowchart.png "Typical 2FA flowchart")
 
 As you may have gathered from the chart above, the main requirement for TOTP to work is a shared secret. This shared secret needs to be generated and then stored by both the client and the server side components of the system. This usually means that an "enrollment" step is necessary before making TOTP available in an application.
 
@@ -216,7 +216,7 @@ Lastly, if you are going to take the code in the sample application from this po
 ## Do I have to do all this? See how it works with Auth0
 Auth0 provides convenient 2FA methods that can easily be enabled. Check this out:
 
-![Auth0 2FA](http://assets.auth0.com/blog/twofa/auth0mfa.gif "Easy 2FA with Auth0")
+![Auth0 2FA](http://cdn.auth0.com/blog/twofa/auth0mfa.gif "Easy 2FA with Auth0")
 
 All additional authentication steps can easily be scripted on Auth0 as [rules](https://auth0.com/docs/rules). As you can see MFA is supported natively and can be enabled with just a switch. Follow the instructions, add the client ids for the users you want to enable 2FA for and you are done. A piece of cake! You can even do contextual MFA: that is, enable MFA based on certain conditions that can be scripted. Check the [docs](https://auth0.com/docs/mfa).
 
