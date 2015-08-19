@@ -216,7 +216,7 @@ Lastly, if you are going to use the code in the sample application from this pos
 ## Do I have to do all this? See how it works with Auth0
 Auth0 provides convenient 2FA methods that can easily be enabled. Check this out:
 
-![Auth0 2FA](https://cdn.auth0.com/blog/twofa/auth0mfa.gif "Easy 2FA with Auth0")
+![Auth0 2FA](https://cdn.auth0.com/blog/grow-revenue/mfa.png "Easy 2FA with Auth0")
 
 All additional authentication steps can easily be scripted on Auth0 as [rules](https://auth0.com/docs/rules). As you can see, MFA is supported natively and can be enabled with just a switch. Follow the instructions, add the client IDs for the users you want to enable 2FA for and you are done. A piece of cake! You can even do contextual MFA, that is, enable MFA based on certain conditions that can be scripted. Check the [docs](https://auth0.com/docs/mfa).
 
