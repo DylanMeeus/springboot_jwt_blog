@@ -137,7 +137,7 @@
           }
         };
         var SEGMENT_KEY = {% if 'production' == site.env %} 'aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL' {% else %} 'WqErZyd56ob3pmMDnko55hNgFt8B4Zox' {% endif %};
-        var DWH_ENDPOINT = {% if 'production' == site.env %} 'https://dwh-tracking.it.auth0.com/dwh-metrics' {% else %} 'https://auth0-metrics-server.herokuapp.com' {% endif %};
+        var DWH_ENDPOINT = {% if 'production' == site.env %} 'https://dwh-tracking.it.auth0.com/dwh-metrics' {% else %} '//auth0-metrics-server.herokuapp.com/dwh-metrics' {% endif %};
         if (DWH_ENDPOINT) {
           //- We should catch for an undefined DWH_ENDPOINT
           metricsLib.load(SEGMENT_KEY, DWH_ENDPOINT);
