@@ -198,7 +198,7 @@ Once 2FA is enabled for a specific user, he or she must always be able to provid
 
 The SMS alternative is quite common. It is quite possible for a user to lose access to his or her phone but not to his or her phone line. For instance, consider the case of a phone being stolen (along with the app storing the shared secret). The shared secret is then lost, but the phone line can usually be reactivated in a new phone in a couple of hours. An alternative way of providing a code to the user as a fallback is usually recommended for 2FA, and SMS messages are a convenient example.
 
-Sometimes, 2FA is used to provide additional security at special times. Some applications provide a timed activation/deactivation of 2FA. Consider if this applies to your use case. As you can see from the example above, enabling or disabled 2FA on the server is quite simple.
+Sometimes, 2FA is used to provide additional security at special times. Some applications provide a timed activation/deactivation of 2FA. Consider if this applies to your use case. As you can see from the example above, enabling or disabling 2FA on the server is quite simple.
 
 There is another thing to keep in mind when dealing with authentication details from your users: provide convenient ways for them to see if the authentication details (or methods) have been changed or enabled in their accounts. The sooner any suspicious activity is detected, the sooner you can take action. Send an automated email if 2FA is enabled or disabled, or a password or secret is changed.
 
