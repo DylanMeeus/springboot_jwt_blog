@@ -47,15 +47,6 @@ As you may have gathered from the chart above, the main requirement for TOTP to 
 
 Another important thing to keep in mind, as the name of the algorithm implies, the generated codes are time-dependent. The client and the server need to synchronize their clocks, and the codes become invalid after a certain amount of time. 
 
-### Cool (and not so cool) features
-The cool thing about TOTP is that once the enrollment step is complete (i.e. a shared key has been set up between the client and the server), any client-side device can generate the code required for your application. This device does not need to be online, nor does it need to be the device where your application is running. The only requirement is that the clocks need to be (somewhat) synchronized and that the shared key must be known to both sides. I consider this to be quite cool. 
-
-Another cool feature is that it is quite easy to integrate with most applications (as you will see in the example below).
-
-Now for that bad side: we are still sharing a secret. The whole point of a password is that it must be secret. So how is that different from the shared secret in TOTP? This is true and it could be considered a weakness for your use case. If so, consider other authentication methods. The upside when compared to a password is that the device storing it need not be the same as the one that runs or serves the application that needs to perform the authentication (as we said before). Consider this difference carefully when picking TOTP for your developments.
-
-Another point against TOTP could be the inconvenient enrollment step. It may be confusing for non-technical users. This obviously depends on the application or device that will be providing the codes. Study this carefully with your UX team before deciding on TOTP. You should also consider what happens if the user loses access to his or her code-generating application or device.
-
 ## Adding TOTP to your Node.js application
 As you may have seen in the previous chart, adding 2FA with TOTP to an application requires two independent steps:
 
