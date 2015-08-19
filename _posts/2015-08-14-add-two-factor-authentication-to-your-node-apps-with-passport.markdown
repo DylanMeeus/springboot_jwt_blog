@@ -213,12 +213,13 @@ There is another thing to keep in mind when dealing with authentication details 
 
 Lastly, if you are going to use the code in the sample application from this post, then do not store passwords as plain text. TOTP shared secrets are OK as plain text (since you need to provide the key as-is to the authenticator). On the other hand, passwords must never be stored this way. Use hashes + salts, and slow or many-iteration algorithms as recommended.
 
-## Do I have to do all this? See how it works with Auth0
+## Conclusion
+Adding 2FA to your node apps using TOTP and passport.js is fairly easy. Doing so improves the security of your authentication process. Google Authenticator provides a simple and stable client-side implementation of the code-generating application that any user can install in his or her phone. Just keep in mind what will happen if a user loses access to his or her code-generating device or secret key. Other than that, hack along!
+
+## Aside: How it works in Auth0
 Auth0 provides convenient 2FA methods that can easily be enabled. Check this out:
 
 ![Auth0 2FA](https://cdn.auth0.com/blog/grow-revenue/mfa.png "Easy 2FA with Auth0")
 
 All additional authentication steps can easily be scripted on Auth0 as [rules](https://auth0.com/docs/rules). As you can see, MFA is supported natively and can be enabled with just a switch. Follow the instructions, add the client IDs for the users you want to enable 2FA for and you are done. A piece of cake! You can even do contextual MFA, that is, enable MFA based on certain conditions that can be scripted. Check the [docs](https://auth0.com/docs/mfa).
 
-## Conclusion
-Adding 2FA to your node apps using TOTP and passport.js is fairly easy. Doing so improves the security of your authentication process. Google Authenticator provides a simple and stable client-side implementation of the code-generating application that any user can install in his or her phone. Just keep in mind what will happen if a user loses access to his or her code-generating device or secret key. Other than that, hack along!
