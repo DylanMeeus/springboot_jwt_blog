@@ -198,16 +198,16 @@ As you can see, for the TOTP check, we make use of a helper variable ('method') 
 ## Is this production ready?
 In the previous paragraphs we covered the basics of 2FA. Here's what you need to keep in mind when going into production:
 
-- **Phone or device unavailable:** consider what happens in case a user loses access to his or her code-generating device or application (or her shared-secret). Provide means for the user to recover access to his or her account without compromising security (email links, SMS messages, etc.).
-- **Reset 2FA from backend:** according to your use case, it may be necessary to add the necessary means to disable or reset 2FA data directly from the backend. This is usually accomplished by requiring the user to perform the enrollment step one more time after login.
-- **Fallback for people who don't have smartphones:** recovery methods may be enabled indefinitely in case a user chooses not to use a smartphone.
-- **Audit and notify users of changes:** provide convenient ways for your users to see if the authentication details (or methods) have been changed or enabled in their accounts. This allows for early detection of suspicious activity. Automated emails are a good choice for this.
-- **Encrypt shared secrets**: per [RFC 6238](https://tools.ietf.org/html/rfc6238#section-5), you should store shared-secrets using a cryptographically secure reversible algorithm and only keep the keys in memory as long as necessary. Do not reinvent the wheel, use existing and well-tested libraries for this.
+- **Phone or device unavailable:** Consider what happens if a user loses access to his or her code-generating device or application (or shared-secret). Provide a means for the user to recover access to his or her account without compromising security (email links, SMS messages, etc.).
+- **Reset 2FA from backend:** Depending on your use case, it may be necessary to add the means to disable or reset 2FA data directly from the backend. Usually, this is accomplished by requiring the user to perform the enrollment step one more time after login.
+- **Fallback for people who don't have smartphones:** If a user chooses not to use a smartphone, any of the recovery methods may be enabled indefinitely.
+- **Audit and notify users of changes:** Provide convenient ways for users to see if the authentication details (or methods) have been changed or enabled in their accounts. This allows for early detection of suspicious activity. Automated emails are a good choice.
+- **Encrypt shared secrets**: Per [RFC 6238](https://tools.ietf.org/html/rfc6238#section-5), you should store shared-secrets using a cryptographically secure reversible algorithm and keep the keys in memory only as long as necessary. Do not reinvent the wheel; use existing and well-tested libraries for this.
 
 ## Conclusion
-We showed in this blog post how easy it is to get started with 2FA using TOTP. It's a solution that does not require a lot of infrastructure. Google Authenticator, Microsoft Authenticator, Authy and other TOTP applications are available in multiple platforms which makes adoption easy. But don't forget to take into account the non-happy-path: people reset their phone, it gets lost or stolen, or sometimes they even don't have a smartphone.
+We showed in this blog post how easy it is to get started with 2FA using TOTP. It does not require a lot of infrastructure. Google Authenticator, Microsoft Authenticator, Authy and other TOTP applications are available in multiple platforms which makes adoption easy. But don't forget to take into account the non-happy-path: people reset their phone, it gets lost or stolen, or sometimes they don't even have one.
 
-For simplicity, the code in our example is using a simple JSON file as storage. In production you would normally keep user data in a proper (and secure) database. Get the code: [app.js](https://github.com/sebadoom/auth0/blob/master/twofa/backend/app.js).
+For simplicity, the code in our example uses a simple JSON file as storage. In production you would normally keep user data in a proper (and secure) database. Get the code: [app.js](https://github.com/sebadoom/auth0/blob/master/twofa/backend/app.js).
 
 ## Aside: How it works in Auth0
 Auth0 provides convenient 2FA methods that can easily be enabled. Check this out:
