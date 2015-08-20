@@ -159,11 +159,14 @@
         }
       };
 
-      var getMetrics = function () {
-        return window.metricsLib;
-      };
+      var whenMetrics = function(f) {
+        if (window.metricsLib) {
+          f(window.metricsLib);
+          return true;
+        }
 
-      var Metrics = getMetrics();
+        return false;
+      };
 
       (function () {
         var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
@@ -178,13 +181,15 @@
         };
 
         lock.on('signup ready', function () {
-          if (!Metrics) return;
-          Metrics.track('open:signup', getBasicInfo());
+          whenMetrics(function(m) {
+            m.track('open:signup', getBasicInfo());
+          });
         });
 
         lock.on('signin ready', function () {
-          if (!Metrics) return;
-          Metrics.track('open:signin', getBasicInfo());
+          whenMetrics(function(m) {
+            m.track('open:signin', getBasicInfo());
+          });
         });
 
         lock.getClient().getSSOData(false, function (err, data) {
@@ -195,23 +200,25 @@
         });
 
         window.login = function login() {
-          if (Metrics) {
-            Metrics.track('click:signin', getBasicInfo());
-          }
+          whenMetrics(function(m) {
+            m.track('click:signin', getBasicInfo());
+          });
+
           lock.hide(function() {
             lock.show(options);
           });
         }
 
         window.signup = function() {
-          if (Metrics) {
-            Metrics.track('click:signup', getBasicInfo());
-          }
+          whenMetrics(function(m){
+            m.track('click:signup', getBasicInfo());
+          });
+
           lock.hide(function() {
             lock.showSignup(options);
           });
         }
-      })()
+      })();
 
       $(function() {
 
@@ -268,7 +275,9 @@
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
-              Metrics.track('success:blog-signup', getBasicInfo());
+              whenMetrics(function(m) {
+                m.track('success:blog-signup', getBasicInfo());
+              });
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
@@ -333,8 +342,10 @@
 
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
-          Metrics.page();
-          
+          whenMetrics(function(m) {
+            m.page();
+          });
+
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
             .on('pjax:click', function() {
@@ -346,9 +357,11 @@
 
               NProgress.done();
 
-              Metrics.page('', {
-                url: window.location.href,
-                path: window.location.pathname
+              whenMetrics(function(m) {
+                m.page('', {
+                  url: window.location.href,
+                  path: window.location.pathname
+                });
               });
             });
 
