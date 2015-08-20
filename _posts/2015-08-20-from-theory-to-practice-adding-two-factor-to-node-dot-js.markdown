@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From Theory to Practice: Adding Two-Factor Authentication to Node.js"
-description: "Learn how to easily add 2FA to your Node.js + Express.js apps using TOTP"
+description: "Learn how to easily add 2FA/MFA to your Node.js + Express.js apps using TOTP"
 date: 2015-08-20 18:00
 author: 
   name: Sebastián Peyrott
@@ -31,7 +31,7 @@ tags:
 
 -----
 
-Authentication has increasingly become an important part of all web applications and sites. Long gone are the days of applications that simply performed an action without getting any details about the identity of the user who performed the actions. In this post, we will explore one of the most powerful (and easiest) ways of improving the security of your authentication process: two-factor authentication (2FA).
+Authentication has increasingly become an important part of all web applications and sites. Long gone are the days of applications that simply performed an action without getting any details about the identity of the user who performed the actions. In this post, we will explore one of the most powerful (and easiest) ways of improving the security of your authentication process: two-factor authentication (2FA / MFA).
 
 -----
 
