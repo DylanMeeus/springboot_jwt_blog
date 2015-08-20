@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From Theory to Practice: Adding Two-Factor to Node.js"
+title: "From Theory to Practice: Adding Two-Factor Authentication to Node.js"
 description: "Learn how to easily add 2FA to your Node.js + Express.js apps using TOTP"
 date: 2015-08-20 18:00
 author: 
