@@ -117,7 +117,7 @@
         }
         metricsLib.load = function(segmentKey, dwhEndpoint){
           if(null != window.Auth0Metrics){
-            window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'website');
+            window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'blog');
           }else{
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -130,7 +130,7 @@
             }
             script.onload = function(){
               // Grab analytics and make it private
-              window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'website');
+              window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'blog');
             }
             var first = document.getElementsByTagName('script')[0];
             first.parentNode.insertBefore(script, first);
