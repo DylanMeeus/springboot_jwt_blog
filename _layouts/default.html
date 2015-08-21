@@ -159,15 +159,6 @@
         }
       };
 
-      var whenMetrics = function(f) {
-        if (window.metricsLib) {
-          f(window.metricsLib);
-          return true;
-        }
-
-        return false;
-      };
-
       (function () {
         var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
         var options = {
@@ -181,15 +172,11 @@
         };
 
         lock.on('signup ready', function () {
-          whenMetrics(function(m) {
-            m.track('open:signup', getBasicInfo());
-          });
+          metricsLib.track('open:signup', getBasicInfo());
         });
 
         lock.on('signin ready', function () {
-          whenMetrics(function(m) {
-            m.track('open:signin', getBasicInfo());
-          });
+          metricsLib.track('open:signin', getBasicInfo());
         });
 
         lock.getClient().getSSOData(false, function (err, data) {
@@ -200,9 +187,7 @@
         });
 
         window.login = function login() {
-          whenMetrics(function(m) {
-            m.track('click:signin', getBasicInfo());
-          });
+          metricsLib.track('click:signin', getBasicInfo());
 
           lock.hide(function() {
             lock.show(options);
@@ -210,9 +195,7 @@
         }
 
         window.signup = function() {
-          whenMetrics(function(m){
-            m.track('click:signup', getBasicInfo());
-          });
+          metricsLib.track('click:signup', getBasicInfo());
 
           lock.hide(function() {
             lock.showSignup(options);
@@ -275,9 +258,7 @@
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
-              whenMetrics(function(m) {
-                m.track('success:blog-signup', getBasicInfo());
-              });
+              metricsLib.track('success:blog-signup', getBasicInfo());
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
@@ -342,9 +323,7 @@
 
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
-          whenMetrics(function(m) {
-            m.page();
-          });
+          metricsLib.page();
 
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
@@ -357,11 +336,9 @@
 
               NProgress.done();
 
-              whenMetrics(function(m) {
-                m.page('', {
-                  url: window.location.href,
-                  path: window.location.pathname
-                });
+              metricsLib.page('', {
+                url: window.location.href,
+                path: window.location.pathname
               });
             });
 
@@ -417,7 +394,7 @@
       });
     </script>
 
-    
+
 
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
