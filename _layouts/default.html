@@ -29,7 +29,7 @@
     {% endif %}
 
     {% if page.url %}
-    <link rel="canonical" href="{{ site.baseurl }}{{page.url | replace:'index.html',''}}" />
+    <link rel="canonical" href="https://auth0.com{{ site.baseurl }}{{page.url | replace:'index.html',''}}" />
     {% endif %}
 
     <link rel="shortcut icon" href="//cdn.auth0.com/styleguide/latest/lib/logos/img/favicon.png">
@@ -313,6 +313,9 @@
           } else {
             $(window).scrollTop(0);
           }
+
+          // Update canonical url
+          $("link[rel='canonical']").attr("href", window.location.href);
         }
 
         function setEvents() {
@@ -336,10 +339,7 @@
 
               NProgress.done();
 
-              metricsLib.page('', {
-                url: window.location.href,
-                path: window.location.pathname
-              });
+              metricsLib.page();
             });
 
           if(isTouch()) {
