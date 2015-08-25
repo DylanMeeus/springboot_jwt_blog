@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Logging &amp; Debugging in React with Flux: Replaying your user’s actions"
-description: "Making it easy to reproduce end-user issues with Flux."
+description: "Making it easy to reproduce end-user issues and bugs with Flux."
 date: 2015-08-20 21:41
 author:
   name: Sandrino Di Mattia
@@ -23,6 +23,15 @@ tags:
 - action
 - dispatcher
 - webpack
+- bug
+- issue
+- user
+- troubleshooting
+---
+---
+
+**TL;DR**: You can check out the sample application in [this Github repository](https://github.com/auth0/react-flux-debug-actions-sample)
+
 ---
 
 Troubleshooting applications running in production is not always easy. You might get bug reports like "Nothing works!", some errors might only occur based on the data the user is wokring with, reproducing the issue could be hard because of specific dependencies (user, api), ...
@@ -35,15 +44,15 @@ In this blog post we'll show how you can leverage your existing React and Flux i
 
 The example in this blog post is a customer service application that allows you to manage open tickets. You can view the open tickets and close tickets that have been resolved.
 
-<img src="//assets.auth0.com/blog/react-flux-debugging/react-flux-debugging-tickets.png" class="expand" />
+<img src="https://cdn.auth0.com/blog/react-flux-debugging/react-flux-debugging-tickets.png" class="expand" />
 
 John, an end user, is solving the open tickets and closing them one by one. But suddenly... a crash! So John goes ahead and opens a bug: "Nothing works!"
 
-<img src="//assets.auth0.com/blog/img/react-flux-debugging/react-flux-debugging-end-user.gif" class="expand" />
+<img src="https://cdn.auth0.com/blog/react-flux-debugging/react-flux-debugging-end-user.gif" class="expand" />
   
 Jane, a developer, is now assigned to work on the "Nothing works!" bug. Great. Luckly their application is recording all Flux actions executed by users. These actions are linked to a user's session, so she can just go ahead and look for John's session. After that she can just go ahead and replay John's session and try to figure out the problem.
 
-<img src="//assets.auth0.com/blog/img/react-flux-debugging/react-flux-debugging-developer.gif" class="expand" />
+<img src="https://cdn.auth0.com/blog/react-flux-debugging/react-flux-debugging-developer.gif" class="expand" />
 
 Aha! While replaying John's session an error popped up in the developer console. It looks like there might be a bug in the `Error.jsx` component.
 
@@ -117,7 +126,7 @@ debugSession: (session, untilAction) => {
 
 When replaying a session we'll first dispatch the `RESET` and the `START_DEBUG` actions. The `RESET` action can be handled by all stores to reset their state (clear all data, clear alerts, ...). 
 
-The `START_DEBUG` action tell the rest of the application that we are now going to replay actions. And this is very important, because one thing we'll want to avoid is that our application makes calls to the API. So, our HttpClient will not be making calls during this time.
+The `START_DEBUG` action tell the rest of the application that we are now going to replay actions. And this is very important, because one thing we'll want to avoid is that our application makes calls to the API. So, our HttpClient will not be making calls during this time (in the next section we'll explain how this works and how we're leveraging Flux to record every request and every response so we can replay everything later without requiring interaction with the API).
 
 Then we go over each action and dispatch it after which we introduce a small delay. As a result, the developer will see every action that is replayed (fast-forward, since the delay is always 250ms). And finally the `STOP_DEBUG` action is sent to notify that we're done replaying the actions, which re-enables the HttpClient.
 
