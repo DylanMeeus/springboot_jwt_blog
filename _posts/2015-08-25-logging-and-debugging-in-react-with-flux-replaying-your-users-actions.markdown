@@ -2,7 +2,7 @@
 layout: post
 title: "Logging &amp; Debugging in React with Flux: Replaying your user’s actions"
 description: "Making it easy to reproduce end-user issues and bugs with Flux."
-date: 2015-08-20 21:41
+date: 2015-08-25 09:00
 author:
   name: Sandrino Di Mattia
   url: https://twitter.com/sandrinodm
