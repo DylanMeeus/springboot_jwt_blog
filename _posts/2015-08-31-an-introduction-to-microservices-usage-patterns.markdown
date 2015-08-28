@@ -87,7 +87,52 @@ In a way. SOA defines many of the concepts that now are part of the architectura
 ## Our first step: A simple API gateway with authentication
 For our simple example, we will assume all microservices are located behind a reverse proxy (or series of reverse proxies) that handle authentication. We will do this using the common pattern of REST-based HTTP based services. When you need to scale, you can create as many proxy instances as required, as long authentication details can be accessed from them. For our puporses we will use node.js with the excellent jsonwebtoken library and node-http-proxy.
 
-TODO
+```javascript
+function validateAuth(data) {
+    data = data.split(" ");
+    if(data[0] !== "Bearer" || !data[1]) {
+        return false;
+    }
+    
+    var token = data[1];    
+    try {
+        var payload = jwt.verify(token, secretKey);
+        // Custom validation logic, in this case we just check that the 
+        // user exists
+        if(users[payload.sub]) {
+            return true;
+        }
+    } catch(err) {
+        console.log(err);
+    }
+    
+    return false;
+}
+
+var server = http.createServer(function(req, res) {
+    if(req.url === "/login" && req.method === 'POST') {
+        doLogin(req, res);
+        return;
+    }
+
+    var authHeader = req.headers["authorization"];
+    if(!authHeader || !validateAuth(authHeader)) {
+        send401(res);
+        return;
+    }
+    
+    proxy.web(req, res, { target: "http://127.0.0.1:3001" });
+});
+```
+
+Our simple API proxy performs two functions:
+
+1. Handles login and returns a valid JWT (this may be handled by a separate endpoint that it not proxied, for simplicity we have included it here).
+2. Checks that all other requests have a valid JWT.
+
+As simple as that. If you need additional logic for the validation of your users, you can add it inside *validateAuth*. If you need to scale this example, you can run as many instances as you like behind a load balancer. Splitting indexed database data may be a good alternative if you have many concurrent users.
+
+Get the [code](https://github.com/sebadoom/auth0/tree/master/microservices/auth-proxy).
 
 ## Conclusion
 Microservices are the new way of doing distributed computing. Advances in deployment and monitoring tools have eased the pain from managing many independent services. The benefits are clear: using the right tool for the right problem, letting teams use their specific know-how to tackle each problem. Special considerations must be taken into account when dealing with shared data. Data modelling is a essential step in any design, and more so in the case of a microservices-based architecture. We will explore in detail other common patterns and practices in the following articles.
