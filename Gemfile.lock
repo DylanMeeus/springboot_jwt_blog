@@ -81,6 +81,3 @@ DEPENDENCIES
   rdiscount (~> 2.1.7.1)
   stringex (~> 2.5.2)
   stylus (~> 1.0.1)
-
-BUNDLED WITH
-   1.10.4
