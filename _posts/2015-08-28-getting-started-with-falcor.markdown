@@ -9,7 +9,7 @@ author:
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
-  bg_color: "#33881b"
+  bg_color: "#761984"
   image: https://www.dropbox.com/s/vnzr05x7wkzufdi/falcor-logo?dl=1
   image_size: "70%"
 tags: 
