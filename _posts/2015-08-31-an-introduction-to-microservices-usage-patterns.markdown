@@ -2,7 +2,7 @@
 layout: post
 title: "An Introduction to Microservices, Part 1"
 description: "Learn what are microservices and how they are used in the industry"
-date: 2015-08-31 18:00
+date: 2015-09-01 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -10,7 +10,7 @@ author:
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
   bg_color: "#3071BE"
-  image: https://cdn.auth0.com/blog/mfa/logo_ga.svg
+  image: https://cdn.auth0.com/blog/microservices/icon.png
   image_size: "70%"
   image_bg: "#3071BE"
 tags: 
@@ -24,13 +24,14 @@ tags:
 - webtask
 - webtasks
 - software architecture
+- post-series
 ---
 
 -----
 
 Everybody is talking about microservices. People long in the industry may remember monolithic or SOA-based solutions being *the way* of doing things. Things have changed. New tools have allowed developers to focus on specific problems without adding excesive complexity to deployment and other administrative tasks that are usually associated with isolated services. It has increasingly become easier to work using the right tool for the right problem. 
 
-In this blog series, we will explore the world of microservices, how it can help solve real world problems, and study why the industry is increasingly picking it as the way of doing things. In the series we will attempt to tackle common problems related to this approach and provide convenient and simple examples. By the end of the series, we should have a skeleton implementation of a full microservice-based architecture. Today we will focus on what microservices are and how they compare to the alternatives. We will also make a list of the problems we will talk about in the following posts.
+In this **post series**, we will explore the world of microservices, how it can help solve real world problems, and study why the industry is increasingly picking it as the way of doing things. In the series we will attempt to tackle common problems related to this approach and provide convenient and simple examples. By the end of the series, we should have a skeleton implementation of a full microservice-based architecture. Today we will focus on what microservices are and how they compare to the alternatives. We will also make a list of the problems we will talk about in the following posts.
 
 -----
 
