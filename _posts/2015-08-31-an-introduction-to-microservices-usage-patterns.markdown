@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Introduction to Microservices Usage Patterns"
+title: "An Introduction to Microservices, Part 1"
 description: "Learn what are microservices and how they are used in the industry"
 date: 2015-08-31 18:00
 author: 
@@ -23,11 +23,14 @@ tags:
 - SOA
 - webtask
 - webtasks
+- software architecture
 ---
 
 -----
 
-Everybody is talking about microservices. People long in the industry may remember monolithic or SOA-based solutions being *the way* of doing things. Things have changed. New tools have allowed developers to focus on specific problems without adding excesive complexity to deployment and other administrative tasks that are usually associated with isolated services. It has increasingly become easier to work using the right tool for the right problem. Enter the world of microservices.
+Everybody is talking about microservices. People long in the industry may remember monolithic or SOA-based solutions being *the way* of doing things. Things have changed. New tools have allowed developers to focus on specific problems without adding excesive complexity to deployment and other administrative tasks that are usually associated with isolated services. It has increasingly become easier to work using the right tool for the right problem. 
+
+In this blog series, we will explore the world of microservices, how it can help solve real world problems, and study why the industry is increasingly picking it as the way of doing things. In the series we will attempt to tackle common problems related to this approach and provide convenient and simple examples. By the end of the series, we should have a skeleton implementation of a full microservice-based architecture. Today we will focus on what microservices are and how they compare to the alternatives. We will also make a list of the problems we will talk about in the following posts.
 
 -----
 
@@ -36,8 +39,24 @@ A microservice is an **isolated**, **loosely-coupled** unit of development that 
 
 ![Typical microservices diagram](https://cdn.auth0.com/blog/microservices/Microservices.png)
 
-## What about Service-Oriented-Architecture (SOA)? Is it the same?
-In a way. SOA defines many of the concepts that now are part of the architectural approach known as microservices. However, microservices make special emphasis on **automated and independent deployment/instantiation**. In contrast, classic SOA applications provide services that are independent (in what they do) but that are not necessarily part of a separate application. SOA services may not even be deployable on their own. The important thing to keep in mind is not to worry about semantics, but rather concentrate on what fits your business needs. Microservices are particularly attractive to companies with **many different problems and many different teams**. In the past, dealing with many different concerns when working on providing an integrated solution required lots of overhead coordinating teams over a shared codebase. The microservices approach seeks to do away with that by using new tools that make integration and deployment easier and highly automated, even in the face of totally different software stacks.
+What makes microservices particularly attractive for development teams is their **independence**. Teams can work on their problem or group of problems on their own. This allows for several attractive qualities that are favored by many developers:
+
+- **Freedom to pick the right tool**: is that new library or development platform something you always wanted to use? You can (if it's the right tool for the job).
+- **Quick iteration**: was the first version suboptimal? No problem, version 2 can be out the door in no time. As microservices tend to be small, changes can be implemented relatively quickly.
+- **Rewrites are a possibility**: in contrast with monolithic solutions, as microservices are small, rewrites are a possibility. Was the technology stack the wrong pick? No problem, switch to the right alternative.
+- **Code quality and readability**: isolated development units tend to be of a higher quality and new developers can get up to speed with the existing code fairly easily.
+
+Given what we have seen so far, you might be asking yourself how to do microservices The Right Way<sup>tm</sup>. Fortunately, many teams have already integrated microservices in their (huge) developments, so we can learn from them. Netflix is a great example of company that built itself on top of a microservice-based architecture. Here is a short list of the problems and common design patterns we will discuss in this series:
+
+- **API proxying**
+- **Logging**
+- **Service discovery and registration**
+- **Service dependencies**
+- **Data sharing and synchronization**
+- **Graceful failure**
+- **Automated deployment and instantiation**
+
+## How do microservices compare to the alternatives?
 
 <br>
 <table class="table">
@@ -78,6 +97,8 @@ In a way. SOA defines many of the concepts that now are part of the architectura
 <br>
 
 ## Things to keep in mind
+Now that we have a good idea of how microservices compare to the alternatives, here is a list of things we need to keep in mind when designing our microservice-based architecture. Don't worry if this seems too abstract, we will deal we all of these concerns in a systematic way throughout this series of posts.
+
 - **Cross-cutting concerns** must be implemented in a way that microservices need not deal with details regarding problems outside their specific scope. For instance, authentication can be implemented as part of any API gateway or proxy.
 - **Data sharing** is hard. Microservices tend to favor per-service, or per-group databases that can be updated directly. When doing data-modelling for your application, see if this way of doing things fits your application. For sharing data between databases, it may be necessary to implement an internal process that handles internal updates and transactions between databases. It is possible to share a single database between many microservices, just keep in mind that this may limit or options when needing to scale in the future.
 - **Availability**: microservices, by virtue of being isolated and independent, need to be monitored to detect failures as early as possible. In a big software stack, one service that goes down may go unnoticed for some time. Account for this when picking your software stack for managing services.
@@ -86,61 +107,16 @@ In a way. SOA defines many of the concepts that now are part of the architectura
 - **Interdependencies**: keep them to a minimum. There are different ways of dealing with dependencies between services. We will explore them further in this blog post series. For now just keep in mind that dependencies are one of the biggest problems with this approach, so seek ways to keep them to a minimum.
 - **Transport and data format**: microservices are fit for any transport and data format, however they are usually exposed publicly through a RESTful API over HTTP. Any data format fit for your information works. HTTP + JSON is very popular these days, but there is nothing that keeping you from using protocol-buffers over AMQP, for instance.
 
-## Our first step: A simple API gateway with authentication
-For our simple example, we will assume all microservices are located behind a reverse proxy (or series of reverse proxies) that handle authentication. We will do this using the common pattern of REST-based HTTP based services. When you need to scale, you can create as many proxy instances as required, as long authentication details can be accessed from them. For our puporses we will use node.js with the excellent jsonwebtoken library and node-http-proxy.
+## Keeping it real: a sample microservice
 
-```javascript
-function validateAuth(data) {
-    data = data.split(" ");
-    if(data[0] !== "Bearer" || !data[1]) {
-        return false;
-    }
-    
-    var token = data[1];    
-    try {
-        var payload = jwt.verify(token, secretKey);
-        // Custom validation logic, in this case we just check that the 
-        // user exists
-        if(users[payload.sub]) {
-            return true;
-        }
-    } catch(err) {
-        console.log(err);
-    }
-    
-    return false;
-}
+Now this should be easy. If microservices take so much baggage out of the development team's mind, writing one should be a piece of cake, right? Yes, in a way. While we could write a simple RESTful HTTP service and call that a microservice, we will do that by taking into account some of the things we have listed above (don't worry, we will expand this example to include solutions for ALL the concerns listed above in the following posts).
 
-var server = http.createServer(function(req, res) {
-    if(req.url === "/login" && req.method === 'POST') {
-        doLogin(req, res);
-        return;
-    }
+For our example 
 
-    var authHeader = req.headers["authorization"];
-    if(!authHeader || !validateAuth(authHeader)) {
-        send401(res);
-        return;
-    }
-    
-    proxy.web(req, res, { target: "http://127.0.0.1:3001" });
-});
-```
+TODO
 
-Our simple API proxy performs two functions:
-
-1. Handles login and returns a valid JWT (this may be handled by a separate endpoint that it not proxied, for simplicity we have included it here).
-2. Checks that all other requests have a valid JWT.
-
-As simple as that. If you need additional logic for the validation of your users, you can add it inside *validateAuth*. If you need to scale this example, you can run as many instances as you like behind a load balancer. Splitting indexed database data may be a good alternative if you have many concurrent users.
-
-Get the [code](https://github.com/sebadoom/auth0/tree/master/microservices/auth-proxy).
-
-## Conclusion
-Microservices are the new way of doing distributed computing. Advances in deployment and monitoring tools have eased the pain from managing many independent services. The benefits are clear: using the right tool for the right problem, letting teams use their specific know-how to tackle each problem. Special considerations must be taken into account when dealing with shared data. Data modelling is a essential step in any design, and more so in the case of a microservices-based architecture. We will explore in detail other common patterns and practices in the following articles.
-
-## Aside: Webtasks!
-The newcomer to the world of microservices is [webtask.io](https://webtask.io). While other solutions provide convenient ways to deploy an application and keep it running, webtask.io takes that a step further: a simple, automated way of distributing and running whole-code services to a remote virtualized hardware provider. In other words, deployment and instantiation are easier than ever. This makes working with microservices a piece of cake. Check it:
+## Aside: Interested in microservices? You will love webtasks!
+The newcomer to the world of microservices is [webtask.io](https://webtask.io). While other solutions provide convenient ways to deploy an application and keep it running, webtask.io takes that a step further: a simple, automated way of distributing and running whole-code services to a remote virtualized hardware provider. In other words, deployment, instantiation and routing are now easier than ever. This makes working with microservices a piece of cake. Check it:
 
 ```sh
 npm install wt-cli -g
@@ -150,6 +126,11 @@ echo "module.exports = function (cb) {cb(null, 'Hello');}" > hello.js
 wt create hello.js
 curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/hello?webtask_no_cache=1
 ```
+
+## Conclusion
+Microservices are the new way of doing distributed computing. Advances in deployment and monitoring tools have eased the pain from managing many independent services. The benefits are clear: using the right tool for the right problem, letting teams use their specific know-how to tackle each problem. The hard part is dealing with shared data. Special considerations must be taken into account when dealing with shared data and inter-service dependencies. Data modeling is a essential step in any design, and more so in the case of a microservices-based architecture. We will explore in detail other common patterns and practices in the following articles.
+
+
 
 
 
