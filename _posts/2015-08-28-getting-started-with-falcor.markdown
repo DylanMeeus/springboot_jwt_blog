@@ -10,7 +10,7 @@ author:
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
   bg_color: "#761984"
-  image: http://cdn.auth0.com/blog/falcor/falcor-logo.png
+  image: https://cdn.auth0.com/blog/falcor/falcor-logo.png
   image_size: "70%"
 tags: 
 - falcor
@@ -63,9 +63,9 @@ Falcor also helps to make data retrieval more efficient. Instead of pulling many
 
 Furthermore, Falcor caches the virtual JSON model so that it can be accessed in-memory. When it becomes necessary to request more or different data, Falcor first consults the cache and if the data is not available there, it makes another request for *only* the fragment that is missing.
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-1.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-1.png)
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-2.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-2.png)
 
 ## Getting Started
 
@@ -142,7 +142,7 @@ To use the `get` method, we need the JavaScript paths that point to the specific
 
 When we run this, we can see that we get the JSON printed to the screen:
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-3.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-3.png)
 
 That gives us the `name` and `description` for the events, but let's say we want the `location` as well. We might try to add this on as a JavaScript path:
 
@@ -172,7 +172,7 @@ However, when we try to run this, we see that the data looks exactly the same an
 ...
 ```
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-4.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-4.png)
 
 ## Avoiding Duplicate Data
 
@@ -200,7 +200,7 @@ model
 
 You'll notice that we now have the value for `state` showing up in two different ways, even though they should really be the same.
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-5.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-5.png)
 
 Falcor provides a solution to this common problem of duplicate data with a new primitive value type called `reference`. A JSON Graph reference makes it possible to refer to a single location for a piece of data rather than having multiple copies of that data in many places.
 
@@ -264,7 +264,7 @@ var model = new falcor.Model({
 ```
 We now use JSON Graph's `$ref` to associate each event's location with a single place in our data. Even though we've represented the data differently here, JSON graph will convert it so that we will still get the same output for our JSON model. Further, if we now run the same `set` method to change the `state` value on the first `location` object, we see that it also gets changed elsewhere.
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-6.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-6.png)
 
 ## Moving to the Server
 
@@ -373,7 +373,7 @@ model
   });
 ```
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-7.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-7.png)
 
 If we also wanted to get the location data associated with each event, we would need to setup another route to handle them specifically. Each path that we request needs to be represented by its own route.
 
@@ -467,7 +467,7 @@ We can test this route in `app.js` by providing the name of an event.
 ```
 Which yields:
 
-![falcor](http://cdn.auth0.com/blog/falcor/falcor-1-8.png)
+![falcor](https://cdn.auth0.com/blog/falcor/falcor-1-8.png)
 
 ## Aside: Using Falcor with Auth0
 
