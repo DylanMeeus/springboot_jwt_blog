@@ -165,15 +165,15 @@ http.createServer(app).listen(port, function (err) {
 });
 ```
 
-You will notice that we have removed a lot of code. Our microservice does one thing and one thing only: it queries the database for a full list of tickets. There's nothing else going on here. We have kept logging, as it is an essential part of any microservice. Authentication, CORS checks, etc. are gone. These are all handled by upper layers in our microservice-based architecture. 
+You will notice that we have removed a lot of code. Our microservice does **one thing and one thing only**: it queries the database for a full list of tickets. There's nothing else going on here. We have kept **logging**, as it is an essential part of any microservice. Authentication, CORS checks, etc. are gone. These are all handled by upper layers in our microservice-based architecture. 
 
 One thing we could improve (and we will do that later posts in the series) is logging. Right now we are just logging to the console (using a predefined format that is easy to parse), but we could go one step further: we could send our logs to a centralized logging system that can perform automated monitoring and make decisions based on filters. This is why using the 'winston' library for logging is a great choice: in the future we can add new output streams that can do what we just described.
 
-For now, though, this will do. Our microservice does one thing and does it right. It can easily be scaled, there are no dependencies on other services, logging can be easily centralized when we have a proper service to handle that, the code is small and readable, and it can be run totally isolated and on its own process.
+For now, though, this will do. Our microservice does one thing and does it right. It can **easily be scaled**, there are **no dependencies** on other services, logging can be easily centralized when we have a proper service to handle that, the code is **small and readable**, and it can be run totally **isolated** and on its own process.
 
-Another thing we will add in future posts will be service registration. If you were to put this in production right now, you would probably hardcode the internal endpoint for this service in the API gateway. In practice you will want to do more than that: have the service register itself, or have a process polling for available services and setting up endpoints in the gateway dynamically. With this approach, failures can also be handled gracefully: if the service goes down, you can point the endpoint to another equivalent or backup service (using older data perhaps, or whatever works for your use case).
+Another thing we will add in future posts will be **service registration**. If you were to put this in production right now, you would probably hardcode the internal endpoint for this service in the API gateway. In practice you will want to do more than that: have the service register itself, or have a process polling for available services and setting up endpoints in the gateway dynamically. With this approach, **failures** can also be handled gracefully: if the service goes down, you can point the endpoint to another equivalent or backup service (using older data perhaps, or whatever works for your use case).
 
-There is also the matter of data sharing: should this service keep a separate read-only database with tickets or should it share the database with other microservices that perform updates? We will explore this question in the following posts.
+There is also the matter of **data sharing**: should this service keep a separate read-only database with tickets or should it share the database with other microservices that perform updates? We will explore this question in the following posts.
 
 Get the [code](https://github.com/sebadoom/auth0/tree/master/microservices/microservice-1).
 
