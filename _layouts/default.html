@@ -18,6 +18,65 @@
 
     <script type="text/javascript" src="//cdn.auth0.com/js/lock-6.min.js"></script>
     <script type="text/javascript" src="//cdn.auth0.com/web-header/latest/standalone.min.js"></script>
+    <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
+    <script type="text/javascript">
+      !function(){
+        var metricsLib = window.metricsLib = window.metricsLib || [];
+        // A list of the methods in metrics.js to stub.
+        metricsLib.methods = [
+          'segment',
+          'track',
+          'setUserId',
+          'identify',
+          'alias',
+          'page',
+          'getData',
+          'ready',
+          'traits'
+        ];
+        metricsLib.factory = function(method){
+          return function(){
+            var args = Array.prototype.slice.call(arguments);
+            args.unshift(method);
+            metricsLib.push(args);
+            return metricsLib;
+          };
+        };
+        for (var i = 0; i < metricsLib.methods.length; i++) {
+          var key = metricsLib.methods[i];
+          metricsLib[key] = metricsLib.factory(key);
+        }
+        metricsLib.load = function(segmentKey, dwhEndpoint){
+          if(null != window.Auth0Metrics){
+            window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'blog');
+          }else{
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = ('https:' === document.location.protocol
+              ? 'https://' : 'http://')
+              + 'cdn.auth0.com/js/m/metrics-1.min.js';
+            script.onerror = function(){
+              console.error("No metrics");
+            }
+            script.onload = function(){
+              // Grab analytics and make it private
+              window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'blog');
+            }
+            var first = document.getElementsByTagName('script')[0];
+            first.parentNode.insertBefore(script, first);
+          }
+        };
+        var SEGMENT_KEY = {% if 'production' == site.env %} 'aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL' {% else %} 'WqErZyd56ob3pmMDnko55hNgFt8B4Zox' {% endif %};
+        var DWH_ENDPOINT = {% if 'production' == site.env %} 'https://dwh-tracking.it.auth0.com/dwh-metrics' {% else %} '//auth0-metrics-server.herokuapp.com/dwh-metrics' {% endif %};
+        if (DWH_ENDPOINT) {
+          //- We should catch for an undefined DWH_ENDPOINT
+          metricsLib.load(SEGMENT_KEY, DWH_ENDPOINT);
+        } else {
+          console.error("DWH_ENDPOINT must be defined for tracking to work.")
+        }
+        }();
+    </script>
     <link rel="stylesheet" href="//cdn.auth0.com/web-header/latest/standalone.min.css" />
 
     {% if page.meta-robots %}
@@ -87,65 +146,6 @@
     <script src="{{ site.baseurl }}/js/vendor/nprogress.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
-    <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
-    <script type="text/javascript">
-      !function(){
-        var metricsLib = window.metricsLib = window.metricsLib || [];
-        // A list of the methods in metrics.js to stub.
-        metricsLib.methods = [
-          'segment',
-          'track',
-          'setUserId',
-          'identify',
-          'alias',
-          'page',
-          'getData',
-          'ready',
-          'traits'
-        ];
-        metricsLib.factory = function(method){
-          return function(){
-            var args = Array.prototype.slice.call(arguments);
-            args.unshift(method);
-            metricsLib.push(args);
-            return metricsLib;
-          };
-        };
-        for (var i = 0; i < metricsLib.methods.length; i++) {
-          var key = metricsLib.methods[i];
-          metricsLib[key] = metricsLib.factory(key);
-        }
-        metricsLib.load = function(segmentKey, dwhEndpoint){
-          if(null != window.Auth0Metrics){
-            window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'blog');
-          }else{
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = true;
-            script.src = ('https:' === document.location.protocol
-              ? 'https://' : 'http://')
-              + 'cdn.auth0.com/js/m/metrics-1.min.js';
-            script.onerror = function(){
-              console.error("No metrics");
-            }
-            script.onload = function(){
-              // Grab analytics and make it private
-              window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'blog');
-            }
-            var first = document.getElementsByTagName('script')[0];
-            first.parentNode.insertBefore(script, first);
-          }
-        };
-        var SEGMENT_KEY = {% if 'production' == site.env %} 'aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL' {% else %} 'WqErZyd56ob3pmMDnko55hNgFt8B4Zox' {% endif %};
-        var DWH_ENDPOINT = {% if 'production' == site.env %} 'https://dwh-tracking.it.auth0.com/dwh-metrics' {% else %} '//auth0-metrics-server.herokuapp.com/dwh-metrics' {% endif %};
-        if (DWH_ENDPOINT) {
-          //- We should catch for an undefined DWH_ENDPOINT
-          metricsLib.load(SEGMENT_KEY, DWH_ENDPOINT);
-        } else {
-          console.error("DWH_ENDPOINT must be defined for tracking to work.")
-        }
-        }();
-    </script>
     <script type="text/javascript">
 
       var getBasicInfo = function () {
