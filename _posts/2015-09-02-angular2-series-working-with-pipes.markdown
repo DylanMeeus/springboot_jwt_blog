@@ -14,16 +14,15 @@ design:
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
 tags: 
-- falcor
-- falcorjs
-- jsongraph
-- falcor-express
+- angular2
+- angularjs
+- pipes
 - javascript
 ---
 
 ---
 
-**TL;DR:** Angular 2 replaces filters from Angular 1.x with **pipes**. Many of the filters from Angular 1.x carry over to pipes, but we also get some new ones. Check out [the repo](https://github.com/auth0/angular2-pipes) for this tutorial to see the pipes in action and to find out how to create your own custom pipes.
+**TL;DR:** Angular 2 replaces filters from Angular 1.x with **pipes**. Many of the filters from Angular 1.x carry over to pipes, but we also get some new ones. Check out [the repo](https://github.com/auth0/angular2-pipes) for this tutorial to see the pipes in action and to find out how to create your own custom pipes. To see an example of a full Angular 2 app, read Auth0's tutorial on [creating your first Angular 2 app](https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/).
 
 ---
 
@@ -33,20 +32,77 @@ tags:
 
 AngularJS 1.x filters are a great help for formatting output in our templates. With Angular 2, we get this same great feature, but now they are called **pipes**. At the time of this writing, there are an equal number of filters from Angular 1.x to pipes in Angular 2, but there isn't direct crossover. Here is a table for comparison:
 
-| Filter/Pipe Name | Angular 1.x | Angular 2 |
-| ---------------- | :---------: | :-------: |
-| currency         | &#10003;    | &#10003;  |
-| date             | &#10003;    | &#10003;  |
-| uppercase        | &#10003;    | &#10003;  |
-| json             | &#10003;    | &#10003;  |
-| limitTo          | &#10003;    | &#10003;  |
-| lowercase        | &#10003;    | &#10003;  |
-| number           | &#10003;    |           |
-| orderBy          | &#10003;    |           |
-| filter           | &#10003;    |           |
-| async            |             | &#10003;  |
-| decimal          |             | &#10003;  |
-| percent          |             | &#10003;  |
+<table class="table">
+<thead>
+<tr>
+<th> Filter/Pipe Name </th>
+<th style="text-align:center;"> Angular 1.x </th>
+<th style="text-align:center;"> Angular 2 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> currency         </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> date             </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> uppercase        </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> json             </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> limitTo          </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> lowercase        </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> number           </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;">           </td>
+</tr>
+<tr>
+<td> orderBy          </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;">           </td>
+</tr>
+<tr>
+<td> filter           </td>
+<td style="text-align:center;"> ✓    </td>
+<td style="text-align:center;">           </td>
+</tr>
+<tr>
+<td> async            </td>
+<td style="text-align:center;">             </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> decimal          </td>
+<td style="text-align:center;">             </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+<tr>
+<td> percent          </td>
+<td style="text-align:center;">             </td>
+<td style="text-align:center;"> ✓  </td>
+</tr>
+</tbody>
+</table>
 
 In this article we will explore the features provided by some of the pipes that weren't seen before in Angular 1.x filters. We'll also see how we can create a custom pipe of our own and use it in our templates. 
 
