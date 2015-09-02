@@ -2,7 +2,7 @@
 layout: post
 title: "An Introduction to Microservices, Part 1"
 description: "Learn what are microservices and how they are used in the industry"
-date: 2015-09-01 18:00
+date: 2015-09-02 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -110,9 +110,70 @@ Now that we understand how microservices compare to the alternatives, here is a 
 
 Now, this should be easy. If microservices take so much baggage out of the development team's mind, writing one should be a piece of cake, right? Yes, in a way. While we could write a simple RESTful HTTP service and call that a microservice, we will do so by taking into account some of the things we have listed above (don't worry, in the following posts, we will expand this example to include solutions for ALL the concerns listed above).
 
-Our example 
+For our example, we will pick the backend code from Sandrino Di Mattia's excellent [post](https://auth0.com/blog/2015/08/25/logging-and-debugging-in-react-with-flux-replaying-your-users-actions/) about using Flux for debugging. In Sandrino's post, a simple express.js app makes the backend for a React.js app. We will take that backend and adapt it. You can see the original backend code [here](https://github.com/auth0/react-flux-debug-actions-sample/blob/master/server.js).
 
-TODO
+The backend in Sandrino's example handles many different concerns: login, authentication, [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), update operations over tickets, and queries. For our microservice we will focus on one task: querying tickets. Check it out:
+
+```javascript
+var express = require('express');
+var morgan = require('morgan');
+var http = require('http');
+var mongoose = require('mongoose');
+var logger = require('./logger');
+
+mongoose.connect('mongodb://localhost/test');
+
+// Our ticket sample schema
+var Ticket = mongoose.model('Ticket', {
+    id: Number,
+    status: String,
+    title: String,
+    userInitials: String,
+    assignedTo: String,
+    shortDescription: String,
+    description: String,
+    replies: [{ user: String, message: String }]
+});
+
+var app = express();
+app.use(
+    //Log requests
+    morgan(':method :url :status :response-time ms - :res[content-length]', { 
+        stream: logger.stream 
+    })
+);
+
+app.get('/tickets', function(req, res, next) {
+    Ticket.find({}, function(err, result) {
+        if(err) {
+            logger.error(err);
+            res.sendStatus(500);
+            return;
+        } 
+        res.json(result);
+    });
+});
+
+var port = process.env.PORT || 3001;
+http.createServer(app).listen(port, function (err) {
+  if (err) {
+    logger.error(err);
+  }
+  else {
+    logger.info('Listening on http://localhost:' + port);
+  }
+});
+```
+
+You will notice we have removed a lot of code. Our microservice does one thing and one thing only: it queries the database for a full list of tickets. There's nothing else going on here. We have kept logging, as it is an essential part of any microservice. Authentication, CORS checks, etc. are gone. These are all handled by upper layers in our microservice-based architecture. One thing we could improve (and we will in the following posts in the series) is logging. Right now we are just logging to the console (using a predefined format which is easy to parse), but we could go one step further: send our logs to a centralized logging system that can perform automated monitoring and take decisions based on filters. This is why using the 'winston' library for logging is a great choice: we can add new output streams in the future that can do what we just described.
+
+For now, this will do. Our microservice does one thing and does it right. It can easily be scaled, there are no dependencies on other services, logging can be easily centralized when we have a proper service to handle that, the code is small and readable, and it can be run totally isolated and on its own process.
+
+Another thing we will add in future posts will be service registration. Right now if you were to put this in production, you would probably hardcode the internal endpoint for this service in the API gateway. In practice you will want to do more than that: have the service register itself, or have a process polling for available services and setting up endpoints in the gateway dynamically. With this failures can also be handled gracefully: if the service goes down, you can point the endpoint to another equivalent or backup service (using older data perhaps, or whatever works for your use case).
+
+There is also the matter of data sharing: should this service keep a separate read-only database with tickets or should it share the database with other microservices that perform updates? We will explore this in the following posts.
+
+Get the [code](https://github.com/sebadoom/auth0/tree/master/microservices/microservice-1).
 
 ## Aside: Interested in microservices? You will love webtasks!
 The latest newcomer to the world of microservices is [webtask.io](https://webtask.io). While other solutions provide convenient ways to deploy an application and keep it running, webtask.io takes it a step further by providing a simple, automated way to distribute and run whole-code services to a remote virtualized hardware provider. In other words, deployment, instantiation, and routing are now easier than ever. This makes working with microservices a piece of cake. Check it out:
