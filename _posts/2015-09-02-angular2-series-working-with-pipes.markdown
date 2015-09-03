@@ -10,7 +10,7 @@ author:
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
-  bg_color: "linear-gradient(#0143A3,#0273D4)"
+  bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
 tags: 
