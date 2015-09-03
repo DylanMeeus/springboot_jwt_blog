@@ -79,9 +79,31 @@ The backend in Sandrino's example handles many different concerns: login, authen
 var express = require('express');
 var morgan = require('morgan');
 var http = require('http');
-var mongoose = require('mongoose');
-var logger = require('./logger');
+var mongo = require('mongodb').MongoClient;
+var winston = require('winston');
 
+// Logging
+winston.emitErrs = true;
+var logger = new winston.Logger({
+    transports: [
+        new winston.transports.Console({
+            timestamp: true,
+            level: 'debug',
+            handleExceptions: true,
+            json: false,
+            colorize: true
+        })
+    ],
+    exitOnError: false
+});
+
+logger.stream = {
+    write: function(message, encoding){
+        logger.debug(message.replace(/\n$/, ''));
+    }
+};
+
+// Express and middlewares
 var app = express();
 app.use(
     //Log requests
@@ -90,59 +112,48 @@ app.use(
     })
 );
 
-//Mongoose ticket model
-var Ticket;
-
-function createModels() {
-    Ticket = mongoose.model('Ticket', {
-        id: Number,
-        status: String,
-        title: String,
-        userInitials: String,
-        assignedTo: String,
-        shortDescription: String,
-        description: String,
-        replies: [{ user: String, message: String }]
-    });    
-}
-
+var db;
 if(process.env.MONGO_URL) {
-    mongoose.connect(process.env.MONGO_URL);
-    createModels();
+    mongo.connect(process.env.MONGO_URL, null, function(err, db_) {
+        if(err) {
+            logger.error(err);
+        } else {
+            db = db_;
+        }
+    });
 }
 
 app.use(function(req, res, next) {    
-    if(!Ticket || mongoose.connection.readyState !== 1) {
+    if(!db) {
         //Database not connected
-        mongoose.connect(process.env.MONGO_URL,
-            function(err) {
-                if(err) {
-                    logger.error(err);
-                    res.sendStatus(500);
-                    return;
-                }
-                
-                createModels();
-                
+        mongo.connect(process.env.MONGO_URL, null, function(err, db_) {
+            if(err) {
+                logger.error(err);
+                res.sendStatus(500);                
+            } else {
+                db = db_;
                 next();
             }
-        );       
+        });
     } else {
         next();
     }    
 });
 
+// Actual query
 app.get('/tickets', function(req, res, next) {
-    Ticket.find({}, function(err, result) {
+    var collection = db.collection('tickets');
+    collection.find().toArray(function(err, result) {
         if(err) {
             logger.error(err);
             res.sendStatus(500);
             return;
         } 
         res.json(result);
-    });
+    });   
 });
 
+// Standalone server setup
 var port = process.env.PORT || 3001;
 http.createServer(app).listen(port, function (err) {
   if (err) {
@@ -170,12 +181,11 @@ The latest newcomer to the world of microservices is [webtask.io](https://webtas
 npm install wt-cli -g
 wt init your.name@email.com # This will send an activation link to your email.
 
-echo "module.exports = function (cb) {cb(null, 'Hello');}" > hello.js
-wt create hello.js
-curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/hello?webtask_no_cache=1
+wt create https://raw.githubusercontent.com/sebadoom/auth0/master/microservices/microservice-1-webtask/server.js
+curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/0214e081084da52e5dd32915232242d8?webtask_no_cache=1
 ```
 
-See the [code](https://github.com/sebadoom/auth0/blob/master/microservices/microservice-1-webtask/server.js).
+See the [code](https://github.com/sebadoom/auth0/blob/master/microservices/microservice-1-webtask/server.js). Compare it with our previous version and see how little we needed to change.
 
 ## Conclusion
 Microservices are the new way of doing distributed computing. Advances in deployment and monitoring tools have eased the pain involved in managing many independent services. The benefits are clear: using the right tool for the right problem, and letting teams use their specific know-how to tackle each problem. The hard part is dealing with shared data. Special considerations must be taken into account when dealing with shared data and inter-service dependencies. Data modeling is an essential step in any design, and is even more so in the case of a microservices-based architecture. We will explore other common patterns and practices in detail in the following articles.
