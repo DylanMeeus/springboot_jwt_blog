@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Angular 2 Series - Part 1: Working with Pipes"
-description: "Learn how to implement pipes (formerly known as filters) in your Angular2 apps"
-date: 2015-09-02 08:00
+description: "Learn how to implement pipes (formerly known as filters) in your Angular 2 apps"
+date: 2015-09-03 11:00
 author: 
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
@@ -18,11 +18,12 @@ tags:
 - angularjs
 - pipes
 - javascript
+- post-series
 ---
 
 ---
 
-**TL;DR:** Angular 2 replaces filters from Angular 1.x with **pipes**. Many of the filters from Angular 1.x carry over to pipes, but we also get some new ones. Check out [the repo](https://github.com/auth0/angular2-pipes) for this tutorial to see the pipes in action and to find out how to create your own custom pipes. To see an example of a full Angular 2 app, read Auth0's tutorial on [creating your first Angular 2 app](https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/).
+**TL;DR:** In this first installment of the Angular 2 series, we take a look at **pipes** which replace filters from Angular 1.x. Many of the filters from Angular 1.x carry over to pipes, but we also get some new ones. Check out [the repo](https://github.com/auth0/angular2-pipes) for this tutorial to see the pipes in action and to learn how to create your own custom pipes. To see an example of a full Angular 2 app, read Auth0's tutorial on [creating your first Angular 2 app](https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/).
 
 ---
 
@@ -30,7 +31,7 @@ tags:
 
 ## From Filters to Pipes
 
-AngularJS 1.x filters are a great help for formatting output in our templates. With Angular 2, we get this same great feature, but now they are called **pipes**. At the time of this writing, there are an equal number of filters from Angular 1.x to pipes in Angular 2, but there isn't direct crossover. Here is a table for comparison:
+AngularJS 1.x filters are helpful for formatting output in our templates. With Angular 2, we get this same great feature, but they are now called **pipes**. At the time of this writing, Angular 1.x and Angular 2 have an equal number of filters to pipes, but there isn't direct crossover. The following table shows a comparison:
 
 <table class="table">
 <thead>
@@ -104,13 +105,13 @@ AngularJS 1.x filters are a great help for formatting output in our templates. W
 </tbody>
 </table>
 
-In this article we will explore the features provided by some of the pipes that weren't seen before in Angular 1.x filters. We'll also see how we can create a custom pipe of our own and use it in our templates. 
+In this article, we will explore the features provided by some of Angular 2's pipes that aren't comparable to Angular 1.x filters. We'll also learn how to create a custom pipe and use it in our templates. 
 
-You'll need to have an Angular 2 sandbox setup for this tutorial. A good one to get started with is [ng2-play](https://github.com/pkozlowski-opensource/ng2-play) by [Pawel Kozlowski](https://twitter.com/pkozlowski_os).
+You'll need to have an Angular 2 sandbox set up for this tutorial. A good one to get started with is [ng2-play](https://github.com/pkozlowski-opensource/ng2-play) by [Pawel Kozlowski](https://twitter.com/pkozlowski_os).
 
 ## Basic Pipes
 
-Many of the pipes provided by Angular 2 will be familiar if you have worked with fitlers in Angular 1.x. Pipes are accessed in our templates the same way that filters were--with the "pipe" character `|`. For example, we can use the `date` pipe to transform a date object anyway we like by providing it an argument for formatting:
+Many of the pipes provided by Angular 2 will be familiar if you've worked with fitlers in Angular 1.x. Pipes are accessed in our templates in the same way that filters were--with the "pipe" character `|`. For example, we can use the `date` pipe to transform a date object in any way we like by providing it with an argument for formatting:
 
 ```js
 // app.ts
@@ -137,7 +138,7 @@ class PipesAppComponent {
 bootstrap(PipesAppComponent);
 ```
 
-We pointed our `@View` decorator to a `templateUrl` where we make use of the `date` pipe: 
+We pointed our `@View` decorator to a `templateUrl` in which we make use of the `date` pipe: 
 
 ```html
   <!-- pipesTemplate.html -->
@@ -154,7 +155,7 @@ We pointed our `@View` decorator to a `templateUrl` where we make use of the `da
 
 ## New Pipes
 
-New in Angular 2 are the `decimal` and `percent` pipes. These take an argument that describes the "digit info" that should be used--that is, how many integer and fraction digits the number should be formatted with. The argument that we pass for formatting follows this pattern: `{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}`
+The `decimal` and `percent` pipes are new in Angular 2. These take an argument that describes the "digit info" that should be used--that is, how many integer and fraction digits the number should be formatted with. The argument we pass for formatting follows this pattern: `{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}`.
 
 **Note:** The `decimal` pipe is accessed using `number` in our templates.
 
@@ -191,7 +192,7 @@ class PipesAppComponent {
 
 ## The Async Pipe
 
-Angular 2 provides a special pipe called `async` which allows us to bind our templates directly to values that arrive asynchronously which is great for working with promises and observables. To see how this works, we'll create a simple promise and have it resolve with a string.
+Angular 2 provides a special pipe known as `async`, which allows us to bind our templates directly to values that arrive asynchronously. This ability is great for working with promises and observables. To see how this works, we'll create a simple promise and have it resolve with a string.
 
 ```js
 // app.ts
@@ -235,7 +236,7 @@ After a 2 second delay, the value from the resolved promise will be displayed on
 
 ## Custom Pipes
 
-Previous to Alpha 35, we had to configure our custom pipes with a `pipes` object. Now, however, we can define a pipe with the decorator `@Pipe` and use it by adding a `pipes` property to the `@View` decorator with the name of the pipe class. This makes it easier and more convenient to register our custom pipes.
+Before Alpha 35, we had to configure our custom pipes with a `pipes` object. However, we can now define a pipe with the decorator `@Pipe` and use it by adding a `pipes` property to the `@View` decorator with the name of the pipe class. This makes it easier and more convenient to register our custom pipes.
 
 ```js
 // app.ts
@@ -286,9 +287,9 @@ class PipesAppComponent {
   <!-- 29.4 C -->
   <h3>Celsius: {{ "{{temperature | tempConvert:'celsius':1" }}}}</h3>
 ```
-The `transform` method is where we do any logic to convert the `value` that is being passed in. We can get ahold of the arguments array as the second parameter and pass in as many as we like from the template. As you can see here, we check the type of conversion that we want (Fahrenheit to Celsius), convert the `value` passed in, and then return the converted value to the number of decimal places specified in the second argument of the pipe.
+We use the `transform` method to do any logic necessary to convert the `value` that is being passed in. We can get ahold of the arguments array as the second parameter and pass in as many as we like from the template. As you can see here, we check the type of conversion that we want (e.g., Fahrenheit to Celsius), convert the `value` passed in, and then return the converted value to the number of decimal places specified in the second argument of the pipe.
 
-As mentioned above, we need to provide an array to the `pipes` property in the `@View` decorator to make use of the new pipe.
+As mentioned above, we need to provide an array to the `pipes` property in the `@View` decorator to use the new pipe.
 
 ![angular2](https://cdn.auth0.com/blog/angular2-pipes/angular2-pipes-1-4.png)
 
@@ -300,7 +301,7 @@ Auth0 issues **JSON Web Tokens** on every login for your users. That means that 
 
 ## Wrapping Up
 
-Angular 2 gives us some great pipes that carry over well from the filters we are used to from Angular 1.x. We also get some new pipes that give us special functionality, like the `async` pipe that binds our templates to asynchronous resources. It's also easy to create our own pipes via the `@Pipe` decorator and the `pipes` key in our `@View` decorators.
+Angular 2 provides some great pipes that carry over well from the filters we are used to in Angular 1.x. We also get some new pipes that give us special functionality, such as the `async` pipe, which binds our templates to asynchronous resources. It's also easy to create our own pipes via the `@Pipe` decorator and the `pipes` key in our `@View` decorators.
 
 You can find the code for this tutorial on [GitHub](https://github.com/auth0/angular2-pipes).
 
