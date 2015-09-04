@@ -2,7 +2,7 @@
 layout: post
 title: "An Introduction to Microservices, Part 1"
 description: "Learn what are microservices and how they are used in the industry"
-date: 2015-09-03 18:00
+date: 2015-09-04 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -179,10 +179,15 @@ The latest newcomer to the world of microservices is [webtask.io](https://webtas
 
 ```sh
 npm install wt-cli -g
-wt init your.name@email.com # This will send an activation link to your email.
 
+# This will send an activation link to your email. One time only.
+wt init your.name@email.com 
+
+# This will return a new endpoint for your webtask
 wt create https://raw.githubusercontent.com/sebadoom/auth0/master/microservices/microservice-1-webtask/server.js
-curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/0214e081084da52e5dd32915232242d8?webtask_no_cache=1
+
+# Use the endpoint here (we have setup a sample DB for this example)
+curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/0214e081084da52e5dd32915232242d8/tickets\?webtask_no_cache\=1\&MONGO_URL\=mongodb://test:test@ds035553.mongolab.com:35553/microservices -v
 ```
 
 See the [code](https://github.com/sebadoom/auth0/blob/master/microservices/microservice-1-webtask/server.js). Compare it with our previous version and see how little we needed to change.
