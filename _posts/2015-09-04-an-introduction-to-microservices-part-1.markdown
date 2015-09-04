@@ -190,7 +190,7 @@ wt create https://raw.githubusercontent.com/sebadoom/auth0/master/microservices/
 curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/0214e081084da52e5dd32915232242d8/tickets\?webtask_no_cache\=1\&MONGO_URL\=mongodb://test:test@ds035553.mongolab.com:35553/microservices -v
 ```
 
-See the [code](https://github.com/sebadoom/auth0/blob/master/microservices/microservice-1-webtask/server.js). Compare it with our previous version and see how little we needed to change.
+See the [code](https://github.com/sebadoom/auth0/blob/master/microservices/microservice-1-webtask/server.js). Compare it with our previous version and see how little we changed.
 
 ## Conclusion
 Microservices are the new way of doing distributed computing. Advances in deployment and monitoring tools have eased the pain involved in managing many independent services. The benefits are clear: using the right tool for the right problem, and letting teams use their specific know-how to tackle each problem. The hard part is dealing with shared data. Special considerations must be taken into account when dealing with shared data and inter-service dependencies. Data modeling is an essential step in any design, and is even more so in the case of a microservices-based architecture. We will explore other common patterns and practices in detail in the following articles.
