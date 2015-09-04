@@ -176,7 +176,14 @@ http.createServer(app).listen(port, function (err) {
 Get the [code](https://github.com/sebadoom/auth0/tree/master/microservices/microservice-1).
 
 ## Aside: Interested in microservices? You will love webtasks!
-The latest newcomer to the world of microservices is [webtask.io](https://webtask.io). While other solutions provide convenient ways to deploy an application and keep it running, webtask.io takes it a step further by providing a simple, automated way to distribute and run whole-code services to a remote virtualized hardware provider. In other words, deployment, instantiation, and routing are now easier than ever. This makes working with microservices a piece of cake. We have converted the example above to a webtask, check it out:
+Microservices are an important part of our stack at Auth0, and we have come up with a great way of making it even easier to use them. Check out [webtask.io](https://webtask.io).
+
+- **Lightweight** and **simple** development workflow.
+- Streamlined **deployment**.
+- Powerful **security model** convenient for both HTML5 and mobile apps.
+- **Web-friendly** programming model suitable for both HTML and data APIs.
+
+We have converted the example above to a webtask, see how easy it is:
 
 ```sh
 npm install wt-cli -g
