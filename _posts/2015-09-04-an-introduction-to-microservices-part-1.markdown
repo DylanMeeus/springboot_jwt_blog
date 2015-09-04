@@ -10,7 +10,7 @@ author:
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
   bg_color: "#596D5F"
-  image: http://cdn.auth0.com/blog/post-images/microservices2.svg
+  image: https://cdn.auth0.com/blog/post-images/microservices2.svg
   image_size: "60%"
   image_bg_color: "#596D5F"
   blog_series: true
