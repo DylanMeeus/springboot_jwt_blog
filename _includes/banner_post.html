@@ -5,7 +5,7 @@
   {% assign current = post %}
 {% endif %}
 
-<div class="banner banner-post" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}>
+<div class="banner banner-post{% if current.design.blog_series %} blog-series{% endif %}" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}>
     <div class="container banner-container">
         <i class="icon-budicon-697 hide"></i>
 
