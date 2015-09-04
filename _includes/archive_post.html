@@ -10,7 +10,7 @@ Archives include: "by tags" and "by time" archives.
   {% assign current = post %}
 {% endif %}
 
-<li class="post">
+<li class="post {% if current.design.blog_series %} blog-series{% endif %}">
   {% include entry_image.html %}
 
   <h2 class="entry-title"><a href="{{ site.baseurl }}{{current.url}}" title="Published: {{ current.date | date: "%B %d, %Y" }}">{{ current.title }}</a></h2>

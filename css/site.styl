@@ -120,7 +120,7 @@ p,li
   background: #354171;
   padding: 20px 0;
   margin-bottom: 15px;
-
+  
   .banner-container
     -webkit-animation: none;
     animation: none;
@@ -178,6 +178,23 @@ p,li
   .network,
   .date
     color: white;
+
+.blog-series
+  &.banner-post
+    .entry-title:before
+      color: white;
+      
+  .entry-title
+    &:before
+      content: "blog series";
+      display: block;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      padding: 10px;
+      color: currentColor;
+      opacity: 0.7;
 
 .entry-title
   font-size: 24px;

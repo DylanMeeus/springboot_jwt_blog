@@ -13,6 +13,7 @@ design:
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
+  blog_series: true
 tags: 
 - angular2
 - angularjs
