@@ -37,7 +37,7 @@ In this **post series**, we will explore the world of microservices, how it can 
 ## What is a microservice?
 A microservice is an **isolated**, **loosely-coupled** unit of development that works on a **single concern**. This is similar to the old "Unix" way of doing things: do one thing, and do it well. Matters such as how to "combine" whatever is provided by the service are left to higher layers or to policy. This usually means that microservices tend to avoid interdependencies: if one microservice has a hard requirement for other microservices, then you should ask yourself if it makes sense to make them all part of the same unit.
 
-![Typical microservices diagram](https://cdn.auth0.com/blog/microservices/Microservices.png)
+![Typical microservices diagram](https://cdn.auth0.com/blog/microservices/Microservices2.png)
 
 What makes microservices particularly attractive to development teams is their **independence**. Teams can work on a problem or group of problems on their own. This creates several attractive qualities favored by many developers:
 
