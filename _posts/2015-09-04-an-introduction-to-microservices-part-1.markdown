@@ -167,7 +167,7 @@ http.createServer(app).listen(port, function (err) {
 
 - **One thing and one thing only**: Our microservice's single concern is querying for the full list of tickets. Nothing more. Authentication, CORS and other concerns are to be handled by upper layers in our architecture.
 - **Logging**: We have kept logging using the 'winston' library. For now we will just log to the console, but in later versions we will push logs in a predefined format to a centralized location for analysis.
-- **No dependencies**: Our microservice has now dependencies on other microservices.
+- **No dependencies**: Our microservice has no dependencies on other microservices.
 - **Easily scaled**: With no dependencies, a separate process, and operating on a single concern our microservice can easily be scaled.
 - **Small and readable**: Our microservice is small and readable. New developers can modify or rewrite it in no time.
 - **Data sharing**: For now our microservice reads data from its own database. We will explore in future posts what happens when other microservices need to update or create tickets.
