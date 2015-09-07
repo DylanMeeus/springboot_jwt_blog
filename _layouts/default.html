@@ -16,6 +16,8 @@
     <script src="//use.typekit.net/tde2fii.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <script type="text/javascript" src="//cdn.auth0.com/js/lock-6.min.js"></script>
     <script type="text/javascript" src="//cdn.auth0.com/web-header/latest/standalone.min.js"></script>
     <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
@@ -77,6 +79,74 @@
         }
         }();
     </script>
+
+    <script src="//cdn.auth0.com/js/ab/ab-0.js"></script>
+    <script src="//cdn.auth0.com/js/ab/ab-loader-0.js"></script>
+
+    <script>
+    try {
+      window.abTestingLib.load({ fetchFn: function () { return $.get("https://ab.it.auth0.com/"); }});
+      window.abTestingLib.integration('auth0metrics').start({ metrics: window.metricsLib});
+      window.abTestingLib.start();
+
+      window.abTestingLib.onReady(function (ab) {
+        try {
+          window.abLoaded = true;
+          // Save experiments on the global scope
+          window.experiments = ab.getExperiments();
+
+          executeABExperiments();
+        } catch (e) {
+          console.error('Error running AB experiments.');
+          $('#pjax').css('visibility', 'visible');
+          window.abLoaded = true;
+        }
+      });
+
+    } catch (e) {
+      console.error('Error initializing ABTesting lib. ABTesting will be disabled');
+      $('#pjax').css('visibility', 'visible');
+      window.abLoaded = true;
+    }
+    </script>
+
+    <script>
+    function executeABExperiments () {
+      var path = window.location.pathname;
+      var experiments = window.experiments;
+
+      if(!window.abLoaded) {
+        return;
+      }
+
+      if(!experiments) {
+        // Restore content
+        $('#pjax').css('visibility', 'visible');
+        return;
+      }
+
+      try {
+        var experimentsForPath = experiments.runAllByPath(path);
+        var winningVariants = [];
+
+        experimentsForPath.experiments.forEach(function (e) {
+          winningVariants = winningVariants.concat(e.getCurrentVariant().getPropertiesByType('js'));
+        });
+
+        var variantContext = {};
+        variantContext.$ = $;
+
+        winningVariants.forEach(function(v) {
+          v.runInContext(variantContext);
+        });
+      } catch (e) {
+        console && console.error("Error running experiments for path:%s", path);
+      } finally {
+        // Restore content
+        $('#pjax').css('visibility', 'visible');
+      }
+    }
+    </script>
     <link rel="stylesheet" href="//cdn.auth0.com/web-header/latest/standalone.min.css" />
 
     {% if page.meta-robots %}
@@ -111,7 +181,7 @@
         header.render('header.site-header');
       })();
     </script>
-    <div id="pjax">
+    <div id="pjax" style="visibility: hidden;">
 
       <!-- Facebook -->
       <div id="fb-root"></div>
@@ -138,8 +208,6 @@
       {% include footer.html %}
     </div>
 
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -204,7 +272,6 @@
       })();
 
       $(function() {
-
         function isTouch() {
           return !!('ontouchstart' in window);
         }
@@ -335,11 +402,16 @@
             })
             .on('pjax:success pjax:popstate', function() {
 
+              // Hide content until the ab/experiments run
+              $('#pjax').css('visibility', 'hidden');
+
               initialize();
 
               NProgress.done();
 
               metricsLib.page();
+
+              executeABExperiments();
             });
 
           if(isTouch()) {
