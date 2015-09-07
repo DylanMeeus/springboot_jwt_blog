@@ -97,12 +97,16 @@
 
           executeABExperiments();
         } catch (e) {
-          null !== console && console.error('Error running AB experiments.');
+          console.error('Error running AB experiments.');
+          $('#pjax').css('visibility', 'visible');
+          window.abLoaded = true;
         }
       });
 
     } catch (e) {
-      null !== console && console.error('Error initializing ABTesting lib. ABTesting will be disabled');
+      console.error('Error initializing ABTesting lib. ABTesting will be disabled');
+      $('#pjax').css('visibility', 'visible');
+      window.abLoaded = true;
     }
     </script>
 
@@ -116,14 +120,13 @@
       }
 
       if(!experiments) {
+        // Restore content
+        $('#pjax').css('visibility', 'visible');
         return;
       }
 
       try {
         var experimentsForPath = experiments.runAllByPath(path);
-
-        console.dir(experimentsForPath);
-
         var winningVariants = [];
 
         experimentsForPath.experiments.forEach(function (e) {
@@ -138,6 +141,9 @@
         });
       } catch (e) {
         console && console.error("Error running experiments for path:%s", path);
+      } finally {
+        // Restore content
+        $('#pjax').css('visibility', 'visible');
       }
     }
     </script>
@@ -175,7 +181,7 @@
         header.render('header.site-header');
       })();
     </script>
-    <div id="pjax">
+    <div id="pjax" style="visibility: hidden;">
 
       <!-- Facebook -->
       <div id="fb-root"></div>
@@ -266,7 +272,6 @@
       })();
 
       $(function() {
-
         function isTouch() {
           return !!('ontouchstart' in window);
         }
@@ -389,7 +394,6 @@
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           metricsLib.page();
-          executeABExperiments();
 
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
@@ -398,11 +402,15 @@
             })
             .on('pjax:success pjax:popstate', function() {
 
+              // Hide content until the ab/experiments run
+              $('#pjax').css('visibility', 'hidden');
+
               initialize();
 
               NProgress.done();
 
               metricsLib.page();
+
               executeABExperiments();
             });
 
