@@ -241,7 +241,7 @@ function roleCheck(user, service) {
 Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/gateway).
 
 ## Aside: Too complex? Webtasks do all of this for you!
-We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching, centralized logging so that you don't have too. Check the [docs]().
+We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching, centralized logging so that you don't have too. Check the [docs](https://webtask.io/docs/how).
 
 IMAGE HERE?
 
