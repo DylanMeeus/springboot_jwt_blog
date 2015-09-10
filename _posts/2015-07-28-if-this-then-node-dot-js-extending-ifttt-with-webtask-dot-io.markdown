@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "If This Then Node.js"
-description: Extending IFTTT With Webtask.io
+description: In this article we'll build a simple IFTTT channel to log words used in the headers and bylines of articles we save with Pocket.
 date: 2015-07-28 15:39
 author:
   name: Milo Mordaunt
