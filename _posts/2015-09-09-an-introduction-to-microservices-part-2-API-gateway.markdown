@@ -65,7 +65,7 @@ Our example is a simple node.js gateway. It handles HTTP requests and forwards t
 
 - Authentication using **JWT**. A single endpoint handles initial authentication: /login. Users are stored in a Mongo database and access to endpoints is restricted by roles.
 - Transport security is handled through **TLS**: all public requests are received first by a reverse nginx proxy setup with sample certificates.
-- Load-balancing is handled by **nginx**. See the sample [config]().
+- Load-balancing is handled by **nginx**. See the sample [config](https://github.com/sebadoom/auth0/blob/master/microservices/gateway/nginx.conf).
 - Requests are **dynamically dispatched** according to a configuration stored in a database. Two types of requests are supported: HTTP and AMQP.
 - Requests support the **aggregation strategy** for splitting requests among several microservices: a single public endpoint may aggregate data from many different internal endpoints (microservices). All returned data is in JSON format.
 - **Failed internal requests** are handled by logging the error and returning less information than requested.
