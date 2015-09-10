@@ -10,7 +10,7 @@ author:
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
   image_bg_color: "#dbdbdb"
-  bg_color: "#7f8c8d"
+  bg_color: "#36243F"
   image: https://cdn.auth0.com/blog/auth-observables/rxjs-logo.png
   image_size: "80%"
 tags: 
