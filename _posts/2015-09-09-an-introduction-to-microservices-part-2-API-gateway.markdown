@@ -2,7 +2,7 @@
 layout: post
 title: "An Introduction to Microservices, Part 2: The API Gateway"
 description: "Learn about API gateways and how they work in a microservice-based architecture"
-date: 2015-09-04 18:00
+date: 2015-09-11 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -27,7 +27,7 @@ tags:
 - API gateway
 ---
 
-In this post of the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](http://add-me) in the series. 
+In this post of the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) in the series. 
 
 -----
 
@@ -61,8 +61,189 @@ As microservices deal with very specific concerns, some microservice-based archi
 As we learnt in the first post of this series, microservices are usually developed in isolation and development teams have great flexibility with regards to the development platform. This may result in microservices that return data and use transports that are not convenient for clients at the other side of the gateway. The gateway must perform the necessary transformations so that clients can still communicate with microservices behind it.
 
 ## An API gateway example
+Our example is a simple node.js gateway. It handles HTTP requests and forwards them to the appropiate internal endpoints (performing the necessary transformations in transit). It handles the following concerns:
 
-TODO
+- Authentication using **JWT**. A single endpoint handles initial authentication: /login. Users are stored in a Mongo database and access to endpoints is restricted by roles.
+- Transport security is handled through **TLS**: all public requests are received first by a reverse nginx proxy setup with sample certificates.
+- Load-balancing is handled by **nginx**. See the sample [config]().
+- Requests are **dynamically dispatched** according to a configuration stored in a database. Two types of requests are supported: HTTP and AMQP.
+- Requests support the **aggregation strategy** for splitting requests among several microservices: a single public endpoint may aggregate data from many different internal endpoints (microservices). All returned data is in JSON format.
+- **Failed internal requests** are handled by logging the error and returning less information than requested.
+- **Transport transformations** are performed to convert between HTTP and AMQP requests.
+- **Logging** is centralized: all logs are published to the console and to an internal message-bus. Other services listening on the message-bus can take action according to these logs.
+
+### Authentication
+```javascript
+/*
+ * Simple login: returns a JWT if login data is valid.
+ */
+function doLogin(req, res) {
+    getData(req).then(function(data) { 
+        try {
+            var loginData = JSON.parse(data);
+            User.findOne({ username: loginData.username }, function(err, user) { 
+                if(err) {
+                    logger.error(err);
+                    send401(res);
+                    return;
+                }
+            
+                if(user.password === loginData.password) {
+                    var token = jwt.sign({}, secretKey, {
+                        subject: user.username,
+                        issuer: issuerStr
+                    });
+                    
+                    res.writeHeader(200, {
+                        'Content-Length': token.length,
+                        'Content-Type': "text/plain"
+                    });
+                    res.write(token);
+                    res.end();                
+                } else {
+                    send401(res);
+                }
+            }, 'users');
+        } catch(err) {
+            logger.error(err);            
+            send401(res);
+        }
+    }, function(err) {
+        logger.error(err);            
+        send401(res);
+    });
+}
+
+/*
+ * Authentication validation using JWT. Strategy: find existing user.
+ */
+function validateAuth(data, callback) {
+    if(!data) {
+        callback(null);
+        return;
+    }
+    
+    data = data.split(" ");
+    if(data[0] !== "Bearer" || !data[1]) {
+        callback(null);
+        return;
+    }
+    
+    var token = data[1];    
+    try {
+        var payload = jwt.verify(token, secretKey);
+        // Custom validation logic, in this case we just check that the 
+        // user exists
+        User.findOne({ username: payload.sub }, function(err, user) {
+            if(err) {
+                logger.error(err);
+            } else {
+                callback({
+                    user: user,
+                    jwt: payload 
+                });
+            }
+        });                
+    } catch(err) {
+        logger.error(err);
+        callback(null);
+    }
+}
+```
+
+### Dynamic dispatching and data aggregation
+```javascript
+/* 
+ * Parses the request and dispatches multiple concurrent requests to each
+ * internal endpoint. Results are aggregated and returned.
+ */
+function serviceDispatch(req, res) {
+    var parsedUrl = url.parse(req.url);
+    
+    Service.findOne({ url: parsedUrl.pathname }, function(err, service) {
+        if(err) {
+            logger.error(err);
+            send500(res);
+            return;
+        }
+    
+        var authorized = roleCheck(req.context.authPayload.user, service);
+        if(!authorized) {
+            send401(res);
+            return;
+        }       
+        
+        // Fanout all requests to all related endpoints. 
+        // Results are aggregated (more complex strategies are possible).
+        var promises = [];
+        service.endpoints.forEach(function(endpoint) {   
+            logger.debug(sprintf('Dispatching request from public endpoint ' + 
+                '%s to internal endpoint %s (%s)', 
+                req.url, endpoint.url, endpoint.type));
+                         
+            switch(endpoint.type) {
+                case 'http-get':
+                case 'http-post':
+                    promises.push(httpPromise(req, endpoint.url, 
+                        endpoint.type === 'http-get'));
+                    break;
+                case 'amqp':
+                    promises.push(amqpPromise(req, endpoint.url));
+                    break;
+                default:
+                    logger.error('Unknown endpoint type: ' + endpoint.type);
+            }            
+        });
+        
+        //Agreggation strategy for multiple endpoints.
+        Q.allSettled(promises).then(function(results) {
+            var responseData = {};
+        
+            results.forEach(function(result) {
+                if(result.state === 'fulfilled') {
+                    responseData = _.extend(responseData, result.value);
+                } else {
+                    logger.error(result.reason.message);
+                }
+            });
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(responseData));
+        });
+    }, 'services');
+}
+```
+
+### Role checks
+```javascript
+var User = userDb.model('User', new mongoose.Schema ({
+    username: String,
+    password: String,
+    roles: [ String ]
+}));
+
+var Service = servicesDb.model('Service', new mongoose.Schema ({
+    name: String,
+    url: String,
+    endpoints: [ new mongoose.Schema({
+        type: String,
+        url: String
+    }) ],
+    authorizedRoles: [ String ]
+}));
+
+function roleCheck(user, service) {
+    var intersection = _.intersection(user.roles, service.authorizedRoles);
+    return intersection.length === service.authorizedRoles.length;
+}
+```
+
+Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/gateway).
+
+## Aside: Too complex? Webtasks do all of this for you!
+We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching, centralized logging so that you don't have too. Check the [docs]().
+
+IMAGE HERE?
 
 ## Conclusion
 API gateways are an essential part of any microservice-based architecture. Cross-cutting concerns such as authentication, load balancing, dependency resolution, data transformations and dynamic request dispatching can be handled in a convenient and generic way. Microservices can then focus on their specific tasks without code-duplication. This results in easier and faster development for each microservice.
