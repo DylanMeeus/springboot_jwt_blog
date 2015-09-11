@@ -27,7 +27,7 @@ tags:
 - API gateway
 ---
 
-In this post of the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) in the series. 
+In this post in the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) in the series. 
 
 -----
 
@@ -46,24 +46,24 @@ In all service-based architectures there are several concerns that are shared am
 Most gateways perform some sort of authentication for each request (or series of requests). According to rules that are specific to each service, the gateway either routes the request to the requested microservice(s) or returns an error code (or less information). Most gateways add authentication information to the request when passing it to the microservice behind them. This allows microservices to implement user specific logic whenever required.
 
 ### Security
-Many gateways function as a single entry point for a public API. In such cases, gateways handle transport security and then dispatch the requests either by using a different secure channel, or by removing security constraints that are not necessary inside the internal network. For instance, for a RESTful HTTP API, a gateway may perform "SSL termination": a secure SSL connection is established between clients and the gateway; proxied requests are then sent over non-SSL connections to internal services.
+Many gateways function as a single entry point for a public API. In such cases, the gateways handle transport security and then dispatch the requests either by using a different secure channel or by removing security constraints that are not necessary inside the internal network. For instance, for a RESTful HTTP API, a gateway may perform "SSL termination": a secure SSL connection is established between the clients and the gateway, and proxied requests are then sent over non-SSL connections to internal services.
 
 ### Load-balancing
-Under high-load scenarios, gateways can distribute requests among microservice-instances according to custom logic. Each service may have specific scaling limitations. Gateways are desgined to balance load taking these limitations into account. For instance, some services may scale by having multiple instances running under different internal endpoints. Gateways can dispatch requests to these endpoints (or even request the dynamic instantiation of more endpoints) to handle load.
+Under high-load scenarios, gateways can distribute requests among microservice-instances according to custom logic. Each service may have specific scaling limitations. Gateways are designed to balance the load by taking these limitations into account. For instance, some services may scale by having multiple instances running under different internal endpoints. Gateways can dispatch requests to these endpoints (or even request the dynamic instantiation of more endpoints) to handle load.
 
 ### Request-dispatching
-Even under normal-load scenarios, gateways can provide custom logic for dispatching requests. In big architectures, internal endpoints are added and removed as teams work or new microservice instances are spawned (due to topology changes, for instance). Gateways may work in tandem with service registration/discovery processes or databases that describe how to dispatch each request. This provides exceptional flexibility to development teams. Additionaly, faulty services can be routed to backup or generic services that allow the request to complete rather than fail completely.
+Even under normal-load scenarios, gateways can provide custom logic for dispatching requests. In big architectures, internal endpoints are added and removed as teams work or new microservice instances are spawned (due to topology changes, for instance). Gateways may work in tandem with service registration/discovery processes or databases that describe how to dispatch each request. This provides exceptional flexibility to development teams. Additionally, faulty services can be routed to backup or generic services that allow the request to complete rather than fail completely.
 
 ### Dependency resolution
 As microservices deal with very specific concerns, some microservice-based architectures tend to become "chatty": to perform useful work, many requests need to be sent to many different services. For convenience and performance reasons, gateways may provide facades ("virtual" endpoints) that internally are routed to many different microservices.
 
 ### Transport transformations
-As we learnt in the first post of this series, microservices are usually developed in isolation and development teams have great flexibility with regards to the development platform. This may result in microservices that return data and use transports that are not convenient for clients at the other side of the gateway. The gateway must perform the necessary transformations so that clients can still communicate with microservices behind it.
+As we learnt in the first post of this series, microservices are usually developed in isolation and development teams have great flexibility in choosing the development platform. This may result in microservices that return data and use transports that are not convenient for clients on the other side of the gateway. The gateway must perform the necessary transformations so that clients can still communicate with the microservices behind it.
 
 ## An API gateway example
-Our example is a simple node.js gateway. It handles HTTP requests and forwards them to the appropiate internal endpoints (performing the necessary transformations in transit). It handles the following concerns:
+Our example is a simple node.js gateway. It handles HTTP requests and forwards them to the appropriate internal endpoints (performing the necessary transformations in transit). It handles the following concerns:
 
-- Authentication using **JWT**. A single endpoint handles initial authentication: /login. Users are stored in a Mongo database and access to endpoints is restricted by roles.
+- Authentication using **JWT**. A single endpoint handles initial authentication: /login. User details are stored in a Mongo database and access to endpoints is restricted by roles.
 - Transport security is handled through **TLS**: all public requests are received first by a reverse nginx proxy setup with sample certificates.
 - Load-balancing is handled by **nginx**. See the sample [config](https://github.com/sebadoom/auth0/blob/master/microservices/gateway/nginx.conf).
 - Requests are **dynamically dispatched** according to a configuration stored in a database. Two types of requests are supported: HTTP and AMQP.
@@ -195,7 +195,7 @@ function serviceDispatch(req, res) {
             }            
         });
         
-        //Agreggation strategy for multiple endpoints.
+        //Aggregation strategy for multiple endpoints.
         Q.allSettled(promises).then(function(results) {
             var responseData = {};
         
@@ -241,11 +241,11 @@ function roleCheck(user, service) {
 Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/gateway).
 
 ## Aside: Too complex? Webtasks do all of this for you!
-We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching, centralized logging so that you don't have too. Check the [docs](https://webtask.io/docs/how).
+We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. Check the [docs](https://webtask.io/docs/how).
 
 IMAGE HERE?
 
 ## Conclusion
-API gateways are an essential part of any microservice-based architecture. Cross-cutting concerns such as authentication, load balancing, dependency resolution, data transformations and dynamic request dispatching can be handled in a convenient and generic way. Microservices can then focus on their specific tasks without code-duplication. This results in easier and faster development for each microservice.
+API gateways are an essential part of any microservice-based architecture. Cross-cutting concerns such as authentication, load balancing, dependency resolution, data transformations and dynamic request dispatching can be handled in a convenient and generic way. Microservices can then focus on their specific tasks without code-duplication. This results in easier and faster development of each microservice.
 
 
