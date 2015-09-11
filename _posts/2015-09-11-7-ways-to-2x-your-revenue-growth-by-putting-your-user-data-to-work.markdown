@@ -62,7 +62,9 @@ Auth0 rules run on the server, so you get the reliability of server-side analyti
 
 * You don’t have to go through the complex process of wiring your internal code with API calls to analytics providers.
 * You write your rules in the browser on Auth0, so you don’t need to write more code in your app or add any additional infrastructure.
-* Rules are sandboxed and they run on Auth0, so they won’t break your app when they fail. 
+* Rules are [sandboxed](https://webtask.io) and they run on Auth0, so they won’t break your app (and nobody elses) when they fail.
+
+> Aside: Auth0 developed a specialized multi-tenant sandbox technology called [webtask](https://webtask.io) to run the untrusted code submitted by customers. Webtask will ensure that the code runs in isolation, with certain CPU, RAM and I/O limits and without interfering with other tenants.
 
 When analytics are a pain to set up and maintain, they add to your technical debt, you move slower on product, and you stop short of collecting enough data. When your data is inaccurate, at best, you’ll send marketing messages that people ignore or that piss people off. At worst, you won’t trust your data enough to look at it or use it at all.
 
