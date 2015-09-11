@@ -162,18 +162,14 @@ These serendipitous events—made possible by sharing marketing data with the wh
 
 ```
 function(user, context, callback) {
-  user.app_metadata = user.app_metadata || {};
-
-  if(user.app_metadata.signedUp){
+  if(context.stats.loginsCount > 1){
     sendEvent('Logged in');
   } else {
     sendEvent('Signed up');
   }
 
-  function sendEvent(e)
-  {
-    var sioTrack =  
-    {
+  function sendEvent (e) {
+    var sioTrack = {
       userId: user.user_id,
       event: e,
       properties: {
@@ -184,6 +180,9 @@ function(user, context, callback) {
         "userAgent" : context.request.userAgent
       }
     };
+
+    // Segment API returns 200 OK for all its request. For possible errors
+    // you must use Segment's Debugger (https://segment.com/docs/libraries/http/#errors)
     request({
       method: 'POST',
       url: 'https://SEGMENTIO_WRITE_KEY@api.segment.io/v1/track',
@@ -191,23 +190,10 @@ function(user, context, callback) {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(sioTrack),
-    }, 
-    function (err, response, body) {
-      if(err) return callback(err, user, context);
-      if(e === 'Signed up') {
-        user.app_metadata.signedUp = true;
-        auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-          .then(function(){
-            callback(null, user, context);
-          })
-          .catch(function(err){
-            callback(err);
-          });
-      } else {
-        callback(null, user, context);
-      }
     });
   }
+
+  callback(null, user, context);
 }
 ```
 
