@@ -9,8 +9,10 @@ author:
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60design
 design: 
-  bg_color: "#147D7A"
-  image: https://cdn.auth0.com/blog/grow-revenue/dollars.png
+  bg_color: "#375F89"
+  image: http://cdn.auth0.com/blog/post-images/datalogo_big.svg
+  image_bg_color: "#B2D7FF"
+  image_size: "60%"
 tags: 
 - marketing
 - rules
