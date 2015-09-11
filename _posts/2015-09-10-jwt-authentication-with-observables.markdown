@@ -32,7 +32,7 @@ Reactive programming has been gaining a lot of popularity in recent years. In th
 
 In this tutorial, we'll see how we can implement Reactive programming by creating a simple app that fetches and displays data. We'll also see how we can handle authentication in our app and have what we'll call "authenticable observables". Our goal throughout this tutorial is to see how we can shift our thinking about app architecture. We'll move away from the simple Promise-based asynchronous models we're used to and see how we can benefit from working with Observables.
 
-## What We'll Build
+## Building Our Reactive App
 
 We'll make use of Auth0's trusty [NodeJS backend](https://github.com/auth0/nodejs-jwt-authentication-sample) that serves us both public and private Chuck Norris quotes. The API uses JWT authentication, which is perfect for our case, as we'll want to see how we can use observables to handle JWTs. We'll also be using [The Reactive Extensions for JavaScript](https://github.com/Reactive-Extensions/RxJS), otherwise known as RxJS, which is a set of libraries that provide a wealth of tooling for working with observables. To actually retrieve data, we'll use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). 
 
@@ -459,6 +459,8 @@ var loginStream = loginClickStream
 If we enter a username of "hello@bye.com" and password of "hello", we see that we get a JWT back.
 
 ![reactive](https://cdn.auth0.com/blog/auth-observables/auth-observables-1-5.png)
+
+If you'd like to explore Auth0's API further, head over to the [docs](https://auth0.com/docs/auth-api). For help while working with JWT's you can also check out [Auth0's JWT debugger](http://jwt.io/).
 
 ## Wrapping Up
 
