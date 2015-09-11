@@ -106,6 +106,8 @@ function (user, context, callback) {
     user.user_metadata.fullcontact = JSON.parse(body);
 
     auth0.users.updateUserMetadata(user.user_id, user.user_metadata);
+    
+    // don’t wait for the FullContact API call to finish, return right away (the request will continue on the sandbox)`
     return callback(null, user, context);
   });
 }
@@ -141,6 +143,8 @@ function(user, context, callback) {
     text:  message,
     channel: channel
   });
+  
+  callback(null, user, context);
 }
 ```
 
@@ -192,7 +196,8 @@ function(user, context, callback) {
       body: JSON.stringify(sioTrack),
     });
   }
-
+  
+  // don’t wait for the Segment API call to finish, return right away (the request will continue on the sandbox)`
   callback(null, user, context);
 }
 ```
@@ -253,7 +258,8 @@ function(user, context, callback) {
       });
     }
   });
-
+  
+  // don’t wait for the keen API call to finish, return right away (the request will continue on the sandbox)`
   callback(null, user, context);
 }
 ```
@@ -297,7 +303,8 @@ function (user, context, callback) {
     url: ZAP_HOOK_URL,
     json: payload_to_zap
   });
-
+  
+  // don’t wait for the ZAP HOOK call to finish, return right away (the request will continue on the sandbox)`
   callback(null, user, context);
 }
 ```
