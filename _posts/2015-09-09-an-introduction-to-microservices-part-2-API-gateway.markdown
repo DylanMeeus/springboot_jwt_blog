@@ -2,7 +2,7 @@
 layout: post
 title: "An Introduction to Microservices, Part 2: The API Gateway"
 description: "Learn about API gateways and how they work in a microservice-based architecture"
-date: 2015-09-11 18:00
+date: 2015-09-13 09:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -243,7 +243,7 @@ Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/
 ## Aside: Too complex? Webtasks do all of this for you!
 We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. Check the [docs](https://webtask.io/docs/how).
 
-IMAGE HERE?
+![Webtask](http://cdn.auth0.com/blog/post-images/webtask.png)
 
 ## Conclusion
 API gateways are an essential part of any microservice-based architecture. Cross-cutting concerns such as authentication, load balancing, dependency resolution, data transformations and dynamic request dispatching can be handled in a convenient and generic way. Microservices can then focus on their specific tasks without code-duplication. This results in easier and faster development of each microservice.
