@@ -63,16 +63,9 @@ As we learnt in the first post of this series, microservices are usually develop
 ## An API gateway example
 Our example is a simple node.js gateway. It handles HTTP requests and forwards them to the appropriate internal endpoints (performing the necessary transformations in transit). It handles the following concerns:
 
-- Authentication using **JWT**. A single endpoint handles initial authentication: /login. User details are stored in a Mongo database and access to endpoints is restricted by roles.
-- Transport security is handled through **TLS**: all public requests are received first by a reverse nginx proxy setup with sample certificates.
-- Load-balancing is handled by **nginx**. See the sample [config](https://github.com/sebadoom/auth0/blob/master/microservices/gateway/nginx.conf).
-- Requests are **dynamically dispatched** according to a configuration stored in a database. Two types of requests are supported: HTTP and AMQP.
-- Requests support the **aggregation strategy** for splitting requests among several microservices: a single public endpoint may aggregate data from many different internal endpoints (microservices). All returned data is in JSON format. See this excellent [post by Netflix](http://techblog.netflix.com/2013/01/optimizing-netflix-api.html) on how this strategy helped them achieve better performance. Also check our [post on Falcor](https://auth0.com/blog/2015/08/28/getting-started-with-falcor/) which allows for easy data fetching from many sources.
-- **Failed internal requests** are handled by logging the error and returning less information than requested.
-- **Transport transformations** are performed to convert between HTTP and AMQP requests.
-- **Logging** is centralized: all logs are published to the console and to an internal message-bus. Other services listening on the message-bus can take action according to these logs.
-
 ### Authentication
+Authentication using **JWT**. A single endpoint handles initial authentication: /login. User details are stored in a Mongo database and access to endpoints is restricted by roles.
+
 ```javascript
 /*
  * Simple login: returns a JWT if login data is valid.
@@ -155,7 +148,19 @@ function validateAuth(data, callback) {
 
 > Disclaimer: the code shown in this post is not production ready. It is used just to show concepts. Don't copy paste it blindly :)
 
-### Dynamic dispatching and data aggregation
+### Transport security
+Transport security is handled through **TLS**: all public requests are received first by a reverse nginx proxy setup with sample certificates.
+
+### Load balancing
+Load-balancing is handled by **nginx**. See the sample [config](https://github.com/sebadoom/auth0/blob/master/microservices/gateway/nginx.conf).
+
+### Dynamic dispatching, data aggregation and failures
+Requests are **dynamically dispatched** according to a configuration stored in a database. Two types of requests are supported: HTTP and AMQP.
+
+Requests also support the **aggregation strategy** for splitting requests among several microservices: a single public endpoint may aggregate data from many different internal endpoints (microservices). All returned data is in JSON format. See this excellent [post by Netflix](http://techblog.netflix.com/2013/01/optimizing-netflix-api.html) on how this strategy helped them achieve better performance. Also check our [post on Falcor](https://auth0.com/blog/2015/08/28/getting-started-with-falcor/) which allows for easy data fetching from many sources.
+
+**Failed internal requests** are handled by logging the error and returning less information than requested.
+
 ```javascript
 /* 
  * Parses the request and dispatches multiple concurrent requests to each
@@ -242,6 +247,12 @@ function roleCheck(user, service) {
 }
 ```
 
+### Transport and data transformations
+**Transport transformations** are performed to convert between HTTP and AMQP requests.
+
+### Logging
+**Logging** is centralized: all logs are published to the console and to an internal message-bus. Other services listening on the message-bus can take action according to these logs.
+
 Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/gateway).
 
 ## Aside: How webtask and Auth0 implement these patterns?
@@ -252,7 +263,7 @@ We told you about [webtasks](https://webtask.io) in our first post in the series
 * For real time logging webtask implemented a stateless resilient [ZeroMQ architecture](http://tomasz.janczuk.org/2015/09/from-kafka-to-zeromq-for-log-aggregation.html) which works across the cluster.
 * For dynamic-dispatching, there is a custom-built Node.js proxy which uses [CoreOS etcd](https://github.com/coreos/etcd) as a pub-sub mechanism to route webtasks accordingly.
 
-![Webtask](http://cdn.auth0.com/blog/post-images/webtask.png)
+![Webtask](https://cdn.auth0.com/blog/post-images/webtask.png)
 
 ## Conclusion
 API gateways are an essential part of any microservice-based architecture. Cross-cutting concerns such as authentication, load balancing, dependency resolution, data transformations and dynamic request dispatching can be handled in a convenient and generic way. Microservices can then focus on their specific tasks without code-duplication. This results in easier and faster development of each microservice.
