@@ -246,7 +246,8 @@ Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/
 
 ## Aside: How webtask and Auth0 implement these patterns?
 
-We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. 
+We told you about [webtasks](https://webtask.io) in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. 
+
 * For authentication, [Auth0](https://auth0.com) is the issuer of tokens and webtask will verify those tokens. There is a trust relationship between them so that tokens can be verified. 
 * For real time logging webtask implemented a stateless resilient [ZeroMQ architecture](http://tomasz.janczuk.org/2015/09/from-kafka-to-zeromq-for-log-aggregation.html) which works across the cluster.
 * For dynamic-dispatching, there is a custom-built Node.js proxy which uses [CoreOS etcd](https://github.com/coreos/etcd) as a pub-sub mechanism to route webtasks accordingly.
