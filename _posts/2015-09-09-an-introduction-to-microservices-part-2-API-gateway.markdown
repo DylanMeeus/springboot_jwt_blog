@@ -81,10 +81,11 @@ function doLogin(req, res) {
                     return;
                 }
             
-                // this is conceptual only, in production you would 
-                // use compare using a slow hash function like bcrypt or pbkdf2 
                 if(user.password === loginData.password) {
-                    var token = jwt.sign({jti: uuid.v4()}, secretKey, {
+                    var token = jwt.sign({
+                        jti: uuid.v4(),
+                        roles: user.roles
+                    }, secretKey, {
                         subject: user.username,
                         issuer: issuerStr
                     });
@@ -127,18 +128,13 @@ function validateAuth(data, callback) {
     var token = data[1];    
     try {
         var payload = jwt.verify(token, secretKey);
-        // Custom validation logic, in this case we just check that the 
-        // user exists
-        User.findOne({ username: payload.sub }, function(err, user) {
-            if(err) {
-                logger.error(err);
-            } else {
-                callback({
-                    user: user,
-                    jwt: payload 
-                });
-            }
-        });                
+        //Your custom validation logic goes here.
+        if(!payload.jti || revokedTokens[payload.jti]) {
+            logger.debug('Revoked token, access denied: ' + payload.jti);
+            callback(null);
+        } else {        
+            callback({jwt: payload});                
+        }
     } catch(err) {
         logger.error(err);
         callback(null);
@@ -176,7 +172,7 @@ function serviceDispatch(req, res) {
             return;
         }
     
-        var authorized = roleCheck(req.context.authPayload.user, service);
+        var authorized = roleCheck(req.context.authPayload.jwt, service);
         if(!authorized) {
             send401(res);
             return;
@@ -241,8 +237,8 @@ var Service = servicesDb.model('Service', new mongoose.Schema ({
     authorizedRoles: [ String ]
 }));
 
-function roleCheck(user, service) {
-    var intersection = _.intersection(user.roles, service.authorizedRoles);
+function roleCheck(jwt_, service) {
+    var intersection = _.intersection(jwt_.roles, service.authorizedRoles);
     return intersection.length === service.authorizedRoles.length;
 }
 ```
