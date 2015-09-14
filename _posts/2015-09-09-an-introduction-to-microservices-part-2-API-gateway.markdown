@@ -88,8 +88,10 @@ function doLogin(req, res) {
                     return;
                 }
             
+                // this is conceptual only, in production you would 
+                // use compare using a slow hash function like bcrypt or pbkdf2 
                 if(user.password === loginData.password) {
-                    var token = jwt.sign({}, secretKey, {
+                    var token = jwt.sign({jti: uuid.v4()}, secretKey, {
                         subject: user.username,
                         issuer: issuerStr
                     });
@@ -150,6 +152,8 @@ function validateAuth(data, callback) {
     }
 }
 ```
+
+> Disclaimer: the code shown in this post is not production ready. It is used just to show concepts. Don't copy paste it blindly :)
 
 ### Dynamic dispatching and data aggregation
 ```javascript
@@ -240,8 +244,12 @@ function roleCheck(user, service) {
 
 Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/gateway).
 
-## Aside: Too complex? Webtasks do all of this for you!
-We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. Check the [docs](https://webtask.io/docs/how).
+## Aside: How webtask and Auth0 implement these patterns?
+
+We told you about webtasks in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. 
+* For authentication, [Auth0](https://auth0.com) is the issuer of tokens and webtask will verify those tokens. There is a trust relationship between them so that tokens can be verified. 
+* For real time logging webtask implemented a stateless resilient [ZeroMQ architecture](http://tomasz.janczuk.org/2015/09/from-kafka-to-zeromq-for-log-aggregation.html) which works across the cluster.
+* For dynamic-dispatching, there is a custom-built Node.js proxy which uses [CoreOS etcd](https://github.com/coreos/etcd) as a pub-sub mechanism to route webtasks accordingly.
 
 ![Webtask](http://cdn.auth0.com/blog/post-images/webtask.png)
 
