@@ -74,7 +74,7 @@ When it comes to support, the ramp up is from email to phone to account rep, and
 
 ### Security / Privacy
 
-For some financial companies, law firms or healthcare businesses, they simply can’t use your product unless it has been certified to meet specific security and privacy standards. Auth0 offers [compliance for SOC 2 and HIPAA](https://auth0.com/security) for these type of customers.
+For some financial companies, law firms or healthcare businesses, they simply can’t use your product unless it has been certified to meet specific security and privacy standards. Auth0 offers [compliance with SOC 2 and HIPAA BAA's](https://auth0.com/security) for these type of customers.
 
 For the majority of companies, there’s a different dynamic happening. If a company wants to buy your product, that typically means that you have an internal champion in the company that wants to buy. The purpose, then, of offering security and privacy features is to help your champion convince the decision maker that you’re not a ragtag startup and that you take security and privacy seriously.
 
