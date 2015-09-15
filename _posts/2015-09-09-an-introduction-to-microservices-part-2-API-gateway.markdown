@@ -155,6 +155,8 @@ Requests are **dynamically dispatched** according to a configuration stored in a
 
 Requests also support the **aggregation strategy** for splitting requests among several microservices: a single public endpoint may aggregate data from many different internal endpoints (microservices). All returned data is in JSON format. See this excellent [post by Netflix](http://techblog.netflix.com/2013/01/optimizing-netflix-api.html) on how this strategy helped them achieve better performance. Also check our [post on Falcor](https://auth0.com/blog/2015/08/28/getting-started-with-falcor/) which allows for easy data fetching from many sources.
 
+![Aggregation strategy](https://cdn.auth0.com/blog/microservices/aggregation.png)
+
 **Failed internal requests** are handled by logging the error and returning less information than requested.
 
 ```javascript
