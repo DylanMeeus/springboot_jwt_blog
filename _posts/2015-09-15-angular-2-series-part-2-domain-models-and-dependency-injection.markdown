@@ -253,10 +253,6 @@ import {User} from './user';
 
 export class UserFactory {
   
-  name:string;
-  email: string;
-  rating: number;
-  
   // Uses the User model to create a new User
   create(userInfo:any) {
     return new User(userInfo);
