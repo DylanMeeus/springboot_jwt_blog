@@ -2,7 +2,7 @@
 layout: post
 title: "Angular 2 Series - Part 2: Domain Models and Dependency Injection"
 description: "Learn about Angular 2's new Dependency Injection system and how to use models to organize your app."
-date: 2015-09-16 11:00
+date: 2015-09-17 11:00
 author: 
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
@@ -25,21 +25,23 @@ tags:
 
 ---
 
-**TL;DR:** Domain models are important for defining and enforcing business logic in applications and are especially relevant as apps get larger and more people work on them. In this article we show how this can be done in an Angular 2 app by moving logic out of the component and into a model. We also cover how to inject model classes using Angular 2's new Dependency Injection system. Check out the [repo](#) for the article to see the code.
+**TL;DR:** Domain models are important for defining and enforcing business logic in applications and are especially relevant as apps get larger and more people work on them. In this article, we show how this can be done in an Angular 2 app by moving logic out of the component and into a model. We also cover how to inject model classes using Angular 2's new Dependency Injection system. Check out the [repo](https://github.com/auth0/angular2-models-di) for the article to see the code.
 
 ---
 
-As applications grow in size, it becomes increasingly important that they be well-organized with a solid structure in place. This is especially necessary as more and more developers are added to the team. Application architecture should also put a strong focus on the business rules that govern the application and should protect sensitive methods from being exposed wher they shouldn't be.
+> Auth0's Angular 2 series brings you tutorials on how to implement the latest features from the framework using the most recent Alpha release at the time of writing.
+
+As applications grow in size, it becomes increasingly important that they be well-organized with a solid structure in place. This is especially necessary as more and more developers are added to the team. Application architecture should also put a strong focus on the business rules that govern the application and should protect sensitive methods from being exposed where they shouldn't be.
 
 At the same time, it is important that we keep our applications DRY and maintainable by moving logic out components themselves and into separate classes that can be called upon. A modular approach like this makes our app's business logic reusable  
 
-One of the ways we can achieve this kind of structure in Angular 2 applications is to by using models to organize our business logic. While the term "model" in Angular has typically been used to refer to the View-Model, what we're talking about here is the domain model, or the set of rules and business logic that an application implements for it to adhere to the organization's needs.
+One of the ways we can achieve this kind of structure in Angular 2 applications is by using models to organize our business logic. While the term "model" in Angular has typically been used to refer to the View-Model, what we're talking about here is the domain model, or the set of rules and business logic that an application implements for it to adhere to the organization's needs.
 
 Domain models are, of course, a generic term and are relevant in any kind of application. In this tutorial, we will see how we can abstract business logic to a model in an Angular 2 app and use the new **Dependency Injection (DI)** system to call upon these models. We'll also explore some of the features of the DI system and various ways it can be used.
 
 ## Getting Started
 
-We'll be writing our app in TypeScript, but everything will work just fine in ES6. If you'd like an Angular 2 started app in ES6, checkout [Pawel Kozlowski's](https://twitter.com/pkozlowski_os) [ng2-play](https://github.com/pkozlowski-opensource/ng2-play/) repo.
+We'll be writing our app in TypeScript, but everything will work just fine in ES6. If you'd like an Angular 2 starter app in ES6, checkout [Pawel Kozlowski's](https://twitter.com/pkozlowski_os) [ng2-play](https://github.com/pkozlowski-opensource/ng2-play/) repo.
 
 Our sample app will take a user's details as input and use a model to handle those values. Let's start with a simple component called `UsersAppComponent`.
 
@@ -89,7 +91,7 @@ Our template has some simple user input with some checkboxes for the user to sel
 
 For our app, we'll want to take the user's input and see how it can be handled with a model. For simplicity, we'll simply log the info to the console in these examples, but you would typically be doing HTTP requests to send the user data off to a server to be persisted.
 
-We could set up a simple `User` class that acts as a model for our data and have some additional methods in our `UsersAppComponent` that act upon the form data.
+We could set up a simple `User` class that acts as a model for our data and have some additional methods in our `UsersAppComponent` that act upon the form data. We can do this right within our component, but as will become evident later, there are some drawbacks to this. Let's see what it would look like for now.
 
 ```js
 // app.ts
@@ -127,16 +129,22 @@ class UsersAppComponent {
   // Method to calculate the user's points
   calculateRating(userInfo) {
     var rating = 0;
-    userInfo.javascript ? rating+= 30 : rating;
-    userInfo.ruby ? rating+= 20 : rating;
-    userInfo.php ? rating+= 50 : rating;
+    if(userInfo.javascript) {
+      rating += 30;
+    }
+    if(userInfo.ruby) {
+      rating += 20;
+    }
+    if(userInfo.php) {
+      rating += 50;
+    }
     return rating;
   }
 }
 
 ...
 ```
-Here we've simply put the `User` model right within our the file for our `UsersAppComponent`, but you could also bring it in through an import from another file. We have two-way data binding set up on our form inputs and they are bound to the instance of our `User` model. The `submit` method in our component's constructor logs the all the data to the console, including a calculation for the user's rating that it runs with the `calculateRating` method below. How the heck did PHP get to be worth 50 points? I guess we'll never know.
+We have two-way data binding set up on our form inputs and they are bound to the instance of our `User` model. The `submit` method in our component's constructor logs the all the data to the console, including a calculation for the user's rating that it runs with the `calculateRating` method. How the heck did PHP get to be worth 50 points? I guess we'll never know.
 
 ## Improving the Model
 
@@ -145,8 +153,9 @@ While this approach works sufficiently when an application is small, the way we 
 1. The `User` class isn't enforcing which values should be present or not. This can have implications if some operation downstream expects certain values to always be present.
 2. The model doesn't have methods of its own to handle calculation of the user's rating or submitting the data. What if we wanted to have this same functionality in another of our app's components? We would need to duplicate the code in those other components.
 3. While `calculateRating` is trivial in this example, what if we had some important and sensitive method with business logic that is meant only for certain circumstances? We need a way to make sure such methods can't be used in places they're not supposed to be.
+4. No ability to share models with a JavaScript backend.
 
-Let's see how we can tackle these issues. We'll start by moving the model to its own file.
+Let's see how we can tackle some of these issues. We'll start by moving the model to its own file.
 
 ```js
 // models/user.ts
@@ -164,9 +173,15 @@ export class User {
 
   private calculateRating(userInfo) {
     var rating = 0;
-    userInfo.javascript ? rating+= 30 : rating;
-    userInfo.ruby ? rating+= 20 : rating;
-    userInfo.php ? rating+= 50 : rating;
+    if(userInfo.javascript) {
+      rating += 30;
+    }
+    if(userInfo.ruby) {
+      rating += 20;
+    }
+    if(userInfo.php) {
+      rating += 50;
+    }
     return rating;
   }
 
@@ -279,7 +294,7 @@ class UsersAppComponent {
   
   // We inject the UserFactory
   constructor(@Inject(UserFactory) UserFactory) {  
-    this.user = UserFactory;
+    this.UserFactory = UserFactory;
   }
   
   ...
@@ -290,18 +305,51 @@ bootstrap(UsersAppComponent, [UserFactory]);
 
 ```
 
-With `this.user` pointing to the `UserFactory`, we can now make use of its methods. We can do this in our right in our component class, but we can also use it directly in the view.
+With `this.UserFactory` pointing to the `UserFactory`, we can now make use of its methods. Let's adjust the `submit` method to use the factory.
 
-```html
-  <!-- usersTemplate.html -->
+```js
+// app.ts
 
-  <form role="form" #form="form" (ng-submit)="user.create(form.value).save()">
+...
 
-  ...
+submit(userInfo) {
+  this.user = this.UserFactory.create(userInfo);
+  this.user.save();
+}
+
+...
+
 
 ```
 
 Now when the user submits their form, `create` and `save` are called with the form data.
+
+We can also use the model approach to get the data for the user that just submitted the form. For example, we could add a `get` method to the `User` class that returns (or in this case logs to the console) the user's data.
+
+```js
+// models/user.ts
+
+...
+
+get() {
+  console.log(this.name, this.email, this.rating);
+}
+
+...
+```
+
+Then within the component we can create a `getUser` method to retrieve it.
+
+```js
+
+...
+
+getUser() {
+  this.user.get();
+}
+
+...
+```
 
 ## More on Dependency Injection
 
@@ -317,7 +365,7 @@ constructor(UserFactory: UserFactory) {...}
 ...
 ```
 
-The array syntax we used for binding `UserFactory` to our component is the shorthand way of doing it. We can also explicitly state what we want to bind to, which gives us the option of binding to other classes. For example, if we wanted to call our `UserFactory` something different when it is injected and used, we could bind an alternate token to it.
+The array syntax we used for binding `UserFactory` to our component is the shorthand way of doing it. We can also explicitly state what we want to bind to, which gives us the option of binding to other classes. For example, we could bind `User` to `UserFactory` directly.
 
 ```js
 // app.ts
