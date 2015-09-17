@@ -60,7 +60,11 @@ A typical web application stores sessions using **cookies** (or other forms of *
 
 Regular (many-page) web apps do SSO by storing session data in a cookie from a **single domain**. In other words, whenever a user needs to login from a domain that is part of the SSO system, he or she is sent to the domain that performs the authentication. Information about the **requested resource** from the original domain is usually attached to this request. After the user validates his identity in the central domain, he or she is **redirected** to the requested resource in the original domain. The app from the original domain knows the user is now authenticated by linking the user session token stored in its own domain with the token that performed the authentication in the central domain. This sharing or linkning of session data is performed **server-side**. This is why this form of SSO is known as *server-side SSO*.
 
+TODO: SERVER SIDE SSO DIAGRAM
+
 In contrast, single page apps usually handle authentication through **AJAX** calls. Since AJAX is limited to the *same domain policy* by web browsers, **cross-origin resource sharing (CORS)** is necessary. With CORS, direct requests to an authentication server can be performed without reloads or redirects. Authentication information may then be requested for each application and saved as a cookie (or using local storage). This is known as *client-side SSO*.
+
+TODO: CLIENT SIDE SSO DIAGRAM
 
 ### Different frameworks
 If you have been reading about SSO online, you will probably find there are many different implementations: OpenID Connect, Facebook Connect, SAML, Microsoft Account (formerly known as Passport), etc. Our advice is: choose whatever is simpler for your development efforts. For instance, SAML is deeply entrenched in enterprise developments, so in some cases it will make sense to pick that. If you think you will need to integrate your development with more than one alternative, don't despair: there are frameworks that allow interoperability between different SSO solutions. In fact, that is one of the things we do at Auth0. Check the *aside* section below.
