@@ -8,8 +8,7 @@ author:
   mail: jose@auth0.com
   avatar: https://www.gravatar.com/avatar/4d44bd6c8bbd97dfeb5e9c299aaa68c5
 design:
-  bg_color: "#346DA6"
-  bg_merge: true
+  bg_color: "#1c4c7c"
   image: https://cdn.auth0.com/blog/australia-launches/australia-flag.png
   image_size: "100%"
 tags:
