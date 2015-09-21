@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "G’day, Mate! Auth0 Australia Launches"
-date: 2015-09-22 08:00
+date: 2015-09-21 08:00
 author:
   name: José F. Romaniello
   url: http://twitter.com/jfroma
