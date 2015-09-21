@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "G’day, Mate! Auth0 Australia Launches"
+description: The Auth0 Australia Region joins the US and EU regions, extending our ability to offer the lowest login latency and allow subscribers to meet any applicable compliance requirements.
 date: 2015-09-21 08:00
 author:
   name: José F. Romaniello
@@ -10,6 +11,8 @@ author:
 design:
   bg_color: "#1c4c7c"
   image: https://cdn.auth0.com/blog/australia-launches/australia-flag.png
+  image_tw: http://cdn.auth0.com/blog/post-images/australia-map.png
+  image_fb: http://cdn.auth0.com/blog/post-images/australia-map-fb.png
   image_size: "100%"
 tags:
 - announcements
