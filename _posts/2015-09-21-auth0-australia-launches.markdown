@@ -11,7 +11,7 @@ author:
 design:
   bg_color: "#1c4c7c"
   image: https://cdn.auth0.com/blog/australia-launches/australia-flag.png
-  image_tw: http://cdn.auth0.com/blog/post-images/australia-map.png
+  image_tw: http://cdn.auth0.com/blog/post-images/australia-map-2.png
   image_fb: http://cdn.auth0.com/blog/post-images/australia-map-fb.png
   image_size: "100%"
 tags:
