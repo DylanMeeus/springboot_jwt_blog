@@ -9,10 +9,10 @@ author:
   mail: speyrott@auth0.com
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
-  bg_color: "#596D5F"
-  image: https://cdn.auth0.com/blog/post-images/microservices2.svg
+  bg_color: "#2E3A51"
+  image: https://cdn.auth0.com/blog/post-images/idcard-white.png
   image_size: "60%"
-  image_bg_color: "#596D5F"
+  image_bg_color: "#455572"
   blog_series: true
 tags: 
 - single sign on
