@@ -22,6 +22,8 @@ tags:
 
 ___
 **TL;DR:** Netflix has just open-sourced its Falcor project. Falcor changes the way we approach data for web applications by introducing conventions such as virtual JSON models and the JSON Graph. These conventions make it possible for us to cache data intelligently on the client's device, which can help us to achieve an improved user experience. You can view the [repo for the tutorial](https://github.com/auth0/falcor-create-demo) to see some ways in which Falcor can be put to use.
+
+You can also integrate Auth0 with your Falcor app. Have a look at the [docs and seed project](https://auth0.com/docs/quickstart/backend/falcor/) to get started.
 ___
 
 Falcor is an open source library from Netflix that aims to change the way web applications request and handle data.
@@ -473,7 +475,7 @@ Which yields:
 
 Auth0 issues JSON Web Tokens on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
-Auth0 is currently working on an integration with Falcor that will make it easy to provide authentication for Falcor apps. More news on this integration will be out shortly--stay tuned!
+Auth0 provides an easy way to add authentication to your Falcor app. The set up is simple and relies on the middelware provided by `express-jwt`. Have a look at the [documentation and seed project](https://auth0.com/docs/quickstart/backend/falcor/) to get started and, as always, feel free to [get in touch](mailto:support@auth0.com) if you have any questions.
 
 
 ## Wrapping Up
