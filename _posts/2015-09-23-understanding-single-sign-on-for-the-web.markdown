@@ -43,19 +43,19 @@ SSO is strictly related to the **authentication** part of a federated identity s
 ## Single sign on (SSO)
 Sooner or later web development teams face one problem: you have developed an application at domain X and now you want your new deployment at domain Y to use the same login information as the other domain. In fact, you want more: you want users who are **already logged-in** at domain X to be already logged-in at domain Y. This is what SSO is all about.
 
-![Single sign on question](https://cdn.auth0.com/blog/sso/Diagram-1.png)
+![Single sign on question](https://cdn.auth0.com/blog/sso/non-sso-scenario.png)
 
 The obvious solution to this problem is to **share session information** across different domains. However, for security reasons, browsers enforce a policy known as the *same origin policy*. This policy dictates that cookies (and other locally stored data) can **only be accessed by its creator** (i.e. the domain that originally requested the data to be stored). In other words, domain X cannot access cookies from domain Y or vice versa. This is what SSO solutions solve in one way or the other: sharing session information across different domains.
 
-![No cookie sharing](https://cdn.auth0.com/blog/sso/Diagram-2.png)
+![No cookie sharing](https://cdn.auth0.com/blog/sso/same-origin-policy-forbids-this.png)
 
 Different SSO protocols share session information in different ways, but the essential concept is the same: there is a **central domain**, through which authentication is performed, and then the **session is shared** with other domains in some way. For instance, the central domain may generate a JSON Web Token (which is encrypted using a shared secret). This token may then be passed to the client and used by the authentication domain as well as any other domains. The token can be passed to the original domain by a redirect and contains all the information needed to identify the user for the domain requiring authentication. As the token is encrypted, it cannot be modified in any way by the client.
 
-![Central authentication domain](https://cdn.auth0.com/blog/sso/Diagram-3.png)
+![Central authentication domain](https://cdn.auth0.com/blog/sso/using-central-auth-domain.png)
 
 Whenever the user goes to a domain that requires authentication, he or she is **redirected** to the authentication domain. As the user is **already logged-in** at that domain, he or she can be immeditely redirected to the original domain with the necessary authentication token.
 
-![Single sign on](https://cdn.auth0.com/blog/sso/Diagram-4.png)
+![Single sign on](https://cdn.auth0.com/blog/sso/typical-sso.png)
 
 ### Different protocols
 If you have been reading about SSO online, you have probably found that there are many different implementations: OpenID Connect, Facebook Connect, SAML, Microsoft Account (formerly known as Passport), etc. Our advice is to choose whatever is simplest for your development efforts. For instance, SAML is deeply entrenched in enterprise developments, so in some cases it will make sense to pick that. If you think you will need to integrate your development with more than one alternative, don't despair: there are frameworks that allow interoperability between different SSO solutions. In fact, that's one of the things we do at Auth0.
@@ -63,7 +63,7 @@ If you have been reading about SSO online, you have probably found that there ar
 ## Aside: SSO with Auth0
 If you are already using Auth0 in your developments, you know how easy it is to do SSO. If not, please see the [docs on single sign on](https://auth0.com/docs/sso/single-sign-on) and check out the [examples](https://github.com/auth0/auth0-sso-sample). Our SSO solution works as a *bridge* between different SSO frameworks. So whatever your existing apps are using, it has never been easier to integrate SSO into them. We do the hard work for you.
 
-![SSO with Auth0](https://cdn.auth0.com/blog/sso/Diagram-5.png)
+![SSO with Auth0](https://cdn.auth0.com/blog/sso/typical-auth0.png)
 
 ## Conclusion
 SSO is here to stay. Decentralized systems are becoming more and more common and authentication is an essential aspect of all of them. SSO solves a big problem: how to manage the increasing number of users across a whole ecosystem of applications and services. Frameworks such as OpenID Connect and services such as the one we provide at Auth0 make integrating SSO into your new or existing applications much easier. If you are implementing authentication for a new application or service, consider integrating SSO from the get-go.
