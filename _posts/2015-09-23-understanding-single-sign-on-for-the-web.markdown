@@ -24,7 +24,7 @@ tags:
 - post-series
 ---
 
-Nowadays, almost every website requires some form of authentication to access its features and content. With the number of websites and services only rising, a centralized login system has become a necessity. Single-sign-on is now required more than ever. In this two-piece post we will study how single-sign-on is implemented for the web and provide a working example using OpenID Connect (in part 2). Read on.
+Nowadays, almost every website requires some form of authentication to access its features and content. With the number of websites and services rising, a centralized login system has become a necessity. Single-sign-on (SSO) is now required more than ever. In this two-piece post we will study how SSO is implemented for the web and provide a working example using OpenID Connect (in part 2). Read on!
 
 -----
 
@@ -36,11 +36,11 @@ The concept of a centralized or linked electronic identity is known as *federate
 - User attributes exchange
 - User management
 
-The **authentication** aspect deals with validating user credentials and establishing the identity of the user. **Authorization** is related to access restrictions (is the user allowed to access X resource?). The **attributes exchange** part deals with data sharing across different user management systems. For instance, fields such as *"real name"* may be present in both systems. A federated identity system prevents data duplication by linking related attributes. Lastly, **user management** is related to the administration (creation, deletion, update) of user accounts. A federated identity system usually provides means for administrators (or users) to handle accounts across domains or subsystems.
+The **authentication** aspect deals with validating user credentials and establishing the identity of the user. **Authorization** is related to access restrictions (e.g., is the user allowed to access X resource?). The **attributes exchange** aspect deals with data sharing across different user management systems. For instance, fields such as *"real name"* may be present in multiple systems. A federated identity system prevents data duplication by linking the related attributes. Lastly, **user management** is related to the administration (creation, deletion, update) of user accounts. A federated identity system usually provides the means for administrators (or users) to handle accounts across domains or subsystems.
 
-Single-sign-on is strictly related to the **authentication** part of a federated identity system. Its only concern is establishing the identity of the user and then sharing that information with each subsystem that requires the data. We will now focus on this aspect of a federated identity system.
+SSO is strictly related to the **authentication** part of a federated identity system. Its only concern is establishing the identity of the user and then sharing that information with each subsystem that requires the data. Below, we focus on this crucial aspect of a federated identity system.
 
-## Single-sign-on (SSO)
+## Single sign on (SSO)
 Sooner or later web development teams face one problem: you have developed an application at domain X and now you want your new deployment at domain Y to use the same login information as the other domain. In fact, you want more: you want users who are **already logged-in** at domain X to be already logged-in at domain Y. This is what SSO is all about.
 
 ![SSO question](https://cdn.auth0.com/blog/sso/Diagram1.png)
@@ -56,13 +56,13 @@ Different SSO protocols share session information in different ways, but the ess
 Whenever the user goes to a domain that requires authentication, he or she is **redirected** to the authentication domain. As the user is **already logged-in** in that domain, he or she can be immeditely redirected to the original domain with the necessary authentication token.
 
 ### Different protocols
-If you have been reading about SSO online, you will probably find there are many different implementations: OpenID Connect, Facebook Connect, SAML, Microsoft Account (formerly known as Passport), etc. Our advice is: choose whatever is simpler for your development efforts. For instance, SAML is deeply entrenched in enterprise developments, so in some cases it will make sense to pick that. If you think you will need to integrate your development with more than one alternative, don't despair: there are frameworks that allow interoperability between different SSO solutions. In fact, that is one of the things we do at Auth0. Check the *aside* section below.
+If you have been reading about SSO online, you have probably found that there are many different implementations: OpenID Connect, Facebook Connect, SAML, Microsoft Account (formerly known as Passport), etc. Our advice is to choose whatever is simplest for your development efforts. For instance, SAML is deeply entrenched in enterprise developments, so in some cases it will make sense to pick that. If you think you will need to integrate your development with more than one alternative, don't despair: there are frameworks that allow interoperability between different SSO solutions. In fact, that's one of the things we do at Auth0. (For more on Auth0, check out the *Aside* section below).
 
 ## Aside: SSO with Auth0
-If you are already using Auth0 in your developments, you know how easy it is to do SSO. If not, see the [docs](https://auth0.com/docs/sso/single-sign-on) and check the [examples](https://github.com/auth0/auth0-sso-sample). Our SSO solution works as a *bridge* between different SSO frameworks. So, whatever your existing apps are using, it has never been easier to integrate SSO in them. We do the hard work for you.
+If you are already using Auth0 in your developments, you know how easy it is to do SSO. If not, please see the [docs](https://auth0.com/docs/sso/single-sign-on) and check out the [examples](https://github.com/auth0/auth0-sso-sample). Our SSO solution works as a *bridge* between different SSO frameworks. So whatever your existing apps are using, it has never been easier to integrate SSO into them. We do the hard work for you.
 
 ![SSO with Auth0](https://cdn.auth0.com/blog/sso/Diagram3.png)
 
 ## Conclusion
-SSO is here to stay. Decentralized systems are becoming more and more common and authentication is an essential part in all of them. SSO solves one big problem: how to manage the increasing number of users across a whole ecosystem of applications and services. Frameworks such as OpenID Connect and services such as the one we provide at Auth0 make integrating SSO to your new or existing applications much easier. If you are implementing authentication for a new application or service, consider integrating SSO from the get-go.
+SSO is here to stay. Decentralized systems are becoming more and more common and authentication is an essential aspect of all of them. SSO solves a big problem: how to manage the increasing number of users across a whole ecosystem of applications and services. Frameworks such as OpenID Connect and services such as the one we provide at Auth0 make integrating SSO into your new or existing applications much easier. If you are implementing authentication for a new application or service, consider integrating SSO from the get-go.
 
