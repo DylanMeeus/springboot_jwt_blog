@@ -2,7 +2,7 @@
 layout: post
 title: "Understanding Single-Sign-On for the Web, Part 1"
 description: "Learn about SSO and how to use it for your web apps"
-date: 2015-09-18 18:00
+date: 2015-09-23 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
