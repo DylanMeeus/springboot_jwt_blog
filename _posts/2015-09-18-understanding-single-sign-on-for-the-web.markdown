@@ -55,7 +55,7 @@ Different SSO protocols share session information in different ways, but the ess
 
 Whenever the user goes to a domain that requires authentication, he or she is **redirected** to the authentication domain. As the user is **already logged-in** in that domain, he or she can be immeditely redirected to the original domain with the necessary authentication token.
 
-### Different frameworks
+### Different protocols
 If you have been reading about SSO online, you will probably find there are many different implementations: OpenID Connect, Facebook Connect, SAML, Microsoft Account (formerly known as Passport), etc. Our advice is: choose whatever is simpler for your development efforts. For instance, SAML is deeply entrenched in enterprise developments, so in some cases it will make sense to pick that. If you think you will need to integrate your development with more than one alternative, don't despair: there are frameworks that allow interoperability between different SSO solutions. In fact, that is one of the things we do at Auth0. Check the *aside* section below.
 
 ## Aside: SSO with Auth0
