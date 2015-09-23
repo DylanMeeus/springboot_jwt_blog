@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What is and how does Single Sign On work?"
+title: "What Is and How Does Single Sign On Work?"
 description: "In this post you will learn about Single Sign On and how to use it for your web apps"
 date: 2015-09-23 18:00
 author: 
