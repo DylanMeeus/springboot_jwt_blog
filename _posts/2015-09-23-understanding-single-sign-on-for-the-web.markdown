@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Understanding Single Sign On for the Web, Part 1"
-description: "Learn about single sign on and how to use it for your web apps"
+title: "How Single Sign On Works"
+description: "In this post you will learn about Single Sign On and how to use it for your web apps"
 date: 2015-09-23 18:00
 author: 
   name: Sebastián Peyrott
