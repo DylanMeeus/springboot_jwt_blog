@@ -45,15 +45,15 @@ Sooner or later web development teams face one problem: you have developed an ap
 
 ![SSO question](https://cdn.auth0.com/blog/sso/Diagram-1.png)
 
-The obvious solution to this problem is **sharing session information** across different domains. However, for security reasons, browsers enforce a policy known as the *same origin policy*. This policy dictates that cookies (and other locally stored data) can **only be accessed by its creator** (i.e. the domain that originally requested the data to be stored). In other words, domain X cannot access cookies from domain Y or viceversa. This is what SSO solutions solve in one way or the other: sharing session information across different domains.
+The obvious solution to this problem is to **share session information** across different domains. However, for security reasons, browsers enforce a policy known as the *same origin policy*. This policy dictates that cookies (and other locally stored data) can **only be accessed by its creator** (i.e. the domain that originally requested the data to be stored). In other words, domain X cannot access cookies from domain Y or vice versa. This is what SSO solutions solve in one way or the other: sharing session information across different domains.
 
 ![No cookie sharing](https://cdn.auth0.com/blog/sso/Diagram-2.png)
 
-Different SSO protocols share session information in different ways, but the essential concept is the same: there is a **central domain**, authentication is performed through that central domain, and the **session is then shared** with other domains in some way. For instance, the central domain may generate a JSON Web Token (which is encrypted using a shared secret). This token may then by passed to the client and used by both the authentication domain and any other domains. The token can be passed to the original domain by a redirect. The token contains all necessary information for the domain that requires authentication to identify the user. As the token is encrypted, it cannot be modified in any way by the client.
+Different SSO protocols share session information in different ways, but the essential concept is the same: there is a **central domain**, through which authentication is performed, and then the **session is shared** with other domains in some way. For instance, the central domain may generate a JSON Web Token (which is encrypted using a shared secret). This token may then be passed to the client and used by the authentication domain as well as any other domains. The token can be passed to the original domain by a redirect and contains all the information needed to identify the user for the domain requiring authentication. As the token is encrypted, it cannot be modified in any way by the client.
 
 ![Central authentication domain](https://cdn.auth0.com/blog/sso/Diagram-3.png)
 
-Whenever the user goes to a domain that requires authentication, he or she is **redirected** to the authentication domain. As the user is **already logged-in** in that domain, he or she can be immeditely redirected to the original domain with the necessary authentication token.
+Whenever the user goes to a domain that requires authentication, he or she is **redirected** to the authentication domain. As the user is **already logged-in** at that domain, he or she can be immeditely redirected to the original domain with the necessary authentication token.
 
 ![SSO](https://cdn.auth0.com/blog/sso/Diagram-4.png)
 
