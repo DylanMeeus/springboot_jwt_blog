@@ -61,7 +61,7 @@ import {Inject} from 'angular2/di';
 @View({
   // Form directives to be used in the template
   directives: [FORM_DIRECTIVES],
-  templateUrl: 
+  templateUrl: 'userTemplate.html'
 })
 
 class UsersAppComponent {

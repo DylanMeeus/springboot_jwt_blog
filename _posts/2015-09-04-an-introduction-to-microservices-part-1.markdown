@@ -32,6 +32,8 @@ Everybody is talking about microservices. Industry veterans may remember monolit
 
 In this **post series**, we will explore the world of microservices, how it can help solve real world problems, and why the industry is increasingly picking it as the standard way of doing things. In this series, we will attempt to tackle common problems related to this approach, and provide convenient and simple examples. By the end of the series, we should have a skeleton implementation of a full microservice-based architecture. Today, we will focus on what microservices are and how they compare to the alternatives. We will also list the problems we plan to discuss in the following posts.
 
+**Update:** in [part 2](https://auth0.com/blog/2015/09/13/an-introduction-to-microservices-part-2-API-gateway/) we talk about the *API gateway*.
+
 -----
 
 ## What is a microservice?
