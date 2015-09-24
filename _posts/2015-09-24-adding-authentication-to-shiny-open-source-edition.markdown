@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Adding Authentication to Shiny Open Source Edition"
-description: Learn how to leverage Auth0 to add an extra security layer to your private website
+description: Learn how to leverage Auth0 to add an extra security layer to your Shiny server or legacy website
 date: 2015-09-24 09:00
 author:
   name: Pablo Seibelt
