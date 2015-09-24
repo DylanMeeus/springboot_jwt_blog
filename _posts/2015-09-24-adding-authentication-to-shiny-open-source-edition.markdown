@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Adding Authentication to Shiny Open Source Edition"
-description: Learn how to leverage Auth0 to add an extra security layer to your Shiny server or legacy website
+description: Learn how to leverage Auth0 to have Shiny Authentication for the open source version or another legacy website.
 date: 2015-09-24 09:00
 author:
   name: Pablo Seibelt
@@ -32,7 +32,7 @@ One of the easiest ways to add authentication to Shiny and, by extension, any un
 
 This is also useful if you have a legacy web app with a username and password everyone shares or if you are hosting a server with static files you want to share.
 
-![Diagram](https://docs.google.com/drawings/d/1PXZv42IYIjoc2_wAVDc5EzY7-uzD6vs_ShP_GiAo4_g/pub?w=959&h=638)
+![Diagram of the Shiny Authentication scheme](https://docs.google.com/drawings/d/1PXZv42IYIjoc2_wAVDc5EzY7-uzD6vs_ShP_GiAo4_g/pub?w=959&h=638)
 
 So, let's get started with the steps.
 
