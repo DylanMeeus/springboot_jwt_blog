@@ -44,9 +44,9 @@ The IDOM API just consists of four functions for building DOM elements:
 So, imagine that we want to produce the following output:
 
 ```html
-<div class="foo">
-  Hello world!
-</div>
+  <div class="foo">
+      Hello world!
+  </div>
 ```
 
 The corresponding IDOM function will be:
