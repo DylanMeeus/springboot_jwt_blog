@@ -26,7 +26,7 @@ tags:
 
 [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/)  is a great solution for BI/analytics reporting. It leverages all the power of the [R language](https://www.r-project.org/), which is the most popular open-source language for statistics, and it has a lot of useful functions for *Data Mining*, *Machine Learning*, *Reporting*, etc.
 
-While Shiny Server offers an open-source solution to everyone in the world, a **premium** version that features authentication is also available. You might not need or have the budget for the premium version, but you may still want to have a reporting server. In that case, you likely won't want everyone on the Internet to be able to see your internal analytics, so you'll need to install and configure the authentication yourself.
+The open-source version of Shiny Server features no Authentication, and if it's open on Internet, it leaves your data exposed. In that case, you likely won't want everyone on the Internet to be able to see your internal analytics, so you'll need to install and configure the authentication yourself.
 
 One of the easiest ways to add authentication to Shiny and, by extension, any unsecured web application, is to use Apache with Auth0 through the **auth_openidc** module.
 
