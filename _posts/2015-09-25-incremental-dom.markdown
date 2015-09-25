@@ -7,6 +7,7 @@ author:
   name: Pablo Terradillos
   url: https://twitter.com/tehsis
   mail: tehsis@auth0.com
+  avatar: https://s.gravatar.com/avatar/647b1eea820b3fc8a5aee0383930b888
 design:
   bg_color: "#428bca"
   image: <A PATH TO A 200x200 IMAGE>
