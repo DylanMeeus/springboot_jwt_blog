@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "5 Steps to Add Modern Authentication to Legacy Apps Using JWTs"
-description: "Conventional authentication is challenging for modern applications. Learn about the reasons and how to solve it with JSON Web Tokens (JWT)."
+description: "Conventional authentication is challenging for today's web applications. Learn about the reasons and how to use JSON Web Tokens (JWT) for modern authentication."
 date: 2015-09-28 13:00
 author:
   name: Ryan Chenkie
@@ -191,7 +191,7 @@ With the `id_token` cookie in place, we can see that requests to the `secured/pi
 
 ## Aside: JWT Authentication Is Easy with Auth0
 
-Auth0 issues JSON Web Tokens on every login for your users. This means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [Single Sign On](https://auth0.com/docs/sso/single-sign-on), User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. Auth0 is perfect for [Single Page Applications](https://auth0.com/docs/sequence-diagrams) and very easy to set up.
 
 As we saw in this tutorial, switching to JWT authentication from traditional session-based authentication is very easy, and there are many advantages to doing so. Using Auth0 for JWT authentication makes the process of switching to JWT authentication even easier. If you'd like to see how Auth0 can be used in your legacy application, feel free to [get in touch](mailto:support@auth0.com)-we're here to help!
 
