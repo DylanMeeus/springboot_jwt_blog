@@ -2,7 +2,7 @@
 layout: post
 title: "Modern Authentication for Legacy Apps"
 description: "Conventional authentication is challenging for modern applications. Learn about the reasons and how to solve it."
-date: 2015-09-28 11:00
+date: 2015-09-25 11:00
 author: 
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
