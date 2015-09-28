@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "5 Steps to Add Modern Authentication to Your Legacy App Using JWTs"
-description: "Conventional authentication is challenging for modern applications. Learn about the reasons and how to solve it."
+title: "5 Steps to Add Modern Authentication to Legacy Apps Using JWTs"
+description: "Conventional authentication is challenging for modern applications. Learn about the reasons and how to solve it with JSON Web Tokens (JWT)."
 date: 2015-09-28 13:00
 author:
   name: Ryan Chenkie
@@ -62,7 +62,7 @@ Another challenge here is that it is quite common for an API to be served from o
 
 Another common pattern seen with modern web applications is that they often rely on downstream services. For example, a call to the main application server might make a request to a downstream server before the original request is resolved. The issue here is that cookies don't "flow" easily to the downstream servers and can't tell those servers about the user's authentication state. Since each server has its own scheme for cookies, there is a lot of resistance to flow, and connecting to them is difficult. 
 
-## A Modern Alternative: The JSON Web Token
+## A Modern Alternative: The JSON Web Token (JWT)
 
 To combat the issues detailed above, we can take a token-based approach by using JSON Web Tokens (JWTs) for authentication. A JWT contains three parts:
 
