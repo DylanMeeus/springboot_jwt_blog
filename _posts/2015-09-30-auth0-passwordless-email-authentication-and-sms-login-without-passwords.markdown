@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Log in without Passwords: <br>Introducing Auth0 Passwordless"
-description: SMS Authentication and Email Authentication made easy and secure. 
+description: SMS Authentication and Email Authentication made easy and secure.
 date: 2015-09-30 09:00
 author:
   name: Matias Woloski
@@ -9,10 +9,10 @@ author:
   mail: matiasauth0.com
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=200
 design:
-  bg_color: "#2E3A51"
-  image: https://cdn.auth0.com/blog/post-images/idcard-white.png
-  image_size: "60%"
-  image_bg_color: "#455572"
+  bg_color: "#00221b"
+  image: https://cldup.com/fvFQELOy-K.png
+  image_size: "80%"
+  image_bg_color: "#001d17"
 tags:
 - passwordless
 - sms login
@@ -24,7 +24,7 @@ tags:
 
 ---
 
-It’s clear that passwords are not fun anymore. According to the website [haveibeenpwned.com](haveibeenpwned.com), **210,378,948 accounts were exposed on the top 10 breaches**, and **152,450,038 of them were compromised this past year**. On the other hand, according to a [study](https://www.passwordboss.com/password-habits-survey-part-1/), **more than half (59%)** of the users surveyed admit they **reuse the same password** because it’s hard to remember them. 
+It’s clear that passwords are not fun anymore. According to the website [haveibeenpwned.com](haveibeenpwned.com), **210,378,948 accounts were exposed on the top 10 breaches**, and **152,450,038 of them were compromised this past year**. On the other hand, according to a [study](https://www.passwordboss.com/password-habits-survey-part-1/), **more than half (59%)** of the users surveyed admit they **reuse the same password** because it’s hard to remember them.
 
 What is our industry doing to address this problem?
 
@@ -43,7 +43,7 @@ We wondered whether we could create something that encapsulates this experience,
 
 We’ve been experimenting over the past few months, and we’re ready to release our first version today. With [Auth0 Passwordless](https://auth0.com/passwordless) you can use one time codes or “magic links” delivered via SMS or e-mail. Or use the iPhone’s TouchID without having to worry about the implementation details.
 
-![](https://www.dropbox.com/s/mdvz7w2zp60i0x0/Screenshot%202015-09-29%2018.13.35.png?dl=1)
+![](https://cldup.com/7bfdgcURKV.png)
 
 ## Log in via e-mail or SMS, simplified
 
@@ -51,7 +51,7 @@ Following our philosophy of "just a few lines of code", here is how you trigger 
 
 
 ```
-var lock = new Auth0LockPasswordless('FFM5kk2bVwxecbTHWXt15zrRJIX2Kvp3', 
+var lock = new Auth0LockPasswordless('FFM5kk2bVwxecbTHWXt15zrRJIX2Kvp3',
                                      'pwdlessdemo.auth0.com');
 lock.magiclink();
 ```
@@ -141,4 +141,4 @@ We are seeing a trend that web applications are moving to longer session expirat
 
 Auth0 Passwordless is ready to be used in production today and it is included in every Auth0 plan.
 
-We’re looking forward to seeing what you build, and to doing our part to help improve identity and security on the web 🔐. 
+We’re looking forward to seeing what you build, and to doing our part to help improve identity and security on the web 🔐.
