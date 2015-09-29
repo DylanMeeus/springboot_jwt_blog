@@ -20,7 +20,7 @@ tags:
 - password sms
 ---
 
-**tl;dr**: Auth0 Passwordless is a drop-in authentication system based on one-time codes sent via e-mail or SMS, or Apple’s TouchID that improves security and user experience. Check it out [auth0.com/passwordless](https://auth0.com/passwordless)
+**tl;dr**: Auth0 Passwordless is a drop-in authentication system based Email, SMS, or Apple's TouchID that improves security and user experience. Check it out [auth0.com/passwordless](https://auth0.com/passwordless).
 
 ---
 
@@ -33,17 +33,17 @@ What is our industry doing to address this problem?
   <li>Password Managers</li>
 </ol>
 
-A second factor reduces significantly the risk of your account being compromised. We support multi-factor at Auth0 and it has been a very popular feature, but you still have a password to rememeber and the second factor introduces more complexity and friction to a the average user. Password Managers are useful (I personally use one) but still they feel like a band-aid to the problem, not addressing the real issue.
+A second factor reduces significantly the risk of your account being compromised. We support multi-factor at Auth0 and it has been a very popular feature, but you still have a password to remember and the second factor introduces more complexity and friction to the average user. Password Managers are useful (I personally use one) but still they feel like a band-aid to the problem, not addressing the real issue.
 
 A third trend we started to see is to **remove the password input from the login box altogether**. Companies like Medium, Slack, Twitter, WhatsApp are already doing it, and even Google’s new login screens [hints at a future beyond passwords](techcrunch.com/2015/05/13/gmails-new-login-screens-hints-at-a-future-beyond-passwords/).
 
-![login with magic link and sms](https://files.slack.com/files-pri/T025590N6-F0BGEA2BW/blog-asset.png)
+![trend to remove password input from login box](https://cdn.auth0.com/blog/passwordless/pwdless1.png)
 
-We wondered whether we could create something that encapsulates this experience, make it looks great, easy to integrate, and results in a better and more secure login experience for users on web, mobile, devices and even command line interfaces.
+We wondered whether we could create something that encapsulates this experience, make it look great, very easy to integrate, and results in a better and more secure login experience for users on web, mobile, devices and even command line interfaces.
 
-We’ve been experimenting over the past few months, and we’re ready to release our first version today. With [Auth0 Passwordless](https://auth0.com/passwordless) you can use one time codes or “magic links” delivered via SMS or e-mail. Or use the iPhone’s TouchID without having to worry about the implementation details.
+We’ve been experimenting over the past few months, and we’re ready to release our first version today. With [Auth0 Passwordless](https://auth0.com/passwordless) you can use one time codes or “magic links” delivered via SMS or e-mail. Or use iPhone’s TouchID without having to worry about the implementation details.
 
-![](https://www.dropbox.com/s/mdvz7w2zp60i0x0/Screenshot%202015-09-29%2018.13.35.png?dl=1)
+![SMS authentication, email authentication and TouchID authentication](https://cdn.auth0.com/blog/passwordless/pwdless1.png)
 
 ## Log in via e-mail or SMS, simplified
 
@@ -65,80 +65,28 @@ lock.sms({}, function(err, profile, jwt) {
 });
 ```
 
-
-Try this yourself on the [playground](https://auth0.github.io/lock-passwordless)
-
-<script src="https://cdn.auth0.com/js/lock-passwordless-0.1.min.js"></script>
-<script type="text/javascript">
-var cid = 'FFM5kk2bVwxecbTHWXt15zrRJIX2Kvp3', domain = 'pwdlessdemo.auth0.com';
-
-function sms() {
-  var lockpwdless = new Auth0LockPasswordless(cid, domain);
-  lockpwdless.sms({autoclose: true}, function (err, profile, id_token) {
-    if (err) return;
-    $('#result').text('Hello, ' + profile.phone_number + '.\nYour JWT: ' + id_token);
-  });
-}
-
-function emailcode() {
-  var lockpwdless = new Auth0LockPasswordless(cid, domain);
-  lockpwdless.emailcode({autoclose: true}, function (err, profile, id_token) {
-    if (err) return;
-    $('#result').text('Hello, ' + profile.email + '.\nYour JWT: ' + id_token);
-  });
-}
-
-function emaillink() {
-  var lockpwdless = new Auth0LockPasswordless(cid, domain);
-  lockpwdless.magiclink({autoclose: true});
-}
-
-$(document).ready(function(){
-  var lockpwdless = new Auth0LockPasswordless(cid, domain);
-  var hash = lockpwdless.parseHash(window.location.hash);
-
-  if (hash && hash.error) {
-    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-  } else if (hash && hash.id_token) {
-    //retrieve profile
-    lock.getProfile(hash.id_token, function (err, profile) {
-      if (err) return;
-      $('#result').text('Hello, ' + profile.email + '.\nYour JWT: ' + id_token);
-      $('#result').focus();
-    });
-  }
-});
-
-
-
-</script>
-
-<!-- <button onclick="sms()">Login with your Phone</button>
-<button onclick="emailcode()">Login with your Email</button>
-<button onclick="emaillink()">Login with your Email (magic link)</button>
-<pre id="result" tabindex="1"></pre>
- -->
+Try this yourself on the [playground](https://auth0.github.io/lock-passwordless).
 
 ## What's behind this?
 
-Setting up a passwordless authentication system requires various things:
+Although conceptually simple, implementing passwordless authentication requires coordination of many components. And Auth0 Passwordless takes care of all that. These components include:
 
-* A [public API](https://auth0.com/docs/auth-api#passwordless) with appropiate rate limitting
-* An open source [JavaScript API](https://github.com/auth0/auth0.js#passwordless-authentication) and customizable [UI widget](https://github.com/auth0/lock-passwordless) for Web
+* A [public API](https://auth0.com/docs/auth-api#passwordless) with appropriate rate limiting that prevents abuse.
+* A beautiful, extensible and open client [JavaScript API](https://github.com/auth0/auth0.js#passwordless-authentication) library and [UI widget](https://github.com/auth0/lock-passwordless) for Web apps.
 * A native component and UI widget for [iOS](https://github.com/auth0/Lock.iOS-OSX) and [Android](https://github.com/auth0/Lock.Android).
-* Integration with E-mail providers (SendGrid, Mandrill and Amazon SES) and SMS providers (Twilio).
-* A dashboard to manage and customize all these settings.
+* Integration with well known, scalable and secure Email (SendGrid, Mandrill and Amazon SES) and SMS providers (Twilio).
+* A admin dashboard to manage and customize all of the above.
 
-We implemented each of these and made it easy, accesible and secure to anyone.
+We implemented all of these and made it easy, accessible and secure to everyone.
 
 ## Works everywhere
 
-Finally, Auth0 Passwordless can be used on all platforms: native apps, web apps, mobile web, command line interfaces or anything that can speak to the HTTP API.
+Auth0 Passwordless can be used on all platforms: native apps, web apps, mobile web, command line interfaces or anything that can send an HTTP request over the net.
 
 ## Conclusion
 
-We are seeing a trend that web applications are moving to longer session expirations so that users are not asked to log in frequently - like a native app on a mobile device. Then, whenever a user asks to perform a sensitive operation, they’re asked for "step up" authentication (think "sudo" command on Linux). Auth0 Passwordless is a way to implement such mechanism.
+We are seeing a trend that web applications are moving to longer session expirations so that users are not asked to log in frequently - like a native app on a mobile device. Then, whenever a user asks to perform a sensitive operation, they’re asked for "step up" authentication (think "sudo" command on Linux). Auth0 Passwordless is a way to implement such mechanism quickly and securely.
 
-Auth0 Passwordless is ready to be used in production today and it is included in every Auth0 plan.
+Auth0 Passwordless is **ready to be used in production** today and it is **included in every Auth0 plan**.
 
-We’re looking forward to seeing what you build, and to doing our part to help improve identity and security on the web 🔐. 
+We can’t wait to see what you will build. And we look forward to continuing to contribute toimprove identity and security on the web 🔐. 
