@@ -391,7 +391,7 @@ Since we merged the `secretQuoteStream` into the `quoteResponseStream`, we don't
 
 ## Aside: Using Authenticable Observables with Auth0
 
-Auth0 issues JSON Web Tokens on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [Single Sign On](https://auth0.com/docs/sso/single-sign-on), User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
 The custom `authenticate` operator we created above can be extended for use with Auth0's authentication API very easily. Let's see this in action with an example using Auth0's test API.
 
