@@ -135,24 +135,78 @@ app.configure(function() {
 
 ### Step 3: Save the JWT as a Cookie
 
-We'll need to retrieve a JWT for a user and save it locally as a cookie. If you're using Auth0 for this tutorial, you can find out more about retrieving JWTs for users in your Auth0 account by reading the [API documentation](https://auth0.com/docs/api/v2). 
+We'll need to retrieve a JWT for a user and save it locally as a cookie. If you're using Auth0 for this tutorial, you can find out more about retrieving JWTs for users in your Auth0 account by reading the [API documentation](https://auth0.com/docs/api/v2). We'll use jQuery in this example to make the AJAX calls easy.
 
-If everything is set up correctly, you should receive a JWT back as the value of the `id_token` key when you make a request for it. This is where we would normally save it in the user's local storage, but in our case, we'll want to create a cookie. For simplicity in this example, we'll just use some client code to set the JWT as a cookie, although in a real setup you would want to do that in the server's response.
+Lets make a call to Auth0 to get a JWT.
 
 ```js
 // app.js
 
-...
+$('.btn-login').click(function() {
+  $.ajax({
+    type: 'POST',
+    url: 'https://{your-auth0-account}.auth0.com/oauth/ro',
+    data: {
+      client_id: '{your-client-id}',
+      username: document.querySelector('#username').value,
+      password: document.querySelector('#password').value,
+      grant_type: 'password',
+      scope: 'openid',
+      connection:'Username-Password-Authentication'
+    },
+    success: function(data) {
+      getJwtCookie(data.id_token);
+    },
+    error: function(error) {
+      console.log('There was an error: ' + error)
+    }
 
-// We first need to retrieve a token from our Auth0 authentication endpoint
-// and then set it as a cookie. Normally this would come from the server depending
-// on your set up.
-document.cookie = "id_token=" + token;
-
-...
+  });
+});
 ```
 
-It should also be noted that we aren't setting an expiration on the JWT cookie here, although that is certainly something we would want to do.
+In the success handler, we're calling a function called `getJwtCookie` and passing in the token that was received from Auth0. We need to create an endpoint on our application server that can validate the JWT that was received from Auth0 and send it back to us as a cookie, and we can do that in the `getJwtCookie` function.
+
+```js
+// app.js
+
+function getJwtCookie(token) {
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost:3001/secured/authorize-cookie',
+    data: {
+      token: token
+    },
+    headers: {
+      'Authorization' : 'Bearer ' + token
+    },
+    success: function() {
+      console.log('Cookie received!');
+    },
+    error: function() {
+      console.log('Problem with cookie');
+    }
+  });
+}
+
+```
+Next, lets set up the `authorize-cookie` endpoint to handle this call.
+
+```js
+// server.js
+
+app.post('/secured/authorize-cookie', authenticate, function(req, res) {
+  res.cookie('id_token', req.body.token, { 
+    expires: new Date(Date.now() + 36000),
+    httpOnly: true 
+  });
+  res.send(200, { message: 'Cookie set!' });
+});
+```
+
+In the next step, we'll set up our **express-jwt** middleware, but we're making use of it already in the `authorize-cookie` route by passing it in as the second argument, `authenticate`. The middleware secures the endpoint and a valid JWT will be needed to access it. If the JWT is valid, we simply reflect it back as a cookie and set the `httpOnly` flag to `true` so that the cookie can only be accessed by the server. This route accomplishes the steps of validating the JWT that was received from Auth0, as well as the step of setting a cookie with the JWT.
+
+**Note:** We are using an `Authorization` header to accomplish our cookie JWT in this example. This is the only place we would need to make a request using this header--the rest of the application will handle JWTs with cookies.
 
 ### Step 4: Set Up Middleware to Check for the Cookie
 Normally, the **express-jwt** middleware will look for the presence of a header and retrieve the JWT from there. However, we can also create a custom function to define how the token should be retrieved.
