@@ -78,7 +78,7 @@ Although conceptually simple, implementing passwordless authentication requires 
 * Integration with well known, scalable and secure Email (SendGrid, Mandrill and Amazon SES) and SMS providers (Twilio).
 * An admin dashboard to manage and customize all of the above.
 
-We implemented all of these and made it easy, accessible and secure to everyone.
+We implemented all of these and made it easy, accessible and secure to everyone. We also docummented typical questions that come up around passwordless: check out the [FAQ](https://auth0.com/docs/connections/passwordless/faq).
 
 ## Works everywhere
 
@@ -88,7 +88,7 @@ Auth0 Passwordless can be used on all platforms: native apps, web apps, mobile w
 
 ## Future directions
 
-We are seeing a trend that web applications are moving to longer session expirations so that **users are not asked to log in frequently** - similar to a native app on a mobile device. Then, whenever a user asks to perform a sensitive operation, they’re asked for **"step up" authentication** (think "sudo" command on Linux). [Auth0 Passwordless](http://www.businesswire.com/news/home/20150930005480/en/Auth0-Introduces-Passwordless-Authentication) is a way to implement such a mechanism quickly and securely. Combine this with **anomaly detection**, **suspicuous logins** and **centralized session revocation** and you have a robust yet usable authentication system. 
+We are seeing a trend that web applications are moving to longer session expirations so that **users are not asked to log in frequently** - similar to a native app on a mobile device. Then, whenever a user asks to perform a sensitive operation, they’re asked for **"step up" authentication** (think "sudo" command on Linux). [Auth0 Passwordless](http://www.businesswire.com/news/home/20150930005480/en/Auth0-Introduces-Passwordless-Authentication) is a way to implement such a mechanism quickly and securely. Combine this with **anomaly detection**, **suspicious logins** and **centralized session revocation** and you have a robust yet usable authentication system. 
 
 Auth0 Passwordless is **ready to be used in production** today and it is **included in every Auth0 plan**.
 
