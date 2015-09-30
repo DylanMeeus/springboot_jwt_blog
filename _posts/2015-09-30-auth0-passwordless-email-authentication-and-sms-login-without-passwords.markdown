@@ -13,6 +13,8 @@ design:
   image: https://cdn.auth0.com/blog/passwordless/pwdless-blog-icon.png
   image_size: "80%"
   image_bg_color: "#001d17"
+  image_tw: https://cdn.auth0.com/blog/passwordless/social-card.png
+  image_fb: https://cdn.auth0.com/blog/passwordless/social-card.png
 tags:
 - passwordless
 - sms login
