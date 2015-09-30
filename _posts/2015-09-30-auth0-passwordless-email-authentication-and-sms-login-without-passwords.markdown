@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Log in without Passwords: <br>Introducing Auth0 Passwordless"
+title: "Log in without Passwords: Introducing Auth0 Passwordless"
 description: SMS Authentication and Email Authentication made easy and secure.
 date: 2015-09-30 09:00
 author:
