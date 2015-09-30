@@ -92,4 +92,4 @@ We are seeing a trend that web applications are moving to longer session expirat
 
 Auth0 Passwordless is **ready to be used in production** today and it is **included in every Auth0 plan**.
 
-We can’t wait to see what you will build. And we look forward to continuing to contribute  more improvments to identity and security on the web 🔐.
+We can’t wait to see what you will build. And we look forward to continuing to contribute  more improvements to identity and security on the web 🔐.
