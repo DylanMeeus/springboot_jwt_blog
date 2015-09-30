@@ -49,7 +49,7 @@ The obvious solution to this problem is to **share session information** across 
 
 ![No cookie sharing](https://cdn.auth0.com/blog/sso/same-origin-policy-forbids-this.png)
 
-Different SSO protocols share session information in different ways, but the essential concept is the same: there is a **central domain**, through which authentication is performed, and then the **session is shared** with other domains in some way. For instance, the central domain may generate a JSON Web Token (which is encrypted using a shared secret). This token may then be passed to the client and used by the authentication domain as well as any other domains. The token can be passed to the original domain by a redirect and contains all the information needed to identify the user for the domain requiring authentication. As the token is encrypted, it cannot be modified in any way by the client.
+Different SSO protocols share session information in different ways, but the essential concept is the same: there is a **central domain**, through which authentication is performed, and then the **session is shared** with other domains in some way. For instance, the central domain may generate a signed JSON Web Token (which may be encrypted using JWE). This token may then be passed to the client and used by the authentication domain as well as any other domains. The token can be passed to the original domain by a redirect and contains all the information needed to identify the user for the domain requiring authentication. As the token is signed, it cannot be modified in any way by the client.
 
 ![Central authentication domain](https://cdn.auth0.com/blog/sso/using-central-auth-domain.png)
 
