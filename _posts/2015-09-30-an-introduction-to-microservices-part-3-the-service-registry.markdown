@@ -199,7 +199,25 @@ Registration is handled by the *ExecStartPost* and *ExecStopPost* directives by 
 
 Get the [code](https://github.com/auth0/blog-microservices-part3).
 
-## Aside: ??
+## Aside: use Auth0 for your microservices
+Auth0 and microservices go hand-in-hand thanks to the magic of [JWT](http://jwt.io/). Check it:
+
+```javascript
+var express = require('express');
+var app = express();
+var jwt = require('express-jwt');
+
+var jwtCheck = jwt({
+  secret: new Buffer('your-auth0-client-secret', 'base64'),
+  audience: 'your-auth0-client-id'
+});
+
+app.use('/api/path-you-want-to-protect', jwtCheck);
+
+// (...)
+```
+
+Your *client id* and *client secret* are available through the Auth0 dashboard. Create a new account and [start hacking](https://auth0.com/docs)!
 
 ## Conclusion
 The service registry is an essential part of a microservice-based architecture. There are different ways of handling registration and discovery that fit different architectural complexities. Consider the pros and cons described above for each alternative before committing to one. In part 4 we will study service dependencies in detail and what to do to manage them efficiently.
