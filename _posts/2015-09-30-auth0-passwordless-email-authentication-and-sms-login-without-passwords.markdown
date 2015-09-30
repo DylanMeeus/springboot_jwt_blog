@@ -39,11 +39,10 @@ A third trend we started to see is to **remove the password input from the login
 
 ![trend to remove password input from login box](https://cdn.auth0.com/blog/passwordless/pwdless1.png)
 
-We wondered whether we could create something that encapsulates this experience, make it look great, very easy to integrate, and results in a better and more secure login experience for users on web, mobile, devices and even command line interfaces.
 
 We’ve been experimenting over the past few months, and we’re ready to release our first version today. With [Auth0 Passwordless](https://auth0.com/passwordless) you can use one time codes or “magic links” delivered via SMS or e-mail. Or use iPhone’s TouchID without having to worry about the implementation details.
 
-![SMS authentication, email authentication and TouchID authentication](https://cdn.auth0.com/blog/passwordless/pwdless1.png)
+![SMS authentication, email authentication and TouchID authentication](https://cdn.auth0.com/blog/passwordless/pwdless-locks.png)
 
 ## Log in via e-mail or SMS, simplified
 
@@ -60,7 +59,7 @@ And log in via SMS is this simple as well:
 
 
 ```
-lock.sms({}, function(err, profile, jwt) {
+lock.sms(options, function(err, profile, jwt) {
   alert('welcome ' + profile.phone_number);
 });
 ```
