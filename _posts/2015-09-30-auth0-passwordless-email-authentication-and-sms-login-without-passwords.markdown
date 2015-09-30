@@ -76,7 +76,7 @@ Although conceptually simple, implementing passwordless authentication requires 
 * A beautiful, extensible and open source client [JavaScript API](https://github.com/auth0/auth0.js#passwordless-authentication) library and [UI widget](https://github.com/auth0/lock-passwordless) for Web apps.
 * An open source native component and UI widget for [iOS](https://github.com/auth0/Lock.iOS-OSX) and [Android](https://github.com/auth0/Lock.Android).
 * Integration with well known, scalable and secure Email (SendGrid, Mandrill and Amazon SES) and SMS providers (Twilio).
-* A admin dashboard to manage and customize all of the above.
+* An admin dashboard to manage and customize all of the above.
 
 We implemented all of these and made it easy, accessible and secure to everyone.
 
