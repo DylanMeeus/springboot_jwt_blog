@@ -181,7 +181,7 @@
         header.render('header.site-header');
       })();
     </script>
-    <div id="pjax" style="visibility: hidden;">
+    <div id="pjax">
 
       <!-- Facebook -->
       <div id="fb-root"></div>
@@ -403,7 +403,8 @@
             .on('pjax:success pjax:popstate', function() {
 
               // Hide content until the ab/experiments run
-              $('#pjax').css('visibility', 'hidden');
+              // XXX: Quick hack to make blog work always on pjax
+              $('#pjax').css('visibility', 'visible');
 
               initialize();
 
