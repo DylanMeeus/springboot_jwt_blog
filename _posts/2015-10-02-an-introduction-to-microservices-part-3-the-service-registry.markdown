@@ -49,11 +49,11 @@ Most microservice-based architectures are in constant evolution. Services go up 
 
 **Self-registration** forces microservices to interact with the registry by themselves. **When a service goes up, it notifies the registry**. The same thing happens when the service goes down. Whatever additional data is required by the registry must be provided by the **service itself**. If you have been following this series, you know that microservices are all about dealing with a *single concern*, so self-registration might seem like an anti-pattern. However, for simple architectures, self-registration might be the right choice.
 
-![Self-registration](https://cdn.auth0.com/blog/microservices/self-registration.png)
+![Self-registration](https://cdn.auth0.com/blog/microservices/self-registration-diagram.png)
 
 **Third-party registration** is normally used in the industry. In this case, there is a **process or service that manages all other services**. This process polls or checks in some way which microservice instances are running and it automatically **updates the service registry**. Additional data might be provided in the form of per-service config files (or policy), which the registration process uses to update the database. Third-party registration is commonplace in architectures that use tools such as [Apache ZooKeeper](http://zookeeper.apache.org/) or [Netflix Eureka](https://github.com/Netflix/eureka) and other service managers.
 
-![Third-party-registration](https://cdn.auth0.com/blog/microservices/third-party-registration.png)
+![Third-party-registration](https://cdn.auth0.com/blog/microservices/third-party-registration-diagram.png)
 
 Third-party registration also provides other benefits. For instance, what happens when a service goes down? A third-party registration service might be configured to provide safe fallbacks for services that fail. Other policies might be implemented for other cases. For instance, the service registry process might be notified of a high-load condition and automatically add a new endpoint by requesting the instantiation of a new microservice-process or VM. As you can imagine, these possibilities are critical for big architectures.
 
@@ -62,11 +62,11 @@ As you can imagine, discovery is the counterpart to registration from the point 
 
 **Client-side discovery** forces clients to **query a discovery service** before performing the actual requests. As happens with *self-registration*, this requires clients to deal with additional concerns other than their main objective. The discovery service may or may not be located behind the API gateway. If it is not located behind the gateway, balancing, authentication and other cross-cutting concerns may need to be re-implemented for the discovery service. Additionally, each client needs to know the fixed endpoint (or endpoints) to contact the discovery service. These are all disadvantages. The one big advantage is not having to code the necessary logic in the gateway system. Study this carefully when picking your discovery method.
 
-![Client-side discovery](https://cdn.auth0.com/blog/microservices/client-side-discovery.png)
+![Client-side discovery](https://cdn.auth0.com/blog/microservices/client-side-discovery-diagram.png)
 
 **Server-side discovery** makes the **API gateway handle the discovery** of the right endpoint (or endpoints) for a request. This is normally used in bigger architectures. As all requests are directly sent to the gateway, all the benefits discussed in relation to it apply (see [part 2](https://auth0.com/blog/2015/09/13/an-introduction-to-microservices-part-2-API-gateway/)). The gateway may also implement discovery caching, so that many requests may have lower latencies. The logic behind cache invalidation is specific to an implementation.
 
-![Server-side discovery](https://cdn.auth0.com/blog/microservices/server-side-discovery.png)
+![Server-side discovery](https://cdn.auth0.com/blog/microservices/server-side-discovery-diagram.png)
 
 ## Example: A registry service
 In [part 2](https://auth0.com/blog/2015/09/13/an-introduction-to-microservices-part-2-API-gateway/) we worked on a simple API gateway implementation. In that example we implemented dynamic dispatching of requests through queries to a service database. In other words, we implemented **server-side discovery**. For this example, we will extend our microservice architecture by working on the **registration** aspect. We will do so in two ways:
