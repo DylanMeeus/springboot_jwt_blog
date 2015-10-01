@@ -204,7 +204,7 @@ let elements = ['div', 'span', 'ul', 'li', 'h1', 'h4'].reduce((prev, tag) => {
 export default elements;
 ```
 
-I have published this as a package called _charata_ that you can find on npm (`npm i charata`). You can take a look at its repository on [Charata's Github repo](https://github.com/tehsis/charata).
+I have published this as a package called _charata_ that you can find on npm (`npm i charata`). You can take a look at its repository on [Charata's Github repo](https://github.com/auth0/charata).
 
 ## Working with DOM
 
@@ -312,7 +312,7 @@ Array.prototype.forEach.call(liElements, (liEl) => {
 });
 ```
 
-Feel free to have a look at the [final implementation](http://tehsis.github.io/incremental-todo/) of the todo app.
+Feel free to have a look at the [final implementation](http://auth0.github.io/incremental-todo/) of the todo app.
 
 Fire up your inspector and note that even though we're telling our component to re-render itself every time an item is added or deleted, IDOM takes care of re-rendering just the item that changes:
 
