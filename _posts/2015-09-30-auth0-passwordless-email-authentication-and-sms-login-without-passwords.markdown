@@ -82,7 +82,7 @@ We implemented all of these and made it easy, accessible and secure to everyone.
 
 ## Works everywhere
 
-As developers we have to deal with a handful of devices, screen sizes, and browser-specific challenges. We wanted the [Lock Passwordless](https://github.com/auth0/lock-passswordless) widget to automatically adapt to mobile web browsers on various iOS and Android versions.
+As developers we have to deal with a handful of devices, screen sizes, and browser-specific challenges. We wanted the [Lock Passwordless](https://github.com/auth0/lock-passwordless) widget to automatically adapt to mobile web browsers on various iOS and Android versions.
 
 Auth0 Passwordless can be used on all platforms: native apps, web apps, mobile web, command line interfaces or anything that can send an HTTP request over the net. It's a great way to achieve Single Sign On across everything with a single uniform authentication scheme across the board.
 
