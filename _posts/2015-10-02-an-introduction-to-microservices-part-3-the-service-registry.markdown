@@ -38,11 +38,11 @@ In this post in the microservices series we will talk about *the service registr
 The service registry is a database populated with information on how to dispatch requests to microservice instances. Interactions between the registry and other components can be divided into two groups, each with two subgroups:
 
 1. Interactions between microservices and the registry (registration)
-  1. Self-registration
-  2. Third-party registration
+    1. Self-registration
+    2. Third-party registration
 2. Interactions between clients and the registry (discovery)
-  1. Client-side discovery
-  2. Server-side discovery
+    1. Client-side discovery
+    2. Server-side discovery
 
 ### Registration
 Most microservice-based architectures are in constant evolution. Services go up and down as development teams split, improve, deprecate and do their work. Whenever a service endpoint changes, the **registry needs to know about the change**. This is what *registration* is all about: who publishes or updates the information on how to reach each service.
