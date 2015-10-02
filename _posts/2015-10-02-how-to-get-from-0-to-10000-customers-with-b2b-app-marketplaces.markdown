@@ -3,10 +3,11 @@ layout: post
 title: "How to Get from 0 to 10,000 Customers with B2B App Marketplaces"
 description: "Use Single Sign On, Polish your listing, do internationalization and deeper your integration to grow your app acquisition on Marketplaces"
 date: 2015-10-02 11:59
-author: 
-  name: Martin 
-  url: <YOUR URL>
-  mail: <YOUR MAIL>
+author:
+  name: Martin Gontovnikas
+  url: http://twitter.com/mgonto
+  mail: gonto@auth0.com
+  avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60design
 design: 
   bg_color: <A HEX BACKGROUND COLOR>
   image: <A PATH TO A 200x200 IMAGE>
