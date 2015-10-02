@@ -9,8 +9,10 @@ author:
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
 design: 
-  bg_color: <A HEX BACKGROUND COLOR>
-  image: <A PATH TO A 200x200 IMAGE>
+  bg_color: "#295F3C"
+  image_bg_color: "#5E9270"
+  image_size: "70%"
+  image: http://cdn.auth0.com/blog/marketplace/cart.png
 tags: 
 - foo
 ---
