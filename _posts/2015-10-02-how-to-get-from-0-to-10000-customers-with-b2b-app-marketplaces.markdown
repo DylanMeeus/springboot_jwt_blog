@@ -45,7 +45,7 @@ Finally, Chrome is included as the default browser on all Android devices, and A
 
 All of that adds up to massive opportunity for B2B SaaS developers to reach business customers via the Chrome Web Store.
 
-### Salesforce appexchange
+### Salesforce AppExchange
 
 Salesforce founder and CEO Marc Benioff first coined and trademarked the term “App Store,” before [gifting it to Steve Jobs](http://appleinsider.com/articles/11/08/26/salesforce_chief_gave_steve_jobs_app_store_trademark_as_token_of_appreciation) as a thank you for Jobs’s years of personal support. The AppExchange has been around since 2006 and it’s the earliest B2B cloud app marketplace.
 
