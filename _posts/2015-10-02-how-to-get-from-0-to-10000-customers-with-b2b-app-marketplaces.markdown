@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Get from 0 to 10,000 Customers with B2B App Marketplaces"
-description: "Use Single Sign On, Polish your listing, do internationalization and deeper your integration to grow your app acquisition on Marketplaces"
+description: "Use single sign-on, polish your listing, do internationalization, and deepen your integration to grow your app acquisition through marketplaces"
 date: 2015-10-02 11:59
 author:
   name: Martin Gontovnikas
@@ -95,7 +95,7 @@ With the most basic hosted app, you only need to create a manifest, add a few im
 
 Each app store has a different set of requirements and approaches to finding success, but they can be abstracted into the following principles.
 
-### Get into the app store with Single Sign On
+### Get into the app store with single sign-on
 
 Often, the most basic requirement to get into the app store is to have single sign-on for the app store provider. 
 
