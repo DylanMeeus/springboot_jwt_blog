@@ -36,7 +36,7 @@ What is our industry doing to address this problem?
   <li>Password managers</li>
 </ol>
 
-A second factor  significantly reduces the risk of your account being compromised. We support [multi-factor](https://auth0.com/docs/mfa) at Auth0 and it has been a very popular feature, but you still have a password to remember and the second factor introduces more complexity and friction to the average user. Password managers are useful (I personally use one) but still they feel like a band-aid on the problem, not addressing the real issue.
+A second factor  significantly reduces the risk of your account being compromised. We support [multifactor](https://auth0.com/docs/mfa) at Auth0 and it has been a very popular feature, but you still have a password to remember and the second factor introduces more complexity and friction to the average user. Password managers are useful (I personally use one) but still they feel like a band-aid on the problem, not addressing the real issue.
 
 A third trend we've started to see is to **remove the password input from the login box altogether**. Companies like Medium, Slack, Twitter, and WhatsApp are already doing it, and even Google’s new login screens [hints at a future beyond passwords](http://techcrunch.com/2015/05/13/gmails-new-login-screens-hints-at-a-future-beyond-passwords/).
 
