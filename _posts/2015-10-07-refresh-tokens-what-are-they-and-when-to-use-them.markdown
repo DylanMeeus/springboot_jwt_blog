@@ -41,11 +41,11 @@ For the purposes of this post, we will focus on the two most common types of tok
 
 - **Access tokens** carry the necessary information to access a resource directly. In other words, when a client passes an access token to a server managing a resource, that server can use the information contained in the token to decide whether the client is authorized or not. Access tokens usually have an expiration date and are short lived.
 
-**TODO: access token typical use diagram**
+![Access Token](https://cdn.auth0.com/blog/refreshtokens/access-token-draft.png)
 
 - **Refresh tokens** carry the necessary information to get a new access token. In other words, whenever an access token is required to access a specific resource, a client may use a refresh token to get a new access token issued by the authentication server. Common use cases include getting new access tokens after old ones have expired, or getting access to a new resource for the first time. Refresh tokens can also expire but are rather long lived. Refresh tokens are usually subject to strict storage requirements to ensure they are not leaked, and can be blacklisted by the authorization server.
 
-**TODO: refresh token typical use diagram**
+![Refresh Token](https://cdn.auth0.com/blog/refreshtokens/refresh-token-draft.png)
 
 Whether tokens are opaque or not is usually defined by the implementation. Common implementations allow for **direct authorization checks against an access token**. That is: when an access token is passed to a server managing a resource, the server can read the information contained in the token and decide itself whether the user is authorized or not (no checks against an authorization server are needed). This is one of the reasons tokens must be signed (using JWS, for instance). On the other hand, refresh tokens usually require a check against the authorization server. This split way of handling authorization checks allows for three things:
 
