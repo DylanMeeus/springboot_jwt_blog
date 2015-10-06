@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting Started with Relay"
-description: "Learn the basics of Facebook's GraphQL-based framework Relay, as well as how to add authentication to a Relay app."
+description: "Learn how to get started with a Relay app and how to protect the GraphQL endpoint with JWT authentication."
 date: 2015-10-06 11:00
 author:
   name: Ryan Chenkie
@@ -21,7 +21,7 @@ tags:
 
 ---
 
-**TL;DR:** Relay is an open source framework from Facebook for declarative data interaction with GraphQL. It fills the data fetching gap that existed with React + Flux applications and allows developers to request exactly the data they need for each component. In this tutorial, we see how to set up a basic Relay application and how to protect GraphQL with JWT authentication. You can check out the [repo](https://github.com/auth0/relay-auth) for the tutorial, as well as the [Auth0 docs]() for an integration with **express-jwt**.
+**TL;DR:** Relay is an open source framework from Facebook for declarative data interaction with GraphQL. It fills the data fetching gap that existed with React + Flux applications and allows developers to request exactly the data they need for each component. In this tutorial, we see how to set up a basic Relay application and how to protect GraphQL with JWT authentication. You can check out the [repo](https://github.com/auth0/relay-auth) for the tutorial, as well as the [Auth0 docs](https://auth0.com/docs/quickstart/backend) for an integration with **express-jwt**.
 
 ---
 ## Relay and GraphQL
@@ -36,17 +36,17 @@ To address these issues, Relay allows us to specify exactly the shape of the dat
 
 Without Relay, components make requests to many different endpoints.
 
-![relay react graphql](https://cdn.auth0.com/blog/relay/relay-4.png)
+![relay react graphql authentication](https://cdn.auth0.com/blog/relay/relay-4.png)
 
 With Relay however, all requests are made to a single GraphQL endpoint through queries and fragments.
 
-![relay react graphql](https://cdn.auth0.com/blog/relay/relay-5.png)
+![relay react graphql authentication](https://cdn.auth0.com/blog/relay/relay-5.png)
 
 ## Getting Started
 
 In this tutorial, we will take a cursory look at Relay and GraphQL by building a simple application that allows us to display programming conferences that a user is registered to attend. This tutorial will focus on the core concepts of Relay and will cover only data retrieval. We will see how to write data in the next article of this series.
 
-![relay react graphql](https://cdn.auth0.com/blog/relay/relay-3.png)
+![relay react graphql authentication](https://cdn.auth0.com/blog/relay/relay-3.png)
 
 ### Schemas
 
@@ -440,7 +440,7 @@ The `Relay.RootContainer` is passed the Relay container we specified as our comp
 
 If everything is set up correctly, you should be able to see the app in the browser.
 
-![relay react graphql](https://cdn.auth0.com/blog/relay/relay-3.png)
+![relay react graphql authentication](https://cdn.auth0.com/blog/relay/relay-3.png)
 
 ## Aside: Authentication is Easy with Auth0
 
