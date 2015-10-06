@@ -12,7 +12,7 @@ design:
   bg_color: "#295F3C"
   image_bg_color: "#5E9270"
   image_size: "70%"
-  image: http://cdn.auth0.com/blog/marketplace/cart.png
+  image: https://cdn.auth0.com/blog/marketplace/cart.png
 tags: 
 - foo
 ---
