@@ -26,7 +26,7 @@ tags:
 - sliding sessions
 ---
 
-In this post we will explore the concept of refresh tokens. We will learn why they came to be and how they compare to other types of tokens. We will also learn how to use them with a simple example. Read on!
+In this post we will explore the concept of refresh tokens as defined by [OAuth2](https://tools.ietf.org/html/rfc6749). We will learn why they came to be and how they compare to other types of tokens. We will also learn how to use them with a simple example. Read on!
 
 -----
 
@@ -57,50 +57,15 @@ Whether tokens are opaque or not is usually defined by the implementation. Commo
 Sliding-sessions are sessions that expire after a **period of inactivity**. As you can imagine, this is easily implemented using access tokens and refresh tokens: when a user performs an action, a new access token is issued. If the user uses an expired access token, the session is considered inactive and a new access token is required. It is defined by the requirements of the development team whether this token can be obtained with a refresh token or a new authentication round is required.
 
 ### Security considerations
-Refresh tokens are **long-lived**. This means when a client gets a refresh token from a server, this token must be **stored securely** to keep it from being used by potential attackers. If a refresh token is leaked, it may be used to obtain new access tokens (and access protected resources) until it is either blacklisted or it expires (which may take a long time). Access tokens must be kept secret, but as you may imagine, security considerations are less strict due to their shorter life.
+Refresh tokens are **long-lived**. This means when a client gets a refresh token from a server, this token must be **stored securely** to keep it from being used by potential attackers. If a refresh token is leaked, it may be used to obtain new access tokens (and access protected resources) until it is either blacklisted or it expires (which may take a long time). Refresh tokens must be issued to a single authenticated client to prevent use of leaked tokens by other parties. Access tokens must be kept secret, but as you may imagine, security considerations are less strict due to their shorter life.
 
 ## Example: a refresh-token issuing server
-For the purposes of this example we will develop a simple server that will issue access and refresh tokens in JWT format. Access tokens will be required to access a protected resource. The client will be a simple CURL command.
+For the purposes of this example we will use a simple server (oauth2orize) that will issue access and refresh tokens. Access tokens will be required to access a protected resource. The client will be a simple CURL command.
 
 **TODO: example**
 
 ## Aside: use refresh tokens in your Auth0 apps
-At Auth0 we do the hard part of authentication for you. Refresh tokens are not an exception. Once you have [setup your app](https://auth0.com/docs) with us, getting a refresh token to get new access tokens from a client can be as simple as:
-
-```
-GET https://speyrott.auth0.com/authorize/?
-    response_type=token
-    &client_id=YOUR_AUTH0_CLIENT_ID
-    &redirect_uri=YOUR_CALLBACK_URL
-    &state=VALUE_THAT_SURVIVES_REDIRECTS
-    &scope=openid%20offline_access
-    &device=my-device
-```
-
-You will get the refresh token as part of the request to your callback URL:
-
-```
-GET https://YOUR_CALLBACK_URL#
-    access_token=2nF...WpA
-    &id_token=eyJhb...
-    &state=VALUE_THAT_SURVIVES_REDIRECTS
-    &refresh_token=Cqp...Mwe
-```
-
-Then you can use the refresh token to get access tokens indefinitely:
-
-```
-POST https://speyrott.auth0.com/delegation
-Content-Type: 'application/json'
-{
-  "client_id":       "YOUR_AUTH0_CLIENT_ID",
-  "grant_type":      "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  "refresh_token":   "YOUR_REFRESH_TOKEN",
-  "api_type":        "app"
-}
-```
-
-Remember to store the refresh token securely. See the full docs [here](https://auth0.com/docs/refresh-token).
+At Auth0 we do the hard part of authentication for you. Refresh tokens are not an exception. Once you have [setup your app](https://auth0.com/docs) with us, follow the docs [here](https://auth0.com/docs/refresh-token) to learn how to get a refresh token.
 
 ## Conclusion
 Refresh tokens improve security and allow for reduced latency and better access patterns to authorization servers. Implementations can be simple using tools suchs as JWT + JWS. If you are interested in learning more about tokens (and cookies), check our article [here](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
