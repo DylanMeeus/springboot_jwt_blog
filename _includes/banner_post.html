@@ -27,7 +27,7 @@
           </div>
 
           <div class="date">
-            <time datetime="{{ current.date | date: "%B %d, %Y" }}" class="published updated">{{ current.date | date: "%B %d, %Y" }}</time>
+            <time datetime="{{ current.date_override || current.date | date: "%B %d, %Y" }}" class="published updated">{{ current.date_override || current.date |  date: "%B %d, %Y" }}</time>
           </div>
 
           {% include social_buttons.html %}

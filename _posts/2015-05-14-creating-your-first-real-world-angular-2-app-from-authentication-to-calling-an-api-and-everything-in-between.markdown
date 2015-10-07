@@ -5,6 +5,7 @@ description: "Learn how to create a real world angular 2 app using Pipes, Direct
 reply:
  twitter: https://twitter.com/auth0/status/598909226111631360
 date: 2015-05-14 09:54AM
+date_override: "2015-10-07 12:30"
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
