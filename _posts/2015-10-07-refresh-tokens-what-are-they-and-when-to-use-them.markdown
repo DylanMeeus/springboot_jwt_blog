@@ -177,6 +177,8 @@ curl -X POST -H 'Authorization: Basic dGVzdGNsaWVudDpzZWNyZXQ=' -d 'refresh_toke
 }
 ```
 
+See the full code [here](https://github.com/auth0/blog-refresh-tokens-sample).
+
 ## Aside: use refresh tokens in your Auth0 apps
 At Auth0 we do the hard part of authentication for you. Refresh tokens are not an exception. Once you have [setup your app](https://auth0.com/docs) with us, follow the docs [here](https://auth0.com/docs/refresh-token) to learn how to get a refresh token.
 
