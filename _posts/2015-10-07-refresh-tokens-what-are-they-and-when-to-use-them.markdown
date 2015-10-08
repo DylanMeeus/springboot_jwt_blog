@@ -64,7 +64,7 @@ For the purposes of this example we will use a simple server based on [node-oaut
 
 Node-oauth2-server uses a predefined API for the model. You can find the docs [here](https://github.com/thomseddon/node-oauth2-server/blob/master/Readme.md). The following code shows how to implement the model for JWT access tokens.
 
-<span style="color: red">DISCLAIMER: Please note the code in the following example is not production ready.</span>
+<span style="color: red">DISCLAIMER: </span><span style="color: #5c666f">Please note the code in the following example is not production ready.</span>
 
 ```javascript
 model.generateToken = function(type, req, callback) {
@@ -179,7 +179,7 @@ curl -X POST -H 'Authorization: Basic dGVzdGNsaWVudDpzZWNyZXQ=' -d 'refresh_toke
 }
 ```
 
-<span style="color: red">DISCLAIMER: Please note the code in the previous example is not production ready.</span>
+<span style="color: red">DISCLAIMER: </span><span style="color: #5c666f">Please note the code in the previous example is not production ready.</span>
 
 See the full code [here](https://github.com/auth0/blog-refresh-tokens-sample).
 
