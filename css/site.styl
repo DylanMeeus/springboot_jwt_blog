@@ -682,6 +682,12 @@ pre.prettyprint
   p
     margin: 15px;
 
+  .btn-lg
+    display: none;
+
+    +breakpoint("desktop")
+      display: inline-block;
+
   &.is-inline
     visibility: visible;
     text-align: center;
