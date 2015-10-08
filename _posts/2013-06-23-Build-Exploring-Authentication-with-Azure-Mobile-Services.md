@@ -7,6 +7,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "Going to //Build this week? Dinesh Kulkarni of Windows Azure Mobile Services fame was kind enough to invite us to his session."
 ---
 
 Going to [//Build](http://www.buildwindows.com/) this week? [Dinesh Kulkarni](http://www.dineshk.net/) of Windows Azure Mobile Services fame was kind enough to invite us to his session: [__Who’s that user? Identity in Mobile Service__](http://channel9.msdn.com/Events/Build/2013/3-544).

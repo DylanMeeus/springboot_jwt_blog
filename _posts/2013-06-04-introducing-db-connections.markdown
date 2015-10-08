@@ -10,6 +10,7 @@ author:
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 
+description: "Since we released the beta, one of the things our customers have been telling us, is they want us to support a \"username/password\" authentication."
 ---
 
 Since we released the beta, one of the things our customers have been telling us, is they want us to support a "username/password" authentication. Auth0 is being used today by two different audiences:

@@ -7,6 +7,7 @@ author:
   mail: jon@auth0.com
   url:  http://www.twitter.com/jgelsey
   avatar: https://auth0.com/lib/about/img/jon.png
+description: "We’re very pleased to welcome new advisors to Auth0.  Our advisors are sounding boards, mentors, technical consultants, organizational architects, marketing"
 ---
 
 We’re very pleased to welcome new advisors to Auth0.  Our advisors are sounding boards, mentors, technical consultants, organizational architects, marketing wizards, and much more - we are honored and humbled that such accomplished individuals as Tim, Glenn, and Steve have agreed to join with Nuno and Guillermo in helping us continually make Auth0 an even more useful tool for developers and enterprises.

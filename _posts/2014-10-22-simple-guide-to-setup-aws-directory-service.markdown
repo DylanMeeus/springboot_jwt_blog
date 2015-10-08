@@ -13,6 +13,7 @@ tags:
 - ad
 - ldap
 - directory
+description: "Amazon introduced today a new feature called AWS Directory Service. In a nutshell, it allows:  Connect existing Active Directory to the cloud or to create"
 ---
 
 Amazon introduced today a new feature called [AWS Directory Service](http://aws.amazon.com/es/directoryservice/). In a nutshell, it allows:

@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "A new sample is now available on our repo for Android developers. The sample demonstrates integration with Auth0 for authentication"
 ---
 
 A new sample is now available on [our repo](https://github.com/auth0/Auth0-Android-Sample) for Android developers. The sample demonstrates integration with Auth0 for authentication and uses the standard techinque of delegating the authentication process to an embeded web view (extending the `WebViewClient` class).

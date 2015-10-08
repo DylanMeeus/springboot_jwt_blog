@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "If your app uses Auth0 for authenticating users, adding SSO with LinkedIn, PayPal, GitHub, Twitter and Facebook is just a click away."
 ---
 
 

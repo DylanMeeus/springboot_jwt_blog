@@ -9,6 +9,7 @@ author:
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
+description: "Node Knockout is a 48-hour hackathon where devs across the world gather in teams and implement an application using node.js."
 ---
 
 

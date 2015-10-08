@@ -8,6 +8,7 @@ author:
   url:  http://www.twitter.com/eugenio_pace
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "We are very excited to announce Auth0 (AuthZero). Auth0 is identity management that \"just works\". It's about removing the pain of developing"
 ---
 
 

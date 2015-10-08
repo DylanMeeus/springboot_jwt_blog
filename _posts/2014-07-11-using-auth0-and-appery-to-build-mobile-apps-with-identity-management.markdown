@@ -17,6 +17,7 @@ tags:
 - apperyio
 - login
 - signup
+description: "This is a guest post by Dmitry Zaytsev. He is the Developer Evangelist at Appery.io Building mobile apps with identity management wasn't simple, until"
 ---
 
 _This is a guest post by Dmitry Zaytsev. He is the Developer Evangelist at [Appery.io](http://appery.io)_
