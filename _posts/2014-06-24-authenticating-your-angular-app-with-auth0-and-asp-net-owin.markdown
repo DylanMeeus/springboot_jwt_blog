@@ -17,6 +17,7 @@ tags:
 - auth0
 - login
 - signup
+description: "This is a guest post by Taiseer Joudeh. He has more than 8 years of experience spent in developing and managing different software solutions for finance"
 ---
 
 _This is a guest post by Taiseer Joudeh. He has more than 8 years of experience spent in developing and managing different software solutions for finance, transportation, logistics, and e-commerce sectors. He is a frequent blogger on [http://bitoftech.net](http://bitoftech.net), and you can follow him on twitter [@tjoudeh](https://twitter.com/tjoudeh)_

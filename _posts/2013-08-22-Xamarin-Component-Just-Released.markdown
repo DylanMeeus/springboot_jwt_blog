@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "We are very excited to announce the release of the Auth0 Component for Xamarin. As with the other SDKs we released (and available on Github)"
 ---
 
 

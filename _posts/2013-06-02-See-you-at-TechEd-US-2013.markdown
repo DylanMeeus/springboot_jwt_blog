@@ -7,6 +7,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "Going to TechEd USA this week? So am I! Nick Harris was very kind to invite us to his session: Build Real-World Modern Apps with Windows Azure Mobile Services"
 ---
 
 

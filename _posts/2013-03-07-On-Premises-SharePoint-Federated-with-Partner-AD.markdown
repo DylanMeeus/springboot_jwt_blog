@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "We are going to extend the scenario described in the previous post, so Fabrikom can accept users from another partner company."
 ---
 
 

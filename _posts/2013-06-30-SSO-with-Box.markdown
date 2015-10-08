@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "Another great app is added to the Auth0's portfolio. You can now setup SSO with Box. As usual, it will take just a few, very simple steps."
 ---
 
 

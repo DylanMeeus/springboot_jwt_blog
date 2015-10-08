@@ -9,6 +9,7 @@ author:
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
+description: "Few months ago GitHub implemented Smart HTTP support for GIT. This is fascinating, because the previous version of the http based transport was very slow"
 ---
 
 <div style="text-align:center"><img style="width: 560px" src="https://docs.google.com/drawings/d/11titp9CXWcy_6oIReMuVdR6qHxNFuoZefC3hvJ-Wvmc/pub?w=733&amp;h=519"></div>

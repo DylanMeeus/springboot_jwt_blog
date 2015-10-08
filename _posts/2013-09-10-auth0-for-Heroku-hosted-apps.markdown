@@ -7,6 +7,7 @@ author:
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
+description: "Auth0 is now available on Heroku as an add-on (private beta for now), making it incredibly easy to add Enterprise SSO, Consumer Logins, Directories queries"
 ---
 
 

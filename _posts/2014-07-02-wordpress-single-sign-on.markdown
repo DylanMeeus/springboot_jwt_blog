@@ -13,6 +13,7 @@ tags:
 - WordPress
 - single sign on
 - auth0
+description: "We recently published the first version of the WordPress plugin for Auth0, which provides:  Single Sign On with Enterprise Directories (LDAP, AD, Google Apps"
 ---
 
 ![WordPress and auth0](https://s3.amazonaws.com/blog.auth0.com/wp-banner.png)

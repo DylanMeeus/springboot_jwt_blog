@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: https://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "When it was released about 4 years ago, ACS was great. It lowered the bar of entry to advanced identity scenarios considerably. Whole chapters of our Claims"
 ---
 
 <div style="float: right"><img style="width: 160px" src="https://cloudup.com/cTUURfqMtie+"></div>

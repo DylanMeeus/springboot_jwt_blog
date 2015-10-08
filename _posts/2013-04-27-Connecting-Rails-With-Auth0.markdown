@@ -8,6 +8,7 @@ author:
   mail: ezequiel@auth0.com
   url: https://github.com/ezequielm
   avatar: https://secure.gravatar.com/avatar/6c62cc9e6d7c17e49debf1bc3755fe3a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
+description: "We have good news for our colleagues developing on Ruby. Last week we relased the Auth0 OmniAuth Strategy that makes it a bliss to connect Ruby apps"
 ---
 
 

@@ -15,6 +15,7 @@ tags:
 - lock
 - IAM
 - amazon
+description: "TL;DR: You can get a working sample that uses Auth0, Cognito, and iOS in this Github repository   We’ve come to an era where a critical component of a"
 ---
 ---
 

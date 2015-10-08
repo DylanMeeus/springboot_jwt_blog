@@ -17,6 +17,7 @@ tags:
 - sso
 - shared
 - accesibility options
+description: "A few weeks back we released the first version of our native iOS SDK to help you add authentication to your app. We needed a Keychain library that supported"
 ---
 A few weeks back we released **the first version of our native [iOS SDK](https://github.com/auth0/auth0.ios)** to help you add authentication to your app.
 
