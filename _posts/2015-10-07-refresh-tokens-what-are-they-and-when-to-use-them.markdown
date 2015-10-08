@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Refresh Tokens: When to Use Them and How They Interact with JWTs"
-description: "Learn about refresh tokens and how they fit in the modern web"
+description: "Learn about refresh tokens and how they fit in the modern web. Get a working sample of how to implement it with NodeJS"
 date: 2015-10-07 09:00
 author: 
   name: Sebastián Peyrott
