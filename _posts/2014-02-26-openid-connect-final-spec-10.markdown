@@ -8,6 +8,7 @@ author:
   mail: matias@auth0.com
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
+description: "OpenID Connect final specs 1.0 were published today! This is a milestone for the identity community and we are happy to have been part of its development."
 ---
 
 

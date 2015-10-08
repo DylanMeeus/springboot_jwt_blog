@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "Today Amazon announced a new Login Service, which allows you to connect with millions of their customers"
 ---
 
 

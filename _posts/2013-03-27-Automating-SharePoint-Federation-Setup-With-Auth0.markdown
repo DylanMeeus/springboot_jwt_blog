@@ -8,6 +8,7 @@ author:
   mail: eugeniop@auth0.com
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
+description: "Supporting SharePoint is a prime scenario in Auth0 and it's fully integrated into it. In this post we show how SharePoint can accept users authenticated"
 ---
 
 

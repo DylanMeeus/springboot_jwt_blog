@@ -13,6 +13,7 @@ tags:
 - jwts
 - interceptor
 - $http
+description: "Following our blog post about how to use JWTs on AngularJS, we've decided to go one step further to make this simpler. We've created a library called"
 ---
 
 Following our blog post about [how to use JWTs on AngularJS](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/#comment-1506375766), we've decided to go one step further to make this simpler.

@@ -9,6 +9,7 @@ author:
   url: "http://joseoncode.com"
   mail: "jfromaniello@gmail.com"
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
+description: "In this post, I'll show you how easy it is with Auth0 to get an app running on Heroku"
 ---
 
 
