@@ -48,7 +48,7 @@ p,li
 
 .bottom-module
   margin: 40px 0;
-  
+
   +breakpoint("tablet")
     margin: 60px 0;
 
@@ -120,7 +120,7 @@ p,li
   background: #354171;
   padding: 20px 0;
   margin-bottom: 15px;
-  
+
   .banner-container
     -webkit-animation: none;
     animation: none;
@@ -183,7 +183,7 @@ p,li
   &.banner-post
     .entry-title:before
       color: white;
-      
+
   .entry-title
     &:before
       content: "blog series";
@@ -449,13 +449,13 @@ h1,h2,h3,h4,h5
 
     +breakpoint("desktop")
       margin-top: -30px;
-      
+
   [data-sticky]
     &:after
       @extend .line;
       width: 100%;
       margin: 0;
-        
+
     &.fixed
       position: fixed;
       top: 0;
@@ -678,10 +678,10 @@ pre.prettyprint
   visibility: hidden;
   min-height: 56px;
   min-width: 320px;
-  
-  p 
+
+  p
     margin: 15px;
-  
+
   &.is-inline
     visibility: visible;
     text-align: center;
@@ -689,45 +689,49 @@ pre.prettyprint
     border-top: 1px solid rgba(209, 210, 212, 0.5);
     background-color: #5C666F;
     color: white;
-    
+    position: relative;
+
+    .btn-lg
+      display: none;
+
     p
       font-size: 16px;
       color: white;
       font-weight: bold;
-    
+
     .text
       font-weight: bold;
       font-size: 16px;
       margin-right: 10px;
       padding: 0;
-    
+
     .form-control
       background: rgba(white, 0.1);
       color: white;
-      
+
       &::-webkit-input-placeholder
         color: white;
         opacity: 0.7;
-        
+
       &::-moz-placeholder
         color: white;
         opacity: 0.7;
-      
-  
+
+
   .text
     font-size: 12px;
     padding-top: 8px;
-    
+
     +breakpoint("tablet")
       font-size: 14px;
       padding: 0;
 
   &.fixed
     visibility: visible;
-    
+
   > span
     display: inline-block;
-    
+
   .form-control
     display: inline-block;
     border: 0;
@@ -740,12 +744,12 @@ pre.prettyprint
     width: auto;
     margin: 10px 15px;
     margin-right: 5px;
-    
+
   button
     height: 35px;
     width: 40px;
-    
-    i 
+
+    i
       font-size: 18px;
       position: relative;
       left: -5px;
