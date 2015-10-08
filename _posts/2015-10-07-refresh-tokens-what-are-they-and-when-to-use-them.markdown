@@ -60,14 +60,127 @@ Sliding-sessions are sessions that expire after a **period of inactivity**. As y
 Refresh tokens are **long-lived**. This means when a client gets a refresh token from a server, this token must be **stored securely** to keep it from being used by potential attackers. If a refresh token is leaked, it may be used to obtain new access tokens (and access protected resources) until it is either blacklisted or it expires (which may take a long time). Refresh tokens must be issued to a single authenticated client to prevent use of leaked tokens by other parties. Access tokens must be kept secret, but as you may imagine, security considerations are less strict due to their shorter life.
 
 ## Example: a refresh-token issuing server
-For the purposes of this example we will use a simple server (oauth2orize) that will issue access and refresh tokens. Access tokens will be required to access a protected resource. The client will be a simple CURL command.
+For the purposes of this example we will use a simple server based on [node-oauth2-server](https://github.com/thomseddon/node-oauth2-server) that will issue access and refresh tokens. Access tokens will be required to access a protected resource. The client will be a simple CURL command. The code from this example is based on the [examples from node-oauth2-server](https://github.com/thomseddon/node-oauth2-server/tree/master/examples). We have modified the base examples to use JWT for access tokens.
 
-**TODO: example**
+Node-oauth2-server uses a predefined API for the model. You can find the docs [here](https://github.com/thomseddon/node-oauth2-server/blob/master/Readme.md). The following code shows how to implement the model for JWT access tokens.
+
+```javascript
+model.generateToken = function(type, req, callback) {
+  //Use the default implementation for refresh tokens
+  console.log('generateToken: ' + type);
+  if(type === 'refreshToken') {
+    callback(null, null);
+    return;
+  }
+  
+  //Use JWT for access tokens
+  var token = jwt.sign({
+    user: req.user.id
+  }, secretKey, {
+    expiresIn: model.accessTokenLifetime,
+    subject: req.client.clientId
+  });
+  
+  callback(null, token);
+}
+
+model.getAccessToken = function (bearerToken, callback) {
+  console.log('in getAccessToken (bearerToken: ' + bearerToken + ')');
+
+  try {
+    var decoded = jwt.verify(bearerToken, secretKey, { 
+        ignoreExpiration: true //handled by OAuth2 server implementation
+    });
+    callback(null, {
+      accessToken: bearerToken,
+      clientId: decoded.sub,
+      userId: decoded.user,
+      expires: new Date(decoded.exp * 1000)
+    });
+  } catch(e) {    
+    callback(e);
+  }
+};
+
+model.saveAccessToken = function (token, clientId, expires, userId, callback) {
+  console.log('in saveAccessToken (token: ' + token + 
+              ', clientId: ' + clientId + ', userId: ' + userId.id + 
+              ', expires: ' + expires + ')');
+
+  //No need to store JWT tokens.
+  console.log(jwt.decode(token, secretKey));
+  
+  callback(null);
+};
+```
+
+The OAuth2 token endpoint (/oauth/token) handles issuing of all types of grants (password and refresh tokens). All other endpoints are protected by the OAuth2 middleware that checks for the access token.
+
+```javascript
+// Handle token grant requests
+app.all('/oauth/token', app.oauth.grant());
+
+app.get('/secret', app.oauth.authorise(), function (req, res) {
+  // Will require a valid access_token
+  res.send('Secret area');
+});
+```
+
+So, for instance, assuming there is a user 'test' with password 'test' and a client 'testclient' with a client secret 'secret', one could request a new access token/refresh token pair as follows:
+
+```sh
+$ curl -X POST -H 'Authorization: Basic dGVzdGNsaWVudDpzZWNyZXQ=' -d 'grant_type=password&username=test&password=test' localhost:3000/oauth/token
+
+{
+    "token_type":"bearer",
+    "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVlx1MDAxNcKbwoNUwoonbFPCu8KhwrYiLCJpYXQiOjE0NDQyNjI1NDMsImV4cCI6MTQ0NDI2MjU2M30.MldruS1PvZaRZIJR4legQaauQ3_DYKxxP2rFnD37Ip4",
+    "expires_in":20,
+    "refresh_token":"fdb8fdbecf1d03ce5e6125c067733c0d51de209c"
+}
+```
+
+The authorization header contains the client id and secret encoded as BASE64 (testclient:secret).
+
+To access a protected resource with that access token:
+
+```sh
+$ curl 'localhost:3000/secret?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVlx1MDAxNcKbwoNUwoonbFPCu8KhwrYiLCJpYXQiOjE0NDQyNjI1NDMsImV4cCI6MTQ0NDI2MjU2M30.MldruS1PvZaRZIJR4legQaauQ3_DYKxxP2rFnD37Ip4'
+
+Secret area
+
+```
+
+Access to the "secret area" will not cause a database lookup to validate the access token thanks to JWT.
+
+Once the token has expired:
+
+```sh
+$ curl 'localhost:3000/secret?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVlx1MDAxNcKbwoNUwoonbFPCu8KhwrYiLCJpYXQiOjE0NDQyNjI2MTEsImV4cCI6MTQ0NDI2MjYzMX0.KkHI8KkF4nmi9z6rAQu9uffJjiJuNnsMg1DC3CnmEV0'
+
+{
+    "code":401,
+    "error":"invalid_token",
+    "error_description":"The access token provided has expired."
+}
+```
+
+Now we can use the refresh token to get a new access token by hitting the token endpoint like so:
+
+```sh
+curl -X POST -H 'Authorization: Basic dGVzdGNsaWVudDpzZWNyZXQ=' -d 'refresh_token=fdb8fdbecf1d03ce5e6125c067733c0d51de209c&grant_type=refresh_token' localhost:3000/oauth/token
+
+{
+    "token_type":"bearer",
+    "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVlx1MDAxNcKbwoNUwoonbFPCu8KhwrYiLCJpYXQiOjE0NDQyNjI4NjYsImV4cCI6MTQ0NDI2Mjg4Nn0.Dww7TC-d0teDAgsmKHw7bhF2THNichsE6rVJq9xu_2s",
+    "expires_in":20,
+    "refresh_token":"7fd15938c823cf58e78019bea2af142f9449696a"
+}
+```
 
 ## Aside: use refresh tokens in your Auth0 apps
 At Auth0 we do the hard part of authentication for you. Refresh tokens are not an exception. Once you have [setup your app](https://auth0.com/docs) with us, follow the docs [here](https://auth0.com/docs/refresh-token) to learn how to get a refresh token.
 
 ## Conclusion
-Refresh tokens improve security and allow for reduced latency and better access patterns to authorization servers. Implementations can be simple using tools suchs as JWT + JWS. If you are interested in learning more about tokens (and cookies), check our article [here](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
+Refresh tokens improve security and allow for reduced latency and better access patterns to authorization servers. Implementations can be simple using tools such as JWT + JWS. If you are interested in learning more about tokens (and cookies), check our article [here](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
 
 
