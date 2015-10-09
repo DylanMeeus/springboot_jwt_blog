@@ -210,7 +210,7 @@ We showed in this blog post how easy it is to get started with 2FA using TOTP. I
 For simplicity, the code in our example uses a simple JSON file as storage. In production you would normally keep user data in a proper (and secure) database. Get the code: [app.js](https://github.com/sebadoom/auth0/blob/master/twofa/backend/app.js).
 
 ## Aside: How it works in Auth0
-Auth0 provides convenient 2FA methods that can easily be enabled. Check this out:
+Auth0 provides convenient [2FA](https://auth0.com/learn/multi-factor-authentication) methods that can easily be enabled. Check this out:
 
 ![Auth0 2FA](https://cdn.auth0.com/blog/grow-revenue/mfa.png "Easy 2FA with Auth0")
 
