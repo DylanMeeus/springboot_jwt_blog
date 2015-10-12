@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What's the Fuss with Google's Accelerated Mobile Pages (AMP)?"
-description: "Learn about Google's AMP project and how to build a sample AMP page in this tutorial."
+description: "Learn about Google's Accelerated Mobile Pages project and how to build a sample AMP page in this tutorial."
 date: 2015-10-12 16:00
 author:
   name: Ryan Chenkie
@@ -34,7 +34,7 @@ Google's [Accelerated Mobile Pages (AMP)](https://www.ampproject.org/) project a
 
 The AMP runtime JavaScript also takes care of a bunch of optimizations. These are things like loading only the content that is above the fold first and prioritizing or delaying image loading, among others.
 
-## Limitations
+## Accelerated Mobile Pages (AMP) Limitations
 
 Because AMP imposes many restrictions on us with the aim of making content sites really fast, it might be good to start off by going over what we *can't* do in it.
 
