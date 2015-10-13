@@ -24,7 +24,7 @@ tags:
 
 ---
 
-**TL;DR:** Google has just released its Accelerated Mobile Pages (AMP) project, a library that provides custom components for making websites very fast. It takes a prescriptive approach that puts tight restrictions on developers but promises great speed gains. In this article, we take a look at some of AMP's features and build a demo page. Check out the [repo](https://github.com/auth0/amp-example) to get the code for this tutorial and the [AMP project](https://github.com/ampproject/amphtml) for docs and further info.
+**TL;DR:** Google has just released its Accelerated Mobile Pages (AMP) project, a library that provides custom components for making websites very fast. It takes a prescriptive approach that puts tight restrictions on developers but promises great speed gains. In this article, we take a look at some of AMP's features and build a demo page. Check out the [repo](https://github.com/auth0/amp-example) to get the code for this tutorial and the [AMP project](https://github.com/ampproject/amphtml) for docs and further info. You can also check out the [live demo](http://auth0.github.io/amp-example/).
 
 ---
 
@@ -336,7 +336,7 @@ An example of the override from the [AMP project docs](https://github.com/amppro
 }
 ```
 
-Again, we haven't included the styles for this sample page above, but they are included with the [tutorial repo](https://github.com/auth0/amp-example).
+Again, we haven't included the styles for this sample page above, but they are included with the [tutorial repo](https://github.com/auth0/amp-example). You can also see the completed example by viewing the [live demo](http://auth0.github.io/amp-example/).
 
 ## Aside: Using Auth0 with your AMP Pages is Easy
 
