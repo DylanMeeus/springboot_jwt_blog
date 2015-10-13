@@ -36,11 +36,11 @@ If you are not familiar with the concepts behind compiled languages, the followi
 
 For the purposes of this post, here is a short glossary:
 
-- Source code: what a developer writes.
-- Compiler: an application that turns source code to assembly, bytecode or machine code (what other apps or hardware run).
-- Assembly: a low-level source-like language specific to a machine or application.
-- Bytecode: a low-level binary representation of code that can be run by other applications.
-- Machine code: a binery representation of code that can be run directly by hardware.
+- **Source code:** what a developer writes.
+- **Compiler:** an application that turns source code to assembly, bytecode or machine code (what other apps or hardware run).
+- **Assembly:** a low-level source-like language specific to a machine or application.
+- **Bytecode:** a low-level binary representation of code that can be run by other applications.
+- **Machine code:** a binery representation of code that can be run directly by hardware.
 
 WebAssembly aims to be the *bytecode* for the web. Here is how a developer would use WebAssembly in the future:
 
