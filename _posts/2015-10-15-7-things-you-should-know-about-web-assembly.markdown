@@ -59,7 +59,7 @@ It's been said before and it will be said again: **JavaScript is here to stay**.
 
 WebAssembly is the much needed **complement** to JavaScript for the web.
 
-## Fact 2: Web Assembly is being developed by the teams behind asm.js and (P)NaCl
+## Fact 2: WebAssembly is being developed by the teams behind asm.js and (P)NaCl
 If you have been following the development of the web the last few years you know WebAssembly is aiming at a difficult goal: providing a unified compilation target for languages that do not map easily to JavaScript. Not only is it **difficult from a technical point of view**, but also **hard from a standards point of view**. The web is not controlled by any single vendor, so every change must be a **joint effort**. Fortunately, the teams behind WebAssembly know this. At Mozilla, a group of hardcore developers tried to provide an answer in the form of **asm.js**: a subset of JavaScript meant to serve as a compiler target. On the other side, Google worked on **Native Client (NaCl)** and **Portable Native Client (PNaCl)**, a binary format for the web based on LLVM. As much as these solutions worked, they **did not provide a satisfactory answer** to all of the problems. It is from this experience that Web Assembly was born: a **joint effort aiming at providing a cross-browser compiler target**. The future looks bright for WebAssembly.
 
 ## Fact 3: WebAssembly is backwards compatible
