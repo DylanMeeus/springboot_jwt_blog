@@ -48,7 +48,7 @@ WebAssembly aims to be the *bytecode* for the web. Here is how a developer would
 2. Use a *compiler* to turn the *source code* into WebAssembly *bytecode* (and potentially *assembly-code* if required).
 3. Load the *bytecode* in a browser and run it.
 
-![WebAssembly development flow](http://cdn.auth0.com/blog/webassembly/webassembly-2.png)
+![WebAssembly development flow](https://cdn.auth0.com/blog/webassembly/webassembly-2.png)
 
 ## Fact 1: WebAssembly is not the end of JavaScript
 It's been said before and it will be said again: **JavaScript is here to stay**. Thanks to the growth of the web, JavaScript has become a **lingua-franca** among developers and tool vendors. This will not change due to WebAssembly. WebAssembly is meant to fill a place JavaScript has been forced to occupy up to now: a **low-level code-representation to serve as a compiler target**. As more and more languages and platforms begin to target the web, more stress is put on JavaScript and browser vendors to provide missing features that are much needed. Some of these features **do not play well** with the already complex semantics of JavaScript. WebAssembly is the right answer:
