@@ -2,7 +2,7 @@
 layout: post
 title: "7 Things You Should Know About WebAssembly"
 description: "Learn about WebAssembly, the future of the web"
-date: 2015-10-15 09:00
+date: 2015-10-14 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
