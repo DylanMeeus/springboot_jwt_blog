@@ -242,7 +242,7 @@ Before Alpha 35, we had to configure our custom pipes with a `pipes` object. How
 ```js
 // app.ts
 
-import {Component, View, bootstrap, Pipe} from 'angular2/angular2';
+import {Component, View, bootstrap, Pipe, PipeTransform} from 'angular2/angular2';
 
 ...
 
@@ -251,7 +251,7 @@ import {Component, View, bootstrap, Pipe} from 'angular2/angular2';
   name: 'tempConvert'
 })
 // The work of the pipe is handled in the tranform method with our pipe's class
-class TempConvertPipe {
+class TempConvertPipe implements PipeTransform {
   transform(value: number, args: any[]) {
     if(value && !isNaN(value) && args[0] === 'celsius') {
       var temp = (value - 32) * 5/9;
