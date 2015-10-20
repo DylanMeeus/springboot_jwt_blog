@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Incremental DOM"
-description: Learn about Incremental DOM and how to work with it
+title: "View Fight Series: Virtual DOM vs Glimmer vs Incremental DOM."
+description: Learn how Incremental DOM works and how it compares to Glimmer and Virutal DOM
 date: 2015-09-25 00:47
 author:
   name: Pablo Terradillos
@@ -16,6 +16,8 @@ tags:
 - incremental dom
 - react
 - glimmer
+- ember
+- view
 ---
 
 ## Introduction
@@ -75,7 +77,7 @@ And that's it! All you need to know is that `patch` receives an extra parameter 
 
 That was a simple example, but the real power comes when we have a DOM structure that constantily needs to be changed. Lets build a _real app_ to see how it works.
 
-## Making IDOM more friendly
+## Making IDOM friendlier
 
 The API that IDOM provides makes it really simple to target a custom template engine or any other more expresive API. Lets build something to write our components in a more declarative way.
 
@@ -316,12 +318,15 @@ Feel free to have a look at the [final implementation](http://auth0.github.io/in
 
 Fire up your inspector and note that even though we're telling our component to re-render itself every time an item is added or deleted, IDOM takes care of re-rendering just the item that changes:
 
-![](https://cdn.auth0.com/docs/img/incremental-dom-inspector.gif)
+![Incremental DOM in action](https://cdn.auth0.com/docs/img/incremental-dom-inspector.gif)
 
 ## Conclusion
 
 The Incremental DOM approach seems to not be as fast as _virtual DOM_ based implementations. However, IDOM uses less memory since it doesn't need to mantain a _live_  representation of the DOM. Rather, it uses the _real DOM_ to walk and compare against the new *state*. This is great for underpowered devices like low-end phones.
 
 IDOM's simple API makes it really powerful for targeting template engines. Google is working on using it as a backend for [Closure Templates](https://developers.google.com/closure/templates/) and there's also an implementation of React's JSX syntax using a [Babel plugin](https://github.com/babel-plugins/babel-plugin-incremental-dom) so we can expect a lot of other template engines to start using it in the short term.
+
+In Auth0 we take performance as a primary goal for each of our products. We are investing a lot of time analyzing view engines. We recently released [Lock Passwordless](https://github.com/auth0/lock-passwordless) which uses React and we're exploring integrate Incremental DOM on some of our current products.
+We also have an SDK to use [Auth0 with React](https://github.com/auth0/auth0-react)
 
 To learn more about it, you can take a look at the [Incremental DOM repo](https://github.com/google/incremental-dom).
