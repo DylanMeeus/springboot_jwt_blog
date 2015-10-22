@@ -1,27 +1,26 @@
 ---
 layout: post
 title: "5 Ways to Make Your App More Secure in Less than 20 Minutes"
-description: <A SHORT DESCRIPTION OF THE POST>
+description: "How to improve your app's security with features like MFA, encryption and more with just a few lines of Javascript."
 date: 2015-10-22 14:34
-author: 
+author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
-  bg_color: "#295F3C"
-  image_bg_color: "#5E9270"
-  image_size: "70%"
-  image: https://cdn.auth0.com/blog/marketplace/cart.png
-tags: 
+design:
+  bg_color: "4F496F"
+  image_size: "110%"
+  image: https://cdn.auth0.com/blog/security-post/security-post.png
+tags:
 - foo
 ---
 
-From Ashley Madison to Home Depot to Sony, it feels like every week, there’s a new high-profile security breach where millions of user records with sensitive information gets leaked to hackers. 
+From Ashley Madison to Home Depot to Sony, it feels like every week, there’s a new high-profile security breach where millions of user records with sensitive information gets leaked to hackers.
 
 Fundamentally, this happens because security is hard. Hackers are experts in security, but you probably aren’t, even as an experienced developer. This stacks the deck against you—as you build out your authentication and identity system while you scale, you may not recognize where you’re creating opportunities for the bad guy.
 
-Moreover, security gets de-prioritized on your roadmap because it’s hard to build and isn't immediately urgent.  When you get around to worrying about security, it’s too late—you’ve had a breach and you need to go into damage control mode. 
+Moreover, security gets de-prioritized on your roadmap because it’s hard to build and isn't immediately urgent.  When you get around to worrying about security, it’s too late—you’ve had a breach and you need to go into damage control mode.
 
 When you finally come out the other side, you need to do a massive overhaul of your systems and company culture to pay off your accumulated “security debt” from years of neglect . . . if you’re lucky and your company still exists.
 
@@ -29,11 +28,11 @@ But the security landscape is changing. With identity-as-a-service providers lik
 
 ## An App Store for Adding Security to Your App
 
-When you add a new security measure to your homegrown identity system, like multifactor authentication (MFA), you need to wire it up to your code by hand. This can be very time consuming, add considerable code complexity, and leave room for inconsistencies and errors. 
+When you add a new security measure to your homegrown identity system, like multifactor authentication (MFA), you need to wire it up to your code by hand. This can be very time consuming, add considerable code complexity, and leave room for inconsistencies and errors.
 
 With Rules in Auth0, you’re able to add your new security feature—like MFA, encryption and more—with just a few lines of Javascript. The code lives on Auth0, executes in a sandboxed environment there, and runs every time a user logs in. You get a familiar, consistent interface to your user model and that makes it easy to use and creates system-wide reliability.
 
-Adding security services to your app becomes as easy as adding an app to your phone in Apple’s App Store or Google Play. 
+Adding security services to your app becomes as easy as adding an app to your phone in Apple’s App Store or Google Play.
 
 ### How Rules work
 
@@ -103,7 +102,7 @@ Setting up the Rule is as easy as flipping a switch, selecting your MFA provider
 What’s especially powerful about the Rule is that you can easily configure MFA to get triggered on different conditions, like:
 
 * Geographic location or change in location
-* Type of network used 
+* Type of network used
 * Device used to login or change in device
 
 And to do that, all you need to do is write a bit of extra conditional logic in Javascript for your Rule. This helps you tailor how onerous the MFA burden is. You can have MFA triggered every time the user logs in, or only under abnormal conditions.
@@ -247,7 +246,7 @@ function (user, context, callback) {
     //        "reporteddate":"2014-07-02",
     //        "reason":"ChargeBack Fraud"
     //     }
-    // ] 
+    // ]
     user.app_metadata.socure_details = socure_response.data.details;
 
     auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
@@ -265,9 +264,9 @@ function (user, context, callback) {
 
 If you’ve created an online marketplace like AirBnB or eBay, protecting your buyers and sellers from fraud is one of the most important things you can do to increase the trustworthiness of the marketplace and ensure that more transactions happen there.
 
-The Rule above calculates a fraud score for every user based on their email address and IP address. It uses the cloud service [Socure](http://socure.com/), which aggregates data from social media, offline identity verification services, and publicly available data on the web to determine whether a user is real or fake. 
+The Rule above calculates a fraud score for every user based on their email address and IP address. It uses the cloud service [Socure](http://socure.com/), which aggregates data from social media, offline identity verification services, and publicly available data on the web to determine whether a user is real or fake.
 
-You can use that data to protect your app and your users by putting users with high fraud scores on a watchlist, or require additional verification before they can transact with other users. 
+You can use that data to protect your app and your users by putting users with high fraud scores on a watchlist, or require additional verification before they can transact with other users.
 
 And the Rule will get you the information you need at the time of registration, not after the user has a history of fraudulent transactions on the site—by which point, it could be too late.
 
@@ -291,9 +290,9 @@ Yammer did the same with [name@company.com](mailto:name@company.com) email addre
 
 To make this work from a security standpoint, the user must prove that they actually own the email address and belong to the network signified by their email address. This is where the email verification process comes into play: have your app email the user with a unique, obscure, automatically-generated link to a page. That will force them to prove that they have access to the email account by logging in and clicking on the link to verify.
 
-If you don’t have this email verification step, you’ll show an imposter or hacker sensitive information internal to the company, and that would be disastrous. 
+If you don’t have this email verification step, you’ll show an imposter or hacker sensitive information internal to the company, and that would be disastrous.
 
-This Rule denies any user who hasn’t verified their email address from logging in. What’s great about implementing email verification this way is that it doesn’t complicate your existing authentication code. Rules can be chained together and turned on and off individually, which keeps things simple and nicely modular. 
+This Rule denies any user who hasn’t verified their email address from logging in. What’s great about implementing email verification this way is that it doesn’t complicate your existing authentication code. Rules can be chained together and turned on and off individually, which keeps things simple and nicely modular.
 
 ### 5. Encrypt sensitive data
 
@@ -321,17 +320,17 @@ function (user, context, callback) {
 
 Encrypting sensitive user data minimizes the damage that occurs if hackers compromise a user’s account or find a way to leak user data.
 
-Recently, crowdfunding site Patreon announced that it had been [hacked](http://motherboard.vice.com/read/the-whole-works-is-in-there-hackers-dump-data-from-patreon-crowdfunding-site). Attackers got away with 2.3 million email addresses, user names, and shipping addresses—plus, it included private messages sent via the site’s internal messaging platform of a highly personal nature. 
+Recently, crowdfunding site Patreon announced that it had been [hacked](http://motherboard.vice.com/read/the-whole-works-is-in-there-hackers-dump-data-from-patreon-crowdfunding-site). Attackers got away with 2.3 million email addresses, user names, and shipping addresses—plus, it included private messages sent via the site’s internal messaging platform of a highly personal nature.
 
 But it could’ve been worse.
 
-As a crowdfunding platform, Patreon stored user tax information as well, and if that got leaked, it would  have been disastrous for the site’s members. However, Patreon encrypted all of the tax information with a 2048-bit RSA, and stored the encryption keys on a separate server that wasn’t compromised. That meant that sensitive and personally-identifying tax information that could have been used for rampant identity theft remained secure. 
+As a crowdfunding platform, Patreon stored user tax information as well, and if that got leaked, it would  have been disastrous for the site’s members. However, Patreon encrypted all of the tax information with a 2048-bit RSA, and stored the encryption keys on a separate server that wasn’t compromised. That meant that sensitive and personally-identifying tax information that could have been used for rampant identity theft remained secure.
 
 Use this Rule to provide that protection to your user. This Rule takes sensitive data, like a user’s social security number or his license key, encrypts it, and stores it as [metadata](https://auth0.com/docs/rules/metadata-in-rules) associated with the user account.
 
 ## Do Good and Do Well
 ![Trello Pricing](https://cdn.auth0.com/blog/5-ways-to-make-your-app-more-secure/trello-pricing.jpg)
-These Rules quickly and easily add extra security to your app to protect your users—and if you bundle them together, you have something you can charge more for. 
+These Rules quickly and easily add extra security to your app to protect your users—and if you bundle them together, you have something you can charge more for.
 
 Use them to assemble an [enterprise tier](https://auth0.com/blog/2015/08/18/how-to-go-upmarket-and-grow-your-revenue-by-20x/), charge 5x your basic tier, and use that to grow your revenue by 20x.
 
