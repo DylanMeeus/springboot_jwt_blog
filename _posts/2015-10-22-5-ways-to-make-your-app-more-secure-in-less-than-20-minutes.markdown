@@ -90,7 +90,7 @@ function (user, context, callback) {
 Multifactor authentication has gone from a luxury that only the biggest enterprise companies offer to their employees to an expected security feature even in consumer apps like [Twitter](https://blog.twitter.com/2013/getting-started-with-login-verification).
 
  After a user logs in with their username and password, MFA requires that the user also prove that they are in possession of the phone (or another device or separate account) that’s associated with the user account. This additional layer of security protects the user even when their username and password has been compromised.
-![Multifactor Authentication Flow](https://cdn.auth0.com/blog/5-ways-to-make-your-app-more-secure/multi-factor-authentication-flow.gif)
+![Multifactor Authentication Flow](https://cdn.auth0.com/blog/5-ways-to-make-your-app-more-secure/multi-factor-authentication-flow-video.gif)
 You can set up the Rule in fewer than 10 minutes and it will trigger multifactor authentication via [Duo Security](http://duosecurity.com/) or Google Authenticator to happen upon login. Here’s how it works:
 
 1. The user logs in.
