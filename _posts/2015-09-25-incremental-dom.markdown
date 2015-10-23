@@ -318,7 +318,7 @@ Feel free to have a look at the [final implementation](http://auth0.github.io/in
 
 Fire up your inspector and note that even though we're telling our component to re-render itself every time an item is added or deleted, IDOM takes care of re-rendering just the item that changes:
 
-![Incremental DOM in action](https://cdn.auth0.com/docs/img/incremental-dom-inspector.gif)
+![Incremental DOM in action](https://cdn.auth0.com/docs/img/incremental-dom.gif)
 
 ## Conclusion
 
