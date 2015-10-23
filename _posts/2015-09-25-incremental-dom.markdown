@@ -2,7 +2,7 @@
 layout: post
 title: "View Fight Series: Virtual DOM vs Glimmer vs Incremental DOM."
 description: Learn how Incremental DOM works and how it compares to Glimmer and Virutal DOM
-date: 2015-09-25 00:47
+date: 2015-10-23 19:00
 author:
   name: Pablo Terradillos
   url: https://twitter.com/tehsis
