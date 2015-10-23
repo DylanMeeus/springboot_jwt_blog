@@ -330,3 +330,7 @@ In Auth0 we take performance as a primary goal for each of our products. We are 
 We also have an SDK to use [Auth0 with React](https://github.com/auth0/auth0-react)
 
 To learn more about it, you can take a look at the [Incremental DOM repo](https://github.com/google/incremental-dom).
+
+## Aside: Authentication is Easy with Auth0
+
+Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
