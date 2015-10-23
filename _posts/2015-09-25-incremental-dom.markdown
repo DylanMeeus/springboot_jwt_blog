@@ -10,6 +10,7 @@ author:
   avatar: https://s.gravatar.com/avatar/647b1eea820b3fc8a5aee0383930b888
 design:
   bg_color: "#232228"
+  image_bg_color: "transparent"
   image: https://cdn.auth0.com/docs/img/incremental-post-picture.png
 tags:
 - virtual DOM
