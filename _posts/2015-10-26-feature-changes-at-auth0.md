@@ -78,7 +78,7 @@ feature_change(function(cb){
 
 We ran this version in production for a couple of weeks and used our logging infrastructure (Kibana/ES) to log the differences. Kibana provides a very useful feature that allows you to create stack charts based on counts of a certain event. In the following chart, the blue part represents the relative percentage of differences compared to successful results. In other words, the blue bars show breaking changes, which we wanted to reduce.
 
-![node feature-changes](https://cdn.auth0.com/blog/feature-changes-post/differences.png)
+![node feature-changes](https://cdn.auth0.com/blog/parallel-code-paths/parallel-code-paths-1.png)
 
 After fixing three different bugs we got rid of all the blue. We monitored the differences for a week to see if any new sources of errors appeared. When they didn't, we removed the code using `feature-change` and completely replaced Mongo with ES in production.
 
