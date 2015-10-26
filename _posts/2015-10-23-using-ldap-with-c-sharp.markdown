@@ -2,7 +2,7 @@
 layout: post
 title: "Using LDAP and Active Directory with C#"
 description: "In this tutorial learn how to integrate LDAP and Active Directory (AD) with your C# projects as an authentication mechanism"
-date: 2015-10-23 09:00
+date: 2015-10-26 18:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -52,12 +52,50 @@ Clients send requests to the server. In turn, the server answers those requests.
 ![LDAP is an asynchronous protocol](https://cdn.auth0.com/blog/ldap/ldap-async-2.png)
 
 ### Supported operations
+The following operations have .NET samples. A full working example can be found in the example section below.
+
 Common operations supported by LDAP are:
 
 - Search for specific entries
+
+```C#
+var request = new SearchRequest("ou=users,dc=example,dc=com", "(objectClass=simpleSecurityObject)", SearchScope.Subtree, null);
+var response = (SearchResponse)connection.SendRequest(request);
+foreach(SearchResultEntry entry in response.Entries)
+{
+    //Process the entries
+}
+```
+
 - Test if a given attribute is present and has the specified value
+
+```C#
+var request = new CompareRequest("uid=test,ou=users,dc=example,dc=com", "userPassword", "{SSHA}dFyxYbqyPKlQ7Py1T14XupyVfz7UFIz+");
+var response = (CompareResponse)connection.SendRequest(request);
+if(response.ResultCode == ResultCode.CompareTrue)
+{
+    //Attribute present and has the right value
+}
+```
+
 - Add/modify/delete entries
+
+```C#
+var request = new AddRequest("uid=test,ou=users,dc=example,dc=com", new DirectoryAttribute[] {
+    new DirectoryAttribute("uid", "test"),
+    new DirectoryAttribute("ou", "users"),
+    new DirectoryAttribute("userPassword", "badplaintextpw"),
+    new DirectoryAttribute("objectClass", new string[] { "top", "account", "simpleSecurityObject" })
+});
+connection.SendRequest(request);
+```
+
 - Move an entry to a different path
+
+```C#
+var request = new ModifyDNRequest("uid=test,ou=users,dc=example,dc=com", "ou=administrators,dc=example,dc=com", "uid=test");
+connection.SendRequest(request);
+```
 
 Furthermore, additional protocol management operations are defined (connect, disconnect, negotiate protocol version, etc.).
 
@@ -169,6 +207,8 @@ The user model for our example includes fields for:
 - userPassword: hashed user password
 - objectClass: typical classes for user accounts
 
+Note this is not the model for an Active Directory user. Active Directory users can be validated using the *bind* operation (see below).
+
 ### Establishing a connection
 ```C#
 public Client(string username, string domain, string password, string url)
@@ -197,15 +237,19 @@ sasl-auxprops sasldb
 ```C#
 /// <summary>
 /// Adds a user to the LDAP server database. This method is intentionally less generic than the search one to
-/// make it easier to add meaningful information to the database.
+/// make it easier to add meaningful information to the database. 
+/// NOTE: this is not an Active Directory user.
 /// </summary>
 /// <param name="user">The user to add</param>
 public void addUser(UserModel user)
 {
+    var sha1 = new SHA1Managed();
+    var digest = Convert.ToBase64String(sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(user.UserPassword)));
+
     var request = new AddRequest(user.DN, new DirectoryAttribute[] {
         new DirectoryAttribute("uid", user.UID),
         new DirectoryAttribute("ou", user.OU),
-        new DirectoryAttribute("userPassword", user.UserPassword),
+        new DirectoryAttribute("userPassword", "{SHA}" + digest),
         new DirectoryAttribute("objectClass", new string[] { "top", "account", "simpleSecurityObject" })
     });
 
@@ -213,76 +257,69 @@ public void addUser(UserModel user)
 }
 ```
 
-### Searching in the directory
+### Validating user credentials manually
+If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (see below).
+
 ```C#
 /// <summary>
-/// Performs a search in the LDAP server. This method is generic in its return value to show the power
-/// of searches. A less generic search method could be implemented to only search for users, for instance.
+/// Searches for a user and compares the password.
+/// We assume all users are at base DN ou=users,dc=example,dc=com and that passwords are
+/// hashed using SHA1 (no salt) in OpenLDAP format.
 /// </summary>
-/// <param name="baseDn">The distinguished name of the base node at which to start the search</param>
-/// <param name="ldapFilter">An LDAP filter as defined by RFC4515</param>
-/// <returns>A flat list of dictionaries which in turn include attributes and the distinguished name (DN)</returns>
-public List<Dictionary<string, string>> search(string baseDn, string ldapFilter)
+/// <param name="username">Username</param>
+/// <param name="password">Password</param>
+/// <returns>true if the credentials are valid, false otherwise</returns>
+public bool validateUser(string username, string password)
 {
-    var request = new SearchRequest(baseDn, ldapFilter, SearchScope.Subtree, null);
-    var response = (SearchResponse)connection.SendRequest(request);
+    var sha1 = new SHA1Managed();
+    var digest = Convert.ToBase64String(sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password)));
+    var request = new CompareRequest(string.Format("uid={0},ou=users,dc=example,dc=com", username), 
+        "userPassword", "{SHA}" + digest);
+    var response = (CompareResponse)connection.SendRequest(request);
+    return response.ResultCode == ResultCode.CompareTrue;
+}
+```
 
-    var result = new List<Dictionary<string, string>>();
+### Validating user credentials using bind
+In practice, credentials stored in a LDAP directory are validated using the *bind* operation. The bind operation means "log-in to a LDAP server using a specific set of credentials". If the bind operation succeeds, the credentials are valid. The mapping of a user to an actual entry in the LDAP directory is setup in the server configuration (Active Directory has specific rules for this, other LDAP servers leave this detail to the administrator).
 
-    foreach(SearchResultEntry entry in response.Entries)
+```C#
+/// <summary>
+/// Another way of validating a user is by performing a bind. In this case the server
+/// queries its own database to validate the credentials. It is defined by the server
+/// how a user is mapped to its directory.
+/// </summary>
+/// <param name="username">Username</param>
+/// <param name="password">Password</param>
+/// <returns>true if the credentials are valid, false otherwise</returns>
+public bool validateUserByBind(string username, string password)
+{
+    bool result = true;
+    var credentials = new NetworkCredential(username, password);
+    var serverId = new LdapDirectoryIdentifier(connection.SessionOptions.HostName);
+
+    var conn = new LdapConnection(serverId, credentials);
+    try
     {
-        var dic = new Dictionary<string, string>();
-        dic["DN"] = entry.DistinguishedName;
-
-        foreach (string attrName in entry.Attributes.AttributeNames)
-        {
-            //For simplicity, we separate multi-value attributes with a comma
-            dic[attrName] = string.Join(",", entry.Attributes[attrName].GetValues(typeof(string)));
-        }
-
-        result.Add(dic);
+        conn.Bind();
     }
+    catch (Exception)
+    {
+        result = false;
+    }
+    
+    conn.Dispose();
 
     return result;
 }
 ```
-### Modifying an entry
-```C#
-/// <summary>
-/// This method shows how to modify an attribute.
-/// </summary>
-/// <param name="oldUid">Old user UID</param>
-/// <param name="newUid">New user UID</param>
-public void changeUserUid(string oldUid, string newUid)
-{
-    var oldDn = string.Format("uid={0},ou=users,dc=example,dc=com", oldUid);
-    var newDn = string.Format("uid={0},ou=users,dc=example,dc=com", newUid);
 
-    DirectoryRequest request = new ModifyDNRequest(oldDn, "ou=users,dc=example,dc=com", "uid=" + newUid);
-    connection.SendRequest(request);
-
-    request = new ModifyRequest(newDn, DirectoryAttributeOperation.Replace, "uid", new string[] { newUid });
-    connection.SendRequest(request);
-}
-```
-
-### Deleting an entry
-```C#
-/// <summary>
-/// This method shows how to delete anything by its distinguised name (DN).
-/// </summary>
-/// <param name="dn">Distinguished name of the entry to delete</param>
-public void delete(string dn)
-{
-    var request = new DeleteRequest(dn);
-    connection.SendRequest(request);
-}
-```
+See the [full code](https://github.com/auth0/blog-ldap-csharp-example) for examples on searching, modifying and deleting entries.
 
 ## Aside: setting up Auth0 for LDAP use
 At Auth0 we care about all our clients. If you have an existing LDAP deployment, you can integrate it with Auth0. LDAP deployments are usually installed inside a **corporate network**. In other words, they are *private*. Since they are private, there is no access to the LDAP server from the outside. Since our authentication solution works from the **cloud**, it is necessary to provide a means for the internal network to communicate with our servers. This is what we provide in the form of the [Active Directory/LDAP connector](https://auth0.com/docs/connector). This is a service that is installed in your network to provide a bridge between your LDAP server and our own servers in the cloud. Worry not! The connector uses an **outbound connection** to our servers so you don't need to set up special rules in your firewall.
 
-![Auth0 + LDAP](https://cdn.auth0.com/docs/media/articles/connections/enterprise/active-directory/ldap-connect.png)
+![Auth0 + LDAP](https://cdn.auth0.com/blog/ldap/diagram__4.png)
 
 To enable LDAP for your Auth0 apps, first go to `Connections` -> `Enterprise` -> `Active Directory / LDAP`. Follow the steps to setup the LDAP connector (you will need the LDAP server details) and then enable LDAP for your app.
 
