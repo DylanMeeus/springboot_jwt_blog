@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using LDAP and Active Directory with C#"
-description: "In this tutorial learn how to integrate LDAP and Active Directory (AD) with your C# projects as an authentication mechanism"
+description: "In this tutorial learn how to integrate LDAP and Active Directory (AD) with your C# projects"
 date: 2015-10-26 18:00
 author: 
   name: Sebastián Peyrott
@@ -26,7 +26,7 @@ tags:
 - post-series
 ---
 
-In this post series we will study the [Lightweight Directory Access Protocol (LDAP)](https://tools.ietf.org/html/rfc4511): a protocol developed in the '90s as an open, simpler alternative to other directory protocols. We will also talk about Active Directory (Microsoft's LDAP implementation with extra features) and how to use it as an authentication mechanism. Get the [full code](https://github.com/auth0/blog-ldap-csharp-example) and read on!
+In this post series we will study the [Lightweight Directory Access Protocol (LDAP)](https://tools.ietf.org/html/rfc4511): a protocol developed in the '90s as an open, simpler alternative to other directory protocols. We will also talk about Active Directory (Microsoft's LDAP implementation with extra features) and how to use it as an authentication mechanism. For the purposes of this post we will focus on the generic [LdapConnection API](https://msdn.microsoft.com/en-us/library/system.directoryservices.protocols.aspx). In the next post we will take a look at the Active Directory specific [PrincipalContext API](https://msdn.microsoft.com/en-us/library/system.directoryservices.accountmanagement.principalcontext.aspx). Get the [full code](https://github.com/auth0/blog-ldap-csharp-example) and read on!
 
 -----
 
@@ -198,7 +198,7 @@ The examples above make it clear the distinguished name (DN) uniquely identifies
 When talking about LDAP, LDIF is much more common than the alternatives. In fact, tools such as OpenLDAP use LDIF as input/output.
 
 ## Example: using LDAP from a C# client
-.NET provides a convenient set of classes to access LDAP and Active Directory servers. Here are the relevant [.NET docs](https://msdn.microsoft.com/en-us/library/system.directoryservices.protocols(v=vs.110).aspx). The following example has been tested against OpenLDAP 2.4. Get the [full code](https://github.com/auth0/blog-ldap-csharp-example).
+.NET provides a convenient set of classes to access LDAP and Active Directory servers. Here are the relevant [.NET docs](https://msdn.microsoft.com/en-us/library/system.directoryservices.protocols.aspx). The following example has been tested against OpenLDAP 2.4. Get the [full code](https://github.com/auth0/blog-ldap-csharp-example).
 
 The user model for our example includes fields for:
 
@@ -258,7 +258,7 @@ public void addUser(UserModel user)
 ```
 
 ### Validating user credentials manually
-If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (see below).
+If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the next example for information on how to perform a *bind operation* using this API.
 
 ```C#
 /// <summary>
@@ -360,5 +360,5 @@ curl -H 'Content-Type: application/json' -X POST -d '{ "client_id":"FyFnhDX2kSqt
 ```
 
 ## Conclusion
-LDAP was designed as a lightweight protocol to access directory contents. As it evolved through the years it gained important features such as authentication and transport security. As a well defined means to get user information, it has found its way to small and big deployments. Its simplicity and openness have kept LDAP relevant through the years. Nowadays, single sign on systems can also work using LDAP. Fortunately, integrating LDAP to existing or new projects is easy. In our next post, we will show you how to access LDAP from Java client. Stay tuned!
+LDAP was designed as a lightweight protocol to access directory contents. As it evolved through the years it gained important features such as authentication and transport security. As a well defined means to get user information, it has found its way to small and big deployments. Its simplicity and openness have kept LDAP relevant through the years. Nowadays, single sign on systems can also work using LDAP. Fortunately, integrating LDAP to existing or new projects is easy. In our next post, we will focus on Active Directory specifics using the [PrincipalContext API](https://msdn.microsoft.com/en-us/library/system.directoryservices.accountmanagement.principalcontext.aspx). Stay tuned!
 
