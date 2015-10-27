@@ -11,7 +11,7 @@ author:
 design:
   bg_color: "4F496F"
   image_size: "110%"
-  image: https://cdn.auth0.com/blog/feature-changes-post/feature-change.png
+  image: https://cdn.auth0.com/blog/parallel-code-paths/parallel-paths-icon.png
 tags:
 - nodejs
 - feature-changes
