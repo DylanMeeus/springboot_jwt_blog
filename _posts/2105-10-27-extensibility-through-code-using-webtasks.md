@@ -59,6 +59,6 @@ We use [webtasks](https://webtask.io) to execute custom code developers wrote to
 
 Webtasks offer a simple execution model: you can provision *and* execute custom Node.js code in an isolated environment with a single, low-latency HTTP call (request contains code, response contains result). The code runs in an environment with over 600 Node.js modules already installed, which enables the vast majority of scenarios developers care about. You can read more about how webtasks work in the [Extensibility through HTTP with webtasks](http://tomasz.janczuk.org/2015/07/extensibility-through-http-with-webtasks.html) post. 
 
-## You can do it too
+## Platform extensibility: you can do it too
 
 Auth0 is now offering dedicated, managed deployments of the webtask technology. If you would like to discuss using webtasks to enable your customers to extend your SaaS platform or an application with custom code, we would like to hear from you. Please contact us at [support@auth0.com](mailto:support@auth0.com). 
