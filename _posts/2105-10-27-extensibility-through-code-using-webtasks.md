@@ -53,9 +53,7 @@ Supporting Auth0 extensibility with custom code using webtasks enabled us to cre
 
 We use [webtasks](https://webtask.io) to execute custom code developers wrote to extend Auth0 pipeline. We have specifically designed webtasks to support such extensibility scenario. Webtasks allow safe and low latency execution of custom, untrusted Node.js code in a multi-tenant environment. As such webtasks are uniquely suited to enable customization of SaaS platforms using Node.js code. 
 
-**WARNING** You are about to see a diagram created by @tomek. To be replaced.
-
-![Platform extensibility through custom code with webtasks](http://tomasz.janczuk.org/assets/post_images/2015-07-13/3.png)  
+![Platform extensibility through custom code with webtasks](https://cdn.auth0.com/blog/webtasks/webtask-extensibility-1.png)  
 
 Webtasks offer a simple execution model: you can provision *and* execute custom Node.js code in an isolated environment with a single, low-latency HTTP call (request contains code, response contains result). The code runs in an environment with over 600 Node.js modules already installed, which enables the vast majority of scenarios developers care about. You can read more about how webtasks work in the [Extensibility through HTTP with webtasks](http://tomasz.janczuk.org/2015/07/extensibility-through-http-with-webtasks.html) post. 
 
