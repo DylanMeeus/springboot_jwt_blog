@@ -323,7 +323,11 @@ At Auth0 we care about all our clients. If you have an existing LDAP deployment,
 
 To enable LDAP for your Auth0 apps, first go to `Connections` -> `Enterprise` -> `Active Directory / LDAP`. Follow the steps to setup the LDAP connector (you will need the LDAP server details) and then enable LDAP for your app.
 
-![Auth0 dashboard + LDAP](https://cdn.auth0.com/blog/ldap/auth0ldap.gif)
+<video width="600" autoplay loop>
+    <source src="https://cdn.auth0.com/blog/ldap/Auth0LDAP2.webm" type="video/webm">
+    <source src="https://cdn.auth0.com/blog/ldap/Auth0LDAP2.mp4" type="video/mp4">
+    <img width="600" src="https://cdn.auth0.com/blog/ldap/auth0ldap.gif">
+</video>
 
 The following examples use the LDAP server setup for our C# example above.
 
