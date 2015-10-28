@@ -244,7 +244,7 @@ public bool validateUserByBind(string username, string password)
 ```
 
 ### Validating user credentials manually
-If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the next example for information on how to perform a *bind operation* using this API.
+If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the previous example for information on how to perform a *bind operation* using this API.
 
 ```C#
 /// <summary>
