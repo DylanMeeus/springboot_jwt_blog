@@ -59,4 +59,6 @@ Webtasks offer a simple execution model: you can provision *and* execute custom 
 
 ## Platform extensibility: you can do it too
 
+After successfuly using webtasks as a key part of Auth0 infrastructure for over a year, we have decided to offer it as a standalone service for anyone with extensibility needs similar to ours. 
+
 Auth0 is now offering dedicated, managed deployments of the webtask technology. If you would like to discuss using webtasks to enable your customers to extend your SaaS platform or an application with custom code, we would like to hear from you. Please contact us at [support@auth0.com](mailto:support@auth0.com). 
