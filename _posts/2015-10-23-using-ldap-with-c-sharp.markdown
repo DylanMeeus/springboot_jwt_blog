@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Using LDAP and Active Directory with C#"
+title: "Using LDAP and Active Directory with C# 101"
 description: "In this tutorial learn how to integrate LDAP and Active Directory (AD) with your C# projects"
-date: 2015-10-26 18:00
+date: 2015-10-28 10:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
