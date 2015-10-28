@@ -209,6 +209,63 @@ The user model for our example includes fields for:
 
 Note this is not the model for an Active Directory user. Active Directory users can be validated using the *bind* operation (see below).
 
+### Validating user credentials using bind
+In practice, credentials stored in a LDAP directory are validated using the *bind* operation. The bind operation means "log-in to a LDAP server using a specific set of credentials". If the bind operation succeeds, the credentials are valid. The mapping of a user to an actual entry in the LDAP directory is setup in the server configuration (Active Directory has specific rules for this, other LDAP servers leave this detail to the administrator).
+
+```C#
+/// <summary>
+/// Another way of validating a user is by performing a bind. In this case the server
+/// queries its own database to validate the credentials. It is defined by the server
+/// how a user is mapped to its directory.
+/// </summary>
+/// <param name="username">Username</param>
+/// <param name="password">Password</param>
+/// <returns>true if the credentials are valid, false otherwise</returns>
+public bool validateUserByBind(string username, string password)
+{
+    bool result = true;
+    var credentials = new NetworkCredential(username, password);
+    var serverId = new LdapDirectoryIdentifier(connection.SessionOptions.HostName);
+
+    var conn = new LdapConnection(serverId, credentials);
+    try
+    {
+        conn.Bind();
+    }
+    catch (Exception)
+    {
+        result = false;
+    }
+    
+    conn.Dispose();
+
+    return result;
+}
+```
+
+### Validating user credentials manually
+If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the next example for information on how to perform a *bind operation* using this API.
+
+```C#
+/// <summary>
+/// Searches for a user and compares the password.
+/// We assume all users are at base DN ou=users,dc=example,dc=com and that passwords are
+/// hashed using SHA1 (no salt) in OpenLDAP format.
+/// </summary>
+/// <param name="username">Username</param>
+/// <param name="password">Password</param>
+/// <returns>true if the credentials are valid, false otherwise</returns>
+public bool validateUser(string username, string password)
+{
+    var sha1 = new SHA1Managed();
+    var digest = Convert.ToBase64String(sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password)));
+    var request = new CompareRequest(string.Format("uid={0},ou=users,dc=example,dc=com", username), 
+        "userPassword", "{SHA}" + digest);
+    var response = (CompareResponse)connection.SendRequest(request);
+    return response.ResultCode == ResultCode.CompareTrue;
+}
+```
+
 ### Establishing a connection
 ```C#
 public Client(string username, string domain, string password, string url)
@@ -254,63 +311,6 @@ public void addUser(UserModel user)
     });
 
     connection.SendRequest(request);
-}
-```
-
-### Validating user credentials manually
-If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the next example for information on how to perform a *bind operation* using this API.
-
-```C#
-/// <summary>
-/// Searches for a user and compares the password.
-/// We assume all users are at base DN ou=users,dc=example,dc=com and that passwords are
-/// hashed using SHA1 (no salt) in OpenLDAP format.
-/// </summary>
-/// <param name="username">Username</param>
-/// <param name="password">Password</param>
-/// <returns>true if the credentials are valid, false otherwise</returns>
-public bool validateUser(string username, string password)
-{
-    var sha1 = new SHA1Managed();
-    var digest = Convert.ToBase64String(sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password)));
-    var request = new CompareRequest(string.Format("uid={0},ou=users,dc=example,dc=com", username), 
-        "userPassword", "{SHA}" + digest);
-    var response = (CompareResponse)connection.SendRequest(request);
-    return response.ResultCode == ResultCode.CompareTrue;
-}
-```
-
-### Validating user credentials using bind
-In practice, credentials stored in a LDAP directory are validated using the *bind* operation. The bind operation means "log-in to a LDAP server using a specific set of credentials". If the bind operation succeeds, the credentials are valid. The mapping of a user to an actual entry in the LDAP directory is setup in the server configuration (Active Directory has specific rules for this, other LDAP servers leave this detail to the administrator).
-
-```C#
-/// <summary>
-/// Another way of validating a user is by performing a bind. In this case the server
-/// queries its own database to validate the credentials. It is defined by the server
-/// how a user is mapped to its directory.
-/// </summary>
-/// <param name="username">Username</param>
-/// <param name="password">Password</param>
-/// <returns>true if the credentials are valid, false otherwise</returns>
-public bool validateUserByBind(string username, string password)
-{
-    bool result = true;
-    var credentials = new NetworkCredential(username, password);
-    var serverId = new LdapDirectoryIdentifier(connection.SessionOptions.HostName);
-
-    var conn = new LdapConnection(serverId, credentials);
-    try
-    {
-        conn.Bind();
-    }
-    catch (Exception)
-    {
-        result = false;
-    }
-    
-    conn.Dispose();
-
-    return result;
 }
 ```
 
