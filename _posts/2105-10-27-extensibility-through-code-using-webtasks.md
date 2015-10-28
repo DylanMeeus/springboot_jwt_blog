@@ -35,7 +35,7 @@ Create competitive advantage and increase stickiness of your SaaS platform by en
 
 ## Developers love code and extensibility
 
-Customization is what distinguishes platforms from applications. The most powerful form of customization is extensibility through custom code. No amount of toggles, switches, or radio buttons is going to support the level of customization that is possible when you allow your users to write code. 
+Customization is what distinguishes platforms from applications. The most powerful form of customization is extensibility through custom code. No amount of toggles, switches, or radio buttons is going to support the level of customization that is possible when you allow your users to write code. Services like IFTTT or Zapier focus on declarative customization. In contrast to composing and configuring a finite set of triggers and actions, customization through code offers limitless posibilities. 
 
 ![Extending Auth0 with custom code using webtasks](https://cdn.auth0.com/blog/webtasks/auth0-rule-editor.png) 
 
@@ -59,6 +59,6 @@ Webtasks offer a simple execution model: you can provision *and* execute custom 
 
 ## Platform extensibility: you can do it too
 
-After successfuly using webtasks as a key part of Auth0 infrastructure for over a year, we have decided to offer it as a standalone service for anyone with extensibility needs similar to ours. 
+After successfully using webtasks as a key part of Auth0 infrastructure for over a year, we have decided to offer it as a standalone service for anyone with extensibility needs similar to ours. 
 
 Auth0 is now offering dedicated, managed deployments of the webtask technology. If you would like to discuss using webtasks to enable your customers to extend your SaaS platform or an application with custom code, we would like to hear from you. Please contact us at [support@auth0.com](mailto:support@auth0.com). 
