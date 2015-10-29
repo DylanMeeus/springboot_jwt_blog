@@ -30,7 +30,7 @@ I've created a [pluralsight course](http://www.pluralsight.com/courses/authentic
 
 -------------
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/gPkhM1GwVYA?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/gPkhM1GwVYA?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
 
 # Table of contents
 
