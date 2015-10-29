@@ -244,7 +244,7 @@ public bool validateUserByBind(string username, string password)
 ```
 
 ### Validating user credentials manually
-If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the next example for information on how to perform a *bind operation* using this API.
+If you have full access to the credentials stored in the directory, you can compare the hashed passwords of your users to validate credentials. Note that this is NOT how Active Directory stores credentials. Users in an Active Directory server must be validated using the "bind" operation (using either this API or PrincipalContext, which we will discuss in the next post). See the previous example for information on how to perform a *bind operation* using this API.
 
 ```C#
 /// <summary>
@@ -323,7 +323,11 @@ At Auth0 we care about all our clients. If you have an existing LDAP deployment,
 
 To enable LDAP for your Auth0 apps, first go to `Connections` -> `Enterprise` -> `Active Directory / LDAP`. Follow the steps to setup the LDAP connector (you will need the LDAP server details) and then enable LDAP for your app.
 
-![Auth0 dashboard + LDAP](https://cdn.auth0.com/blog/ldap/auth0ldap.gif)
+<video width="600" autoplay loop>
+    <source src="https://cdn.auth0.com/blog/ldap/Auth0LDAP2.webm" type="video/webm">
+    <source src="https://cdn.auth0.com/blog/ldap/Auth0LDAP2.mp4" type="video/mp4">
+    <img width="600" src="https://cdn.auth0.com/blog/ldap/auth0ldap.gif">
+</video>
 
 The following examples use the LDAP server setup for our C# example above.
 
