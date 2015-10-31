@@ -11,7 +11,7 @@ author:
 design: 
   bg_color: "#222222"
   image_bg_color: "transparent"  
-  image: http://googledrive.com/host/0B-aMLt4Tj0k5TzQyNzlkMFpLaDg/auth0bloglogo.png
+  image: https://googledrive.com/host/0B-aMLt4Tj0k5TzQyNzlkMFpLaDg/auth0bloglogo.png
 tags: 
 - asp.net
 - c#
