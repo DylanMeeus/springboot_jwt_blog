@@ -25,7 +25,7 @@ tags:
 
 ---
 
-**TL;DR:** Serving web-app users a good offline experience can be tricky if they become disconnected from the internet. Providing offline functionality is important for UX, and some recent technologies make it easier for developers to accomplish it. In this article, we focus on the [**service worker API**]((https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)) and find out how to use it with a library called [**UpUp**]((https://github.com/TalAter/UpUp)) to make our apps offline-first.
+**TL;DR:** Serving web-app users a good offline experience can be tricky if they become disconnected from the internet. Providing offline functionality is important for UX, and some recent technologies make it easier for developers to accomplish it. In this article, we focus on the [**service worker API**](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) and find out how to use it with a library called [**UpUp**](https://github.com/TalAter/UpUp) to make our apps offline-first.
 
 ---
 
