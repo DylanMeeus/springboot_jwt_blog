@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Announcing our New Pricing including a production ready free account forever"
+title: "Announcing our New Pricing including a production ready free account"
 description: "Including a 7,000 monthly active users plan, free open source plans, 70% price reduction for developers and small businesses and support for both internal and external usage"
 date: 2015-11-05 08:30
 author:
@@ -27,7 +27,7 @@ At Auth0 we’re shipping a new pricing today 👏💸. As some of you may know,
 * **Free Plan including 7,000 monthly active users**: Using Auth0 with the basic setup (username/password, 2 social providers or passwordless authentication) should be a no-brainer decision for any developer. Main advantage of this plan vs using other oss projects like [passportjs](http://passportjs.org/) for node, or [devise](https://github.com/plataformatec/devise) for ruby, is that besides a really easy to use API, you also don’t have to worry about storing the users, keeping the passwords safe nor staying up to date with any API changes that happen to each of the identity providers. Oh, and if you need any other extra security features like multifactor authentication, you can just add them with a flip of a switch, no extra code. 7,000 active users represents 50,000 total users assuming 15% of them are active (common active ratio from our subscribers)
 * **Free Unlimited Open Source Plan**: We ♥️️ OSS and we want every project to use the full Auth0 platform without worrying about $$ ever.
 
-<img alt="Free plan for 7K users forever and open source plan" src="https://cdn.auth0.com/blog/pricingv4/usersv6.png" />
+<img alt="Free plan for 7K users and open source plan" src="https://cdn.auth0.com/blog/pricingv4/usersv6.png" />
 
 * **Up to 70% price reduction for developers and small businesses**: Individual devs and small business that generate little or no revenue will benefit from more affordable plans.
 * **Better feature segmentation**: We analysed our user base and segmented our features in different plans for each of the different use cases and priced them accordingly so everybody pays what is fair.
