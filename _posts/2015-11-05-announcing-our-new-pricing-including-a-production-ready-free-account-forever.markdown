@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Announcing our New Pricing including a production ready free account"
-description: "Including a 7,000 monthly active users plan, free open source plans, 70% price reduction for developers and small businesses and support for both internal and external usage"
+description: "Including a 7,000 monthly active users plan, free unlimited open source plans, 70% price reduction for developers and small businesses and support for both internal and external usage"
 date: 2015-11-05 08:30
 author:
   name: Martin Gontovnikas
@@ -20,21 +20,21 @@ tags:
 - new pricing
 - developer plan
 ---
-At Auth0 we’re shipping a new pricing today 👏💸. As some of you may know, choosing the right pricing is one of the hardest things a company has to do. Even more for a platform like Auth0 considering the many different use cases it can help with. 5 months ago, we’ve decided to put all the necessary time and resources to make this new pricing, the best! Considering Auth0 is a company made out of engineers, we wanted to take a more scientific approach to pricing. Based on researching data from our subscribers and feedback we got, we’ve created this new version that we think is fair for everyone: from developers and small businesses to startups, big companies and enterprises. 
+At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, finding the right pricing and packaging is one of the hardest things a company does. That’s true even more for a platform like Auth0, given the enormous number of different use cases the Auth0 platform addresses.  Five months ago, we decided to focus on creating the best possible new pricing. As Auth0 is a company by engineers, for engineers, we wanted to use the most analytical possible approach to pricing, and hence both crunched a lot of data, and also incorporated qualitative feedback we received from our subscribers, in order to create a new version of Auth0 pricing and packaging that we think will have broad appeal to everyone from developers, startups and small businesses to the very largest global enterprises.
 
 ## These are the 5 major changes:
 
-* **Free Plan including 7,000 monthly active users**: Using Auth0 with the basic setup (username/password, 2 social providers or passwordless authentication) should be a no-brainer decision for any developer. Main advantage of this plan vs using other oss projects like [passportjs](http://passportjs.org/) for node, or [devise](https://github.com/plataformatec/devise) for ruby, is that besides a really easy to use API, you also don’t have to worry about storing the users, keeping the passwords safe nor staying up to date with any API changes that happen to each of the identity providers. Oh, and if you need any other extra security features like multifactor authentication, you can just add them with a flip of a switch, no extra code. 7,000 active users represents 50,000 total users assuming 15% of them are active (common active ratio from our subscribers)
+* **Free Plan including 7,000 monthly active users**: We believe that using Auth0 with the basic setup (username/password, 2 social providers or passwordless authentication) vs implementing it yourself (using [passportjs](http://passportjs.org/), [devise](https://github.com/plataformatec/devise), etc.) should be a no-brainer decision for any developer. For that reason starting today we are giving away the Auth0 runtime and API for free for up to 7,000 monthly active users.  Note this number of active users could support a much much larger number of registered users, depending on how frequently your users authenticate (for e.g. if your app has a 15% of active usage you can have 50,000 registered users). This is more than enough to get started and you will have an infrastructure ready to enable multifactor authentication, enterprise integrations,  account linking, among many others, with just a switch away, no extra code needed.
 * **Free Unlimited Open Source Plan**: We ♥️️ OSS and we want every project to use the full Auth0 platform without worrying about $$ ever.
 
 <img alt="Free plan for 7K users and open source plan" src="https://cdn.auth0.com/blog/pricingv4/usersv6.png" />
 
-* **Up to 70% price reduction for developers and small businesses**: Individual devs and small business that generate little or no revenue will benefit from more affordable plans.
-* **Better feature segmentation**: We analysed our user base and segmented our features in different plans for each of the different use cases and priced them accordingly so everybody pays what is fair.
-* **Internal vs External users**: A lot of companies are using Auth0 to either protect applications used by employees (internal usage) or by non-employees (external usage). We now price plans for internal usage per employee.
+* **Up to 70% price reduction for developers and small businesses**:  Individual devs and small business that are still early in ramping revenue will benefit from more affordable plans.
+* **Better feature segmentation**: We analyzed our user base and segmented our features in different plans - and prices - based on popular use cases.
+* **Internal vs External users**: Our subscribers use Auth0 to either protect applications used by employees (internal usage) or by non-employees (external usage). Our new plans take this into account.
 
 ![Internal vs External users, 70% price reduction and better feature segmentation](https://cdn.auth0.com/blog/pricingv4/features.png)
 
 ## Conclusion
 
-We’ve worked hard from defining all the different tiers and plans to choosing what words we use in each of the tooltips so that everything is 100% clear. Instead of me continuing to write explanations about this new pricing, just go to the [new pricing page](https://auth0.com/pricing) and check it out 💥! Don’t hesitate to [shoot us an email](support@auth0.com) or [tweet at us](https://twitter.com/auth0) if you have any feedback.
+We think you’ll really like our new approach to pricing. We encourage you to go to the [new pricing page](https://auth0.com/pricing) and check it out 💥! Don’t hesitate to [shoot us an email](support@auth0.com) or [tweet at us](https://twitter.com/auth0) if you have any feedback.
