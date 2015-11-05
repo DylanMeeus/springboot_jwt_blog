@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Announcing our New Pricing including a production ready free account"
-description: "Introducing a 7,000 monthly active users plan, free unlimited open source plans, 70% price reduction for developers and small businesses and support for both internal and external usage"
+title: "Announcing Our New Pricing, Including a Production-Ready Free Account"
+description: "Introducing a 7,000 monthly active users plan, free unlimited open source plans, 70% price reduction for developers and small businesses, and support for both internal and external usage"
 date: 2015-11-05 08:30
 author:
   name: Martin Gontovnikas
@@ -27,14 +27,14 @@ At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, f
 <div class="row" style="padding-bottom: 40px;">
 <div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/7k.png" alt="" /></div>
 <div class="col-xs-12 col-md-9">
-  <strong>Free Plan including 7,000 monthly active users</strong>: We believe that using Auth0 with the basic setup (username/password, 2 social providers or passwordless authentication) vs implementing it yourself (using <a href="http://passportjs.org/">passportjs</a>, <a href="https://github.com/plataformatec/devise">devise</a>, etc.) should be a no-brainer decision for any developer. For that reason starting today we are giving away the Auth0 runtime and API for free for up to 7,000 monthly active users.  Note this number of active users could support a much much larger number of registered users, depending on how frequently your users authenticate (for e.g. if your app has a 15% of active usage you can have 50,000 registered users). This is more than enough to get started and you will have an infrastructure ready to enable multifactor authentication, enterprise integrations,  account linking, among many others, with just a switch away, no extra code needed.
+  <strong>Free Plan including 7,000 monthly active users</strong>: We believe that using Auth0 with a basic setup (username/password, 2 social providers or passwordless authentication) versus implementing it yourself (using <a href="http://passportjs.org/">passportjs</a>, <a href="https://github.com/plataformatec/devise">devise</a>, etc.) should be a no-brainer decision for any developer. For that reason starting today we are giving away the Auth0 runtime and API for free for up to 7,000 monthly active users.  Note this number of active users could support a much much larger number of registered users, depending on how frequently your users authenticate (for e.g. if your app has a 15%  active usage, this supports 50,000 registered users). For many new products, web sites and projects, this is more than enough to get started, and best of all you will have an infrastructure ready to enable multi-factor authentication, enterprise integrations,  account linking, and many other powerful features just a flip of a dashboard switch away, no extra code needed.
 </div>
 </div>
 
 <div class="row" style="padding-bottom: 40px;">
 <div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/infinite.png" alt="" /></div>
 <div class="col-xs-12 col-md-9">
-  <strong>Free Unlimited Open Source Plan</strong>: We ♥️️ OSS and we want every project to use the full Auth0 platform without worrying about $$ ever.
+  <strong>Free Unlimited Open Source Plan</strong>: We ♥ OSS so we wanted to offer every project the ability to use the full Auth0 platform without worrying about $$ ever.
 </div>
 </div>
 
