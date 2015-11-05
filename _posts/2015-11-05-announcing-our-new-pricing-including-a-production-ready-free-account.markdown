@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Announcing our New Pricing including a production ready free account"
-description: "Including a 7,000 monthly active users plan, free unlimited open source plans, 70% price reduction for developers and small businesses and support for both internal and external usage"
+description: "Introducing a 7,000 monthly active users plan, free unlimited open source plans, 70% price reduction for developers and small businesses and support for both internal and external usage"
 date: 2015-11-05 08:30
 author:
   name: Martin Gontovnikas
