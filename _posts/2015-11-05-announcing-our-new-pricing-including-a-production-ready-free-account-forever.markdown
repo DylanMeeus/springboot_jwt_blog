@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: "#333333"
   image: https://cdn.auth0.com/blog/pricingv4/ticket-1.png
-tags: 
+tags:
 - pricing
 - free developer accoint
 - free open source
@@ -24,16 +24,45 @@ At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, f
 
 ## These are the 5 major changes:
 
-* **Free Plan including 7,000 monthly active users**: We believe that using Auth0 with the basic setup (username/password, 2 social providers or passwordless authentication) vs implementing it yourself (using [passportjs](http://passportjs.org/), [devise](https://github.com/plataformatec/devise), etc.) should be a no-brainer decision for any developer. For that reason starting today we are giving away the Auth0 runtime and API for free for up to 7,000 monthly active users.  Note this number of active users could support a much much larger number of registered users, depending on how frequently your users authenticate (for e.g. if your app has a 15% of active usage you can have 50,000 registered users). This is more than enough to get started and you will have an infrastructure ready to enable multifactor authentication, enterprise integrations,  account linking, among many others, with just a switch away, no extra code needed.
-* **Free Unlimited Open Source Plan**: We ♥️️ OSS and we want every project to use the full Auth0 platform without worrying about $$ ever.
+<div class="row" style="padding-bottom: 40px;">
+<div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/7k.png" alt="" /></div>
+<div class="col-xs-12 col-md-9">
+  <strong>Free Plan including 7,000 monthly active users</strong>: We believe that using Auth0 with the basic setup (username/password, 2 social providers or passwordless authentication) vs implementing it yourself (using <a href="http://passportjs.org/">passportjs</a>, <a href="https://github.com/plataformatec/devise">devise</a>, etc.) should be a no-brainer decision for any developer. For that reason starting today we are giving away the Auth0 runtime and API for free for up to 7,000 monthly active users.  Note this number of active users could support a much much larger number of registered users, depending on how frequently your users authenticate (for e.g. if your app has a 15% of active usage you can have 50,000 registered users). This is more than enough to get started and you will have an infrastructure ready to enable multifactor authentication, enterprise integrations,  account linking, among many others, with just a switch away, no extra code needed.
+</div>
+</div>
 
-<img alt="Free plan for 7K users and open source plan" src="https://cdn.auth0.com/blog/pricingv4/usersv6.png" />
+<div class="row" style="padding-bottom: 40px;">
+<div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/infinite.png" alt="" /></div>
+<div class="col-xs-12 col-md-9">
+  <strong>Free Unlimited Open Source Plan</strong>: We ♥️️ OSS and we want every project to use the full Auth0 platform without worrying about $$ ever.
+</div>
+</div>
 
-* **Up to 70% price reduction for developers and small businesses**:  Individual devs and small business that are still early in ramping revenue will benefit from more affordable plans.
-* **Better feature segmentation**: We analyzed our user base and segmented our features in different plans - and prices - based on popular use cases.
-* **Internal vs External users**: Our subscribers use Auth0 to either protect applications used by employees (internal usage) or by non-employees (external usage). Our new plans take this into account.
+<!-- <img alt="Free plan for 7K users and open source plan" src="https://cdn.auth0.com/blog/pricingv4/usersv6.png" /> -->
 
-![Internal vs External users, 70% price reduction and better feature segmentation](https://cdn.auth0.com/blog/pricingv4/features.png)
+<div class="row" style="padding-bottom: 40px;">
+<div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/70.png" alt="" /></div>
+<div class="col-xs-12 col-md-9">
+  <strong>Up to 70% price reduction for developers and small businesses</strong>:  Individual devs and small business that are still early in ramping revenue will benefit from more affordable plans.
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 40px;">
+<div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/feat.png" alt="" /></div>
+<div class="col-xs-12 col-md-9">
+  <strong>Better feature segmentation</strong>: We analyzed our user base and segmented our features in different plans - and prices - based on popular use cases.
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 40px;">
+<div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/trial.png" alt="" /></div>
+<div class="col-xs-12 col-md-9">
+  <strong>Internal vs External users</strong>: Our subscribers use Auth0 to either protect applications used by employees (internal usage) or by non-employees (external usage). Our new plans take this into account.
+</div>
+</div>
+
+
+<!-- ![Internal vs External users, 70% price reduction and better feature segmentation](https://cdn.auth0.com/blog/pricingv4/features.png) -->
 
 ## Conclusion
 
