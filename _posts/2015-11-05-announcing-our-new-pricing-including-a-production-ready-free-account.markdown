@@ -34,7 +34,7 @@ At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, f
 <div class="row" style="padding-bottom: 40px;">
 <div class="col-xs-12 col-md-3" style="text-align: center;"><img style="margin: 0; margin-bottom: 20px; max-width: 100px;" src="http://cdn.auth0.com/blog/pricingv4/infinite.png" alt="" /></div>
 <div class="col-xs-12 col-md-9">
-  <strong>Free Unlimited Open Source Plan</strong>: We ♥️️ OSS anso we wanted to offer  every projec the abilityt to use the full Auth0 platform without worrying about $$ ever.
+  <strong>Free Unlimited Open Source Plan</strong>: We ♥ OSS so we wanted to offer every project the ability to use the full Auth0 platform without worrying about $$ ever.
 </div>
 </div>
 
