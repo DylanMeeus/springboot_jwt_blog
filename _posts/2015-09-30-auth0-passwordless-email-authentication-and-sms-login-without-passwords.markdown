@@ -3,7 +3,6 @@ layout: post
 title: "Log in without Passwords: Introducing Auth0 Passwordless"
 description: SMS Authentication and Email Authentication made easy and secure.
 date: 2015-09-30 09:00
-pinned: true
 author:
   name: Matias Woloski
   url: http://www.twitter.com/woloski
