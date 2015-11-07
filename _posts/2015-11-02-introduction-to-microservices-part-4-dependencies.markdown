@@ -2,7 +2,7 @@
 layout: post
 title: "Introduction to Microservices, Part 4: Dependencies and Data Sharing"
 description: "Learn the basics of dependency management and data sharing for microservice architectures"
-date: 2015-11-02 18:00
+date: 2015-11-07 10:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -10,8 +10,9 @@ author:
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
   bg_color: "#596D5F"
-  image: https://cdn.auth0.com/blog/ldap/logo.png
-  image_size: "110%"
+  image: https://cdn.auth0.com/blog/post-images/microservices2.svg
+  image_size: "60%"
+  image_bg_color: "#596D5F"
   blog_series: true
 tags: 
 - microservice
@@ -39,7 +40,7 @@ This is what is commonly known as **data sharing**: two separate parts of a syst
 - Can we provide consistency guarantees while reducing data-access contention using simple locks?
 - What happens when a service developed by a team requires a change of schema in a database shared by other services?
 
-![Dependencies between microservices](https://cdn.auth0.com/blog/microservices4/microservices-1.png)
+![Dependencies between microservices](https://cdn.auth0.com/blog/microservices4/Microservices-1.png)
 
 We will now study how some of these questions are answered in practice.
 
@@ -51,13 +52,13 @@ Before going back to our problem of shared data and calls between services we ne
 
 In concrete, loose coupling means microservices should provide clear interfaces that **model the data and access patterns** related to the data sitting behind them, and they should stick to those interfaces (when changes are necessary, versioning, which we will discuss later, comes into play). Problem locality means concerns and microservices should be **grouped** according to their **problem domain**. If an important change is required in a microservice related to billing, it is much more likely other microservices in the same problem domain (billing) will require changes, rather than microservices related to, say, product information. In a sense, developing microservices means drawing **clear boundaries** between different problem domains, then splitting those problem domains into independent units of work that can be easily managed. It makes much more sense to share data inside a domain boundary if required than share data between unrelated domains.
 
-![Bounded contexts](https://cdn.auth0.com/blog/microservices4/microservices-2.png)
+![Bounded contexts](https://cdn.auth0.com/blog/microservices4/Microservices-2.png)
 
 ### The case for merging services into one
 
 One important question you should ask yourself when working with separate microservices inside a problem domain is: are these services talking too much with eachother? If so, consider the impact of making them a **single service**. Microservices should be small, but **no smaller than necessary** to be convenient. Bam! Data sharing and dependency problems are gone. Of course, the opposite applies: if you find your services getting bigger and bigger to reduce chattiness, then perhaps you should rethink how your data is modeled, or how your problem domains are split. Trying to **keep balance** is the key.
 
-![Chatty microservices](https://cdn.auth0.com/blog/microservices4/microservices-3.png)
+![Chatty microservices](https://cdn.auth0.com/blog/microservices4/Microservices-3.png)
 
 By the way, remember improving your solutions through **iteration** is part of the benefits of the microservices approach. Do your best effort to get things right from the beginning, but know you can make changes if things don't work out.
 
@@ -80,7 +81,7 @@ As we have mentioned before, the biggest problem with shared data is **what to d
 - Data pump model
 
 #### Shared database
-![Shared database](https://cdn.auth0.com/blog/microservices4/microservices-4.png)
+![Shared database](https://cdn.auth0.com/blog/microservices4/Microservices-4.png)
 
 We have noted some of the problems with the shared database approach before, so we will now focus on what we can do to avoid them. When dealing with shared data across databases (or tables within a database) there are essentially two approaches: **transactions** and **eventual consistency**.
 
@@ -91,36 +92,161 @@ Eventual consistency deals with the problem of distributed data by **allowing in
 When facing the problem of a shared database, **try very hard to keep the data in a single place** (i.e. not to split it). If there is no other option but to split the data, study the options above in detail before committing to any.
 
 #### Another microservice
-![Microservice arbiter](https://cdn.auth0.com/blog/microservices4/microservices-5.png)
+![Microservice arbiter](https://cdn.auth0.com/blog/microservices4/Microservices-5.png)
 
 In this approach rather than allowing microservices to access the database directly, a new microservice is developed. This **microservice manages all access to the shared data** by the two services. By having a common entry point it is easier to reason about changes in various places. For small volumes of data, this can be a good option as long as the new microservice is the only one managing the data. Consider if this is something you can do and whether the microservice can scale to your future requirements.
 
 #### Event/subscription model
-![Event subscription](https://cdn.auth0.com/blog/microservices4/microservices-7.png)
+![Event subscription](https://cdn.auth0.com/blog/microservices4/Microservices-7.png)
 
 In this approach, rather than relying on each service fetching the data, services that make changes to data or that generate data **allow other services to subscribe to events**. When these events take place, subscribed services receive the notification and make use of the information contained in the event. This means that at no point any microservice is reading data that can be modified by other microservices. The simplicity of this approach makes it a powerful solution to many use cases, however there are downsides: a good set of events must be integrated into the generating microservice and lost events are a possibility. You should also consider the case of big volumes of data: the data gets sent to as many subscribers as registered.
 
 #### Data pump model
-![Data pump to long running process](https://cdn.auth0.com/blog/microservices4/microservices-6.png)
+![Data pump to long running process](https://cdn.auth0.com/blog/microservices4/Microservices-6.png)
 
 This is related to the eventual consistency case and the additional microservice case: a microservice handles changes in one part of the system (either by reading from a database, handling events or polling a service) and updates another part of the system with those changes atomically. In esence, data is **pumped** from one part of the system to the other. A thing to keep in mind: consider the implications of duplicating data across microservices. Remember that duplicated data means changes in one copy of the data create inconsistencies unless updates are performed to each copy. This is useful for cases where big volumes of data need to be analyzed by slow processes (consider the case of data analytics, you need recent copies of the data, but not necessarily the latests changes). For long running pumps, remember that consistency requirements are still important. One way to do this is to read the data from a read-only copy of the database (such as a backup).
 
 ## Versioning and failures
 An important part of managing dependencies has to do with what happens when a **service is updated** to fit new requirements or solve a design issue. Other microservices may depend on the **semantics of the old version** or worse: **depend on the way data is modeled** in the database. As microservices are developed in isolation, this means **a team usually cannot wait** for another team to make the necessary changes to a dependent service before going live. The way to solve this is through **versioning**. All microservices should make it clear what version of a different microservice they require and what version they are. A good way of versioning is through **semantic versioning**, that is, keeping versions as a set of numbers that make it clear when a breaking change happens (for instance, one number can mean that the API has been modified).
 
-![Different version of a dependency](https://cdn.auth0.com/blog/microservices4/microservices-8.png)
+![Different version of a dependency](https://cdn.auth0.com/blog/microservices4/Microservices-8.png)
 
 The problem of dependency and changes (versions) rises an interesting question: **what if things break when a dependency is modified** (in spite of our efforts to use versioning)? Failure. We have discussed this briefly in previous posts in this series and now is good time to remember it: **graceful failure** is *key* in a distributed architecture. **Things will fail**. Services should do whatever is possible to run even when dependencies fail. It is perfectly acceptable to have a fallback service, a local cache or even to return less data than requested. Crashes should be avoided, and all dependencies should be treated as things prone to failure.
 
-![Failure of a dependency with fallback](https://cdn.auth0.com/blog/microservices4/microservices-9.png)
+![Failure of a dependency with fallback](https://cdn.auth0.com/blog/microservices4/Microservices-9.png)
 
-## Example: shared data between microservices with random failures
-TODO
+## Example: events and shared data between microservices with random failures
+For our example we will create a small group of versioned microservices with fallback capabilities. As this example models the behavior of dependant microservices inside a corporate network, we will not make use of the public API gateway we developed for previous posts. However, the logic behind dynamic dispatching of services will be reused in this case to provide fallback capabilities. In other words, we have refactored the logic behind the dynamic dispatching of services from the API gateway into a library. We now use this library to provide dynamic dispatching and fallback capabilities inside our network.
+
+![Example](https://cdn.auth0.com/blog/microservices4/example.png)
+
+There are 2 services: a tickets service and a "reply feed" service. The tickets service allows adding, querying and subscribing to updates. The reply feed subscribes to the tickets service to receive new replies without querying the tickets service. Additionally the tickets service is split in two versions: 1.0.0 and 1.0.1. Version 1.0.1 is identical to 1.0.0 but causes random failures when querying tickets. When a failure is detected the system automatically falls back to the next compatible version available.
+
+```javascript
+//Recursive, consider this in production. This won't be a problem
+//once node.js and V8 support tail-call optimizations.
+function callNext(i) {
+    if(i === services.length) {
+        callback(new Error("No service available"));
+        return;
+    } 
+
+    logger.debug('Calling ' + services[i].name + ' version: ' + 
+        services[i].versionMajor + '.' + 
+        services[i].versionMinor + '.' + 
+        services[i].versionPatch);
+
+    dispatch.serviceDispatch(services[i], data, 
+        function(err, response) {
+            if(err) {
+                logger.info("Failed call to: " + services[i]);                        
+                logger.error(err);
+                
+                callNext(i + 1);
+            } else {
+                logger.info("Succeeded call to: " + services[i]);
+            
+                callback(null, response);
+            }                        
+        }
+    );
+}
+
+callNext(0);
+```
+
+Data sharing is presented in the form of the shared database between the different versions of the tickets service. Consistency is achieved through transactional guarantees provided by Mongo. Mongo guarantees that all modifications performed to a single document either happen or they don't. No client sees intermediate results.
+
+On the other hand, data sharing between the replies service and the tickets service is achieved through the event/subscription model. As the reply feed only needs to store the latest 10 replies (this is a design requirement) a simple event for each new message can work as a solution, without requiring shared access to the tickets database.
+
+#### repliesFeed.js
+
+```javascript
+function subscribe() {
+    var data = JSON.stringify({
+        url: eventUrl
+    });
+    
+    registry.call('Ticket Subscribe', 1, 0, 1, data, function(err, response) {
+        if(err) {
+            logger.error(err);
+        }
+    });
+}
+
+app.post('/replyEvent', function(req, res) {
+    //TODO: validate req.body data
+    
+    logger.debug(req.body);
+    
+    latestReplies.push(req.body);
+    if(latestReplies.length > 10) {
+        latestReplies.splice(0, latestReplies.length - 10);
+    }
+
+    res.sendStatus(200);
+});
+```
+#### tickets.js and tickets-random-fail.js
+
+```javascript
+function notifySubscribers(data) {
+    var collection = db.collection('tickets');
+    var oid = new ObjectID(data.ticketId);
+    collection.findOne({ '_id': oid }, { title: 1 }, function(err, ticket) {
+        if(err) {
+            logger.error(err);
+            return;
+        }       
+        
+        data.title = ticket.title;
+        var jsonData = JSON.stringify(data);
+        
+        logger.debug(data);
+        
+        for(var subscriber in commentSubscribers) {
+            if(commentSubscribers.hasOwnProperty(subscriber)) {
+                console.log('EVENT: sending new reply to subscriber: ' + 
+                    subscriber);
+                dest = url.parse(subscriber);
+            
+                var req = http.request({
+                    hostname: dest.hostname,
+                    port: dest.port,
+                    path: dest.path,
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Content-Length': jsonData.length
+                    }                    
+                });
+                
+                req.on('error', function(err) {
+                    logger.error(err);
+                });
+                
+                req.write(jsonData);
+                req.end();
+            }
+        }
+    });
+}
+```
+
+The example is completed by a simple process that accesses these services and logs everything to console. The logs show when a service falls back to a different version and when an event is sent. Get the [full code](https://github.com/auth0/blog-microservices-part4). To run it deploy an empty Mongo database to the `db` directory and insert the tickets from `tickets.json` into the `tickets` collection. Then run `test.js` and watch the logs.
+
+> Please note all of the code in this example is just that: an example. Do not consider this production ready. Run your own tests :)
 
 ## Aside: webtasks are microservices
-TODO
+As we have shown in previous posts, webtasks *are* microservices. Our architecture relies heavily on webtasks and it is easy to turn one of the above microservices into a webtask. Check it out and [create your own webtasks](https://webtask.io). Try to turn one of the examples into a webtask and then push it with `wt`. Remember webtasks do not support `require` commands to files in the same directory, so you will need to embed the code in a single `.js` file. Database connections must be performed against a publicly accessible server.
+
+```sh
+wt create repliesFeedAsWebtask.js
+# Wait a bit and then run
+wt logs
+```
 
 ## Conclusion
-Dependencies are hard, moreso in a distributed architecture. Data sharing and interservice calls should be kept to a minimum if possible. If you cannot avoid them, consider the implications of turning multiple services into one. If that is not the right choice, study what kind of data you are sharing (static or mutable) and what are the proper ways of sharing it according to your current and future use cases (volume of data, scaling considerations, algorithmic and implementation complexity, consistency requirements, etc.). Remember that you can and you should make modifications to your architecture as you find better ways of doing things. Microservices favor iteration, use it to your advantage. Avoid integration patterns that prevent future modifications.
+Dependencies are **hard**, moreso in a distributed architecture. Data sharing and interservice calls **should be kept to a minimum** if possible. If you cannot avoid them, consider the implications of turning **multiple services into one**. If that is not the right choice, study what kind of data you are sharing (static or mutable) and what are the proper ways of sharing it according to your **current and future use cases** (volume of data, scaling considerations, algorithmic and implementation complexity, consistency requirements, etc.). Remember that you can and you should make modifications to your architecture as you find better ways of doing things. **Microservices favor iteration**, use it to your advantage and avoid integration patterns that prevent future modifications.
 
 
