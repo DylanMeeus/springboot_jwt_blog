@@ -2,7 +2,8 @@
 layout: post
 title: "Intro to Microservices, Part 4: Dependencies and Data Sharing"
 description: "Learn the basics of dependency management and data sharing for microservices architectures"
-date: 2015-11-07 10:00
+date: 2015-11-09 10:00
+permalink: /2015/11/07/introduction-to-microservices-part-4-dependencies/
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
