@@ -24,12 +24,12 @@ tags:
 - post-series
 ---
 
-In this post in the microservices series we will study how to manage inter-service dependencies and how to deal with implicit interfaces in the form of data sharing. We will also extend our existing examples from the microservices series to show some of the concepts in this post.
+In this post in the microservices series we will study how to manage inter-service dependencies and how to deal with implicit interfaces in the form of data sharing. We will also extend our existing examples from the microservices series to show some of the concepts in this post. If you haven't done so, [check part 3](https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/).
 
 -----
 
 ## The problem of dependencies
-As we have discussed in previous posts, one of the biggest enemies of distributed architectures are dependencies. In a microservice-based architecture, services are modeled as isolated units that manage a reduced set of problems. However, fully functional systems rely on the **cooperation and integration** of its parts, and microservice architectures are not an exception. 
+As we have discussed in [previous posts](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/), one of the biggest enemies of distributed architectures are dependencies. In a microservice-based architecture, services are modeled as isolated units that manage a reduced set of problems. However, fully functional systems rely on the **cooperation and integration** of its parts, and microservice architectures are not an exception. 
 
 In a traditional monolithic application, dependencies usually appear as method calls. It is usually a matter of *importing* the right parts of the project to access their functionality. In esence, doing so creates a **dependency** between the different parts of the application. With microservices, each microservice is meant to operate on its own. However, sometimes one may find that to provide certain functionality, **access to some other part** of the system is necessary. In concrete, some part of the system needs access to data managed by other part of the system. 
 
