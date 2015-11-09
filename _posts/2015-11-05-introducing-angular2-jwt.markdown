@@ -190,8 +190,6 @@ tokenSubscription() {
 
 ## Aside: Using Auth0 with angular2-jwt
 
-Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
-
 Using Auth0 with **angular2-jwt** is easy. The first step is to bring in Auth0's Lock widget.
 
 ```html
