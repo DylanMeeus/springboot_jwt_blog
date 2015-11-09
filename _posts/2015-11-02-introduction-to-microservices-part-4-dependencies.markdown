@@ -24,7 +24,7 @@ tags:
 - post-series
 ---
 
-In this post in the microservices series we will study how to manage inter-service dependencies and how to deal with implicit interfaces in the form of data sharing. We will also extend our existing examples from the microservices series to show some of the concepts in this post. If you haven't done so, [check part 3](https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/).
+In this post in the microservices series we will study how to manage inter-service dependencies and how to deal with implicit interfaces in the form of data sharing. We will also extend our existing examples from the microservices series to show some of the concepts in this post. If you haven't done so, check [An Introduction to Microservices, Part 3](https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/).
 
 -----
 
