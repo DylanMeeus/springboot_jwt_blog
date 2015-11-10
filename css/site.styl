@@ -359,9 +359,11 @@ h1,h2,h3,h4,h5
 	font-weight: normal;
 	display: block;
 	padding: 18px 5px;
-	margin: 0 25px;
   margin-bottom: -1px;
   font-size: 13px;
+
+  +breakpoint("desktop")
+    margin: 0 25px;
 
   i
   	position: relative;
@@ -435,6 +437,10 @@ h1,h2,h3,h4,h5
 	 	i
 	 		margin-left: 5px;
 	 		opacity: 0.5;
+
+  .collapse
+    +breakpoint("desktop")
+      border-bottom: 1px solid #ececec;
 
   ul, li, &
     list-style: none;
