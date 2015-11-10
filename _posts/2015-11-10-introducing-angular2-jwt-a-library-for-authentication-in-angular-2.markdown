@@ -25,7 +25,7 @@ tags:
 ---
 
 ---
-**TL;DR:** We've just released **[angular2-jwt](https://github.com/auth0/angular2-jwt)**, an open-source library for working with JWTs in Angular 2. With it, you can do authenticated HTTP requests, check the user's JWT, and more. Read on for more details, or check out the [repo](https://github.com/auth0/angular2-jwt). You can also read the [docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) to find out how to easily use Auth0 with **angular2-jwt**.
+**TL;DR:** We've just released **[angular2-jwt](https://github.com/auth0/angular2-jwt)**, an open-source library for working with JWTs in Angular 2. With it, you can do authenticated HTTP requests, check the user's JWT, and more. Read on for more details, or check out the [repo](https://github.com/auth0/angular2-jwt).
 
 ---
 
@@ -276,7 +276,7 @@ When the user clicks the **Login** button, they will be shown the Lock widget.
 
 Once the user authenticates, their profile and JWT will be saved in local storage. Logging out is then simply a matter of removing those items.
 
-For more detail on using Auth0 with **angular2-jwt**, check out the [docs](https://auth0.com/docs/quickstart/spa/angular2/no-api).
+Already excited about implementing this? <a href=“javascript:signup()”>Sign up</a> for your free Auth0 account!
 
 ## Wrapping Up
 
