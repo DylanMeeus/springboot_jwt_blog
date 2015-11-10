@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing angular2-jwt: A Library for Authentication in Angular 2"
 description: "Learn about what's new with authentication in Angular 2 and how to use angular2-jwt to make it easier."
-date: 2015-11-06 16:00
+date: 2015-11-10 16:00
 author: 
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
@@ -25,23 +25,44 @@ tags:
 ---
 
 ---
-**TL;DR:** We've just released **[angular2-jwt](https://github.com/auth0/angular2-jwt)**, an open source library for working with JWTs in Angular 2. With it, you can do authenticated HTTP requests, check the user's JWT, and more. Read on for more details, or check out the [repo](https://github.com/auth0/angular2-jwt).
+**TL;DR:** We've just released **[angular2-jwt](https://github.com/auth0/angular2-jwt)**, an open-source library for working with JWTs in Angular 2. With it, you can do authenticated HTTP requests, check the user's JWT, and more. Read on for more details, or check out the [repo](https://github.com/auth0/angular2-jwt). You can also read the [docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) to find out how to easily use Auth0 with **angular2-jwt**.
 
 ---
 
-We're a big fans of Angular and OSS at Auth0, and that's why we've contributed packages that make it easier to work with JWTs in Angular. For Angular 1.x, we have **[angular-jwt](https://github.com/auth0/angular-jwt)**, a generic library that lets you decode JWTs, send one on every HTTP request, and easily handle refresh tokens.
+We're big fans of Angular and OSS at Auth0, and that's why we've contributed packages that make it easier to work with JWTs in Angular. For Angular 1.x, we have **[angular-jwt](https://github.com/auth0/angular-jwt)**, a generic library that lets you decode JWTs, send one on every HTTP request, and easily handle refresh tokens.
 
 Naturally, we wanted to provide the same package for Angular 2. Even though Angular 2 is still in alpha, we wanted to create a package early on to help the community get going with JWT authentication as soon as possible. Today we announce **[angular2-jwt](https://github.com/auth0/angular2-jwt)**, an Angular 2 JWT helper library.
 
-## What's Changed from Angular 1.x?
+## How is Angular 2 Authentication Different from Angular 1.x?
 
 If you've handled JWTs in Angular 1.x, you're likely accustomed to things like HTTP interceptors. These allow us to intercept requests and responses so we can do things like attach an `Authorization` header that has the token.
 
-Although the **Http** API for Angular 2 is still in flux, the team has noted that they're moving away from a global interceptor model, and instead, composition will be favored. This means that instead of setting up a mechanism for attaching an `Authorization` header globally, there should be some way of doing it on a per-request basis. For that, we've created the `AuthHttp` class.
+Although the **Http** API for Angular 2 is still in flux, the team has noted that they're moving away from a global interceptor model; instead, composition will be favored. This means that as opposed to setting up a mechanism for attaching an `Authorization` header globally, there should be some way of doing it on a per-request basis. For that, we've created the `AuthHttp` class.
+
+## Basic Setup
+
+```bash
+npm install angular2-jwt
+```
+
+If you're using **SystemJS**, you can `map` to `angular2-jwt` in your configuration.
+
+```html
+  <!-- index.html -->
+
+  <script>
+  System.config({
+    defaultJSExtensions: true,
+    map: {
+      "angular2-jwt": "node_modules/angular2-jwt"
+    }
+  });
+  </script>
+```
 
 ## Using AuthHttp for Authenticated Requests
 
-It should be noted that **angular2-jwt** makes no assumptions about how you authenticate your users. If you're using Auth0 though, we've got an [example](https://github.com/auth0/auth0-angular2) of how it can be done in just a few lines of code.
+It should be noted that **angular2-jwt** makes no assumptions about how you authenticate your users. If you're using Auth0, though, we've got an [example](https://github.com/auth0/auth0-angular2) of how it can be done in just a few lines of code.
 
 The `AuthHttp` class lets you send any HTTP request with an authentication header atttached. The class wraps regular HTTP requests and is injected and accessed in much the same way as `Http`.
 
@@ -81,7 +102,7 @@ bootstrap(App, [
 ])
 ```
 
-The only thing that changes here is that we use `this.authHttp.get` instead of `this.http.get`. The response is still an observable that can be subscribed to. When we bootstrap the application, we provide `AuthHttp` with `useFactory`. This is useful for when we want to supply our own configuration for the class.
+With the `AuthHttp` class, we use `this.authHttp.get` instead of `this.http.get`. The response is still an observable that can be subscribed to. When we bootstrap the application, we provide `AuthHttp` with `useFactory`. This is useful for when we want to supply our own configuration for the class.
 
 The class has the following defaults:
 
@@ -106,21 +127,21 @@ bootstrap(App, [
       headerPrefix: YOUR_HEADER_PREFIX,
       tokenName: YOUR_TOKEN_NAME,
       tokenGetter: YOUR_TOKEN_GETTER_FUNCTION,
-      noJwtError: false 
+      noJwtError: true 
     })
   }})
 ])
 ```
 
-An error is thrown by default if there is no JWT saved, or if it's invalid. If you'd rather have a regular HTTP request go through when an invalid JWT is encountered, you can set `noJwtError` to `false`.
+An error is thrown by default if there is no JWT saved, or if it's invalid. If you'd rather have a regular HTTP request go through when an invalid JWT is encountered, you can set `noJwtError` to `true`.
 
-Using an explicit `AuthHttp` request is nice because we can use it in tandem with regular `Http`. If we have request that we know will never require authentication, we can use `Http` instead.
+Using an explicit `AuthHttp` request is nice because we can use it in tandem with regular `Http`. If we have requests that we know will never require authentication, we can use `Http` instead.
 
-## Handling Routing
+## Handling Routing in Angular 2
 
 We'll often find ourselves needing to protect certain routes from unauthenticated users. Even though our data from the API will be safe since a valid JWT is required to access it, unless we put some blocks in place, users will still be able to navigate to routes that are designated for authenticated users only.
 
-In Angular 1.x, if we use UI Router, we might put a property on our route declarations that says a given route requires authentication. Angular 2's Router gives us some lifecycle hooks that are useful for tapping into various events along the routing pipeline. One of these hooks is called `CanActivate` and it is fired **before** a route is navigated to and its component class is instantiated. This is the perfect hook for checking whether the user is authenticated.
+In Angular 1.x, if we use UI Router, we might put a property on our route declarations that says a given route requires authentication. Angular 2's Router gives us some lifecycle hooks that are useful for tapping into various events along the routing pipeline. One of these hooks is called `CanActivate` and it is fired **before** a route is navigated to and its component class is instantiated. This is the perfect hook for checking whether the user has a valid JWT.
 
 ```js
 // app.ts
@@ -148,7 +169,7 @@ In this example, we have a route that we want protected called **secret-route**.
 
 ## Accessing the JwtHelper Class
 
-The library includes a class called `JwtHelper` which is used for things like decoding token and checking validity. This is the class that is used by `tokenNotExpired`, but we can use it directly in our components too. These methods might be useful for doing things finding the users information from the JWT payload.
+The library includes a class called `JwtHelper` which is used for things like decoding tokens and checking validity. This is the class that is used by `tokenNotExpired`, but we can use it directly in our components too. These methods might be useful for doing things such as finding the user's information from the JWT payload.
 
 ```js
 // app.ts
@@ -172,9 +193,9 @@ useJwtHelper() {
 ...
 ```
 
-## Using JWTs as an Observable Streams
+## Using JWTs as Observable Streams
 
-Angular 2's `Http` returns an observable, and thus `AuthHttp` does as well. Since we're going to be seeing a lot more use of observables in the framework, it would be useful to have a way to use our JWT as an observable stream. For that, `AuthHttp` gives you a `tokenStream`. This stream can be subscribed to and can be useful if you want to combine it with other streams that do HTTP requests. The details of how you put it to use are up to you.
+Angular 2's `Http` returns an observable, and thus `AuthHttp` does as well. Since we're going to be seeing a lot more use of observables in the framework, it would be useful to have a way to use our JWT as an observable stream. For that, `AuthHttp` gives you a `tokenStream`. This stream can be subscribed to and will be useful if you want to combine it with other streams that do HTTP requests. The details of how you put it to use are up to you.
 
 ```js
 // app.ts
@@ -188,7 +209,7 @@ tokenSubscription() {
 }
 ```
 
-## Aside: Using Auth0 with angular2-jwt
+## Aside: Angular 2 Authentication with Auth0 with angular2-jwt
 
 Using Auth0 with **angular2-jwt** is easy. The first step is to bring in Auth0's Lock widget.
 
@@ -203,6 +224,8 @@ Next, we just need to put in some simple controls for logging in and out.
 
 ```js
 // app.ts
+
+...
 
 @Component({
   directives: [ CORE_DIRECTIVES, ROUTER_DIRECTIVES, NgIf ],
@@ -243,13 +266,17 @@ export class AuthApp {
   }
 
 }
+
+...
 ```
 
-With the user clicks the **Login** button, they will be shown the Lock widget.
+When the user clicks the **Login** button, they will be shown the Lock widget.
 
 ![auth0 lock angular2](https://cdn.auth0.com/blog/node-knockout/node-knockout-1.png)
 
 Once the user authenticates, their profile and JWT will be saved in local storage. Logging out is then simply a matter of removing those items.
+
+For more detail on using Auth0 with **angular2-jwt**, check out the [docs](https://auth0.com/docs/quickstart/spa/angular2/no-api).
 
 ## Wrapping Up
 
