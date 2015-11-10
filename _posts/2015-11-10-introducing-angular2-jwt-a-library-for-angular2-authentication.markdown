@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Introducing angular2-jwt: A Library for Authentication in Angular 2"
-description: "Learn about what's new with authentication in Angular 2 and how to use angular2-jwt to make it easier."
+title: "Introducing angular2-jwt: A Library for Angular 2 Authentication"
+description: "Learn about what's new with Angular 2 authentication and how to use angular2-jwt to make it easier."
 date: 2015-11-10 16:00
 author: 
   name: Ryan Chenkie
