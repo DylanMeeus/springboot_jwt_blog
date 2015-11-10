@@ -276,7 +276,7 @@ When the user clicks the **Login** button, they will be shown the Lock widget.
 
 Once the user authenticates, their profile and JWT will be saved in local storage. Logging out is then simply a matter of removing those items.
 
-Already excited about implementing this? <a href=“javascript:signup()”>Sign up</a> for your free Auth0 account!
+Already excited about implementing this? <a href='javascript:signup()'>Sign up</a> for your free Auth0 account!
 
 ## Wrapping Up
 
