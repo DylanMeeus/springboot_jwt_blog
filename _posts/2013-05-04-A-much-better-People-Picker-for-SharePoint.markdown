@@ -8,7 +8,7 @@ author:
   mail: sebastian@auth0.com
   url: https://github.com/siacomuzzi
   avatar: https://secure.gravatar.com/avatar/c35416d45481332127c88e4cd355555f?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
-description: "When you \"claims enable\" SharePoint with Auth0, you also get an enhanced People Picker. This is optional, because it doesn't intervene in the authentication process"
+description: "When you claims enable SharePoint with Auth0, you also get an enhanced People Picker. This is optional, because it doesn't intervene in the authentication process"
 ---
 
 
