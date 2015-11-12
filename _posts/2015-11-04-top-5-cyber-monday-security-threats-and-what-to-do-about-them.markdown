@@ -31,7 +31,7 @@ We will enumerate the top five security threats you may encounter when shopping 
 
 The [Anti-Phishing Working Group](http://www.antiphishing.org/) reports that in the last quarter of 2014, there was an **18 percent increase in the number of unique phishing reports** compared to the previous quarter, and that **Retail/Service** was the most targeted industry sector in the fourth quarter of 2014, with **Payment Services** close behind.
 
-**Phishing** is posibly the most dangerous threat this season. Phishing occurs when cyber criminals attempt to get your usernames, passwords, and credit card details by creating a fake version of a real and well-known site. Users get tricked into entering their sensitive information, thinking that the site is the real one. You may enter one of these sites by misspelling the site address, or by following links on forged emails, ads, or posts.
+**Phishing** is possibly the most dangerous threat this season. Phishing occurs when cyber criminals attempt to get your usernames, passwords, and credit card details by creating a fake version of a real and well-known site. Users get tricked into entering their sensitive information, thinking that the site is the real one. You may enter one of these sites by misspelling the site address, or by following links on forged emails, ads, or posts.
 
 Here are some tips to follow to make sure you don't log into a phishing site:
 
