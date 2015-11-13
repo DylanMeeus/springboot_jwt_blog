@@ -132,7 +132,7 @@ Let's get started with the actual components for our app. But first, what exactl
 To see how this works, let's start with the `Home` component.
 
 ```html
-  // src/components/Home.vue
+  <!-- src/components/Home.vue -->
 
   <template>
     <div class="col-sm-6 col-sm-offset-3">
@@ -220,7 +220,7 @@ router.start(App, '#app')
 We're importing some components we've yet to create, as well as `vue-router` and `vue-resource`. For the app to recognize `vue-router` and `vue-resource`, we just need to call `Vue.use` on them. We can set up our route definitions with the simple `map` method on our instance of `vue-router`. The reason we're exporting this instance is so we can get a reference to it in our other components.
 
 ```html
-  // src/components/App.vue
+  <!-- src/components/App.vue -->
 
   <template>
     <nav class="navbar navbar-default">
@@ -329,7 +329,7 @@ Our `auth` service exposes methods for logging users in and out, signing them up
 The **Login** component will need some HTML for the user inputs and a method to call our **auth** service.
 
 ```html
-  // src/components/Login.vue
+  <!-- src/components/Login.vue -->
 
   <template>
     <div class="col-sm-4 col-sm-offset-4">
@@ -403,7 +403,7 @@ The **Signup** component is nearly identical, expcept it will use the `signup` m
 When a user successfully authenticates, they will be able to access the **secret-quote** route from the API. The **SecretQuote** component will look similar to the **Home** component, but we'll attach the user's JWT as an `Authorization` header when requests are sent.
 
 ```html
-  // src/components/SecretQuote.vue
+  <!-- src/components/SecretQuote.vue -->
 
   <template>
     <div class="col-sm-6 col-sm-offset-3">
@@ -457,7 +457,7 @@ Since we don't want users to access this route if they are not authenticated, we
 We're nearly done, but there are a couple improvements we can make before we finish out. It would be good to conditionally show and hide menu items based on the user's `auth` status. To do that, we'll use `v-if`.
 
 ```html
-  // src/components/App.vue
+  <!-- src/components/App.vue -->
 
   <template>
     <nav class="navbar navbar-default">
@@ -560,7 +560,7 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
 ### Step 3: Call the Lock Widget from a Vue.js Component
 
 ```html
-  // src/components/Login.vue
+  <!-- src/components/Login.vue -->
 
   <template>
     <div class="col-sm-4 col-sm-offset-4">
