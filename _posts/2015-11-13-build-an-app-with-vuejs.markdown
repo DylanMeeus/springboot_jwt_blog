@@ -9,10 +9,10 @@ author:
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design: 
-  image: https://cdn.auth0.com/blog/relay/relay-logo-transparent.png
-  bg_color: "#3B3738"
+  image: https://cdn.auth0.com/blog/vuejs/vue-logo.png
+  bg_color: "#35495e"
   image_size: "80%"
-  image_bg_color: "#3B3738"
+  image_bg_color: "#fff"
 tags: 
 - vue
 - vuejs
@@ -170,7 +170,7 @@ The **script** area exports a default class that has on it a `data` method and a
 
 This gives us a good idea of what Vue components look like, but this won't work quite yet because we need to set up our app's main entry point, as well as a main **App** component. Here's how this component will render once everything is set up.
 
-IMAGE - QUOTE ROUTE
+![vue vuejs authentication quote](https://cdn.auth0.com/blog/vuejs/vuejs-1.png)
 
 ## Setting Up index.js and App.vue
 
@@ -392,9 +392,11 @@ HTTP calls made with `vue-resource` require a component's context, and since we'
 
 Note that we're using `@click` on our submit button here. This is a shorthand alternative to `v-on:click`.
 
+![vue vuejs authentication login](https://cdn.auth0.com/blog/vuejs/vuejs-2.png)
+
 The **Signup** component is nearly identical, expcept it will use the `signup` method from the `auth` service to send the user's credentials to a different endpoint.
 
-IMAGE - LOGIN
+![vue vuejs authentication signup](https://cdn.auth0.com/blog/vuejs/vuejs-4.png)
 
 ## Implementing the Secret Quote Component
 
@@ -434,7 +436,7 @@ When a user successfully authenticates, they will be able to access the **secret
       }
     },
     route: {
-      // Check the user's auth status before
+      // Check the users auth status before
       // allowing navigation to the route
       canActivate() {
         return auth.user.authenticated
@@ -448,7 +450,7 @@ The header is attached by providing an options object as the third argument to t
 
 Since we don't want users to access this route if they are not authenticated, we can tap into `vue-router`'s transition pipeline. Specifically, we use the `canActivate` hook and consult the `auth` service to check if the user is authenticated. If so, the route can be navigated to.
 
-IMAGE - SECRET QUOTE
+![vue vuejs authentication secretquote](https://cdn.auth0.com/blog/vuejs/vuejs-3.png)
 
 ## Final Touches
 
@@ -542,7 +544,20 @@ We can easily set up authentication in our Vue.js apps by using the **[Lock Widg
   ...
 ```
 
-### Step 2: Call the Lock Widget from a Vue.js Component
+### Step 2: Instantiate Lock in index.js
+
+```js
+// src/index.js
+
+...
+
+// Instantiate a Lock
+export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
+
+...
+```
+
+### Step 3: Call the Lock Widget from a Vue.js Component
 
 ```html
   // src/components/Login.vue
@@ -556,15 +571,14 @@ We can easily set up authentication in our Vue.js apps by using the **[Lock Widg
   </template>
 
   <script>
+  // Import the Lock instance
+  import {lock} from '../index'
 
   export default {
 
     methods: {
       
       login() {
-
-        // Instantiate a Lock
-        var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
 
         // Show the Lock Widget and save the user's JWT on a successful login
         lock.show((err, profile, id_token) => {
@@ -577,7 +591,7 @@ We can easily set up authentication in our Vue.js apps by using the **[Lock Widg
 
       logout() {
 
-        // To log out, we just need to remove the profile and token from localStorage
+        // Remove the profile and token from localStorage
         localStorage.removeItem('profile')
         localStorage.removeItem('id_token')
 
