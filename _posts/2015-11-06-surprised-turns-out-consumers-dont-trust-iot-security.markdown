@@ -34,7 +34,7 @@ With data breaches from major companies appearing constantly as headline news, w
 
 Developers echoed and amplified the consumer concern for better security, with **a majority 90 percent of respondents believing that the IoT devices on the market currently don’t have the necessary security in place**.
 
-![Do you believe that IoT devices are secure?](https://cdn.auth0.com/blog/iot-survey/do-you-believe-iot-devices-are-secure.png)
+![Do you believe that IoT devices are secure?](https://cdn.auth0.com/blog/iot-survey/do-you-believe-iot-devices-are-secure-2.png)
 
 What’s most interesting, though, is that we found the concern over security isn’t stopping consumers. We found that **nearly half (49 percent) of respondents don’t trust having their personal and private data tied to IoT applications, but continue to use these devices nonetheless**. Consumers are aware of the general security vulnerabilities that have been associated with this category of products and applications, but are still willing to put their personal data at risk – showcasing how the demand for these technologies is compromising the need for proper security.
 
