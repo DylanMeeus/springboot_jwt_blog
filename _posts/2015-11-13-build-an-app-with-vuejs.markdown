@@ -516,7 +516,7 @@ The `auth` service sets the user's authentication status when the `login` or `lo
 
 import auth from './auth'
 
-// Check the user's auth status when the app starts
+// Check the users auth status when the app starts
 auth.checkAuth()
 
 ...
@@ -553,7 +553,7 @@ We can easily set up authentication in our Vue.js apps by using the **[Lock Widg
   ...
 
   <!-- Auth0 Lock script -->
-  <script src="//cdn.auth0.com/js/lock-7.9.min.js"></script>
+  <script src="//cdn.auth0.com/js/lock-7.11.1.min.js"></script>
 
   ...
 ```
