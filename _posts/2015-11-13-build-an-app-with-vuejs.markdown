@@ -2,7 +2,8 @@
 layout: post
 title: "Build an App with Vue.js: From Authentication to Calling an API"
 description: "Learn how to build a Vue.js app and how to easily get up and running with JWT authentication."
-date: 2015-11-13 16:00
+date: 2015-11-16 12:00
+permalink: /2015/11/13/build-an-app-with-vuejs/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
