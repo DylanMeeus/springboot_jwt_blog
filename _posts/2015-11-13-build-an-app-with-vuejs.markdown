@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Build an App with Vue.js: From Authentication to Calling an API"
-description: "Learn how to build a Vue.js app and how easily you can get up and running with authentication."
+description: "Learn how to build a Vue.js app and how to easily get up and running with JWT authentication."
 date: 2015-11-13 16:00
 author:
   name: Ryan Chenkie
@@ -29,13 +29,13 @@ tags:
 
 We are lucky to have plenty of JavaScript frameworks to choose from these days, but at the same time it can be quite fatiguing to keep up with all of them. Some have a steep learning curve and require a lot of time for developers and their teams to become comfortable with. Others might be easy to learn, but perhaps lack some features that are crucial to a project. In either case, the level of complexity associated with learning a new framework can often hinder adoption and leave developers and teams frustrated.
 
-If you're still choosing a framework for your Single Page App, or if you are just wanting to learn a new technology, I believe [Vue.js](http://vuejs.org/) is one of the best frameworks you can pick. I love Vue.js for its simplicity and elegance, and how I can be super productive with it without needing to spend tons of time learning. In my experience, Vue.js **just works** and gets out of my way when developing applications.
+If you're still choosing a framework for your Single Page App, or if you just want to learn a new technology, I believe [Vue.js](http://vuejs.org/) is one of the best frameworks you can pick. I love Vue.js for its simplicity and elegance, and how I can be super productive with it without needing to spend tons of time learning. In my experience, Vue.js **just works** and gets out of my way when developing applications.
 
 Those are some anecdotal selling points, but let's cut to the hard facts: what exactly is Vue.js and how does it differ from other frameworks? If you're familiar with AngularJS 1.x, then Vue.js will probably look pretty familiar. In fact, Vue is heavily inspired by Angular. So what's the difference then? Essentially, Vue has a much simpler and cleaner API, is more flexible, and claims better performance. 
 
 Vue.js is firstly a view layer for applications that allows for reactive data binding and composable view components, and many developers use it only for their view layers. However, when combined with other tools in the Vue ecosystem, such as **[vue-router](https://github.com/vuejs/vue-router)**, **[vue-resource](https://github.com/vuejs/vue-resource)**, and **[vue-loader](https://github.com/vuejs/vue-loader)**, we get all the benefits of a great SPA framework while simplicity and developer experience are maintained.
 
-## What We'll Build
+## What We'll Build: A Vue.js Authentication App
 
 To demonstrate how easy it is to get up and running with a full SPA using Vue, we'll build a simple app that retrieves Chuck Norris quotes from a NodeJS backend. Vue can easily be mixed with other technologies, and you can use Vue for as much or as little of your app as you wish. To demonstrate Vue's full potential though, we'll build the whole front end SPA with Vue components and follow Vue's pattern for large-scale applications. The front end app will be totally decoupled from the back end, and we'll make HTTP requets to RESTful endpoints on our server.
 
@@ -244,6 +244,19 @@ To start out, our `App` component just needs a template. This top-level componen
 
 Finally, we need to be sure to place a div with id of **app** within `index.html`, as this is where the whole app will be exposed.
 
+```html
+ <!-- index.html -->
+
+ ...
+
+ <body>
+ <div id="app"></div>      
+   <script src="build/build.js"></script>
+ </body>
+
+ ...
+ ```
+
 ## User Authentication - Login and Signup Components
 
 To log users in, we'll need to make an HTTP request to our authentication endpoint and save the JWT that is returned in `localStorage`. We could place this logic right within our **Login** component, but we should really have a service to make it more reusable. Let's create a directory called **auth** and provide an `index.js` file there.
@@ -394,7 +407,7 @@ Note that we're using `@click` on our submit button here. This is a shorthand al
 
 ![vue vuejs authentication login](https://cdn.auth0.com/blog/vuejs/vuejs-2.png)
 
-The **Signup** component is nearly identical, expcept it will use the `signup` method from the `auth` service to send the user's credentials to a different endpoint.
+The **Signup** component is nearly identical, except it will use the `signup` method from the `auth` service to send the user's credentials to a different endpoint.
 
 ![vue vuejs authentication signup](https://cdn.auth0.com/blog/vuejs/vuejs-4.png)
 
