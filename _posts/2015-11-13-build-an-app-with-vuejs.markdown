@@ -27,9 +27,9 @@ tags:
 
 ---
 
-We are lucky to have plenty of JavaScript frameworks to choose from these days, but at the same time it can be quite fatiguing to keep up with all of them. Some have a steep learning curve and require a lot of time for developers and their teams to become comfortable with. Others might be easy to learn, but perhaps lack some features that are crucial to a project. In either case, the level of complexity associated with learning a new framework can often hinder adoption and leave developers and teams frustrated.
+We are lucky to have plenty of JavaScript frameworks to choose from these days but, at the same time, it can be quite fatiguing to keep up with all of them. Some have a steep learning curve and require a lot of time for developers and their teams to become comfortable with. Others might be easy to learn, but perhaps lack some features that are crucial to a project. In either case, the level of complexity associated with learning a new framework can often hinder adoption and leave developers and teams frustrated.
 
-If you're still choosing a framework for your Single Page App, or if you just want to learn a new technology, I believe [Vue.js](http://vuejs.org/) is one of the best frameworks you can pick. I love Vue.js for its simplicity and elegance, and how I can be super productive with it without needing to spend tons of time learning. In my experience, Vue.js **just works** and gets out of my way when developing applications.
+If you're still choosing a framework for your Single Page App (SPA), or if you just want to learn a new technology, I believe [Vue.js](http://vuejs.org/) is one of the best frameworks you can pick. I love Vue.js for its simplicity and elegance, and how I can be super productive with it without needing to spend tons of time learning. In my experience, Vue.js **just works** and gets out of my way when developing applications.
 
 Those are some anecdotal selling points, but let's cut to the hard facts: what exactly is Vue.js and how does it differ from other frameworks? If you're familiar with AngularJS 1.x, then Vue.js will probably look pretty familiar. In fact, Vue is heavily inspired by Angular. So what's the difference then? Essentially, Vue has a much simpler and cleaner API, is more flexible, and claims better performance. 
 
@@ -37,15 +37,15 @@ Vue.js is firstly a view layer for applications that allows for reactive data bi
 
 ## What We'll Build: A Vue.js Authentication App
 
-To demonstrate how easy it is to get up and running with a full SPA using Vue, we'll build a simple app that retrieves Chuck Norris quotes from a NodeJS backend. Vue can easily be mixed with other technologies, and you can use Vue for as much or as little of your app as you wish. To demonstrate Vue's full potential though, we'll build the whole front end SPA with Vue components and follow Vue's pattern for large-scale applications. The front end app will be totally decoupled from the back end, and we'll make HTTP requets to RESTful endpoints on our server.
+To demonstrate how easy it is to get up and running with a full SPA using Vue, we'll build a simple app that retrieves Chuck Norris quotes from a NodeJS backend. Vue can easily be mixed with other technologies, and you can use Vue for as much or as little of your app as you wish. To demonstrate Vue's full potential though, we'll build the whole front-end SPA with Vue components and follow Vue's pattern for large-scale applications. The front-end app will be totally decoupled from the back end, and we'll make HTTP requets to RESTful endpoints on our server.
 
 We'll also demonstrate how we can easily add authentication to our Vue.js app. We'll put **Login** and **Signup** components in place to show how we can retrieve and save a user's JWT, and then send it back to the server for accessing protected endpoints.
 
 Rather than listing out how Vue implements certain features and comparing them to other frameworks, we'll let the code speak for itself. Again, if you're familiar with Angular, it will be easy to reason about Vue's features and syntax.
 
-## Installation and Set Up
+## Installation and Setup
 
-Everything we need to start our component-based Vue.js app is on NPM. To get started, let's pull down what we need by creating our `package.json` file and specifying the packages we need. We can take full advantage of ES6 for our Vue components, and to make that happen, we'll use [Babel](https://babeljs.io/). We'll also bundle everything up with [Webpack](https://webpack.github.io/) and use **hot reloading** to see changes to our modules happen imeediately. If you wish, you can also use other build tools like Browserify instead of Webpack.
+Everything we need to start our component-based Vue.js app is on NPM. To get started, let's pull down what we need by creating our `package.json` file and specifying the packages we need. We can take full advantage of ES6 for our Vue components, and to make that happen, we'll use [Babel](https://babeljs.io/). We'll also bundle everything up with [Webpack](https://webpack.github.io/) and use **hot reloading** to see changes to our modules happen immediately. If you wish, you can also use other build tools (like Browserify) instead of Webpack.
 
 ```js
 // package.json
@@ -123,11 +123,11 @@ That's all the configuration we need for now. Once we have our files in place, w
 
 ## Setting Up the Back End
 
-We're using our trusty [nodejs-jwt-authentication-sample](https://github.com/auth0/nodejs-jwt-authentication-sample) to retrieve Chuck Norris quotes. Clone the repo wherever you like (here we're putting it in a `server` directory) and follow th readme for installation steps.
+We're using our trusty [nodejs-jwt-authentication-sample](https://github.com/auth0/nodejs-jwt-authentication-sample) to retrieve Chuck Norris quotes. Clone the repo wherever you like (here we're putting it in a `server` directory) and follow the readme for installation steps.
 
 ## Setting Up the Vue Components
 
-Let's get started with the actual components for our app. But first, what exactly is a Vue component and how does it work? Vue components allow us to specify a **template**, a **script** and **style** rules all in one file. If you're familiar with React, this will likely be familiar. This move towards composition and splitting the app into small components is helpful for maintainence and reasoning about the app.
+Let's get started with the actual components for our app. But first, what exactly is a Vue component and how does it work? Vue components allow us to specify a **template**, a **script**, and **style** rules all in one file. If you're familiar with React, this will likely be familiar. This move toward composition and splitting the app into small components is helpful for maintainence and reasoning about the app.
 
 To see how this works, let's start with the `Home` component.
 
@@ -166,9 +166,9 @@ To see how this works, let's start with the `Home` component.
 
 The **template** is just some simple markup with a button that calls the method `getQuote`. We can notice some similarities to Angular in this code already. The template uses directives like `v-on:click` for click events, and `v-if` to conditionally show and hide the `quote-area` div. Vue also uses the double curly brace syntax for templating, which is how we take care of rendering the `quote` property. 
 
-The **script** area exports a default class that has on it a `data` method and a `methods` object where we can register custom methods. When we want to register a data propety to be used in the template, we need to do so in the `data` method. If we were to leave out the `quote` property from the returned object, that property wouldn't be rendered in the template. The `getQuote` method makes an HTTP request to our back end and sets the returned data on the `quote` property.
+The **script** area exports a default class that has on it a `data` method and a `methods` object where we can register custom methods. When we want to register a data property to be used in the template, we need to do so in the `data` method. If we were to leave out the `quote` property from the returned object, that property wouldn't be rendered in the template. The `getQuote` method makes an HTTP request to our back end and sets the returned data on the `quote` property.
 
-This gives us a good idea of what Vue components look like, but this won't work quite yet because we need to set up our app's main entry point, as well as a main **App** component. Here's how this component will render once everything is set up.
+This gives us a good idea of what Vue components look like, but this won't work quite yet because we need to set up our app's main entry point, as well as a main **App** component. Here's how this component will render once everything is set up:
 
 ![vue vuejs authentication quote](https://cdn.auth0.com/blog/vuejs/vuejs-1.png)
 
@@ -242,7 +242,7 @@ We're importing some components we've yet to create, as well as `vue-router` and
 
 To start out, our `App` component just needs a template. This top-level component has a `navbar` and exposes a `router-view` which is where our various routes will be rendered. Linking to routes is as simple as placing `v-link` on the anchor tags.
 
-Finally, we need to be sure to place a div with id of **app** within `index.html`, as this is where the whole app will be exposed.
+Finally, we need to be sure to place a div with an id of **app** within `index.html`, as this is where the whole app will be exposed.
 
 ```html
  <!-- index.html -->
@@ -467,7 +467,7 @@ Since we don't want users to access this route if they are not authenticated, we
 
 ## Final Touches
 
-We're nearly done, but there are a couple improvements we can make before we finish out. It would be good to conditionally show and hide menu items based on the user's `auth` status. To do that, we'll use `v-if`.
+We're nearly done, but there are a couple of improvements we can make before we finish out. It would be good to conditionally show and hide menu items based on the user's `auth` status. To do that, we'll use `v-if`.
 
 ```html
   <!-- src/components/App.vue -->
@@ -618,7 +618,7 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
 
 ## Wrapping Up
 
-We have many great choices for SPA frameworks these days, and this can easily cause analysis paralysis. Further, it can be fatiguing to keep up with the pace of new framework development and to learn the ins and outs of them.
+We have many great choices for SPA frameworks these days, and this can easily cause analysis paralysis. Further, it can be fatiguing to keep up with the pace of new framework development and to learn their ins and outs.
 
 I find Vue.js to be a breath of fresh air in this regard. The library and ecosystem are feature-rich, but they get out of your way as you develop your apps. I've found that the learning curve with Vue.js isn't as steep as it can be with other frameworks, and from my experience, it seems to always **just work**.
 
