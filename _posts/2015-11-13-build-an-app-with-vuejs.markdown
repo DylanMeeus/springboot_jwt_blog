@@ -167,7 +167,7 @@ To see how this works, let's start with the `Home` component.
 
 The **template** is just some simple markup with a button that calls the method `getQuote`. We can notice some similarities to Angular in this code already. The template uses directives like `v-on:click` for click events, and `v-if` to conditionally show and hide the `quote-area` div. Vue also uses the double curly brace syntax for templating, which is how we take care of rendering the `quote` property. 
 
-The **script** area exports a default class that has on it a `data` method and a `methods` object where we can register custom methods. When we want to register a data property to be used in the template, we need to do so in the `data` method. If we were to leave out the `quote` property from the returned object, that property wouldn't be rendered in the template. The `getQuote` method makes an HTTP request to our back end and sets the returned data on the `quote` property.
+The **script** area exports an object that is converted into a **component constructor function** by Vue. It has on it a `data` method and a `methods` object where we can register custom methods. When we want to register a data property to be used in the template, we need to do so in the `data` method. If we were to leave out the `quote` property from the returned object, that property wouldn't be rendered in the template. The `getQuote` method makes an HTTP request to our back end and sets the returned data on the `quote` property.
 
 This gives us a good idea of what Vue components look like, but this won't work quite yet because we need to set up our app's main entry point, as well as a main **App** component. Here's how this component will render once everything is set up:
 
