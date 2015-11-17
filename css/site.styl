@@ -249,6 +249,30 @@ p.blog-description
     transform: translate(-50%, -50%);
     max-width: 120%;
 
+  // This css is used to export blog thumbnails using canvas,
+  // images need to be centered using table cell as canvas doesnt support
+  // the translate property.
+  &.export
+    display: table;
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    background: transparent;
+
+    .holder
+      display: table-cell;
+      vertical-align: middle;
+
+      img
+        width: 101%;
+        margin: -3px;
+        position: static;
+        top: auto;
+        left: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+
 .blog-thumbnail
   @extend .entry-thumbnail;
   height: 100px;
