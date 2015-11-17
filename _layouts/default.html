@@ -236,7 +236,7 @@
         }
       };
 
-      var getBlogIcon = function() {
+      var getBlogImage = function(getDOM) {
           var img = $('.banner .entry-thumbnail img').first();
 
           if(img.length) {
@@ -246,13 +246,22 @@
           }
 
           setTimeout(function() {
-            $('.banner .entry-thumbnail').addClass('export');
+            var banner = $('.banner');
+            var dom = $('.banner .entry-thumbnail');
 
-            html2canvas($('.banner .entry-thumbnail').get(0), {
+            if(getDOM === 'banner') {
+              dom = banner;
+            } else {
+              banner.addClass('export-icon');
+            }
+
+            banner.addClass('export');
+
+            html2canvas(dom.get(0), {
               onrendered: function(canvas) {
                 var img = canvas.toDataURL("image/png");
 
-                $('.banner .entry-thumbnail').removeClass('export');
+                banner.removeClass('export');
 
                 window.location = img;
               }
@@ -268,7 +277,7 @@
                 var canvas = document.createElement('CANVAS');
                 var ctx = canvas.getContext('2d');
                 var dataURL;
-                
+
                 canvas.height = this.height;
                 canvas.width = this.width;
                 ctx.drawImage(this, 0, 0);
@@ -281,6 +290,9 @@
           }
       };
 
+      var getBlogBanner = function() {
+          getBlogImage('banner');
+      };
 
       (function () {
         var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
