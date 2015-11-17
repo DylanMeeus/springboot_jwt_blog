@@ -27,7 +27,7 @@ tags:
 - benchmark
 ---
 
-In this post we will explore three technologies to build dynamic DOMs. We will also run benchmarks and find out which one is faster. We will also share with you why we choose one of them for our projects. Read on!
+In this post we will explore three technologies to build dynamic DOMs. We will also run benchmarks and find out which one is faster. At the end we will share with you why we choose one of them for our projects. Read on!
 
 -----
 
@@ -38,6 +38,14 @@ There are many [Document Object Model (DOM)](https://developer.mozilla.org/en-US
 
 Before getting into the details, if you are not a web developer, you might be asking yourself what exactly *DOM manipulation* is. Web sites are built as trees of different elements. These elements are defined in the HTML spec. By composing these elements a developer can create arbitrarily complex web sites. The DOM is the abstract representation of a website as a tree of HTML elements. It is defined by a [W3C spec](http://www.w3.org/TR/DOM-Level-2-Core/introduction.html) and implemented by all major browsers.
 
+Besides aiding in binding the data model to the view, these libraries help in doing updates to DOM **efficiently**. A series of updates that would normally be performed by manually issuing a series of DOM API calls can be automatically batched into a single call (or a reduced set of calls). For instance, suppose the logic behind an update to the site requires that you:
+
+1. Remove an element
+2. Add a new element
+3. Change a property of the added element
+
+Directly issuing DOM API calls for doing changes such as these will result in intermediate repaints and reflows of the content. These are expensive operations. By working on a virtual model these steps can be flattened into one.
+
 ### Templates
 Templates are a popular way of building DOM trees. With templates a developer can use a specific template syntax that tells a template compiler how to turn that into a DOM tree (or HTML document). Templates can look like an extension of HTML, or be completely different. 
 
@@ -46,7 +54,7 @@ Not every library in this post favors the use of templates. For instance, React 
 Incremental DOM does not favor any particular template engine. However, being a Google sponsored project, a [Closure templates](https://github.com/google/closure-templates/) backend is being developed. Incremental DOM can also be used with [superviews.js](https://github.com/davidjamesstone/superviews.js), [starplate](https://github.com/littlstar/starplate) and even [JSX](https://github.com/babel-plugins/babel-plugin-incremental-dom).
 
 ## React.js' Virtual DOM
-*Virtual DOM* is the name React developers gave to their DOM manipulation engine. *Virtual DOM* provides a series of Javascript calls that tell the library how to build a DOM tree and how to update it when data bound to it changes. The central piece of Virtual DOM is its smart diffing algorithm: once the differences in the model have been mapped to the in-memory copy of the DOM, the algorithm finds the minimum number of operations required to update the real DOM.
+*Virtual DOM* is the name React developers gave to their DOM manipulation engine. *Virtual DOM* provides a series of Javascript calls that tell the library how to build an **in-memory DOM tree** and how to update it when data bound to it changes. The central piece of Virtual DOM is its **smart diffing algorithm**: once the differences in the model have been mapped to the in-memory copy of the DOM, the algorithm finds the **minimum number of operations required to update the real DOM**. This results in two copies of the in-memory DOM being present during the diffing process.
 
 ![React.js' Virtual DOM](https://cdn.auth0.com/blog/dombench/VirtualDOM2.png)
 
@@ -68,9 +76,9 @@ Incremental DOM does not favor any particular template engine. However, being a 
 
 Glimmer differentiates between **static** and **dynamic** components, thus reducing the number of elements that need to be checked when looking for changes. This differentiation can be achieved thanks to the expressiveness of Handlerbar's templates.
 
-Another key difference between Glimmer and other solutions lies in the way nodes are stored and compared. Glimmer stores nodes as simple stream-like objects (that is, simple queues of values) rather than full-fledged DOM-like nodes. To find out whether a real DOM node needs updating, the final value of a Glimmer node is compared to the last known real DOM value. If the value has not changed, no further actions are taken. The final value of a Glimmer node is simply the result of flushing the stream of values stored in it. Events and other transient operations work on the values stored in Glimmer's stream-like nodes, resulting in a single batch of updates to the real DOM (rather than many) once all operations are complete.
+Another key difference between Glimmer and other solutions lies in the way nodes are stored and compared. Glimmer stores nodes as simple stream-like objects (that is, simple queues of values) rather than full-fledged DOM-like nodes. To find out whether a real DOM node needs updating, the final value of a Glimmer node is compared to the last known real DOM value. If the value has not changed, no further actions are taken.
 
-![Ember.js' Glimmer](https://cdn.auth0.com/blog/dombench/EmberDOM.png)
+![Ember.js' Glimmer](https://cdn.auth0.com/blog/dombench/EmberDOM3.png)
 
 #### Pros
 - Fast and efficient diffing algorithm
