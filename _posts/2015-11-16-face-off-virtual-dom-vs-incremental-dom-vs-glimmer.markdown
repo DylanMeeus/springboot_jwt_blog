@@ -2,7 +2,7 @@
 layout: post
 title: "Face-off: React.js' Virtual DOM vs Incremental DOM vs Ember.js' Glimmer"
 description: "Take a look at competing web-component solutions and find out which one is faster!"
-date: 2015-11-16 10:00
+date: 2015-11-20 10:00
 author: 
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -34,7 +34,7 @@ In this post we will explore three technologies to build dynamic DOMs. We will a
 ## Introduction
 There are many [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) manipulation frameworks and libraries. Among these, three have been the center of the attention due to their focus on performance: [React.js](https://facebook.github.io/react/), [Ember.js](http://emberjs.com/) and, more recently, [Incremental DOM](https://github.com/google/incremental-dom). While React and Ember handle much more than just DOM building/update, Incremental DOM focuses only on building DOM trees and allowing dynamic updates. We will now explore these libraries and find out which one is faster.
 
-![DOM tree](https://cdn.auth0.com/blog/dombench/dom_tree.gif)
+![DOM tree](https://cdn.auth0.com/blog/dombench/domtree.png)
 
 Before getting into the details, if you are not a web developer, you might be asking yourself what exactly *DOM manipulation* is. Web sites are built as trees of different elements. These elements are defined in the HTML spec. By composing these elements a developer can create arbitrarily complex web sites. The DOM is the abstract representation of a website as a tree of HTML elements. It is defined by a [W3C spec](http://www.w3.org/TR/DOM-Level-2-Core/introduction.html) and implemented by all major browsers.
 
@@ -56,7 +56,9 @@ Incremental DOM does not favor any particular template engine. However, being a 
 ## React.js' Virtual DOM
 *Virtual DOM* is the name React developers gave to their DOM manipulation engine. *Virtual DOM* provides a series of Javascript calls that tell the library how to build an **in-memory DOM tree** and how to update it when data bound to it changes. The central piece of Virtual DOM is its **smart diffing algorithm**: once the differences in the model have been mapped to the in-memory copy of the DOM, the algorithm finds the **minimum number of operations required to update the real DOM**. This results in two copies of the in-memory DOM being present during the diffing process.
 
-![React.js' Virtual DOM](https://cdn.auth0.com/blog/dombench/VirtualDOM2.png)
+![React.js' Virtual DOM](https://cdn.auth0.com/blog/dombench/reactdom.png)
+
+> Disclaimer: some of the graphics in this post are based on the ones found in this [excellent post explaining DOM manipulation libraries](http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html)
 
 #### Pros
 - Fast and efficient "diffing" algorithm
@@ -78,7 +80,7 @@ Glimmer differentiates between **static** and **dynamic** components, thus reduc
 
 Another key difference between Glimmer and other solutions lies in the way nodes are stored and compared. Glimmer stores nodes as simple stream-like objects (that is, simple queues of values) rather than full-fledged DOM-like nodes. To find out whether a real DOM node needs updating, the final value of a Glimmer node is compared to the last known real DOM value. If the value has not changed, no further actions are taken.
 
-![Ember.js' Glimmer](https://cdn.auth0.com/blog/dombench/EmberDOM3.png)
+![Ember.js' Glimmer](https://cdn.auth0.com/blog/dombench/emberdom4.png)
 
 #### Pros
 - Fast and efficient diffing algorithm
@@ -93,7 +95,7 @@ Another key difference between Glimmer and other solutions lies in the way nodes
 ## Incremental DOM
 Incremental DOM tries to bring a simpler approach to the table than the alternatives: rather than keeping a full in-memory representation of the DOM, or keeping a tree of lightweight elements, Incremental DOM uses the **real DOM** to find differences when data changes. You might be asking yourself why, if this is simpler, it hasn't been the solution picked by other libraries all along. Simple: it results in a **tradeoff between speed and memory**. Incremental DOM, by removing the additional copy of the DOM, results in **reduced memory usage**. In practice this also results in **reduced speed** while looking for differences. The reduced memory usage is key for mobile or other memory constrained devices. Read [our article on Incremental DOM](https://auth0.com/blog/2015/10/23/incremental-dom/) for more information on this.
 
-![Incremental DOM](https://cdn.auth0.com/blog/dombench/IncrementalDOM2.png)
+![Incremental DOM](https://cdn.auth0.com/blog/dombench/idom.png)
 
 #### Pros
 - Reduced memory usage
@@ -105,20 +107,35 @@ Incremental DOM tries to bring a simpler approach to the table than the alternat
 - Less mindshare and community use
 
 ## Benchmarks!
-For our benchmarks we have picked the [dbmonster test app](https://github.com/wycats/dbmonster) as [adapted in this post](http://blog.nparashuram.com/2015/03/performance-comparison-on-javascript.html). `dbmonster` is a simple application that simulates the load caused by an application updating tons of rows in a table that shows the activity of different simulated database clusters. This application was originally developed to test Ember's performance. In Parashuram's blog post, he adapted the example to run on React, Ember and other frameworks. We have re-run those tests using updated versions of React and Ember, and included Incremental DOM in the tests. Here are the results:
+For our benchmarks we have picked the [dbmonster test app](https://github.com/wycats/dbmonster) as [shown in this post](http://blog.nparashuram.com/2015/03/performance-comparison-on-javascript.html). `dbmonster` is a simple application that simulates the load caused by an application updating tons of rows in a table that shows the activity of different simulated database clusters. This application was originally developed to test Ember's performance. We have run this test using the latest versions of React, Ember 1.x and 2.x (both use Glimmer) and Incremental DOM. All tests were run using Chromium 46 on Linux (Core i5-5200U CPU). Five passes were performed for each test and then averaged.
 
-TODO: RESULTS
+![Major GC time losses](https://cdn.auth0.com/blog/dombench/MajorGC.png)
+![Minor GC time losses](https://cdn.auth0.com/blog/dombench/MinorGC.png)
 
-TODO: RESULTS ANALYSIS
+In these charts the time spent during long and short GC pauses can be seen. As expected, Incremental DOM is much more efficient in this area. React remains a close second for major pauses but falls way behind Incremental DOM in minor pauses. It is interesting to note how much Ember has progressed from version 1 to version 2 in this area.
 
-[Get the full code]() for the tests.
+![Layout and Paint time losses](https://cdn.auth0.com/blog/dombench/LayoutAndPaint.png)
+
+Ember shines in this case: time spent doing layout operations and then performing the actual paint to the screen. Incremental DOM trades memory usage for speed so it is expected in this case to see it behind the alternatives. React stays close to Ember and appears balanced so far.
+
+![Dropped frame counts](https://cdn.auth0.com/blog/dombench/droppedFrameCount.png)
+
+This charts shows the number of frames that Chrome decided to drop (i.e. to stop drawing) due to long pauses. Dropped frames result in lower framerates and visible pauses. In this case, Incremental DOM shines again. Less time spend in GC pauses means more time is available to draw frames. React, Ember 1 and Ember 2 all remain close behind Incremental DOM.
+
+One important thing that is not shown in the charts: the subjective feeling of the browser when using it. Incremental DOM seemed much more responsive. By taking a look at the collected data, Incremental DOM appears to be making less JavaScript calls than the alternatives. It should be noted that while Incremental DOM is just a library to dynamically update the DOM, both React and Ember handle much more: events, data passing, etc. A proper test of Virtual DOM without React should be interesting.
+
+Take a look at the [full](https://github.com/auth0/blog-dombench/blob/master/article_results/data.json) and [summarized](https://github.com/auth0/blog-dombench/blob/master/article_results/results.csv) results.
+
+[Get the full code](https://github.com/auth0/blog-dombench) for the tests. To run the tests, you will need ChromeDriver and all node.js dependencies for the test driver (json2csv, browser-perf). Once all dependencies are installed, run `node run-benchmarks.js`. Once the tests are done, results can be found in `data.json` (full) and `results.csv` (summarized).
 
 ## Aside: React.js use at Auth0
-At Auth0 we are constantly evaluating the best technologies for our platform. For the development of our [Passwordless Lock library](https://github.com/auth0/lock-passwordless/) we picked React.js. React is an excellent choice because of its unopinionated integration model, its speed and its declarative way of developing components. Its mindshare and good documentation are fundamental factors as well.
+At Auth0 we are constantly evaluating the best technologies for our platform. For the development of our [Passwordless Lock library](https://github.com/auth0/lock-passwordless/) we picked React.js. React is an excellent choice because of its unopinionated integration model and its declarative way of developing components. On other fronts, React remains a well balanced approach between speed, memory usage, ease of integration and good documentation/support.
 
-<a href="javascript:signup()">Sign-up</a> and start using our Passwordless Lock library in a minute!
+<a href="javascript:signup()">Sign-up</a> and start using our Passwordless Lock library in a minute! Or take a look at the [code](https://github.com/auth0/lock-passwordless/).
 
 ## Conclusion
-Virtual DOM, Glimmer and Incremental DOM are all excellent options for handling dynamic DOM updates. React's mindshare and ease of integration make it a no brainer for many projects. Increased memory use can be a problem in memory constrained devices for big websites. This problem, however, is getting smaller everyday as mobile devices carry more and more memory. When picking one of these libraries, focus on mindshare and ease of integration unless you are pushing the number of updates per frame to the limit. In that case, study carefully the results from this post and don't forget to run your own specialized benchmarks.
+Virtual DOM, Glimmer and Incremental DOM are all excellent options for handling dynamic DOM updates. React's mindshare and ease of integration make it a no brainer for many projects. Increased memory use can be a problem in memory constrained devices for big websites. This problem, however, is getting smaller everyday as mobile devices carry more and more memory. Incremental DOM surprises by remaining fast even when doing less. We look forward to seeing Incremental DOM integrated into Closure and other libraries. React and Ember remain as well balanced approaches each favoring different development methodologies.
+
+When picking one of these libraries focus on mindshare and ease of integration unless you are pushing the number of updates per frame to the limit. In that case, study carefully the results from this post and don't forget to run your own specialized benchmarks.
 
 
