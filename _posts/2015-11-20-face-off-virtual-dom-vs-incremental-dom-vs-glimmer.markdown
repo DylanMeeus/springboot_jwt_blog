@@ -112,7 +112,7 @@ For our benchmarks we have picked the [dbmonster test app](https://github.com/wy
 ![Major GC time losses](https://cdn.auth0.com/blog/dombench/MajorGC.png)
 ![Minor GC time losses](https://cdn.auth0.com/blog/dombench/MinorGC.png)
 
-In these charts the time spent during long and short GC pauses can be seen. As expected, Incremental DOM is much more efficient in this area. React remains a close second for major pauses but falls way behind Incremental DOM in minor pauses. It is interesting to note how much Ember has progressed from version 1 to version 2 in this area.
+In these charts the time spent during major and minor GC collections can be seen. As expected, Incremental DOM is much more efficient in this area. React remains a close second for major pauses but falls way behind Incremental DOM in minor pauses. It is interesting to note how much Ember has progressed from version 1 to version 2 in this area.
 
 ![Layout and Paint time losses](https://cdn.auth0.com/blog/dombench/LayoutAndPaint.png)
 
