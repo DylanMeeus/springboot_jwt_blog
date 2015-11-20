@@ -103,7 +103,7 @@ Incremental DOM tries to bring a simpler approach to the table than the alternat
 - Easily integrates with many frontends and frameworks (meant as a template engine backend from the beginning)
 
 #### Cons
-- Not as fast as other libraries
+- Not as fast as other libraries (this is arguable, see the benchmarks below)
 - Less mindshare and community use
 
 ## Benchmarks!
