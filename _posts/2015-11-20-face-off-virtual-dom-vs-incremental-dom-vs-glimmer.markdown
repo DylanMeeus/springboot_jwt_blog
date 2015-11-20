@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Face-off: React.js' Virtual DOM vs Incremental DOM vs Ember.js' Glimmer"
-description: "Take a look at competing DOM manipulation libraries and find out which one is faster!"
+title: "React Virtual DOM vs Incremental DOM vs Ember’s Glimmer: Fight"
+description: "Take a look at competing DOM manipulation libraries and find out which one is faster with a performance benchmark!"
 date: 2015-11-20 10:00
 author: 
   name: Sebastián Peyrott
