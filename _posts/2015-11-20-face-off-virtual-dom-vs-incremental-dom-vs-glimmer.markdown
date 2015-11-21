@@ -112,7 +112,7 @@ For our benchmarks we have picked the [dbmonster test app](https://github.com/wy
 ![Major GC time losses](https://cdn.auth0.com/blog/dombench/MajorGC.png)
 ![Minor GC time losses](https://cdn.auth0.com/blog/dombench/MinorGC.png)
 
-In these charts the time spent during major and minor GC collections can be seen. As expected, Incremental DOM is much more efficient in this area. React remains a close second for major pauses but falls way behind Incremental DOM in minor pauses. It is interesting to note how much Ember has progressed from version 1 to version 2 in this area.
+In these charts the time spent during major and minor GC collections can be seen. As expected, Incremental DOM is much more efficient in this area. React remains a close second for major collections but falls way behind Incremental DOM in minor collections. It is interesting to note how much Ember has progressed from version 1 to version 2 in this area.
 
 ![Layout and Paint time losses](https://cdn.auth0.com/blog/dombench/LayoutAndPaint.png)
 
@@ -120,7 +120,7 @@ Ember shines in this case: time spent doing layout operations and then performin
 
 ![Dropped frame counts](https://cdn.auth0.com/blog/dombench/droppedFrameCount.png)
 
-This charts shows the number of frames that Chrome decided to drop (i.e. to stop drawing) due to long pauses. Dropped frames result in lower framerates and visible pauses. In this case, Incremental DOM shines again. Less time spend in GC pauses means more time is available to draw frames. React, Ember 1 and Ember 2 all remain close behind Incremental DOM.
+This charts shows the number of frames that Chrome decided to drop (i.e. to stop drawing) due to long pauses. Dropped frames result in lower framerates and visible pauses. In this case, Incremental DOM shines again. Less time spent in GC pauses means more time is available to draw frames. React, Ember 1 and Ember 2 all remain close behind Incremental DOM.
 
 One important thing that is not shown in the charts: the subjective feeling of the browser when using it. Incremental DOM seemed much more responsive. By taking a look at the collected data, Incremental DOM appears to be making less JavaScript calls than the alternatives. It should be noted that while Incremental DOM is just a library to dynamically update the DOM, both React and Ember handle much more: events, data passing, etc. A proper test of Virtual DOM without React should be interesting.
 
