@@ -140,7 +140,7 @@ To see how this works, let's start with the `Home` component.
       <h1>Get a Free Chuck Norris Quote!</h1>
       <button class="btn btn-primary" v-on:click="getQuote()">Get a Quote</button>
       <div class="quote-area" v-if="quote">
-        <h2><blockquote>{{ quote }}</blockquote></h2>      
+        <h2><blockquote>{{ "{{ quote " }}}}</blockquote></h2>      
       </div>
     </div>
   </template>
@@ -350,7 +350,7 @@ The **Login** component will need some HTML for the user inputs and a method to 
       <h2>Log In</h2>
       <p>Log in to your account to get some great quotes.</p>
       <div class="alert alert-danger" v-if="error">
-        <p>{{ error }}</p>
+        <p>{{ "{{ error " }}}}</p>
       </div>
       <div class="form-group">
         <input 
@@ -424,7 +424,7 @@ When a user successfully authenticates, they will be able to access the **secret
       <h1>Get a Secret Chuck Norris Quote!</h1>
       <button class="btn btn-warning" v-on:click="getQuote()">Get a Quote</button>
       <div class="quote-area" v-if="quote">
-        <h2><blockquote>{{ quote }}</blockquote></h2>      
+        <h2><blockquote>{{ "{{ quote " }}}}</blockquote></h2>      
       </div>
     </div>
   </template>
