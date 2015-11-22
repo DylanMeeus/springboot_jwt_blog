@@ -90,7 +90,7 @@ To make **Webpack** work, we need a configuration file for it. Let's put in a fi
 
 module.exports = {
   // the main entry of our app
-  entry: './src/index.js',
+  entry: ['./src/index.js', './src/auth/index.js'],
   // output configuration
   output: {
     path: __dirname + '/build/',
