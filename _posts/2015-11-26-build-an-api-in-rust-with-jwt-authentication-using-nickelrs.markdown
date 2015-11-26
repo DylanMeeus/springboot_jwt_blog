@@ -25,36 +25,24 @@ tags:
 ---
 
 ---
-**TL;DR:** Open source crates like **[Nickel.rs](http://nickel.rs/)** and the **[MongoDB Rust Driver](https://github.com/mongodb-labs/mongo-rust-driver-prototype)** make it possible to create RESTful APIs in the Rust language. In this article, we cover how to do `GET`, `POST` and `DELETE` requests on user data. Check out the [repo](https://github.com/auth0/rust-api-example) to get the code.
+**TL;DR:** Open source crates like **[Nickel.rs](http://nickel.rs/)** and the **[MongoDB Rust Driver](https://github.com/mongodb-labs/mongo-rust-driver-prototype)** make it possible to create RESTful APIs in the Rust language. In this article, we cover how to do `GET`, `POST`, and `DELETE` requests on user data. Check out the [repo](https://github.com/auth0/rust-api-example) to get the code.
 
 ---
 [Rust](https://www.rust-lang.org/) is a fairly new **systems** programming language that is developed and maintained by Mozilla. It surfaced in 2010 and has been gaining a lot of traction since.
 
-Rust has many concepts that are familiar and seen frequently in other languages, and some that aren't. A unique feature that Rust has is the way it enforces memory safety. It doesn't have a garbage collector like some other languages do, but rather handles memory allocation with the concept of **ownership**. With ownership, the compiler automatically deallocates memory when something goes out of scope.
+Rust has many concepts that are familiar and seen frequently in other languages and some that aren't. A unique feature that Rust has is the way it enforces memory safety. It doesn't have a garbage collector like some other languages do, but rather handles memory allocation with the concept of **ownership**. With ownership, the compiler automatically deallocates memory when something goes out of scope.
 
 While Rust is a general-purpose programming language, there are many packages available that make it possible to spin up a web server with it. This means that Rust might be the ideal choice for a web project if memory safety and speed are non-trivial.
 
-In this article, we'll see how we can create a simple RESTful API with Rust. We'll also connect it to MongoDB so we can get a feel for a full end-to-end API solution. It's possible that many readers will be familiar with JavaScript and, in particular, NodeJS. For this reason, we'll intentionally draw some comparisions between our Rust implementation and how an API would be created in NodeJS. While this won't be a crash-course in the Rust language itself, we'll also take some time to explain syntax and semantics in certain places.
+In this article, we'll see how we can create a simple RESTful API with Rust. We'll also connect it to MongoDB so we can get a feel for a full end-to-end API solution. It's possible that many readers will be familiar with JavaScript and, in particular, NodeJS. For this reason, we'll intentionally draw some comparisons between our Rust implementation and how an API would be created in NodeJS. While this won't be a crash course in the Rust language itself, we'll also take some time to explain syntax and semantics in certain places.
 
-## Installing Rust and Setting Up the Project
+## Getting Started
 
 To create and serve our API, we'll use **[Nickel.rs](http://nickel.rs/)**, and to interact with the database, we'll use the **[MongoDB Rust Driver](https://github.com/mongodb-labs/mongo-rust-driver-prototype)**. There are other crates (aka packages) available, especially for creating a server and API, but Nickel.rs offers an abstraction that provides a similar feel to NodeJS and, in particular, Express. This can be helpful for those coming from a Node background. 
 
-If you don't already have Rust installed, the easiest way to get it is with the **rustup** script. If you're not on a Mac, or if you want to build from source, see the [full installation instructions](https://doc.rust-lang.org/stable/book/installing-rust.html).
+If you don't already have Rust installed, you can check out the [installation instructions](https://doc.rust-lang.org/stable/book/installing-rust.html) to get going.
 
-```bash
-curl -sf -L https://static.rust-lang.org/rustup.sh | sh
-```
-
-Within our project directory, we need a `Cargo.toml` file at the root, and a `src` folder with a `main.rs` file.
-
-```bash
-|-- src
-  |-- main.rs
-Cargo.toml
-```
-
-The `Cargo.toml` file is where we put some information about our project, and is also where we list the dependencies we need.
+Let's declare our dependencies in the `Cargo.toml` file.
 
 ```bash
 [package]
@@ -70,23 +58,7 @@ bson = "*"
 rustc-serialize = "*"
 ```
 
-We already mentioned that we'd need **Nickel** and the **MongoDB Rust Driver**. We also need the **BSON** crate to encode and decode BSON data, as well as **rustc-serialize** for formatting JSON that will be returned by the API.
-
-As the last setup step, we need to simply place a `main` function within `main.rs` so the program can compile.
-
-```rust
-// src/main.rs
-
-fn main() {
-  
-}
-```
-
-With that in place, let's compile what we have so far to get the project kicked off. Doing so will download all of the necessary dependencies and will also place some additional folders and files in the project directory.
-
-```bash
-cargo run
-```
+We've already mentioned that we need **Nickel.rs** and the **MongoDB Rust Driver**. We also need the **BSON** crate to encode and decode BSON data, as well as **rustc-serialize** for formatting the JSON that will be returned by the API.
 
 ## Setting Up the API
 
@@ -94,7 +66,7 @@ Our API will have three endpoints:
 
 * **GET** `/users` - retrieves a JSON string of all the users
 * **POST** `/users/new` - saves a new user
-* **DELETE** `/users/:user_id` - deletes a user based on an ID
+* **DELETE** `/users/:id` - deletes a user based on the record's objectId
 
 To take things one step at a time, let's first get the API running and simply return a message to confirm things are working from each endpoint.
 
@@ -123,9 +95,9 @@ fn main() {
 
     });
 
-    router.delete("/users/:user_id", middleware! { |request, response|
+    router.delete("/users/:id", middleware! { |request, response|
 
-        format!("Hello from DELETE /users/:user_id")
+        format!("Hello from DELETE /users/:id")
 
     });
 
@@ -135,13 +107,13 @@ fn main() {
 }
 ```
 
-Starting at the top, we're referencing the external **nickel** crate and loading in all of its macros with `#[macro_use]`. Like functions, macros in Rust let us abstract away code into reusable blocks. One of the differences with a macro is that it can be abstracted at the syntactic-level, which can offer some benefits over functions.
+Starting at the top, we're referencing the external **Nickel.rs** crate and loading in all of its macros with `#[macro_use]`. Like functions, macros in Rust let us abstract away code into reusable blocks. One of the differences with a macro is that it can be abstracted at the syntactic level, which can offer some benefits over functions.
 
-In the `main` function, we first assign **server** and **router** instances to mutable variables. Next, we set up our endpoint routing and provide a simple message in the `format!` macro to be displayed when these endpoints are accessed. The `middleware!` macro is provided by Nickel.rs and reduces the amount of boilerplate code needed for each route. Double pipe characters represent a closure in Rust, and this is where our `request` and `response` paramaters go.
+In the `main` function, we first assign **server** and **router** instances to mutable variables. Next, we set up our endpoint routing and provide a simple message in the `format!` macro to be displayed when these endpoints are accessed. The `middleware!` macro is provided by Nickel.rs and reduces the amount of boilerplate code needed for each route. Double-pipe characters represent a closure in Rust, and this is where our `request` and `response` parameters go.
 
 Finally, we need to `utilize` the server and `listen` for it on `localhost:9000`.
 
-At this point, it's easy to see some similarities between Nickel.rs and Express. This is by design, and is nice for those coming to Rust from NodeJS.
+At this point, it's easy to see some similarities between Nickel.rs and Express. This is by design and is nice for those coming to Rust from NodeJS.
 
 If we compile the program with `cargo run`, we can see the API is working.
 
@@ -149,11 +121,11 @@ If we compile the program with `cargo run`, we can see the API is working.
 
 ## Connecting to a MongoDB Collection
 
-The MongoDB Rust Driver provides a nice interface for interacting with databases, collections and cursors. With it, we can establish a database connection and create, read, update, and delete documents as we typically would. 
+The MongoDB Rust Driver provides a nice interface for interacting with databases, collections, and cursors. With it, we can establish a database connection and create, read, update, and delete documents as we typically would. 
 
 MongoDB will need to be installed and running at this point, which we won't cover in this article. To get set up with MongoDB, follow the [getting started guide](https://docs.mongodb.org/getting-started/shell/).
 
-Let's start by establishing a connection and getting the **POST** `/users/new` route working. We'll need to bring in the dependencies we have yet to reference, and `use` their components.
+Let's start by establishing a connection and getting the **POST** `/users/new` route working. We'll need to bring in the dependencies we have yet to reference and `use` their components.
 
 ```rust
 // src/main.rs
@@ -186,7 +158,7 @@ use rustc_serialize::json::{Json, ToJson};
 ...
 ```
 
-We'll need to create a `struct` that is encodable and decoable and gives structure to how our user data should be modeled.
+We need to create a `struct` that is encodable and decoable and that models our user data.
 
 ```rust
 // src/main.rs
@@ -314,7 +286,7 @@ router.get("/users", middleware! {
 ...
 ```
 
-For our **GET** `/users` route, we establish a `cursor` for the endpoint which uses the `find` method to get all the documents in the `users` collection. We then iterate over the results with a `for` loop and match the results against a function called `get_data_string`. This function expects an argument of type `MongoResult` and returns a JSON string using `Bson::Document` for decoding, which happens in the `Ok` branch of the `match` statement. 
+For our **GET** `/users` route, we establish a `cursor` for the endpoint that uses the `find` method to get all the documents in the `users` collection. We then iterate over the results with a `for` loop and match the results against a function called `get_data_string`. This function expects an argument of type `MongoResult` and returns a JSON string using `Bson::Document` for decoding, which happens in the `Ok` branch of the `match` statement. 
 
 After pushing any results onto the `data_result` string and closing it off, we set the `MediaType` as `Json` so that it is returned in JSON form instead of a string.
 
@@ -322,14 +294,14 @@ After pushing any results onto the `data_result` string and closing it off, we s
 
 ### Deleting User Data
 
-The final step for this example API is to allow for users to be deleted by their `objectid`. We can do this with the MongoDB Rust Driver's `delete_one` method.
+The final step for this example API is to allow for users to be deleted by their `objectId`. We can do this with the MongoDB Rust Driver's `delete_one` method.
 
 ```rust
 // src/main.rs
 
 ...
 
-router.delete("/users/:user_id", middleware! { |request, response|
+router.delete("/users/:id", middleware! { |request, response|
 
     let client = Client::connect("localhost", 27017)
         .ok().expect("Failed to initialize standalone client.");
@@ -337,11 +309,11 @@ router.delete("/users/:user_id", middleware! { |request, response|
     // The users collection
     let coll = client.db("rust-users").collection("users");
 
-    // Get the user_id from the request params
-    let user_id = request.param("user_id").unwrap();
+    // Get the objectId from the request params
+    let object_id = request.param("id").unwrap();
 
     // Match the user id to an bson ObjectId
-    let id = match ObjectId::with_string(user_id) {
+    let id = match ObjectId::with_string(object_id) {
         Ok(oid) => oid,
         Err(e) => return response.send(format!("{}", e))
     };
@@ -356,15 +328,15 @@ router.delete("/users/:user_id", middleware! { |request, response|
 ...
 ```
 
-We use the `ObjectId::with_string` helper to decode the string representation of the `objectid`, after which it can be used in the `delete_one` method to remove the document for that user.
+We use the `ObjectId::with_string` helper to decode the string representation of the `objectId`, after which it can be used in the `delete_one` method to remove the document for that user.
 
-With the **DELETE** `/users/:user_id` route in place, we should be able to remove users from the database when we make a request to it and include the `objectid` as a parameter.
+With the **DELETE** `/users/:id` route in place, we should be able to remove users from the database when we make a request to it and include the `objectId` as a parameter.
 
 ## Implementing JWT Authentication for the Rust API
 
-JWT authentication can be implemented for a Nickel.rs API by using a crate like **frank_jwt** to encode and decode tokens, along with a custom middleware to protect the API routes.
+JWT authentication can be implemented for a Nickel.rs API by using a crate like **[frank_jwt](https://github.com/GildedHonour/frank_jwt)** to encode and decode tokens, along with a custom middleware to protect the API routes.
 
-## Step 1: Bring in Additional Dependencies
+### Step 1: Bring in Additional Dependencies
 
 To start, let's add **frank_jwt** and **hyper** to our `Cargo.toml` file.
 
@@ -377,9 +349,9 @@ hyper = "*"
 
 ### Step 2: Create a Login Route
 
-We need a `login` route that accepts a username and password, and returns a JWT if authentication is valid.
+We need a `login` route that accepts a username and password and returns a JWT if authentication is valid.
 
-> **Note:** We are simply checking against a locally-stored dummy password in this example for simplicity.
+> **Note:** For simplicity, we are checking against a locally-stored dummy password in this example.
 
 ```rust
 // src/main.rs
@@ -405,7 +377,7 @@ use frank_jwt::Algorithm;
 use hyper::header;
 use hyper::header::{Authorization, Bearer};
 
-static AUTH_SECRET: &'static str = "some_secret_key";
+static AUTH_SECRET: &'static str = "some_secret_key";                                                   '
 
 ...
 
@@ -431,7 +403,7 @@ router.post("/login", middleware! { |request|
 
         let mut payload = Payload::new();
 
-        // Add the user's email address to the payload
+        // Add the users email address to the payload
         payload.insert("email".to_string(), email);
 
         let header = Header::new(Algorithm::HS256);
@@ -451,15 +423,15 @@ router.post("/login", middleware! { |request|
 ...
 ```
 
-This route accepts a JSON object from a **POST** request and checks it against the `UserLogin` struct, which requires a `username` and `password` to be provided. We're accepting all email addressses and using "secret" as our dummy password here, but you would of course want to check your users against a database with hashed passwords.
+This route accepts a JSON object from a **POST** request and checks it against the `UserLogin` struct, which requires a `username` and `password` to be provided. We're accepting all email addresses and using "secret" as our dummy password here, but you would of course want to check your users against a database with hashed passwords.
 
-If the password passes, a new **payload** is created, and the user's email address is added to it. The header itself is created and uses the **HS256** algorithm. Finally, the JWT is encoded with the header, secret key, and payload, and is returned in the response.
+If the password passes, a new **payload** is created, and the user's email address is added to it. The header itself is created and uses the **HS256** algorithm. Finally, the JWT is encoded with the header, secret key, and payload and is returned in the response.
 
 ![rust api jwt POST request](https://cdn.auth0.com/blog/rust-api/rust-api-5.png)
 
 ### Step 3: Implement Middleware to Protect the API Routes
 
-The next step is to protect our API endpoints so that only requests with a valid JWT in the `Authorzation` header are able to access them. We can create our own custom middleware to accomplish this, which will be used by the Nickel.rs server to protect the routes.
+The next step is to protect our API endpoints so that only requests with a valid JWT in the `Authorization` header are able to access them. We can create our own custom middleware to accomplish this, which will be used by the Nickel.rs server to protect the routes.
 
 We need a function to act as the middleware, and in this case, we'll call it `authenticator`.
 
@@ -470,40 +442,50 @@ We need a function to act as the middleware, and in this case, we'll call it `au
 
 fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) -> MiddlewareResult<'mw> {
 
-  // We don't want to apply the middleware to the login route
-  if request.origin.uri.to_string() == "/login".to_string() {
+  // Check if we are getting an OPTIONS request
+  if request.origin.method.to_string() == "OPTIONS".to_string() {
 
+      // The middleware shouldn't be used for OPTIONS, so continue
       response.next_middleware()
 
   } else {
 
-      // Get the full Authorization header from the incoming request headers
-      let auth_header = match request.origin.headers.get::<Authorization<Bearer>>() {
-          Some(header) => header,
-          None => panic!("No authorization header found")
-      };
+    // We don't want to apply the middleware to the login route
+    if request.origin.uri.to_string() == "/login".to_string() {
 
-      // Format the header to only take the value
-      let jwt = header::HeaderFormatter(auth_header).to_string();
+        response.next_middleware()
 
-      // We don't need the Bearer part, 
-      // so get whatever is after an index of 7
-      let token = &jwt[7..];
+    } else {
 
-      // Decode and check the JWT against the secret
-      match decode(token.to_string(), AUTH_SECRET.to_string(), Algorithm::HS256) {
-          Ok(header) => response.next_middleware(),
-          Err(_) => response.error(Forbidden, "Access denied")
-      }
+        // Get the full Authorization header from the incoming request headers
+        let auth_header = match request.origin.headers.get::<Authorization<Bearer>>() {
+            Some(header) => header,
+            None => panic!("No authorization header found")
+        };
+
+        // Format the header to only take the value
+        let jwt = header::HeaderFormatter(auth_header).to_string();
+
+        // We don't need the Bearer part, 
+        // so get whatever is after an index of 7
+        let token = &jwt[7..];
+
+        // Decode and check the JWT against the secret
+        match decode(token.to_string(), AUTH_SECRET.to_string(), Algorithm::HS256) {
+            Ok(header) => response.next_middleware(),
+            Err(_) => response.error(Forbidden, "Access denied")
+        }
+    }
   }
+
 }
 
 ...
 ```
 
-Our `authenticator` function takes a `request` and `response`, and returns a `MiddlewareResult`. For our purposes, the result will either be `next_middleware`, which lets the request pass through to the endpoint, or `error`, which will stop the request.
+Our `authenticator` function takes a `request` and `response` and returns a `MiddlewareResult`. For our purposes, the result will either be `next_middleware`, which lets the request pass through to the endpoint, or `error`, which will stop the request.
 
-We don't want to require that the user be authenticated to access the `/login` route, so we check against that first. For all other routes, we need to get ahold of the `Authorization` header, which we do with the getter provided by **Hyper**. To use this header with the **frank_jwt** decoder, we need to get it as a string, which we do with `HeaderFormatter`. This string will be of the form `Bearer <token>`, and we don't need the `Bearer` part, so we take a subset of the string from index 7 onward. Taking only the token from the string could also be done with a regular expression to be more robust, but using the index operator to take the slice is a quick and convenient way of accomplishing it. 
+We shouldn't have the middleware apply to `OPTIONS` requests, and the user doesn't need to be authenticated to access the `/login` route, so we check against those conditions first. For all other routes, we need to get hold of the `Authorization` header, which we do with the getter provided by **Hyper**. To use this header with the **frank_jwt** decoder, we need to get it as a string, which we do with `HeaderFormatter`. This string will be of the form `Bearer <token>`, and we don't need the `Bearer` part, so we take a subset of the string from index 7 onward. Taking only the token from the string could also be done with a regular expression to be more robust, but using the index operator to take the slice is a quick and convenient way of accomplishing it. 
 
 Finally, we pass the token to the `decode` function, along with the `AUTH_SECRET` and the algorithm. If the token checks out, `next_middleware` is called to send the user through to the endpoint. If the token is invalid, a `Forbidden` error is thrown.
 
@@ -525,12 +507,28 @@ We can test everything out by including the JWT as a header when making a reques
 
 > **Note:** This implementation doesn't deal with JWT expiry, which would be necessary for security in a production app.
 
-## Aside: Authentication is Easy with Auth0
+## Aside: Authenticating Your Rust API with Auth0
 
-Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. Auth0 is perfect for [Single Page Applications](https://auth0.com/docs/sequence-diagrams) and very easy to set up.
+Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. Adding authentication to your Rust API based on your Auth0 account is simple--just replace the secret key in the example above with your Auth0 secret key.
+
+```rust
+// src/main.rs
+
+...
+
+static AUTH_SECRET: &'static str = "your_auth0_secret_key";
+
+...
+```
+
+With this, you no longer need to implement a `/login` route for your API--we take care of authenticating your users for you.
+
+To obtain tokens for your users, you can use our drop-in [Lock Widget](https://auth0.com/lock) on the front end of your app, or you can make requests to the [Auth0 API](https://auth0.com/docs/api/v2) with your settings and user's credentials.
+
+![auth0 lock rust api](https://cdn.auth0.com/blog/node-knockout/node-knockout-1.png)
 
 ## Wrapping Up
 
-As a language, Rust offers some great benefits, especially around memory safety, pattern matching, and data race avoidance. This can be really important in some applications. For projects that also need to expose a data API, crates like **Nickel.rs** and the **MongoDB Rust Driver** can work well together. We can also add JWT authentication to our API by tapping into Nickel.rs's middleware and using **frank_jwt** to issue and decode tokens.
+As a language, Rust offers some great benefits, especially around memory safety, pattern matching, and data-race avoidance. This can be really important in some applications. For projects that also need to expose a data API, crates like **Nickel.rs** and the **MongoDB Rust Driver** can work well together. We can also add JWT authentication to our API by tapping into Nickel.rs's middleware and using **frank_jwt** to issue and decode tokens.
 
-Typically, an API written in Rust will require more code than if it were written in NodeJS using Express. Ultimately, any decision around which to use comes down to the tradeoffs associated with both, as well as what is most appropriate for a given project. Developing an API with NodeJS can be faster and more concise, but Rust offers guarantees around memory safety that make it attractive.
+Typically, an API written in Rust will require more code than if it were written in NodeJS using Express. Ultimately, any decision regarding which to use comes down to the tradeoffs associated with both, as well as what is most appropriate for a given project. Developing an API with NodeJS can be faster and more concise, but Rust offers guarantees around memory safety that make it attractive.
