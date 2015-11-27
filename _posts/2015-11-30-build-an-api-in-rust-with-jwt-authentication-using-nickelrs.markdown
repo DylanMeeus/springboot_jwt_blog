@@ -2,7 +2,7 @@
 layout: post
 title: "Build an API in Rust with JWT Authentication using Nickel.rs"
 description: "Learn how to implement a simple REST API with JWT Authentication in Rust using the Nickel.rs web framework and the MongoDB Rust Driver."
-date: 2015-11-26 16:00
+date: 2015-11-30 16:00
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
@@ -20,7 +20,7 @@ tags:
 - api
 - rest
 - nickel.rs
-- frank_jwt
+- rust-jwt
 - hyper
 ---
 
@@ -334,17 +334,19 @@ With the **DELETE** `/users/:id` route in place, we should be able to remove use
 
 ## Implementing JWT Authentication for the Rust API
 
-JWT authentication can be implemented for a Nickel.rs API by using a crate like **[frank_jwt](https://github.com/GildedHonour/frank_jwt)** to encode and decode tokens, along with a custom middleware to protect the API routes.
+JWT authentication can be implemented for a Nickel.rs API by using a crate like **[rust-jwt](https://github.com/mikkyang/rust-jwt)** to encode and decode tokens, along with a custom middleware to protect the API routes.
 
 ### Step 1: Bring in Additional Dependencies
 
-To start, let's add **frank_jwt** and **hyper** to our `Cargo.toml` file.
+To start, let's add **rust-jwt**, **hyper**, **rust-crypto**, and **time** to our `Cargo.toml` file.
 
-```rust
+```bash
 ...
 
-frank_jwt = "*"
+jwt = "*"
 hyper = "*"
+rust-crypto = "*"
+time = "*"
 ```
 
 ### Step 2: Create a Login Route
@@ -358,24 +360,34 @@ We need a `login` route that accepts a username and password and returns a JWT i
 
 ...
 
-extern crate frank_jwt;
+extern crate jwt;
 extern crate hyper;
+extern crate crypto;
+extern crate time;
+
 
 ...
 
 // Nickel
 use nickel::status::StatusCode::{self, Forbidden};
 
-// frank_jwt
-use frank_jwt::Header;
-use frank_jwt::Payload;
-use frank_jwt::encode;
-use frank_jwt::decode;
-use frank_jwt::Algorithm;
-
 // hyper
 use hyper::header;
 use hyper::header::{Authorization, Bearer};
+
+// jwt
+use std::default::Default;
+use crypto::sha2::Sha256;
+use jwt::{
+    Header,
+    Registered,
+    Token,
+};
+
+// time
+use time::{Timespec};
+
+...
 
 static AUTH_SECRET: &'static str = "some_secret_key";                                                   '
 
@@ -401,17 +413,20 @@ router.post("/login", middleware! { |request|
     // Simple password checker
     if password == "secret".to_string() {
 
-        let mut payload = Payload::new();
+        let header: Header = Default::default();
 
-        // Add the users email address to the payload
-        payload.insert("email".to_string(), email);
+        // For the example, we just have one claim
+        // You would also want iss, exp, iat etc
+        let claims = Registered {
+            sub: Some(email.into()),
+            ..Default::default()
+        };
 
-        let header = Header::new(Algorithm::HS256);
+        let token = Token::new(header, claims);
 
-        // Encode the JWT with the header, secret, and payload
-        let jwt = encode(header, AUTH_SECRET.to_string(), payload.clone());
+        // Sign the token
+        let jwt = token.signed(AUTH_SECRET.as_bytes(), Sha256::new()).unwrap();
 
-        // Return the JWT string
         format!("{}", jwt)
 
     } else {
@@ -425,7 +440,7 @@ router.post("/login", middleware! { |request|
 
 This route accepts a JSON object from a **POST** request and checks it against the `UserLogin` struct, which requires a `username` and `password` to be provided. We're accepting all email addresses and using "secret" as our dummy password here, but you would of course want to check your users against a database with hashed passwords.
 
-If the password passes, a new **payload** is created, and the user's email address is added to it. The header itself is created and uses the **HS256** algorithm. Finally, the JWT is encoded with the header, secret key, and payload and is returned in the response.
+If the password passes, a new token is created with `Token::new()` and is signed with the **secret**. In this example, we're only putting the `sub` (subject) claim in the payload, but in a real app we would need other claims such as `iat` (issued at) and `exp` (expiry). The token is sent in the response so that it can be saved and used to access protected routes.
 
 ![rust api jwt POST request](https://cdn.auth0.com/blog/rust-api/rust-api-5.png)
 
@@ -440,17 +455,16 @@ We need a function to act as the middleware, and in this case, we'll call it `au
 
 ...
 
-fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) -> MiddlewareResult<'mw> {
+fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) ->MiddlewareResult<'mw> {                                                                  '
 
   // Check if we are getting an OPTIONS request
   if request.origin.method.to_string() == "OPTIONS".to_string() {
-
-      // The middleware shouldn't be used for OPTIONS, so continue
+      // The middleware should not be used for OPTIONS, so continue
       response.next_middleware()
 
   } else {
 
-    // We don't want to apply the middleware to the login route
+    // We do not want to apply the middleware to the login route
     if request.origin.uri.to_string() == "/login".to_string() {
 
         response.next_middleware()
@@ -468,12 +482,23 @@ fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) -> Middl
 
         // We don't need the Bearer part, 
         // so get whatever is after an index of 7
-        let token = &jwt[7..];
+        let jwt_slice = &jwt[7..];
 
-        // Decode and check the JWT against the secret
-        match decode(token.to_string(), AUTH_SECRET.to_string(), Algorithm::HS256) {
-            Ok(header) => response.next_middleware(),
-            Err(_) => response.error(Forbidden, "Access denied")
+        // Parse the token
+        let token = Token::<Header, Registered>::parse(jwt_slice).unwrap();
+
+        // Get the secret key as bytes
+        let secret = AUTH_SECRET.as_bytes();
+
+        // Verify the token
+        if token.verify(&secret, Sha256::new()) {
+          
+            response.next_middleware()         
+          
+        } else {
+
+            response.error(Forbidden, "Access denied")
+
         }
     }
   }
@@ -485,9 +510,9 @@ fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) -> Middl
 
 Our `authenticator` function takes a `request` and `response` and returns a `MiddlewareResult`. For our purposes, the result will either be `next_middleware`, which lets the request pass through to the endpoint, or `error`, which will stop the request.
 
-We shouldn't have the middleware apply to `OPTIONS` requests, and the user doesn't need to be authenticated to access the `/login` route, so we check against those conditions first. For all other routes, we need to get hold of the `Authorization` header, which we do with the getter provided by **Hyper**. To use this header with the **frank_jwt** decoder, we need to get it as a string, which we do with `HeaderFormatter`. This string will be of the form `Bearer <token>`, and we don't need the `Bearer` part, so we take a subset of the string from index 7 onward. Taking only the token from the string could also be done with a regular expression to be more robust, but using the index operator to take the slice is a quick and convenient way of accomplishing it. 
+We shouldn't have the middleware apply to `OPTIONS` requests, and the user doesn't need to be authenticated to access the `/login` route, so we check against those conditions first. For all other routes, we need to get hold of the `Authorization` header, which we do with the getter provided by **Hyper**. To make use of the JWT in the header, we need to get it as a string, which we do with `HeaderFormatter`. This string will be of the form `Bearer <token>`, and we don't need the `Bearer` part, so we take a subset of the string from index 7 onward and save it in `jwt_slice`. Taking only the token from the string could also be done with a regular expression to be more robust, but using the index operator to take the slice is a quick and convenient way of accomplishing it. 
 
-Finally, we pass the token to the `decode` function, along with the `AUTH_SECRET` and the algorithm. If the token checks out, `next_middleware` is called to send the user through to the endpoint. If the token is invalid, a `Forbidden` error is thrown.
+To get the token as the correct type, we use **rust-jwt**'s `parse` method. Finally, we use `verify` on the token and pass in the `AUTH_SECRET` in byte form. If the token checks out, `next_middleware` is called to send the user through to the endpoint. If the token is invalid, a `Forbidden` error is thrown.
 
 Last, we need to make sure the server is using this middleware.
 
@@ -527,8 +552,42 @@ To obtain tokens for your users, you can use our drop-in [Lock Widget](https://a
 
 ![auth0 lock rust api](https://cdn.auth0.com/blog/node-knockout/node-knockout-1.png)
 
+Once a token is obtained, you can use it with **rust-jwt**. However, you need to base64 decode the `AUTH_SECRET` and check for the token's expiry first.
+
+```rust
+// src/main.rs
+
+let secret = AUTH_SECRET.as_bytes().from_base64().unwrap();        
+
+// Verify the token
+if token.verify(&secret, Sha256::new()) {
+
+    match token.claims.exp {
+        Some(exp) =>  {
+
+            // Check to make sure the token is not expired
+            let x = exp as i64;
+            let token_exp = time::Timespec::new(x, 0);
+
+            if time::get_time() < token_exp {
+                response.next_middleware()
+            } else {
+                response.error(Forbidden, "Token expired")
+            }
+        },
+        
+        None => response.error(Forbidden, "No token expiry claim present")
+    }          
+  
+} else {
+    response.error(Forbidden, "Access denied")
+}
+```
+
+The token is decoded with `from_base64` and the expiry is checked by comparing the current time's `Timespec` with that of the token's expiry.
+
 ## Wrapping Up
 
-As a language, Rust offers some great benefits, especially around memory safety, pattern matching, and data-race avoidance. This can be really important in some applications. For projects that also need to expose a data API, crates like **Nickel.rs** and the **MongoDB Rust Driver** can work well together. We can also add JWT authentication to our API by tapping into Nickel.rs's middleware and using **frank_jwt** to issue and decode tokens.
+As a language, Rust offers some great benefits, especially around memory safety, pattern matching, and data-race avoidance. This can be really important in some applications. For projects that also need to expose a data API, crates like **Nickel.rs** and the **MongoDB Rust Driver** can work well together. We can also add JWT authentication to our API by tapping into Nickel.rs's middleware and using **rust-jwt** to issue and decode tokens.
 
 Typically, an API written in Rust will require more code than if it were written in NodeJS using Express. Ultimately, any decision regarding which to use comes down to the tradeoffs associated with both, as well as what is most appropriate for a given project. Developing an API with NodeJS can be faster and more concise, but Rust offers guarantees around memory safety that make it attractive.
