@@ -118,7 +118,7 @@ iOS needs to know what domains are handled by the application. To do this:
 2. Find `Associated Domains` in the list and enable it
 3. Click on the plus sign and add your Auth0's app domain. In my case that would be: `applinks:speyrott.auth0.com` (change `speyrott` for your username, the word `applinks` must be kept as-is).
 
-![Universal Links Domains in Xcode](https://cdn.auth0.com/blog/iosmagiclink/associated-domains.png)
+![Universal Links Domains in Xcode](https://cdn.auth0.com/blog/iosmagiclink/associated-domains-2.png)
 
 ## Step 5: Pass all relevant callbacks to the Auth0 Lock library
 If you followed our [Lock library guide for iOS](https://auth0.com/docs/libraries/lock-ios) this will probably be already in place. If not, go to your `AppDelegate` class and pass the following callbacks to Auth0's Lock:
@@ -166,9 +166,8 @@ This code is meant to be placed in a view controller that presents the login scr
 
 That's it! Now run the application on an actual device and see if it works. You will need to supply a working email to test it.
 
-> Universal Links DO NOT work on iOS simulators. You need an actual iOS-enabled device to test this. Standard manual code input logins are supported.
-
-> Do not use the Gmail app to open the email with the link. At the moment, Gmail opens the links internally or with the help of Google Chrome, entirely bypassing the detection of the Universal Link by iOS.
+> - Universal Links DO NOT work on iOS simulators. You need an actual iOS-enabled device to test this. Standard manual code input logins are supported.
+> - Do not use the Gmail app to open the email with the link. At the moment, Gmail opens the links internally or with the help of Google Chrome, entirely bypassing the detection of the Universal Link by iOS.
 
 Get the [full code](https://github.com/auth0/blog-iosmagiclink) to our seed project. For your convenience, the sample points to my Auth0 test account, so you can test it right after downloading it. This sample project is based on our passwordless email sample for iOS/Swift, which can be found among other samples in the [mobile samples repository](https://github.com/auth0/Mobile-Samples.iOS).
 
