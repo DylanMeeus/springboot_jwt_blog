@@ -35,28 +35,29 @@ In this post we will explore how to implement a Slack-like login strategy (email
 -----
 
 ## Introduction
-Passwordless login systems are convenient for end users: just remember your username, phone number or email and off you go. Passwordless systems usually require the user to manually input a code to validate their identity. This is no longer the case thanks to the advent of [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html). Once an email with a link is received by the user, he or she can simply tap on the link and have the application take over. And the cool things is: it is that easy.
+Passwordless login systems are convenient for end users: just remember your username, phone number or email and off you go. Passwordless systems usually require the user to manually input a code to validate their identity. This is no longer the case thanks to the advent of [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html). Once an **email with a link** is received by the user, he or she can simply **tap on the link and have the application take over**. And the cool things is: it is that easy.
 
 ![Slack-like login](https://cdn.auth0.com/blog/iosmagiclink/slack_magiclink.jpg)
 
 ## Universal Links
 Apple has long provided a way to *connect* applications through URLs: [URL schemes](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1). URL schemes have their own set of issues such as [no fallback mechanism](http://stackoverflow.com/questions/6964515/launching-app-or-app-store-from-safari/6965646#6965646) and [URL scheme hijacking](http://stackoverflow.com/questions/33919058/prevent-ios-url-scheme-hijack). This has pushed Apple to develop a new and safer way to tell iOS when a link should be passed to an app installed on the device. This is known as [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html).
 
-Universal Links allow you to register a series of domains that are allowed to interact with an installed application. If the application is not installed, the universal link is opened with Safari, allowing you to inform the user of the existence of an application or whatever is necessary. To prevent other applications from taking control of this association, a special file, called the *association file*, must be uploaded to the domains that are registered as associated to an application. In this way, the person or organization that controls the domain is the only one who can control the association between an application and a URL.
+Universal Links allow you to **register a series of domains** that are allowed to **interact with an installed application**. If the application is not installed, the universal link is opened with Safari, allowing you to inform the user of the existence of an application or whatever is necessary. To prevent other applications from taking control of this association, a special file, called the *association file*, must be uploaded to the domains that are registered as associated to an application. In this way, **the person or organization that controls the domain is the only one who can control the association between an application and a URL**.
 
 Before diving straight into our example, if you are already familiar with our [Lock library](https://github.com/auth0/Lock.iOS-OSX) let me tell you won't need many changes to your code: it is just a matter of setting a few flags and settings. If you are not familiar with our library, [our docs provide an excellent introduction](https://auth0.com/docs/libraries/lock-ios). If it seems too daunting, don't worry, download the example from this post and use that as a starting point.
 
 ## Step 1: Enable Passwordless Logins using Emails for your Auth0 App
 Go to the [passwordless connections](https://manage.auth0.com/#/connections/passwordless) section in your Auth0 dashboard. Enable Email logins. The default settings are fine.
 
-![Passwordless email logins]()
+<video width="600" autoplay loop>
+    <source src="https://cdn.auth0.com/blog/iosmagiclink/enable-email.mp4" type="video/mp4">
+    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/enable-email.mp4">download it instead</a>.
+</video>
 
-Once you have enabled e-mail logins, don't forget to enable the connection in your application's connections section (`Apps/APIs` -> `Your app name` -> `Connections` -> `Email`).
-
-![Enable email connection to your app]()
+Once you have enabled e-mail logins, don't forget to enable the connection in your application's connections section (`Apps/APIs` -> `Your app name` -> `Connections` -> `Email`) if you haven't done so in the previous step.
 
 ## Step 2: Enable Universal Links Support for Your Auth0 App
-As universal links establish a verified relationship between domains and applications, both your Auth0 app settings and your iOS application need to be in sync. The only thing you need to setup in your Auth0 account is your iOS app's `team id` and `bundle id`. Unfortunately, we still don't have a proper dashboard UI to input this information, so for now it is necessary to add this information by making calls to our public API.
+As universal links establish a **verified relationship between domains and applications**, both your Auth0 app settings and your iOS application need to be in sync. The only thing you need to setup in your Auth0 account is your iOS app's `team id` and `bundle id`. Unfortunately, we still don't have a proper dashboard UI to input this information, so for now it is necessary to add this information by making calls to our public API.
 
 To find your Apple `team id`, go to your [Apple developer account summary page](https://developer.apple.com/membercenter/index.action#accountSummary).
 
@@ -65,6 +66,8 @@ The application `bundle id` is the one you set in your app's Xcode project setti
 ![Xcode bundle id](https://cdn.auth0.com/blog/iosmagiclink/bundle-id.png)
 
 Once you have this information, get your Auth0 application `client id` by going to the Auth0 dashboard and selecting your application.
+
+![Auth0 client id](https://cdn.auth0.com/blog/iosmagiclink/client-id.png)
 
 You can now perform an API call to add the team and bundle ids to your Auth0 app. Go to [this page](https://auth0.com/docs/api/v2#!/Clients/patch_clients_by_id) and click on `Scopes -> update:clients`. Then input your Auth0 client id in the `id` form field. For the body use the following JSON snippet (replace the ellipses with your team id and your bundle id):
 
@@ -81,7 +84,9 @@ You can now perform an API call to add the team and bundle ids to your Auth0 app
 
 Now click on `try`. This will perform the actual call to our public API. If you get a HTTP 200 response everything went well.
 
-<video>TODO</video>
+<video src="https://cdn.auth0.com/blog/iosmagiclink/add-team-id-and-bundle-id.mp4" width="600" autoplay loop>
+    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/add-team-id-and-bundle-id.mp4">download it instead</a>.
+</video>
 
 To test this, check whether the universal links apple app site association file is available for your application. Go to your browser and open: `https://YOURACCOUNT.auth0.com/apple-app-site-association` (replace `YOURACCOUNT` with your Auth0 account name).
 
@@ -140,7 +145,7 @@ Our Lock library handles the login flow. To tell it to use a magic link instead 
 ```Swift
 let lock = Application.sharedInstance.lock
 let controller = lock.newEmailViewController()
-controller.useMagicLink = true
+controller.useMagicLink = true // <--- ENABLE MAGIC LINKS!
 controller.onAuthenticationBlock = { (profile, token) in
     let app = Application.sharedInstance
     app.token = token
