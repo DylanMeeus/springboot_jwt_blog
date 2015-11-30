@@ -2,7 +2,7 @@
 layout: post
 title: "Top 5 Cyber Monday Security Threats and What To Do About Them"
 description: Five tips that will help you to shop safely from your home during the sale season
-date: 2015-11-06 17:44
+date: 2015-11-30 12:20
 author: 
   name: Diego Poza
   url: https://twitter.com/diegopoza
@@ -49,13 +49,13 @@ Big sites typically have strong security measures, but security is only as stron
 Here are some tips to help you create a secure password:
 
 - Don't use information related to yourself that can be obtained easily, such as ID numbers, your nickname, your pet's name, and so on.
-- Use lower and uppercase letters, numbers, and symbols in your password. An easy way to get a secure password is to start with a phrase you know, or better yet, some random words, and replace some characters with numbers and symbols. For example: "I love donuts" can be converted to: **Il0v3D0nuts**, which is quite a strong password.
+- Use a long password (10+ characters) with lower and uppercase letters, numbers, and symbols. An easy way to get a secure password is to start with a phrase you know, or better yet, some random words, and replace some characters with numbers and symbols. For example: "I love donuts" can be converted to: **Il0v3D0nuts**, which is quite a strong password.
 
 Some sites have features to alert you (through email or text) when suspicious activity in your account occurs, such as failed login attempts, logins from a different country, or logins at unusual hours. If you have the choice, always enable this option.
 
 ## 3. Malware and social network scams
 
-![Malware & Scams](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/Malware.png)
+![Malware & Scams](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/Malware-2.png)
 
 Malware and social networks scams are a latent threat, which is expected to increase during this season. Don't trust unbelievable deals if they come from unreliable sources, such as an email or social media, as they are probably not true. Fake deals will redirect you to phishing sites or trick you to download malware. With the uprise of social media, attackers are focusing on its users. Social media provides attackers a high propagation rate, as affected users will share posts and links to all their friends/followers without even knowing the danger they pose.
 
