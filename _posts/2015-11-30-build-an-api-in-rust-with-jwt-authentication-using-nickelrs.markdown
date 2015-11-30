@@ -530,8 +530,6 @@ We can test everything out by including the JWT as a header when making a reques
 
 ![rust api jwt GET request](https://cdn.auth0.com/blog/rust-api/rust-api-6.png)
 
-> **Note:** This implementation doesn't deal with JWT expiry, which would be necessary for security in a production app.
-
 ## Aside: Authenticating Your Rust API with Auth0
 
 Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. Adding authentication to your Rust API based on your Auth0 account is simple--just replace the secret key in the example above with your Auth0 secret key.
@@ -552,39 +550,20 @@ To obtain tokens for your users, you can use our drop-in [Lock Widget](https://a
 
 ![auth0 lock rust api](https://cdn.auth0.com/blog/node-knockout/node-knockout-1.png)
 
-Once a token is obtained, you can use it with **rust-jwt**. However, you need to base64 decode the `AUTH_SECRET` and check for the token's expiry first.
+Once a token is obtained, you can use it with **rust-jwt**. However, you need to base64 decode the `AUTH_SECRET` first.
 
 ```rust
 // src/main.rs
 
-let secret = AUTH_SECRET.as_bytes().from_base64().unwrap();        
+...
 
-// Verify the token
-if token.verify(&secret, Sha256::new()) {
+// Get the secret base64 decoded
+let secret = AUTH_SECRET.as_bytes().from_base64().unwrap();
 
-    match token.claims.exp {
-        Some(exp) =>  {
-
-            // Check to make sure the token is not expired
-            let x = exp as i64;
-            let token_exp = time::Timespec::new(x, 0);
-
-            if time::get_time() < token_exp {
-                response.next_middleware()
-            } else {
-                response.error(Forbidden, "Token expired")
-            }
-        },
-        
-        None => response.error(Forbidden, "No token expiry claim present")
-    }          
-  
-} else {
-    response.error(Forbidden, "Access denied")
-}
+...
 ```
 
-The token is decoded with `from_base64` and the expiry is checked by comparing the current time's `Timespec` with that of the token's expiry.
+> **Note:** The token's expiry isn't checked in these examples. This could be done by comparing the `exp` claim to the current time and responding with a `401` if the token has expired.  
 
 ## Wrapping Up
 
