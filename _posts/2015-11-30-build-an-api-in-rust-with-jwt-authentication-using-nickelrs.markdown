@@ -338,7 +338,7 @@ JWT authentication can be implemented for a Nickel.rs API by using a crate like 
 
 ### Step 1: Bring in Additional Dependencies
 
-To start, let's add **rust-jwt**, **hyper**, **rust-crypto**, and **time** to our `Cargo.toml` file.
+To start, let's add **rust-jwt**, **hyper**, and **rust-crypto** to our `Cargo.toml` file.
 
 ```bash
 ...
@@ -346,7 +346,6 @@ To start, let's add **rust-jwt**, **hyper**, **rust-crypto**, and **time** to ou
 jwt = "*"
 hyper = "*"
 rust-crypto = "*"
-time = "*"
 ```
 
 ### Step 2: Create a Login Route
@@ -363,8 +362,6 @@ We need a `login` route that accepts a username and password and returns a JWT i
 extern crate jwt;
 extern crate hyper;
 extern crate crypto;
-extern crate time;
-
 
 ...
 
@@ -383,9 +380,6 @@ use jwt::{
     Registered,
     Token,
 };
-
-// time
-use time::{Timespec};
 
 ...
 
