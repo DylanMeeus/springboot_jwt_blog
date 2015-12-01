@@ -31,7 +31,7 @@ It’s simple: help us spread the word about your favorite Auth0 features, and g
 
 Every Tuesday in December (that’s the next 5 weeks!), we’ll be hosting T-Shirt Tuesday, where we will give away 20 Auth0 t-shirts each day. Follow us on [Twitter](https://twitter.com/auth0), [Facebook](https://www.facebook.com/getauth0), and [Quora](https://www.quora.com/topic/Auth0-Inc) for your chance to win. All you have to do is post about your favorite Auth0 feature (MFA? SSO? So many choices!), using the hashtag #Auth0FTW and we’ll ship a t-shirt to the first 20 respondents. We’ll be on Twitter on December 1st and 29th, Facebook on December 8th and 22nd, and Quora on December 15th. We hope to hear from you! And,thanks for being so awesome! 
 
-We’ve created a schedule so you don’t miss any chance!
+Here’s the full schedule so you don’t miss anything!
 
 ![Social Networks Calendar](https://cdn.auth0.com/blog/t-shirt-tuesdays/calendar.png)
 
