@@ -37,7 +37,7 @@ In this post we will explore how to implement a Slack-like login strategy (email
 ## Introduction
 Passwordless login systems are convenient for end users: just remember your username, phone number or email and off you go. Passwordless systems usually require the user to manually input a code to validate their identity. This is no longer the case thanks to the advent of [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html). Once an **email with a link** is received by the user, he or she can simply **tap on the link and have the application take over**. And the cool things is: it is that easy.
 
-![Slack-like login](https://cdn.auth0.com/blog/iosmagiclink/slack_magiclink.jpg)
+![Slack-like magic link login](https://cdn.auth0.com/blog/iosmagiclink/slack_magiclink.jpg)
 
 ## Universal Links
 Apple has long provided a way to *connect* applications through URLs: [URL schemes](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1). URL schemes have their own set of issues such as [no fallback mechanism](http://stackoverflow.com/questions/6964515/launching-app-or-app-store-from-safari/6965646#6965646) and [URL scheme hijacking](http://stackoverflow.com/questions/33919058/prevent-ios-url-scheme-hijack). This has pushed Apple to develop a new and safer way to tell iOS when a link should be passed to an app installed on the device. This is known as [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html).
