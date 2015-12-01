@@ -46,7 +46,7 @@ Universal Links allow you to **register a series of domains** that are allowed t
 
 Before diving straight into our example, if you are already familiar with our [Lock library](https://github.com/auth0/Lock.iOS-OSX) let me tell you won't need many changes to your code: it is just a matter of setting a few flags and settings. If you are not familiar with our library, [our docs provide an excellent introduction](https://auth0.com/docs/libraries/lock-ios). If it seems too daunting, don't worry, download the example from this post and use that as a starting point.
 
-Get the [full example](https://github.com/auth0/blog-iosmagiclink) and follow these steps:
+We will use our iOS passwordless email example as a base for the following steps. Get the [full code](https://github.com/auth0/Mobile-Samples.iOS), go to the `Passwordless-Email/Lock/Swift` folder and open the Xcode workspace.
 
 ## Step 1: Set your Auth0 client ID and domain
 Open the `info.plist` file in Xcode and set your Auth0 client ID and domain in the list of properties. If don't have an Auth0 account, <a href="javascript:signup()">signup</a> and [create your first app](https://auth0.com/docs).
@@ -166,10 +166,12 @@ This code is meant to be placed in a view controller that presents the login scr
 
 That's it! Now run the application on an actual device and see if it works. You will need to supply a working email to test it.
 
+<video>TODO</video>
+
 > - Universal Links DO NOT work on iOS simulators. You need an actual iOS-enabled device to test this. Standard manual code input logins are supported.
 > - Do not use the Gmail app to open the email with the link. At the moment, Gmail opens the links internally or with the help of Google Chrome, entirely bypassing the detection of the Universal Link by iOS.
 
-Get the [full code](https://github.com/auth0/blog-iosmagiclink) to our seed project. For your convenience, the sample points to my Auth0 test account, so you can test it right after downloading it. This sample project is based on our passwordless email sample for iOS/Swift, which can be found among other samples in the [mobile samples repository](https://github.com/auth0/Mobile-Samples.iOS).
+Get the [full code](https://github.com/auth0/Mobile-Samples.iOS) to our seed project. Other mobile examples and an Objective-C version of this seed project can be found in the same repository.
 
 ## Conclusion
 Universal Links get rid of the old URL schemes inefficiencies. Furthermore, passwordless logins through email are a convenient strategy. By removing the step of manually inputting the code the result is a pretty straightforward login process. And thanks to the Lock library, adding this to your application can be done in a matter of minutes. Hack away!
