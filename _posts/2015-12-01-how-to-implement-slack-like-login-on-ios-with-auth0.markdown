@@ -2,7 +2,7 @@
 layout: post
 title: "How to Implement Slack-like Login on iOS with Auth0"
 description: "Take a look at one of the most convenient passwordless login strategies and implement it in your own iOS apps"
-date: 2015-11-30 14:00
+date: 2015-12-01 14:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -166,7 +166,9 @@ This code is meant to be placed in a view controller that presents the login scr
 
 That's it! Now run the application on an actual device and see if it works. You will need to supply a working email to test it.
 
-<video>TODO</video>
+<video src="https://cdn.auth0.com/blog/iosmagiclink/auth0-login2.mp4" width="600" autoplay loop>
+    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/auth0-login2.mp4">download it instead</a>.
+</video>
 
 > - Universal Links DO NOT work on iOS simulators. You need an actual iOS-enabled device to test this. Standard manual code input logins are supported.
 > - Do not use the Gmail app to open the email with the link. At the moment, Gmail opens the links internally or with the help of Google Chrome, entirely bypassing the detection of the Universal Link by iOS.
