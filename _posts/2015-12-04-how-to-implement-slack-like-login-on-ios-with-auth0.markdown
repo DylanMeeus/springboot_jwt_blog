@@ -2,7 +2,7 @@
 layout: post
 title: "How to Implement a Slack-like Magic Link Login on iOS with Auth0"
 description: "Take a look at one of the most convenient passwordless login strategies and implement it in your own iOS apps"
-date: 2015-12-01 14:00
+date: 2015-12-04 13:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -130,33 +130,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        Application.sharedInstance.lock.applicationLaunchedWithOptions(launchOptions)
+        A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
         return true
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return Application.sharedInstance.lock.handleURL(url, sourceApplication: sourceApplication)
+        return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
     }
 
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        return Application.sharedInstance.lock.continueUserActivity(userActivity, restorationHandler:restorationHandler)
+        return A0Lock.sharedLock().continueUserActivity(userActivity, restorationHandler:restorationHandler)
     }
 }
 ```
-
-In our sample app, the Lock library instance lives inside the `Application` class, which is a singleton that is instanced when the application starts. You can put the Lock instance anywhere you please, as long as it stays alive for the duration of the login process.
 
 ## Step 6: Tell the Lock library you want to use the 'magic link' login strategy
 Our Lock library handles the login flow. To tell it to use a magic link instead of a code, do the following before presenting the relevant view controller from the Lock library:
 
 ```Swift
-let lock = Application.sharedInstance.lock
+let lock = A0Lock.sharedLock()
 let controller = lock.newEmailViewController()
+
 controller.useMagicLink = true // <--- ENABLE MAGIC LINKS!
+
 controller.onAuthenticationBlock = { (profile, token) in
-    let app = Application.sharedInstance
-    app.token = token
-    app.profile = profile
+    // Do something with profile and token if necessary
     self.dismissViewControllerAnimated(true, completion: { self.performSegueWithIdentifier("UserLoggedIn", sender: self) })
 }
 lock.presentEmailController(controller, fromController: self)
