@@ -10,7 +10,7 @@ author:
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
   bg_color: "#156979"
-  image: https://cdn.auth0.com/blog/iosmagiclink/logo.png
+  image: https://cdn.auth0.com/blog/iosmagiclink/logo2.png
   image_size: "100%"
   image_bg_color: "#B6C5CA"
   blog_series: false
