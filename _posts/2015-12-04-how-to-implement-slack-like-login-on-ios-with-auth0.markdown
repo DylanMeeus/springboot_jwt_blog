@@ -57,8 +57,8 @@ Open the `info.plist` file in Xcode and set your Auth0 client ID and domain in t
 Go to the [passwordless connections](https://manage.auth0.com/#/connections/passwordless) section in your Auth0 dashboard. Enable Email logins. The default settings are fine.
 
 <video width="600" autoplay loop>
-    <source src="https://cdn.auth0.com/blog/iosmagiclink/enable-email.mp4" type="video/mp4">
-    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/enable-email.mp4">download it instead</a>.
+    <source src="https://cdn.auth0.com/blog/iosmagiclink/enable-email2.mp4" type="video/mp4">
+    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/enable-email2.mp4">download it instead</a>.
 </video>
 
 Once you have enabled e-mail logins, don't forget to enable the connection in your application's connections section (`Apps/APIs` -> `Your app name` -> `Connections` -> `Email`) if you haven't done so in the previous step.
@@ -91,8 +91,8 @@ You can now perform an API call to add the team and bundle ids to your Auth0 app
 
 Now click on `try`. This will perform the actual call to our public API. If you get a HTTP 200 response everything went well.
 
-<video src="https://cdn.auth0.com/blog/iosmagiclink/add-team-id-and-bundle-id.mp4" width="600" autoplay loop>
-    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/add-team-id-and-bundle-id.mp4">download it instead</a>.
+<video src="https://cdn.auth0.com/blog/iosmagiclink/add-team-id-and-bundle-id2.mp4" width="600" autoplay loop>
+    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/add-team-id-and-bundle-id2.mp4">download it instead</a>.
 </video>
 
 To test this, check whether the universal links apple app site association file is available for your application. Go to your browser and open: `https://YOURACCOUNT.auth0.com/apple-app-site-association` (replace `YOURACCOUNT` with your Auth0 account name).
@@ -164,8 +164,8 @@ This code is meant to be placed in a view controller that presents the login scr
 
 That's it! Now run the application on an actual device and see if it works. You will need to supply a working email to test it.
 
-<video src="https://cdn.auth0.com/blog/iosmagiclink/auth0-login2.mp4" width="600" autoplay loop>
-    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/auth0-login2.mp4">download it instead</a>.
+<video src="https://cdn.auth0.com/blog/iosmagiclink/auth0-login3.mp4" width="600" autoplay loop>
+    Your browser does not support the video embedded here, <a href="https://cdn.auth0.com/blog/iosmagiclink/auth0-login3.mp4">download it instead</a>.
 </video>
 
 > - Universal Links DO NOT work on iOS simulators. You need an actual iOS-enabled device to test this. Standard manual code input logins are supported.
