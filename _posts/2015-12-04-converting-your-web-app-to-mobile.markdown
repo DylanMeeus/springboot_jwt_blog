@@ -51,7 +51,7 @@ Create a new Cordova project by running the following command, where `[your-app-
 cordova create your-app-name com.example.myapp MyAppName
 ```
 
-> The `create`command has 3 parameters, the first specifies the folder where the solution will be created, the second is a reverse domain-style identifier which must be unique, and the last one is the application display name. The last two paramenters can be ommited and configured later in the `config.xml` file.
+> The `create` command has 3 parameters, the first specifies the folder where the solution will be created, the second is a reverse domain-style identifier which must be unique, and the last one is the application display name. The last two paramenters can be ommited and configured later in the `config.xml` file.
 
 Browse to the project folder to add the platforms that you want to support. To do this, once you are in the project foler, run the following command for each platform you want to add.
 
@@ -111,32 +111,32 @@ Finally, all the CSS files, images, and JavaScript files should be moved to the 
 ### Add hosted webpage as an app
 If your application is already hosted on a server, converting your web app is very easy independently of the framework and languages used to create it.
 
-To do it, in the **onDeviceReady** method, just navigate to the URL of your hosted app, and that's it.
+Add the **dialogs** and **network information** plugins to your application by running the following commands.
+
+```
+cordova plugin add cordova-plugin-dialogs
+cordova plugin add cordova-plugin-network-information
+```
+
+To do it, after the **onDeviceReady** event occurs, just navigate to the URL of your hosted app, and that's it.
 
 This is shown in the following code.
 
 
 ```
-  <script>
-  document.addEventListener("deviceready", onDeviceReady, false);
+<script>
   function onDeviceReady() {
-    //navigator.splashscreen.hide();
-    if (navigator.network.connection.type == Connection.NONE) {
-      noConnection()
+    if (navigator.connection.type == Connection.NONE) {
+      navigator.notification.alert('An internet connection is required to continue');
     } else {
-      loadAppUrl()
+      window.location="http://www.myapp.com";
     }
   }
-
-  function loadAppUrl() {
-    navigator.app.loadUrl("http://www.myapp.com")
-  }
-
-  function noConnection() {
-    navigator.notification.alert('An internet connection is required to continue');
-  }
-  </script>
+  document.addEventListener("deviceready", onDeviceReady, false);
+</script>
 ```
+
+> Continuing with the ToDoMVC app sample, we added this code at the bottom of the `app.js` file.
 
 Additionally, as the hosted app will require an internet connection, we added a simple check to verify that this condition is fullfilled.
 
@@ -210,17 +210,22 @@ The following is a very simple example of code that gets the current location.
 
 ```
 var onSuccess = function(position) {
-    alert('Latitude: ' + position.coords.latitude + '\n' +
+    console.log('Latitude: ' + position.coords.latitude + '\n' +
           'Longitude: ' + position.coords.longitude+ '\n');
 };
 
 var onError = function onError(error) {
-    alert('code: '    + error.code    + '\n' +
+    console.log('code: '    + error.code    + '\n' +
           'message: ' + error.message + '\n');
 }
 
 navigator.geolocation.getCurrentPosition(onSuccess, onError);
 ```
+
+
+The following screenshot shows how we implemented this code in our simple app.
+
+![Using GeoLocation](https://cdn.auth0.com/blog/converting-your-app-to-mobile/using-geolocation.png)
 
 ## Testing your Cordova app
 To run your application you will need a device or emulator of the corresponding platform.
@@ -229,6 +234,7 @@ Build your application by running the following command.
 ```
 cordova build [platform]
 ```
+
 If you specify a platform, only that platform will be built, else all added platforms will build one by one.
 
 The following subsections show instructions to install/set up the iOS & Android emulators.
