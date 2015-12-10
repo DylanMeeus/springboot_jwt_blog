@@ -2,7 +2,8 @@
 layout: post
 title: How Partners Make Authentication and Authorization Even Better
 description: Grean, an Auth0 Technology Partner, has developed a service that makes authenticating and authorizing users to custom apps for b2b companies easy.
-date: 2015-12-11 13:00
+date: 2015-12-10 13:00
+permalink: /2015/12/11/how-partners-make-authentication-and-authorization-even-better/
 author:
   name: Clayton Moulynox
   url: https://twitter.com/claytonhm
