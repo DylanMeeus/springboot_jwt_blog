@@ -55,4 +55,89 @@ $ curl http://opensharecount.com/count.json?url=http://my.url.com
 
 > It should be noted that OpenShareCount does not support JSONP (using the callback parameter) as the old Twitter API did, so further changes to your site might be needed.
 
-Looking good. However
+Looking good. However we still have one problem to solve: cross site requests.
+
+## Another problem: the same origin policy
+Our blog is hosted at [https://blog.auth0.com](https://blog.auth0.com) and OpenShareCount provides the API endpoint at `http://opensharecount.com/count.json?url=http://my.url.com`. By running a simple CuRL test to the URL we see the `Access-Control-Allow-Origin` header is correctly set:
+
+```
+curl -v http://opensharecount.com/count.json\?url\=http://my.url.com
+*   Trying 104.27.164.180...
+* Connected to opensharecount.com (104.27.164.180) port 80 (#0)
+> GET /count.json?url=http://my.url.com HTTP/1.1
+> Host: opensharecount.com
+> User-Agent: curl/7.45.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Thu, 10 Dec 2015 17:07:23 GMT
+< Content-Type: text/html; charset=ISO-8859-1
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Set-Cookie: __cfduid=d953733a4896a8010a92b07f02928451f1449767243; expires=Fri, 09-Dec-16 17:07:23 GMT; path=/; domain=.opensharecount.com; HttpOnly
+< Vary: Accept-Encoding
+< Access-Control-Allow-Origin: *
+< CF-Cache-Status: MISS
+< Expires: Thu, 10 Dec 2015 17:37:23 GMT
+< Cache-Control: public, max-age=1800
+< Server: cloudflare-nginx
+< CF-RAY: 252a8bb960980320-MIA
+<
+* Connection #0 to host opensharecount.com left intact
+{"url":"http://my.url.com","error":"Domain my.url.com not authorised, register for free at http://opensharecount.com first","count":0}
+```
+
+So the *ACAO* header is not a problem. However the difference between HTTPS and HTTP *is*. Browsers forbid AJAX requests to non-TLS resources from a TLS-secured page.
+
+### A Webtasks Proxy
+The obvious solution to the problem above is a *proxy*. This proxy will simply provide a HTTPS frontend for the HTTP OpenShareCount API. This is a simple matter, but forces us to think about hosting, load-balancing and other stuff related to setting up a new service. As we face these problems daily, at Auth0 we developed [webtasks](https://webtask.io), which fit this problem domain perfectly.
+
+Here's our simple HTTP to HTTPS proxy:
+
+```
+var url = require('url');
+module.exports = function (ctx, cb) {
+  var whitelist = ['metrics.it.auth0.com', 'opensharecount.com'];
+
+  var tartetUrl = ctx.data.url;
+  var target = url.parse(tartetUrl).hostname;
+  var ok = whitelist.some(function (host) {
+    return target === host;
+  });
+
+  if (!ok) {
+    return cb(new Error('no way'));
+  }
+
+  request.get({url: tartetUrl}, function(err, resp, body) {
+     if (err) return cb(err);
+     cb(null, JSON.parse(body));
+  });
+};
+```
+
+And this is our endpoint with parameters: `https://webtask.it.auth0.com/api/run/auth0/proxy?webtask_no_cache=1&url=http://opensharecount.com/count.json?url=LINK_COUNT_URL`
+
+The proxy has a simple embedded whitelist to prevent misuse by third-parties. After running the whitelist filter, it performs an HTTP request and sends back the result to the original caller.
+
+> Please note that browser restrictions with regards to access to unprotected resources from a TLS secured page are in place for a reason. Study carefully if the unprotected resource can be handled this way before doing something like this.
+
+## Aside: Webastks
+If you are interested in learning more about webtasks or creating your own, head over to https://webtask.io and get started. With the webtask command line interface, creating your first scripts is a matter of running a few commands:
+
+```
+npm install wt-cli -g
+wt init your@email.com
+echo "module.exports = function (cb) {cb(null, 'Hello');}" > hello.js
+wt create hello.js
+```
+
+You can then run the webtask:
+
+```
+curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/hello?webtask_no_cache=1
+```
+
+Replace your webtask URL by the one returned by `wt create`.
+
+## Conclusion
