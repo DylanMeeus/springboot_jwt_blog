@@ -141,3 +141,4 @@ curl https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/hello
 Replace your webtask URL by the one returned by `wt create`.
 
 ## Conclusion
+The decision to remove the link counts API by Twitter was unfortunate but perfectly understandable. It was never meant for public use. Fortunately OpenShareCount and Webtasks make a perfect fit for solving this issue as soon as possible and in a convenient manner. If you decide to use or extend our simple proxy sample, let us know in the comments. Good luck!
