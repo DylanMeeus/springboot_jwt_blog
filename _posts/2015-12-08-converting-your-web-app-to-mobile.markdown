@@ -19,7 +19,7 @@ tags:
 ---
 
 ---
-**TL;DR:** Apache Cordova is a good option for those who already have a web application and want to port it to the different mobile platforms. This post show you how yo can do this, even if your app is already hosted and live. It also provides several tips on how to create a successful Cordova app.
+**TL;DR:** Apache Cordova is a good option for those who already have a web application and want to port it to the different mobile platforms. This post show you how yo can do this, even if your app is already hosted and live. It also provides several tips on how to create a successful Cordova app. Check out [the repo](https://github.com/auth0/cordova-sample) to get the code.
 
 ---
 
