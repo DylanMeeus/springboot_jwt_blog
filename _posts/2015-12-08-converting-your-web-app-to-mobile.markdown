@@ -19,7 +19,7 @@ tags:
 ---
 
 ---
-**TL;DR:** Apache Cordova is a good option for those who already have a web application and want to port it to the different mobile platforms. This post show you how yo can do this, even if your app is already hosted and live. It also provides several tips on how to create a successful Cordova app.
+**TL;DR:** Apache Cordova is a good option for those who already have a web application and want to port it to the different mobile platforms. This post show you how yo can do this, even if your app is already hosted and live. It also provides several tips on how to create a successful Cordova app. Check out [the repo](https://github.com/auth0/cordova-sample) to get the code.
 
 ---
 
@@ -298,17 +298,17 @@ cordova run [platform]
 
 Based on our experience with this type of app, we created the following list of tips for creating your own Cordova apps. 
 
-1. Remember that the recommended architecture for Cordova applications is Single-Page Applications (SPAs). This way, all of the resources are only loaded once when the app starts, and can stay in the web view for as long as the application is running. In addition, with SPAs, the user will not have page reloads, which are simply not typical for native applications. 
+1. **Single Page Apps work better.** Remember that the recommended architecture for Cordova applications is Single-Page Applications (SPAs). This way, all of the resources are only loaded once when the app starts, and can stay in the web view for as long as the application is running. In addition, with SPAs, the user will not have page reloads, which are simply not typical for native applications. 
 
-2. Ensure your app is responsive, in that it adapts gracefully to different devices and resolutions. Using CSS media queries is a good approach for this.
+2. **Make your app responsive.** Ensure your app is responsive, in that it adapts gracefully to different devices and resolutions. Using CSS media queries is a good approach for this.
 
-3. If your app is not SPA, add transitions when navigating to other pages so the navigation goes unnoticed.
+3. **Add smooth transitions when needed.** If your app is not SPA, add transitions when navigating to other pages so the navigation goes unnoticed.
 
-4. Decide what form factors you will support. Will you support only mobile phone or tablet form factors, or provide a responsive, universal experience? Just as each platform and platform version will introduce an extra level of effort, each form-factor/breakpoint setting will introduce a new level of effort for designers, developers, and, eventually, testers.
+4. **Decide what form factors you will support.** Will you support only mobile phone or tablet form factors, or provide a responsive, universal experience? Just as each platform and platform version will introduce an extra level of effort, each form-factor/breakpoint setting will introduce a new level of effort for designers, developers, and, eventually, testers.
 
-5. Decide if it is important to add offline support. While some apps don’t require any internet access for normal behavior, some do (hosted apps, for example). Even some particular features of the app may require internet. Consider the user experience of your app when no internet connection is present. For example, some features, such as sharing, can be disabled when offline. You can use the [Cordova Network Information plugin](https://www.npmjs.com/package/cordova-plugin-network-information) to detect the connection type and to handle online and offline detection.
+5. **Add Offline Support.** Decide if it is important to add offline support. While some apps don’t require any internet access for normal behavior, some do (hosted apps, for example). Even some particular features of the app may require internet. Consider the user experience of your app when no internet connection is present. For example, some features, such as sharing, can be disabled when offline. You can use the [Cordova Network Information plugin](https://www.npmjs.com/package/cordova-plugin-network-information) to detect the connection type and to handle online and offline detection.
 
-6. **Test on devices**. It is almost mandatory to have at least one physical device for each platform/version that you are supporting. There are emulators and simulators that can help you to test the application and identify some major issues, but nothing is as good as  having a real device for testing.
+6. **Test on devices.** It is almost mandatory to have at least one physical device for each platform/version that you are supporting. There are emulators and simulators that can help you to test the application and identify some major issues, but nothing is as good as  having a real device for testing.
 
 ## Aside: Adding Auth0 to your Cordova App
 
