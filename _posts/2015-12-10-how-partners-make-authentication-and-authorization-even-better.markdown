@@ -9,9 +9,9 @@ author:
   mail: clayton@auth0.com
   avatar: https://s.gravatar.com/avatar/ef2eecee7655f814bd7a9228ba0c6992?s=200
 design:
-  bg_color: "#333333"
-  image: XXXXXXXXXX
-  image_size: "60%"
+  bg_color: "#425160"
+  image: https://cdn.auth0.com/blog/grean/logo.png
+  image_size: "120%"
 tags:
 - technology partner opportunities
 - b2b partner opportunity
