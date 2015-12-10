@@ -2,7 +2,7 @@
 layout: post
 title: "Get Your Twitter Share Count Back with a Webtask"
 description: "Learn how to fix your Twitter share counts with a simple HTTP proxy running as a Webtask"
-date: 2015-11-20 10:00
+date: 2015-12-11 10:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -123,7 +123,7 @@ The proxy has a simple embedded whitelist to prevent misuse by third-parties. Af
 > Please note that browser restrictions with regards to access to unprotected resources from a TLS secured page are in place for a reason. Study carefully if the unprotected resource can be handled this way before doing something like this.
 
 ## Aside: Webastks
-If you are interested in learning more about webtasks or creating your own, head over to https://webtask.io and get started. With the webtask command line interface, creating your first scripts is a matter of running a few commands:
+If you are interested in learning more about webtasks or creating your own, head over to [https://webtask.io](https://webtask.io) and get started. With the webtasks command line interface, creating your first script is a matter of running a few commands:
 
 ```
 npm install wt-cli -g
