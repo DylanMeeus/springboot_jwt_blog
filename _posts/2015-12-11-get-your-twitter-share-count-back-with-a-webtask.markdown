@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Get Your Twitter Share Count Back with a Webtask"
-description: "Learn how to fix your Twitter share counts with a simple HTTP proxy without a server using Webtasks"
+description: "Learn how to fix your Twitter share count with a simple HTTP proxy without a server using Webtasks"
 date: 2015-12-11 13:00
 author:
   name: Sebastián Peyrott
@@ -37,6 +37,8 @@ Twitter used to provide a *non-public* API endpoint for URL share counts:
 $ curl http://cdn.api.twitter.com/1/urls/count.json?url=http://my.url.com
 {"count":27438,"url":"http:\/\/my.url.com\/"}
 ```
+
+![Twitter share count](https://cdn.auth0.com/blog/twittercounts/twittercount.png)
 
 Although this endpoint was not public (and therefore Twitter never committed to supporting it), it stayed available for a long time and people started using it. Unfortunately this [changed recently](https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform). However the need for a Twitter URL share count remained. At Auth0 we use URL share counts in our [blog](https://blog.auth0.com), so we had to find a way to fix this.
 
@@ -126,7 +128,7 @@ The proxy has a simple embedded whitelist to prevent misuse by third-parties. Af
 
 > Please note that browser restrictions with regards to access to unprotected resources from a TLS secured page are in place for a reason. Study carefully if the unprotected resource can be handled this way before doing something like this.
 
-## Get Your Share Counts Back: Create Your Own Webtask!
+## Get Your Twitter Share Counts Back: Create Your Own Webtask!
 If you are interested in learning more about webtasks or creating your own, head over to [https://webtask.io](https://webtask.io) and get started. With the webtasks command line interface, creating your first script is a matter of running a few commands:
 
 ```
