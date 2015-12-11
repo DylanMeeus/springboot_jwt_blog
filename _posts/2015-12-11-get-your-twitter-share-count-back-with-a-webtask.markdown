@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Get Your Twitter Share Count Back with a Webtask"
-description: "Learn how to fix your Twitter share counts with a simple HTTP proxy running as a Webtask"
-date: 2015-12-11 10:00
+description: "Learn how to fix your Twitter share counts with a simple HTTP proxy without a server using Webtasks"
+date: 2015-12-11 13:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -15,19 +15,18 @@ design:
   image_bg_color: "#B6C5CA"
   blog_series: false
 tags:
-- ember
-- ember.js
-- react.js
-- react
-- dom
-- virtual dom
-- incremental dom
-- javascript
-- glimmer
-- benchmark
+- twitter
+- share count
+- url count
+- url share count
+- webtask
+- proxy
+- http proxy
+- https proxy
+- http https proxy
 ---
 
-Recently Twitter decided to [shutdown](https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform) one of its unofficial API endpoints. In this post we will show you how to get that functionality back with a simple [Webtask](https://webtask.io) acting as a proxy to a different counts provider.
+Recently Twitter decided to [shutdown](https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform) one of its unofficial API endpoints: the URL share count. In this post we will show you how to get that functionality back with a simple [Webtask](https://webtask.io) acting as a proxy to a different counts provider.
 
 -----
 
@@ -58,7 +57,12 @@ $ curl http://opensharecount.com/count.json?url=http://my.url.com
 Looking good. However we still have one problem to solve: cross site requests.
 
 ## Another problem: the same origin policy
-Our blog is hosted at [https://blog.auth0.com](https://blog.auth0.com) and OpenShareCount provides the API endpoint at `http://opensharecount.com/count.json?url=http://my.url.com`. By running a simple CuRL test to the URL we see the `Access-Control-Allow-Origin` header is correctly set:
+Our blog is hosted at [https://blog.auth0.com](https://blog.auth0.com) and OpenShareCount provides the API endpoint at `http://opensharecount.com/count.json?url=http://my.url.com`. There are two things we need to take into account:
+
+1. The `Access-Control-Allow-Origin` header.
+2. The use of the same communications protocol (HTTP or HTTPS).
+
+By running a simple CuRL test to the URL we see the `Access-Control-Allow-Origin` header is correctly set:
 
 ```
 curl -v http://opensharecount.com/count.json\?url\=http://my.url.com
@@ -87,7 +91,7 @@ curl -v http://opensharecount.com/count.json\?url\=http://my.url.com
 {"url":"http://my.url.com","error":"Domain my.url.com not authorised, register for free at http://opensharecount.com first","count":0}
 ```
 
-So the *ACAO* header is not a problem. However the difference between HTTPS and HTTP *is*. Browsers forbid AJAX requests to non-TLS resources from a TLS-secured page.
+So the `Access-Control-Allow-Origin` header is not a problem. However the difference between HTTPS and HTTP *is*. Browsers forbid AJAX requests to non-TLS resources from a TLS-secured page.
 
 ### A Webtasks Proxy
 The obvious solution to the problem above is a *proxy*. This proxy will simply provide a HTTPS frontend for the HTTP OpenShareCount API. This is a simple matter, but forces us to think about hosting, load-balancing and other stuff related to setting up a new service. As we face these problems daily, at Auth0 we developed [webtasks](https://webtask.io), which fit this problem domain perfectly.
@@ -122,7 +126,7 @@ The proxy has a simple embedded whitelist to prevent misuse by third-parties. Af
 
 > Please note that browser restrictions with regards to access to unprotected resources from a TLS secured page are in place for a reason. Study carefully if the unprotected resource can be handled this way before doing something like this.
 
-## Aside: Webastks
+## Get Your Share Counts Back: Create Your Own Webtask!
 If you are interested in learning more about webtasks or creating your own, head over to [https://webtask.io](https://webtask.io) and get started. With the webtasks command line interface, creating your first script is a matter of running a few commands:
 
 ```
