@@ -64,7 +64,7 @@ Our blog is hosted at [https://blog.auth0.com](https://blog.auth0.com) and OpenS
 1. The `Access-Control-Allow-Origin` header.
 2. The use of the same communications protocol (HTTP or HTTPS).
 
-By running a simple CuRL test to the URL we see the `Access-Control-Allow-Origin` header is correctly set:
+By running a simple cURL test to the URL we see the `Access-Control-Allow-Origin` header is correctly set:
 
 ```
 curl -v http://opensharecount.com/count.json\?url\=http://my.url.com
