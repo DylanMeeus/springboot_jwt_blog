@@ -102,11 +102,13 @@ Here's our simple HTTP to HTTPS proxy:
 
 ```
 var url = require('url');
+var request = require('request');
+
 module.exports = function (ctx, cb) {
   var whitelist = ['metrics.it.auth0.com', 'opensharecount.com'];
 
-  var tartetUrl = ctx.data.url;
-  var target = url.parse(tartetUrl).hostname;
+  var targetUrl = ctx.data.url;
+  var target = url.parse(targetUrl).hostname;
   var ok = whitelist.some(function (host) {
     return target === host;
   });
@@ -115,7 +117,7 @@ module.exports = function (ctx, cb) {
     return cb(new Error('no way'));
   }
 
-  request.get({url: tartetUrl}, function(err, resp, body) {
+  request.get({url: targetUrl}, function(err, resp, body) {
      if (err) return cb(err);
      cb(null, JSON.parse(body));
   });
