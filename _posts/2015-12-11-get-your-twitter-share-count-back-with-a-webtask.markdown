@@ -40,7 +40,7 @@ $ curl http://cdn.api.twitter.com/1/urls/count.json?url=http://my.url.com
 
 Although this endpoint was not public (and therefore Twitter never committed to supporting it), it stayed available for a long time and people started using it. Unfortunately this [changed recently](https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform). However the need for a Twitter URL share count remained. At Auth0 we use URL share counts in our [blog](https://blog.auth0.com), so we had to find a way to fix this.
 
-> It should be noted that as the endpoint was not really public Twitter really can't be blamed for removing it.
+> It should be noted that as the endpoint was not public Twitter really can't be blamed for removing it.
 
 ## The alternative
 So we set out to find an alternative service providing link counts on Twitter. We found [OpenShareCount](http://opensharecount.com/). The service basically works by performing periodic searches using the official Twitter search API, then counting the results and storing them for quick retrieval. If you are familiar with the Twitter API, then this should trigger an alarm: Twitter searches only go back a few days, so count results are not absolute. OpenShareCount resolves this by running the search periodically and adding up newer results. Good enough.
