@@ -34,7 +34,7 @@ Developing desktop applications is arguably harder than developing for the web. 
 
 In this article, we'll explore how to wire up a simple image size calculator app using Electron and Angular 2. While the steps here are specific to Angular 2, it should be reitered that any front end framework will work with Electron, so these instructions could be adapted to make use of others.
 
-![image-size-calculator app](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-5.png)
+![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-5.png)
 
 ## Setting up Angular 2 and Electron
 
@@ -238,7 +238,7 @@ npm run electron
 
 If everything is wired up properly, we should now see our "Hello Electron" message.
 
-![image-size-calculator app](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-1.png)
+![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-1.png)
 
 Yikes, that was a lot of boilerplate needed just to set things up! It's worth noting that a lot of this was just to set up Angular 2 and wasn't because of Electron specifically. If we were using a simpler framework (ie: no TypeScript) or just plain JavaScript, then we wouldn't have needed as much boilerplate. The good news is that all we need to worry about now is the actual Angular 2 code. It's time to start building the app just as we would if it were on the web!
 
@@ -302,7 +302,7 @@ To define some custom behavior for dropping an image into our app, we need to fi
 
 Note that to get ahold of the event information for the drop, we pass `$event`, just like we would in Angular 1.x.
 
-![image-size-calculator app](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-2.png)
+![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-2.png)
 
 So how are we getting this information exactly? Electron provides an abstraction around native files so that we can use the HTML5 file API. With this, we get the path to the file on the filesystem. This is useful in our case because we can link to our images and show them in our app. Let's set that up now.
 
@@ -361,7 +361,7 @@ export class App {
 
 Now we push the dropped files onto an array called `images` and iterate over it in our template to get the details. To avoid other file types being dropped in, we are only accepting `png` and `jpeg`.
 
-![image-size-calculator app](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-3.png)
+![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-3.png)
 
 ## Getting the Image Stats
 
@@ -400,7 +400,7 @@ We want to have a way to display the total number of images dropped into the app
 ...
 ```
 
-![image-size-calculator app](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-4.png)
+![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-4.png)
 
 ## Adding a Byte Conversion Pipe
 
@@ -436,7 +436,7 @@ class ByteFormatPipe implements PipeTransform {
 
 This pipe checks for the file size in bytes and returns the appropriate conversion. We then just apply the pipe to our template and we get the output we want.
 
-![image-size-calculator app](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-5.png)
+![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-5.png)
 
 ## Preparing for Distribution
 
