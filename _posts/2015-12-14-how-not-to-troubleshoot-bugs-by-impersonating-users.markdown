@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Not to Troubleshoot Bugs by Impersonating Users"
+title: "Troubleshooting? This is what you shouldn’t do when you impersonate your users"
 description: Impersonate users in the wrong way, and you’ll open up security holes in your app
 date: 2015-12-14 12:27
 author:
