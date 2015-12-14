@@ -2,7 +2,7 @@
 layout: post
 title: "Create a Desktop App with Angular 2 and Electron"
 description: "Build a simple image calculator app with Angular 2 and Electron"
-date: 2015-12-14 16:00
+date: 2015-12-15 16:00
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
@@ -59,7 +59,7 @@ Let's start with our `package.json` file to list our dependencies, along with so
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.52",
+    "angular2": "2.0.0-alpha.53",
     "bootstrap": "^3.3.6",
     "gulp": "^3.9.0"
   }
@@ -251,7 +251,9 @@ Let's create the dropzone first. We'll do all of our Angular 2 work in one top-l
 ```js
 // app/app.ts
 
-import {bootstrap, Component} from 'angular2/angular2';
+import {bootstrap} from 'angular2/platform/browser';
+import {Component} from 'angular2/core';
+import {NgFor} from 'angular2/common';
 
 @Component({
   selector: 'app',
@@ -409,7 +411,9 @@ We're getting the number of bytes for each image, but ideally we would be able t
 ```js
 // app/app.ts
 
-import {bootstrap, Component, Pipe, PipeTransform} from 'angular2/angular2';
+import {bootstrap} from 'angular2/platform/browser';
+import {Component, Pipe, PipeTransform} from 'angular2/core';
+import {NgFor} from 'angular2/common';
 
 @Pipe({ name: 'byteFormat'})
 class ByteFormatPipe implements PipeTransform {
