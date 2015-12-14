@@ -459,7 +459,7 @@ We'll obviously want to change the name of the application and also provide a un
 
 Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
-If your electron app relies on a remote database and data API, you can easily protect it with JWT authentication. You can also use **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to send authenticated HTTP requests from your Angular 2 application.
+Auth0 [integrates well with AngularJS](https://auth0.com/learn/angular-authentication) at both 1.x and 2. If your electron app relies on a remote database and data API, you can easily protect it with JWT authentication. You can also use **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to send authenticated HTTP requests from your Angular 2 app.
 
 <img src="https://docs.google.com/drawings/d/1ErB68gFj55Yg-ck1_CZByEwN5ql0Pj2Mzd-6S5umv2o/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
 
