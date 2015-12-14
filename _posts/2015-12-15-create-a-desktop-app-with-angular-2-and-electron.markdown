@@ -22,23 +22,23 @@ tags:
 ---
 
 ---
-**TL;DR:** Electron is an open source project from GitHub that lets us create cross-platorm desktop applications with web technologies. It doesn't matter which specific framework we use; if it works for the web, it works for Electron. We can use Angular 2 for Electron apps, and in this tutorial, we explore how to get a desktop image size calculator app wired up. Check out the [code on GitHub](https://github.com/auth0/angular2-electron).
+**TL;DR:** Electron is an open-source project from GitHub that lets us create cross-platform desktop applications with web technologies. It doesn't matter which specific framework we use; if it works for the web, it works for Electron. We can use Angular 2 for Electron apps, and in this tutorial, we explore how to get a desktop image size calculator app wired up. Check out the [code on GitHub](https://github.com/auth0/angular2-electron).
 
-You can also checkout our other Angular 2 material, including tutorials on working with **[pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/)**, **[models](https://auth0.com/blog/2015/09/17/angular-2-series-part-2-domain-models-and-dependency-injection/)**, and **[Http](https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/)**. 
+You can also check out our other Angular 2 material, including tutorials on working with **[pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/)**, **[models](https://auth0.com/blog/2015/09/17/angular-2-series-part-2-domain-models-and-dependency-injection/)**, and **[Http](https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/)**. 
 
 ---
 
 Developing desktop applications is arguably harder than developing for the web. Throw in the fact that you would need three versions of the same desktop app to make it available for all the popular operating systems, plus all the work that needs to go into preparing for distribution, and it can be a daunting task for web developers to port their skills to native. This is where Electron comes in.
 
-[Electron](http://electron.atom.io/) is an open source project from GitHub that makes it easy to build cross-platform desktop apps using web technologies. With it, we get a nice set of APIs for interacting with Windows, OS X, and Linux operating systems, and all we need is JavaScript. The beauty of using Electron is that we're not barred from using any particular framework. As long as it works on the web, it works for Electron.
+[Electron](http://electron.atom.io/) is an open-source project from GitHub that makes it easy to build cross-platform desktop apps using web technologies. With it, we get a nice set of APIs for interacting with Windows, OS X, and Linux operating systems, and all we need is JavaScript. There are, of course, other ways to create desktop applications with web technologies, but Electron is unique in its ability to easily target three operating systems at once. The other nice part of building apps with Electron is that we're not barred from using any particular framework. As long as it works on the web, it works for Electron.
 
-In this article, we'll explore how to wire up a simple image size calculator app using Electron and Angular 2. While the steps here are specific to Angular 2, it should be reitered that any front end framework will work with Electron, so these instructions could be adapted to make use of others.
+In this article, we'll explore how to wire up a simple image size calculator app using Electron and Angular 2. While the steps here are specific to Angular 2, remember that any front end framework will work with Electron, so these instructions could be adapted to make use of others.
 
 ![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-5.png)
 
-## Setting up Angular 2 and Electron
+## Setting Up Angular 2 and Electron
 
-We'll use [Webpack](https://webpack.github.io/) for our Angular 2 setup, and we'll base the config loosely on the awesome [Angular2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) by [AngularClass](https://angularclass.com/). At the time of publishing, Angular 2 is at alpha 52, so we'll use that.
+We'll use [Webpack](https://webpack.github.io/) for our Angular 2 setup, and we'll base the config loosely on the awesome [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) by [AngularClass](https://angularclass.com/). At the time of publishing, Angular 2 is at alpha 53, so we'll use that.
 
 Let's start with our `package.json` file to list our dependencies, along with some `scripts` that will let us easily run our `webpack` commands and also run the `electron` command to start the app.
 
@@ -143,7 +143,7 @@ We also need some TypeScript configuration in a `tsconfig.json` file at the proj
 }
 ```
 
-All the files specific to our application will live inside of the `app` subdirectory. There, we need to provide a `package.json` file that will simply tell Electron which script to use for bootstrapping. This will be the `main.js` file, and in it, we will tell Electron how to open and close our app.
+All the files specific to our application will live inside the `app` subdirectory. There, we need to provide a `package.json` file that will simply tell Electron which script to use for bootstrapping. This will be the `main.js` file, and in it, we will tell Electron how to open and close our app.
 
 ```js
 // app/package.json
@@ -228,7 +228,7 @@ With an empty `app.ts` in place, let's bundle the scripts.
 npm run watch
 ```
 
-This command was set up in our `package.json` file in the project root, and it runs `webpack` with some options. One of these options is to watch for changes, so we can now edit our `app.ts` file everything will automatically get bundled again.
+This command was set up in our `package.json` file in the project root, and it runs `webpack` with some options. One of these options is to watch for changes, so we can now edit our `app.ts` file and everything will automatically get bundled again.
 
 If we look in our project root, we should now see our `build` directory. With all these files in place, we should be able to run the app. Remember that we've set up a command in our `package.json` file to do this.
 
@@ -240,11 +240,11 @@ If everything is wired up properly, we should now see our "Hello Electron" messa
 
 ![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-1.png)
 
-Yikes, that was a lot of boilerplate needed just to set things up! It's worth noting that a lot of this was just to set up Angular 2 and wasn't because of Electron specifically. If we were using a simpler framework (ie: no TypeScript) or just plain JavaScript, then we wouldn't have needed as much boilerplate. The good news is that all we need to worry about now is the actual Angular 2 code. It's time to start building the app just as we would if it were on the web!
+Yikes, that was a lot of boilerplate needed just to set things up! It's worth noting that a lot of this was just to set up Angular 2 and wasn't because of Electron specifically. If we were using a simpler framework (e.g., no TypeScript) or just plain JavaScript, then we wouldn't have needed as much boilerplate. The good news is that all we need to worry about now is the actual Angular 2 code. It's time to start building the app just as we would if it were on the web!
 
 ## Creating the Image Uploader
 
-Our simple app will let users drop images in so that they can find out their sizes. Why wouldn't they just check the image's properties? Good point. However, this app will give us a chance to see how Electron adapts web API's for the desktop.
+Our simple app will let users drop images in so that they can find out their sizes. Why wouldn't they just check the image's properties? Good point. However, this app will give us a chance to see how Electron adapts web APIs for the desktop.
 
 Let's create the dropzone first. We'll do all of our Angular 2 work in one top-level component.
 
@@ -300,13 +300,13 @@ bootstrap(App);
   ...
 ```
 
-To define some custom behavior for dropping an image into our app, we need to first pass `false` to the `dragover` and `dragend` events. The `drop` event is what we want to hook into, and for now we are simply logging out the details of the images we drop. That's right--we can see the same dev tools that would would in Chrome. If you're on a Mac, just do `Option + Command + I` to open them up.
+To define some custom behavior for dropping an image into our app, we need to first pass `false` to the `dragover` and `dragend` events. The `drop` event is what we want to hook into, and for now we are simply logging out the details of the images we drop. That's right--we can see the same dev tools that we would in Chrome. If you're on a Mac, just do `Option + Command + I` to open them up.
 
-Note that to get ahold of the event information for the drop, we pass `$event`, just like we would in Angular 1.x.
+Note that to get hold of the event information for the drop, we pass `$event`, just like we would in Angular 1.x.
 
 ![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-2.png)
 
-So how are we getting this information exactly? Electron provides an abstraction around native files so that we can use the HTML5 file API. With this, we get the path to the file on the filesystem. This is useful in our case because we can link to our images and show them in our app. Let's set that up now.
+So how are we getting this information, exactly? Electron provides an abstraction around native files so that we can use the HTML5 file API. With this, we get the path to the file on the filesystem. This is useful in our case, because we can link to our images and show them in our app. Let's set that up now.
 
 ## Displaying the Images
 
@@ -406,7 +406,7 @@ We want to have a way to display the total number of images dropped into the app
 
 ## Adding a Byte Conversion Pipe
 
-We're getting the number of bytes for each image, but ideally we would be able to get them in different units. It would be great if we had something to automatically convert the bytes to KB, MB and GB, and display the appropriate units. We can do this easily with a custom pipe.
+We're getting the number of bytes for each image, but ideally we would be able to get them in different units. It would be great if we had something to automatically convert the bytes to KB, MB, and GB, and display the appropriate units. We can do this easily with a custom pipe.
 
 ```js
 // app/app.ts
@@ -438,7 +438,7 @@ class ByteFormatPipe implements PipeTransform {
 ...
 ```
 
-This pipe checks for the file size in bytes and returns the appropriate conversion. We then just apply the pipe to our template and we get the output we want.
+This pipe checks for the file size in bytes and returns the appropriate conversion. We then just apply the pipe to our template and we're able to get the desired output.
 
 ![image-size-calculator app angular2 electron](https://cdn.auth0.com/blog/angular2-electron/angular2-electron-5.png)
 
@@ -451,9 +451,9 @@ npm install -g asar
 asar pack image-size-calculator app.asar
 ```
 
-The archive file can then be used for the app and it will be read-only.
+The archive file can then be used for the app, and it will be read-only.
 
-We'll obviously want to change the name of the application and also provide a unique icon. Instructions for this, along with the other steps involved with distribution can be found in the [Electron docs](http://electron.atom.io/docs/v0.35.0/tutorial/application-packaging/).
+We'll obviously want to change the name of the application and also provide a unique icon. Instructions for this, along with the other steps involved with distribution, can be found in the [Electron docs](http://electron.atom.io/docs/v0.35.0/tutorial/application-packaging/).
 
 ## Aside: Authentication with Auth0
 
@@ -465,6 +465,6 @@ Auth0 [integrates well with AngularJS](https://auth0.com/learn/angular-authentic
 
 ## Wrapping Up
 
-Electron offers developers a way to create desktop applications with the web technologies they already know instead of needing to learn new languages that are specific to various operating systems. This is great because skills can easily be ported and code can be reused.
+Electron offers developers a way to create desktop applications with the web technologies they already know instead of needing to learn new languages that are specific to various operating systems. This is great, because skills can easily be ported, and code can be reused.
 
 Electron doesn't care about which framework we use for our apps. Even though it's still in alpha, Angular 2 is a great framework to use inside an Electron app and, once everything is set up, works just the same as if we were developing for the web.
