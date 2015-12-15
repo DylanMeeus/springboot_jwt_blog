@@ -11,8 +11,8 @@ author:
 design: 
   image: https://cdn.auth0.com/blog/angular2-electron/angular2-electron-logo.png
   bg_color: "#076274"
-  image_size: "90%"
-  image_bg_color: "#076274"
+  image_size: "75%"
+  image_bg_color: "#fff"
 tags: 
 - angular2
 - angular
@@ -38,7 +38,7 @@ In this article, we'll explore how to wire up a simple image size calculator app
 
 ## Setting Up Angular 2 and Electron
 
-We'll use [Webpack](https://webpack.github.io/) for our Angular 2 setup, and we'll base the config loosely on the awesome [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) by [AngularClass](https://angularclass.com/). At the time of publishing, Angular 2 is at alpha 53, so we'll use that.
+We'll use [Webpack](https://webpack.github.io/) for our Angular 2 setup, and we'll base the config loosely on the awesome [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) by [AngularClass](https://angularclass.com/). At the time of publishing, Angular 2 is at alpha 54, so we'll use that.
 
 Let's start with our `package.json` file to list our dependencies, along with some `scripts` that will let us easily run our `webpack` commands and also run the `electron` command to start the app.
 
@@ -59,7 +59,8 @@ Let's start with our `package.json` file to list our dependencies, along with so
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.53",
+    "angular2": "2.0.0-alpha.54",
+    "zone.js": "^0.5.10",
     "bootstrap": "^3.3.6",
     "gulp": "^3.9.0"
   }
