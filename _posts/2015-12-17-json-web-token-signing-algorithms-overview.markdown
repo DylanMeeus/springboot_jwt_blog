@@ -12,7 +12,7 @@ design:
   bg_color: "#222228"
   image: https://cdn.auth0.com/blog/jwtalgos/logo.png
   image_size: "100%"
-  image_bg_color: "#B6C5CA"
+  image_bg_color: "#222228"
   blog_series: false
 tags:
 - json web token
