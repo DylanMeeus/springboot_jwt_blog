@@ -69,7 +69,7 @@ This results in the typical JWT representation we find in the web:
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 ```
 
-[http://jwt.io](http://jwt.io) is an excellent playfield to test JWTs. Go to [http://jwt.io](http://jwt.io) and input the string above in the encoded field.
+[jwt.io](http://jwt.io) is an excellent playfield to test JWTs. Go to [http://jwt.io](http://jwt.io) and input the string above in the encoded field.
 
 ### Compact Representation for Encrypted JWTs
 The compact representation for encrypted JWTs is somewhat different:
