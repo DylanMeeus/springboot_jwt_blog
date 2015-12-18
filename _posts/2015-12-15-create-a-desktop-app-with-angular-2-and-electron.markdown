@@ -458,11 +458,74 @@ We'll obviously want to change the name of the application and also provide a un
 
 ## Aside: Authentication with Auth0
 
-Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+No matter which framework you use with your Electron app, you can easily add authentication to it with Auth0! Our Lock widget allows you to get up and running quickly. Sign up for your <a href="javascript:signup()">free Auth0 account</a> to work with these directions.
 
-Auth0 [integrates well with AngularJS](https://auth0.com/learn/angular-authentication) at both 1.x and 2. If your electron app relies on a remote database and data API, you can easily protect it with JWT authentication. You can also use **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to send authenticated HTTP requests from your Angular 2 app.
+Before getting started with the code, you'll need to whitelist the `file://*` protocol in your Auth0 dashboard. This can be done in the **Allowed Origins (CORS)** area.
 
-<img src="https://docs.google.com/drawings/d/1ErB68gFj55Yg-ck1_CZByEwN5ql0Pj2Mzd-6S5umv2o/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
+To begin, include the **Auth0-Lock** library from the CDN and provide a button or other element to hook into.
+
+```html
+  <!-- index.html -->
+
+  ...
+
+  <!-- Auth0Lock script -->
+  <script src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+
+  <!-- Setting the right viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <body>
+    <h1>Authenticate with Auth0!</h1>
+    <button id="login">Login</button>
+
+  ...
+```
+
+Next, create a new instance of Lock and set `window.electron` to an empty object to trigger the proper login flow for Electron.
+
+```html
+  <!-- index.html -->
+
+  <script>
+    
+    var lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_CLIENT_DOMAIN');
+
+    window.electron = {};
+
+  </script>
+```
+
+Finally, trigger the Lock widget to be shown when the user clicks the **Login** button. In the callback, set the returned user profile and token into local storage for use later.
+
+```html
+  <!-- index.html -->
+
+  <script>
+    
+    ...
+
+    document.getElementById('login').addEventListener('click', function() {
+      lock.show(function(err, profile, token) {
+        if (err) {
+          
+          // Error callback
+          console.error("Something went wrong: ", err);
+
+        } else {
+          
+          // Success calback. Save the profile and JWT token.
+          localStorage.setItem('profile', JSON.stringify(profile));
+          localStorage.setItem('id_token', token);
+
+        }
+      });
+    });
+
+  </script>
+```
+
+With the token in local storage, it can now be used as an `Authorization` header to access secured API endpoints. The way to attach the header to HTTP calls differs depending on which library or framework you're using. If you're using Angular 2 in your Electron app, you can use **[angular2-jwt](https://www.npmjs.com/package/angular2-jwt)**. Follow the steps in the [Angular 2 docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) for more details. Not using Angular 2? We've got [intergrations](https://auth0.com/docs) for many other frameworks and libraries as well!
 
 ## Wrapping Up
 
