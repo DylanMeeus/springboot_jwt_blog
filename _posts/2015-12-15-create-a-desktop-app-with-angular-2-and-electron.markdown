@@ -435,10 +435,9 @@ class ByteFormatPipe implements PipeTransform {
   selector: 'app',
   pipes: [ByteFormatPipe],
   template: `
-
     <h1>Total Images: {{ "{{ imageStats().count " }}}}</h1>
     <h1>Total Size: {{ "{{ imageStats().size | byteFormat " }}}}</h1>
-
+  `
 ...
 ```
 
