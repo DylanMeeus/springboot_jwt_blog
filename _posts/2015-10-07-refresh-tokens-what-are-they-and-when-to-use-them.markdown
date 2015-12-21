@@ -189,6 +189,6 @@ At Auth0 we do the hard part of authentication for you. Refresh tokens are not a
 ## Conclusion
 Refresh tokens improve security and allow for reduced latency and better access patterns to authorization servers. Implementations can be simple using tools such as JWT + JWS. If you are interested in learning more about tokens (and cookies), check our article [here](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
 
-> You can also check the [Refresh Tokens landing page.](https://auth0.com/learn/refresh-tokens).
+> You can also check the [Refresh Tokens landing page](https://auth0.com/learn/refresh-tokens) for more information.
 
 
