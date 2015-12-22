@@ -54,7 +54,7 @@ Once you have your token, it's safe to pass as an authentication header:
 Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCIsImlhdCI6MTQ0NjUyNDM5NH0.NDlWo8qunNFJvU9GGTeniAfUxwV0z38LhgkN57m-hvI
 ```
 
-Want to learn even more about JWT tokens before getting started? Check out Auth0's [extensive documentation on the subject at JWT.io](http://jwt.io)
+Want to learn even more about JWT tokens before getting started? Check out Auth0's [extensive documentation on the subject at JWT.io](http://jwt.io). You can also read about the different ways to sign JWT's in [this blog post.](https://auth0.com/blog/2015/12/17/json-web-token-signing-algorithms-overview/)
 
 ## Using JWT for request authentication
 
@@ -71,7 +71,7 @@ app.use(jwt({ secret: 'my secret'});
 
 Now all of your requests to this API will require the authentication header to contain a valid JWT token signed with your secret in order to complete-- otherwise they will return with a 401. 
 
-## When is this useful?
+## When is this useful for NodeBots?
 
 This technique is mainly useful for Johnny-Five, and other NodeBots projects, that are accessible via the internet. This can include thin clients (e.g. [Particle Photons](http://particle.io) using the [Javascript SDK](https://www.npmjs.com/package/spark)), or [Johnny-Five](http://johnny-five.io) bots that have been made available via local wireless.
 
