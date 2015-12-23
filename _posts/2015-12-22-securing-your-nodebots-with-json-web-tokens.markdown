@@ -30,7 +30,15 @@ However, this can lead to some interesting scenarios regarding security-- especi
 
 Luckily for us, NodeBots means Node, and Node has several easy-to-use security systems. One way is to use JSON Web Tokens as a bolstered authentication system for your NodeBots server.
 
+## What are NodeBots?
+
+Just in case you've never heard of them, NodeBots refers to any project that runs hardware with Node.JS or javascript in some form or another. One of the most popular frameworks for this is [johnny-five](http://johnny-five.io). An example of a NodeBot is the #NodeSash-- a belt that reacts to colors sent in via Twitter:
+
+(image placeholder)
+
 ## JSON Web Tokens
+
+If you've never used JSON Web Tokens, there is some great introductory material [at jwt.io](https://jwt.io/introduction).
 
 When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security-- especially when you're stuck on HTTP. JSON Web Tokens use a payload, encyption, and either a secret or private/public key pair in order to provide a signed token that allows you to verify that your NodeBots APIs are only being used by you (or other NodeBots and users that you approve)!
 
