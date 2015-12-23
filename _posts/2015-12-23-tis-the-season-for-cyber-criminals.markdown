@@ -119,9 +119,9 @@ Never, ever send your sensitive information when on a public Wi-Fi network, espe
 
 -------
 
-## Recommendations
+## Recommendations for avoiding cyber criminals
 
-<div class="" style="text-align: center;"><img style="margin: 0; max-width: 250px;" src="https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/recommendations.png" alt="Recommendations for this season" />
+<div class="" style="text-align: center;"><img style="margin: 0; max-width: 250px;" src="https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/recommendations.png" alt="Recommendations for avoiding cyber criminals" />
 </div>
 
 Based on all the aforementioned threats, we created the following list of recommendations that you should consider to stay protected this season.
@@ -166,7 +166,7 @@ Additionally, you can define **password policies** to customize the level of com
 - **Good**: The password must be at least eight characters long and must contain at least three of the following four characters: a lower case letter, an upper case letter, a number, or a special character (e.g. !@#$%^&*)
 - **Excellent**: The password must be at least 10 characters long. It must contain no more than two identical characters in a row (e.g., "aaa" is not allowed). It must contain at least three of the following four types of characters: a lower case letter, an upper case letter, a number, and a special character (e.g. !@#$%^&*).
 
-![](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/password-strenght.png)
+![Setting the required password Strenght in Auth0](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/password-strenght.png)
 
 Lastly, you can also enable [multifactor authentication](https://auth0.com/learn/get-started-with-mfa) in a few steps for extra security for your critical applications.
 
