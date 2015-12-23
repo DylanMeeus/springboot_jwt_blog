@@ -47,10 +47,10 @@ p,li
   color: #4d4d4d;
 
 .bottom-module
-  margin: 40px 0;
+  margin-top: 40px;
 
   +breakpoint("tablet")
-    margin: 60px 0;
+    margin-top: 60px;
 
 .try-banner
   margin: 0;
@@ -718,7 +718,7 @@ pre.prettyprint
   visibility: hidden;
   min-height: 56px;
   min-width: 320px;
-  padding 0 60px
+  padding 0 40px
   border-bottom 1px solid rgba(color_grey,.5)
 
   p
@@ -738,6 +738,7 @@ pre.prettyprint
     background-color: #5C666F;
     color: white;
     position: relative;
+    border: 0;
 
     .btn-lg
       display: none;
@@ -792,8 +793,11 @@ pre.prettyprint
     box-shadow: none;
     height: 35px;
     width: auto;
-    margin: 10px 15px;
-    margin-right: 5px;
+    margin: 10px 0;
+
+    +breakpoint("tablet")
+      margin: 10px 15px;
+      margin-right: 5px;
 
   button
     height: 35px;
@@ -821,6 +825,14 @@ pre.prettyprint
     transform translateY(-50%)
     &:hover
       opacity 1
+
+.hiring-callout
+  text-align: center;
+  padding: 60px 20px;
+
+.separator
+  border-top: 1px solid #ddd;
+  margin-bottom: 40px;
 
 #auth0
   border: 1px  #ecf0f1 solid;
