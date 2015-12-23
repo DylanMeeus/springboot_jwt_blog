@@ -77,6 +77,75 @@ This technique is mainly useful for Johnny-Five, and other NodeBots projects, th
 
 This is also useful in situations where you use an external client (be it a client-side app, a different API server, or even a third-party service) to work with your NodeBot. For instance, if you have a GET route that moves a servo, and you don't want someone hacking together a script in a few minutes that takes over movement using that GET request, you can use JWT to lock down that route so only scripts that you've written, containing tokens signed with your secret, can move that servo.
 
+## Aside: User Management with Auth0
+
+If you want to provide a user login for your NodeBots project, you can use Auth0 to manage your users and easily create a login dialog! Check out [lock](https://auth0.com/lock) for more information. You can implement lock easily on your front-end and your Node.JS server [with just a few lines of javascript](https://auth0.com/docs/quickstart/spa/vanillajs/nodejs).
+
+For instance, in your web interface's index.html, add
+
+```html
+  <!-- index.html -->
+
+  ...
+
+  <!-- Auth0 Lock script -->
+  <script src="//cdn.auth0.com/js/lock-7.11.1.min.js"></script>
+
+  ...
+```
+
+To call in the Auth0 Lock script. Then, add a login button:
+
+```html
+	<!-- index.html -->
+
+	...
+
+	<!-- Login Button -->
+	<input id="btn-login" class="btn-login" type="submit" />
+
+	...
+```
+
+To wrap-up the front-end, add a call to Lock from the login button:
+
+```javascript
+document.getElementById('btn-login').addEventListener('click', function() {
+  lock.show(function(err, profile, token) {
+    if (err) {
+      // Error callback
+      console.error("Something went wrong: ", err);
+      alert("Something went wrong, check the Console errors");
+    } else {
+      // Success calback  
+
+      // Save the JWT token.
+      localStorage.setItem('userToken', token);
+
+      // Save the profile
+      userProfile = profile;
+
+      document.getElementById('nick').textContent = profile.nickname;
+    }
+  });
+});
+```
+
+Then, on your server, we're going to modify our use of express-jwt to work with the JWTs that Auth0 creates to authenticate users:
+
+```javascript
+var express = require('express');
+var app = express();
+var jwt = require('express-jwt');
+
+var jwtCheck = jwt({
+  secret: new Buffer('YOUR_CLIENT_SECRET', 'base64'),
+  audience: 'YOUR_CLIENT_ID'
+});
+```
+
+This way, you can easily allow users to log into your NodeBots interface, with jsut a few lines of javascript!
+
 ## Other tips
 
 Some things to keep in mind when using this method to protect your robotics APIs:
