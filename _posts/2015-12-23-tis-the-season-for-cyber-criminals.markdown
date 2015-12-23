@@ -8,7 +8,7 @@ author:
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design:
-  image: https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/this-the-season-logo.png 
+  image: https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/logo.png 
   image_bg_color: "transparent"
   bg_color: "#06344B"
 tags: 
