@@ -119,9 +119,9 @@ Never, ever send your sensitive information when on a public Wi-Fi network, espe
 
 -------
 
-## Recommendations for avoiding cyber criminals
+## Recommendations to be safe from cyber criminals
 
-<div class="" style="text-align: center;"><img style="margin: 0; max-width: 250px;" src="https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/recommendations.png" alt="Recommendations for avoiding cyber criminals" />
+<div class="" style="text-align: center;"><img style="margin: 0; max-width: 250px;" src="https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/recommendations.png" alt="Recommendations to be safe from cyber criminals" />
 </div>
 
 Based on all the aforementioned threats, we created the following list of recommendations that you should consider to stay protected this season.
