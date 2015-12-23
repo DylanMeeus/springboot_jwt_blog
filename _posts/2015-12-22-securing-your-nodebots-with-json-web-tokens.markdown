@@ -32,9 +32,9 @@ Luckily for us, NodeBots means Node, and Node has several easy-to-use security s
 
 ## What are NodeBots?
 
-Just in case you've never heard of them, NodeBots refers to any project that runs hardware with Node.JS or javascript in some form or another. One of the most popular frameworks for this is [johnny-five](http://johnny-five.io). An example of a NodeBot is the #NodeSash-- a belt that reacts to colors sent in via Twitter:
+Just in case you've never heard of them, NodeBots refers to any project that runs hardware with Node.JS or javascript in some form or another. One of the most popular frameworks for this is [johnny-five](http://johnny-five.io). An example of a NodeBot is this Rose Pin, which allows people to change the color of the lights inside the rose via a web interface:
 
-(image placeholder)
+![The NodeBots Rose Pin](https://cdn.auth0.com/blog/nodebots)
 
 ## JSON Web Tokens
 
@@ -75,6 +75,10 @@ var jwt = require('express-jwt');
 var app = express();
 
 app.use(jwt({ secret: 'my secret'});
+
+app.get('/protected', function(req, res){
+	res.send('This route requires a JWT to be reached-- this message means you are authenticated!');
+});
 ```
 
 Now all of your requests to this API will require the authentication header to contain a valid JWT token signed with your secret in order to complete-- otherwise they will return with a 401. 
