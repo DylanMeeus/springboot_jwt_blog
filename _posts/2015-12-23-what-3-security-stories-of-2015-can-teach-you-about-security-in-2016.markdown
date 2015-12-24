@@ -46,7 +46,7 @@ A Distributed Denial of Service (DDoS) attack takes this type of attack one step
 
 ![How DDoS attacks work](https://cdn.auth0.com/blog/3-security-stories/DDoS-attack.png)
 
-ProtonMail was hit with over 100 Gbps of traffic, wiping out access to the companies servers. The assault continued for days, until, under pressure from their customers, ProtonMail paid up. ProtonMail wasn’t the first, and won’t be the last to be hit by DDoSing blackmailers. The Armada Collective continues, DDoS-sing its way around SaaS companies, trying to extort Bitcoins from anyone they can hit and take offline. 
+ProtonMail was hit with over 100 Gbps of traffic, wiping out access to the company's servers. The assault continued for days, until, under pressure from their customers, ProtonMail paid up. ProtonMail wasn’t the first, and won’t be the last to be hit by DDoSing blackmailers. The Armada Collective continues, DDoS-sing its way around SaaS companies, trying to extort Bitcoins from anyone they can hit and take offline. 
 
 ### How to mitigate against DDoS: Outscale the attack
 
@@ -59,7 +59,7 @@ AWS has two forms of scaling:
 * Horizontal: Adding more instances (virtual servers) to your infrastructure
 * Vertical: Adding instances with more capacity—more memory, higher I/O performance
 
-Using these two scaling techniques in unison, you can distribute traffic to several different instances, load balancing and dispersing the attack over a wider area. The means that a) the attackers have to use more and more of their own resources to achieve their objective, and b) you have more time to analyze the attack and respond.
+Using these two scaling techniques in unison, you can distribute traffic to several different instances, load balancing and dispersing the attack over a wider area. This means that a) the attackers have to use more and more of their own resources to achieve their objective, and b) you have more time to analyze the attack and respond.
 
 AWS lets you set up [auto scaling](http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html), setting up a desired capacity for your infrastructure, but also a scaling target you are willing to hit when the load increases during an attack (or if you suddenly become *really* popular).
 
@@ -70,16 +70,16 @@ In this scenario, the AWS system will always make sure you have 1 instance at yo
 
 AWS isn’t the only cloud provider that supports auto-scaling for dealing with changes in traffic demand. [Microsoft Azure](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-scale/), [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-automate-the-scaling-of-your-web-application-on-digitalocean), and other big cloud hosting companies offer auto-scaling. Even smaller ISPs will help you out of a hole if you get attacked. 
 
-Contingency planning is key for DDoS attacks. DDosing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline for long, and might end up paying any ransom demands to get their product back up. By putting a plan in place before your servers go down, you can make sure your service is available consistently and that you aren’t beholden to blackmailers if they do target your site.
+Contingency planning is key for DDoS attacks. DDoSing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline for long, and might end up paying any ransom demands to get their product back up. By putting a plan in place before your servers go down, you can make sure your service is available consistently and that you aren’t beholden to blackmailers if they do target your site.
 
 Additionally, building on top of an existing framework such as AWS means that you will definitely have the capacity to scale when the time comes, and can quickly take on any extra load without having to deal with all of these issues at the absolute worst time—when you’re being attacked.
 
 
 ## VTech: Massive Data Breach Via SQL Injection
 
-2015 was the year of the data breach, and perhaps no breach outdid the [November hack of VTech](http://www.troyhunt.com/2015/11/when-children-are-breached-inside.html) in showing how lax some companies can be with very personal data. Not only where the details of 4.8 million adults stolen, but also the personal information of 6.3 million children.
+2015 was the year of the data breach, and perhaps no breach outdid the [November hack of VTech](http://www.troyhunt.com/2015/11/when-children-are-breached-inside.html) in showing how lax some companies can be with very personal data. Not only were the details of 4.8 million adults stolen, but also the personal information of 6.3 million children.
 
-VTech make a number of electronic children’s toys, and have their very own app store that both parents and children can sign up for. Using SQL injection, the attacker got access to the database behind this app store, stealing the personal information of anyone who had signed up. For the parents, this information included:
+VTech makes a number of electronic children’s toys, and have their very own app store that both parents and children can sign up for. Using SQL injection, the attacker got access to the database behind this app store, stealing the personal information of anyone who had signed up. For the parents, this information included:
 
 * Name
 * Address
@@ -115,7 +115,7 @@ SQL Injection is just one of the [Top 10 Web Application Security Risks](https:/
 
 Along with SQL Injection, VTech was making at least 2 further mistakes—data exposure and security misconfiguration—that are on this list. No doubt a security researcher would find that they were making almost all of these mistakes.
 
-That is why it is vital for all companies to run security audits on their sites. Unfortunautely, this isn’t what happens. Instead, developers take a ‘I’ll fix it when it’s found’ mentality, presuming that their coding skills are awesome enough that they don’t make such elementary mistakes. That’s probably what VTech’s developers thought.
+That is why it is vital for all companies to run security audits on their sites. Unfortunautely, this isn’t what happened. Instead, developers take a ‘I’ll fix it when it’s found’ mentality, presuming that their coding skills are awesome enough that they don’t make such elementary mistakes. That’s probably what VTech’s developers thought.
 
 Services such as [Tinfoil Security](https://www.tinfoilsecurity.com/) will scan your site monthly, weekly, or even daily looking for possible vulnerabilities that attackers could use to compromise your service.
 
@@ -135,9 +135,9 @@ Instead of either a) ignoring these security holes, or b) trying to find them al
 
 1 in 6 payments at Starbucks is now made using their app. You upload money onto it via a credit/debit card or PayPal account and, with a quick scan of the screen, you’ve got your Chestnut Praline Latte. The app is so popular that, in the past year, Starbucks made [$146 million in interest](http://www.bloomberg.com/bw/articles/2014-01-24/starbucks-just-sold-1-dot-4-billion-in-gift-cards-dot-what-did-it-do-with-that-cash) on the money sitting dormant on these cards alone.
 
-But Starbucks aren’t the only people making money off the app—[so are thieves](http://money.cnn.com/2015/05/13/technology/hackers-starbucks-app/).  Users have noticed that they have been suddenly been inundated with notifications from the app, telling them that they are gifting money to other people’s cards in a flurry. They drain the money off the app, transferring the money onto other Starbucks cards that they can then sell on the black market.
+But Starbucks aren’t the only people making money off the app—[so are thieves](http://money.cnn.com/2015/05/13/technology/hackers-starbucks-app/).  Users have noticed that they have suddenly been inundated with notifications from the app, telling them that they are gifting money to other people’s cards in a flurry. They drain the money off the app, transferring the money onto other Starbucks cards that they can then sell on the black market.
 
-Worse still, the app has a function called ‘auto-reload’. When you account hits zero it will automatically add more money to your Starbucks card from your linked account. This way thieves can drain your bank account or Paypal account in a matter of a few minutes, transferring the money onto Starbucks cards that they can then sell on the black market.
+Worse still, the app has a function called ‘auto-reload’. When your account hits zero it will automatically add more money to your Starbucks card from your linked account. This way thieves can drain your bank account or Paypal account in a matter of a few minutes, transferring the money onto Starbucks cards that they can then sell on the black market.
 
 Thieves can do all of this with simple stolen passwords. Users don’t consider their coffee app as something that needs strong security, but once it is linked up to a bank account or PayPal account, it suddenly becomes a conduit to all of your money. We don’t immediately associate these apps with all our wealth, but if you have a gift card or payment app that is linked directly to your bank account, then anyone with access has access to your money. 
 
