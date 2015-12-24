@@ -10,7 +10,7 @@ author:
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
 design: 
   bg_color: "#191716"
-  image: https://cdn.auth0.com/blog/3-security-stories/logo.png
+  image: https://cdn.auth0.com/blog/3-security-stories/logo2.png
 tags: 
 - security stories
 - security breaches
@@ -32,7 +32,7 @@ Back in November, anyone attempting to access Swiss-based encrypted email servic
 
 ![ProtonMail page unavailable](https://cdn.auth0.com/blog/3-security-stories/protonmail.jpeg)
 
-The [entire service was offline](https://grahamcluley.com/2015/11/armada-collective-ddos/), hit by a powerful Distributed Denial of Service (DDoS) attack. Over 100 companies that relied on ProtonMail for encrypted communications were paralyzed, unable to work themselves while ProtonMail’s servers were being assaulted. This wasn’t done for fun by some tweens, or by some anarchist group for some perceived sleight to the world.  
+The [entire service was offline](https://grahamcluley.com/2015/11/armada-collective-ddos/), hit by a powerful Distributed Denial of Service (DDoS) attack. Over 100 companies that relied on ProtonMail for encrypted communications were paralyzed, unable to work themselves while ProtonMail’s servers were being assaulted. This wasn’t done for fun by some tweens, or by some anarchist group for some perceived sleight to the world.
 
 It was purely for money. 
 
