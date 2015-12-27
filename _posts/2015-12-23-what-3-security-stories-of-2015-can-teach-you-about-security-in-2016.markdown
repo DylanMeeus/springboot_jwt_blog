@@ -173,7 +173,7 @@ In a [recent post](http://blog.learningbyshipping.com/2015/12/15/hallway-debates
 
 With all the data breaches and security issues in 2015, customers are going to expect that providers build their products with intrinsic security features. So far in SaaS, security has been a bolt-on feature, mainly emphasized for enterprise clients and left out of lower-priced tiers. 
 
-But, as the example of ProtonMail shows, smaller companies are no longer out of the hackers sights. What was previously only for enterprise is now as important for boostrapping services. Security should be among the first wave of product features that developers build in to their own services, making sure that security is deep-rooted within the product.
+But, as the example of ProtonMail shows, smaller companies are no longer out of the hackers' sights. What was previously only for enterprise is now as important for boostrapping services. Security should be among the first wave of product features that developers build in to their own services, making sure that security is deep-rooted within the product.
 
 But with the proliferation of affordable Security-as-a-Service products now available, any developer, whether bootstrapper or enterprise, can embed security right at the core of their product, offering what was once a premium offering to every customer, and making their service safer to use for all.
 
