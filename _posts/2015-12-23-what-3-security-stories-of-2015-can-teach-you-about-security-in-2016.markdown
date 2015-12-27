@@ -18,7 +18,7 @@ tags:
 - DDoS
 ---
 
-2015 has been the year of the data breach. Ashley Madison, Talk Talk, Slack, LastPass, and HipChat, to name a few, have all seen their services compromised this year by unauthorized data breaches or attacks.
+2015 has been the year of the data breach. Ashley Madison, TalkTalk, Slack, LastPass, and HipChat, to name a few, have all seen their services compromised this year by unauthorized data breaches or attacks.
 
 These sites, in fact most sites, are easy pickings for attackers because security has long been far down the todo list of most developers. They don’t think about it until something goes wrong, or when they do think about it, it’s as an add-on feature only available to enterprise level customers.
 
