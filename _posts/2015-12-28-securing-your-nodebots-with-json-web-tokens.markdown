@@ -2,7 +2,7 @@
 layout: post
 title: "Securing your NodeBots with JSON Web Tokens"
 description: "Secure your internet-connected NodeBots projects with JSON Web Tokens."
-date: 2015-12-22 9:00
+date: 2015-12-28 9:00
 permalink: /2015/12/22/securing-nodebots-with-JWT
 author: 
   name: Kassandra Perch
@@ -91,7 +91,7 @@ This is also useful in situations where you use an external client (be it a clie
 
 ## Aside: User Management with Auth0
 
-If you want to provide a user login for your NodeBots project, you can use Auth0 to manage your users and easily create a login dialog! Check out [lock](https://auth0.com/lock) for more information. You can implement lock easily on your front-end and your Node.JS server [with just a few lines of javascript](https://auth0.com/docs/quickstart/spa/vanillajs/nodejs).
+If you want to provide a user login for your NodeBots project, you can use Auth0 to manage your users and easily create a login dialog! Check out [Lock](https://auth0.com/lock) for more information. You can implement Lock easily on your front-end and your Node.JS server [with just a few lines of javascript](https://auth0.com/docs/quickstart/spa/vanillajs/nodejs).
 
 For instance, in your web interface's index.html, add
 
