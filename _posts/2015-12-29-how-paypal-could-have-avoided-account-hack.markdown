@@ -9,7 +9,9 @@ author:
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
   bg_color: "#222D65"
-  image: https://cdn.auth0.com/blog/paypal/logo.png 
+  image: https://cdn.auth0.com/blog/paypal/logo.png
+  image_tw: http://cdn.auth0.com/blog/paypal/twitter-card.png
+  image_fb: http://cdn.auth0.com/blog/paypal/twitter-card.png
 tags: 
 - paypal hack
 - security
