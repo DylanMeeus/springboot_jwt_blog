@@ -56,7 +56,7 @@ With **Step Up Security**, critical actions in user accounts—adding or changin
 ![Step Up Security](https://cdn.auth0.com/blog/paypal/step-up-security.png)
 
 ### 4 - Trained Support
-Companies **must invest** in training their customer support employees in security procedures. This point is often inadequately considered, which leads to situations like granting access to anyone with the sufficient static information. And this in turn will make the company lose its reputation.
+Companies **must invest** in training their customer support employees in security procedures. This point is often inadequately considered, which leads to situations like granting access to anyone with the sufficient static information. And this in turn will make the company lose its reputation. But as we have learned from past hacks, social engineering (virtually always will succeed eventually)[http://www.wired.com/2014/01/my-epic-hack-revisited/]. While training of support staff is needed, it must be part of a larger security strategy. Using a method above to build a system that requires customer verification is an important step in preventing social engineering"
 
 ![Trained Support](https://cdn.auth0.com/blog/paypal/trained-support.png)
 
