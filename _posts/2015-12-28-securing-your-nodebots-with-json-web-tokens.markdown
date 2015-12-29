@@ -10,7 +10,7 @@ author:
   mail: kassandra.perch@auth0.com
   avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
 design:
-  bg_color: "#415156"
+  bg_color: "#222228"
   image: https://cdn.auth0.com/blog/jwtalgos/logo.png
   image_size: "120%"
   image_bg_color: "#B6C5CA"

@@ -43,7 +43,7 @@ PayPal has this option available by using hardware tokens, but evidently this is
 <div class="" style="text-align: center;"><img style="margin: 0; max-width: 200px;" src="https://cdn.auth0.com/docs/media/landings/why-is-mfa-necessary/why-is-mfa-necessary.png" alt="Multifactor Authentication" />
 </div>
 
-### 2 - Passwordless Login via sms y email
+### 2 - Passwordless Login via sms and email
 With Passwordless Login you can use one-time codes or “magic links” delivered via SMS or email. In this way, only users who have access to the registered email account or registered phone will be able to login. If PayPal support had offered this option, they could have ensured that the person claiming access was the legitimate owner by sending an email or SMS with a code or link.
 ​​
 > You can read more about Passwordless [here](https://auth0.com/blog/2015/09/30/auth0-passwordless-email-authentication-and-sms-login-without-passwords/).
