@@ -20,7 +20,7 @@ tags:
 - passwordless
 ---
 
-Yesterday, _Brian Krebs_ from [Krebs on Security](http://krebsonsecurity.com/2015/12/2016-reality-lazy-authentication-still-the-norm/) reported that his PayPal accounthad been hacked using one of the oldest hacking methods: **social engineering**, and knowing some pieces of static information about the account owner —the last four digits of an old credit card and the last four digits of the social security number—.
+Yesterday, _Brian Krebs_ from [Krebs on Security](http://krebsonsecurity.com/2015/12/2016-reality-lazy-authentication-still-the-norm/) reported that his PayPal account had been hacked using one of the oldest hacking methods: **social engineering**, and knowing some pieces of static information about the account owner —the last four digits of an old credit card and the last four digits of the social security number—.
 
 Being a known security expert, Brian had a strong account password; that is, it was long and complex, and used all types of characters. A strong password is mandatory, especially for a service that is directly linked to the user's credit cards. In Brian's case, he soon discovered that it was not his password that was compromised. Instead, the cyber criminal called PayPal customer support, impersonated him, and got access to his account in a matter of minutes, having provided only that static and easy-to-obtain information about the user, not once but twice.
 
