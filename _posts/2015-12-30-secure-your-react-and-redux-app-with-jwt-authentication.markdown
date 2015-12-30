@@ -27,7 +27,7 @@ tags:
 ---
 
 ---
-**TL;DR:** Redux is a state container for JavaScript applications that lets us have a predictable unidirectional data flow. It offers some benefits over other libraries like Flux, but works in similar ways. In this article we explore how to add JWT authentication to a Redux app. Check out the repo to go straight to the code.
+**TL;DR:** Redux is a state container for JavaScript applications that lets us have a predictable unidirectional data flow. It offers some benefits over other libraries like Flux, but works in similar ways. In this article we explore how to add JWT authentication to a Redux app. Check out the [repo](https://github.com/auth0/redux-auth) to go straight to the code.
 
 ---
 
