@@ -31,7 +31,7 @@ tags:
 
 ---
 
-There are many benefits to using unidirectional data flow in single page applications, and perhaps the biggest is that as the application becomes larger, it is easier to reason about how data affects the its state and views. Although patterns like Flux have been popularized by React, it certainly isn't limited to it and we are now seeing unidirectional data flow in other frameworks such as [AngularJS](https://github.com/christianalfoni/flux-angular).
+There are many benefits to using unidirectional data flow in single page applications. Perhaps the biggest is that as applications become larger, it is easier to reason about how data affects the app's states and views. Although patterns and libraries like Flux have been popularized by React, we certainly aren't limited to using the two together. It's now common to see unidirectional data flow patterns in other frameworks, such as [AngularJS](https://github.com/christianalfoni/flux-angular).
 
 While [Flux](https://github.com/facebook/flux) is proven and works well for one-way data flow, a newer library called [Redux](https://github.com/rackt/redux/) is another great solution that offers the benefit of being easier to work with. While Flux and Redux are similar, there are some important [differences](http://redux.js.org/docs/introduction/PriorArt.html).
 
@@ -43,13 +43,13 @@ JavaScript applications are, in a lot of ways, large collections of data and sta
 
 ### Reducers
 
-Redux makes it very clear that the application's data itself should never be mutated directly. Instead, a function should be put in place that returns the **next** state by looking at the previous state and an action that describes how things should change. These functions are called **reducers** and are at the heart of Redux. It's important to note that reducers should be kept **pure**, meaning that their output should rely soley on the arguments passed to them with no side effects such as making an API call or mutating the arguments passed in.
+Redux makes it very clear that the application's data itself should never be mutated directly. Instead, a function should be put in place that returns the **next** state by looking at the previous state, along with an action that describes how things should change. These functions are called **reducers** and are at the heart of Redux. It's important to note that reducers should be kept **pure**, meaning that their output should rely solely on the arguments passed to them with no side effects such as making an API call or mutating the arguments passed in.
 
 So why should reducers be pure and not have side effects? In short, it's to keep things simple and predictable. A function that relies only on the arguments passed to it to derive the next state will be easier to reason about and debug. If we wanted to we could return mutated objects and Redux wouldn't throw errors, as we mentioned, it is strongly discouraged.
 
 ### Actions
 
-While reducers describe how the app's state changes, actions describe **what** happened. They carry infomation about what has changed in the app's state and, as mentioned eariler, are used in reducers to derive the next state. Actions are given a **type** property which can be used in a switch statement within the reducer to handle the various types of actions that get defined.
+While reducers describe how the app's state changes, actions describe **what** happened. They carry infomation about what has changed in the app's state and, as mentioned earlier, are used in reducers to derive the next state. Actions are given a **type** property which can be used in a switch statement within the reducer to handle the various types of actions that get defined.
 
 ### Benefits of Redux
 
@@ -163,7 +163,7 @@ Finally, we need the [NodeJS Chuck Norris quote API](https://github.com/auth0/no
 
 ## Creating the Redux Store
 
-In Flux, many stores are used within the app, but with Redux, there is only **one**. A Redux store holds the application's state and lets us use the `dispatch` function to call our actions. In the case of React app, we can provide the single store to the top-level component. We need to wrap the top-level component with a `Provider` from `react-redux` so that everything below gets access to the store.
+In Flux, many stores are used within the app, but with Redux, there is only **one**. A Redux store holds the application's state and lets us use the `dispatch` function to call our actions. In the case of our React app, we can provide the single store to the top-level component. We need to wrap the top-level component with a `Provider` from `react-redux` so that everything below gets access to the store.
 
 ```jsx
 // index.js
@@ -254,7 +254,7 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(App)
 ```
 
-Here we create our root component called `App` and call on some other components that we'll create afterwards called `Navbar` and `Quotes`. We're passing some props to these components that come from our global state and are retrieved in the `mapPropsToState` function. With the `connect` function, we are wiring up the `App` component to be used with Redux and passing the props it needs from the global state to start.
+Here we create our root component, called `App` and call on some other components that we'll create afterward called `Navbar` and `Quotes`. We're passing some props to these components that come from our global state and are retrieved in the `mapPropsToState` function. With the `connect` function, we are wiring up the `App` component to be used with Redux and passing the props it needs from the global state to start.
 
 > **Note:** What's the `{ thing } = this.props` syntax all about? We're using a lot of object destructuring throughout our app. If you're not familiar with this ES2015 feature, you can read more [here](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
@@ -262,7 +262,7 @@ Before we go on to create the other React components, let's finish out with the 
 
 ## The Redux Authentication Actions
 
-The actions that we need in our case are all going to be asynchronous because we are calling an API. To handle the async calls, we need a setup that has actions which cover the three possibilities states that exist:
+The actions that we need in our case are all going to be asynchronous because we are calling an API. To handle the async calls, we need a setup that has actions which cover the three possible states that exist:
  
 1. A request was sent
 2. A request successful
@@ -352,11 +352,11 @@ export function loginUser(creds) {
 ...
 ```
 
-We're using the `fetch` API to make our calls to the server with our user's credentials. The important thing to notice here is that we're making use of our three `login` actions at various points of the API call. We start by dispatching the `requestLogin` function before the call is made to say that the request has been sent. If the status comes back as anything other than `OK`, we dispatch the `loginError` function, and if it was successful, we dispatch the `receiveLogin` function. In this way we can send the appropriate actions for whatever happens situation.
+We're using the `fetch` API to make our calls to the server with our user's credentials. The important thing to notice here is that we're making use of our three `login` actions at various points of the API call. We start by dispatching the `requestLogin` function before the call is made to say that the request has been sent. If the status comes back as anything other than `OK`, we dispatch the `loginError` function, and if it was successful, we dispatch the `receiveLogin` function. In this way we can send the appropriate actions for whatever situation happens.
 
 We're also taking care of saving the JWT that comes back from the API in local storage right here within the API call. We could do this elsewhere, but it's important to note that we can't do it in the reducer. As was mentioned earlier, reducers should have no side effects.
 
-We can also put in the actions for logging the user out. The logout process is a bit different because it really just requires that we remove the user's token from local storage and set the `isAuthenticated` boolean to false, but we'll put in all the actions that we would normally have when talking to an API just in case it is needed.
+We can also put in the actions for logging the user out. The logout process is a bit different because it really just requires that we remove the user's token from local storage and set the `isAuthenticated` boolean to false, but we'll put in all the actions that we would normally have when talking to an API just in case they are needed.
 
 ```js
 // actions.js
@@ -401,11 +401,11 @@ export function logoutUser() {
 ...
 ```
 
-It should be noted that we aren't taking care of letting users signup for accounts here in this tutorial, even though we could do so with a `POST` request to `localhost:3001/users`. This is for the sake of brevity, but the implementation would look similar to our `login` flow.
+It should be noted that we aren't taking care of letting users sign up for accounts here in this tutorial, even though we could do so with a `POST` request to `localhost:3001/users`. This is for the sake of brevity, but the implementation would look similar to our `login` flow.
 
 ## The Redux Authentication Reducer
 
-Now that we have the login **actions** in place, we need create the **reducer** that will return new states in response to them.
+Now that we have the login **actions** in place, we need to create the **reducer** that will return new states in response to them.
 
 ```js
 // reducers.js
@@ -470,7 +470,7 @@ const quotesApp = combineReducers({
 export default quotesApp
 ```
 
-Taking a look at the `auth` reducer, we can get a sense for how reducers get set up. The first parameter represents the starting state and in this case, we're assigning a default value that is an object. The default state just needs to say that we're not fetching any data to start out with, and whether the user has a JWT in local storage. We're using the presence of a JWT to determine if the user is authenticated, but in a full set up we could also use a utility to check if the JWT is expired or not. In either case, we can be sure that our API is secure because the user needs a valid JWT to get access to it.
+Taking a look at the `auth` reducer, we can get a sense for how reducers get set up. The first parameter represents the starting state and in this case, we're assigning a default value that is an object. The default state just needs to say that we're not fetching any data to start out with, and whether the user has a JWT in local storage. We're using the presence of a JWT to determine if the user is authenticated, but in a full setup we could also use a utility to check if the JWT is expired or not. In either case, we can be sure that our API is secure because the user needs a valid JWT to get access to it.
 
 The second paramter is the action which carries the type and any other data that describes the change to our data. The switch statement lets us respond to the various action types in whichever way we want. Remember that reducers need to return an unmutated object, so we use `Object.assign` with an empty object as the first argument so we can be sure the return value is a unique object. Notice that in the `LOGIN_FAILURE` case we are getting the error message that gets passed back from the `loginError` function.
 
@@ -482,7 +482,7 @@ Note that we need to make use of the Redux thunk middleware to handle the async 
 
 ## The Navbar and Login Components 
 
-We should see if everything is wiring up properly in the browser at this point. Before we do though, we'll need the `Navbar` and `Login` components in place.
+We should see if everything is wiring up properly in the browser at this point. But before we do, we'll need the `Navbar` and `Login` components in place.
 
 ```jsx
 // components/Navbar.js
@@ -598,7 +598,7 @@ Logout.propTypes = {
 }
 ```
 
-If we comment out the `Quotes` component pieces of `containers/App.js` and remove the `api` middleware call in our `index.js` file, we should be able to login. There is a default user with on the server with **gonto** as the uername and password. With a successful login, we get the token saved in local storage.
+If we comment out the `Quotes` component pieces of `containers/App.js` and remove the `api` middleware call in our `index.js` file, we should be able to log in. There is a default user on the server with **gonto** as the username and password. With a successful login, we get the token saved in local storage.
 
 ![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-2.png)
 
@@ -608,7 +608,7 @@ If we provide invalid credentials, the `LOGIN_FAILURE` action is hit and our err
 
 ## Fetching Quotes with API Middleware
 
-Redux lets us tie in middleware to our apps which opens up a lot of possibilities. With it, we can easily do things like [logging](https://www.npmjs.com/package/redux-logger). Another common use of middleware is for setting up API communication. Let's create a middleware that calls our API for quotes. Our setup is well-informed by the API middleware from Redux's [real world example]().
+Redux lets us tie in middleware to our apps, which opens up a lot of possibilities. With it, we can easily do things like [logging](https://www.npmjs.com/package/redux-logger). Another common use of middleware is for setting up API communication. Let's create a middleware that calls our API for quotes. Our setup is well-informed by the API middleware from Redux's [real world example](https://github.com/rackt/redux/tree/master/examples/real-world).
 
 ```js
 // middleware/api.js
@@ -674,7 +674,7 @@ export default store => next => action => {
 }
 ```
 
-The middleware itself is contained in the exported arrow function cascade which relies on the `callApi` function. The cool thing about setting up a middlware like this is that from our actions that call make use of the middlware, we can set a property that specifies whether the request should be authenticated. Notice here that if the request should be authenticated, we attach the token from local storage as an `Authorization` header.
+The middleware itself is contained in the exported arrow function cascade which relies on the `callApi` function. The cool thing about setting up a middleware like this is that from our actions that make use of the middlware, we can set a property that specifies whether the request should be authenticated. Notice here that if the request should be authenticated, we attach the token from local storage as an `Authorization` header.
 
 Next, we need to include some more actions to call the API for the quotes.
 
@@ -923,7 +923,7 @@ With these actions in place, we can now add them to our reducer to handle authen
 
 ## Wrapping Up
 
-Redux offers an alternative to Libraries like Flux for implementing one-way data flow in single page apps. Like Flux, Redux isn't limited to be used only with React. However, there are a lot of modules out there that are used with the two technologies, so putting them together is a natural choice.
+Redux offers an alternative to libraries like Flux for implementing one-way data flow in single page apps. Like Flux, Redux isn't limited to React. However, there are a lot of modules out there that are used with the two technologies, so putting them together is a natural choice.
 
 As we've seen, we can add JWT authentication to our Redux apps and use actions and reducers to track changes to the login state. We made use of Redux middleware to make secure calls to our API, and by abstracting the API communication away to a middleware, we just need to pass a property that specifies whether an `Authorization` header with a JWT should be sent with the request.
 
