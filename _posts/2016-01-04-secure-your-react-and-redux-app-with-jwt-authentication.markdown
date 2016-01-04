@@ -2,7 +2,7 @@
 layout: post
 title: "Secure Your React and Redux App with JWT Authentication"
 description: "Learn how to add JWT authentication to your React and Redux app. Use Redux middleware to make secure calls to an API."
-date: 2015-12-30 16:00
+date: 2016-01-04 16:00
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
@@ -27,7 +27,7 @@ tags:
 ---
 
 ---
-**TL;DR:** Redux is a state container for JavaScript applications that lets us have a predictable unidirectional data flow. It offers some benefits over other libraries like Flux, but works in similar ways. In this article we explore how to add JWT authentication to a Redux app. Check out the [repo](https://github.com/auth0/redux-auth) to go straight to the code.
+**TL;DR:** Redux is a state container for JavaScript applications by [Dan Abramov](https://twitter.com/dan_abramov) that lets us have a predictable unidirectional data flow. It offers some benefits over other libraries like Flux, but works in similar ways. In this article we explore how to add JWT authentication to a Redux app. Check out the [repo](https://github.com/auth0/redux-auth) to go straight to the code.
 
 ---
 
@@ -39,11 +39,13 @@ In this tutorial, we'll explore some of the principles of Redux and look at how 
 
 ## What is Redux and What Does it Solve?
 
-JavaScript applications are, in a lot of ways, large collections of data and state. Any good application will need a way for its state to be changed at some point, and this is where Redux comes in. Redux is essentially a state container for JavaScript apps that describes the state of the application as a single object. Further, Redux provides an opinionated pattern and toolset for making changes to the state of the app.
+JavaScript applications are, in a lot of ways, large collections of data and state. Any good application will need a way for its state to be changed at some point, and this is where Redux comes in. Built by [Dan Abramov](https://twitter.com/dan_abramov), Redux is essentially a state container for JavaScript apps that describes the state of the application as a single object. Further, Redux provides an opinionated pattern and toolset for making changes to the state of the app.
 
 ### Reducers
 
-Redux makes it very clear that the application's data itself should never be mutated directly. Instead, a function should be put in place that returns the **next** state by looking at the previous state and an action that describes how things should change. These functions are called **reducers** and are at the heart of Redux. It's important to note that reducers should be kept **pure**, meaning that their output should rely soley on the arguments passed to them with no reliance on the outside world.
+Redux makes it very clear that the application's data itself should never be mutated directly. Instead, a function should be put in place that returns the **next** state by looking at the previous state and an action that describes how things should change. These functions are called **reducers** and are at the heart of Redux. It's important to note that reducers should be kept **pure**, meaning that their output should rely soley on the arguments passed to them with no side effects such as making an API call or mutating the arguments passed in.
+
+So why should reducers be pure and not have side effects? In short, it's to keep things simple and predictable. A function that relies only on the arguments passed to it to derive the next state will be easier to reason about and debug. If we wanted to we could return mutated objects and Redux wouldn't throw errors, as we mentioned, it is strongly discouraged.
 
 ### Actions
 
@@ -55,9 +57,9 @@ Since all data flow is strictly one-way, and because data is never mutated, Redu
 
 ## Redux Authentication App - Getting Started
 
-To get a sense for using JWT authentication with Redux, we'll build a simple app that retrieves Chuck Norris quotes. The app will let users log in and get a JWT that can be used to access protected endpoints with JWT middleware. We've already explored how to [add JWT authentication to a React and Flux app] (https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/) on the blog, so feel free to check that out as well. 
+To get a sense for using JWT authentication with Redux, we'll build a simple app that retrieves Chuck Norris quotes. The app will let users log in and get a JWT that can be used to access protected endpoints with JWT middleware. We've already explored how to [add JWT authentication to a React and Flux app](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/) on the blog, so feel free to check that out as well. 
 
-![react redux authentication](https://www.dropbox.com/s/4f0cughncpczys3/redux-auth-1.png?dl=1)
+![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-1.png)
 
 We could spend a good amount of time just talking about and setting up the build tools for our app. Instead, let's use the Webpack setup that is provided in the [Redux examples](https://github.com/rackt/redux/tree/master/examples) to get going quickly. We'll try to mimic the architecture of the example applications where we can to follow best practices. 
 
@@ -192,6 +194,8 @@ render(
 Note here that we are applying middleware as we create our store. This is looking ahead and we'll describe what the `thunkMiddleware` and `api` middleware do later on. We are importing the `quotesApp` reducer, which we've yet to create, and this is used to create the store. Before creating the reducer, let's create the `App` container component.
 
 ```jsx
+// containers/App.js
+
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { loginUser, fetchQuote, fetchSecretQuote } from '../actions'
@@ -397,6 +401,8 @@ export function logoutUser() {
 ...
 ```
 
+It should be noted that we aren't taking care of letting users signup for accounts here in this tutorial, even though we could do so with a `POST` request to `localhost:3001/users`. This is for the sake of brevity, but the implementation would look similar to our `login` flow.
+
 ## The Redux Authentication Reducer
 
 Now that we have the login **actions** in place, we need create the **reducer** that will return new states in response to them.
@@ -594,11 +600,11 @@ Logout.propTypes = {
 
 If we comment out the `Quotes` component pieces of `containers/App.js` and remove the `api` middleware call in our `index.js` file, we should be able to login. There is a default user with on the server with **gonto** as the uername and password. With a successful login, we get the token saved in local storage.
 
-![react redux authentication](https://www.dropbox.com/s/72bwi6q3nx2qnzf/redux-auth-2.png?dl=1)
+![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-2.png)
 
 If we provide invalid credentials, the `LOGIN_FAILURE` action is hit and our error shows up.
 
-![react redux authentication](https://www.dropbox.com/s/xykvyrafwdj9bx6/redux-auth-3.png?dl=1)
+![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-3.png)
 
 ## Fetching Quotes with API Middleware
 
@@ -816,7 +822,7 @@ Quotes.propTypes = {
 
 With the middleware and the quotes component in place, we should be able fetch quotes from the API.
 
-![react redux authentication](https://www.dropbox.com/s/4f0cughncpczys3/redux-auth-1.png?dl=1)
+![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-1.png)
 
 ## Aside: Using Auth0 in Your Redux Application
 
@@ -900,10 +906,25 @@ export function login() {
 
 In this function we are dispatching the `lockError` function if there are any errors. If authentication is successful, we set the profile and token in local storage and dispatch the `lockSuccess` action.
 
-With these actions in place, we can now add them to our reducer to handle authentication state change just like we would with any other action.
+With these actions in place, we can now add them to our reducer to handle authentication state change just like we would with any other action. The `login` action can be dispatched from the **Login** button in our React component.
+
+```jsx
+// components/Navbar.js
+
+...
+
+<Login
+  errorMessage={errorMessage}
+  onLoginClick={ creds => dispatch(login(creds)) }
+/>
+
+...
+```
 
 ## Wrapping Up
 
 Redux offers an alternative to Libraries like Flux for implementing one-way data flow in single page apps. Like Flux, Redux isn't limited to be used only with React. However, there are a lot of modules out there that are used with the two technologies, so putting them together is a natural choice.
 
-As we've seen, we can add JWT authentication to our Redux apps and use actions and reducers to track changes to the login state. We made use of Redux middleware to make secure calls to our API, and by abstracting the API communication away to a middleware, we just need to pass a property that specifies whether an `Authorization` header with a JWT should be sent with the request. 
+As we've seen, we can add JWT authentication to our Redux apps and use actions and reducers to track changes to the login state. We made use of Redux middleware to make secure calls to our API, and by abstracting the API communication away to a middleware, we just need to pass a property that specifies whether an `Authorization` header with a JWT should be sent with the request.
+
+Big thanks to [Dan Abramov](https://twitter.com/dan_abramov) for Redux and the [great information](http://redux.js.org/) he provides for it.
