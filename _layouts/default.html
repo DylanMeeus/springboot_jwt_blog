@@ -402,7 +402,9 @@
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
-              metricsLib.track('success:blog-signup', getBasicInfo());
+              var blogRegData = getBasicInfo();
+              blogRegData.trackData = value;
+              metricsLib.track('success:blog-signup', blogRegData);
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
