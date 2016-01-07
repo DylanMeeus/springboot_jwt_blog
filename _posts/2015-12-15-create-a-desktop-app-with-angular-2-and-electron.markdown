@@ -38,7 +38,7 @@ In this article, we'll explore how to wire up a simple image size calculator app
 
 ## Setting Up Angular 2 and Electron
 
-We'll use [Webpack](https://webpack.github.io/) for our Angular 2 setup, and we'll base the config loosely on the awesome [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) by [AngularClass](https://angularclass.com/). At the time of publishing, Angular 2 is at alpha 54, so we'll use that.
+We'll use [Webpack](https://webpack.github.io/) for our Angular 2 setup, and we'll base the config loosely on the awesome [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) by [AngularClass](https://angularclass.com/).
 
 Let's start with our `package.json` file to list our dependencies, along with some `scripts` that will let us easily run our `webpack` commands and also run the `electron` command to start the app.
 
@@ -53,16 +53,20 @@ Let's start with our `package.json` file to list our dependencies, along with so
   },
   "devDependencies": {
     "electron-prebuilt": "^0.35.4",
+    "es6-shim": "^0.34.0",
     "ts-loader": "^0.7.2",
     "typescript": "^1.7.3",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.54",
+    "angular2": "2.0.0-beta.0",
     "zone.js": "^0.5.10",
     "bootstrap": "^3.3.6",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0"
   }
 }
 
@@ -85,9 +89,7 @@ module.exports = {
   entry: {
     'angular2': [
       'rxjs',
-      'zone.js',
       'reflect-metadata',
-      'angular2/angular2',
       'angular2/core',
       'angular2/router',
       'angular2/http'
@@ -213,7 +215,8 @@ Just like with a regular web app, we need an `index.html` entry point.
       <div class="container">
         <h1>Hello Electron</h1>
       </div>
-
+      
+      <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
       <script src="../build/common.js"></script>
       <script src="../build/angular2.js"></script>
       <script src="../build/app.js"></script>
@@ -221,7 +224,7 @@ Just like with a regular web app, we need an `index.html` entry point.
   </html>
 ```
 
-The scripts that we're referencing aren't actually there yet, and that's because we haven't run our `webpack` command to generate them. The last thing we need to do before bundling our scripts is to create an empty `app.ts` file, as this is what our `webpack.config.js` file expects.
+Aside from `angular2-polyfills.js`, The scripts that we're referencing aren't actually there yet, and that's because we haven't run our `webpack` command to generate them. The last thing we need to do before bundling our scripts is to create an empty `app.ts` file, as this is what our `webpack.config.js` file expects.
 
 With an empty `app.ts` in place, let's bundle the scripts.
 
@@ -313,7 +316,7 @@ So how are we getting this information, exactly? Electron provides an abstractio
 
 Let's now put in some templating to display the images. For this, we'll want to use `ngFor` to iterate over the images we drop in. 
 
-> **Note:** As of alpha 52, templates are now case-sensitive. This means that what used to be `ng-for` is now `ngFor`.
+> **Note:** As of Beta, templates are now case-sensitive. This means that what used to be `ng-for` is now `ngFor`.
 
 ```js
 // app/app.ts
@@ -432,10 +435,9 @@ class ByteFormatPipe implements PipeTransform {
   selector: 'app',
   pipes: [ByteFormatPipe],
   template: `
-
     <h1>Total Images: {{ "{{ imageStats().count " }}}}</h1>
     <h1>Total Size: {{ "{{ imageStats().size | byteFormat " }}}}</h1>
-
+  `
 ...
 ```
 
@@ -458,14 +460,77 @@ We'll obviously want to change the name of the application and also provide a un
 
 ## Aside: Authentication with Auth0
 
-Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+No matter which framework you use with your Electron app, you can easily add authentication to it with Auth0! Our Lock widget allows you to get up and running quickly. Sign up for your <a href="javascript:signup()">free Auth0 account</a> to work with these directions.
 
-Auth0 [integrates well with AngularJS](https://auth0.com/learn/angular-authentication) at both 1.x and 2. If your electron app relies on a remote database and data API, you can easily protect it with JWT authentication. You can also use **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to send authenticated HTTP requests from your Angular 2 app.
+Before getting started with the code, you'll need to whitelist the `file://*` protocol in your Auth0 dashboard. This can be done in the **Allowed Origins (CORS)** area.
 
-<img src="https://docs.google.com/drawings/d/1ErB68gFj55Yg-ck1_CZByEwN5ql0Pj2Mzd-6S5umv2o/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
+To begin, include the **Auth0-Lock** library from the CDN and provide a button or other element to hook into.
+
+```html
+  <!-- index.html -->
+
+  ...
+
+  <!-- Auth0Lock script -->
+  <script src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+
+  <!-- Setting the right viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <body>
+    <h1>Authenticate with Auth0!</h1>
+    <button id="login">Login</button>
+
+  ...
+```
+
+Next, create a new instance of Lock and set `window.electron` to an empty object to trigger the proper login flow for Electron.
+
+```html
+  <!-- index.html -->
+
+  <script>
+    
+    var lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_CLIENT_DOMAIN');
+
+    window.electron = {};
+
+  </script>
+```
+
+Finally, trigger the Lock widget to be shown when the user clicks the **Login** button. In the callback, set the returned user profile and token into local storage for use later.
+
+```html
+  <!-- index.html -->
+
+  <script>
+    
+    ...
+
+    document.getElementById('login').addEventListener('click', function() {
+      lock.show(function(err, profile, token) {
+        if (err) {
+          
+          // Error callback
+          console.error("Something went wrong: ", err);
+
+        } else {
+          
+          // Success calback. Save the profile and JWT token.
+          localStorage.setItem('profile', JSON.stringify(profile));
+          localStorage.setItem('id_token', token);
+
+        }
+      });
+    });
+
+  </script>
+```
+
+With the token in local storage, it can now be used as an `Authorization` header to access secured API endpoints. The way to attach the header to HTTP calls differs depending on which library or framework you're using. If you're using Angular 2 in your Electron app, you can use **[angular2-jwt](https://www.npmjs.com/package/angular2-jwt)**. Follow the steps in the [Angular 2 docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) for more details. Not using Angular 2? We've got [intergrations](https://auth0.com/docs) for many other frameworks and libraries as well!
 
 ## Wrapping Up
 
 Electron offers developers a way to create desktop applications with the web technologies they already know instead of needing to learn new languages that are specific to various operating systems. This is great, because skills can easily be ported, and code can be reused.
 
-Electron doesn't care about which framework we use for our apps. Even though it's still in alpha, Angular 2 is a great framework to use inside an Electron app and, once everything is set up, works just the same as if we were developing for the web.
+Electron doesn't care about which framework we use for our apps. Even though it's in beta, Angular 2 is a great framework to use inside an Electron app and, once everything is set up, works just the same as if we were developing for the web.

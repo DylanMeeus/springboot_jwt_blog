@@ -18,7 +18,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-    <script type="text/javascript" src="//cdn.auth0.com/js/lock-6.min.js"></script>
+    <script type="text/javascript" src="//cdn.auth0.com/js/lock-8.min.js"></script>
     <script type="text/javascript" src="//cdn.auth0.com/web-header/latest/standalone.min.js"></script>
     <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
     <script type="text/javascript">
@@ -82,8 +82,6 @@
 
     <script src="//cdn.auth0.com/js/ab/ab-1.min.js"></script>
     <script src="//cdn.auth0.com/js/ab/ab-loader-1.min.js"></script>
-
-    <link rel="stylesheet" href="//cdn.auth0.com/web-header/latest/standalone.min.css" />
 
     {% if page.meta-robots %}
     <meta name="robots" content="{{ page.meta-robots }}" />
@@ -404,7 +402,9 @@
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
 
-              metricsLib.track('success:blog-signup', getBasicInfo());
+              var blogRegData = getBasicInfo();
+              blogRegData.trackData = value;
+              metricsLib.track('success:blog-signup', blogRegData);
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
 
