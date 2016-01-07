@@ -48,7 +48,7 @@ In case you haven't read our [previous benchmarks article](https://auth0.com/blo
 What follows is an overview of the contenders. Or you can [jump straight to the results](#results-link).
 
 ### Angular.js 1.x
-The venerable Angular 1.x library is part of an opinionated but powerful framework that saw its initial release in the year 2009. Since then it has gathered a tremendous following and inspired many other libraries. Often criticized for being hard to integrate into existing projects, and questioned for its performance in certain use cases, it is still used in many [high-ranking websites](http://libscore.com/?#angular). Angular extends standard HTML with custom tags and a template syntax (which form the view). Controllers are defined following a series of strict API requirements that include the use of dependency injection. Data binding and model changes are handled through a digest cycle. The digest cycle is the method Angular uses to detect changes in the model that trigger changes in the view. This method has particular performance characteristics as can be seen in the results below.
+The venerable [Angular 1.x library](https://angularjs.org/) is part of an opinionated but powerful framework that saw its initial release in the year 2009. Since then it has gathered a tremendous following and inspired many other libraries. Often criticized for being hard to integrate into existing projects, and questioned for its performance in certain use cases, it is still used in many [high-ranking websites](http://libscore.com/?#angular). Angular extends standard HTML with custom tags and a template syntax (which form the view). Controllers are defined following a series of strict API requirements that include the use of dependency injection. Data binding and model changes are handled through a digest cycle. The digest cycle is the method Angular uses to detect changes in the model that trigger changes in the view. This method has particular performance characteristics as can be seen in the results below.
 
 An Angular 1.x view template:
 
@@ -88,7 +88,7 @@ dbmonControllers.controller('MainController', ['$scope', '$timeout',
 ```
 
 ### Angular.js 2
-The still-in-flux Angular 2 library has recently been declared in *beta* state. Still under heavy scrutiny by many developers that do not consider a breaking change to be the right way to fix all of Angular 1.x problems, Angular 2 carries on with its opinionated approach. TypeScript is now favored (but not required) over JavaScript and a new template syntax is now required. The digest cycle was replaced by the use of a change detection algorithm that walks the DOM tree. [Other optimizations](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2) allow Angular 2 to detect precisely when the model has changed (in contrast to the need to explicitly tell Angular 1 so in certain cases).
+The still-in-flux [Angular 2 library](https://angular.io/) has recently been declared in *beta* state. Still under heavy scrutiny by many developers that do not consider a breaking change to be the right way to fix all of Angular 1.x problems, Angular 2 carries on with its opinionated approach. TypeScript is now favored (but not required) over JavaScript and a new template syntax is now required. The digest cycle was replaced by the use of a change detection algorithm that walks the DOM tree. [Other optimizations](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2) allow Angular 2 to detect precisely when the model has changed (in contrast to the need to explicitly tell Angular 1 so in certain cases).
 
 An Angular 2 view template:
 
@@ -131,7 +131,7 @@ app.AppComponent = ng.core
 > Our Angular 2 DBMonster code was developed using JavaScript rather than the recommended TypeScript to reuse as much code as possible from other versions of the benchmark. Angular 2 code is more idiomatic using TypeScript and was developed with its features in mind.
 
 ### Virtual DOM
-Virtual DOM is an independent implementation of React's tree-diffing algorithm. It provides an API that allows users to describe a DOM tree directly in JavaScript. JSX is not used.
+[Virtual DOM](https://github.com/Matt-Esch/virtual-dom) is an independent implementation of React's tree-diffing algorithm. It provides an API that allows users to describe a DOM tree directly in JavaScript. JSX is not used.
 
 ```JavaScript
 function renderQuery(query) {
@@ -153,7 +153,7 @@ function renderQuery(query) {
 ```
 
 ### Mithril.js
-A React-like library aimed at being simple, small and fast. It provides a convenient API to describe DOM-trees in JavaScript, and a preprocessor to turn DOM-tree API-calls into simple JSON objects for additional speed. The API for DOM-trees is similar to that of Virtual DOM, and the required controller/view objects are simple enough to be integrated easily into existing bodies of code. Much like Angular 1, it requires changes to the DOM tree made outside library boundaries to be notified for redrawing. Data-binding is performed through a properties system.
+A React-like [library](http://mithril.js.org/) aimed at being simple, small and fast. It provides a convenient API to describe DOM-trees in JavaScript, and a preprocessor to turn DOM-tree API-calls into simple JSON objects for additional speed. The API for DOM-trees is similar to that of Virtual DOM, and the required controller/view objects are simple enough to be integrated easily into existing bodies of code. Much like Angular 1, it requires changes to the DOM tree made outside library boundaries to be notified for redrawing. Data-binding is performed through a properties system.
 
 ```javascript
 function renderQuery(query) {
@@ -175,7 +175,7 @@ function renderQuery(query) {
 ```
 
 ### cito.js
-A minimalist Virtual DOM-like library. A virtual DOM is constructed from plain JSON-like objects. A simple call tells the library to compare the existing tree to a new one and perform the necessary updates.
+A minimalist Virtual DOM-like [library](https://github.com/joelrich/citojs). A virtual DOM is constructed from plain JSON-like objects. A simple call tells the library to compare the existing tree to a new one and perform the necessary updates.
 
 ```JavaScript
 function renderQuery(query) {
@@ -211,7 +211,7 @@ function renderQuery(query) {
 ```
 
 ### Ember 1
-Another powerful and opinionated framework. Ember makes use of their own template language which allows for easy differentiation between static and dynamic parts of the DOM. Their diffing algorithm is optimized to take this into account. Data binding is handled through a properties system.
+Another powerful and opinionated framework. [Ember](http://emberjs.com/) makes use of their own template language which allows for easy differentiation between static and dynamic parts of the DOM. Their diffing algorithm is optimized to take this into account. Data binding is handled through a properties system.
 
 An Ember view using its template syntax:
 
@@ -261,12 +261,12 @@ export default Ember.Component.extend({
 ```
 
 ### Ember 2
-This newer version of Ember removes many deprecated parts of the library and serves as a cleanup of the API. Most of the other benefits of Ember 2 can also be found in Ember 1.13+ releases.
+This newer version of [Ember](http://emberjs.com/) removes many deprecated parts of the library and serves as a cleanup of the API. Most of the other benefits of Ember 2 can also be found in Ember 1.13+ releases.
 
 > The Ember 2 code in this article is 100% compatible with the Ember 1.x version, so no example is provided here.
 
 ### React.js
-Facebook's popular library is gaining ground day-by-day. Its simple integration model, flexibility and speed make it a no-brainer for many projects. The crux of React is its smart diffing algorithm: a virtual tree is constructed by making JavaScript calls. When a new DOM tree is constructed, React can find the optimal number of operations to transform the old tree into the new one. React is usually paired with the JSX preprocessor, which allows an extended form of HTML to be embedded in JavaScript to describe components in a convenient way.
+Facebook's [popular library](https://facebook.github.io/react/) is gaining ground day-by-day. Its simple integration model, flexibility and speed make it a no-brainer for many projects. The crux of React is its smart diffing algorithm: a virtual tree is constructed by making JavaScript calls. When a new DOM tree is constructed, React can find the optimal number of operations to transform the old tree into the new one. React is usually paired with the JSX preprocessor, which allows an extended form of HTML to be embedded in JavaScript to describe components in a convenient way.
 
 ```JSX
 var Query = React.createClass({
@@ -293,7 +293,7 @@ var Query = React.createClass({
 ```
 
 ### Incremental DOM
-A Google project, Incremental DOM aims to develop a memory-efficient library that can perform in-place updates of the DOM tree. It is intended to be used as a compilation target for different template languages. In practice, its API is similar to that of Virtual DOM, Mithril or cito.js. The main benefit of a memory efficient approach is reduced waits during garbage collection cycles. This can result in improved performance and fewer dropped frames during rendering.
+A Google project, [Incremental DOM](https://github.com/google/incremental-dom) aims to develop a memory-efficient library that can perform in-place updates of the DOM tree. It is intended to be used as a compilation target for different template languages. In practice, its API is similar to that of Virtual DOM, Mithril or cito.js. The main benefit of a memory efficient approach is reduced waits during garbage collection cycles. This can result in improved performance and fewer dropped frames during rendering.
 
 ```JavaScript
 function renderQuery(query) {
