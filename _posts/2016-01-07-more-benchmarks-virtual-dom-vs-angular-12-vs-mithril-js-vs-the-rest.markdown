@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "More Benchmarks: Virtual DOM vs Angular 1/2 vs Mithril.js vs Cito.js vs The Rest"
-description: "We add more results and metrics to our benchmarks series!"
+title: "More Benchmarks: Virtual DOM vs Angular 1/2 vs Mithril.js vs cito.js vs The Rest"
+description: "You asked? We listened! Benchmark series is back with even more frameworks and metrics!"
 date: 2016-01-07 13:00
 author:
   name: Sebastián Peyrott
@@ -45,10 +45,10 @@ In case you haven't read our [previous benchmarks article](https://auth0.com/blo
 
 > We will submit our additions to browser-perf for review, which is why we haven't linked to the original browser-perf repo above.
 
-What follows is an overview of the contenders. Or you can [jump straight to the results]().
+What follows is an overview of the contenders. Or you can [jump straight to the results](#results-link).
 
 ### Angular.js 1.x
-The venerable Angular 1.x library is part of an opinionated but powerful framework that saw its initial release in the year 2009. Since then it has gathered a tremendous following and inspired many other libraries. Often criticized for being hard to integrate into existing projects, and questioned for its performance in certain use cases, it is still used in many [high-ranking websites](http://libscore.com/?#angular). Angular extends standard HTML with custom tags and a template syntax (which form the view). Controllers are defined following a series of strict API requirements that include the use of dependency injection. Data binding and model changes are handled through a digest cycle.
+The venerable Angular 1.x library is part of an opinionated but powerful framework that saw its initial release in the year 2009. Since then it has gathered a tremendous following and inspired many other libraries. Often criticized for being hard to integrate into existing projects, and questioned for its performance in certain use cases, it is still used in many [high-ranking websites](http://libscore.com/?#angular). Angular extends standard HTML with custom tags and a template syntax (which form the view). Controllers are defined following a series of strict API requirements that include the use of dependency injection. Data binding and model changes are handled through a digest cycle. The digest cycle is the method Angular uses to detect changes in the model that trigger changes in the view. This method has particular performance characteristics as can be seen in the results below.
 
 An Angular 1.x view template:
 
@@ -87,10 +87,10 @@ dbmonControllers.controller('MainController', ['$scope', '$timeout',
 );
 ```
 
-### Angular.js 2.x
-The still-in-flux Angular 2.x library has recently been declared in *beta* state. Still under heavy scrutiny by many developers that do not consider a breaking change to be the right way to fix all of Angular 1.x problems, Angular 2.x carries on with its opinionated approach. TypeScript is now favored (but not required) over JavaScript and a new template syntax is now required. The digest cycle was replaced by the use of a change detection algorithm that walks the DOM tree. [Other optimizations](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2) allow Angular 2 to detect precisely when the model has changed (in contrast to the need to explicitly tell Angular 1 so in certain cases).
+### Angular.js 2
+The still-in-flux Angular 2 library has recently been declared in *beta* state. Still under heavy scrutiny by many developers that do not consider a breaking change to be the right way to fix all of Angular 1.x problems, Angular 2 carries on with its opinionated approach. TypeScript is now favored (but not required) over JavaScript and a new template syntax is now required. The digest cycle was replaced by the use of a change detection algorithm that walks the DOM tree. [Other optimizations](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2) allow Angular 2 to detect precisely when the model has changed (in contrast to the need to explicitly tell Angular 1 so in certain cases).
 
-An Angular 2.x view template:
+An Angular 2 view template:
 
 ```HTML
 <td *ngFor="#query of database.topFiveQueries"
@@ -128,7 +128,7 @@ app.AppComponent = ng.core
     ]);
 ```
 
-> Our Angular 2.x DBMonster code was developed using JavaScript rather than the recommended TypeScript to reuse as much code as possible from other versions of the benchmark. Angular 2 code is more idiomatic using TypeScript and was developed with its features in mind.
+> Our Angular 2 DBMonster code was developed using JavaScript rather than the recommended TypeScript to reuse as much code as possible from other versions of the benchmark. Angular 2 code is more idiomatic using TypeScript and was developed with its features in mind.
 
 ### Virtual DOM
 Virtual DOM is an independent implementation of React's tree-diffing algorithm. It provides an API that allows users to describe a DOM tree directly in JavaScript. JSX is not used.
@@ -174,7 +174,7 @@ function renderQuery(query) {
 }
 ```
 
-### Cito.js
+### cito.js
 A minimalist Virtual DOM-like library. A virtual DOM is constructed from plain JSON-like objects. A simple call tells the library to compare the existing tree to a new one and perform the necessary updates.
 
 ```JavaScript
@@ -261,7 +261,7 @@ export default Ember.Component.extend({
 ```
 
 ### Ember 2
-This newer version of Ember 2 removes many deprecated parts of the library and serves as a cleanup of the API. Most of the other benefits of Ember 2 can also be found in Ember 1.13+ releases.
+This newer version of Ember removes many deprecated parts of the library and serves as a cleanup of the API. Most of the other benefits of Ember 2 can also be found in Ember 1.13+ releases.
 
 > The Ember 2 code in this article is 100% compatible with the Ember 1.x version, so no example is provided here.
 
@@ -316,6 +316,7 @@ function renderQuery(query) {
 }
 ```
 
+<a id="results-link"></a>
 ## The Results
 Here are the summarized results of our tests:
 
@@ -335,7 +336,7 @@ This graph is almost a copy of the previous one. It shows the amount of time spe
 Deviation among most libraries is small in this graph, so one would expect hands-on usage to be pretty much the same for all of them except one (Angular 1). This is not the case. Even though Angular 1.x does feel sluggish compared to the pack, the difference between cito.js and Incremental DOM compared to the others is much bigger than it would appear. There must be something else going on behind the scenes (or this metric is either not measured correctly or useless).
 
 ![Dropped frame counts](https://cdn.auth0.com/blog/newdombenchs/droppedFrameCount.svg)
-In this graph Ember 1 and 2 are outshined by almost all of the other libraries. Dropped frames account for stuttering and other non-smooth behavior so it is an important metric for the subjective feeling of an application. Incremental DOM shines again, followed closely by Mithril and React. Again the results for cito.js are odd. We will review our testing environment to make sure background processes are not affecting these results.
+This chart shows the number of frames that take longer than 16.6ms to be drawn. They account for stuttering and other non-smooth behavior so it is an important metric for the subjective feeling of an application. Ember 1 and 2 are outshined by almost all of the other libraries. Incremental DOM, on the other hand, shines again, followed closely by Mithril and React. Again the results for cito.js are odd. We will review our testing environment to make sure background processes are not affecting these results.
 
 ![Total JavaScript execution times](https://cdn.auth0.com/blog/newdombenchs/Javascript.svg)
 This graph shows the total amount of time spent by the browser executing JavaScript code. Ember 1 and 2 are the slowest here, followed closely by Angular 1.x. Again the difference between Angular 1 and 2 is abysmal. In my limited experience with Angular 2, I would say it is a step in the right direction. Incremental DOM and React shine here, followed closely by Mithril and Virtual DOM. If it serves as any indication, when it comes to CPU metrics, React appears to be the most balanced, scoring wins and near wins in several benchmarks.
@@ -344,8 +345,10 @@ This graph shows the total amount of time spent by the browser executing JavaScr
 ![Average heap use](https://cdn.auth0.com/blog/newdombenchs/usedheap.svg)
 These two graphs are deeply related so there is only one paragraph for both of them. Both show the amount of memory used by the browser when running the benchmark. The first one shows the maximum size of the heap, including unused free space; while the second shows an average of the amount of memory used only by active objects. They look mostly the same. In general, Incremental DOM used the least amount of memory, followed closely by React (a real surprise!). React optimizations have paid off and it still looks as all-around balanced library. Mithril, cito.js and Virtual DOM all do very well in these tests. Again, of note are the improvements when going from Angular 1 to Angular 2. Angular 2 has improved every single metric when compared to Angular 1, and in a significant way. Angular 1 almost doubles the memory use of its follower.
 
+Check out the [full code](https://github.com/auth0/blog-dombench/tree/dombench2) for all tests.
+
 ## Aside: React at Auth0
-At Auth0 we care about maintainability and performance. We routinely look at competing solutions to find out the right tool for the job. For our [Lock library](), we found that React has great performance characteristics, allows for an easy integration path, and results in clean, readable code. At the same time, it sports an active community that allows our developers to quickly and easily find how to get the job done. If you are interested in seeing how we use React, check out the source!
+At Auth0 we care about maintainability and performance. We routinely look at competing solutions to find out the right tool for the job. For our [Passwordless Lock library](https://github.com/auth0/lock-passwordless/), we found that React has great performance characteristics, allows for an easy integration path, and results in clean, readable code. At the same time, it sports an active community that allows our developers to quickly and easily find how to get the job done. If you are interested in seeing how we use React, check out the source!
 
 ## Conclusion
 We are consistently surprised by the results of the Incremental DOM library. Not only in numbers, but also in the way it *feels* faster than the alternatives. Google has done a tremendous job optimizing its internals to produce a faster and leaner library. The only other library the has achieved this subjective feeling of speed is cito.js. In the case of cito.js we are concerned by its apparent lack of development activity at GitHub. When it comes to bigger frameworks, we cannot recommend React enough. It sports the right balance of performance, memory use, support and community mindshare. Mithril.js surprised us with its ease of use and great performance. We consider it to be a rightful contender to React, with an all-around great balance between speed, memory usage and ease of use. Between the bigger frameworks, both Angular and Ember are good choices. We consider them great for many use cases: in particular, for developers that adhere to their specific ideologies (if you like TypeScript, you will love Angular 2 as a library that is developed for it from the ground-up). Lastly, Angular 1.x performance issues are by know known by all developers. If you want to use it, take this into consideration. In particular, consider that Angular 2 is significantly better than Angular 1 in every metric (to be fair, Angular 1 and 2 are different enough to be considered totally different libraries, only inspired by similar concepts).
