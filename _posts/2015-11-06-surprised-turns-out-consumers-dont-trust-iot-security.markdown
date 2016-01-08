@@ -18,6 +18,7 @@ tags:
 - iot
 - iot security
 - customer survey
+- security
 ---
 
 _**TL;DR**: Auth0 recently surveyed both developers and consumers and it turns out everyone has concerns over device and application security when it comes to the Internet of Things._
