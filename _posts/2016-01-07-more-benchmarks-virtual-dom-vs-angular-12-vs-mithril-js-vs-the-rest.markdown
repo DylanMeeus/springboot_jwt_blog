@@ -36,7 +36,7 @@ tags:
 - memory use
 ---
 
-We have extended our [previous benchmarks](https://auth0.com/blog/2015/11/20/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/) to include other popular DOM manipulation libraries: Angular 1 and 2, Mithril.js, cito.js and the standalone independent implementation of React's Virtual DOM algorithm. We have also added more metrics (including memory use). Read on!
+We have extended our [previous benchmarks](https://auth0.com/blog/2015/11/20/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/) to include other popular DOM manipulation libraries: Angular 1 and 2, Mithril.js, cito.js and the standalone independent implementation of React's Virtual DOM algorithm. We have also added more metrics (including memory use). Read on! **Update:** we have released an updated version of this article including the use of track-by and array key ids, [check it out](https://auth0.com/blog/2016/01/11/updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/).
 
 -----
 
