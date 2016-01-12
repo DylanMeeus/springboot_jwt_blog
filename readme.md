@@ -49,7 +49,7 @@ Use the yaml front matter in your post to customize its design. The `design` var
 ```
 ---
 design:
-  bg_color: Set the background color for your post's header. (You can use rgb or hex colors inside double quotes) 
+  bg_color: Set the background color for your post's header. (You can use rgb or hex colors inside double quotes)
   bg_merge: Set to true to merge your image with your header's background color (default is false)
   image: A url path to your posts image, it will be downsized if too big to fit inside a circle.
   image_tw: Overrides image to set a specific image for twitter card
@@ -64,7 +64,7 @@ design:
 
 ## Run
 
-1.  Make sure you have [RVM](http://rvm.io/) or other ruby version manager installed. 
+1.  Make sure you have [RVM](http://rvm.io/) or other ruby version manager installed.
 2.  Enter the blog directory and make sure with ruby --version that you are running the right ruby version (.ruby-version file).
 3.  Install dependencies with `bundle install`
 4.  `bundle exec jekyll serve --watch`
@@ -72,8 +72,16 @@ design:
 ![error](https://i.cloudup.com/FWLX_cUhXb.png)
 
 
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
+
 ## License
 
-All the infrastracture to run this blog is open sourced under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
+All the infrastructure to run this blog is open sourced under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
 The exact content of the articles (the _posts folder) is Qraftlabs Copyright.
