@@ -9,9 +9,9 @@ author:
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
 design:
-  bg_color: "#004f91"
-  image: https://cdn.auth0.com/blog/boilerplate/falcor-relay-logo.png
-  image_size: "95%"
+  bg_color: "#004076"
+  image: https://cdn.auth0.com/blog/boilerplate/falcor-relay.png
+  image_size: "100%"
   image_bg_color: "#fff"
 tags: 
 - falcor
@@ -210,7 +210,7 @@ exports.Container = Relay.createContainer(ConferenceApp, {
 
 ```
 
-Again, configuration is a big part of this, but there’s also a fair amount of logic just to retrieve our data. Now I’m sure there are places where we could trim things up a bit, but even the official guides have a lot of code involved.
+Again, configuration is a big part of this, but there’s also a fair amount of logic just to gather and prepare our data to be sent back. Now I’m sure there are places where we could trim things up a bit, but even the official guides have a lot of code involved.
 
 In this way, I’ve come to think of Falcor and Relay as High Boilerplate Frameworks. At the same time, they are inherently somewhat complex as well. While they are both great at doing what they do, I think this creates an unfortunate implication: **lots of boilerplate can be confused with complexity and people prefer simple to complex**.
 
