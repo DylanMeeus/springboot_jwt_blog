@@ -545,12 +545,11 @@ You can use [Lock](https://auth0.com/docs/libraries/lock) to integrate [Auth0](h
 To start, sign up for your [free Auth0 account](https://auth0.com/signup) if you haven't already. Then bring in the **Auth0Lock** script.
 
 ```html
-<!-- Auth0 Lock script -->
-<script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
+  <!-- Auth0 Lock script -->
+  <script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
 
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
+  <!-- Setting the right viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
 
 Next, instantiate Lock with your Auth0 credentials.
