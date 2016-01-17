@@ -538,12 +538,105 @@ As you can see, the only real difference here is that the GET request we're maki
 
 ## Aside: Using Aurelia with Auth0
 
-Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [Single Sign On](https://auth0.com/docs/sso/single-sign-on), User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+Auth0 issues [JSON Web Tokens](http://jwt.io/introduction) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
-You can use [Lock](https://auth0.com/docs/libraries/lock) to integrate [Auth0](https://auth0.com) with Aurelia as well and avoid having to deal with Authentication!
+You can use [Lock](https://auth0.com/docs/libraries/lock) to integrate [Auth0](https://auth0.com) with Aurelia as well and avoid having to deal with authentication!
 
-<img src="https://docs.google.com/drawings/d/1GR-G08qpz_lNS8SELLs0LuWmGa3HQL1Tv4cql1JJx3w/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
+To start, sign up for your [free Auth0 account](https://auth0.com/signup) if you haven't already. Then bring in the **Auth0Lock** script.
 
+```html
+<!-- Auth0 Lock script -->
+<script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
+
+<!-- Setting the right viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+```
+
+Next, instantiate Lock with your Auth0 credentials.
+
+```js
+// app.js
+
+export class App {
+  
+  lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN');
+  
+  ...
+}
+
+```
+
+To log a user in, create a `login` method that opens the Lock widget and saves the returned profile and JWT in local storage.
+
+```js
+// app.js
+
+login() {
+  this.lock.show((err, profile, token) => {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      localStorage.setItem('profile', JSON.stringify(profile));
+      localStorage.setItem('id_token', token);
+      this.isAuthenticated = true;
+    }
+  });   
+}
+
+```
+
+To make authenticated HTTP calls, simply attach the user's JWT as an `Authorization` header. This can be done on a per request basis, or you can configure all HTTP calls to include the header.
+
+```js
+// app.js
+
+// Send the Authorization header with the JWT in a single HTTP call
+
+getSecretThing() {
+  this.http.fetch('/api/protected-route', {
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+    }
+  })
+  .then(response => response.json())
+  .then(data => this.secretThing = data.text);
+}
+```
+
+```js
+// Send the Authorization header in all HTTP calls
+
+// app.js
+
+constructor(http) {
+  this.http = http;
+  this.http.configure(config => {
+    config.withDefaults({
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+      }
+    });
+  });
+}
+```
+
+To log the user out, simply remove their profile and JWT from local storage.
+
+```js
+// app.js
+
+logout() {
+  localStorage.removeItem('profile');
+  localStorage.removeItem('id_token');
+  this.isAuthenticated = false;   
+}
+```
+
+That's it! You now have authentication with Auth0 in your Aurelia app.
+
+For more details, including how to protect certain route in your app, check out the [Auth0 Aurelia docs](https://auth0.com/docs/quickstart/spa/aurelia/no-api). There you can also download a seed project to get started from scratch.
 
 ## Wrapping Up
 
