@@ -106,7 +106,7 @@ To make this work, we need to be continually testing and integrating new code th
 
 As we use Slack integrations to run these tests, the Slack history then serves as our central repository for what happened when, as traceability is key for compliance. In case anything does go wrong, we can also automatically roll back the most recent release.
 
-We keep our customers up-to-date on the latest releases at [releases.Auth0.com](http://releases.auth0.com/), where customers are notified of any significant additions, fixes, or changes to the application.
+We keep our customers up-to-date on the latest releases at [releases.auth0.com](http://releases.auth0.com/), where customers are notified of any significant additions, fixes, or changes to the application.
 
 With Auth0, data is encrypted in transit through Transport Layer Security (TLS) and at rest in an [AWS Elastic Block Store](https://aws.amazon.com/ebs/) (EBS). EBS encrypts both data and backup snapshots, is constantly monitored, and employs multiple redundancies. We also regularly perform failover tests to make sure we can move to backup effectively and securely.
 
