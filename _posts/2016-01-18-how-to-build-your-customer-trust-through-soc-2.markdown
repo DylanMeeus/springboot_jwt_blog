@@ -28,6 +28,9 @@ We’ve recently successfully completed our SOC 2 Type II audit. Here’s why we
 
 ## **What’s SOC?**
 
+<div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/soc/soc2-logo.jpg" alt="SOC Logo" />
+</div>
+
 Back in the day there was no cloud. Enterprise companies had their own datacenters, performed their own processing, and calculated their own analytics. They only had internal data. To fight against internal fraud, the American Institute of Certified Public Accountants, AICPA, came up with a way of reporting how financial institutions controlled their internal data, called SAS 70. It focused on the risks related to this internal control of sensitive data—principally the privacy and the integrity of the data.
 
 This was all well and good, but then SaaS came along. This paradigm shift from internal data to data living in the cloud and constantly moving back and forth between different cloud providers left these previous protocols in the past. Now internal data controls weren’t the only problem, there were also complex issues surrounding the security of this data as it moved between the different providers, and the availability of all these external systems.
