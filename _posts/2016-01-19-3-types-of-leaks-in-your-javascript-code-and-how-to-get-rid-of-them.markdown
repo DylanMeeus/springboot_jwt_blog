@@ -2,7 +2,7 @@
 layout: post
 title: "Four Types of Leaks in Your JavaScript Code and How to Get Rid Of Them"
 description: "Learn how memory can be leaked in JavaScript and what can be done to solve it!"
-date: 2016-01-19 13:30
+date: 2016-01-22 13:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -53,7 +53,7 @@ Unwanted references are references to pieces of memory that the developer knows 
 So to understand which are the most common leaks in JavaScript, we need to know in which ways references are commonly forgotten.
 
 ## The Three Types of Common JavaScript Leaks
-### One: Accidental global variables
+### 1: Accidental global variables
 One of the objectives behind JavaScript was to develop a language that looked like Java but was permissive enough to be used by beginners. One of the ways in which JavaScript is permissive is in the way it handles undeclared variables: a reference to an undeclared variable creates a new variable inside the *global* object. In the case of browsers, the global object is `window`. In other words:
 
 ```javascript
@@ -89,7 +89,7 @@ foo();
 #### A note on global variables
 Even though we talk about unsuspected globals, it is still the case that much code is littered with explicit global variables. These are by definition noncollectable (unless nulled or reassigned). In particular, global variables used to temporarily store and process big amounts of information are of concern. If you must use a global variable to store lots of data, make sure to null it or reassign it after you are done with it. One common cause for increased memory consumption in connection with globals are *caches*. Caches store data that is repeatedly used. For this to be efficient, caches must have an upper bound for its size. Caches that grow unbounded can result in high memory consumption because their contents cannot be collected.
 
-### Two: Forgotten timers or callbacks
+### 2: Forgotten timers or callbacks
 The use of `setInterval` is quite common in JavaScript. Other libraries provide observers and other facilities that take callbacks. Most of these libraries take care of making any references to the callback unreachable after their own instances become unreachable as well. In the case of setInterval, however, code like this is quite common:
 
 ```javascript
@@ -128,7 +128,7 @@ Observers and cyclic references used to be the bane of JavaScript developers. Th
 
 Frameworks and libraries such as *jQuery* do remove listeners before disposing of a node (when using their specific APIs for that). This is handled internally by the libraries and makes sure that no leaks are produced, even when run under problematic browsers such as the old Internet Explorer.
 
-### Three: Out of DOM references
+### 3: Out of DOM references
 Sometimes it may be useful to store DOM nodes inside data structures. Suppose you want to rapidly update the contents of several rows in a table. It may make sense to store a reference to each DOM row in a dictionary or array. When this happens, two references to the same DOM element are kept: one in the DOM tree and the other in the dictionary. If at some point in the future you decide to remove these rows, you need to make both references unreachable.
 
 ```javascript
@@ -155,7 +155,9 @@ function removeButton() {
 }
 ```
 
-### Four: Closures
+An additional consideration for this has to do with references to inner or leaf nodes inside a DOM tree. Suppose you keep a reference to a specific cell of a table (a `<td>` tag) in your JavaScript code. At some point in the future you decide to remove the table from the DOM but keep the reference to that cell. Intuitively one may suppose the GC will collect everything but that cell. In practice this won't happen: the cell is a child node of that table and children keep references to their parents. In other words, the reference to the table cell from JavaScript code causes the whole table to stay in memory. Consider this carefully when keeping references to DOM elements.
+
+### 4: Closures
 A key aspect of JavaScript development are closures: anonymous functions that capture variables from parent scopes. Meteor developers [found a particular case](http://info.meteor.com/blog/an-interesting-kind-of-javascript-memory-leak) in which due to implementation details of the JavaScript runtime, it is possible to leak memory in a subtle way:
 
 ```javascript
@@ -195,17 +197,28 @@ Google provides an excellent example of this behavior in their [JavaScript Memor
 Chrome provides a nice set of tools to profile memory usage of JavaScript code. There two essential views related to memory: the *timeline* view and the *profiles* view.
 
 ### Timeline view
+![Google Dev Tools Timeline in Action](https://cdn.auth0.com/blog/jsleaks/timeline.png)
+The timeline view is essential in discovering unusual memory patterns in our code. In case we are looking for big leaks, periodic jumps that do not shrink as much as they grew after a collection are a red flag. In this screenshot we can see what a steady growth of leaked objects can look like. Even after the big collection at the end, the total amount of memory used is higher than at the beginning. Node counts are also higher. These are all signs of leaked DOM nodes somewhere in the code.
 
 ### Profiles view
+![Google Dev Tools Profiles in Action](https://cdn.auth0.com/blog/jsleaks/profiles.png)
+This is the view you will spend most of the time looking at. The profiles view allows you to get a snapshot and compare snapshots of the memory use of your JavaScript code. Different types of lists are available, but the most relevant ones for our task are the summary list and the comparison list.
+
+The summary view gives us an overview of the different types of object allocated and their aggregated size: shallow size (the sum of all objects of a specific type) and retained size (the shallow size plus the size of other objects retained due to this object). It also gives us a notion of how deep an object is in relation to its GC root (the distance)
+
+TODO
 
 ## Examples: Finding Leaks Using Chrome
+
+TODO
 
 ## Further reading
 - [Memory Management - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 - [JScript Memory Leaks - Douglas Crockford (old, in relation to Internet Explorer 6 leaks)](http://javascript.crockford.com/memory/leak.html)
 - [JavaScript Memory Profiling - Chrome Developer Docs](https://developer.chrome.com/devtools/docs/javascript-memory-profiling)
 - [Memory Diagnosis - Google Developers](https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/memory-diagnosis)
-- [An interesting kind of JavaScript memory leak - Meteor blog](http://info.meteor.com/blog/an-interesting-kind-of-javascript-memory-leak)
+- [An Interesting Kind of JavaScript Memory Leak - Meteor blog](http://info.meteor.com/blog/an-interesting-kind-of-javascript-memory-leak)
+- [Grokking V8 closures](http://mrale.ph/blog/2012/09/23/grokking-v8-closures-for-fun.html)
 
 ## Conclusion
 Memory leaks can and do happen in garbage collected languages such as JavaScript. These can go unnoticed for some time, and eventually they can wreak havoc. Memory profiling tools are essential in finding memory leaks. Profiling runs are essential for mid or big-sized applications and should be part of the development cycle, don't be afraid to start doing this if you want the best possible user experience. Hack on!
