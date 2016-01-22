@@ -28,6 +28,8 @@ tags:
 
 **TL;DR:** The new component router in Angular 2 comes with a lot of features and a slightly different approach to setting up routing. In this article we take a look at the router's features by implementing them in a simple Github user explorer application. Follow along here or take a look at [the repo](https://github.com/auth0/angular2-routing) to get started with the code.
 
+If you'd like to see our other Angular 2 content, we've also covered [pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/), [dependency injection](https://auth0.com/blog/2015/09/17/angular-2-series-part-2-domain-models-and-dependency-injection/), [HTTP](https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/), and [authentication](https://auth0.com/blog/2015/11/10/introducing-angular2-jwt-a-library-for-angular2-authentication/).
+
 ---
 
 Angular 2 comes with a brand new component router that is packed with features. At the Beta 1 release, the documentation on Angular 2's router is in pretty good shape, and there is even an [extensive guide](https://angular.io/docs/ts/latest/guide/router.html) on setting it up. There are, howevever, some features and use cases that have yet to be documented.
@@ -38,7 +40,7 @@ In this article we'll get a feel for the new router by implementing it in a simp
 
 ![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-1.png)
 
-## Getting Started
+## Getting Started With the Router
 
 It's best to get started with a seed project. If you'd like to use Webpack, the [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) from [AngularClass](https://angularclass.com/) is an excellent option.
 
