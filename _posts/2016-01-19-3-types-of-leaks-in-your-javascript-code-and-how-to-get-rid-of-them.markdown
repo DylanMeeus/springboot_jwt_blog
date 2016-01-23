@@ -202,15 +202,95 @@ The timeline view is essential in discovering unusual memory patterns in our cod
 
 ### Profiles view
 ![Google Dev Tools Profiles in Action](https://cdn.auth0.com/blog/jsleaks/profiles.png)
-This is the view you will spend most of the time looking at. The profiles view allows you to get a snapshot and compare snapshots of the memory use of your JavaScript code. Different types of lists are available, but the most relevant ones for our task are the summary list and the comparison list.
+This is the view you will spend most of the time looking at. The profiles view allows you to get a snapshot and compare snapshots of the memory use of your JavaScript code. It also allows you to record allocations along time. In every result view different types of lists are available, but the most relevant ones for our task are the summary list and the comparison list.
 
-The summary view gives us an overview of the different types of object allocated and their aggregated size: shallow size (the sum of all objects of a specific type) and retained size (the shallow size plus the size of other objects retained due to this object). It also gives us a notion of how deep an object is in relation to its GC root (the distance)
+The summary view gives us an overview of the different types of objects allocated and their aggregated size: shallow size (the sum of all objects of a specific type) and retained size (the shallow size plus the size of other objects retained due to this object). It also gives us a notion of how far an object is in relation to its GC root (the distance).
 
-TODO
+The comparison list gives us the same information but allows us to compare different snapshots. This is specially useful to find leaks.
 
-## Examples: Finding Leaks Using Chrome
+## Example: Finding Leaks Using Chrome
+There are essentially two types of leaks: leaks that cause periodic increases in memory use and leaks that happen once and cause no further increases in memory. For obvious reasons, it is easier to find leaks when they are periodic. These are also the most troublesome: if memory increases in time, leaks of this type will eventually cause the browser to become slow or stop execution of the script. Leaks that are not periodic can easily be found when they are big enough to be noticeable among all other allocations. This is usually not the case, so they usually remain unnoticed. In a way, small leaks that are happen once could be considered an optimization issue. However, leaks that are periodic are bugs and must be fixed.
 
-TODO
+For our example we will use one of the [examples in Chrome's docs](https://developer.chrome.com/devtools/docs/demos/memory/example1). The full code is pasted below:
+
+```JavaScript
+var x = [];
+
+function createSomeNodes() {
+    var div,
+        i = 100,
+        frag = document.createDocumentFragment();
+    for (;i > 0; i--) {
+        div = document.createElement("div");
+        div.appendChild(document.createTextNode(i + " - "+ new Date().toTimeString()));
+        frag.appendChild(div);
+    }
+    document.getElementById("nodes").appendChild(frag);
+}
+function grow() {
+    x.push(new Array(1000000).join('x'));
+    createSomeNodes();
+    setTimeout(grow,1000);
+}
+```
+
+When `grow` is invoked it will start creating div nodes and appending them to the DOM. It will also allocate a big array and append it to an array referenced by a global variable. This will cause a steady increase in memory that can be found using the tools mentioned above.
+
+> Garbage collected languages usually show a pattern of oscillating memory use. This is expected if code is running in a loop performing allocations, which is the usual case. We will be looking for periodic increases in memory that do not fall back to previous levels after a collection.
+
+### Find out if memory is periodically increasing
+The timeline view is great for this. [Open the example](https://developer.chrome.com/devtools/docs/demos/memory/example1) in Chrome, open the Dev Tools, go to *timeline*, select *memory* and click the record button. Then go to the page and click `The Button` to start leaking memory. After a while stop the recording and take a look at the results:
+
+![Growing memory use in the timeline view](https://cdn.auth0.com/blog/jsleaks/example-timeline.png)
+
+> This example will continue leaking memory each second. After stopping the recording, set a breakpoint in the `grow` function to stop the script from forcing Chrome to close the page.
+
+There are two big signs in this image that show we are leaking memory. The graphs for *nodes* (green line) and *JS heap* (blue line). Nodes are steadily increasing and never decrease. This is a big warning sign.
+
+The JS heap also shows a steady increase in memory use. This is harder to see due to the effect of the garbage collector. You can see a pattern of initial memory growth, followed by a big decrease, followed by an increase and then a spike, continued by another drop in memory. The key in this case lies in the fact that after each drop in memory use, the size of the heap remains bigger than in the previous drop. In other words, although the garbage collector is succeeding in collecting a lot of memory, some of it is periodically being leaked.
+
+We are now certain we have a leak. Let's find it.
+
+### Get two snapshots
+To find a leak we will now go to the *profiles* section of Chrome's Dev Tools. To keep memory use in a manageable levels, reload the page before doing this step. We will use the *Take Heap Snapshot* function.
+
+Reload the page and take a heap snapshot right after it finishes loading. We will use this snapshot as our baseline. After that, hit `The Button` again, wait a few seconds, and take a second snapshot. After the snapshot is taken, it is advisable to set a breakpoint in the script to stop the leak from using more memory.
+
+![Heap Snapshots](https://cdn.auth0.com/blog/jsleaks/example-snapshots-1.png)
+
+There are two ways in which we can take a look at allocations between the two snapshots. Either select *Summary* and then to the right pick *Objects allocated between Snapshot 1 and Snapshot 2*, or select *Comparison* rather than *Summary*. In both cases we will see a list of objects that were allocated between the two snapshots.
+
+In this case it is quite easy to find the leaks: they are big. Take a look at the `Size Delta` of the `(string)` constructor. 8MBs with 58 new objects. This looks suspicious: new objects are allocated but not freed and 8MBs get consumed.
+
+If we open the list of allocations for the `(string)` constructor we will notice there are a few big allocations among many small ones. The big ones immediately call our attention. If we select any single one of them we get something interesting in the *retainers* section below.
+
+![Retainers for selected object](https://cdn.auth0.com/blog/jsleaks/example-snapshots-2.png)
+
+We see our selected allocation is part of an array. In turn, the array is referenced by variable `x` inside the global `window` object. This gives us a full path from our big object to its noncollectable root (`window`). We found our potential leak and where it is referenced.
+
+So far so good. But our example was easy: big allocations such as the one in this example are not the norm. Fortunately our example is also leaking DOM nodes, which are smaller. It is easy to find these nodes using the snapshots above, but in bigger sites, things get messier. Recent versions of Chrome provide an additional tool that is best suited for our job: the *Record Heap Allocations* function.
+
+### Recording heap allocations to find leaks
+Disable the breakpoint you set before, let the script continue running, and go back to the *Profiles* section of Chrome's Dev Tools. Now hit *Record Heap Allocations*. While the tool is running you will notice blue spikes in the graph at the top. These represent allocations. Every second a big allocation is performed by our code. Let it run for a few seconds and then stop it (don't forget to set the breakpoint again to prevent Chrome from eating more memory).
+
+![Recorded heap allocations](https://cdn.auth0.com/blog/jsleaks/example-recordedallocs-overview.png)
+
+In this image you can see the killer feature of this tool: selecting a piece of the timeline to see what allocations where performed during that time span. We set the selection to be as close to one of the big spikes as possible. Only three constructors are shown in the list: one of them is the one related to our big leaks (`(string)`), the next one is related to DOM allocations, and the last one is the `Text` constructor (the constructor for leaf DOM nodes containing text).
+
+Select one of the `HTMLDivElement` constructors from the list and then pick `Allocation stack`.
+
+![Selected element in heap allocation results](https://cdn.auth0.com/blog/jsleaks/example-recordedallocs-selected.png)
+
+BAM! We now know where that element was allocated (`grow` -> `createSomeNodes`). If we pay close attention to each spike in the graph we will notice that the `HTMLDivElement` constructor is being called a lot. If we go back to our snapshot comparison view we will notice that this constructor shows many allocations but no deletions. In other words, it is steadily allocating memory without allowing the GC to reclaim some of it. This has all the signs of a leak plus we know exactly where these objects are being allocated (the `createSomeNodes` function). Now its time to go back to the code, study it, and fix the leaks.
+
+### Another useful feature
+In the heap allocations result view we can select the *Allocation* view instead of *Summary*.
+
+![Allocations in heap allocations results](https://cdn.auth0.com/blog/jsleaks/example-recordedallocs-list.png)
+
+This view gives us a list of functions and memory allocations related to them. We can immediately see `grow` and `createSomeNodes` standing out. When selecting `grow` we get a look at the associated object constructors being called by it. We notice `(string)`, `HTMLDivElement` and `Text` which by know we already know are the constructors of the objects being leaked.
+
+The combination of these tools can help greatly in finding leaks. Play with them. Do different profiling runs in your production sites (ideally with non-minimized or obfuscated code). See if you can find leaks or objects that are retained more than they should (hint: these are harder to find).
 
 ## Further reading
 - [Memory Management - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
