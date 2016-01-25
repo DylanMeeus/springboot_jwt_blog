@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Four Types of Memory Leaks in Your JavaScript Code and How to Get Rid Of Them"
+title: "4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them"
 description: "Learn how memory can be leaked in JavaScript and what can be done to solve it!"
 date: 2016-01-26 13:30
 author:
