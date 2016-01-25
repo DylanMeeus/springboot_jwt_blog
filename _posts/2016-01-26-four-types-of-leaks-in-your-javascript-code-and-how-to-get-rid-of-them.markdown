@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Four Types of Leaks in Your JavaScript Code and How to Get Rid Of Them"
+title: "Four Types of Memory Leaks in Your JavaScript Code and How to Get Rid Of Them"
 description: "Learn how memory can be leaked in JavaScript and what can be done to solve it!"
 date: 2016-01-26 13:30
 author:
@@ -241,7 +241,7 @@ When `grow` is invoked it will start creating div nodes and appending them to th
 ### Find out if memory is periodically increasing
 The timeline view is great for this. [Open the example](https://developer.chrome.com/devtools/docs/demos/memory/example1) in Chrome, open the Dev Tools, go to *timeline*, select *memory* and click the record button. Then go to the page and click `The Button` to start leaking memory. After a while stop the recording and take a look at the results:
 
-![Growing memory use in the timeline view](https://cdn.auth0.com/blog/jsleaks/example-timeline.png)
+![Memory leaks in the timeline view](https://cdn.auth0.com/blog/jsleaks/example-timeline.png)
 
 > This example will continue leaking memory each second. After stopping the recording, set a breakpoint in the `grow` function to stop the script from forcing Chrome to close the page.
 
