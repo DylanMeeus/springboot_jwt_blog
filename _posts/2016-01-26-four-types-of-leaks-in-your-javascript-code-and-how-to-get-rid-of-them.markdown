@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them"
-description: "Learn how memory can be leaked in JavaScript and what can be done to solve it!"
+description: "Learn about memory leaks in JavaScript and what can be done to solve it!"
 date: 2016-01-26 13:30
 author:
   name: Sebastián Peyrott
