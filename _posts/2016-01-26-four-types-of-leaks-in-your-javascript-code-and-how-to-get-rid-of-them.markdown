@@ -2,15 +2,15 @@
 layout: post
 title: "Four Types of Leaks in Your JavaScript Code and How to Get Rid Of Them"
 description: "Learn how memory can be leaked in JavaScript and what can be done to solve it!"
-date: 2016-01-25 13:30
+date: 2016-01-26 13:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
-  bg_color: "#415156"
-  image: https://cdn.auth0.com/blog/dombench/logo_fist.png
+  bg_color: "#2E2E2C"
+  image: https://cdn.auth0.com/blog/jsleaks/logo.png
   image_size: "100%"
   image_bg_color: "#B6C5CA"
   blog_series: false
