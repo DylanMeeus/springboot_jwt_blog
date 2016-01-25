@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Angular 2 Series - Part 4: Component Router In-Depth"
-description: "Learn all about Angular 2's new component router and how to set up routing in your app."
+description: "Learn all about the new Angular 2 router and how to set it up in your app."
 date: 2016-01-25 08:30
 author: 
   name: Ryan Chenkie
@@ -38,13 +38,16 @@ Those coming from Angular 1.x will likely be familiar with UI Router, a third pa
 
 In this article we'll get a feel for the new router by implementing it in a simple Github user explorer application. In the app, we'll be able to search for Github accounts based on username, and we'll set up a way to explore further detail about the users. To do this, we'll set up child routes and work with route parameters.
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-1.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-1.png)
 
-## Getting Started With the Router
+## Getting Started with the New Angular 2 Router
 
 It's best to get started with a seed project. If you'd like to use Webpack, the [Angular 2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) from [AngularClass](https://angularclass.com/) is an excellent option.
 
 The router in Angular 2 provides both a `HashLocationStrategy` and a `PathLocationStrategry`, one of which is used when we bootstrap the app. As you might guess, `HashLocationStrategy` uses hashes in the URL, which is what we're used to as the default from Angular 1.x. Many prefer not to use hashes, in which case `PathLocationStrategy` can be applied.
+
+> **HashLocationStrategy** http://example.com/#/users
+> **PathLocationStrategy** http://example.com/users
 
 ```js
 // main.ts
@@ -131,7 +134,7 @@ Now when we enter a search term and click "Get Users", we get a list of 30 users
 
 Notice that towards the end of the template, we have a `router-outlet` tag. This tag will be replaced by content from our other routes and is the spot where other content is "let out", hence `router-outlet`. Let's give it a route to render.
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-2.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-2.png)
 
 ## Setting Up the Home Route
 
@@ -149,7 +152,7 @@ import {Component} from 'angular2/core';
 export class Home {}
 ```
 
-Now we need to set up our initial routing configuration. This is done with the `@RouteConfig` decorator, which takes an array of objects called `RouteDefinitions` that describe our app's various routing paths and their respective components. We already imported `RouteConfig`, so let's now set it up to just have the `App` class definition.
+Now we need to set up our initial routing configuration. This is done with the `@RouteConfig` decorator, which takes an array of objects called `RouteDefinitions` that describe our app's various routing paths and their respective components. We'll use `@RouteConfig` as a decorator on the `App` class here to set up the base routing, but we'll also use it in our other components later on. We already imported `RouteConfig`, so let's now set it up to just have the `App` class definition.
 
 ```js
 // src/app.ts
@@ -168,7 +171,7 @@ import {Home} from './Home';
 
 So far we only have one real route set up, and that is the `/home` route. We are also instructing the app to redirect any request to unrecognized routes to the `Home` component. Each `RouteDefinition` requires a `path`, a `name`, and either a `component`, `loader`, or `redirectTo`. Here we see the `component` and `redirectTo` case, and later we'll see how `loader` can be used to lazily load components.
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-3.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-3.png)
 
 ## Setting Up the User Detail Component and Route
 
@@ -204,7 +207,7 @@ export class Users {
 }
 ```
 
-This is a simple component that so far just displays the user's login name. You'll notice that we are retrieving this name using `params.get` which is a method given by `RouteParams`, a class that gives us a map of parameters for the route. To pass this parameter on to the `Users` component, we need to send it from the `App` component. An easy way to do this is to add it in as an object when we attach a `routerLink` to an element.
+This is a simple component that so far just displays the user's login name. The `router-outlet` in the template will be the place where the content from our child components will show up, which we'll cover next. You'll notice that we are retrieving the user's login name using `params.get` which is a method given by `RouteParams`, a class that gives us a map of parameters for the route. To pass this parameter on to the `Users` component, we need to send it from the `App` component. An easy way to do this is to add it in as an object when we attach a `routerLink` to an element.
 
 ```js
 // src/app.js
@@ -238,7 +241,7 @@ template: `
 
 We've also set up an additional `RouteDefinition` that points to our `Users` component and has a path that contains the `userLogin` parameter. This parameter is a variable one, indicated by the colon. When we click the list item for a returned user, `userLogin` will be set to their login name, and will be displayed as a segment on the URL.
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-4.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-4.png)
 
 ## Moving to Child Components
 
@@ -276,7 +279,7 @@ Depending on how we want our app set up, we might like to have a `/detail` path 
 
 `User` has now become a **routing** component instead of stictly a **view** component because it is facilitating further routing. In fact, this is by design in Angular 2's router, but can be undesirable because it causes the need for additional files. The router's design means that the ideal routing setup should look like this:
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-diagram.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-diagram.png)
 
 Let's now create the `UserDetail` view component.
 
@@ -337,13 +340,13 @@ export class UserDetail {
 }
 ```
 
-You'll notice that the way we're getting the `userLogin` param is quite different in this case. We can't get at the params of the parent route by simply using `params.get` like we previously did, and instead we need to use the `Injector` to reference the `RouteParams` of the parent. For nesting that doesn't go too deep this isn't a big deal, but as we'll see later, it can get cumbersome when we nest further.
+You'll notice that the way we're getting the `userLogin` param is quite different in this case. We can't get at the params of the parent route by simply using `params.get` like we previously did, and instead we need to use the `Injector` to reference the `RouteParams` of the parent. For nesting that doesn't go too deep this isn't a big deal, but as we'll see later, it can get cumbersome when we nest further. This method of getting the params from the parent is a bit of a workaround, and will hopefully be improved in later releases of the router.
 
 There's a problem with the route configuration above, and we can take this opportunity to demonstrate the non-terminal route error. If we run it and try to select a user, we can see the error in the console.
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-5.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-5.png)
 
-The issue is that we need to indicate that the `/detail` route is the default one to use, and thus make it the terminal route.
+The issue here is that an explicit instruction for which route should be the terminal one is required. We do this by setting `setAsDefault` to `true` on the `/details` route.
 
 ```js
 // app/User.ts
@@ -451,7 +454,7 @@ template: `
 ...
 ```
 
-![angular2 routing router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-1.png)
+![angular2 router](http://cdn.auth0.com/blog/angular2-routing/angular2-routing-1.png)
 
 You'll notice that the `userLogin` param shows up explicitly as the last segment and is separated from the rest with a semicolon. This is called [matrix URI notation](https://www.w3.org/DesignIssues/MatrixURIs.html) and is a bit different than what we're used to.
 
