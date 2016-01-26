@@ -288,7 +288,7 @@ In the heap allocations result view we can select the *Allocation* view instead 
 
 ![Allocations in heap allocations results](https://cdn.auth0.com/blog/jsleaks/example-recordedallocs-list.png)
 
-This view gives us a list of functions and memory allocations related to them. We can immediately see `grow` and `createSomeNodes` standing out. When selecting `grow` we get a look at the associated object constructors being called by it. We notice `(string)`, `HTMLDivElement` and `Text` which by know we already know are the constructors of the objects being leaked.
+This view gives us a list of functions and memory allocations related to them. We can immediately see `grow` and `createSomeNodes` standing out. When selecting `grow` we get a look at the associated object constructors being called by it. We notice `(string)`, `HTMLDivElement` and `Text` which by now we already know are the constructors of the objects being leaked.
 
 The combination of these tools can help greatly in finding leaks. Play with them. Do different profiling runs in your production sites (ideally with non-minimized or obfuscated code). See if you can find leaks or objects that are retained more than they should (hint: these are harder to find).
 
