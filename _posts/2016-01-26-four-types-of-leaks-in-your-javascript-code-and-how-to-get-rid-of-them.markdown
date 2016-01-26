@@ -119,7 +119,7 @@ element.addEventListener('click', onClick);
 element.removeEventListener('click', onClick);
 element.parentNode.removeChild(element);
 // Now when element goes out of scope,
-// both element en onClick will be collected even in old browsers that don't
+// both element and onClick will be collected even in old browsers that don't
 // handle cycles well.
 ```
 
