@@ -34,7 +34,7 @@ Luckily, Auth0 supports SAML authentication (you can even use [Lock](https://aut
 
 So what we're going to go over today is how to get that started and how easy it is to switch over to SAML authentication from a social login provider like Google.
 
-First, we have an express implementation (you can read more about this in [our quickstart guide for Express](https://auth0.com/docs/quickstart/webapp/nodejs/)) of Auth0 logins. All I needed to do is include [passport.js](https://npmjs.org/package/passport) and [the Auth0 strategy](https://npmjs.org/package/passport-auth0). I then use these tools in my route to check that the user has logged in once Lock has redirected the app, and logged out once Lock's logout function has redirected me:
+First, we have an Express implementation (you can read more about this in [our quickstart guide for Express](https://auth0.com/docs/quickstart/webapp/nodejs/)) of Auth0 logins. All I needed to do is include [passport.js](https://npmjs.org/package/passport) and [the Auth0 strategy](https://npmjs.org/package/passport-auth0). I then use these tools in my route to check that the user has logged in once Lock has redirected the app, and logged out once Lock's logout function has redirected me:
 
 ```javascript
 var express = require('express');
@@ -87,9 +87,11 @@ $(function(){
 })
 ```
 
-So let's enable Google logins and see how this works. First, [go to the dashboard](https://manage.auth0.com/), and select 'Connections', then 'Social' from the menu on the left. 
+So let's enable Google logins and see how this works. First, [go to the dashboard](https://manage.auth0.com/), and select 'Connections', then 'Social' from the menu on the left. Click 'Google' to open the configuration menu:
 
-We're going to leave the 'Client ID' and 'Client Secret' blank in order to test using Auth0's API keys. Then, simply hit 'Save' at the bottom of the window. You can now use Google accounts to log in to your app.
+![Google connection configureation window](https://cdn.auth0.com/blog/switch-to-saml/configure-google.png)
+
+We're going to leave the 'Client ID' and 'Client Secret' blank in order to test using Auth0's API keys. So, simply hit 'Save' at the bottom of the window. You can now use Google accounts to log in to your app.
 
 Next, we'll take a look at how to configure SAML authentication without changing *any* of the code we've already written.
 
@@ -100,6 +102,8 @@ First, you'll need some information from your SAML IdP. We have [documentation o
 * X509 Signing Certificate
 
 First, I turn off my Google provider. Then, click 'Enterprise' under 'Connections' in the left menu. Click 'SAMLP Identity Provider' to enter the connection management menu. Click 'Create new Connection'.
+
+![SAML Authentication Configuration Window](https://cdn.auth0.com/blog/switch-to-saml/configure-saml.png)
 
 Enter a name in 'Connection Name'. Then, place your SSO Sign In and Sign Out URLs in the fields labeled 'Sign In URL' and 'Sign Out URL', respectively. Finally, upload the X509 Signing Certificate by clicking the orange 'Upload Certificate' button.
 
