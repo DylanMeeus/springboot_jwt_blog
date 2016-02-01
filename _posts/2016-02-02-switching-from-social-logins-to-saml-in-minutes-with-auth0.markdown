@@ -28,7 +28,7 @@ Today we'll talk about how easy it is to integrate SAML authentication with Auth
 
 So let's start with a hypothetical: you're building a SaaS product, and some of your enterprise customers want their employees to be able to access your product through Single Sign-On (SSO)...and their Identity Provider (IdP) happens to use SAML for authentication.
 
-SAML is a complex standard, and so implementing Federation yourself, even with [already existing libraries](https://www.npmjs.org/package/saml2-js) can be quite a nightmare, and require lots of code and maintennance.
+SAML is a complex standard, and so implementing Federation yourself, even with [already existing libraries](https://www.npmjs.org/package/saml2-js) can be quite a nightmare, and require lots of code and maintenance.
 
 Luckily, Auth0 supports SAML authentication (you can even use [Lock](https://auth0.com/lock)) with just a few lines of code and some configuration.
 
