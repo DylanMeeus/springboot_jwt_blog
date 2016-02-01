@@ -24,15 +24,15 @@ Today's video is about how easy it is to make the switch from social identity pr
 <iframe src="//fast.wistia.net/embed/iframe/2xrll0d056" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="400"></iframe>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 
-Today we'll talk about how easy it is to integrate SAML logins with Auth0.
+Today we'll talk about how easy it is to integrate SAML authentication with Auth0.
 
-So let's start with a hypothetical: you're building a SaaS product, and some of your enterprise customers want their employees to be able to access your product through Single Sign-On (SSO)...and their Identity Provider (IdP) happens to use SAML.
+So let's start with a hypothetical: you're building a SaaS product, and some of your enterprise customers want their employees to be able to access your product through Single Sign-On (SSO)...and their Identity Provider (IdP) happens to use SAML for authentication.
 
 SAML is a complex standard, and so implementing Federation yourself, even with [already existing libraries](https://www.npmjs.org/package/saml2-js) can be quite a nightmare, and require lots of code and maintennance.
 
-Luckily, Auth0 supports SAML login (you can even use [Lock](https://auth0.com/lock)) with just a few lines of code and some configuration.
+Luckily, Auth0 supports SAML authentication (you can even use [Lock](https://auth0.com/lock)) with just a few lines of code and some configuration.
 
-So what we're going to go over today is how to get that started and how easy it is to switch over to SAML from a social login provider like Google.
+So what we're going to go over today is how to get that started and how easy it is to switch over to SAML authentication from a social login provider like Google.
 
 First, we have an express implementation (you can read more about this in [our quickstart guide for Express](https://auth0.com/docs/quickstart/webapp/nodejs/)) of Auth0 logins. All I needed to do is include [passport.js](https://npmjs.org/package/passport) and [the Auth0 strategy](https://npmjs.org/package/passport-auth0). I then use these tools in my route to check that the user has logged in once Lock has redirected the app, and logged out once Lock's logout function has redirected me:
 
@@ -91,7 +91,7 @@ So let's enable Google logins and see how this works. First, [go to the dashboar
 
 We're going to leave the 'Client ID' and 'Client Secret' blank in order to test using Auth0's API keys. Then, simply hit 'Save' at the bottom of the window. You can now use Google accounts to log in to your app.
 
-Next, we'll take a look at how to configure SAML without changing *any* of the code we've already written.
+Next, we'll take a look at how to configure SAML authentication without changing *any* of the code we've already written.
 
 First, you'll need some information from your SAML IdP. We have [documentation on many common third-party IdPs in our docs](https://auth0.com/docs/saml-configuration), including a list of the information you'll need for this tutorial:
 
@@ -105,9 +105,9 @@ Enter a name in 'Connection Name'. Then, place your SSO Sign In and Sign Out URL
 
 You can enter domains under 'Email Domains' in order to tell Lock which user emails should be filtered through to this SSO connection.
 
-That's it for SAML configuration! Click 'Save' and 'Continue'. You will see a list of instructions-- you will need to provide these instructions to your IdP in order to complete the process (if you are using a third-party, like we do in this tutorial with SSOCircle, check [our docs](https://auth0.com/docs/saml-configuration) to see if your next steps are up to you).
+That's it for SAML authentication configuration! Click 'Save' and 'Continue'. You will see a list of instructions-- you will need to provide these instructions to your IdP in order to complete the process (if you are using a third-party, like we do in this tutorial with SSOCircle, check [our docs](https://auth0.com/docs/saml-configuration) to see if your next steps are up to you).
 
-Once you have done this, you can test your new SAML connection in the Dashboard. Go to 'Connections' > 'Enterprise', then select 'SAMLP Identity Provider'. Next to your connection name, you should see a play icon. Click it to try your SAML login from the dashboard. If this works, you are ready to log in using SAML in your Auth0 app!
+Once you have done this, you can test your new SAML connection in the Dashboard. Go to 'Connections' > 'Enterprise', then select 'SAMLP Identity Provider'. Next to your connection name, you should see a play icon. Click it to try your SAML login from the dashboard. If this works, you are ready to log in using SAML authentication in your Auth0 app!
 
 With just a few minutes and no code changes, we have incorporated a SAML SSO into our Auth0 app! Want to learn more? [try our free plan](https://auth0.com/pricing), and you can checkout the [30+ social IdPs](https://auth0.com/docs/identityproviders#social) and the [enterprise IdPs](https://auth0.com/docs/identityproviders#enterprise) that we support. 
 
