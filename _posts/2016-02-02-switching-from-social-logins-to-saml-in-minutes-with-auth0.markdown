@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Switching from Social Logins to SAML in Minutes with Auth0"
-description: <A SHORT DESCRIPTION OF THE POST>
+title: "Switching from Social Authentication to SAML in Minutes with Auth0"
+description: "Setting up SAML authentication with Auth0 is as easy as setting any social connection (like Google!)"
 date: 2016-02-02 10:00
 author: 
   name: Kassandra Perch
