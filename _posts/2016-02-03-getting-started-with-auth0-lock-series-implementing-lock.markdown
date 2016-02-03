@@ -53,11 +53,11 @@ Now, let's set up showing the lock dialog when we click `.js-login`:
 
 ```javascript
 $('.js-login').on('click', function(event){
-	event.preventDefault();
-	lock.show({
-		callbackURL: 'http://localhost:3000/users/authenticate',
-		rememberLastLogin: false
-	});
+  event.preventDefault();
+    lock.show({
+      callbackURL: 'http://localhost:3000/users/authenticate',
+      rememberLastLogin: false
+    });
 });
 ```
 
@@ -73,11 +73,11 @@ We also send `rememberLastLogin` as `false` -- this prevents Lock from prompting
 Next, let's take a look at logging out when the user clicks '.js-logout':
 
 ```javascript
-$('.js-logout').on('click', function(event){
-	event.preventDefault();
-	lock.logout({
-		returnTo: 'http://localhost:3000/users/logout'
-	});
+  $('.js-logout').on('click', function(event){
+    event.preventDefault();
+    lock.logout({
+      returnTo: 'http://localhost:3000/users/logout'
+    });
 });
 ```
 
