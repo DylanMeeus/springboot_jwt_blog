@@ -33,7 +33,7 @@ Let's start with our assumptions for this exercise: you have a server with the f
 
 If you need help with these, [we have quickstart guides in our docs](https://auth0.com/docs), including [the Express quickstart](https://auth0.com/docs/quickstart/webapp/nodejs/) that I used to set this tutorial up.
 
-We also have some elements in our jade page layout:
+We also have some elements in our Jade page layout:
 
 * `.js-login`, which corresponds to our 'Login' button
 * `.js-logout`, which corresponds to our 'Logout' button
