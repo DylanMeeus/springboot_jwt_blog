@@ -292,6 +292,8 @@ This view gives us a list of functions and memory allocations related to them. W
 
 The combination of these tools can help greatly in finding leaks. Play with them. Do different profiling runs in your production sites (ideally with non-minimized or obfuscated code). See if you can find leaks or objects that are retained more than they should (hint: these are harder to find).
 
+> To use this feature go to Dev Tools -> Settings and enable "record heap allocation stack traces". It is necessary to do this before taking the recording.
+
 ## Further reading
 - [Memory Management - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 - [JScript Memory Leaks - Douglas Crockford (old, in relation to Internet Explorer 6 leaks)](http://javascript.crockford.com/memory/leak.html)
