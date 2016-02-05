@@ -695,7 +695,7 @@ private void checkForInstagramData() {
 You can call this funcion in the `onCreate` or `onStart` callbacks for the activity. With the access token it is then possible to query for information regarding the user by querying `https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN`. That is all there is to it!
 
 ## Aside: Don't Repeat Yourself, use Auth0
-If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library]() for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers with a few clicks! Let's see how it is done.
+If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library]() for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers as you want with a few clicks! Let's see how it is done.
 
 #### 1. Sign up
 Go to [https://auth0.com/](https://auth0.com/) and <a href="javascript:signup()">sign-up</a>.
@@ -733,7 +733,6 @@ dependencies {
 Open `AndroidManifest.xml` and add the following:
 
 ```XML
-<!--Auth0 Lock-->
 <activity
     android:name="com.auth0.lock.LockActivity"
     android:theme="@style/Lock.Theme"
@@ -749,7 +748,6 @@ Open `AndroidManifest.xml` and add the following:
 </activity>
 <meta-data android:name="com.auth0.lock.client-id" android:value="@string/auth0_client_id"/>
 <meta-data android:name="com.auth0.lock.domain-url" android:value="@string/auth0_domain"/>
-<!--Auth0 Lock End-->
 ```
 
 Now add the client id and Auth0 domain to your `strings.xml` file. To get these details go to the [Auth0 dashboard](https://manage.auth0.com) and select your app, then pick `settings`.
