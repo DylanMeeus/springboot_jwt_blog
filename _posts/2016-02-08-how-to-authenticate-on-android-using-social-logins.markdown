@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Implementing Social Logins on Android: Google, Facebook, Twitter and Instagram"
-description: "Learn how to implement social logins with different popular providers on Android"
-date: 2016-02-05 13:30
+title: "How to Authenticate on Android Using Social Logins"
+description: "Learn how to implement social logins on Android with Facebook, Google, Twitter and Instagram as providers"
+date: 2016-02-08 13:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -12,7 +12,7 @@ design:
   bg_color: "#222228"
   image: https://cdn.auth0.com/blog/social_login_android/logo.png
   image_size: "100%"
-  image_bg_color: "#B6C5CA"
+  image_bg_color: "#f5f7f9"
   blog_series: false
 tags:
 - android
