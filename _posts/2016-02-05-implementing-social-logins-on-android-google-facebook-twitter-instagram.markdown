@@ -49,25 +49,25 @@ Many social login providers opt to provide a standardized way to authorize acces
 In the case of our four providers, all of them provide OAuth-based APIs. Twitter in particular relies on OAuth 1.0a, while other providers use OAuth 2.0. For the purposes of this post however, we will prefer the official native Android libraries of each provider (except for Instagram, for which there is no official Android lib).
 
 ## Requirements and Setup
-For our examples we will use the latest version of [Android Studio](http://developer.android.com/sdk/index.html?gclid=CPuHoojk3soCFQkFkQodRo8KVw), the official Android IDE. Go to the site, and follow the install instructions for your platform.
+For our examples we will use the latest version of [Android Studio](http://developer.android.com/sdk/index.html), the official Android IDE. Go to the site, and follow the install instructions for your platform.
 
-> TL;DR: [Grab the full code]() for our examples.
+> TL;DR: [Grab the full code](https://github.com/auth0/blog-android-social-login-sample) for our examples.
 
 All our examples should work on recent versions of Android. We picked Android 5.0 as base, but older versions should work as well.
 
 ### Create our sample application
 In Android Studio, go to `File` -> `New Project` and follow the wizard. When asked about the main screen, select an *Empty Activity*. Call this activity `LoginActivity`.
 
-![Android Studio New Project Wizard]()
+![Android Studio New Project Wizard](https://cdn.auth0.com/blog/social_login_android/astudio-new-project.png)
 
 ### Setup the emulator
 After the wizard is done, it should be possible to run the example using the emulator. If you haven't done so, setup an emulator supporting Google Services (this is required). Go to `Tools` -> `Android` -> `AVD Manager` -> `Create Virtual Device`. Create a device supporting *Google Play*. Pick a device that can be accelerated by your platform (x86) and enable GPU acceleration (`Use Host GPU`). This will ensure the best possible experience for our tests.
 
-![AVD Manager new device wizard]
+![AVD Manager new device wizard](https://cdn.auth0.com/blog/social_login_android/avd-manager.png)
 
 It is now time to run the sample app using the emulator. If everything goes well you should see something like this:
 
-![Sample app on emulator]
+![Sample app on emulator](https://cdn.auth0.com/blog/social_login_android/emulator-blank-activity.png)
 
 ## Step-by-step implementations
 Now we are all set to start integrating our social logins into our app. Let's dive in:
@@ -102,7 +102,7 @@ dependencies {
 #### 2. Tell Facebook About Your App
 Facebook's backend needs to know about your application. Go to [https://developers.facebook.com/apps](https://developers.facebook.com/apps) and click `Add a New App`, then follow the wizard:
 
-![Facebook login: setting app and activity names]()
+![Facebook login: setting app and activity names](https://cdn.auth0.com/blog/social_login_android/facebook-app-name.png)
 
 If you are familiar with Android development, you know applications are [digitally signed](http://developer.android.com/tools/publishing/app-signing.html). If not, what you need to know is that there two types of signatures: release and development signatures. Release signatures are used when you publish to the Google Play Store. Development signatures are used otherwise. In this case we are using our development signature. To get it, run the following code in your terminal (the default keystore password is `android`):
 
@@ -112,7 +112,7 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 
 Input the generated hash code in the form and click next.
 
-![Facebook login: setting the signature hash code]()
+![Facebook login: setting the signature hash code](https://cdn.auth0.com/blog/social_login_android/facebook-hash.png)
 
 You can safely ignore what follows in the Facebook app wizard. Now go to [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/) and copy your app id to the clipboard.
 
@@ -262,7 +262,9 @@ That's it! In the `handleSignInResult` method of your activity you can do as you
 As expected, Google provides a native Android SDK to handle logins. Let's see how we can add it to our existing app.
 
 #### 1. Make Sure the Google Play Services SDK is available
-In Android Studio, go to `Tools` -> `Android` -> `SDK Manager`. In the *Extras* section make sure *Google Play Services* is available and enabled.
+In Android Studio, go to `Tools` -> `Android` -> `SDK Manager` -> `SDK Tools`. In the *Extras* section make sure *Google Play Services* is available and enabled.
+
+![SDK manager: Google Play Services](https://cdn.auth0.com/blog/social_login_android/astudio-sdk-manager.png)
 
 #### 2. Setup the Repository and Dependencies
 Open the `build.grade` file for your project and add the Play Services classpath:
@@ -301,7 +303,7 @@ dependencies {
 #### 3. Tell Google About Your App
 Go to the [Google Developer Console](https://developers.google.com/mobile/add?platform=android) and add your app. It will first ask for the usual stuff: your app's name and the Android package name for it. After that you will be presented with several Google services which you can enable. Choose `Google Sign-In`:
 
-![Google Sign-In]()
+![Google Sign-In](https://cdn.auth0.com/blog/social_login_android/google-app.png)
 
 As happened for Facebook sign-in, Google too requires the certificate fingerprint. To get the development fingerprint run the following command (password `android`):
 
@@ -310,7 +312,7 @@ keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.k
 ```
 After Google Sign-In is enabled, a new button at the end of the page will appear: `Generate Configuration Files`. Click it and download the configuration file. Browse to your Android project folder and find the `app` subfolder. Place the `google-services.json` file there:
 
-![Google services JSON file]()
+![Google services JSON file](https://cdn.auth0.com/blog/social_login_android/google-services-file.png)
 
 #### 4. Add the Google Sign-In Button
 Open the layout file for your login activity (`activity_login.xml`) and place the button in a container:
@@ -466,7 +468,7 @@ Go to [https://apps.twitter.com/](https://apps.twitter.com/) and create a new ap
 
 After the app is created, you will be presented with the settings screen. First set your permissions to read-only (nothing more is required for signing-in), then go to the `Keys and Access Tokens` screen and take note of both the `Consumer Key` and the `Consumer Secret`.
 
-![Twitter application management screen]()
+![Twitter application management screen](https://cdn.auth0.com/blog/social_login_android/twitter-app-management-2.png)
 
 You will also need to create an account at [fabric.io](https://fabric.io/sign_up?signup_campaign_id=https://get.fabric.io&locale=en-us). Once you have done this, login and go to [organizations](https://www.fabric.io/settings/organizations). Click on your organization and then click on `API Key`. Put this key in your `AndroidManifest.xml` file:
 
@@ -512,10 +514,7 @@ Open `activity_login.xml` and add the Twitter sign-in button:
 </LinearLayout>
 ```
 
-#### 4. Set the Twitter API key in your manifest
-This is used internally by Twitter's SDK. Open `AndroidManifest.xml` and add
-
-#### 5. Glue Everything With Code
+#### 4. Glue Everything With Code
 In your login activity class add the following code to initialize Twitter's SDK:
 
 ```Java
@@ -587,7 +586,7 @@ In contrast with the other social login services in this post, Instagram provide
 #### 1. Tell Instagram About Your App
 Go to [https://www.instagram.com/developer/clients/register/](https://www.instagram.com/developer/clients/register/) and register a new app. For the `redirect URL` we will use a special URL that can be captured by an Android intent. For our example we used `sociallogin://redirect` (yes, a custom schema is possible and recommended).
 
-![Register your app with Instagram]()
+![Register your app with Instagram](https://cdn.auth0.com/blog/social_login_android/instagram-add-app.png)
 
 In the `security` tab enable implicit OAuth by unchecking the box that reads "Disable Implicit OAuth". Implicit OAuth is simpler for the purposes of our example. Read the [Instagram authentication docs](https://www.instagram.com/developer/authentication/) to find out if the explicit authentication flow is appropriate for your use case.
 
