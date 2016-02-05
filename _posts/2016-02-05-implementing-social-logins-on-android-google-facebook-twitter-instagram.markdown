@@ -9,8 +9,8 @@ author:
   mail: speyrott@auth0.com
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
-  bg_color: "#2E2E2C"
-  image: https://cdn.auth0.com/blog/jsleaks/logo.png
+  bg_color: "#222228"
+  image: https://cdn.auth0.com/blog/social_login_android/logo.png
   image_size: "100%"
   image_bg_color: "#B6C5CA"
   blog_series: false
@@ -36,7 +36,7 @@ In this article we will go through four popular social login providers and learn
 
 -----
 
-## Introduction
+## What are Social Logins?
 Have you ever wanted to get rid of that cumbersome step of telling your users to create a user profile? Have you ever as a user closed a window or an app due to the tediousness of the sign-up step? Then *social login* is for you. *Social login* allows third-party applications to authenticate using the credentials from popular social networks. In other words, rather than forcing users to create a new profile, remember a new password and fill-in all the required details, you can just point them to the login screen of your selected provider and, after a successful authentication step, get all the needed details from that provider. Easier for users AND easier for developers, a combination rarely seen in software development.
 
 Almost every major social network provides an API to allow application developers to authenticate users using their systems. In this article we will focus on the four major social login providers: Google, Facebook, Twitter and Instagram.
@@ -102,7 +102,7 @@ dependencies {
 #### 2. Tell Facebook About Your App
 Facebook's backend needs to know about your application. Go to [https://developers.facebook.com/apps](https://developers.facebook.com/apps) and click `Add a New App`, then follow the wizard:
 
-![Facebook login: setting app and activity names](https://cdn.auth0.com/blog/social_login_android/facebook-app-name.png)
+![Facebook social login: setting app and activity names](https://cdn.auth0.com/blog/social_login_android/facebook-app-name.png)
 
 If you are familiar with Android development, you know applications are [digitally signed](http://developer.android.com/tools/publishing/app-signing.html). If not, what you need to know is that there two types of signatures: release and development signatures. Release signatures are used when you publish to the Google Play Store. Development signatures are used otherwise. In this case we are using our development signature. To get it, run the following code in your terminal (the default keystore password is `android`):
 
@@ -112,7 +112,7 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 
 Input the generated hash code in the form and click next.
 
-![Facebook login: setting the signature hash code](https://cdn.auth0.com/blog/social_login_android/facebook-hash.png)
+![Facebook social login: setting the signature hash code](https://cdn.auth0.com/blog/social_login_android/facebook-hash.png)
 
 You can safely ignore what follows in the Facebook app wizard. Now go to [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/) and copy your app id to the clipboard.
 
@@ -693,8 +693,10 @@ private void checkForInstagramData() {
 
 You can call this funcion in the `onCreate` or `onStart` callbacks for the activity. With the access token it is then possible to query for information regarding the user by querying `https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN`. That is all there is to it!
 
+Get the [full example code](https://github.com/auth0/blog-android-social-login-sample) for all providers.
+
 ## Aside: Don't Repeat Yourself, use Auth0
-If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library]() for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers as you want with a few clicks! Let's see how it is done.
+If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library](https://github.com/auth0/Lock.Android) for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers as you want with a few clicks! Let's see how it is done.
 
 #### 1. Sign up
 Go to [https://auth0.com/](https://auth0.com/) and <a href="javascript:signup()">sign-up</a>.
@@ -803,6 +805,8 @@ startActivity(lockIntent);
 ```
 
 That's it! Now when Lock activity is shown all your picked social login providers will be available. You can add or remove additional connections from the [Auth0 dashboard](https://manage.auth0.com/). No more special cases.
+
+Get the [full code](https://github.com/auth0/blog-android-social-login-sample).
 
 ## Conclusion
 Social logins are now more important than ever. Many users find the sign-up process cumbersome and expect to be able to sign-in using one their existing accounts from other services. As an application developer, you want to make sure users are not scared away from trying your app because of the dreaded registration step. Adding several login providers is doable but increases the complexity of your app and the time needed to develop it. A great way to prevent this from happening is with our Android Lock library. Other benefits include: added security (for instance by not putting secret keys in your app) and professional support from our team. Try it, you won't be disappointed.
