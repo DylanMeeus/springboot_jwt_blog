@@ -260,3 +260,552 @@ That's it! In the `handleSignInResult` method of your activity you can do as you
 
 ### Google
 As expected, Google provides a native Android SDK to handle logins. Let's see how we can add it to our existing app.
+
+#### 1. Make Sure the Google Play Services SDK is available
+In Android Studio, go to `Tools` -> `Android` -> `SDK Manager`. In the *Extras* section make sure *Google Play Services* is available and enabled.
+
+#### 2. Setup the Repository and Dependencies
+Open the `build.grade` file for your project and add the Play Services classpath:
+
+```groovy
+buildscript {
+    // (...)
+    dependencies {
+        // (...)
+        classpath 'com.google.gms:google-services:1.5.0-beta2'
+        // (...)
+    }
+}
+```
+
+Now open the `build.grade` file for your app module and the Google Services plugin and compile-time dependency:
+
+```groovy
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+// (...)
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    // (...)
+
+    compile 'com.google.android.gms:play-services-auth:8.3.0'
+
+    // (...)
+}
+```
+
+#### 3. Tell Google About Your App
+Go to the [Google Developer Console](https://developers.google.com/mobile/add?platform=android) and add your app. It will first ask for the usual stuff: your app's name and the Android package name for it. After that you will be presented with several Google services which you can enable. Choose `Google Sign-In`:
+
+![Google Sign-In]()
+
+As happened for Facebook sign-in, Google too requires the certificate fingerprint. To get the development fingerprint run the following command (password `android`):
+
+```sh
+keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore | grep SHA1
+```
+After Google Sign-In is enabled, a new button at the end of the page will appear: `Generate Configuration Files`. Click it and download the configuration file. Browse to your Android project folder and find the `app` subfolder. Place the `google-services.json` file there:
+
+![Google services JSON file]()
+
+#### 4. Add the Google Sign-In Button
+Open the layout file for your login activity (`activity_login.xml`) and place the button in a container:
+
+```XML
+(...)
+
+<LinearLayout
+    android:id="@+id/email_login_form"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    (...)
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    (...)
+</LinearLayout>
+```
+
+#### 5. Glue Everything With Code
+Bind the button to your callback method:
+
+```Java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // (...)
+
+    mGoogleSignInButton = (SignInButton)findViewById(R.id.google_sign_in_button);
+    mGoogleSignInButton.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            signInWithGoogle();
+        }
+    });
+
+    // (...)
+}
+```
+
+Handle the callback by presenting the Google Sign-In activity:
+
+```Java
+private static final int RC_SIGN_IN = 9001;
+
+private void signInWithGoogle() {
+    if(mGoogleApiClient != null) {
+        mGoogleApiClient.disconnect();
+    }
+
+    GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build();
+    mGoogleApiClient = new GoogleApiClient.Builder(this)
+            .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+            .build();
+
+    final Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+    startActivityForResult(signInIntent, RC_SIGN_IN);
+}
+```
+
+Lastly, handle the result from the activity:
+
+```Java
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+    if (requestCode == RC_SIGN_IN) {
+        GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
+        if(result.isSuccess()) {
+            final GoogleApiClient client = mGoogleApiClient;
+
+            //handleSignInResult(...)
+        } else {            
+            //handleSignInResult(...);
+        }
+    } else {
+        // Handle other values for requestCode
+    }
+}
+```
+
+You can now pass the login details from the `result` object to your custom `handleSignInResult` method. To get the user details, use `result.getSignInAccount()`. That's it!
+
+### Twitter
+Twitter also provides a native SDK for Android. Let's see how we can integrate it.
+
+#### 1. Setup the Repository and Dependencies
+Twitter provides an Android Studio plugin named *Fabric*. *Fabric* is also the name of the libraries Twitter provides developers to help in the integration of their APIs. The Fabric plugin comes with a set of wizards to help in the integration of its features. For the purposes of this post we will do all steps manually (no Fabric wizards).
+
+Open the `build.gradle` file for your project and add the following lines:
+
+```groovy
+buildscript {
+    repositories {
+        // (...)
+
+        maven { url 'https://maven.fabric.io/public' }
+
+        // (...)
+    }
+    dependencies {
+        // (...)
+
+        classpath 'io.fabric.tools:gradle:1.+'
+
+        // (...)
+    }
+}
+
+allprojects {
+    repositories {
+        // (...)
+
+        maven { url 'https://maven.fabric.io/public' }
+
+        // (...)
+    }
+}
+```
+
+Then in the app module `build.gradle` file add the following:
+
+```groovy
+// (...)
+
+apply plugin: 'io.fabric'
+
+// (...)
+
+dependencies {
+    // (...)
+    compile('com.twitter.sdk.android:twitter-core:1.6.3@aar') {
+        transitive = true;
+    }
+    // (...)
+}
+
+```
+
+#### 2. Tell Twitter About Your App
+Go to [https://apps.twitter.com/](https://apps.twitter.com/) and create a new app. Set the callback URL to any domain under your control but do not leave it blank. This will be ignored by the Twitter SDK for Android, but will cause trouble if left blank.
+
+After the app is created, you will be presented with the settings screen. First set your permissions to read-only (nothing more is required for signing-in), then go to the `Keys and Access Tokens` screen and take note of both the `Consumer Key` and the `Consumer Secret`.
+
+![Twitter application management screen]()
+
+You will also need to create an account at [fabric.io](https://fabric.io/sign_up?signup_campaign_id=https://get.fabric.io&locale=en-us). Once you have done this, login and go to [organizations](https://www.fabric.io/settings/organizations). Click on your organization and then click on `API Key`. Put this key in your `AndroidManifest.xml` file:
+
+```XML
+<application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        (...)
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="YOUR_FABRIC_API_KEY" />
+
+        (...)
+
+</application>
+```
+
+#### 3. Add the Twitter Sign-In Button
+Open `activity_login.xml` and add the Twitter sign-in button:
+
+```XML
+<LinearLayout
+    android:id="@+id/email_login_form"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    (...)
+
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitter_sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp" />
+
+    (...)
+
+</LinearLayout>
+```
+
+#### 4. Set the Twitter API key in your manifest
+This is used internally by Twitter's SDK. Open `AndroidManifest.xml` and add
+
+#### 5. Glue Everything With Code
+In your login activity class add the following code to initialize Twitter's SDK:
+
+```Java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // (...)
+
+    // The private key that follows should never be public
+    // (consider this when deploying the application)
+    TwitterAuthConfig authConfig = new TwitterAuthConfig("lPcEPVTOHSdQgfy22rxYlvz04",
+            "Rd9yQ4B8dSffj025UJP8y3QQIbJvRO6eUv68jmgIhe1dUSdjNq");
+    Fabric.with(this, new TwitterCore(authConfig));
+
+    // (...)
+}
+```
+
+The keys in this block of code are the ones you got in step 2. Note the comment in the block of code. The secret key for your Twitter app should never be made public (the key above was revoked before publishing). This means that embedding the key in code like we have done in this case is a security issue you should consider. The recommended way of handling this is on a [best-effort basis](http://arstechnica.com/security/2010/09/twitter-a-case-study-on-how-to-do-oauth-wrong/). If you are keen on security issues this should immediately trigger an alarm in your head. Yes, Twitter's own API forces us to use insecure practices. One way to mitigate this issue is to use [DexGuard](https://www.guardsquare.com/dexguard) to obfuscate strings. This is, however, imperfect and will not prevent a dedicated black-hat from getting your secret keys. The only safe way of handling this limitation is by not using the Android native SDK and reverting to the OAuth HTTP-based API. This way the secret key can be stored in a server of your choice. Twitter is aware of this limitation and remains silent in the way of potential fixes. Consider this carefully when picking the native Twitter for Android SDK for your apps.
+
+Now we can add a handler for Twitter's button:
+
+```Java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // (...)
+
+    mTwitterSignInButton = (TwitterLoginButton)findViewById(R.id.twitter_sign_in_button);
+    mTwitterSignInButton.setCallback(new Callback<TwitterSession>() {
+        @Override
+        public void success(final Result<TwitterSession> result) {
+            // handleSignInResult(...);
+        }
+
+        @Override
+        public void failure(TwitterException e) {
+            // handleSignInResult(...);
+        }
+    });
+
+    // (...)
+}
+```
+
+You can get the user details by calling `result.data.getUserName()`.
+
+Finally, it is necessary to handle the response sent from the Twitter sign-in activity:
+
+```Java
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    // (...)
+    if(TwitterAuthConfig.DEFAULT_AUTH_REQUEST_CODE == requestCode) {
+        mTwitterSignInButton.onActivityResult(requestCode, resultCode, data);
+    }
+    // (...)
+}
+```
+
+That's all there is to it. Remember in this case to consider the potential security issues brought by keeping the secret key for Twitter's API in your code.
+
+### Instagram
+In contrast with the other social login services in this post, Instagram provides no native library for Android (or any other platform), so we will focus on how to integrate it in our sample using an HTTP API and Android intents.
+
+#### 1. Tell Instagram About Your App
+Go to [https://www.instagram.com/developer/clients/register/](https://www.instagram.com/developer/clients/register/) and register a new app. For the `redirect URL` we will use a special URL that can be captured by an Android intent. For our example we used `sociallogin://redirect` (yes, a custom schema is possible and recommended).
+
+![Register your app with Instagram]()
+
+In the `security` tab enable implicit OAuth by unchecking the box that reads "Disable Implicit OAuth". Implicit OAuth is simpler for the purposes of our example. Read the [Instagram authentication docs](https://www.instagram.com/developer/authentication/) to find out if the explicit authentication flow is appropriate for your use case.
+
+#### 2. Add an Intent Filter to Catch the Redirect
+Once the application is authenticated (or not) by Instagram, a redirect will be performed to the URL set in step 1. We will setup our application to catch those URLs so that it gets launched when the browser is redirected them. Open `AndroidManifest.xml` and add the following attribute to the login activity:
+
+```XML
+<activity
+    android:name=".LoginActivity"
+    android:label="@string/app_name">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="sociallogin" android:host="redirect" />
+    </intent-filter>
+</activity>
+```
+
+#### 3. Add a Standard Android Button to the Layout
+Open `activity_login.xml` and add the following:
+
+```XML
+<LinearLayout
+    android:id="@+id/email_login_form"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    (...)
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_sign_in_with_instagram"
+        android:id="@+id/instagram_sign_in_button" />
+
+    (...)
+
+</LinearLayout>
+```
+
+#### 4. Add the Code
+Now add the code to do all the magic. First, setup a handler for the button:
+
+```Java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // (...)
+
+    mInstagramSignInButton = (Button)findViewById(R.id.instagram_sign_in_button);
+    mInstagramSignInButton.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            signInWithInstagram();
+        }
+    });
+
+    // (...)
+}
+```
+
+And here is `signInWithInstagram`:
+
+```Java
+private void signInWithInstagram() {
+    final Uri.Builder uriBuilder = new Uri.Builder();
+    uriBuilder.scheme("https")
+              .authority("api.instagram.com")
+              .appendPath("oauth")
+              .appendPath("authorize")
+              .appendQueryParameter("client_id", "18a8b74da9644bd7a9294caef1c5e76c")
+              .appendQueryParameter("redirect_uri", "sociallogin://redirect")
+              .appendQueryParameter("response_type", "token");
+    final Intent browser = new Intent(Intent.ACTION_VIEW, uriBuilder.build());
+    startActivity(browser);
+}
+```
+
+You can get your client id from [https://www.instagram.com/developer/clients/manage/](https://www.instagram.com/developer/clients/manage/).
+
+To handle the return from the activity, look for the callback URI:
+
+```
+private void checkForInstagramData() {
+    final Uri data = this.getIntent().getData();
+    if(data != null && data.getScheme().equals("sociallogin") && data.getFragment() != null) {
+        final String accessToken = data.getFragment().replaceFirst("access_token=", "");
+        if (accessToken != null) {
+            // handleSignInResult(...);
+        } else {
+            // handleSignInResult(...);
+        }
+    }
+}
+```
+
+You can call this funcion in the `onCreate` or `onStart` callbacks for the activity. With the access token it is then possible to query for information regarding the user by querying `https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN`. That is all there is to it!
+
+## Aside: Don't Repeat Yourself, use Auth0
+If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library]() for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers with a few clicks! Let's see how it is done.
+
+#### 1. Sign up
+Go to [https://auth0.com/](https://auth0.com/) and <a href="javascript:signup()">sign-up</a>.
+
+#### 2. Create an empty Android project
+Click on `File` -> `New` -> `New Project` and follow the steps. A project like the one we created for our sample above will do just fine.
+
+#### 3. Tell Auth0 About Your app
+Open the [dashboard](https://manage.auth0.com/) and click on `New App/API`.
+
+Now go to `Connections` -> `Social` and enable as many social providers as you like. Follow the usual steps to get the application ids or consumer keys. For testing, you can leave the fields blank and use Auth0's internal test keys. Don't forget to enable these connections in your new app (`Apps/APIs` -> `<APP NAME>` -> `Connections`).
+
+#### 4. Setup Lock's dependencies
+Open your app module `build.gradle` file and add the following:
+
+```groovy
+apply plugin: 'com.android.application'
+
+android {
+    // (...)
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+dependencies {
+    // (...)
+    compile 'com.auth0.android:lock:1.13.+'
+}
+```
+
+#### 5. Add Lock's Activity to Your Manifest File
+Open `AndroidManifest.xml` and add the following:
+
+```XML
+<!--Auth0 Lock-->
+<activity
+    android:name="com.auth0.lock.LockActivity"
+    android:theme="@style/Lock.Theme"
+    android:screenOrientation="portrait"
+    android:launchMode="singleTask">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="a0<YOUR CLIENT ID IN LOWERCASE>"
+              android:host="@string/auth0_domain"/>
+    </intent-filter>
+</activity>
+<meta-data android:name="com.auth0.lock.client-id" android:value="@string/auth0_client_id"/>
+<meta-data android:name="com.auth0.lock.domain-url" android:value="@string/auth0_domain"/>
+<!--Auth0 Lock End-->
+```
+
+Now add the client id and Auth0 domain to your `strings.xml` file. To get these details go to the [Auth0 dashboard](https://manage.auth0.com) and select your app, then pick `settings`.
+
+Internet permissions are necessary:
+
+```XML
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+#### 6. Glue Everything Together With Code
+Put the following code in your main activity or global application object:
+
+```Java
+public void onCreate() {
+    super.onCreate();
+
+    LockContext.configureLock(
+            new Lock.Builder()
+                    .loadFromApplication(this)
+                    .closable(true));
+
+    final LocalBroadcastManager broadcastManager =
+            LocalBroadcastManager.getInstance(getApplicationContext());
+    broadcastManager.registerReceiver(receiver, new IntentFilter(Lock.AUTHENTICATION_ACTION));
+}
+```
+
+The `receiver` object can be implemented as follows:
+
+```Java
+private final BroadcastReceiver receiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        userProfile = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_PROFILE_PARAMETER);
+        accessToken = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_TOKEN_PARAMETER);
+        Log.i(TAG, "User " + userProfile.getName() + " logged in");
+
+        final Intent loggedInIntent =
+                new Intent(getApplicationContext(), LoggedInActivity.class);
+        // The following line is only necessary when calling this from the
+        // global Application object
+        //loggedInIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(loggedInIntent);
+    }
+};
+```
+
+And to show the Auth0 Lock activity put this in any place where you can trigger this code:
+
+```Java
+Intent lockIntent = new Intent(this, LockActivity.class);
+startActivity(lockIntent);
+```
+
+That's it! Now when Lock activity is shown all your picked social login providers will be available. You can add or remove additional connections from the [Auth0 dashboard](https://manage.auth0.com/). No more special cases.
+
+## Conclusion
+Social logins are now more important than ever. Many users find the sign-up process cumbersome and expect to be able to sign-in using one their existing accounts from other services. As an application developer, you want to make sure users are not scared away from trying your app because of the dreaded registration step. Adding several login providers is doable but increases the complexity of your app and the time needed to develop it. A great way to prevent this from happening is with our Android Lock library. Other benefits include: added security (for instance by not putting secret keys in your app) and professional support from our team. Try it, you won't be disappointed.
