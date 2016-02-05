@@ -21,7 +21,7 @@ tags:
 
 So today we're introducing a new screencast series for Lock, which will include ways to get started with Lock, customizing it, and taking a look at the API. Today we'll start with the basic implementation of Lock in a web app:
 
-<iframe src="//fast.wistia.net/embed/iframe/3xs95vuwtb" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="401"></iframe>
+<div class="wistia_responsive_padding" style="padding:62.71% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/3xs95vuwtb?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 
 The demo is an Express application with a login and logout route, and some Javascript on the front-end. We can login using either Twitter or username/password, and logout.
