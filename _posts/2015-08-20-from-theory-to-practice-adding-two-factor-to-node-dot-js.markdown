@@ -218,5 +218,5 @@ Auth0 provides convenient [2FA](https://auth0.com/learn/multi-factor-authenticat
 - **Multiple TOTP Clients:** Auth0 works with various client-side TOTP-generating apps: Google Authenticator, Microsoft Authenticator, Authy, etc.
 - **Contextual and Programmable 2FA:** Contextual 2FA: enforce 2FA for users according to your own scripted rules.
 
-Check the [docs](https://auth0.com/docs/mfa) and the [multi factor authentication page](https://auth0.com/learn/multi-factor-authentication).
+Check the [docs](https://auth0.com/docs/mfa) and the [multi factor authentication page](https://auth0.com/learn/multifactor-authentication).
 
