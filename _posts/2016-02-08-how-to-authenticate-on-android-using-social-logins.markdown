@@ -34,10 +34,14 @@ tags:
 
 In this article we will go through four popular social login providers and learn how to implement them on Android. Read on!
 
+> TL;DR: [Grab the full code](https://github.com/auth0/blog-android-social-login-sample) for our examples.
+
 -----
 
 ## What are Social Logins?
 Have you ever wanted to get rid of that cumbersome step of telling your users to create a user profile? Have you ever as a user closed a window or an app due to the tediousness of the sign-up step? Then *social login* is for you. *Social login* allows third-party applications to authenticate using the credentials from popular social networks. In other words, rather than forcing users to create a new profile, remember a new password and fill-in all the required details, you can just point them to the login screen of your selected provider and, after a successful authentication step, get all the needed details from that provider. Easier for users AND easier for developers, a combination rarely seen in software development.
+
+Social network providers often can provide additional information about users, such as location, interests, and birthday. Using social logins you can take advantage of this data, to target personalized, relevant content to users.
 
 Almost every major social network provides an API to allow application developers to authenticate users using their systems. In this article we will focus on the four major social login providers: Google, Facebook, Twitter and Instagram.
 
@@ -46,12 +50,10 @@ Related to social login is the concept of [single-sign-on](https://auth0.com/blo
 
 Many social login providers opt to provide a standardized way to authorize access to their login services through the [OAuth2 standard](https://en.wikipedia.org/wiki/OAuth). OAuth2 specifies a series of operations that clients can perform against an authorization server. It is the authorization server's job to issue tokens (pieces of information) that can later be used by these clients to access protected resources. In the case of social logins, protected resources are user profiles and other data associated with them. Although the use of OAuth2 for certain tasks has been criticized by various parties, it remains the most common standard for social logins.
 
-In the case of our four providers, all of them provide OAuth-based APIs. Twitter in particular relies on OAuth 1.0a, while other providers use OAuth 2.0. For the purposes of this post however, we will prefer the official native Android libraries of each provider (except for Instagram, for which there is no official Android lib).
+In the case of our four providers, all of them provide OAuth-based APIs. Twitter in particular relies on [OAuth 1.0a](http://tools.ietf.org/html/rfc5849), while other providers use OAuth 2.0. For the purposes of this post however, we will prefer the official native Android libraries of each provider (except for Instagram, for which there is no official Android lib).
 
 ## Requirements and Setup
 For our examples we will use the latest version of [Android Studio](http://developer.android.com/sdk/index.html), the official Android IDE. Go to the site, and follow the install instructions for your platform.
-
-> TL;DR: [Grab the full code](https://github.com/auth0/blog-android-social-login-sample) for our examples.
 
 All our examples should work on recent versions of Android. We picked Android 5.0 as base, but older versions should work as well.
 
@@ -337,7 +339,7 @@ Open the layout file for your login activity (`activity_login.xml`) and place th
 </LinearLayout>
 ```
 
-#### 5. Glue Everything With Code
+#### 5. Glue it all Together with Code
 Bind the button to your callback method:
 
 ```Java
@@ -691,12 +693,14 @@ private void checkForInstagramData() {
 }
 ```
 
-You can call this funcion in the `onCreate` or `onStart` callbacks for the activity. With the access token it is then possible to query for information regarding the user by querying `https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN`. That is all there is to it!
+You can call this function in the `onCreate` or `onStart` callbacks for the activity. With the access token it is then possible to query for information regarding the user by querying `https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN`. That is all there is to it!
 
 Get the [full example code](https://github.com/auth0/blog-android-social-login-sample) for all providers.
 
 ## Aside: Don't Repeat Yourself, use Auth0
 If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library](https://github.com/auth0/Lock.Android) for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers as you want with a few clicks! Let's see how it is done.
+
+![Auth0 social login switches](https://cdn.auth0.com/blog/social_login_android/dashboard-social-login-switches.png)
 
 #### 1. Sign up
 Go to [https://auth0.com/](https://auth0.com/) and <a href="javascript:signup()">sign-up</a>.
