@@ -24,6 +24,27 @@ Hi, this is Kassandra with Auth0. In [the first episode of our new Getting Start
 
 But first, I'd like to introduce viewers to the [Lock Playground](https://auth0.github.io/playground/). This is a tool Auth0 has that allows users to test the options out on Lock without having to implement it! The code on the left affects the window on the right in real time. A documented list of all of the options are available [in our docs](https://auth0.com/docs/libraries/lock/customization).
 
+![Auth0 Playground](https://cdn.auth0.com/blog/lock-ep-2/playground.png)
+
+Here's a snapshot of the options we'll be looking at today:
+
+```javascript
+
+lock.show({
+	connections: ['Username-Password-Authentication', 'Facebook'],
+	dictionary: 'en',
+	icon: 'https://mycdn.com/myImage.png',
+	closable: true,
+	socialBigButtons: true,
+	focusInput: true,
+	usernameStyle: 'email',
+	gravatar: true,
+	disableSignupAction: false,
+	disableResetAction: false
+});
+
+```
+
 First, we'll talk about the `connections` option: this option allows us to select a subset of our configured login providers to show to a user. This is handy if you have configured a login type, but do not want it to be an open option to potential users. THis is an array of the connections you'd like to show.
 
 Next is `dictionary`: you can convert the dialogue to a different language by using its language code (e.g. 'es' for Spanish).
