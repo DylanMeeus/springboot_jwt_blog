@@ -66,5 +66,5 @@ If you are already using Auth0 in your developments, you know how easy it is to 
 ![SSO with Auth0](https://cdn.auth0.com/blog/sso/auth0.png)
 
 ## Conclusion
-SSO is here to stay. Decentralized systems are becoming more and more common and authentication is an essential aspect of all of them. SSO solves a big problem: how to manage the increasing number of users across a whole ecosystem of applications and services. Frameworks such as OpenID Connect and services such as the one we provide at Auth0 make [integrating Single Sign On](https://auth0.com/learn/single-sign-on) into your new or existing applications much easier. If you are implementing authentication for a new application or service, consider integrating SSO from the get-go.
+SSO is here to stay. Decentralized systems are becoming more and more common and authentication is an essential aspect of all of them. SSO solves a big problem: how to manage the increasing number of users across a whole ecosystem of applications and services. Frameworks such as OpenID Connect and services such as the one we provide at Auth0 make [integrating Single Sign On](https://auth0.com/learn/how-to-implement-single-sign-on/) into your new or existing applications much easier. If you are implementing authentication for a new application or service, consider integrating SSO from the get-go.
 
