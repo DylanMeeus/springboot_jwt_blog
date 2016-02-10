@@ -2,7 +2,7 @@
 layout: post
 title: "Getting Started with Lock Episode 2: Using Customization Options"
 description: "This is the second episode of the Lock screencast series, where we show the various customization options in Lock.js"
-date: 2016-02-09 10:00
+date: 2016-02-10 10:00
 author: 
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
