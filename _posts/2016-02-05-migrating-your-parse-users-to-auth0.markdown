@@ -19,6 +19,12 @@ tags:
 - Tutorial
 ---
 
+---
+
+**TL;DR:** Parse is shutting down on January 28, 2017. Auth0 allows you to easily automigrate your Parse users by implementing just a couple of scripts that interface with the Parse REST API. In this tutorial, we'll walk you through a step by step process of setting up Auth0 to automigrate your existing Parse userbase as well as how to implement Auth0 authentication in your app. 
+
+---
+
 Facebook shocked the developer community when it announced it would be [shutting down](http://blog.parse.com/announcements/moving-on/) Parse, a [MBaaS](https://en.wikipedia.org/wiki/Mobile_backend_as_a_service), which powers over 500,000 apps. Applications relying on Parse have until January 28, 2017 to find a new home. The Parse team has released two tools to help developers migrate away, [Parse Server](https://github.com/ParsePlatform/parse-server/wiki) and the [Database Migration Tool](https://parse.com/docs/server/guide#migrating).
   
 Today's tutorial will focus on migrating users from an existing Parse application to Auth0. We will implement Auth0's automatic migration feature to work with our existing Parse backend so that when our existing users login their account will be migrated to Auth0. We have developed a sample app that utilizes Parse - and this tutorial will take us step by step through the process of migrating users to Auth0.
@@ -149,18 +155,20 @@ As mentioned in the code sample above, Auth0 provides a convenient configuration
 ![Database Action Scripts Settings](http://i.imgur.com/OdN3Hdp.png)
 
 ### Script Debugging
-Auth0 additionally provides functionality to try your custom login function as well as debug it when issues arise. As this code runs in a sandbox on Auth0's servers, you will need to install [Webtask](https://webtask.io/) (as well as NodeJS) by running```npm install -g wt-cli``` and hook it into your Auth0 app. The instructions are very straightforward and can be found by clicking the **Debug Script** button in the Database Action Scripts section of the page. The webtask that runs will display any `console.logs` you have placed in your Database Action Scripts functions as well as other errors.   
+Auth0 additionally provides functionality to try your custom login function as well as debug it when issues arise. As this code runs in a sandbox on Auth0's servers, you will need to install [Webtask](https://webtask.io/) (as well as NodeJS) by running `npm install -g wt-cli` and hook it into your Auth0 app. The instructions are very straightforward and can be found by clicking the **Debug Script** button in the Database Action Scripts section of the page. The webtask that runs will display any `console.logs` you have placed in your Database Action Scripts functions as well as other errors.   
 
 ## Implement Auth0 Authentication in CloudCakes
 We are now ready to implement Auth0 authentication in our app. CloudCakes was built as an AngularJS app that talks to a REST backend. If you would like to follow along get the code [here](https://github.com/kukicadnan/cloudcakes). Since our app was built with AngularJS we will add all the required and supplemental libraries to make the implementation as easy as possible. AngularJS setup is out of scope for this tutorial - we will primarily focus on integrating Auth0 authentication. We will assume you are following along with the CloudCakes code example.
 
+*Auth0 provides a REST based API that you can use to integrate into any app you are building. Additionally, Auth0 provides official libraries and SDK's for most frameworks and languages including Python, Node, Ruby, iOS, Android, Java, .Net and many others. To learn more about the different SDK's supported visit this [page](https://auth0.com/docs/sdks).*
+
 ### Hooking Into Auth0
-The first and most important step is to properly add your Auth0 credentials. For CloudCakes, David has created a file ```auth0-variables.js``` where he instantiated three global variables ```AUTH0_CLIENT_ID```, ```AUTH0_DOMAIN``` and ```AUTH0_CALLBACK_URL``` and inserted the appropriate values into the variables. You can get these values for your app by navigating to your Auth0 Dashboard, selecting your app and clicking on the **Settings** tab. The **Domain** and **Client ID** will be predefined for you and you can just copy and paste them. You will need to insert a value or values in the **Allowed Callback URLs**. The value here should be the domain you will be accessing your app from. In CloudCakes case, we are just going to add our local development url which is ```http://localhost:3000```. With these three setting defined, you are ready for the next step.
+The first and most important step is to properly add your Auth0 credentials. For CloudCakes, David has created a file `auth0-variables.js` where he instantiated three global variables `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN` and `AUTH0_CALLBACK_URL` and inserted the appropriate values into the variables. You can get these values for your app by navigating to your Auth0 Dashboard, selecting your app and clicking on the **Settings** tab. The **Domain** and **Client ID** will be predefined for you and you can just copy and paste them. You will need to insert a value or values in the **Allowed Callback URLs**. The value here should be the domain you will be accessing your app from. In CloudCakes case, we are just going to add our local development url which is `http://localhost:3000`. With these three setting defined, you are ready for the next step.
 
 *In the CloudCakes GitHub repo, we have provided an ```auth0-variables-example.js``` file that you can use to add your **Client Id** and **Domain** - just be sure to remove the ```-example``` from the filename*.
 
 ### Login Functionality
-Next we are going to integrate the login functionality for our application. The code for this can be found in the ```login/login.js``` file. Auth0 provides numerous ways for a user to sign in, for our purposes we will be using the **popup mode**. Let's look at the sign in function in detail.
+Next we are going to integrate the login functionality for our application. The code for this can be found in the `login/login.js` file. Auth0 provides numerous ways for a user to sign in, for our purposes we will be using the **popup mode**. Let's look at the sign in function in detail.
 
 ```javascript
 // We bind the login function to our view using the $scope variable
@@ -183,7 +191,7 @@ $scope.login = function() {
 
 If you have used Auth0 before you may be scratching your head and thinking "well this code isn't any different than implementing Auth0 without the automigration feature enabled." That's the point! Let's explore what happens when a user attempts to login.
 
-![Auth0 Authentication Popup](http://i.imgur.com/HqdZqyO.png)
+![Auth0 Authentication Popup](http://i.imgur.com/VMR6A5q.png)
 
 ## Automigrating Users
 So far, we've enabled the automigration features in Auth0, setup our Database Action Scripts to interface with the Parse API and added Auth0 login functionality in our CloudCakes application. Yay! Let's put it all together now and see what happens when a user attempts to login. Let's go over the potential use cases.
@@ -208,10 +216,19 @@ A few days later, Chris has the cravings for cake again, but doesn't want anyone
 
 The entire migration process is fully transparent to the user. The user did not need to do anything differently to get access. New users registering for CloudCakes will have their account created and stored in Auth0's database. To further illustrate the steps taken please see the graphical representation of the authentication flow below.
 
-![Automigration Diagram](https://cdn.auth0.com/docs/media/articles/connections/database/migrating-diagram.png)
+![Automigration Diagram](https://cdn.auth0.com/content/email-wall/use-cases/database-migration/database-migration-logic.png)
 
 ### Closing Migration
 Once Parse shuts down, you can close the migration process by going back to the **Connections** -> **Database** menu in the Auth0 dashboard, navigating to the **Settings** tab and unchecking the "Import Users to Auth0" checkbox as well as turning off the "Use my own database" setting in the **Custom Database** tab.
+
+## Next Steps
+David S. has successfully migrated his Parse users to Auth0. Business is booming but he really wants to get to the next level by adding social authentication and letting users sign up with their existing social media accounts. Auth0 has him covered! Navigating to the **Connections**, then **Social** menu, David is presented with an array of authentication providers including Facebook, Twitter, Google, GitHub and more. 
+
+David decides that he wants to allow his users to login with **Facebook**. Enabling login through Facebook is as simple as switching the Facebook social connection to the "On" state and then clicking on it to bring up the settings menu. Here, all David has to add is his **App ID** and **App Secret** as well as any attributes and permissions he would like the user to grant. To get the **App ID** and **App Secret** you will need to create a Facebook app on the [Facebook Developers](https://developers.facebook.com/). Once your app is created, you will be able to find the **App ID** and **App Secret** at the very top of the page on the **Dashboard** tab of your app. One additional step that you will need to do to enable Facebook authentication with Auth0 is to add your Auth0 callback URL in the **Client OAuth Settings** of your Facebook app. To do this, inside of your Facebook app, navigate to the **Settings** tab, then **Advanced**. On this page, scroll to the section that reads **Client OAuth Settings** and insert your Auth0 callback url in the **Valid Oauth redirect URIs** box. The callback url looks like `https://{AUTH0_USERNAME}.auth0.com/login/callback`.
+
+Facebook login will now be displayed as an option when a user clicks on the **Sign Up** button in the CloudCakes app. Clicking the Facebook icon will take the user through the Facebook oAuth workflow and if successful the user will be logged in to CloudCakes as well as have their account registered in Auth0.
+
+![Auth0 Authentication Popup with Facebook](http://i.imgur.com/dggR9S7.png)
 
 ## Additional Resources
 Parse handled more than just user authentication. Since the announcement the developer community has banded together and complied an amazing list of resources to help those affected find alternatives to parse. A GitHub repo, [ParseAlternatives](https://github.com/relatedcode/ParseAlternatives), has been setup containing links and information to alternative SaaS products - some that mimic Parse in features and others which provide very specific functionality many which Auth0 can integrates into. To date the repo has over 60 contributors. As mentioned at the beginning of the article, the Parse team has also released tools to ease the pain of migration: [Parse Server](https://github.com/ParsePlatform/parse-server/wiki) and the [Database Migration Tool](https://parse.com/docs/server/guide#migrating).
