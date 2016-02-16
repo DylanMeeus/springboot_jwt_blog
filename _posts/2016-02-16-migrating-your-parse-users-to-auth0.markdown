@@ -10,7 +10,7 @@ author:
   avatar: https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200
 design: 
   bg_color: "#333333"
-  image: "http://i.imgur.com/bGCV82v.png"
+  image: "https://cdn.auth0.com/blog/parse-migration/logo.png"
   image_size: "100%"
 tags: 
 - Parse
@@ -32,14 +32,14 @@ Today's tutorial will focus on migrating users from an existing Parse applicatio
 ## Introduction
 David S. founded [CloudCakes](https://github.com/kukicadnan/cloudcakes) to deliver pastry happiness to customers with the click of a button. After the announcement that Parse is shutting down, David has decided to use Auth0 to manage user creation and authentication. CloudCakes has millions of happy users across the world and David wants to make the transition as smooth as possible. David is not alone in this - so let's see how David and you can migrate your existing Parse userbase to Auth0.
 
-![CloudCakes](http://i.imgur.com/QlJmIhp.png)
+![CloudCakes](https://cdn.auth0.com/blog/parse-migration/cloudcakes.png)
 
 ## Setting Up Automatic Migration
 With an Auth0 account created and verified, David is ready to setup automatic migration for his users. In the Auth0 Dashboard, he navigates to the **Connections** then **Database** menu and creates a new database connection. To enable the migration from Parse, the first step will be to enable the use of a custom database.  To do that, David navigates to the **Custom Database** tab and flips the switch on the "Use my own database" option. Next, he goes back to the **Settings** tab and enables the "Import Users to Auth0" functionality.
 
-![Setup Custom Database](http://i.imgur.com/YERCR5V.png)
+![Setup Custom Database](https://cdn.auth0.com/blog/parse-migration/setup-custom-database.png)
 
-![Setup User Migration from Parse](http://i.imgur.com/ABYawUt.png)
+![Setup User Migration from Parse](https://cdn.auth0.com/blog/parse-migration/setup-user-migration.png)
 
 ### Username vs Email
 Parse uses the `username` key when creating user accounts. The username key can either be an actual email address or any valid string - it's up to the developer to choose. If your Parse users login with a username rather than an email address, you will also need to enable the "Requires Username" option in the **Settings** otherwise you can leave this setting unchecked.
@@ -152,7 +152,7 @@ The Parse REST API call to return the user data will return everything except th
 
 As mentioned in the code sample above, Auth0 provides a convenient configuration object that we can use in our database action scripts. For our Parse integration, we have utilized this feature to create two keys, `ParseApplicationId` and `ParseAPIKey` which hold the values of our Parse Application Id and Parse API Key respectively. Creating additional keys is as easy as picking a unique name for the key and entering the value you want it to hold.
 
-![Database Action Scripts Settings](http://i.imgur.com/OdN3Hdp.png)
+![Database Action Scripts Settings](https://cdn.auth0.com/blog/parse-migration/database-action-scripts-settings.png)
 
 ### Script Debugging
 Auth0 additionally provides functionality to try your custom login function as well as debug it when issues arise. As this code runs in a sandbox on Auth0's servers, you will need to install [Webtask](https://webtask.io/) (as well as NodeJS) by running `npm install -g wt-cli` and hook it into your Auth0 app. The instructions are very straightforward and can be found by clicking the **Debug Script** button in the Database Action Scripts section of the page. The webtask that runs will display any `console.logs` you have placed in your Database Action Scripts functions as well as other errors.   
@@ -191,7 +191,7 @@ $scope.login = function() {
 
 If you have used Auth0 before you may be scratching your head and thinking "well this code isn't any different than implementing Auth0 without the automigration feature enabled." That's the point! Let's explore what happens when a user attempts to login.
 
-![Auth0 Authentication Popup](http://i.imgur.com/VMR6A5q.png)
+![Auth0 Authentication Popup](https://cdn.auth0.com/blog/parse-migration/auth0-authentication-popup.png)
 
 ## Automigrating Parse Users
 So far, we've enabled the automigration features in Auth0, setup our Database Action Scripts to interface with the Parse API and added Auth0 login functionality in our CloudCakes application. Yay! Let's put it all together now and see what happens when a user attempts to login. Let's go over the potential use cases.
@@ -206,7 +206,7 @@ Our user, let's call him Chris, comes to CloudCakes and attempts to login:
 5. If the credentials provided are valid, the API will return the user
 6. Auth0 will then migrate this user to the Auth0 database and log the user in
 
-![Authenticated User](http://i.imgur.com/Nj16vtr.png)
+![Authenticated User](https://cdn.auth0.com/blog/parse-migration/authenticated-user.png)
 
 ### Existing Parse User Attempts Subsequent Login
 A few days later, Chris has the cravings for cake again, but doesn't want anyone to know, so he opens up an incognito window and goes back to CloudCakes.
@@ -228,7 +228,7 @@ David decides that he wants to allow his users to login with **Facebook**. Enabl
 
 Facebook login will now be displayed as an option when a user clicks on the **Sign Up** button in the CloudCakes app. Clicking the Facebook icon will take the user through the Facebook oAuth workflow and if successful the user will be logged in to CloudCakes as well as have their account registered in Auth0. Adding additional social login providers is just as easy - to learn more about the process, benefits and how-to visit the [Social Login](https://auth0.com/learn/social-login/) section of the Auth0 website.
 
-![Auth0 Authentication Popup with Facebook](http://i.imgur.com/dggR9S7.png)
+![Auth0 Authentication Popup with Facebook](https://cdn.auth0.com/blog/parse-migration/authentication-popup-with-facebook.png)
 
 ## Additional Resources
 Parse handled more than just user authentication. Since the announcement the developer community has banded together and complied an amazing list of resources to help those affected find alternatives to parse. A GitHub repo, [ParseAlternatives](https://github.com/relatedcode/ParseAlternatives), has been setup containing links and information to alternative SaaS products - some that mimic Parse in features and others which provide very specific functionality many which Auth0 can integrates into. To date the repo has over 60 contributors. As mentioned at the beginning of the article, the Parse team has also released tools to ease the pain of migration: [Parse Server](https://github.com/ParsePlatform/parse-server/wiki) and the [Database Migration Tool](https://parse.com/docs/server/guide#migrating).
