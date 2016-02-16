@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Migrating Your Parse Users to Auth0"
-description: "Parse is shutting down on January 28, 2017. Learn how to easily migrate your users to Auth0 and diversify risks."
+title: "How to migrate your existing users from Parse to Auth0"
+description: "Parse is shutting down on January 28, 2017. Learn how to easily migrate your users to Auth0, diversify risks and earn more features as a bonus"
 date: 2016-02-05 20:35
 author: 
   name: Ado Kukic
