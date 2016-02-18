@@ -569,8 +569,6 @@ var jwtCheck = jwt({
 ...
 ```
 
-By default, Auth0 tokens expire after one hour. However, you can use [refresh tokens](https://auth0.com/blog/2015/10/07/refresh-tokens-what-are-they-and-when-to-use-them/) to keep users authenticated once their token expires. The
-
 ### Done!
 
 That's it! You've now got authentication with Auth0 set up for your Ionic 2 app.
