@@ -431,7 +431,7 @@ We should now be able to get quotes from the **Quotes** page.
 
 ![ionic2 authentication](https://cdn.auth0.com/blog/ionic2-auth/ionic2-auth-7.png)
 
-## Aside: Adding Authentication with Auth0 and Setting Up Refresh Tokens
+## Aside: Adding Authentication with Auth0
 
 Setting up username and password authentication with a Node server is simple enough, but things can get tricky when we want to add social auth with providers like Facebook, Twitter, Google, and others. With Auth0, we can use any social provider and get other authentication features like single sign-on, multi-factor login, and passwordless auth, all at the flip of a switch. It's easy to add Auth0 to our Ionic 2 apps--let's take a look at how in these steps.
 
