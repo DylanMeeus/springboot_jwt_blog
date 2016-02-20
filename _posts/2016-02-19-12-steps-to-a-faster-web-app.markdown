@@ -36,6 +36,9 @@ Web apps are now more interactive than ever. Getting that last drop of performan
 ## Introduction
 Optimizing web apps can be an arduous job. Not only web apps are split in client-side and server-side components, but they are also usually built using diverse technology stacks: there's the database, the backend components (which are usually built on a stack of different technologies as well), the frontend (HTML + JavaScript + CSS + transpilers). Runtimes are diverse too: iOS, Android, Chrome, Firefox, Edge. If you come from a different, monolithic platform, where optimization is usually done against a single target (and even a single version of that target), you will probably reason this is much more complex task. This can be correct. There are, however, common optimization guidelines that go a long way into improving an app. We will explore these guidelines in the following sections.
 
+> A Bing study found that a 10ms increase in page load time costs the site $250K in revenue annually.
+- Rob Trace and David Walp, Senior Program Managers at Microsoft
+
 ### Premature Optimization?
 The hard thing about optimization is finding the right point in the development life-cycle to do it. Donald Knuth famously said *"premature optimization is the root of all evil"*. The reasoning behind these words is quite simple: it is quite easy to loose time gaining that last 1% of performance in places where it won't make a significant impact. At the same time, some optimizations hinder readability or maintainability, or even introduce newer bugs. In other words, optimization should not be considered a "means to get the best performance out of an application", but "the search for the *right way* to optimize an app and get the *biggest benefits*". In other words, blind optimization can result in lost productivity and small gains. Keep this in mind when applying the following tips. Your biggest friend is the profiler: find the performance hotspots you can optimize to get the biggest improvements without impairing the development or maintainability of your app.
 
@@ -168,6 +171,30 @@ module.exports = function(app) {
 };
 ```
 
+Or check this Meteor sample code:
+
+```JavaScript
+if (Meteor.isClient) {
+  Template.hello.greeting = function () {
+    return "Welcome to myapp.";
+  };
+
+  Template.hello.events({
+    'click input': function () {
+      // template data, if any, is available in 'this'
+      if (typeof console !== 'undefined')
+        console.log("You pressed the button");
+    }
+  });
+}
+
+if (Meteor.isServer) {
+  Meteor.startup(function () {
+    // code to run on server at startup
+  });
+}
+```
+
 If you have a complex or mid-sized app that supports isomorphic deployments, give this a try. You might be surprised.
 
 ## 9. Database speedups: indexing
@@ -179,9 +206,38 @@ To have indexes optimize your queries you will need to study the access patterns
 The JavaScript software stack is as complex as ever. This has increased the need for improvements to the language. Unfortunately, JavaScript as a target platform is limited by the runtime of its users. Although improvements have been implemented in form of ECMAScript 6 (with 7 in progress) it is usually not possible to depend on this version for client side code. This trend has spurred a series of *transpilers*: tools that process ECMAScript 6 code and implement missing features using only ECMAScript 5 constructs. At the same time, module bundling and minification have been integrated into the process to produce what could be called *built-for-release* versions of the code. These tools transform the code, and can, in a limited fashion, affect the performance of the resulting code. Google developer Paul Irish [spent some time](https://github.com/paulirish/The-cost-of-transpiling-es2015-in-2016) looking at how different transpiling solutions affect the performance and size of the resulting code. Although in most cases gains can be small, it is worth having a look at the data before committing to any toolstack. For big applications, the difference might be significant.
 
 ## 11. Avoid or minimize the use of render blocking JavaScript and CSS
+Both JavaScript and CSS resources can block the rendering of the page. By applying certain rules you can make sure both your scripts and your CSS get processed as quickly as possible so that the browser can display your site's content.
+
+For the case of CSS it is of the essence that all CSS rules that are not relevant to the specific media on which you are displaying the page are given a lower priority for processing. This can be achieved through the use of [CSS media queries](). Media queries tell the browser which CSS stylesheets apply to a specific display media. For instance, certain rules that are specific to printing can be given a lower priority than the rules used for displaying on the screen.
+
+Media queries can be set as `<link>` tag attributes:
+
+```HTML
+```
+
+When it comes to JavaScript, the key lies in following certain rules for inline JavaScript (i.e. code that is inlined in the HTML file). Inline JavaScript should be as short as possible and put in places where it won't stop the parsing of the rest of the page. In other words, inline HTML that is put in the middle of an HTML tree stops the parser at that point and forces it to wait until the script is done executing. This can be a killer for performance if there are big blocks of code or many small blocks littered through the HTML file. Inlining can be helpful to prevent additional network fetches for specific scripts. For repeatedly used scripts or big blocks of code this advantage is eliminated.
+
+A way to prevent JavaScript from blocking the parser and renderer is to mark the `<script>` tag as *asynchronous*. This limits our access to the DOM (no `document.write`) but lets the browser continue parsing and rendering the site regardless of the execution status of the script. In other words, to get the best startup times, make sure that non-essential scripts for rendering are correctly marked as asynchronous via the `async` attribute.
 
 ## 12. One for the future: use service workers + streams
 
 ## Further reading
+- [Best Practices for Speeding up Your Website - Yahoo Developer Network](https://github.com/paulirish/The-cost-of-transpiling-es2015-in-2016)
+- [YSlow - a tool that checks for Yahoo's recommended optimizations](http://yslow.org/)
+- [PageSpeed Insights - Google Developers](https://developers.google.com/speed/docs/insights/rules)
+- [PageSpeed Tools - Google Developers](https://developers.google.com/speed/pagespeed/)
+- [HTTP/2: The Long-Awaited Sequel](http://blogs.msdn.com/b/ie/archive/2014/10/08/http-2-the-long-awaited-sequel.aspx)
+
+## Aside: common optimizations at Auth0
+We are a web company. As such, we have deployed specific optimizations for certain parts of our infrastructure. For instance, for the landing pages which you can find at the `/learn` path of our domain, we have resorted to a particular optimization:
+
+TODO
+
+For the [docs area]() we are using *isomorphic JavaScript* which gives us great startup times and easy integration between our backend and frontend teams.
+
+Want to see our code in action? <a href="javascript:signup()">Sign-up</a>.
+
+Are you a web developer with a taste for speed? Are you interested in working in an awesome development team? Show us how we can optimize our site along with a short intro about yourself to <a href="mailto:"></a>.
 
 ## Conclusion
+Performance optimizations are getting more and more important for web development as applications get bigger and more complex. Targeted improvements are essential to make any optimization attempt worth the time and potential future costs. Web applications have long ago crossed the boundary of mostly static content and learning common optimization patterns can make all the difference between a barely usable application and an enjoyable one. No rules are absolute, however: profiling and studying the intricacies of your specific software stack are the only way of finding out how to optimize it. Have you found any other tips that made a big difference for your app? Let us know in the comments. Hack on!
