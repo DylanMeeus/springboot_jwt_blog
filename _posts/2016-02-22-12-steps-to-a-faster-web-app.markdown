@@ -144,7 +144,7 @@ We mentioned content distribution networks (CDNs) briefly when talking about cac
 
 Load balancing can be as simple as a round-robin solution based on a [reverse nginx proxy](http://nginx.org/en/docs/http/load_balancing.html) or be based on a full-blown distributed network such as [Cloudflare](https://www.cloudflare.com/) or [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
 
-![Round robin load balancing](http://docs.citrix.com/content/dam/docs/en-us/legacy-edocs/netscaler-traffic-management-11-map1/LB-Round_Robin_Mechanism.PNG)
+![Round robin load balancing for a faster web app](http://docs.citrix.com/content/dam/docs/en-us/legacy-edocs/netscaler-traffic-management-11-map1/LB-Round_Robin_Mechanism.PNG)
 
 For load-balancing to be really useful, dynamic and static content should be split for easy concurrent access. In other words, serial access to elements impairs the ability of the load balancer to find the best way to split the work. At the same time, concurrent access to resources can improve startup times.
 
