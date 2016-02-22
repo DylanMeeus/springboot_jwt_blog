@@ -33,7 +33,7 @@ Web apps are now more interactive than ever. Getting that last drop of performan
 
 -----
 
-## Introduction
+## A Faster Web App
 Optimizing web apps can be an arduous job. Not only web apps are split in client-side and server-side components, but they are also usually built using diverse technology stacks: there's the database, the backend components (which are usually built on a stack of different technologies as well), the frontend (HTML + JavaScript + CSS + transpilers). Runtimes are diverse too: iOS, Android, Chrome, Firefox, Edge. If you come from a different, monolithic platform, where optimization is usually done against a single target (and even a single version of that target), you will probably reason this is much more complex task. This can be correct. There are, however, common optimization guidelines that go a long way into improving an app. We will explore these guidelines in the following sections.
 
 > A Bing study found that a 10ms increase in page load time costs the site $250K in revenue annually.
