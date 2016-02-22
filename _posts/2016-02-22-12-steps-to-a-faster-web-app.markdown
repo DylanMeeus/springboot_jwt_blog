@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "12 Steps to a Faster Web App"
-description: "Are you following these tips? If not, learn how to speed-up your web apps!"
+description: "Are you following these tips? If not, learn how to create a faster web app!"
 date: 2016-02-22 13:30
 author:
   name: Sebastián Peyrott
