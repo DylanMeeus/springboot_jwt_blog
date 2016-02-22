@@ -2,7 +2,7 @@
 layout: post
 title: "12 Steps to a Faster Web App"
 description: "Are you following these tips? If not, learn how to speed-up your web apps!"
-date: 2016-02-19 13:30
+date: 2016-02-22 13:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -213,6 +213,7 @@ For the case of CSS it is of the essence that all CSS rules that are not relevan
 Media queries can be set as `<link>` tag attributes:
 
 ```HTML
+<link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="mobile-device.css" />
 ```
 
 When it comes to JavaScript, the key lies in following certain rules for inline JavaScript (i.e. code that is inlined in the HTML file). Inline JavaScript should be as short as possible and put in places where it won't stop the parsing of the rest of the page. In other words, inline HTML that is put in the middle of an HTML tree stops the parser at that point and forces it to wait until the script is done executing. This can be a killer for performance if there are big blocks of code or many small blocks littered through the HTML file. Inlining can be helpful to prevent additional network fetches for specific scripts. For repeatedly used scripts or big blocks of code this advantage is eliminated.
@@ -220,6 +221,11 @@ When it comes to JavaScript, the key lies in following certain rules for inline 
 A way to prevent JavaScript from blocking the parser and renderer is to mark the `<script>` tag as *asynchronous*. This limits our access to the DOM (no `document.write`) but lets the browser continue parsing and rendering the site regardless of the execution status of the script. In other words, to get the best startup times, make sure that non-essential scripts for rendering are correctly marked as asynchronous via the `async` attribute.
 
 ## 12. One for the future: use service workers + streams
+A [recent post by Jake Archibald](https://jakearchibald.com/2016/streams-ftw/#streaming-results) details an interesting technique for speeding up render times: combining service workers with streams. The results can be quite compelling:
+
+<iframe width="600" src="https://www.youtube.com/embed/Cjo9iq8k-bc" frameborder="0" allowfullscreen></iframe>
+
+Unfortunately this technique requires APIs that are still in flux, which is why it is an interesting concept but can't really be applied now. The gist of the idea is to put a service worker between a site and the client. The service worker can cache certain data (like headers and stuff that doesn't change often) while fetching what is missing. The content that is missing can then be streamed to the page to be rendered as soon as possible.
 
 ## Further reading
 - [Best Practices for Speeding up Your Website - Yahoo Developer Network](https://github.com/paulirish/The-cost-of-transpiling-es2015-in-2016)
@@ -229,15 +235,13 @@ A way to prevent JavaScript from blocking the parser and renderer is to mark the
 - [HTTP/2: The Long-Awaited Sequel](http://blogs.msdn.com/b/ie/archive/2014/10/08/http-2-the-long-awaited-sequel.aspx)
 
 ## Aside: common optimizations at Auth0
-We are a web company. As such, we have deployed specific optimizations for certain parts of our infrastructure. For instance, for the landing pages which you can find at the `/learn` path of our domain, we have resorted to a particular optimization:
+We are a web company. As such, we have deployed specific optimizations for certain parts of our infrastructure. For instance, for the landing pages which you can find at the `/learn` path of our domain, we have resorted to a particular optimization: for convenience we use a CMS to create each post. As posts have no central index but are meant to be found by search engines, a crawler using a [webtask](https://webtask.io) pre-renders each page and generates a static version of it which is then uploaded to our CDN. This reduces load on our servers as no dynamic server-side content is generated for each visitor. At the same time this improves latency (and isolates us from security issues related to the CMS we picked).
 
-TODO
-
-For the [docs area]() we are using *isomorphic JavaScript* which gives us great startup times and easy integration between our backend and frontend teams.
+For the [docs area](https://auth0.com/docs) we are using *isomorphic JavaScript* which gives us great startup times and easy integration between our backend and frontend teams.
 
 Want to see our code in action? <a href="javascript:signup()">Sign-up</a>.
 
-Are you a web developer with a taste for speed? Are you interested in working in an awesome development team? Show us how we can optimize our site along with a short intro about yourself to <a href="mailto:"></a>.
+Are you a web developer with a taste for speed? Are you interested in working in an awesome development team? Show us how we can optimize our site along with a short intro about yourself to <a href="mailto:jobs@auth0.com"></a>.
 
 ## Conclusion
 Performance optimizations are getting more and more important for web development as applications get bigger and more complex. Targeted improvements are essential to make any optimization attempt worth the time and potential future costs. Web applications have long ago crossed the boundary of mostly static content and learning common optimization patterns can make all the difference between a barely usable application and an enjoyable one. No rules are absolute, however: profiling and studying the intricacies of your specific software stack are the only way of finding out how to optimize it. Have you found any other tips that made a big difference for your app? Let us know in the comments. Hack on!
