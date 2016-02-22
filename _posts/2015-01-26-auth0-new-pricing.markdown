@@ -25,6 +25,8 @@ Today we are very pleased to announce Auth0 [new pricing](https://auth0.com/pric
 
 ### New Pricing
 
+<p class="alert alert-warning"><i class="icon icon-budicon-179"></i>Heads up! We now have even <b>newer</b> pricing. Check out the <a href="https://auth0.com/blog/2015/11/05/announcing-our-new-pricing-including-a-production-ready-free-account/">details</a> and <a href="mailto:support@auth0.com">get in touch</a> if you have any questions!</p>
+
 Based on the feedback we received over the last few months, we have modified our pricing structure to be much more **flexible**, allowing you to create **custom packages** that best fit your needs.
 
 Instead of fixed tiered packages, Auth0 subscriptions can now be tailored by:
