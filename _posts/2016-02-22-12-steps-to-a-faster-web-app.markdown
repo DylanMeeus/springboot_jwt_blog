@@ -223,7 +223,7 @@ A way to prevent JavaScript from blocking the parser and renderer is to mark the
 ## 12. One for the future: use service workers + streams
 A [recent post by Jake Archibald](https://jakearchibald.com/2016/streams-ftw/#streaming-results) details an interesting technique for speeding up render times: combining service workers with streams. The results can be quite compelling:
 
-<iframe width="600" src="https://www.youtube.com/embed/Cjo9iq8k-bc" frameborder="0" allowfullscreen></iframe>
+<iframe width="600" height="400" src="https://www.youtube.com/embed/Cjo9iq8k-bc" frameborder="0" allowfullscreen></iframe>
 
 Unfortunately this technique requires APIs that are still in flux, which is why it is an interesting concept but can't really be applied now. The gist of the idea is to put a service worker between a site and the client. The service worker can cache certain data (like headers and stuff that doesn't change often) while fetching what is missing. The content that is missing can then be streamed to the page to be rendered as soon as possible.
 
