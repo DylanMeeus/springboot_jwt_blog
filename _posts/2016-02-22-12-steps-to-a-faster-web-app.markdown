@@ -34,7 +34,7 @@ Web apps are now more interactive than ever. Getting that last drop of performan
 -----
 
 ## A Faster Web App
-Optimizing web apps can be an arduous job. Not only are web apps split in client-side and server-side components, but they are also usually built using diverse technology stacks: there's the database, the backend components (which are usually built on a stack of different technologies as well), the frontend (HTML + JavaScript + CSS + transpilers). Runtimes are diverse too: iOS, Android, Chrome, Firefox, Edge. If you come from a different, monolithic platform, where optimization is usually done against a single target (and even a single version of that target), you will probably reason this is much more complex task. This can be correct. There are, however, common optimization guidelines that go a long way into improving an app. We will explore these guidelines in the following sections.
+Optimizing web apps can be an arduous job. Not only are web apps split in client-side and server-side components, but they are also usually built using diverse technology stacks: there's the database, the backend components (which are usually built on a stack of different technologies as well), the frontend (HTML + JavaScript + CSS + transpilers). Runtimes are diverse too: iOS, Android, Chrome, Firefox, Edge. If you come from a different, monolithic platform, where optimization is usually done against a single target (and even a single version of that target), you will probably reason this is a much more complex task. This can be correct. There are, however, common optimization guidelines that go a long way into improving an app. We will explore these guidelines in the following sections.
 
 > A Bing study found that a 10ms increase in page load time costs the site $250K in revenue annually.
 - **Rob Trace and David Walp, Senior Program Managers at Microsoft**
@@ -251,7 +251,7 @@ For the [docs area](https://auth0.com/docs) we are using *isomorphic JavaScript*
 
 Want to see our code in action? <a href="javascript:signup()">Sign-up</a>.
 
-Are you a web developer with a taste for speed? Are you interested in working in an awesome development team? Show us how we can optimize our site along with a short intro about yourself to <a href="mailto:jobs@auth0.com"></a>.
+Are you a web developer with a taste for speed? Are you interested in working in an awesome development team? Show us how we can optimize our site along with a short intro about yourself to <a href="mailto:jobs@auth0.com">jobs@auth0.com</a>.
 
 ## Conclusion
 Performance optimizations are getting more and more important for web development as applications get bigger and more complex. Targeted improvements are essential to make any optimization attempt worth the time and potential future costs. Web applications have long ago crossed the boundary of mostly static content and learning common optimization patterns can make all the difference between a barely usable application and an enjoyable one (which goes a long way to keeping your visitors!). No rules are absolute, however: profiling and studying the intricacies of your specific software stack are the only way of finding out how to optimize it. Have you found any other tips that made a big difference for your app? Let us know in the comments. Hack on!
