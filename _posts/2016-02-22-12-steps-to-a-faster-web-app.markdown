@@ -217,7 +217,7 @@ For the case of CSS it is of the essence that all CSS rules that are not relevan
 Media queries can be set as `<link>` tag attributes:
 
 ```HTML
-<link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="mobile-device.css" />
+  <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="mobile-device.css" />
 ```
 
 When it comes to JavaScript, the key lies in following certain rules for inline JavaScript (i.e. code that is inlined in the HTML file). Inline JavaScript should be as short as possible and put in places where it won't stop the parsing of the rest of the page. In other words, inline HTML that is put in the middle of an HTML tree stops the parser at that point and forces it to wait until the script is done executing. This can be a killer for performance if there are big blocks of code or many small blocks littered through the HTML file. Inlining can be helpful to prevent additional network fetches for specific scripts. For repeatedly used scripts or big blocks of code this advantage is eliminated.
@@ -225,7 +225,7 @@ When it comes to JavaScript, the key lies in following certain rules for inline 
 A way to prevent JavaScript from blocking the parser and renderer is to mark the `<script>` tag as *asynchronous*. This limits our access to the DOM (no `document.write`) but lets the browser continue parsing and rendering the site regardless of the execution status of the script. In other words, to get the best startup times, make sure that non-essential scripts for rendering are correctly marked as asynchronous via the `async` attribute.
 
 ```HTML
-<script src="async.js" async></script>
+  <script src="async.js" async></script>
 ```
 
 ## 12. One for the future: use service workers + streams
