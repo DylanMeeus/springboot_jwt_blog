@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Introduction to Microservices, Part 2: The API Gateway"
+title: "API Gateway. An Introduction to Microservices, Part 2"
 description: "Learn about API gateways and how they work in a microservice-based architecture"
 date: 2015-09-13 09:00
 author: 
