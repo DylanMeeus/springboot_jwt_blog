@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scamming Gets Smart: The New Trend of Artisanal Spam"
+title: "The New Trend of Artisanal Spam: Scamming Gets Smart"
 description: Spam email hardly ever makes it to your inbox, and even when it does, you can't be fooled by it, right? Think twice, as 'artisanal spam' has arrived.
 date: 2016-02-29 13:30
 author:
@@ -40,6 +40,8 @@ It was an ingenious way to leverage the power of the early Internet. But these k
 2. People are so accustomed to these stories—Nigerian princes, shady prescription drugs and fake “New Message” notifications—that even if they **do** get into your inbox, they're not convincing.
 
 These two factors are essential to understanding why “artisanal” spam poses such a threat.
+
+![Nigerian Prince joke](https://cdn.auth0.com/blog/artisanal-spam/nigerian-prince.jpg)
 
 ## Spam Always Finds A Way
 
