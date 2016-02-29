@@ -2,7 +2,7 @@
 # auth0-blog Makefile
 #
 
-build_deb: check-fpm-installed check-version-variable check-deb-variables
+build_deb: bundle build_pages check-version-variable check-deb-variables
 	#
 	# Accepted variables to be passed
 	# WORKSPACE , GIT_URL , VERSION_NUMBER , GIT_BRANCH , GIT_COMMIT
@@ -17,6 +17,9 @@ build_deb: check-fpm-installed check-version-variable check-deb-variables
 
 	git checkout .
 
+build_pages:
+	jekyll build --destination auth0-blog
+
 check-version-variable:
 ifndef VERSION_NUMBER
 	$(error VERSION_NUMBER is undefined)
@@ -27,7 +30,6 @@ ifndef WORKSPACE
 	$(error WORKSPACE is undefined)
 endif
 
-check-fpm-installed:
-	@command -v fpm >/dev/null 2>&1 || { echo >&2 "fpm required to build DEBs but not installed"; \
-	echo >&2 "Install with: \n $ sudo apt-get install ruby-dev gcc && sudo gem install fpm"; \
-	echo >&2 "Aborting"; exit 1; }
+bundle:
+	gem install bundler
+	bundle install
