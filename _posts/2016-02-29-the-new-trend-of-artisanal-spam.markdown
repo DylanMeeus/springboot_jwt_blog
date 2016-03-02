@@ -2,7 +2,7 @@
 layout: post
 title: "The New Trend of Artisanal Spam: Scamming Gets Smart"
 description: Spam email hardly ever makes it to your inbox, and even when it does, you can't be fooled by it, right? Think twice, as 'artisanal spam' has arrived.
-date: 2016-02-29 13:30
+date: 2016-03-02 13:30
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
@@ -41,7 +41,7 @@ It was an ingenious way to leverage the power of the early Internet. But these k
 
 These two factors are essential to understanding why “artisanal” spam poses such a threat.
 
-![Nigerian Prince joke](https://cdn.auth0.com/blog/artisanal-spam/nigerian-prince.jpg)
+![Nigerian Prince jokegit](https://cdn.auth0.com/blog/artisanal-spam/nigerian-prince.jpg)
 
 ## Spam Always Finds A Way
 
