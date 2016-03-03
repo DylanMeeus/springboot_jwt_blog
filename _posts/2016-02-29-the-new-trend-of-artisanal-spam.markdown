@@ -23,7 +23,7 @@ Anti-spam filters have come a really long way. While junk mail still makes up 86
 
 But there's a new generation of scammers out there. In an attempt to get past all your filters and protocols, they're going artisanal. 
 
-These criminals are crafting higher quality spam messages and picking smaller groups of people to target. They're not pretending to be Nigerian princes: they're pretending to be from Apple, or from Google, or from the company where you work. And it's working—every year, these “artisanal spammers” steal billions of dollars a year from small-to-medium size businesses. 
+These criminals are crafting higher quality spam messages and picking smaller groups of people to target. They're not pretending to be Nigerian princes: they're pretending to be from Apple, or from Google, or from the company where you work. And it's working—every year, these “artisanal spammers” steal billions of dollars from small-to-medium size businesses. 
 
 Maybe you think you'd never fall for it. But it's not about you: it's about everyone at your company. All it takes is one clever scammer and one unsuspecting person's momentary lapse for your company to potentially lose millions. To understand why artisanal spam is so dangerous and so effective, we first have to return to one of the most memorable internet scams of all time.
 
@@ -110,7 +110,7 @@ And this theft probably hadn't happened anytime recently. Artisanal spammers don
 
 They sit on it. They comb through all of your correspondence and learn how you write and how you think, the vocabulary you use to talk to your colleagues. They ingest as much information as they can, and when they feel ready to strike, they do. And attacks like this are very common:
 
-* Ubiquiti Networks, a networking firm in San Jose,[ lost $46.7 million](http://krebsonsecurity.com/2015/08/tech-firm-ubiquiti-suffers-46m-cyberheist/) when a scammer was able to successfully impersonate both an employee and a outside financial entity.
+* Ubiquiti Networks, a networking firm in San Jose, [lost $46.7 million](http://krebsonsecurity.com/2015/08/tech-firm-ubiquiti-suffers-46m-cyberheist/) when a scammer was able to successfully impersonate both an employee and a outside financial entity.
 * Scoular Co., an employee-owned commodities trader in Omaha, [lost $17.2 million](http://krebsonsecurity.com/2015/08/tech-firm-ubiquiti-suffers-46m-cyberheist/) when an accountant wired the money in installments to China—because he received an email “from his boss” asking him to.  
 
 ### Inadequate authentication turns you into prey
