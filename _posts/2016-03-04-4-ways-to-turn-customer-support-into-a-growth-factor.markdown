@@ -34,7 +34,7 @@ When you get a customer's email address, you are getting access to something ver
 
 They can't, however, be one-size-fits-all. If the value your emails offer isn't tied into a customer's specific needs at that time, they'll end up archived or marked as spam.
 
-That's why, to make customer service work as a growth factor at scale,  it's essential that your email campaigns are both behavioral—responsive to what people are actually doing—and automated. Add a specific goal that you can track and iterate on, and you're ready to go.
+That's why, to make customer support work as a growth factor at scale,  it's essential that your email campaigns are both behavioral—responsive to what people are actually doing—and automated. Add a specific goal that you can track and iterate on, and you're ready to go.
 
 ### Triggered campaigns
 
@@ -86,7 +86,7 @@ function(user, context, callback) {
 
 You'll want to be fairly precise with the triggers you choose to collect and use, but you don't need to nitpick too much: if you're providing value with your emails, it'll pay off at some point.
 
-Shopify knows the value of pre-emptive customer service: after you sign up, after you finish some set up, but before you officially launch your store, someone from customer service reaches out to you directly.
+Shopify knows the value of pre-emptive customer support: after you sign up, after you finish some set up, but before you officially launch your store, someone from customer service reaches out to you directly.
 
 ![Shoppify Customer Support Onboarding Email](https://cdn.auth0.com/blog/customer-support/shoppify-onboarding-email.png)
 
@@ -106,7 +106,7 @@ Signposts that point out essential parts of your product's UI can be invaluable 
 
 Once they're ramped up, you can use in-app announcements and indicators to show that new features or other enhancements are available. The easiest way to keep your service at the front of a customer's mind is to be compulsively informative about changes you're making.   
 
-[Appcues](http://appcues.com/) makes a tool strictly for designing onboarding flows that lets you do all this. There's no coding involved so your marketing or customer service teams can do all the work of designing onboarding themselves. They can add hotspots, for example, little triggered buttons that give users information depending on what they're trying to do, or flows, which add overlays that guide users through entire sequences of pages:
+[Appcues](http://appcues.com/) makes a tool strictly for designing onboarding flows that lets you do all this. There's no coding involved so your marketing or customer support teams can do all the work of designing onboarding themselves. They can add hotspots, for example, little triggered buttons that give users information depending on what they're trying to do, or flows, which add overlays that guide users through entire sequences of pages:
 
 ![Appcues Onboarding helpers](https://cdn.auth0.com/blog/customer-support/appcues-onboarding.png)
 
@@ -138,7 +138,7 @@ It's not about getting customers. It's not about conversions. It's about teachin
 
 Making videos like this will save your support staff time and energy responding to the kinds of questions that are better answered with videos, but it's also a great way to market your company. 
 
-People see a video like that and they think, “Wow, this company spent money making a video just to help me solve a problem”—now that's customer service as marketing.
+People see a video like that and they think, “Wow, this company spent money making a video just to help me solve a problem”—now that's customer support as marketing.
 
 ## 4. Let Customers Know When Features They Want Have Been Built
 
