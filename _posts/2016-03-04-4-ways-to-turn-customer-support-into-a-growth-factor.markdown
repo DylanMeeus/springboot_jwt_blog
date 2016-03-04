@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "4 Ways To Turn Customer Support Into A Growth Factor"
-description: Delight your users more than you think you need to, and it will pay off big
+description: Customer Support is crucial - Delight your users more than you think you need to and it will pay off big
 date: 2016-03-04 1:30
 author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
-  bg_color: "#254973"
-  image: https://cdn.auth0.com/blog/announcing-security-buzz/logo.png
+  bg_color: "#222228"
+  image: https://cdn.auth0.com/blog/customer-support/logo.png
 tags: 
 - customer service
 - growth hacking
@@ -24,7 +24,7 @@ Customer service, on the other hand, seems like something you work on down the l
 
 For Graham, taking “extraordinary measures” to make your customers happy is one of the most powerful tools a startup has both for acquiring new users and retaining the ones it has. Do things to make every customer “feel that signing up with you was one of the best choices they ever made,” he says, and you'll have them for life. Plus, you’ll get their friends, and their friends, and their friends, and so on.
 
-Customer service is actually an incredible kind of growth hack—put a little more effort into it than everyone else, and you'll bend your retention curve up while bringing in new people and establishing a foundation for awesome growth. 
+Customer support is actually an incredible kind of growth hack—put a little more effort into it than everyone else, and you'll bend your retention curve up while bringing in new people and establishing a foundation for awesome growth. 
 
 Here are four ways to get started. 
 
@@ -40,7 +40,7 @@ That's why, to make customer service work as a growth factor at scale,  it's ess
 
 Good behavioral email campaigns rely on triggers, or specific user actions that *trigger *emails to be sent. Let's say you want to email those users who haven't logged in for a couple days with a list of reasons why coming back and subscribing would help them:  
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/gnVv-kQvPAncaw_kNtDZ1Q]
+![Customer.io automated emails](https://cdn.auth0.com/blog/customer-support/Customer-io-sample.png)
 
 With an email marketing manager like [Customer.io](http://customer.io/), you can set up even more specific triggers to automate your campaigns. For instance, you could have an email sent to everyone who used your product a half-dozen times or less, spent 3-5 minutes in your Help documentation, and then logged off. 
 
@@ -88,7 +88,7 @@ You'll want to be fairly precise with the triggers you choose to collect and use
 
 Shopify knows the value of pre-emptive customer service: after you sign up, after you finish some set up, but before you officially launch your store, someone from customer service reaches out to you directly.
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/tV349LpLH4tEOr8WdOmjeA]
+![Shoppify Customer Support Onboarding Email](https://cdn.auth0.com/blog/customer-support/shoppify-onboarding-email.png)
 
 Even if you know exactly what you're doing with Shopify, this email works. It demonstrates that this company really cares about what you're trying to accomplish. It also implies that you will, in the future, have extremely easy access to help when you need it. That's the kind of messaging that's going to keep you from going to a competitor in the long run.
  
@@ -108,7 +108,7 @@ Once they're ramped up, you can use in-app announcements and indicators to show 
 
 [Appcues](http://appcues.com/) makes a tool strictly for designing onboarding flows that lets you do all this. There's no coding involved so your marketing or customer service teams can do all the work of designing onboarding themselves. They can add hotspots, for example, little triggered buttons that give users information depending on what they're trying to do, or flows, which add overlays that guide users through entire sequences of pages:
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/VAD4-m-ijeOyGjF2csBI9Q]
+![Appcues Onboarding helpers](https://cdn.auth0.com/blog/customer-support/appcues-onboarding.png)
 
 Each step that you design into your onboarding flow can be modified and segmented based on the same kinds of user metrics used for marketing. This is essential because while the core value of your product may be basically the same for whoever uses it, different buyer personas are going to require different approaches.
 
@@ -122,15 +122,15 @@ Dropbox, way back in 2009, was a crazy idea. It's a good thing, for instance, th
 
 That's just what they did. Realizing that most people couldn't even wrap their heads around the idea of a cloud-based storage system yet, Dropbox hired a studio to make them an “explainer video,” which they then embedded on their homepage:
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/i-nVkhBDqr4y2ycI_uYRgw]
+![Dropbox introduction video](https://cdn.auth0.com/blog/customer-support/dropbox-video.png)
 
 The move paid off with an immediate [10% jump in conversions](http://wistia.com/blog/explainify-five-benefits). But this kind of power is just scratching the surface of what video can do. 
 
 As Wistia founder Chris Savage [points out](http://wistia.com/blog/evolution-of-video-goals), making videos that increase conversion rates is the first step—after that, you can use your videos to teach people about the problems your product solves and bring in *new *kinds of customers.
 
-Using your subject matter expertise and experience to make videos about the *problems *expands your company's reach and builds legitimacy, like in this Wistia guide to [shooting video](http://wistia.com/library/shooting-video-with-an-iphone) with your iPhone:
+Using your subject matter expertise and experience to make videos about the *problems* expands your company's reach and builds legitimacy, like in this Wistia guide to [shooting video](http://wistia.com/library/shooting-video-with-an-iphone) with your iPhone:
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/dxX2VqoPNtQ_NHcEdWvFVQ]
+![Wistia shooting video](https://cdn.auth0.com/blog/customer-support/wistia-tutorial.png)
 
 It's not about getting customers. It's not about conversions. It's about teaching people some valuable skill, and that's an incredibly powerful tool. 
 
@@ -153,19 +153,19 @@ What's important is to maintain perspective. Don't drop everything because one c
 1. The customer who made the request
 2. How much they expect to gain from fulfilling it
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/Aq7lKMXSL_9lkoPtFs8Lug]
+![Statuspage.io sample](https://cdn.auth0.com/blog/customer-support/statuspage.png)
 
 This way, they can actually track whether or not the features customers want are beneficial to StatusPage's mission of [increasing ARPU](http://blog.statuspage.io/3-steps-to-increasing-our-average-revenue-per-user-by-2-4x). Then, when they build one, they can pull a list of customers who requested it and send out personalized emails to let them know what's going on:
 
-[Image: https://quip.com/-/blob/aYRAAAFWATX/3nifnME97tkz_xiaIeqNCw]
+![Email for New feature added](https://cdn.auth0.com/blog/customer-support/new-feature-added-statuspage.png)
 
 Not only is this a great way to show your customers that you take their input seriously, it can be a great opportunity to upsell. After all, no one's going to your pricing page over and over to see what new features you're offering.  If a customer is flexible on price, but won't upgrade unless a certain feature becomes available on the next tier, an email like this is the only way to *ensure *yourself a chance at that revenue boost. 
 
 When a technique lets you systematically add revenue and make your customers really happy at the same time, it's a no-brainer. 
 
-## Make Customer Service Your Competitive Advantage
+## Make Customer Support Your Competitive Advantage
 
-If you stop thinking about customer service as fundamentally reactive—user has problem, we solve problem—then you can start using it to open up whole new avenues for growth.   
+If you stop thinking about customer support as fundamentally reactive—user has problem, we solve problem—then you can start using it to open up whole new avenues for growth.   
 
 It can sometimes take a bit of work to overcome that mental hurdle. We're not used to great customer service. We're used to waiting on hold and terrible menus and reps who speak in programmatic sentences. But as Paul Graham says, it's doable.
 
