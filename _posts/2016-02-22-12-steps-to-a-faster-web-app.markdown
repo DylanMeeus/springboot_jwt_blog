@@ -155,7 +155,7 @@ For load-balancing to be really useful, dynamic and static content should be spl
 Load balancing can be complex, though. Data models that are not friendly to eventual consistency algorithms or caching make things harder. Fortunately, most apps usually require a high level of consistency for a reduced set of data. If your application was not designed with this in mind, a refactor may be necessary.
 
 ## 8. Consider Isomorphic JavaScript for Faster Startup Times
-One way of improving the feel of web applications is reducing the startup time or the time to render the first view of the page. This is particularly important in newer single-page applications that do a lot of work on the client-side. Doing more work on the client-side usually means more information needs to be downloaded before the first render can be performed. Isomorphic JavaScript can solve this issue: since JavaScript can run in both the client and the server it is possible for the server to perform the first render of the page, send the rendered page and then have client-side scripts take over. This limits options for the backend (JavaScript frameworks that support this must be used), but can result in a much better user experience. Certain libraries such as [Meteor.js](https://www.meteor.com/) have great support for this out-of-the-box. Others, such as React can be [adapted](https://github.com/DavidWells/isomorphic-react-example), as shown in the following code:
+One way of improving the feel of web applications is reducing the startup time or the time to render the first view of the page. This is particularly important in newer single-page applications that do a lot of work on the client-side. Doing more work on the client-side usually means more information needs to be downloaded before the first render can be performed. Isomorphic JavaScript can solve this issue: since JavaScript can run in both the client and the server it is possible for the server to perform the first render of the page, send the rendered page and then have client-side scripts take over. This limits options for the backend (JavaScript frameworks that support this must be used), but can result in a much better user experience. For instance, React can be [adapted](https://github.com/DavidWells/isomorphic-react-example) to do this, as shown in the following code:
 
 ```JavaScript
 var React = require('react/addons');
@@ -175,7 +175,7 @@ module.exports = function(app) {
 };
 ```
 
-Or check this Meteor sample code:
+[Meteor.js](https://www.meteor.com/) has great support for mixing client side with server side JavaScript:
 
 ```JavaScript
 if (Meteor.isClient) {
@@ -198,6 +198,10 @@ if (Meteor.isServer) {
   });
 }
 ```
+
+However, to support server-side rendering, plugins like [meteor-ssr](https://github.com/meteorhacks/meteor-ssr) are required.
+
+> Thanks to gabrielpoca for pointing this out in the comments.
 
 If you have a complex or mid-sized app that supports isomorphic deployments, give this a try. You might be surprised.
 
@@ -234,6 +238,15 @@ A [recent post by Jake Archibald](https://jakearchibald.com/2016/streams-ftw/#st
 <iframe width="600" height="400" src="https://www.youtube.com/embed/Cjo9iq8k-bc" frameborder="0" allowfullscreen></iframe>
 
 Unfortunately this technique requires APIs that are still in flux, which is why it is an interesting concept but can't really be applied now. The gist of the idea is to put a service worker between a site and the client. The service worker can cache certain data (like headers and stuff that doesn't change often) while fetching what is missing. The content that is missing can then be streamed to the page to be rendered as soon as possible.
+
+## 13. UPDATE: image encoding optimizations
+One of [our readers](https://twitter.com/dennisl/status/702123202118447105) pointed a very important omission: image encoding optimizations. Both PNGs and JPGs are usually encoded using sub-optimal settings for web publishing. By changing the encoder and its settings, significant savings can be realized for image-heavy sites. Popular solutions include [OptiPNG](http://optipng.sourceforge.net/) and [jpegtran](http://jpegclub.org/jpegtran/).
+
+[A guide to PNG optimization](http://optipng.sourceforge.net/pngtech/optipng.html) details how OptiPNG can be used to optimize PNGs.
+
+[The man page for jpegtran](http://linux.die.net/man/1/jpegtran) provides a good intro to some of its features.
+
+If you find these guides too complex for your requirements, there are online sites that provide optimization as a service. There are also GUIs such as [RIOT](http://luci.criosweb.ro/riot/) that help greatly in doing batch operations and checking the results.
 
 ## Further reading
 You can read more information and find helpful tools for optimizing your site in the following links:
