@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HapiJS Authentication - Secure Your API With JWT"
-description: "HapiJS is a great framework for building NodeJS APIs. Learn how to create users and protect your API endpoints with JWT authentication."
+description: "HapiJS is a great framework for building NodeJS APIs. Get started with HapiJS Authentication to create users and protect your API endpoints."
 date: 2016-03-07 08:30
 author: 
   name: Ryan Chenkie
@@ -36,7 +36,7 @@ In this article we'll look at how to build an API with HapiJS that connects to M
 
 The API we build will be mostly focused on authentication. As such, we'll create enpoints for creating user accounts, authenticating users, and displaying a list of registered users for those who have admin access. When users successfully authenticate, they will be issued [JSON Web Tokens (JWT)](http://jwt.io/introduction) which can be used to access other endpoints. We'll store a `scope` claim in the JWT which will give us a simple way to implement access control.
 
-## Getting Started
+## Getting Started with HapiJS Authentication
 
 Let's start by installing some of the dependencies we'll need.
 
