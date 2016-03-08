@@ -213,7 +213,7 @@ module.exports = {
 }
 ```
 
-Hapi routes need to have a route `method` and `path` at a minimun, and a `handler` if they are to be useful. Configuring these details here is self-explanatory, but a few things are likely unfamiliar. Down at the bottom, we have a spot for validating input, and in this case, we want to validate the `payload` that comes in. If we were accepting params from the user, then we could specify our validation on the `params` key. This validation is coming from the `createUserSchema` within the `schemas` subdirectory.
+Hapi routes need to have a route `method` and `path` at a minimum, and a `handler` if they are to be useful. Configuring these details here is self-explanatory, but a few things are likely unfamiliar. Down at the bottom, we have a spot for validating input, and in this case, we want to validate the `payload` that comes in. If we were accepting params from the user, then we could specify our validation on the `params` key. This validation is coming from the `createUserSchema` within the `schemas` subdirectory.
 
 ```js
 // api/users/schemas/createUser.js
