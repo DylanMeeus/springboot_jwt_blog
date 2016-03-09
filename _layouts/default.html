@@ -404,6 +404,10 @@
 
               var blogRegData = getBasicInfo();
               blogRegData.trackData = value;
+              blogRegData.email = value;
+              blogRegData.formId = '1052';
+              blogRegData.lpId = '1117';
+              blogRegData.Blog_Subs__c = true;
               metricsLib.track('register:lead:blog-newsletter', blogRegData);
 
               $module.html('<p class="thanks">Thank you for subscribing!</p>');
