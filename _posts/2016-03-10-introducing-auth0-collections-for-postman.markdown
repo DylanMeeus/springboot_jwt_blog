@@ -8,9 +8,8 @@ author:
   url: https://twitter.com/jerriepelser
   avatar: https://secure.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=60
 design: 
-  bg_color: "#333333"
-  image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
-  image_size: "50%"
+   bg_color: "#222228"
+   image: "http://cdn.auth0.com/blog/postman-integration/logo.png"
 tags: 
 - api
 - postman
