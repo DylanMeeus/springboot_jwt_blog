@@ -36,7 +36,7 @@ At this point Postman will prompt you whether you want to open the Collection in
 
 ![](http://cdn.auth0.com/blog/postman-integration/postman-open-with-dialog.png)
 
-Select the one you have installed. In this blog post I will open it in the Chrome App, but the experience is similar in the Chrome App.
+Select the one you have installed. In this blog post I will open it in the Chrome App, but the experience is similar in the Mac App.
 
 At this point we will Postman will do 2 things:
 
@@ -81,14 +81,10 @@ Save the settings and close the environments dialog. Now you can go back to Requ
 
 ![](http://cdn.auth0.com/blog/postman-integration/execute-api-method.png)
 
-## Warning about storing tokens in Postman variables
-
-<div class="alert alert-warning" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  Please read the following to understand the potential risks involved with Postman synchronizing Collections.
-</div>
+## A word about storing tokens in Postman variables
 
 We do need to point out that storing tokens in Postman as environment variables could pose a potential security risk.  If you are signed in to the Postman application it will automatically try and [synchronize some entities such as Collections and Environments with the Postman servers](https://www.getpostman.com/docs/sync_overview). This means that a token, which could allow someone else to gain access to your Management API, is leaving the privacy of your computer and uploaded Postman's servers.
 
-This is a security risk, and we therefore suggest that you do not enable synchronization when using the Auth0 Management API collection in Postman, and always be sure to remove the token environment variables before enabling synchronization again.
+At also has to be said that Postman has taken measures to ensure that this information is encrypted, and indeed encourages users to store this sort of information in Environment Variables. You can [read more about this on their website](https://www.getpostman.com/docs/security).
 
+If you feel that this still poses too much of a risk for you, then you will need to sign out of Postman to ensure that environment variables are not synchronized.
