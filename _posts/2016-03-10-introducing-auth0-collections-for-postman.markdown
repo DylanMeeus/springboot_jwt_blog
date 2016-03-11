@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing the Auth0 collections for Postman"
+title: "Introducing Auth0 for Postman Collections"
 description: We have created Postman Collections for our Auth0 APIs which allows you to easily test API calls from within Postman
 date: 2016-03-10 1:30
 author:
