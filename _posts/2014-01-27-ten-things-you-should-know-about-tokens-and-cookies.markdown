@@ -215,7 +215,7 @@ Of course you can use the approach on #7 and keep confidential info in a databas
 **UPDATE**: [Pedro Felix](https://twitter.com/pmhsfelix) correctly pointed out that MAC-then-encrypt is vulnerable to [Vaudenay-style attacks](http://www.thoughtcrime.org/blog/the-cryptographic-doom-principle/). I updated the code to do encrypt-then-MAC.
 
 <a name="token-oauth"></a>
-##9. JSON Web Tokens can be used in OAuth
+##9. JSON Web Tokens can be used in OAuth: Bearer Token
 
 Tokens are usually associated with OAuth. [OAuth 2](http://tools.ietf.org/html/rfc6749) is an authorization protocol that solves identity delegation. The user is prompted for consent to access his/her data and the authorization server gives back an `access_token` that can be used to call the APIs acting as that user.
 
