@@ -272,7 +272,7 @@ console.log(diag(4, 3)); // 5
 
 The `import` directive can be used to bring modules into the namespace. This directive, in contrast with `require` and `define` is not dynamic (i.e. it cannot be called at any place). The `export` directive, on the other hand, can be used to explicitly make elements public.
 
-The static nature of the `import` and `export` directive allows static analyzers to build a full tree of dependencies without running code. ES2015 does support dynamic loading of modules through the [Load API]():
+The static nature of the `import` and `export` directive allows static analyzers to build a full tree of dependencies without running code. ES2015 does support dynamic loading of modules:
 
 ```JavaScript
 System.import('some_module')
