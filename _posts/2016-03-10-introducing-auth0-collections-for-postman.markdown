@@ -5,6 +5,7 @@ description: We have created Postman Collections for our Auth0 APIs which allows
 date: 2016-03-10 1:30
 author:
   name: Jerrie Pelser
+  mail: jerrie@auth0.com
   url: https://twitter.com/jerriepelser
   avatar: https://secure.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=60
 design: 

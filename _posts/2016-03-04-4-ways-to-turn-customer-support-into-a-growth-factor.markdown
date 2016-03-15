@@ -5,6 +5,7 @@ description: Customer Support is crucial - Delight your users more than you thin
 date: 2016-03-04 1:30
 author:
   name: Diego Poza
+  mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
