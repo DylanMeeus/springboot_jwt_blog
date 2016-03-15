@@ -38,7 +38,7 @@ tags:
 - nodejs modules
 ---
 
-As JavaScript development gets more and more common, namespaces and depedencies get much more difficult to handle. Different solutions were developed to deal with this problem in the form of module systems. In this post we will explore the different solutions currently employed by developers and what are the problems they try to solve. Read on!
+As JavaScript development gets more and more common, namespaces and depedencies get much more difficult to handle. Different solutions were developed to deal with this problem in the form of module systems. In this post we will explore the different solutions currently employed by developers and the problems they try to solve. Read on!
 
 -----
 
@@ -130,7 +130,7 @@ myRevealingModule.setName( "Paul Kinlan" );
 
 JavaScript scopes (at least up to the appearance of `let` in ES2015) work at the function level. In other words, whatever binding is declared inside a function cannot escape its scope. It is for this reason the revealing module pattern relies on functions to encapsulate private contents (as many other JavaScript patterns).
 
-In the example above, *public* symbols are exposed in the returned dictionary. All other declarations are protected by the function scope enclosing them.
+In the example above, *public* symbols are exposed in the returned dictionary. All other declarations are protected by the function scope enclosing them. It is not necessary to use `var` and an immediate call to the function enclosing the private scope; a named function can be used for modules as well.
 
 This pattern has been in use for quite some time in JavaScript projects and deals fairly nicely with the encapsulation matter. It does not do much about the dependencies issue. Proper module systems attempt to deal with this problem as well. Another limitation lies in the fact that including other modules cannot be done in the same source (unless using `eval`).
 
@@ -165,7 +165,7 @@ console.log( `The area of a circle of radius 4 is ${circle.area(4)}`);
 
 There are abstractions on top of Node.js's module system in the form of libraries that bridge the gap between Node.js's modules and CommonJS. For the purposes of this post, we will only show the basic features which are mostly the same.
 
-In both Node's and CommonJS's modules there are essentially two elements to interact with the module system: `require` and `exports`. `require` is a function that can be used to import symbols from another module to the current scope. The parameter passed to `require` is the *id* of the module. In Node's implementation, it is the name of the module inside the `node_modules` directory. `exports` is a special object: anything put in it will get exported as a public element. Names for fields are preserved. A peculiar difference between Node and CommonJS arises in the form of the `module.exports` object. In Node, `module.exports` is the real special object that gets exported, while `exports` is just a variable that gets bound by default to `module.exports`. CommonJS, on the other hand, has no `module.exports` object. The practical implication is that in Node it is not possible to export a fully pre-constructed object without going through `module.exports`:
+In both Node's and CommonJS's modules there are essentially two elements to interact with the module system: `require` and `exports`. `require` is a function that can be used to import symbols from another module to the current scope. The parameter passed to `require` is the *id* of the module. In Node's implementation, it is the name of the module inside the `node_modules` directory (or, if it is not inside that directory, the path to it). `exports` is a special object: anything put in it will get exported as a public element. Names for fields are preserved. A peculiar difference between Node and CommonJS arises in the form of the `module.exports` object. In Node, `module.exports` is the real special object that gets exported, while `exports` is just a variable that gets bound by default to `module.exports`. CommonJS, on the other hand, has no `module.exports` object. The practical implication is that in Node it is not possible to export a fully pre-constructed object without going through `module.exports`:
 
 ```JavaScript
 // This won't work, replacing exports entirely breaks the binding to
@@ -200,7 +200,11 @@ CommonJS modules were designed with server development in mind. Naturally, the A
 - Hard to analyze for static code analyzers.
 
 ### Implementations
-We have already talked about one implementation (in partial form): Node.js. For the client there are currently two popular options: [webpack](https://webpack.github.io/docs/commonjs.html) and [browserify](http://browserify.org/index.html). Browserify was explicitly developed to parse Node-like module definitions (many Node packages work out-of-the-box with it!) and bundle your code plus the code from those modules in a single file that carries all dependencies. Webpack on the other hand was developed to handle creating complex pipelines of source transformations before publishing. This includes bundling together CommonJS modules.
+We have already talked about one implementation (in partial form): Node.js.
+
+![Node.js JavaScript Modules](https://cdn.auth0.com/blog/jsmodules/Node.js_logo.svg)
+
+For the client there are currently two popular options: [webpack](https://webpack.github.io/docs/commonjs.html) and [browserify](http://browserify.org/index.html). Browserify was explicitly developed to parse Node-like module definitions (many Node packages work out-of-the-box with it!) and bundle your code plus the code from those modules in a single file that carries all dependencies. Webpack on the other hand was developed to handle creating complex pipelines of source transformations before publishing. This includes bundling together CommonJS modules.
 
 ## Asynchronous Module Definition (AMD)
 AMD was born out of a group of developers that were displeased with the direction adopted by CommonJS. In fact, AMD was split from CommonJS early in its development. The main difference between AMD and CommonJS lies in its support for asynchronous module loading.
@@ -239,10 +243,14 @@ Asynchronous loading is made possible by using JavaScript's traditional closure 
 - Hard to analyze for static code analyzers.
 
 ### Implementations
-Currently the most popular implementations of AMD are [require.js]() and [Dojo](). Using require.js is pretty straightforward: include the library in your HTML file and use the `data-main` attribute to tell require.js which module should be loaded first. Dojo has a [similar setup](http://dojotoolkit.org/documentation/tutorials/1.10/hello_dojo/index.html).
+Currently the most popular implementations of AMD are [require.js](http://requirejs.org/) and [Dojo](https://dojotoolkit.org/).
+
+![Require.js for JavaScript Modules](https://cdn.auth0.com/blog/jsmodules/requirejs-logo.svg)
+
+ Using require.js is pretty straightforward: include the library in your HTML file and use the `data-main` attribute to tell require.js which module should be loaded first. Dojo has a [similar setup](http://dojotoolkit.org/documentation/tutorials/1.10/hello_dojo/index.html).
 
 ## ES2015 Modules
-Fortunately, the ECMA team behind the standardization of JavaScript decided to tackle the issue of modules. The result can be seen in the latest release of the JavaScript standard: ECMAScript 2015. The result is syntactically pleasing and compatible with both synchronous and asynchronous modes of operation.
+Fortunately, the ECMA team behind the standardization of JavaScript decided to tackle the issue of modules. The result can be seen in the latest release of the JavaScript standard: ECMAScript 2015 (previously known as ECMAScript 6). The result is syntactically pleasing and compatible with both synchronous and asynchronous modes of operation.
 
 ```JavaScript
 //------ lib.js ------
@@ -292,6 +300,8 @@ This solution, by virtue of being integrated in the language, lets runtimes pick
 
 ### Implementations
 Unfortunately none of the major JavaScript runtimes support ES2015 modules in their current stable branches. This means no support in Firefox, Chrome or Node.js. Fortunately many transpilers do support modules and a [polyfill](https://github.com/ModuleLoader/es6-module-loader) is also available. Currently, the ES2015 preset for [Babel](https://babeljs.io/) can handle modules with no trouble.
+
+![Babel for JavaScript Modules](https://cdn.auth0.com/blog/jsmodules/babel.png)
 
 ## The All-in-One Solution: System.js
 You may find yourself trying to move away from legacy code using one module system. Or you may want to make sure whatever happens, the solution you picked will still work. Enter [System.js](https://github.com/systemjs/systemjs): a universal module loader that supports CommonJS, AMD and ES2015 modules. It can work in tandem with transpilers such as Babel or Traceur and can support Node and IE8+ environments. Using it is a matter of loading System.js in your code and then pointing it to your base URL:
