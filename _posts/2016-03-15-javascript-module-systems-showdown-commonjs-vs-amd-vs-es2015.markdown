@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "JavaScript Modules Systems Galore: CommonJS vs AMD vs ES2015"
-description: "Learn about the different JavaScript module systems currently in use, how they came to be and what's the best option for your project."
-date: 2016-03-14 13:30
+title: "JavaScript Module Systems Showdown: CommonJS vs AMD vs ES2015"
+description: "Learn about the different JavaScript module systems currently in use, and find out which will be the best option for your project."
+date: 2016-03-15 13:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -42,7 +42,7 @@ As JavaScript development gets more and more common, namespaces and depedencies 
 
 -----
 
-## Introduction: Why Are Module Systems Needed?
+## Introduction: Why Are JavaScript Modules Needed?
 If you are familiar with other development platforms, you probably have some notion of the concepts of *encapsulation* and *dependency*. Different pieces of software are usually developed in isolation until some requirement needs to be satisfied by a previously existing piece of software. At the moment that other piece of software is brought into the project a dependency is created between it and the new piece of code. Since these pieces of software need to work together, it is of importance that no conflicts arise between them. This may sound trivial, but without some sort of *encapsulation* it is a matter of time before two *modules* conflict with each other. This is one of the reasons elements in C libraries usually carry a prefix:
 
 ```C
