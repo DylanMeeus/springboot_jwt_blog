@@ -2,7 +2,7 @@
 layout: post
 title: "Data Breach Response Planning for Startups"
 description: Security is a challenge at most startups. Here's some advice on planning for the worst case scenario, a large-scale data breach.
-date: 2016-03-16 11:12
+date: 2016-03-17 08:30
 author: 
   name: Eugene Kogan
   url: https://twitter.com/eugk
