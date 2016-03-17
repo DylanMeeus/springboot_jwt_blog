@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Getting Started with Lock episode 3: Redirect vs Popup Mode"
-description: <A SHORT DESCRIPTION OF THE POST>
-date: 2016-02-19 08:37
+description: "This episode shows the difference in Lock between Redirect and Popup modes."
+date: 2016-03-17 08:37
 author: 
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
