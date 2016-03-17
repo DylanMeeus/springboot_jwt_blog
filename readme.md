@@ -61,14 +61,18 @@ design:
 ---
 ```
 
+## Prerequisites
+
+1.  Install Ruby (2.0.0-p195 or later)
+2.  Make sure you have [RVM](http://rvm.io/) or other ruby version manager installed
+3.  Install Bundler `gem install bundler`
 
 ## Run
 
-1.  Make sure you have [RVM](http://rvm.io/) or other ruby version manager installed.
-2.  Enter the blog directory and make sure with ruby --version that you are running the right ruby version (.ruby-version file).
-3.  Install dependencies with `bundle install`
-4.  `bundle exec jekyll serve --watch`
-5.  Open [http://localhost:4000/blog/](http://localhost:4000/blog/). Make sure you don't leave out the trailing slash (/), otherwise you will get:
+1.  Enter the blog directory and make sure with ruby --version that you are running the right ruby version (.ruby-version file).
+2.  Install dependencies with `bundle install`
+3.  `bundle exec jekyll serve --watch`
+4.  Open [http://localhost:4000/blog/](http://localhost:4000/blog/). Make sure you don't leave out the trailing slash (/), otherwise you will get:
 ![error](https://i.cloudup.com/FWLX_cUhXb.png)
 
 
