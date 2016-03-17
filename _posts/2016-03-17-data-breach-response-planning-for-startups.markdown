@@ -11,6 +11,7 @@ author:
 design: 
   bg_color: "#16214D"
   image: https://cdn.auth0.com/blog/data-breach-response-plan/data-breach-icon.png
+  image_size: "90%"
 tags: 
 - security
 - incident response
