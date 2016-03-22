@@ -469,7 +469,6 @@
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
           
-          $('p').selectionSharer();
         }
 
         function setEvents() {
@@ -481,6 +480,8 @@
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           metricsLib.page();
+          
+          $('p').selectionSharer();
 
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
