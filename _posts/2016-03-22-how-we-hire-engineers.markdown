@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How we hire engineers"
-description: "Provides transparecy about our hiring process and the rationale behind it."
+description: "Providing transparency about our hiring process and the rationale behind it."
 date: 2016-03-22 12:00
 author:
   name: Damian Schenkelman
