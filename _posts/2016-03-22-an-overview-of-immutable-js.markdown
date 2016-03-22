@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Overview of Functional Programming and Immutable.js"
+title: "An Overview of Immutability and Immutable.js"
 description: "Learn about functional data structures and their uses in this overview of Facebook's popular library for JavaScript: Immutable.js"
 date: 2016-03-22 13:30
 author:
@@ -83,22 +83,22 @@ function deepFreeze(obj) {
 }
 ```
 
-## Side-effects
+### Side-effects
 In programming language theory side-effects to any operation (usually a function or method call) are observable effects that can be seen outside the call to the function. In other words, it is possible to find a change in state after the call is performed. Each call *mutates* some state. In contrast to the concept of immutability, which is usually related to data and data structures, side-effects are usually associated to the state of a program as a whole. A function that preserves immutability of an instance of a data structure *can* have side-effects. A good example of this are caching functions, or memoization. Although to outside observers it may look like no change has occurred, updating a global or local cache has the side-effect of updating the internal data structures that work as the cache (the resulting speedups are also a side-effect). It is the job of developers to be aware of those side-effects and handle them appropriately.
 
 For instance, following the example of the cache, an immutable data structure that has a cache as a frontend can no longer be freely passed to different threads. Either the cache has to support multithreading or unexpected results can happen.
 
 Functional programming as a paradigm favors the use of side-effect free functions. For this to apply, functions must only perform operations on the data that is passed to them, and the effects of those operations should only be seen to the callee. Immutable data structures go hand-in-hand with side-effect free functions.
 
-### Purity
+#### Purity
 Purity is an additional condition that may be imposed on side-effect free functions: pure functions rely only on what is explicitly passed to them as arguments to produce a result. In other words, pure functions must not rely on global state or even state accessible through constructs such as `this`.
 
-### Referential transparency
+#### Referential transparency
 The result of combining side-effect free functions with purity is referential transparency. A referentially transparent function can be replaced at any point by its result knowing for certain this changes in no way the computation as a whole.
 
 As you may have noticed, each of these conditions places higher restrictions on how data and code can behave. Although this results in reduced flexibility, deep gains are realized when it comes to analysis and proofs. It is trivially provable that immutable data structures with no side-effects can be passed to different threads without worrying about locking, for instance.
 
-## Persistence
+### Persistence
 As we have seen in the previous section, immutability makes certain things easier. Another thing that becomes easier with immutable data structures is *persistence*. Persistence, in the context of data structures, refers to the possibility of keeping older versions of a data structure after a new version is constructed.
 
 As we have mentioned before, when write operations are to be performed on immutable data structures, rather than mutating the structure itself or its data, a new version of the structure is returned. Most of the time, however, modifications are small with regards to the size of the data or the data structure. Performing a full copy of the whole data structure is therefore suboptimal. Most immutable data structure algorithms, taking advantage of the immutability of the first version of the data, perform copies of only the data (and the parts of the data structure) that need to change.
@@ -107,8 +107,27 @@ Partially persistent data structures are those which support modifications on it
 
 This may not be entirely obvious but persistent data structures favor garbage collection rather than reference counting or manual memory management. As each change results in a new version of the data, and previous versions must be available, each time a change is performed new references to existing data are created. On manual memory management schemes, keeping track of which pieces of data have references quickly gets troublesome. On the other hand, reference counting makes things easier from the developer point of view, but inefficient from an algorithmic point of view: each time a change is performed, reference counts of changed data must be updated. Furthermore, this *invisible change* is in truth a side-effect. As such, it limits the applicability of certain benefits. Garbage collection, on the other hand, comes with none of these problems. Adding a reference to existing data comes for free.
 
-## Lazy evaluation
+In the following example, each version of the original list since its creating is available (in each variable binding):
+
+```JavaScript
+var list1 = Immutable.List.of(1, 2);
+var list2 = list1.push(3, 4, 5);
+var list3 = list2.unshift(0);
+var list4 = list1.concat(list2, list3);
+```
+
+### Lazy evaluation
 Another not-so-obvious benefit of immutability comes in the form of easier lazy operations. Lazy operations are those that do not perform any work until the results of those operations are required (usually by a strict evaluating operation; strict being the opposite of lazy in this context). Immutability helps greatly in the context of lazy operations because lazy evaluation usually entails performing an operation in the future. If the data associated to such operation is changed in any way between the time the operation is constructed and its results are required, then the operation cannot be safely performed. Immutable data helps because lazy operations can be constructed being certain data will not change. In other words, immutability enables lazy evaluation as an evaluation strategy.
+
+Lazy operations are supported in Immutable.js:
+
+```JavaScript
+var oddSquares = Immutable.Seq.of(1,2,3,4,5,6,7,8)
+                              .filter(x => x % 2)
+                              .map(x => x * x);
+// Only performs as much work as necessary to get the first result
+console.log(oddSquares.get(1)); // 9
+```
 
 There are several benefits to lazy evaluation. The most important one is that unnecessary values need not be computed. For example, consider a list formed by the elements 1 to 10. Now let's apply two independent operations to each element in the list. The first operation will be called `plusOne` and the second `plusTen`. Both operations do what's obvious: the first adds one to its argument, the second adds ten.
 
@@ -128,8 +147,84 @@ As you may have noticed, this is inefficient: the loop inside `map` runs twice e
 
 Lazy evaluation may also allow for infinite data structures. For instance a sequence from 1 to infinity can be safely expressed if lazy evaluation is supported. Lazy evaluation can also allow for invalid values: if invalid values inside a computation are never requested, then no invalid operations are performed (which may result in exceptions or other error conditions).
 
-Certain functional programming languages can also perform advanced optimizations when lazy evaluation is available, such as deforestation or loop fusion. In essence these optimizations can turn operations defined in terms of multiple loops into single loops, or, in other words, remove intermediate data structures. In other words, the two `map` calls from the example above into a single `map` call that calls `plusOne` and `plusTen` in the same loop. Nifty, huh?
+Certain functional programming languages can also perform advanced optimizations when lazy evaluation is available, such as deforestation or loop fusion. In essence these optimizations can turn operations defined in terms of multiple loops into single loops, or, in other words, remove intermediate data structures. In practice, the two `map` calls from the example above turn into a single `map` call that calls `plusOne` and `plusTen` in the same loop. Nifty, huh?
 
 However, not everything is good about lazy evaluation: the exact point at which any expression gets evaluated and a computation performed stops being obvious. Analysis of certain complex lazy operations can be quite hard. Another disadvantage are space-leaks: leaks that result from storing the necessary data to perform a given computation in the future. Certain lazy constructs can make this data grow unbounded, which may result in problems.
 
-## Composition
+### Composition
+Composition in the context of functional programming refers to the possibility of combining different functions into new powerful functions. First-class functions (functions that can be treated as data and passed to other functions), closures and currying (think of `Function.bind` on steroids) are the tools necessary for this. JavaScript's syntax is not as convenient as certain functional programming languages' syntax for composition but it certainly is possible. Appropriate API design can result in good results.
+
+Immutable's lazy features combined with composition result in convenient, readable JavaScript code:
+
+```JavaScript
+Immutable.Range(1, Infinity)
+  .skip(1000)
+  .map(n => -n)
+  .filter(n => n % 2 === 0)
+  .take(2)
+  .reduce((r, n) => r * n, 1);
+```
+
+### The Escape Hatch: Mutation
+For all the advantages immutability can provide, certain operations and algorithms are only efficient when mutation is available. Although immutability is the default in most functional programming languages (in contrast with imperative languages), mutations are usually possible to efficiently implement these operations.
+
+Again, Immutable.js has you covered:
+
+```JavaScript
+var list1 = Immutable.List.of(1,2,3);
+var list2 = list1.withMutations(function (list) {
+  list.push(4).push(5).push(6);
+});
+```
+
+## Algorithmic Considerations
+In the field of algorithms and data structures there are no free meals. Improvements in one area usually result in worse results in another. Immutability is no exception. We have discussed some of the benefits of immutability: easy persistence, simpler reasoning, less locking, etc.; but what are the disadvantages?
+
+When talking about algorithms, time complexity is probably the first thing you should keep in mind. Immutable data structures have different run-time characteristics than mutable data structures. In particular, immutable data structures usually have good runtime characteristics when taking persistence requirements in consideration.
+
+A simple example of these differences are single-linked lists: lists formed by having each node point to the next one (but not back). A mutable single-linked list has the following time complexities (worst-case):
+
+- Prepend: O(1)
+- Append: O(1)
+- Insert: O(1)
+- Find: O(n)
+- Copy: O(n)
+
+In contrast, an immutable single-linked list has the following time complexities (worst-case):
+
+- Prepend: O(1)
+- Append: O(n)
+- Insert: O(n)
+- Find: O(n)
+- Copy: O(1)
+
+> In case you are not familiar with time analysis and big O notation, read [this](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/).
+
+This does not paint a good picture for the immutable data structure. However, worst-case time analysis does not consider the implications for persistent requirements. In other words, if the mutable data structure had to comply with this requirement, run-time complexities would look like those from the immutable version (at least for these operations). Copy-on-write and other techniques may improve *average* times for some operations, which are also not considered for worst-case analysis.
+
+In practice, worst-case analysis may not always be the most representative form of time analysis for picking a data structure. *Amortized* analysis considers data structures as a group of operations. Data structures with good amortized times may display occasional worst-time behavior while remaining much better in the general case. A good example where amortized analysis makes sense is a dynamic array optimized to double its size when an element needs to be allocated past its end. Worst-case analysis gives O(n) time for the append operation. Amortized time can be considered O(1), since N/2 append operations can be performed before a single append results in O(n) time. In general, if deterministic times are required for your use case, amortized times cannot be considered. Otherwise, careful analysis of your requirements may give data structures with good amortized times a better chance.
+
+Time complexity analysis leaves out other important considerations as well: how does the use of a certain data structure impact on the code around it? For instance, with an immutable data structure, locking may not be necessary in multi-threaded scenarios.
+
+### CPU Cache Considerations
+Another thing to keep in mind, in particular for high-performance computing, is the way data structures play with the underlying CPU cache. In general, [locality for mutable data structures is better](http://concurrencyfreaks.blogspot.com.ar/2013/10/immutable-data-structures-are-not-as.html) (unless persistence is deeply used) for cases where many write operations are performed.
+
+### Memory use
+Immutable data structures cause by nature spikes in memory usage. After each modification, copies are performed. If these copies are not required, the garbage collector can collect old pieces of data during the next collection. This results in spikes of usage as long as the old, unused copies of the data are not collected. In the case persistence is required, spikes are not present.
+
+As you may have noticed, immutability becomes pretty compelling when persistence is considered.
+
+## Example
+
+## Aside: Immutable.js at Auth0
+At Auth0 we are always looking at new libraries. Immutable.js is no exception. Immutable.js has found its way into our [lock-next](https://github.com/auth0/lock-next) and [lock-passwordless](https://github.com/auth0/lock-passwordless) projects. Both of these libraries were developed with React. Rendering React components can get a [nice boost when using immutable data](https://facebook.github.io/react/docs/advanced-performance.html) due to optimizations available to check for equality: when two objects share the same reference and you are sure the underlying object is immutable, you can be sure the data contained in it hasn't changed. As React re-render objects based on whether they have changed, this removes the need for deep value checks.
+
+Do you like React and Immutable.js? [Send us your résumé](https://auth0.com/jobs) and point us to cool projects you have developed using these technologies.
+
+## Conclusion
+Thanks to functional programming, the benefits of immutability and other related concepts are tried and tested. Success stories behind the development of projects using Clojure, Scala and Haskell have brought a bigger mindshare to many of the ideas strongly advocated by these languages. Immutability is one of these concepts: with clear benefits to analysis, persistence, copying and comparisons, immutable data structures have found their way into specific use cases even in your browser. As usual, when it comes to algorithms and data structures, careful analysis of each scenario is required to pick the right tool. Considerations regarding performance, memory use, CPU-cache behavior and the types of operations performed on the data are essential to determine whether immutability can be of benefit to you. The use of Immutable.js with React is a clear example of how this approach can bring big benefits to a project.
+
+If this article has sparked your interest in functional programming and data structures in general, I cannot recommend strongly enough Chris Okazaki's Purely Functional Data Structures, a great introduction to how functional data structures work behind the scenes and how to use them efficiently. Hack on!
+
+## Quiz
+Can you answer the following 5 questions about immutability and functional programming in general? Find out!
