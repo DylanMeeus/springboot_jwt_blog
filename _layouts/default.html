@@ -102,6 +102,7 @@
     <link href="//cdn.auth0.com/styleguide/3.1.6/index.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/vendor/selection-sharer.min.css" />
 </head>
 <body>
 
@@ -221,6 +222,7 @@
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script async src="{{ site.baseurl }}/js/vendor/html2canvas.js"></script>
+    <script src="{{ site.baseurl }}/js/vendor/selection-sharer.min.js"></script>
 
     <script type="text/javascript">
       var getBasicInfo = function () {
@@ -466,6 +468,8 @@
 
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
+          
+          $('p').selectionSharer();
         }
 
         function setEvents() {
