@@ -9,7 +9,7 @@ author:
   mail: speyrott@auth0.com
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
-  bg_color: "#2E2E2C"
+  bg_color: "#384148"
   image: https://cdn.auth0.com/blog/immutablejs/logo.png
   image_size: "100%"
   image_bg_color: "#B6C5CA"
@@ -233,6 +233,8 @@ When talking about algorithms, time complexity is probably the first thing you s
 A simple example of these differences are single-linked lists: lists formed by having each node point to the next one (but not back).
 
 ![A possible Immutable.js implementation of a single-linked list](https://cdn.auth0.com/blog/immutablejs/linkedlist.png)
+
+> Diagram based on [Leslie Sanford's Persistent Data Structures](http://www.codeproject.com/Articles/9680/Persistent-Data-Structures) diagrams.
 
 A mutable single-linked list has the following time complexities (worst-case, assuming front, back and insertion nodes are known):
 
