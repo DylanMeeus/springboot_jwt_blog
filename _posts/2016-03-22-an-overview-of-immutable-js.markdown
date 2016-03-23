@@ -281,37 +281,5 @@ If this article has sparked your interest in functional programming and data str
 ## Quiz
 Can you answer the following 5 questions about immutability and functional programming in general? Find out!
 
-1. Why are Garbage Collectors (GCs) usually a requirement for immutable data structures?
-    a. Because CPU caching is more efficient that way.
-    b. Because allocations are faster.
-    c. Because efficient persistence requires easy sharing. <-
-        When a write operation is performed on an immutable data structure implicit sharing occurs in the form of references pointing to unchanged data and structures. When many write operations are performed on multiple active versions of the same data structure, tracking which parts of the data structure are not garbage becomes troublesome. All of this can be handled automatically and efficiently by a garbage collector.
-    d. Because purity is not possible otherwise.
-
-2. Why is immutability favored in lazy-evaluation contexts?
-    a. Because it is faster that way.
-    b. Because flow analysis is easier that way.
-    c. It is not.
-    d. Because mutability would force to make copies of the data. <-
-        If lazy operations which have not been evaluated are constructed on mutable data any change in the data between the point of construction to the point of evaluation or execution will result in modified results. In other words, for lazy operations to work as expected, mutable data must be copied on write or the data must be immutable.
-
-3. Why can comparisons be more efficient with immutable data (when GCs are used)?
-    a. Because comparisons can be cached.
-    b. Because when two references are the same, the data is equal. <-
-        Thanks to immutability, a reference pointing to an immutable data structure instanced in the past always points to the same data in the future (if the reference were to be reused, in a garbage collected language this would mean no references pointing to the data structure existed before, so no duplicate references are possible). This means comparing two references pointing to the same data structure always point to the same data. No deep inspection or value-comparisons are necessary.
-    c. Because comparisons can then be implemented using pure functions.
-    d. Because it can be performed lazily.
-
-4. What is the worst-case scenario for a lazy sequence?
-    a. When all values are required. <-
-        Lazy operations take a "snapshot" (a closure) when they are constructed. This closure points to the data in question and contains all additional necessary parameters to perform the series of operations requested. This means additional memory is required at the point of construction in comparison to an eager operation. Additionally, the main advantage of lazy computations is the possibility of avoiding unnecessary operations if certain parts of the computations are not required. If all values from a lazy sequence are required then all the benefits are lost and the overhead of the closure must still be paid.
-    b. When the data is big.
-    c. When the data is small.
-    d. When mutations need to be performed.
-
-5. A single-line JavaScript function which returns `a + b` where `a` is a global variable and `b` a parameter is:
-    a. Referentially transparent.
-    b. Impure and side-effect free. <-
-        Impure because the result relies on data not passed as a parameter. Side-effect free because it does not mutate any global state.
-    c. Impure and has side-effects.
-    d. Pure and has side-effects.
+<div class="quizz-container" data-width="100%" data-height="auto" data-quiz="193404"></div>
+<script src="//dcc4iyjchzom0.cloudfront.net/widget/loader.js" async></script>
