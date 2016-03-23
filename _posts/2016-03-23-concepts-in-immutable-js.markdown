@@ -206,11 +206,11 @@ Immutable's lazy features combined with composition result in convenient, readab
 
 ```JavaScript
 Immutable.Range(1, Infinity)
-  .skip(1000)
-  .map(n => -n)
-  .filter(n => n % 2 === 0)
-  .take(2)
-  .reduce((r, n) => r * n, 1);
+    .skip(1000)
+    .map(n => -n)
+    .filter(n => n % 2 === 0)
+    .take(2)
+    .reduce((r, n) => r * n, 1);
 ```
 
 ### The Escape Hatch: Mutation
@@ -221,7 +221,7 @@ Again, Immutable.js has you covered:
 ```JavaScript
 var list1 = Immutable.List.of(1,2,3);
 var list2 = list1.withMutations(function (list) {
-  list.push(4).push(5).push(6);
+    list.push(4).push(5).push(6);
 });
 ```
 
@@ -286,34 +286,34 @@ After that, we changed the data structure holding the samples from a JavaScript 
 
 ```JavaScript
 if (!this.state.databases[dbname]) {
-  this.state.databases[dbname] = {
-    name: dbname,
-    samples: Immutable.List()
-  };
+    this.state.databases[dbname] = {
+        name: dbname,
+        samples: Immutable.List()
+    };
 }
 
 this.state.databases[dbname].samples =
     this.state.databases[dbname].samples.push({
-      time: newData.start_at,
-      queries: sampleInfo.queries
+        time: newData.start_at,
+        queries: sampleInfo.queries
     });
 if (this.state.databases[dbname].samples.size > 5) {
-  this.state.databases[dbname].samples =
-    this.state.databases[dbname].samples.skip(
-        this.state.databases[dbname].samples.size - 5);
+    this.state.databases[dbname].samples =
+        this.state.databases[dbname].samples.skip(
+            this.state.databases[dbname].samples.size - 5);
 }
 ```
 
 ```JavaScript
 var Database = React.createClass({
-  displayName: "Database",
+    displayName: "Database",
 
-  mixins: [React.PureRenderMixin],
+    mixins: [React.PureRenderMixin],
 
-  render: function render() {
+    render: function render() {
       //(...)
-  }
-  //(...)
+    }
+    //(...)
 });
 ```
 
