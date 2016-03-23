@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "An Overview of Functional Programming Concepts in Immutable.js"
+title: "Concepts in Immutable.js: An overview of Functional Programming"
 description: "Learn about functional data structures and their uses in this overview of Facebook's popular library for JavaScript: Immutable.js"
-date: 2016-03-22 13:30
+date: 2016-03-23 13:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -10,7 +10,7 @@ author:
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
   bg_color: "#2E2E2C"
-  image: https://cdn.auth0.com/blog/jsleaks/logo.png
+  image: https://cdn.auth0.com/blog/immutablejs/logo.png
   image_size: "100%"
   image_bg_color: "#B6C5CA"
   blog_series: false
@@ -232,7 +232,7 @@ When talking about algorithms, time complexity is probably the first thing you s
 
 A simple example of these differences are single-linked lists: lists formed by having each node point to the next one (but not back).
 
-![A possible Immutable.js implementation of a single-linked list](https://cdn.auth0.com/blog/immutablejs/linkedlist.gif)
+![A possible Immutable.js implementation of a single-linked list](https://cdn.auth0.com/blog/immutablejs/linkedlist.png)
 
 A mutable single-linked list has the following time complexities (worst-case, assuming front, back and insertion nodes are known):
 
