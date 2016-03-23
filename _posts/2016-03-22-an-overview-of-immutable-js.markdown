@@ -227,7 +227,7 @@ When talking about algorithms, time complexity is probably the first thing you s
 
 A simple example of these differences are single-linked lists: lists formed by having each node point to the next one (but not back).
 
-![Single-linked list]()
+![A possible Immutable.js implementation of a single-linked list](https://cdn.auth0.com/blog/immutablejs/linkedlist.gif)
 
 A mutable single-linked list has the following time complexities (worst-case, assuming front, back and insertion nodes are known):
 
@@ -265,6 +265,8 @@ As you may have noticed, **immutability becomes pretty compelling when persisten
 
 ## Aside: Immutable.js at Auth0
 At Auth0 we are always looking at new libraries. Immutable.js is no exception. Immutable.js has found its way into our [lock-next](https://github.com/auth0/lock-next) and [lock-passwordless](https://github.com/auth0/lock-passwordless) projects. Both of these libraries were developed with React. Rendering React components can get a [nice boost when using immutable data](https://facebook.github.io/react/docs/advanced-performance.html) due to optimizations available to check for equality: when two objects share the same reference and you are sure the underlying object is immutable, you can be sure the data contained in it hasn't changed. As React re-render objects based on whether they have changed, this removes the need for deep value checks.
+
+> A [similar optimization](http://blog.mgechev.com/2015/03/02/immutability-in-angularjs-immutablejs/) can be implemented in Angular.js applications.
 
 Do you like React and Immutable.js? [Send us your résumé](https://auth0.com/jobs) and point us to cool projects you have developed using these technologies.
 
