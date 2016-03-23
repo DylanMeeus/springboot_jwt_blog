@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Concepts in Immutable.js: An overview of Functional Programming"
+title: "Introduction to Immutable.js and Functional Programming Concepts"
 description: "Learn about functional data structures and their uses in this overview of Facebook's popular library for JavaScript: Immutable.js"
 date: 2016-03-23 13:30
 author:
