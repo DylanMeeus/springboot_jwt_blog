@@ -53,10 +53,13 @@ var list2 = list1.push(3, 4, 5);
 ```
 
 Interesting benefits arise when developers (and compilers/runtimes) can be sure data cannot change:
+
 - Locking for multithreading is no longer a problem: as data cannot change, **no locks are needed** to synchronize multiple threads.
 - Persistence (another key concept explored below) becomes easier.
 - Copying becomes a **constant-time operation**: copying is simply a matter of creating a new reference to the existing instance of a data structure.
-- Value comparisons can be optimized in certain cases: when the runtime or compiler can make sure during loading or compiling that a certain instance is only equal when pointing to the same reference, **deep value comparisons can become reference comparisons**. This is known as *interning* and is normally only available for data available at compile or load time.
+- Value comparisons can be optimized in certain cases: when the runtime or compiler can make sure during loading or compiling that a certain instance is only equal when pointing to the same reference, **deep value comparisons can become reference comparisons**. This is known as *interning* and is normally only available for data available at compile or load time. This optimization can also be performed manually (as is done with React and Angular, explained in the aside section at the end).
+
+<br>
 
 #### You are already using an immutable data structure: strings
 **Strings in JavaScript are immutable**. All methods in the String prototype perform either read operations or return new strings.
@@ -245,7 +248,7 @@ In contrast, an immutable single-linked list has the following time complexities
 - Find: O(n)
 - Copy: O(1)
 
-> In case you are not familiar with time analysis and big O notation, read [this](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/).
+> In case you are not familiar with time analysis and Big O notation, read [this](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/).
 
 This does not paint a good picture for the immutable data structure. However, worst-case time analysis does not consider the implications for persistent requirements. In other words, if the mutable data structure had to comply with this requirement, run-time complexities would mostly look like those from the immutable version (at least for these operations). Copy-on-write and other techniques may improve *average* times for some operations, which are also not considered for worst-case analysis.
 
