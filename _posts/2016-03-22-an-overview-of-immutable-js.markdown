@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Overview of Functional Programming and Immutable.js"
+title: "An Overview of Functional Programming Concepts in Immutable.js"
 description: "Learn about functional data structures and their uses in this overview of Facebook's popular library for JavaScript: Immutable.js"
 date: 2016-03-22 13:30
 author:
@@ -264,7 +264,64 @@ Immutable data structures cause by nature **spikes in memory usage**. After each
 
 As you may have noticed, **immutability becomes pretty compelling when persistence is considered**.
 
-## Example
+## Example: React DBMon Benchmark
+Based on our [previous series of benchmarks](https://auth0.com/blog/2016/01/11/updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/), we decided to update our React DBMon benchmark to use Immutable.js where appropriate. As DBMon essentially updates all data after each iteration, no benefits would be gained by switching to React + Immutable.js: Immutable allows React to prevent deep equality checks after the state is changed; if all state is changed after each iteration, no gains are possible. We thus modified our example to randomly skip state changes:
+
+```JavaScript
+// Skip some updates to test re-render state checks.
+var skip = Math.random() >= 0.25;
+
+Object.keys(newData.databases).forEach(function (dbname) {
+    if (skip) {
+        return;
+    }
+
+    //(...)
+}
+```
+
+After that, we changed the data structure holding the samples from a JavaScript array to an Immutable List. This list is passed as a parameter to a component for rendering. When React's PureRenderMixin is added to the component class, more efficient comparisons are possible.
+
+```JavaScript
+if (!this.state.databases[dbname]) {
+  this.state.databases[dbname] = {
+    name: dbname,
+    samples: Immutable.List()
+  };
+}
+
+this.state.databases[dbname].samples =
+    this.state.databases[dbname].samples.push({
+      time: newData.start_at,
+      queries: sampleInfo.queries
+    });
+if (this.state.databases[dbname].samples.size > 5) {
+  this.state.databases[dbname].samples =
+    this.state.databases[dbname].samples.skip(
+        this.state.databases[dbname].samples.size - 5);
+}
+```
+
+```JavaScript
+var Database = React.createClass({
+  displayName: "Database",
+
+  mixins: [React.PureRenderMixin],
+
+  render: function render() {
+      //(...)
+  }
+  //(...)
+});
+```
+
+This is all that is necessary to realize gains in this case. If data is deemed unchanged, no further actions are taken to draw that branch of the DOM tree.
+
+As we did for our previous set of benchmarks, we used browser-perf to capture the differences. This is total run time of the JavaScript code:
+
+![DBMon + Immutable.js JavaScript total run times](https://cdn.auth0.com/blog/immutablejs/chart.svg)
+
+Grab the [full results](https://github.com/auth0/blog-immutable-js-dbmon-react).
 
 ## Aside: Immutable.js at Auth0
 At Auth0 we are always looking at new libraries. Immutable.js is no exception. Immutable.js has found its way into our [lock-next](https://github.com/auth0/lock-next) and [lock-passwordless](https://github.com/auth0/lock-passwordless) projects. Both of these libraries were developed with React. Rendering React components can get a [nice boost when using immutable data](https://facebook.github.io/react/docs/advanced-performance.html) due to optimizations available to check for equality: when two objects share the same reference and you are sure the underlying object is immutable, you can be sure the data contained in it hasn't changed. As React re-render objects based on whether they have changed, this removes the need for deep value checks.
