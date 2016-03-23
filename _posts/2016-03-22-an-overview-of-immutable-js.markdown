@@ -31,13 +31,15 @@ Functional programming has been on the rise the last few years. Languages such a
 -----
 
 ## Introduction: the case for immutability and Immutable.js
-Although functional programming is much more than just immutability, many functional languages put a strong emphasis on immutability. Some, like Clean and Haskell, place hard compile-time restrictions on how and when data can be mutated. For many programmers this is a major put-off. For those who endure the initial shock, **new patterns and ways of solving problems begin to arise**. In particular, data structures are a major point of conflict for newcomers to the functional paradigm.
+Although functional programming is much more than just immutability, many functional languages put a strong emphasis on immutability. Some, like Clean and Haskell, place hard compile-time restrictions on how and when data can be mutated. Many developers are put off by this. For those who endure the initial shock, **new patterns and ways of solving problems begin to arise**. In particular, data structures are a major point of conflict for newcomers to the functional paradigm.
 
 In the end, the matter of **immutable vs mutable data structures comes down to cold, hard math**. Algorithmic analysis tells us which data structures are best suited for different kinds of problems. Language support, however, can go a long way into helping with the use and implementation of those data structures. JavaScript, by virtue of being a multi-paradigm language, provides a fertile ground for both mutable and immutable data structures. Other languages, such as C, can implement immutable data structures. However, the limitations of the language can make their use cumbersome.
 
+So what is a mutation exactly? Mutations are in-place changes to data or the data structures that contain it. Immutability on the other hand, makes a copy of such data and data structures whenever a change is required.
+
 So what are the tenets of functional data structures, and, in particular what makes immutability so important? Furthermore, what are the right use cases for them? These are some of the questions we will explore below.
 
-> You may not know this, but you may already be using certain functional programming constructs in your JavaScript code. For instance, `Array.map` applies a function to each item in an array and returns a new array, without modifying the original in the process. Functional programming as a paradigm favors first-class functions that can be passed to algorithms returning new versions of existing data. This is in fact what `Array.map` does. This way of processing data favors composition, another core concept in functional programming.
+> **Note:** you may not know this, but you may already be using certain functional programming constructs in your JavaScript code. For instance, `Array.map` applies a function to each item in an array and returns a new array, without modifying the original in the process. Functional programming as a paradigm favors first-class functions that can be passed to algorithms returning new versions of existing data. This is in fact what `Array.map` does. This way of processing data favors composition, another core concept in functional programming.
 
 ## Key Concepts
 These are some of the key concepts behind functional programming. Hopefully, throughout this post you will find how these concepts fit in the design and use of Immutable.js and other functional libraries.
@@ -71,30 +73,30 @@ Some JavaScript runtimes take advantage of this to perform interning: at load ti
 #### Immutability and Object.freeze()
 JavaScript is a dynamic, weakly typed language (or untyped if you're familiar with programming language theory). As such it is sometimes hard to enforce certain constraints on objects and data. `Object.freeze()` helps in this regard. A call to `Object.freeze` marks all properties as immutable. Assignments will either silently fail or throw an exception (in strict mode). If you are writing an immutable object, calling `Object.freeze` after construction can help.
 
-Bear in mind `Object.freeze()` is shallow: attributes of children object can be modified. To fix this, [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) shows how a `deepFreeze` version of this function can be written:
+Bear in mind `Object.freeze()` is shallow: attributes of child objects can be modified. To fix this, [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) shows how a `deepFreeze` version of this function can be written:
 
 ```JavaScript
 function deepFreeze(obj) {
+    // Retrieve the property names defined on obj
+    var propNames = Object.getOwnPropertyNames(obj);
 
-  // Retrieve the property names defined on obj
-  var propNames = Object.getOwnPropertyNames(obj);
+    // Freeze properties before freezing self
+    propNames.forEach(function(name) {
+        var prop = obj[name];
 
-  // Freeze properties before freezing self
-  propNames.forEach(function(name) {
-    var prop = obj[name];
+        // Freeze prop if it is an object
+        if (typeof prop == 'object' && prop !== null) {        
+            deepFreeze(prop);
+        }
+    });
 
-    // Freeze prop if it is an object
-    if (typeof prop == 'object' && prop !== null)
-      deepFreeze(prop);
-  });
-
-  // Freeze self (no-op if already frozen)
-  return Object.freeze(obj);
+    // Freeze self (no-op if already frozen)
+    return Object.freeze(obj);
 }
 ```
 
 ### Side-effects
-In programming language theory side-effects to any operation (usually a function or method call) are **observable effects that can be seen outside the call to the function**. In other words, it is possible to find a **change in state** after the call is performed. Each call *mutates* some state. In contrast to the concept of immutability, which is usually related to data and data structures, side-effects are usually associated to the state of a program as a whole. A function that preserves immutability of an instance of a data structure *can* have side-effects. A good example of this are caching functions, or memoization. Although to outside observers it may look like no change has occurred, updating a global or local cache has the side-effect of updating the internal data structures that work as the cache (the resulting speedups are also a side-effect). **It is the job of developers to be aware of those side-effects and handle them appropriately**.
+In programming language theory, side-effects to any operation (usually a function or method call) are **observable effects that can be seen outside the call to the function**. In other words, it is possible to find a **change in state** after the call is performed. Each call *mutates* some state. In contrast to the concept of immutability, which is usually related to data and data structures, side-effects are usually associated to the state of a program as a whole. A function that preserves immutability of an instance of a data structure *can* have side-effects. A good example of this are caching functions, or memoization. Although to outside observers it may look like no change has occurred, updating a global or local cache has the side-effect of updating the internal data structures that work as the cache (the resulting speedups are also a side-effect). **It is the job of developers to be aware of those side-effects and handle them appropriately**.
 
 For instance, following the example of the cache, an immutable data structure that has a cache as a frontend can no longer be freely passed to different threads. Either the cache has to support multithreading or unexpected results can happen.
 
@@ -151,7 +153,7 @@ As we have mentioned before, when write operations are to be performed on immuta
 
 **Partially persistent** data structures are those which support modifications on its newest version and read-only operations on all previous versions of the data. **Fully persistent** data structures allow reading and writing on all versions of the data. Note that in all cases, writing or modifying data implies creating a new version of the data structure.
 
-This may not be entirely obvious but persistent data structures **favor garbage collection** rather than reference counting or manual memory management. As each change results in a new version of the data, and previous versions must be available, each time a change is performed new references to existing data are created. On manual memory management schemes, keeping track of which pieces of data have references quickly gets troublesome. On the other hand, reference counting makes things easier from the developer point of view, but inefficient from an algorithmic point of view: each time a change is performed, reference counts of changed data must be updated. Furthermore, this *invisible change* is in truth a side-effect. As such, it limits the applicability of certain benefits. Garbage collection, on the other hand, comes with none of these problems. **Adding a reference to existing data comes for free**.
+It may not be entirely obvious but persistent data structures **favor garbage collection** rather than reference counting or manual memory management. As each change results in a new version of the data, and previous versions must be available, each time a change is performed, new references to existing data are created. On manual memory management schemes, keeping track of which pieces of data have references quickly gets troublesome. On the other hand, reference counting makes things easier from the developer point of view, but inefficient from an algorithmic point of view: each time a change is performed, reference counts of changed data must be updated. Furthermore, this *invisible change* is in truth a side-effect. As such, it limits the applicability of certain benefits. Garbage collection, on the other hand, comes with none of these problems. **Adding a reference to existing data comes for free**.
 
 In the following example, each version of the original list since its creating is available (through each variable binding):
 
