@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Build a Cross-Platform Mobile App with C# and Xamarin"
+title: "Build and Authenticate Xamarin Cross-Platform Mobile Apps"
 description: "Learn how to build and authenticate cross-platform mobile apps written in C# with Xamarin"
-date: 2016-03-22 09:38
+date: 2016-03-29 09:38
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
@@ -13,8 +13,12 @@ design:
   image: <A PATH TO A 200x200 IMAGE>
 tags: 
 - Xamarin
+- Xamarin Authentication
 - C#
 - Cross-Platform
+- Native
+- Hybrid
+- Responsive Web
 ---
 
 ---
@@ -393,9 +397,9 @@ We're getting there! Let's go back to the `CloudCakes.cs` file and set the MainP
 
 > We purposefully built our UI backwards so that we could introduce the different Xamarin.Forms elements in smaller chunks.
 
-## Add Authentication to Xamarin with Auth0
+## Authenticate Xamarin App with Auth0
 
-With the UI and navigation in place we are ready to add the login and signup functionality to our application. We will use Auth0's RESTful API to authenticate and create new users. Additionally, we will use the **RestSharp** and **Newtonsoft JSON** library make interfacing with the API easier. As we won't be using a datastore for this simple demo, we will store the user credentials in the `Application.Current` namespace so that we can access the user data throughout our application.
+With the UI and navigation in place we are ready to add the login and signup functionality to our application. We will use Auth0's [RESTful Authentication API](https://auth0.com/docs/auth-api) to authenticate and create new users. Additionally, we will use the **RestSharp** and **Newtonsoft JSON** library make interfacing with the API easier. As we won't be using a datastore for this simple demo, we will store the user credentials in the `Application.Current` namespace so that we can access the user data throughout our application.
 
 First we will implement the login functionality. When a user enters their **Email** and **Password**, we will send this data to the Auth0 `oauth/ro` API endpoint which will validate the credentials and if successful return a `id_token` and `access_token` which we will use to get the user data. If we do not get an `access_token` back we will let the user know that they have entered invalid credentials.
 
@@ -589,6 +593,8 @@ Since we've written all of our code in the shared CloudCakes directory, our appl
 
 ![CloudCakes iOS vs Android Comparisson](http://cdn.auth0.com/blog/xamarin/cloudcakes-ui-comparisson.png)
 
-## Infographic Comparing Native / Hybrid / Web Responsive Apps
+Today, we were able to build a cross-platform app that works on both Android and iOS. The app adopted the design language of it's target platform and behaved as a native app. The end user would not be able to tell that our app was built with C# instead of Objective-C or Java. Furthermore, implemented Auth0 authentication through the API allowed us total control of the UI. Xamarin allowed us to build the app without knowing how the Android or iOS runtime worked and showcased how hybrid app development may be viable option for your apps.
 
-TODO
+To close out the tutorial, we've created an infographic that highlights the strengths of native, hybrid and responsive web development. Native and responsive web have clear strengths and weaknesses while hybrid app development seems to be the best of both worlds. A word of caution though, the popular phrase *"jack of all trades, master of none"* tends to apply to hybrid apps so consider all of your requirements before selecting a platform to build your mobile applications on.
+
+![Infographic Comparing Native, Hybrid and Responsive Web Development](https://cdn.auth0.com/blog/xamarin/infographic.png)
