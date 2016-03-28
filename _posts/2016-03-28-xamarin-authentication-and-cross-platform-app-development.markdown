@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Xamarin Authentication and Cross Platform Mobile App Development"
+title: "Xamarin Authentication and Cross-Platform Mobile App Development"
 description: "Learn how to build and authenticate cross-platform mobile apps written in C# with Xamarin"
-date: 2016-03-29 09:38
+date: 2016-03-28 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
@@ -10,7 +10,7 @@ author:
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design: 
   bg_color: "#333333"
-  image: <A PATH TO A 200x200 IMAGE>
+  image: "https://cdn.auth0.com/blog/xamarin/xamarin.png"
 tags: 
 - Xamarin
 - Xamarin Authentication
@@ -57,11 +57,13 @@ With a new solution created, let's explore how Xamarin setup the project for us.
 
 ![Xamarin Project Structure](https://cdn.auth0.com/blog/xamarin/xamarin-directory-structure.png)
 
-The platform specific directories are for writing code that will only execute on the target platform. Xamarin has already taken care of the code required to launch our apps on both Android and iOS so we should be able to just start writing code in the shared directory, build our solution and see the results. Before we start, if you open the `AppDelegate.cs` file on the iOS side and the `MainActivity.cs` on the Droid side, you'll be able to see platform specific code implemented to launch the app. If you've developed native iOS or Android apps in the past, these file names should be familiar as they match the app instantiation files for the native platforms.
+The platform specific directories are for writing code that will only execute on the target platform such as NFC on Android or different implementations of touch and gestures between platforms. Xamarin has already taken care of the code required to launch our apps on both Android and iOS so we should be able to just start writing code in the shared directory, build our solution and see the results. Before we start, if you open the `AppDelegate.cs` file on the iOS side and the `MainActivity.cs` on the Droid side, you'll be able to see platform specific code implemented to launch the app. If you've developed native iOS or Android apps in the past, these file names should be familiar as they match the app instantiation files for the native platforms.
 
 ### Hello World in Xamarin
 
-Before we write our app, let's quickly open up the `CloudCakes.cs` or `{AppName}.cs` in the shared code directory. This is the entry or main function into our application. Xamarin has added some boilerplate code when it created the solution that just displays a message once the app is opened. To make sure this runs, let's build and run the solution. To do this, simply click the play icon in the top left corner of the screen and the iOS Simulator should launch with our Xamarin app and display the message "Welcome to Xamarin Forms!" Now let's build our app.
+Before we write our app, let's quickly open up the `CloudCakes.cs` or `{AppName}.cs` in the shared code directory. This is the entry or main function into our application. Xamarin has added some boilerplate code when it created the solution that just displays a message once the app is opened. To make sure this runs, let's build and run the solution. To do this, simply click the play icon in the top left corner of the screen and the iOS Simulator should launch with our Xamarin app and display the message "Welcome to Xamarin Forms!" Now let's build our app. 
+
+*Since we are developing on a Mac, we have defaulted to using the iOS simulator for a majority of our examples, if you are on a Windows machine you can use the Android or Windows Mobile emulators and should have the same experience.*
 
 ![Hello World in Xamarin](https://cdn.auth0.com/blog/xamarin/cloudcakes-default.png)
 
@@ -267,7 +269,7 @@ To see the newly created Orders page, let's go back into the `CloudCakes.cs` fil
 
 ### Signup Page
 
-The Signup Page will allow users to create new accounts. We will forgo any email validation and to make signups as easy as possible just require an email and password. Let's build the UI.
+The Signup Page will allow users to create new accounts. We will omit any email validation and to make signups as easy as possible just require an email and password. Let's build the UI.
 
 ```
 using System;
@@ -402,7 +404,7 @@ We're getting there! Let's go back to the `CloudCakes.cs` file and set the MainP
 
 ## Aside: Xamarin Authentication with Auth0
 
-With the UI and navigation in place we are ready to add the login and signup functionality to our application. We will use Auth0's [RESTful Authentication API](https://auth0.com/docs/auth-api) to authenticate and create new users. Additionally, we will use the **RestSharp** and **Newtonsoft JSON** library make interfacing with the API easier. As we won't be using a datastore for this simple demo, we will store the user credentials in the `Application.Current` namespace so that we can access the user data throughout our application. You are not required to use Auth0 for Xamarin authentication. We've used the Auth0 REST API for brevity but if you are interested in building your own check out this great [example](https://github.com/auth0/nodejs-jwt-authentication-sample) on how you could implement JWT authentication with NodeJS.
+With the UI and navigation in place we are ready to add the login and signup functionality to our application. We will use Auth0's [RESTful Authentication API](https://auth0.com/docs/auth-api) to authenticate and create new users. Additionally, we will use the **RestSharp** and **Newtonsoft JSON** libraries to interface with the API easier. As we won't be using a datastore for this simple demo, we will store the user credentials in the `Application.Current` namespace so that we can access the user data throughout our application. You are not required to use Auth0 for Xamarin authentication. We've used the Auth0 REST API for brevity but if you are interested in building your own check out this great [example](https://github.com/auth0/nodejs-jwt-authentication-sample) on how you could implement JWT authentication with NodeJS.
 
 First we will implement the login functionality. When a user enters their **Email** and **Password**, we will send this data to the Auth0 `oauth/ro` API endpoint which will validate the credentials and if successful return a `id_token` and `access_token` which we will use to get the user data. If we do not get an `access_token` back we will let the user know that they have entered invalid credentials.
 
