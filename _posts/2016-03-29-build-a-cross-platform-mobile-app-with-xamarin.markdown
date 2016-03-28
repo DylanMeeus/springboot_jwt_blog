@@ -118,7 +118,7 @@ namespace CloudCakes
 	  };
 	  var description = new Label {
 		Text = "CloudCakes aims to revolutionize the cake delivery business by delivering on-demand cakes and other treats with the click of a button. No longer will you need to go to the store or even remember your favorite type of cake - just signup for an account and you're good to go!"
-		};
+	  };
 
 	  var blogTitle = new Label {
 		Text = "In The News",
@@ -223,22 +223,22 @@ namespace CloudCakes
 		  VerticalOptions = LayoutOptions.Center,
 		};
 
-	  // We implement a general click event that displays a popup
-	  // saying that an order was placed
-	  // Note: In a real world scenario you would likely use a closure
-	  // if you were implementing this functionality - but for simplicity
-	  // sake we just kept it simple.
-	  button.Clicked += (object sender, EventArgs e) => {
-		DisplayAlert ("Order Placed", "Your cake order has been placed and will arrive in 15 minutes", "OK");
-	  };
+	    // We implement a general click event that displays a popup
+	    // saying that an order was placed
+	    // Note: In a real world scenario you would likely use a closure
+	    // if you were implementing this functionality - but for simplicity
+	    // sake we just kept it simple.
+	    button.Clicked += (object sender, EventArgs e) => {
+		  DisplayAlert ("Order Placed", "Your cake order has been placed and will arrive in 15 minutes", "OK");
+	    };
 
-	  // We add the buttons to the grid. In this case
-	  // we pass additional parameters to have greater
-	  // control over how the content is displayed
-	  grid.Children.Add(button, 0, 2, i+1, i+3);
-	}
+	    // We add the buttons to the grid. In this case
+	    // we pass additional parameters to have greater
+	    // control over how the content is displayed
+	    grid.Children.Add(button, 0, 2, i+1, i+3);
+	  }
 
-    // Finally we pass our grid into the Content variable
+      // Finally we pass our grid into the Content variable
 	  Content = grid;
 	}
   }
@@ -257,9 +257,8 @@ namespace CloudCakes
 	  this.Name = name;
 	  this.Price = price;
 	}
-
   }
-
+}
 ```
 
 To see the newly created Orders page, let's go back into the `CloudCakes.cs` file and instead of loading up the About Us Page, let's load up the Orders page. Simply replace the `MainPage = new AboutPage();` with `MainPage = new OrdersPage();` and launch the simulator. If all went well you should see the orders page. *Note: We haven't implemented user authentication yet - so we've added some static content for the user for now.*
@@ -356,9 +355,9 @@ namespace CloudCakes
 	  // Here we are implementing a click event using lambda expressions
 	  // when a user clicks the `aboutButton` they will navigate to the
 	  // About Us page.
-		aboutButton.Clicked += (object sender, EventArgs e) => {
-		  Navigation.PushAsync(new AboutPage());
-		};
+	  aboutButton.Clicked += (object sender, EventArgs e) => {
+	    Navigation.PushAsync(new AboutPage());
+	  };
 
 	  // Navigation to the Signup Page (Note: We haven't created this page yet)
 	  signupButton.Clicked += (object sender, EventArgs e) => {
@@ -469,7 +468,7 @@ namespace CloudCakes
 	  } else {
 		DisplayAlert ("Oh No!", "It's seems that you have entered an incorrect email or password. Please try again.", "OK");
 	  };
-	 }
+	}
 
     // If we did get an `id_token` we make a secondary call to the Auth0 REST API
     // This time we call the `tokeninfo` endpoint which requires an `id_token`
