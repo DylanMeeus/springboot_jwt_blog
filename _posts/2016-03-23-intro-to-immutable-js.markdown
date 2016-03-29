@@ -153,13 +153,13 @@ var r1 = add(1, 2); // r1 = 3;
 ### Persistence
 As we have seen in the previous section, immutability makes certain things easier. Another thing that becomes easier with immutable data structures is *persistence*. Persistence, in the context of data structures, refers to the **possibility of keeping older versions of a data structure** after a new version is constructed.
 
-As we have mentioned before, when write operations are to be performed on immutable data structures, rather than mutating the structure itself or its data, a new version of the structure is returned. Most of the time, however, modifications are small with regards to the size of the data or the data structure. **Performing a full copy of the whole data structure is therefore suboptimal**. Most immutable data structure algorithms, taking advantage of the immutability of the first version of the data, perform copies of *only the data (and the parts of the data structure) that need to change**.
+As we have mentioned before, when write operations are to be performed on immutable data structures, rather than mutating the structure itself or its data, a new version of the structure is returned. Most of the time, however, modifications are small with regards to the size of the data or the data structure. **Performing a full copy of the whole data structure is therefore suboptimal**. Most immutable data structure algorithms, taking advantage of the immutability of the first version of the data, perform copies of **only the data (and the parts of the data structure) that need to change**.
 
 **Partially persistent** data structures are those which support modifications on its newest version and read-only operations on all previous versions of the data. **Fully persistent** data structures allow reading and writing on all versions of the data. Note that in all cases, writing or modifying data implies creating a new version of the data structure.
 
 It may not be entirely obvious but persistent data structures **favor garbage collection** rather than reference counting or manual memory management. As each change results in a new version of the data, and previous versions must be available, each time a change is performed, new references to existing data are created. On manual memory management schemes, keeping track of which pieces of data have references quickly gets troublesome. On the other hand, reference counting makes things easier from the developer point of view, but inefficient from an algorithmic point of view: each time a change is performed, reference counts of changed data must be updated. Furthermore, this *invisible change* is in truth a side-effect. As such, it limits the applicability of certain benefits. Garbage collection, on the other hand, comes with none of these problems. **Adding a reference to existing data comes for free**.
 
-In the following example, each version of the original list since its creating is available (through each variable binding):
+In the following example, each version of the original list since its creation is available (through each variable binding):
 
 ```JavaScript
 var list1 = Immutable.List.of(1, 2);
@@ -285,7 +285,7 @@ Object.keys(newData.databases).forEach(function (dbname) {
     }
 
     //(...)
-}
+});
 ```
 
 After that, we changed the data structure holding the samples from a JavaScript array to an Immutable List. This list is passed as a parameter to a component for rendering. When React's PureRenderMixin is added to the component class, more efficient comparisons are possible.
