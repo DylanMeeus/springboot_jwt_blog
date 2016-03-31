@@ -3,7 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
+    <meta property="fb:app_id" content="196885384022260" />
+    <meta property="og:url" content="https://auth0.com{{ site.baseurl }}{{page.url}}" />
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     {% if page.tags %}
     <meta name="keywords" content="{{ page.tags | join: ', ' }}">
@@ -102,6 +103,7 @@
     <link href="//cdn.auth0.com/styleguide/3.1.6/index.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/vendor/selection-sharer.min.css" />
     <script data-cfasync="false" type="text/javascript" src="//filamentapp.s3.amazonaws.com/3e19ef79eea909087a659076eb3bf70b.js" async="async"></script>
 </head>
 <body>
@@ -222,6 +224,7 @@
     <script src="{{ site.baseurl }}/js/vendor/moment.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script async src="{{ site.baseurl }}/js/vendor/html2canvas.js"></script>
+    <script src="{{ site.baseurl }}/js/vendor/selection-sharer.min.js"></script>
 
     <script type="text/javascript">
       var getBasicInfo = function () {
@@ -467,6 +470,7 @@
 
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
+          
         }
 
         function setEvents() {
@@ -478,6 +482,8 @@
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           metricsLib.page();
+          
+          $('p').selectionSharer();
 
           $(document)
             .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
