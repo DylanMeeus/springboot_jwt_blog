@@ -13,8 +13,10 @@ You can also save the text in a variable
 
 {% endcomment %}
 
+{% assign current = page %}
+
 <div class="tweet-quote">
-  <a href="https://twitter.com/intent/tweet?text={{ include.quote_text }}">
+  <a href="https://twitter.com/intent/tweet?text={{ include.quote_text }} via @auth0 {{ site.baseurl }}{{current.url}}">
     <p class="tweet-text">"{{ include.quote_text }}"</p>
     <p class="tweet-link">TWEET THIS <img src="http://cdn.auth0.com/blog/resources/twitter.svg"></p>
   </a>
