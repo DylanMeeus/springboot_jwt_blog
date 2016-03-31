@@ -1,0 +1,10 @@
+{% comment %}
+This is the template used for tweeteable quotes.
+{% endcomment %}
+
+<div class="tweet-quote">
+  <a href="https://twitter.com/intent/tweet?text={{ include.quote_text }}">
+    <p class="tweet-text">"{{ include.quote_text }}"</p>
+    <p class="tweet-link">TWEET THIS <i class="twitter-icon"></i></p>
+  </a>
+</div>
