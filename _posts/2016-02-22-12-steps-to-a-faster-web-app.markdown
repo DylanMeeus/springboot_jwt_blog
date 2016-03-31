@@ -42,6 +42,8 @@ Optimizing web apps can be an arduous job. Not only are web apps split in client
 ### Premature Optimization?
 The hard thing about optimization is finding the right point in the development life-cycle to do it. Donald Knuth famously said *"premature optimization is the root of all evil"*. The reasoning behind these words is quite simple: it is quite easy to lose time gaining that last 1% of performance in places where it won't make a significant impact. At the same time, some optimizations hinder readability or maintainability, or even introduce newer bugs. In other words, optimization should not be considered a "means to get the best performance out of an application", but "the search for the *right way* to optimize an app and get the *biggest benefits*". In other words, blind optimization can result in lost productivity and small gains. Keep this in mind when applying the following tips. Your biggest friend is the profiler: find the performance hotspots you can optimize to get the biggest improvements without impairing the development or maintainability of your app.
 
+{% include tweet_quote.html quote_text="Premature optimization is the root of all evil" %}
+
 > Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
 - **Donald Knuth**
 
