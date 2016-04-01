@@ -57,7 +57,7 @@ Although there are some people that think that investing time to answer this ema
 
 >If we were in doubt about a candidate, this is a chance to impress us.
 
-We also value creativity. For example, one candidate created a pair of webtasks that played tic-tac-toe against each other using different heuristics. Another candidate, who we hired, [created a service](https://github.com/radekk/webtask-tfa-monitor) to monitor the status of user accounts using other Two-Factor-Authentication services.
+We also value creativity. For example, one candidate created a pair of webtasks that played tic-tac-toe against each other using different heuristics. Another candidate, who we hired, [created a service](https://github.com/radekk/webtask-mfa-monitor) to monitor the status of Multi-Factor Authentication settings among different services.
 
 <div>
   <img style="margin: 10px; max-width: 150px; max-height:89px" src="https://cdn.auth0.com/blog/hire-engineers/interview.png">
