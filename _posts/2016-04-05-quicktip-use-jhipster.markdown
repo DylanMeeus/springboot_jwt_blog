@@ -53,7 +53,7 @@ Popular choices in the SQL camp include [MySQL/MariaDB](https://en.wikipedia.org
 
 Setting up a combination of these libraries, frameworks and tools can be quite bothersome. Let's see how we can do that with JHipster.
 
-## Setup a New Project
+## Setup a New Project with JHipster
 First, we have to make sure we have all the baseline dependencies: [Java 8](https://java.com/en/download/) and [Node.js](https://nodejs.org/en/).
 
 #### 1. Install JHipster
