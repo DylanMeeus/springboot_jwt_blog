@@ -29,6 +29,8 @@ tags:
 
 Java's library ecosystem is deep and complex. This is both a blessing and a curse: there are great tools out there, but picking the right combination and setting them up to work together can be quite complex. Furthermore, the depth and breath of many of these libraries makes the getting-started step somewhat hard. [JHipster]() comes to the rescue. See how easy it is to get started on your new Java + JavaScript web app with it. Read on!
 
+{% include tweet_quote.html quote_text="Java's library ecosystem is deep and complex. This is both a blessing and a curse." %}
+
 -----
 
 ## Introduction: Java in the Modern Web
