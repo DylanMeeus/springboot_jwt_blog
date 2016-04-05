@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Quick Tip: Easily Generate a Full-Stack Java + JavaScript App"
+title: "Easily Generate a Full-Stack Java + JavaScript App with JHipster"
 description: "See how easy it is to integrate Java's powerful backend technologies with the latest frontend libraries using Yeoman + JHipster"
 date: 2016-04-05 12:30
 author:
@@ -27,7 +27,7 @@ tags:
 - rest
 ---
 
-Java's library ecosystem is deep and complex. This is both a blessing and a curse: there are great tools out there, but picking the right combination and setting them up to work together can be quite complex. Furthermore, the depth and breath of many of these libraries makes the getting-started step somewhat hard. [JHipster]() comes to the rescue. See how easy it is to get started on your new Java + JavaScript web app with it. Read on!
+Java's library ecosystem is deep and complex. This is both a blessing and a curse: there are great tools out there, but picking the right combination and setting them up to work together can be quite complex. Furthermore, the depth and breath of many of these libraries makes the getting-started step somewhat hard. [JHipster](http://jhipster.github.io/) comes to the rescue. See how easy it is to get started on your new Java + JavaScript web app with it. Read on!
 
 {% include tweet_quote.html quote_text="Java's library ecosystem is deep and complex. This is both a blessing and a curse." %}
 
@@ -40,7 +40,7 @@ Java's viability as a web platform is tried and tested. Huge projects, such as N
 The rise of [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) and [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) solutions has pushed [microservices](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) to the forefront. Familiarity with the web has also made [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) the preferred architectural style. Java's extensive support for all sorts of technologies does not fail in this case. A whole bunch of libraries and frameworks are available to pick from. So what are some of the most popular alternatives?
 
 #### Spring
-For a long time, [Spring](https://spring.io/) has been one of the most used frameworks in the Java world. With a strong inversion-of-control (IoC) ideology and a somewhat pervasive reliance on annotations in recent releases, Spring has uses in nearly any backend application. Spring covers many areas of backend development: authentication/authorization, data access, messaging, transaction management, REST services, testing, among others.
+For a long time, [Spring](https://spring.io/) has been one of the most used frameworks in the Java world. With a strong [inversion-of-control (IoC)](https://en.wikipedia.org/wiki/Inversion_of_control) ideology and a somewhat pervasive reliance on annotations in recent releases, Spring has use cases in nearly any backend application. Spring covers many areas of backend development: authentication/authorization, data access, messaging, transaction management, REST services, testing, among others.
 
 #### Netflix Tools
 Netflix has contributed a series of open-source tools based on their necessities. [Eureka](https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance), a service registry and failover service that goes hand-in-hand with microservice-based architectures; [Zuul](https://github.com/Netflix/zuul/wiki), a proxy with dynamic routing; and [Ribbon](https://github.com/Netflix/ribbon/wiki), a load-balancer.
@@ -49,7 +49,7 @@ Netflix has contributed a series of open-source tools based on their necessities
 [Hibernate](http://hibernate.org/), an implementation of the Java Persistence API, is a popular alternative for object-relational mapping (ORM). Although you may prefer to skip ORM, Java has great support for it.
 
 #### SQL and NoSQL
-Popular choices in the SQL camp include [MySQL/MariaDB](https://en.wikipedia.org/wiki/MariaDB) and [PostgreSQL](http://www.postgresql.org/). In the MoSQL camp: [MongoDB](https://www.mongodb.org/) and [Cassandra](http://cassandra.apache.org/) are good alternatives.
+Popular choices in the SQL camp include [MySQL/MariaDB](https://en.wikipedia.org/wiki/MariaDB) and [PostgreSQL](http://www.postgresql.org/). In the NoSQL camp: [MongoDB](https://www.mongodb.org/) and [Cassandra](http://cassandra.apache.org/) are good alternatives.
 
 Setting up a combination of these libraries, frameworks and tools can be quite bothersome. Let's see how we can do that with JHipster.
 
@@ -95,7 +95,7 @@ I love [IntelliJ IDEA](https://www.jetbrains.com/idea/). Most Java IDEs can impo
 
 ![Import JHipster project](https://cdn.auth0.com/blog/jhipster/import.png)
 
-Additional IDE specific settings may improve your experience. For instance, you may want to setup autocompletion for the frontend libraries if supported. JHipster docs provide details for [Eclipe and IntelliJ IDEA](http://jhipster.github.io/configuring-ide/).
+Additional IDE specific settings may improve your experience. For instance, you may want to setup autocompletion for the frontend libraries if supported. JHipster docs provide details for [Eclipse and IntelliJ IDEA](http://jhipster.github.io/configuring-ide/).
 
 #### 4. Next Steps
 The sky is the limit. In general, you will want to create new views, models and controllers and create some sort of mapping between them and other components in your application. JHipster's help does not stop at the project creation stage: it can help you add new components to your existing app. For this, we can create *entities* using `yo jhipster:entity <entityName>`. New entities create database documents or tables, the necessary ORM code, an AngularJS controller (and router and service), a HTML view and tests. In other words, JHipster does all the boilerplate for you.
