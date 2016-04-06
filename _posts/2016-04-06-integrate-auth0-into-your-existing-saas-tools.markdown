@@ -19,6 +19,7 @@ tags:
 - mixpanel
 - analytics
 - minfraud
+- salesforce
 
 ---
 
@@ -30,7 +31,7 @@ This makes it all the more important that any SaaS provider you use integrates w
 
 Rules are Javascript code snippets that run as part of a customized login process on Auth0 servers.
 
-![How rules work](http://cdn.auth0.com/blog/integrate-your-saas-tools/rules-engine.png)
+![How rules work](http://cdn.auth0.com/blog/integrate-your-saas-tools/rules-diagram.png)
 
 * Step 1: Your app initiates an authentication request to Auth0.
 * Step 2: Auth0 routes the request to an Identity Provider through a configured connection.
@@ -58,13 +59,22 @@ Using your other SaaS providers, you could:
 Each of these would run immediately up on login.
 
 ## Why Use Rules?
+The following are some of the reasons of why you should use rule.
 
 1. **Improved reporting accuracy:** Events that are triggered server-side complete with a much higher degree of confidence than those that are attempted client-side, which can be blocked by firewalls, errant browser extensions, or code errors
 2. **Real-time updates:** Depending on the service you are implementing with Rules, you can get real-time updates of user sign-ins, along with any data you sent via the API.
 3. **Easy to create & run:** Implementation is through just a few lines of Javascript in our webtask sandbox. No extra technical debt or product development required.
 4. **Sequencing:** Any number of Rules can be run on log in. That means that you can run each of the 4 Rules, and more, below each time a user logs in.
 
-## Send New User Emails Through Mailgun
+
+## Some examples of how to integrate your SaaS tools with Auth0
+Let's see some of the most popular SaaS tools that are used by our users.
+
+### Send New User Emails Through Mailgun
+
+<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Mailgun.png" alt="Mailgun" />
+</div>
+
 
 [Mailgun](http://www.mailgun.com/) is a set of APIs that allow you to send, receive, and track email through code. It manages the delivery process to improve delivered rates, and produces analytics of why emails weren’t delivered.
 
@@ -112,7 +122,9 @@ The same type of Rule can easily be changed to [send an email to an administrato
 
 Find this rule [here](https://github.com/auth0/rules/blob/master/rules/mailgun.md).
 
-## Tracks Logins In MixPanel
+### Tracks Logins In MixPanel
+<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Mixpanel.png" alt="Mixpanel" />
+</div>
 
 Analytics are only as powerful as the underlying data. Adding an analytics Rule to your signing in process allows you to not only track individual logins with your preferred analytics SaaS provider, but also pass your analytics user-specific data to use.
 
@@ -148,7 +160,10 @@ This event will immediately be available in your Mixpanel dashboard, and availab
 
 Find this rule [here](https://github.com/auth0/rules/blob/master/rules/mixpanel-track-event.md).
 
-## Creates A New Lead In Salesforce On First Login
+### Creates A New Lead In Salesforce On First Login
+<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Salesforce.png" alt="Salesforce" />
+</div>
+<div>
 
 Customer Relationship Management (CRM) tools are a mainstay of modern sales. However, they have a common weakness—the salespeople.  Salespeople often forget to update their CRM, impacting the sales analytics for the company as well as their own sales pipeline.
 
@@ -157,7 +172,7 @@ Automating as much of the data entry process as possible is therefore important 
 It checks whether this is the first login, then calls the Salesforce API to record the contact as a new Lead. It is using Salesforce REST APIs and the `resource owner` flow to obtain an `access_token`. 
 
 ```
-`function (user, context, done) {
+function (user, context, done) {
   user.app_metadata = user.app_metadata || {};
   if (user.app_metadata.recordedAsLead) {
     return done(null,user,context);
@@ -240,14 +255,17 @@ It checks whether this is the first login, then calls the Salesforce API to reco
 
   // don’t wait for the SF API call to finish, return right away (the request will continue on the sandbox)`
   done(null, user, context);
-}`
+}
 ```
 
 This Rule also includes another benefit of using Rules: easy error handling. If the Rule can’t complete, it sends an error message to a designated Slack channel, so the sales team knows an error has occurred and can update Salesforce manually.
 
 Find this rule [here](https://github.com/auth0/rules/blob/master/rules/creates-lead-salesforce.md).
 
-## Checking Fraud With MinFraud
+### Checking Fraud With MinFraud
+
+<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Minfraud.png" alt="Minfraud" />
+</div>
 
 MinFraud identifies possible fraud in online transactions, as well as suspect account logins and signups. The service uses factors such as geolocation, IP address, email, device and proxies to determine the likelihood a transaction is fraudulent. 
 
