@@ -10,7 +10,7 @@ author:
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
   bg_color: #203E62
-  image: http://cdn.auth0.com/blog/integrate-your-saas-tools/logo.png
+  image: https://cdn.auth0.com/blog/integrate-your-saas-tools/logo.png
 tags: 
 - auth0 integration
 - auth0 rules
@@ -31,7 +31,7 @@ This makes it all the more important that any SaaS provider you use integrates w
 
 Rules are Javascript code snippets that run as part of a customized login process on Auth0 servers.
 
-![How rules work](http://cdn.auth0.com/blog/integrate-your-saas-tools/rules-diagram.png)
+![How rules work](https://cdn.auth0.com/blog/integrate-your-saas-tools/rules-diagram.png)
 
 * Step 1: Your app initiates an authentication request to Auth0.
 * Step 2: Auth0 routes the request to an Identity Provider through a configured connection.
@@ -72,7 +72,7 @@ Let's see some of the most popular SaaS tools that are used by our users.
 
 ### Send New User Emails Through Mailgun
 
-<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Mailgun.png" alt="Mailgun" />
+<div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Mailgun.png" alt="Mailgun" />
 </div>
 
 
@@ -123,7 +123,7 @@ The same type of Rule can easily be changed to [send an email to an administrato
 Find this rule [here](https://github.com/auth0/rules/blob/master/rules/mailgun.md).
 
 ### Tracks Logins In MixPanel
-<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Mixpanel.png" alt="Mixpanel" />
+<div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Mixpanel.png" alt="Mixpanel" />
 </div>
 
 Analytics are only as powerful as the underlying data. Adding an analytics Rule to your signing in process allows you to not only track individual logins with your preferred analytics SaaS provider, but also pass your analytics user-specific data to use.
@@ -161,7 +161,7 @@ This event will immediately be available in your Mixpanel dashboard, and availab
 Find this rule [here](https://github.com/auth0/rules/blob/master/rules/mixpanel-track-event.md).
 
 ### Creates A New Lead In Salesforce On First Login
-<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Salesforce.png" alt="Salesforce" />
+<div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Salesforce.png" alt="Salesforce" />
 </div>
 <div>
 
@@ -264,7 +264,7 @@ Find this rule [here](https://github.com/auth0/rules/blob/master/rules/creates-l
 
 ### Checking Fraud With MinFraud
 
-<div class="" style="text-align: center;"><img style="margin: 0;" src="http://cdn.auth0.com/blog/integrate-your-saas-tools/Minfraud.png" alt="Minfraud" />
+<div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Minfraud.png" alt="Minfraud" />
 </div>
 
 MinFraud identifies possible fraud in online transactions, as well as suspect account logins and signups. The service uses factors such as geolocation, IP address, email, device and proxies to determine the likelihood a transaction is fraudulent. 
@@ -324,4 +324,4 @@ Find this rule [here](https://github.com/auth0/rules/blob/master/rules/fraud-pre
 
 These are only a few examples. Any of these Rules can be customized to your other SaaS tools and your apps needs. Using the Auth0 Dashboard, you can use these or any other template to start using Rules in your app right now, or you can build your own unique Rule for your SaaS. The power is there for you to use it.
 
-![Auth0 provides lots of rule templates for you](http://cdn.auth0.com/blog/integrate-your-saas-tools/rule-templates.png)
+![Auth0 provides lots of rule templates for you](https://cdn.auth0.com/blog/integrate-your-saas-tools/rule-templates.png)
