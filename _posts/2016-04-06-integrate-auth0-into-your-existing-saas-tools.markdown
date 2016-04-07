@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Integrate Auth0 Into Your Existing SaaS Tools"
-description: Using Auth0 Rules, any SaaS provider can become part of your authentication procedure
+description: Using Auth0 Rules, all your SaaS tools can become part of your authentication procedure
 date: 2016-04-06 12:07
 author:
   name: Diego Poza
@@ -322,6 +322,6 @@ Find this rule [here](https://github.com/auth0/rules/blob/master/rules/fraud-pre
 
 ## Wrapping up: Customizing Rules
 
-These are only a few examples. Any of these Rules can be customized to your other SaaS providers and your apps needs. Using the Auth0 Dashboard, you can use these or any other template to start using Rules in your app right now, or you can build your own unique Rule for your SaaS. The power is there for you to use it.
+These are only a few examples. Any of these Rules can be customized to your other SaaS tools and your apps needs. Using the Auth0 Dashboard, you can use these or any other template to start using Rules in your app right now, or you can build your own unique Rule for your SaaS. The power is there for you to use it.
 
 ![Auth0 provides lots of rule templates for you](http://cdn.auth0.com/blog/integrate-your-saas-tools/rule-templates.png)
