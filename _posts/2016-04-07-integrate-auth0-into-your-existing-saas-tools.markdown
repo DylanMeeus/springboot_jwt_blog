@@ -71,7 +71,6 @@ The following are some of the reasons of why you should use rule.
 Let's see some of the most popular SaaS tools that are used by our users.
 
 ### Send New User Emails Through Mailgun
-
 <div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Mailgun.png" alt="Mailgun" />
 </div>
 
@@ -163,7 +162,6 @@ Find this rule [here](https://github.com/auth0/rules/blob/master/rules/mixpanel-
 ### Creates A New Lead In Salesforce On First Login
 <div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Salesforce.png" alt="Salesforce" />
 </div>
-<div>
 
 Customer Relationship Management (CRM) tools are a mainstay of modern sales. However, they have a common weakness—the salespeople.  Salespeople often forget to update their CRM, impacting the sales analytics for the company as well as their own sales pipeline.
 
@@ -263,7 +261,6 @@ This Rule also includes another benefit of using Rules: easy error handling. If 
 Find this rule [here](https://github.com/auth0/rules/blob/master/rules/creates-lead-salesforce.md).
 
 ### Checking Fraud With MinFraud
-
 <div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Minfraud.png" alt="Minfraud" />
 </div>
 
