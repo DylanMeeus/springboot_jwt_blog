@@ -19,9 +19,6 @@ layout: default
     <div class="blog-post blog-single">
         <div class="inner">
             <div class="entry-content">
-            {% if page.outdated %}
-            <div class="alert alert-outdated"><i class="icon-budicon-621"></i>We’re sorry, the content of this post is fairly old and is likely outdated. Please see an updated version of this content in our <a href="{% if page.doc_reference %}{{page.doc_reference}}{% else %}https://auth0.com/docs{% endif %}">documentation</a>.</div>
-            {% endif %}
 
             {{ content }}
             </div>
