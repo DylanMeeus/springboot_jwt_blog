@@ -2,7 +2,7 @@
 layout: post
 title: "Authentication in Go"
 description: "Learn Go by building and authenticating a RESTful API and pick up some best practices along the way."
-date: 2016-04-06 08:30
+date: 2016-04-13 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
@@ -10,17 +10,19 @@ author:
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design: 
   bg_color: "#333333"
-  image: "IMAGE"
+  image: "https://cdn.auth0.com/blog/go-auth/gopher-main.png"
 tags: 
 - Go
 - Golang
+- Go API
+- Go JWT
 - Authentication in Go
 - Go and React
 ---
 
 ---
 
-**TL;DR** Pending
+**TL;DR** Go is an excellent choice for building fast and scalable API's. The `net/http` package provides most of what you need, but augmented with the Gorilla Toolkit, you'll have an API up and running in no time. Learn how to build and secure a Go API with JSON Web Tokens and consume it via a modern UI built with React.
 
 ---
 
@@ -34,17 +36,19 @@ Go or Golang is a programming language developed by Google for building modern s
 Go makes every attempt to reduce both the amount of typing needed and complexity of its syntax. Variables can be declared and initialized easily with `:=` syntax, semicolons are unnecessary and there is no complex type hierarchy. Go is a highly opinionated language. The end result is clean, easy to understand and read as well as reason about code.
 
 ## Golang Playground
-In this tutorial, we will be building a RESTful API in Go so knowledge of the Go language is a prerequisite. It is out of scope of this tutorial to cover the fundamentals of the Go programming language. If you are new to Go, check out the masterfully crafted Tour of Go which covers everything from the basics to advanced topics such as concurrency and then you’ll be ready to proceed with this tutorial. If you are already familiar with Go on the other hand, let’s build an API.
+In this tutorial, we will be building a RESTful API in Go so knowledge of the Go language is a prerequisite. It is out of scope of this tutorial to cover the fundamentals of the Go programming language. If you are new to Go, check out the masterfully crafted [Tour of Go](https://tour.golang.org/welcome/1) which covers everything from the basics to advanced topics such as concurrency and then you’ll be ready to proceed with this tutorial. If you are already familiar with Go on the other hand, let’s build an API!
 
 ## Building an API in Go
 
-Go is well suited for developing RESTful API’s. The net/http standard library provides key methods for interacting via the http protocol. The app we are building today is called “We R VR.” The app allows virtual reality enthusiasts to provide feedback to developers on the games and experiences they are working on.
+Go is well suited for developing RESTful API’s. The `net/http` standard library provides key methods for interacting via the http protocol. The app we are building today is called **“We R VR.”** The app allows virtual reality enthusiasts to provide feedback to developers on the games and experiences they are working on.
+
+![We R VR App](http://cdn.auth0.com/blog/go-auth/app-page.png)
 
 Idiomatic Go prefers small libraries over large frameworks and the use of the standard library whenever possible. We will adhere to these idioms as much possible to ensure that our code samples are applicable across the Go ecosystem. With that said, a couple of handy libraries such as `gorilla/mux` for routing and `dgrijalva/jwt-go` for JSON Web Tokens will be used to speed up development.
 
 ### Golang Frameworks
 
-Before jumping into the code, I do want to point out that while idiomatic Go tends to shy away from frameworks, it does not mean that no frameworks are written in Go. Beego, Gin, Echo and Revel are just some of the more traditional web/api frameworks available. Since the `net/http` standard package already provides so much functionality, these frameworks tend to be built on top of it or at least use parts of the `net/http` package, so learning either or all of them will not be time wasted as the skills will be applicable throughout your Go career.
+Before jumping into the code, I do want to point out that while idiomatic Go tends to shy away from large frameworks, it does not mean that no frameworks are written in Go. [Beego](http://beego.me/), [Gin Gionic](https://gin-gonic.github.io/gin/), [Echo](https://labstack.com/echo) and [Revel](https://revel.github.io/) are just some of the more traditional web/api frameworks available. Since the `net/http` standard package already provides so much functionality, these frameworks tend to be built on top of it or at least use parts of the `net/http` package, so learning any or all of them will not be time wasted as the skills will be applicable throughout your Go career.
 
 ### Getting Started
 
@@ -74,7 +78,7 @@ func main() {
 
 ```
 
-Let's go ahead and create two folders in the same directory that our `main.go` file is in and name them `views` and `static`. In the `views` folder lets create a new file called `index.html`. The `index.html` page can be really simple for now:
+Let's go ahead and create two folders in the same directory that our `main.go` file is in and name them `views` and `static`. In the `views` folder, create a new file called `index.html`. The `index.html` page can be really simple for now:
 
 ```
 <!DOCTYPE html>
@@ -187,11 +191,26 @@ var AddFeedbackHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Re
 
 ```
 
+With our functions in place, let's go back to the routes and update them with the appropriate handler functions.
+
+```
+...
+
+func main(){
+  ...
+  r.Handle("/status", StatusHandler).Methods("GET")
+  r.Handle("/products", ProductsHandler).Methods("GET")
+  r.Handle("/products/{slug}/feedback", AddFeedbackHandler).Methods("POST")
+  ...
+}
+...
+```
+
 ### Handlers / Middleware
 
 In Go, middleware is referred to as handlers. If you are not already familiar with middleware, it is abstracted code that runs before the the intended code is executed. For example, you may have a logging middleware that logs information about each request. You wouldn't want to implement the logging code for each route individually, so you would write a middleware function that gets inserted before the main function of the route is called that would handle the logging.
 
-We will use handlers further down in the tutorial to secure our API, but for now, let's implement a global handler that will provide some logging information about our requests. We will use a prebuilt handler from the `gorilla/handlers` package. Let's look at the implementation below:
+We will use custom handlers further down in the tutorial to secure our API, but for now, let's implement a global handler that will provide some logging information about our requests. We will use a prebuilt handler from the `gorilla/handlers` package. Let's look at the implementation below:
 
 ```
 package main
@@ -230,21 +249,21 @@ Before we can start working with React, we'll need to do some setup in our `inde
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>We R VR</title>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    // We will use the Babel transpiler so that we can convert our jsx code to js on the fly
+    <!-- We will use the Babel transpiler so that we can convert our jsx code to js on the fly -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 
-    // Core React libraries which we will be using
+    <!-- Core React libraries which we will be using -->
     <script src="http://fb.me/react-0.14.7.js"></script>
     <script src="https://fb.me/react-dom-0.14.7.js"></script>
 
-    // Our react app code will be placed in the app.jsx file
+    <!-- Our react app code will be placed in the app.jsx file -->
     <script type="text/babel" src="static/js/app.jsx"></script>
 
-    // We will import bootstrap so that we can build a good looking UI fast
+    <!-- We will import bootstrap so that we can build a good looking UI fast -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    // This will be the entry point for our React app
+    <!-- This will be the entry point for our React app -->
     <div class="container" id="app">
 
     </div>
@@ -297,6 +316,8 @@ var Home = React.createClass({
 ```
 
 For now, we'll just build the UI. We'll add in the sign in functionality soon.
+
+![We R VR Login Page](http://cdn.auth0.com/blog/go-auth/login-page.png)
 
 #### LoggedIn Component
 
@@ -528,6 +549,10 @@ var Home = React.createClass({
 });
 ```
 
+Once a user clicks on the **Sign In** button, they will be prompted to login via the Auth0 Lock widget.
+
+![Authentication in Go](http://cdn.auth0.com/blog/go-auth/auth0-lock.png)
+
 #### LoggedIn Component
 
 The `LoggedIn` component will be updated to pull in products to review from the Golang API.
@@ -630,6 +655,14 @@ var Product = React.createClass({
 })
 ```
 
+
+
 ## Putting it All Together
 
-Today, we built and secured an API in Go. The use of handlers made our authentication in Go simple and straightforward. The JWT Middleware used and many of the concepts covered are not limited to our Auth0 implementation.
+With the API and UI complete, we are ready to test our application. Fire up the server by once again running `go run main.go`.  Navigate to `localhost:3000` and you should see the sign in page. Click on the sign in button, and you will see the Auth0 Lock widget. Login and you will be redirected to the logged in view of the application and will be able to leave feedback on the different experiences.
+
+Let's take it one step further, and let's actually build and compile our application. Instead of writing `go run main.go`, execute the command `go build main.go` in your terminal window. You should see a new file appear in your directory. This will be a unix or windows executable file. Now you can run your application by simply executing `./main` in your directory and the web server will start.
+
+## Conclusion
+
+Today, we built and secured an API in Go. The use of handlers made our authentication in Go simple and straightforward. We saw how we could chain multiple handlers together to create middleware in Go. Additionally, we built a UI in React to consume our Go API and saw how the interaction between the frontend and backend was facilitated. To conclude, Go is an excellent language for building scalable and highly performant API's.
