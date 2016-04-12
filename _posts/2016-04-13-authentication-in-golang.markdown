@@ -22,16 +22,16 @@ tags:
 
 ---
 
-**TL;DR** Go is an excellent choice for building fast and scalable API's. The `net/http` package provides most of what you need, but augmented with the Gorilla Toolkit, you'll have an API up and running in no time. Learn how to build and secure a Go API with JSON Web Tokens and consume it via a modern UI built with React.
+**TL;DR** Go is an excellent choice for building fast and scalable API's. The `net/http` package provides most of what you need, but augmented with the [Gorilla Toolkit](http://www.gorillatoolkit.org/), you'll have an API up and running in no time. Learn how to build and secure a Go API with JSON Web Tokens and consume it via a modern UI built with React.
 
 ---
 
 Golang or simply Go is a programming language developed by Google for building modern software. Go is a language designed to get stuff done efficiently and fast. The key benefits of Golang include:
 
-* Strongly typed and garbage collected.
-* Blazing fast compile times.
-* Concurrency built in.
-* Extensive standard library.
+* Strongly typed and garbage collected
+* Blazing fast compile times
+* Concurrency built in
+* Extensive standard library
 
 Go makes every attempt to reduce both the amount of typing needed and complexity of its syntax. Variables can be declared and initialized easily with `:=` syntax, semicolons are unnecessary and there is no complex type hierarchy. Go is a highly opinionated language. The end result is clean, easy to understand and read as well as reason about code.
 
@@ -92,7 +92,7 @@ Let's go ahead and create two folders in the same directory that our `main.go` f
 </body>
 ```
 
-Let's make sure our server runs by running `go run main.go` from our terminal. If you have never used the `gorilla/mux` package before, you will additionally need to run the `go get` command which will download any dependencies you have declared but do not already have downloaded and installed in the proper directory. Once the application is successfully running, navigate to `localhost:3000` in your browser. If all went well, you should just see the text **Welcome to We R VR** displayed on the page. Good work so far, next, let's define our API.
+Let's make sure our server runs by running `go run main.go` from our terminal. If you have never used the `gorilla/mux` package before, you will additionally need to run the `go get` command which will download any dependencies you have declared but do not already have downloaded and installed in the proper directory. Once the application is successfully running, navigate to `localhost:3000` in your browser. If all went well, you should just see the text **Welcome to We R VR** displayed on the page. Good work so far. Next, let's define our API.
 
 ### Defining the API
 
@@ -113,7 +113,7 @@ func main(){
   ...
 }
 
-// Here we are implemented the NotImplemented handler. Whenever an API endpoint is hit
+// Here we are implementing the NotImplemented handler. Whenever an API endpoint is hit
 // we will simply return the message "Not Implemented"
 var NotImplemented = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
   w.Write([]byte("Not Implemented"))
@@ -237,13 +237,90 @@ func main(){
 
 With just two lines of code we were able to add logging functionality to our application. Now every time a resource is requested, the terminal will display information such as the type of request, response code and the time it took to process the request. To learn about the different settings and options for this handler and other handlers in the `gorilla/handlers` package check out their [docs](http://www.gorillatoolkit.org/pkg/handlers).
 
+#### Middleware Libraries
+
+We've been sticking to `net/http` as much as possible for our implementation. I would be remiss to not mention the many options for handling middleware in Auth0. We've seen the pure implementation in Golang by wrapping the middleware function around the intended function. [Negroni](https://github.com/codegangsta/negroni) and [Alice]
+
+### Securing our Golang API with JSON Web Tokens
+
+Let's secure our Golang API with JWT. We'll do this two ways. First, we'll do a simple demonstration of how JSON Web Tokens work with Golang. Second, we'll implement end to end authentication with Auth0 a little later in the tutorial.
+
+For the basic example, we'll have a route that will generate a new JWT for us. We'll then add middleware to secure our existing endpoints.
+
+```
+  ...
+  func main(){
+    ...
+    r.Handle("/get-token", GetTokenHandler).Methods("GET")
+    ...
+  }
+  /* Set up a global string for our secret */
+  var mySigningKey = []byte("secret")
+
+  /* Handlers */
+  var GetTokenHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+  	/* Create the token */
+    token := jwt.New(jwt.SigningMethodHS256)
+
+    /* Set token claims */
+    token.Claims["admin"] = true
+    token.Claims["name"] = "Ado Kukic"
+    token.Claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
+
+    /* Sign the token with our secret */
+    tokenString, _ := token.SignedString(mySigningKey)
+
+    /* Finally, write the token to the browser window */
+    w.Write([]byte(tokenString))
+  })
+```
+
+The code above will allow us to generate tokens and add claims to those tokens. As this is a fairly simple example, we've hard coded the claims as well as not required any authentication to get a token. We'll do this with Auth0 a little later in the tutorial. Now let's secure our API endpoints. The first thing we'll do is create a handler for verifying the token.
+
+```
+/* Handlers */
+
+...
+
+var jwtMiddleware = jwtmiddleware.New(jwtmiddleware.Options{
+  ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
+    return mySigningKey, nil
+  },
+  SigningMethod: jwt.SigningMethodHS256,
+})
+```
+
+Next, we'll update our routes to use this new middleware.
+
+```
+
+...
+
+func main(){
+
+  ...
+
+  r.Handle("/status", NotImplemented).Methods("GET")
+  /* We will add the middleware to our products and feedback routes. The status route will be publicly accessible */
+  r.Handle("/products", jwtMiddleware.Handler(ProductsHandler)).Methods("GET")
+  r.Handle("/products/{slug}/feedback", jwtMiddleware.Handler(AddFeedbackHandler)).Methods("POST")
+
+  ...
+}
+
+...
+
+```
+
+With this code in place, let's build our application and navigate to `localhost:3000/products`. You will get a message saying **Required Authorization token not found**. Our middleware works! Navigate to `localhost:3000/get-token` and you will receive a token. Copy this token. For this next step, I recommend using [Postman](https://www.getpostman.com/) or a similar program that will allow you to add headers to your requests. Send a request to `localhost:3000/products` but add an **Authorization** header in the format of `Bearer {TOKEN-YOU-COPIED}`. You will see the list of products now. The `jwtMiddleware` verified the token and the `ProductsHandler` was called properly returning the list of products.
+
 ## Building the UI (with React)
 
 An API is only as good as the frontend that consumes it. We will build our UI with React. We won’t go too deeply into programming with React, if you need a guide check out the official React [tutorial](https://facebook.github.io/react/docs/tutorial.html) and a great Intro to React [tutorial](https://scotch.io/tutorials/learning-react-getting-started-and-concepts) by [Ken Wheeler](https://github.com/kenwheeler). Our Golang API does not discriminate, so feel free to implement the UI with any frontend technology you are comfortable with.
 
 {% include tweet_quote.html quote_text="An API is only as good as the frontend that consumes it." %}
 
-### Getting Started with Frontend
+### Getting Started with Front End
 
 Before we can start working with React, we'll need to do some setup in our `index.html` file. We'll need to add in the correct libraries and hook into our `app.jsx` file which will contain our React code. Let's look at how we'll accomplish this.
 
@@ -262,7 +339,7 @@ Before we can start working with React, we'll need to do some setup in our `inde
     <script src="http://fb.me/react-0.14.7.js"></script>
     <script src="https://fb.me/react-dom-0.14.7.js"></script>
 
-    <!-- Our react app code will be placed in the app.jsx file -->
+    <!-- Our React app code will be placed in the app.jsx file -->
     <script type="text/babel" src="static/js/app.jsx"></script>
 
     <!-- We will import bootstrap so that we can build a good looking UI fast -->
@@ -289,7 +366,7 @@ Our application will allow the user to view and leave feedback on VR products. U
 
 #### App Component
 
-The main component that will kick off our react application will be the the `app` component. Let's built it first:
+The main component that will kick off our React application will be the the `app` component. Let's build it first:
 
 ```
 var App = React.createClass({
@@ -416,7 +493,7 @@ Adding user authentication will allow us to protect our API. Since our app deals
 
 ### Authentication in Golang
 
-To start, let’s secure our API endpoints. We will do this by adding a middleware/handler that will check for and verify a JWT. We will utilize the `auth0/go-jwt-middleware` and `dgrijalva/jwt-go` libraries for dealing with the JWT. Additionally, we will utilize the `joho/godotenv` library so that we can store our Auth0 credentials outside of our `main.go` file. Let's see what our implemented code looks like.
+To start, let’s secure our API endpoints. We did this earlier with manual generation and verification of the JWT, but now we'll expand on the functionality here. We will utilize the `auth0/go-jwt-middleware` and `dgrijalva/jwt-go` libraries for dealing with the JWT. Additionally, we will utilize the `joho/godotenv` library so that we can store our Auth0 credentials outside of our `main.go` file. Let's see what our implemented code looks like.
 
 ```
 package main
@@ -457,6 +534,10 @@ var jwtMiddleware = jwtmiddleware.New(jwtmiddleware.Options{
   },
 })
 ```
+
+We have made minor changes to our `jwtMiddleware` function to use the `AUTH0_CLIENT_SECRET` variable rather than a hardcoded secret. We got this variable from our Auth0 management [dashboard](https://manage.auth0.com/) and stored it an environmental variable. That is all we needed to do on the Golang side.
+
+Next, we'll implement the login functionality on the frontend. Feel free to remove to the `/get-token` route as it is no longer necessary. We will get the token from Auth0.
 
 ### Login with Auth0 Lock and React
 
