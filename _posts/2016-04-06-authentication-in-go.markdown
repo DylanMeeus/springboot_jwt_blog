@@ -35,6 +35,8 @@ Go or Golang is a programming language developed by Google for building modern s
 
 Go makes every attempt to reduce both the amount of typing needed and complexity of its syntax. Variables can be declared and initialized easily with `:=` syntax, semicolons are unnecessary and there is no complex type hierarchy. Go is a highly opinionated language. The end result is clean, easy to understand and read as well as reason about code.
 
+{% include tweet_quote.html quote_text="Go is highly opinionated. The end result is clean, easy to understand, read and reason about code." %}
+
 ## Golang Playground
 In this tutorial, we will be building a RESTful API in Go so knowledge of the Go language is a prerequisite. It is out of scope of this tutorial to cover the fundamentals of the Go programming language. If you are new to Go, check out the masterfully crafted [Tour of Go](https://tour.golang.org/welcome/1) which covers everything from the basics to advanced topics such as concurrency and then you’ll be ready to proceed with this tutorial. If you are already familiar with Go on the other hand, let’s build an API!
 
@@ -208,7 +210,9 @@ func main(){
 
 ### Handlers / Middleware
 
-In Go, middleware is referred to as handlers. If you are not already familiar with middleware, it is abstracted code that runs before the the intended code is executed. For example, you may have a logging middleware that logs information about each request. You wouldn't want to implement the logging code for each route individually, so you would write a middleware function that gets inserted before the main function of the route is called that would handle the logging.
+In Go, middleware is referred to as *handlers*. If you are not already familiar with middleware, it is abstracted code that runs before the the intended code is executed. For example, you may have a logging middleware that logs information about each request. You wouldn't want to implement the logging code for each route individually, so you would write a middleware function that gets inserted before the main function of the route is called that would handle the logging.
+
+{% include tweet_quote.html quote_text="In Go, middleware is referred to as handlers." %}
 
 We will use custom handlers further down in the tutorial to secure our API, but for now, let's implement a global handler that will provide some logging information about our requests. We will use a prebuilt handler from the `gorilla/handlers` package. Let's look at the implementation below:
 
@@ -231,11 +235,13 @@ func main(){
 ...
 ```
 
-With just two lines of code we were able to add logging functionality to our application. Now every time a resource is requested, the terminal will display information such as the type of request, response code and the time it took to process the request. To learn about the different settings and options for this handler and other handlers in the `gorilla/handlers` package check out their docs.
+With just two lines of code we were able to add logging functionality to our application. Now every time a resource is requested, the terminal will display information such as the type of request, response code and the time it took to process the request. To learn about the different settings and options for this handler and other handlers in the `gorilla/handlers` package check out their [docs](http://www.gorillatoolkit.org/pkg/handlers).
 
 ## Building the UI (with React)
 
-An API is only as good as the frontend that consumes it. We will build our UI with React. We won’t go too deeply into programming with React, if you need a guide check out the official React [tutorial](https://facebook.github.io/react/docs/tutorial.html) and a great Intro to React [tutorial](https://scotch.io/tutorials/learning-react-getting-started-and-concepts) by Ken Wheeler. Our Golang API does not discriminate, so feel free to implement the UI with any frontend technology you are comfortable with.
+An API is only as good as the frontend that consumes it. We will build our UI with React. We won’t go too deeply into programming with React, if you need a guide check out the official React [tutorial](https://facebook.github.io/react/docs/tutorial.html) and a great Intro to React [tutorial](https://scotch.io/tutorials/learning-react-getting-started-and-concepts) by [Ken Wheeler](https://github.com/kenwheeler). Our Golang API does not discriminate, so feel free to implement the UI with any frontend technology you are comfortable with.
+
+{% include tweet_quote.html quote_text="An API is only as good as the frontend that consumes it." %}
 
 ### Getting Started with Frontend
 
@@ -271,11 +277,15 @@ Before we can start working with React, we'll need to do some setup in our `inde
 </html>
 ```
 
-Let's go ahead and create the `app.jsx` file in our static directory. We will place the entirety of our React application in this file. We'll break our app into React components.
+Let's go ahead and create the `app.jsx` file in our static directory. We will place the entirety of our React application in this file. We'll break our app into React components. Once our UI is complete, we will integrate our React frontend with our Go backend. We will additionally secure our application with Auth0.
+
+<div class="try-banner">
+    <a href="javascript:signup()" class="signup-button btn btn-success btn-lg" style="background-image: none; font-family: avenir-next-web,'Avenir Next','Helvetica Neue',Hevetica,sans-serif;">Try Auth0 for Free</a>
+</div>
 
 ### Building React Components
 
-Our application will allow the user to view and leave feedback on VR products. Users must be logged in before they can leave feedback. We will need to build four components. A main `App` component that will launch the application, a `Home` component that will be displayed for non-logged in users, a 'LoggedIn' component that will be displayed when a user is authenticated and finally a 'Product' component that will display the products available for review.
+Our application will allow the user to view and leave feedback on VR products. Users must be logged in before they can leave feedback. We will need to build four components. A main `App` component that will launch the application, a `Home` component that will be displayed for non-logged in users, a `LoggedIn` component that will be displayed when a user is authenticated and finally a `Product` component that will display the products available for review.
 
 #### App Component
 
@@ -450,7 +460,7 @@ var jwtMiddleware = jwtmiddleware.New(jwtmiddleware.Options{
 
 ### Login with Auth0 Lock and React
 
-Next, we’ll implement the login system on the frontend that will allow users to login and create accounts. We will do this using Auth0’s Lock widget. We'll first need to add the required libraries for the Lock widget. Let's update the `index.html` file.
+Next, we’ll implement the login system on the frontend that will allow users to login and create accounts. We will do this using Auth0’s [Lock](https://auth0.com/docs/libraries/lock) widget. We'll first need to add the required libraries for the Lock widget. Let's update the `index.html` file.
 
 ```
 <!DOCTYPE html>
@@ -666,3 +676,7 @@ Let's take it one step further, and let's actually build and compile our applica
 ## Conclusion
 
 Today, we built and secured an API in Go. The use of handlers made our authentication in Go simple and straightforward. We saw how we could chain multiple handlers together to create middleware in Go. Additionally, we built a UI in React to consume our Go API and saw how the interaction between the frontend and backend was facilitated. To conclude, Go is an excellent language for building scalable and highly performant API's.
+
+**Feel like you learned something today?** Test your knowledge of the concepts covered in the tutorial below.
+
+<div class="riddle_target" data-url="//www.riddle.com/a/60229" style="margin:0 auto;max-width:640px;"><div style="display:none"><section><h2>Are you a Gopher?</h2><p><div>Check your Go knowledge.</div></p></section><section><h3>What standard library package provides the methods and functions for interacting with the web?</h3><p>web/net</p><p>net/http</p><p>http/api</p><p>tcp/ip</p></section><section><h3>What is middleware in Go called?</h3><p>Middleware</p><p>Abstractions</p><p>Handlers</p><p>Delegates</p></section><section><h3>Which of the following is NOT true about the benefits of Go?</h3><p>Generics</p><p>Statically Typed</p><p>Fast Compile Times</p><p>Garbage Collected</p></section><section><h3>Which of the following is a Go framework?</h3><p>Express</p><p>Laravel</p><p>Spark</p><p>Echo</p></section><section><h3>Bonus: What is the Auth0 authentication library used in this tutorial called?</h3><p>Gatekeeper</p><p>Lock</p><p>Protect</p><p>Block</p></section><section><h3>Good Try!</h3><p><div>Check out the <a href="https://tour.golang.org/welcome/1" target="_blank">Tour of Go</a> for additional resources on learning Golang.</div><div><br></div></p></section><section><h3>Getting There!</h3><p><div>Practice makes perfect.</div></p></section><section><h3>Gopher in Training!</h3><p><div>You did great. Perhaps look over the tutorial one more time and try again. :)</div></p></section><section><h3>Gopher!</h3><p><div>You did great!</div><div><br></div></p></section><section><h3>Gopher Master!</h3><p><div>You are a master of Go! Congrats!</div></p></section></div><div class="rid-load" style="background:#000 url(//www.riddle.com/assets/img/loader.gif) no-repeat center/10%;padding-top:56%;border-radius:5px"></div></div><script src="//www.riddle.com/files/js/embed.js"></script>
