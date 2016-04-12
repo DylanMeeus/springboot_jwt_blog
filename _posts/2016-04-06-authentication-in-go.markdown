@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Authentication in Go"
+title: "Authentication in Golang"
 description: "Learn Go by building and authenticating a RESTful API and pick up some best practices along the way."
 date: 2016-04-13 08:30
 author: 
@@ -26,7 +26,7 @@ tags:
 
 ---
 
-Go or Golang is a programming language developed by Google for building modern software. Go is a language designed to get stuff done efficiently and fast. The key benefits of Go include:
+Golang or simply Go is a programming language developed by Google for building modern software. Go is a language designed to get stuff done efficiently and fast. The key benefits of Golang include:
 
 * Strongly typed and garbage collected.
 * Blazing fast compile times.
@@ -408,13 +408,13 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 This code will tell React to look for a `div` with the id of `app` and if it finds it, insert our `App` component at that location. The `App` component will then load in the appropriate sub-components and React will do it's job managing state from then on.
 
-With our UI finalized, let's add authentication in Go and hook up our front end.
+With our UI finalized, let's add authentication in Golang and hook up our front end.
 
 ## Aside: Adding Authentication with Auth0
 
 Adding user authentication will allow us to protect our API. Since our app deals with projects that are in active development, we don’t want any data to be publicly available. We will accomplish this in two parts. We will add authentication in Go and protect our API endpoints from being accessed without a proper token. Next, we'll add a way for users to login through our React app and get a token.
 
-### Authentication in Go
+### Authentication in Golang
 
 To start, let’s secure our API endpoints. We will do this by adding a middleware/handler that will check for and verify a JWT. We will utilize the `auth0/go-jwt-middleware` and `dgrijalva/jwt-go` libraries for dealing with the JWT. Additionally, we will utilize the `joho/godotenv` library so that we can store our Auth0 credentials outside of our `main.go` file. Let's see what our implemented code looks like.
 
@@ -561,7 +561,7 @@ var Home = React.createClass({
 
 Once a user clicks on the **Sign In** button, they will be prompted to login via the Auth0 Lock widget.
 
-![Authentication in Go](http://cdn.auth0.com/blog/go-auth/auth0-lock.png)
+![Authentication in Golang](http://cdn.auth0.com/blog/go-auth/auth0-lock.png)
 
 #### LoggedIn Component
 
@@ -675,7 +675,7 @@ Let's take it one step further, and let's actually build and compile our applica
 
 ## Conclusion
 
-Today, we built and secured an API in Go. The use of handlers made our authentication in Go simple and straightforward. We saw how we could chain multiple handlers together to create middleware in Go. Additionally, we built a UI in React to consume our Go API and saw how the interaction between the frontend and backend was facilitated. To conclude, Go is an excellent language for building scalable and highly performant API's.
+Today, we built and secured an API in Go. The use of handlers made our authentication in Golang simple and straightforward. We saw how we could chain multiple handlers together to create middleware in Go. Additionally, we built a UI in React to consume our Go API and saw how the interaction between the frontend and backend was facilitated. To conclude, Go is an excellent language for building scalable and highly performant API's.
 
 **Feel like you learned something today?** Test your knowledge of the concepts covered in the tutorial below.
 
