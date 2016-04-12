@@ -239,7 +239,7 @@ With just two lines of code we were able to add logging functionality to our app
 
 #### Middleware Libraries
 
-We've been sticking to `net/http` as much as possible for our implementation. I would be remiss to not mention the many options for handling middleware in Auth0. We've seen the pure implementation in Golang by wrapping the middleware function around the intended function. [Negroni](https://github.com/codegangsta/negroni) and [Alice]
+We've been sticking to `net/http` as much as possible for our implementation. I would be remiss to not mention the many options for handling middleware in Auth0. We've seen the pure implementation in Golang by wrapping the middleware function around the intended function. [Negroni](https://github.com/codegangsta/negroni) and [Alice](https://github.com/justinas/alice) are two excellent alternatives to handling middleware in Golang.
 
 ### Securing our Golang API with JSON Web Tokens
 
