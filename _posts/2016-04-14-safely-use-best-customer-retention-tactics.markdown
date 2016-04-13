@@ -109,7 +109,7 @@ This is great advice. Personalized emails have [6x higher](http://marketingland.
 
 However, using email without regard for security is a big gamble—one that could break your company.
 
-### why it’s a security risk
+### Why it’s a security risk
 
 Phishing scams—from old-fashioned [Nigerian prince scams](http://www.pcworld.com/article/192664/the_story_behind_the_nigerian_phishing_scam.html) to more modern “[artisanal spam](https://auth0.com/blog/2016/02/29/the-new-trend-of-artisanal-spam/)”—are a cultural staple of the internet at this point. Everyone has received a dodgy email or seen a questionable pop-up asking them to “Download this urgent update!!!” and most of us have the wherewithal to ignore them. 
 
