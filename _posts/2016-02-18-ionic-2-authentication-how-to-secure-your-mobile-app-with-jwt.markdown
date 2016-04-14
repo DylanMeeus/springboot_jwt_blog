@@ -493,10 +493,11 @@ export class ProfilePage {
   
   constructor() {
     this.auth = AuthService;
-    let profile = this.local.get('profile')._result;
-    if (profile) {
+    this.local.get('profile').then(profile => {
       this.user = JSON.parse(profile);
-    }
+    }).catch(error => {
+      console.log(error);
+    });
   }
   
   login() {
