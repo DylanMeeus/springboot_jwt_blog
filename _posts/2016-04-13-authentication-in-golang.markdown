@@ -22,7 +22,7 @@ tags:
 
 ---
 
-**TL;DR** Go is an excellent choice for building fast and scalable API's. The `net/http` package provides most of what you need, but augmented with the [Gorilla Toolkit](http://www.gorillatoolkit.org/), you'll have an API up and running in no time. Learn how to build and secure a Go API with JSON Web Tokens and consume it via a modern UI built with React.
+**TL;DR** Go is an excellent choice for building fast and scalable API's. The `net/http` package provides most of what you need, but augmented with the [Gorilla Toolkit](http://www.gorillatoolkit.org/), you'll have an API up and running in no time. Learn how to build and secure a Go API with JSON Web Tokens and consume it via a modern UI built with React. If you want to follow along with the tutorial or want a reference for later, check out the Github [repo](https://github.com/auth0-blog/auth0-golang-jwt) for the code we're going to write.
 
 ---
 
