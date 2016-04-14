@@ -40,6 +40,8 @@ In this tutorial we'll build a simple Ionic 2 application that can authenticate 
 
 To get started, let's first install Ionic and create a new project. Ionic 2 is installed with the `@beta` tag.
 
+> **Note:** Ionic 2 is under development and has recently gone through changes. Please make sure you have the latest version of the Ionic CLI installed.
+
 ```bash
 # Install Ionic globally
 npm install -g ionic@beta
@@ -158,7 +160,7 @@ We'll also need to adjust the `TabsPage` component so that it knows about our ne
 ```js
 // app/tabs/tabs.ts
 
-import {Page} from 'ionic-framework/ionic';
+import {Page} from 'ionic-angular';
 import {ProfilePage} from '../profile/profile';
 import {QuotesPage} from '../quotes/quotes';
 
@@ -183,12 +185,12 @@ export class TabsPage {
 With the files in place, let's set up the the profile page. We can start with the `ProfilePage` component. Again, we need to use the `@Page` decorator for Ionic 2 pages.
 
 ```js
-import {Page, Storage, LocalStorage} from 'ionic-framework/ionic';
+import {Page, Storage, LocalStorage} from 'ionic-angular';
 import {Http, Headers} from 'angular2/http';
 import {FORM_DIRECTIVES} from 'angular2/common';
 import {JwtHelper} from 'angular2-jwt';
 import {AuthService} from '../../services/auth/auth';
-const map = require('rxjs/add/operator/map');
+import 'rxjs/add/operator/map'
 
 @Page({
   templateUrl: 'build/pages/profile/profile.html',
@@ -210,10 +212,11 @@ export class ProfilePage {
   
   constructor(private http: Http) {
     this.auth = AuthService;
-    let token = this.local.get('id_token')._result;
-    if(token) {
-      this.user = this.jwtHelper.decodeToken(token).username;
-    }
+    this.local.get('profile').then(profile => {
+      this.user = JSON.parse(profile);
+    }).catch(error => {
+      console.log(error);
+    });
   }
   
   login(credentials) {
@@ -363,11 +366,11 @@ Now that we have an authenticated user, let's build out the `QuotesPage` to acce
 ```js
 // app/quotes/quotes.ts
 
-import {Page} from 'ionic-framework/ionic';
+import {Page} from 'ionic-angular';
 import {Http} from 'angular2/http';
 import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
 import {AuthService} from '../../services/auth/auth';
-const map = require('rxjs/add/operator/map');
+import 'rxjs/add/operator/map';
 
 @Page({
   templateUrl: 'build/pages/quotes/quotes.html',
@@ -462,7 +465,7 @@ file://\*
   ...
 
   <!-- Auth0 Lock script -->
-  <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock-9.0.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -484,7 +487,7 @@ declare var Auth0Lock: any;
 })
 export class ProfilePage {
   auth: AuthService;
-  lock: Auth0Lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
+  lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
   local: Storage = new Storage(LocalStorage);
   user: Object;
   
@@ -568,6 +571,10 @@ var jwtCheck = jwt({
 
 ...
 ```
+
+### Step 4: Add Token Refreshing
+
+As it stands, users will need to re-authenticate once their token becomes expired. To keep users logged in, we can set up token refreshing. Have a look at the [Auth0 + Ionic 2 docs](https://auth0.com/docs/quickstart/native-mobile/ionic2/no-api#6-optional-implement-refresh-tokens) for instructions on how to set it up.
 
 ### Done!
 
