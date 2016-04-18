@@ -2,7 +2,7 @@
 layout: post
 title: "rrtr is Dead. Here are Some React Router Alternatives."
 description: "Reactor Router and rrtr have reconciled. Explore React Router alternatives and learn how to use them in your apps."
-date: 2016-04-18 08:30
+date: 2016-04-19 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
