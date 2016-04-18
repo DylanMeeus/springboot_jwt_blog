@@ -140,6 +140,49 @@ For additional resources on router5 check out their [Github repo](https://github
 
 If you are feeling adventurous and up for a challenge, [James K Nelson](https://twitter.com/james_k_nelson) has written a great [tutorial](http://jamesknelson.com/routing-with-raw-react/) on building your own routing solution with React. His tutorial covers a lot and is a great starting point for learning and understanding how state based routing works.
 
+## Aside: Auth0 Makes it Easy to Protect Routes
+
+Whether you are using React Router, router5, or building your own - Auth0 can help with authentication. [Sign up](https://auth0.com/signup) for your free account to get started. You can follow the in-depth [documentation](https://auth0.com/docs/quickstart/spa/react/no-api) for adding authentication to a React app but we'll still give you a sneak peek below. 
+
+We'll show a quick example of how you can use the [**jwt-decode**](https://github.com/auth0/jwt-decode) library to ensure that a users token is valid. We'll assume that the user already has a token and we'll check to see if this token is expired. Our code looks like:
+
+```
+export function tokenIsExpired() {
+  let jwt = localStorage.getItem('id_token')
+  if(jwt) {
+    let jwtExp = jwt_decode(jwt).exp;
+    let expiryDate = new Date(0);
+    expiryDate.setUTCSeconds(jwtExp);
+    
+    if(new Date() < expiryDate) {
+      return false;
+    }
+  }
+
+  return true;
+}
+```
+
+If we were to use the Universal Router code example from above, we could easily integrate our `tokenIsExpired()` method to check if a token is valid. Let's do this. We'll enhance our `authorize` method and check for the token and it's expiration. If the token is not present or is present but expired, we'll route the user to the login page, otherwise we'll send them to their intended route.
+
+```
+...
+
+const authorize = (state, next) => {
+  // Check if user has active JWT
+  if(tokenIsExpired())  {
+    state.redirect = '/login'; next();
+  } else {
+    next();
+  }
+}
+
+...
+
+```
+
+With just a few lines of code we were able to protect our routes. The **jwt-decode** library works great for React application and can be used in any of the discussed routers as well as React Router.
+
 ## Conclusion
 
 The JavaScript community is constantly changing. Frameworks, libraries and conflicts come and go. React Router is and will likely remain the go-to routing library for React but that's not to say that there aren't great alternatives worth checking out. The co-maintainers of the React Router library have [pledged](https://medium.com/rackt-and-roll/rrtr-is-dead-long-live-react-router-ce982f6f1c10#.uc8anqeqb) to take better steps in terms of communication, release schedule and merging of pull requests for the React Router library and I'm excited to see those changes implemented.
