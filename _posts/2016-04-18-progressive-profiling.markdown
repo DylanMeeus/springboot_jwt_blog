@@ -67,7 +67,7 @@ Over the course of a few interactions, you have collected exactly the same infor
 
 This engages Dr. Robert Cialdini’s [principle](http://business.illinois.edu/shavitt/BA_531/Cialdini%20-%20Compliance.pdf) of “Commitment and Consistency.” Human beings naturally strive for consistency. Once we make a mental commitment to something, regardless of how small it is, we are exponentially more likely to stay consistent in our commitment to it. 
 
-By getting a small commitment up front with a short form, you make it much more likely that your customer will give you more information in the future. Using progressive profiling, you users can experience your product straight away, getting to understand its core value and committing to it. Though this only gives you less initial data, you can build up a relationship with users first, and then gather then further information you need over time.
+By getting a small commitment up front with a short form, you make it much more likely that your customer will give you more information in the future. Using progressive profiling, you users can experience your product straight away, getting to understand its core value and committing to it. Though this only gives you less initial data, you can build up a relationship with users first, and then gather further information you need over time.
 
 Progressive profiling is easy to implement with Auth0. When a user is authenticated through Auth0, that user gets a `Profile` record, which can be populated with profile information about that individual user.
 
