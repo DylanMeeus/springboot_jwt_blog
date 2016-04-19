@@ -3,7 +3,7 @@ layout: post
 title: "Integrate Auth0 Into Your Existing SaaS Tools"
 description: Using Auth0 Rules, all your SaaS tools can become part of your authentication procedure
 date: 2016-04-07 13:00
-permalink: /2016-04-07-integrate-auth0-into-your-existing-saas-tools/
+permalink: /2016/04/07/integrate-auth0-into-your-existing-saas-tools/
 author:
   name: Diego Poza
   mail: diego.poza@auth0.com
