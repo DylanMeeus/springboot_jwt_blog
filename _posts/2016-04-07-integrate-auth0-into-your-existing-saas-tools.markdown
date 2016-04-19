@@ -10,7 +10,7 @@ author:
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
-  bg_color: #203E62
+  bg_color: "#203E62"
   image: https://cdn.auth0.com/blog/integrate-your-saas-tools/logo.png
 tags: 
 - auth0 integration
