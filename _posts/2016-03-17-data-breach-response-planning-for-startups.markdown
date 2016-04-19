@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Your Startup Needs a Data Breach Response Plan"
+title: "Data Breach Response Plan: Your Startup Needs one"
 description: Security is a challenge at most startups. Here's some advice on how to create a data breach response plan for the worst case scenario, a large-scale data breach.
 date: 2016-03-17 08:30
 author: 
@@ -28,7 +28,7 @@ On the other hand, no one wants to see their fledgling company go out of busines
 
 Now that I’m responsible for security at Auth0, issues like this are increasingly on my mind. It’s my first time working at a startup, having spent the last 15 years working security at huge organizations like AT&T, Amazon.com, and the US Department of Defense. These guys are seriously prepared for anything, from a laptop with malware to a major natural disaster. But when you join a startup, you quickly learn how to pave the road as you’re driving it. Auth0 is a rare startup, since security has been a core part of our business from day one. But even for us, it can be hard to find enough time to plan for unlikely (yet potentially devastating) scenarios like a data breach.
 
-## Data Breaches are sort of a Big Deal
+## Data Breach Response Plan is sort of a Big Deal
 
 Let’s assume your startup has enough valuable intellectual property, a growing user base, and increasing amounts of customer data. It’s likely that you’re already dealing with security incidents on a regular basis. You have a decent incident response plan that is sufficient for the common security issues that small companies face, and it’s probably not a big deal to quietly take care of these in-house.
 
