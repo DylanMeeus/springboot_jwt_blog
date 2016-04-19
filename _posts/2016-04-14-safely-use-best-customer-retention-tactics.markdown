@@ -3,6 +3,7 @@ layout: post
 title: "How To Safely Use The 3 Best Customer Retention Tactics"
 description: Making security your best Customer Retention Hack
 date: 2016-04-14 12:30
+permalink: /2016-04-14-safely-use-best-customer-retention-tactics/
 author:
   name: Diego Poza
   mail: diego.poza@auth0.com
