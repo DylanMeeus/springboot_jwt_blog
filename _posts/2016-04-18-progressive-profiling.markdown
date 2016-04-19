@@ -3,6 +3,7 @@ layout: post
 title: "Progressive Profiling: Vital Info from Happy Customers"
 description: "You can get data from your customers while keeping them happy by collecting it over time. Find out how you can use progressive profiling to your advantage."
 date: 2016-04-18 08:30
+permalink: /2016-04-18-progressive-profiling/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
@@ -16,7 +17,6 @@ tags:
 - profiling
 - customer information
 - customer data
-- permalink: /2016-04-18-progressive-profiling/
 ---
 
 When a new user hits your site, you want to do everything in your power to reduce friction. You make sure all the information is there to help them make the right decision, and you set out your pricing plans clearly and concisely to show your true value.
