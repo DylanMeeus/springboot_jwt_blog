@@ -10,7 +10,7 @@ author:
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
-  bg_color: #4A4A4A
+  bg_color: "#4A4A4A"
   image: https://cdn.auth0.com/blog/customer-retention-techniques/logo.png
 tags: 
 - customer retention
