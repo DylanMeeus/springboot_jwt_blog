@@ -30,7 +30,7 @@ React Router was forked into [**rrtr**](https://github.com/taion/rrtr) by Jimmy 
 
 ## React Router Alternatives
 
-React Router is the de-facto routing library for React. At Auth0, we use React and React Router in a number of our apps, including our [docs](https://auth0.com/docs). In our brief post today, we'll take a look at some React Router alternatives.
+React Router is the de-facto routing library for React. In our brief post today, we'll take a look at some React Router alternatives.
 
 {% include tweet_quote.html quote_text="React Router is the de-facto routing library for React apps." %}
 
