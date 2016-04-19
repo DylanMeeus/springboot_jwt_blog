@@ -16,6 +16,7 @@ tags:
 - profiling
 - customer information
 - customer data
+- permalink: /2016-04-18-progressive-profiling/
 ---
 
 When a new user hits your site, you want to do everything in your power to reduce friction. You make sure all the information is there to help them make the right decision, and you set out your pricing plans clearly and concisely to show your true value.
