@@ -140,12 +140,3 @@ The registration process is the first part of the larger customer lifecycle, mea
 
 Implementing just one of these hacks will not guarantee a successful registration process. You need to use all of them, or as many as apply to you, in order to see—and profit from—that massive spike in registrations that you’re looking for.
 
-
-
-
-Tweet Tips:
-
-* Registering for your product shouldn’t be like deciphering MapQuest directions.
-* You’re asking your customer for some personal information—reassure them it’s safe.
-* Don’t wait to connect. Reach out to your customers the moment they register.
-
