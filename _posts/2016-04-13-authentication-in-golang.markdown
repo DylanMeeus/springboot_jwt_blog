@@ -3,7 +3,7 @@ layout: post
 title: "Authentication in Golang with JWTs"
 description: "Learn Go by building and authenticating a RESTful API with JSON Web Tokens (JWTs) and pick up some best practices along the way."
 date: 2016-04-13 08:30
-permalink: /2016-04-13-authentication-in-golang/
+permalink: /2016/04/13/authentication-in-golang/
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
