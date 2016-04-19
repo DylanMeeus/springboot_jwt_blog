@@ -18,7 +18,7 @@ build_deb: bundle build_pages check-version-variable check-deb-variables
 	git checkout .
 
 build_pages:
-	jekyll build --destination auth0-blog
+	jekyll build --destination auth0-blog --trace
 
 check-version-variable:
 ifndef VERSION_NUMBER
