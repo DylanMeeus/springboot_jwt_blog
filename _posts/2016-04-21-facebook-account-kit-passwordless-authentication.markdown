@@ -23,16 +23,16 @@ tags:
 
 **TL;DR** Passwordless authentication allows your users to login without having to enter a password. Users are authenticated through one-time passcodes delivered via SMS or email. Learn how you can implement passwordless authentication in your application with **Facebook Account Kit**. Alternativelly, learn about **Lock Passwordless** and how you can have greater control over your passwordless integration.
 
-We are going to write a lot of code in this tutorial. If you would like a quick reference, all the code is located in this [Github repo]().
+We are going to write a lot of code in this tutorial. If you would like a quick reference, all the code is located in this [Github repo](https://github.com/auth0-blog/blog-passwordless-authentication).
 
 ---
 
 App developers have to walk a fine line between usability and security. If your authentication system is too complex, you'll lose customers, but if you skimp on security you could lose a lot more. Social login providers like Google, Facebook and Twitter have streamlined the registration process. Two-factor authentication has made it harder to compromise accounts and passwordless authentication is making it easier than ever to provide a seamless user experience. 
 
-Nobody likes having to remember yet another password. The end user has trouble remembering a unique password for each service so they tend to [reuse](https://www.passwordboss.com/password-habits-survey-part-1/) a single password, the developer has to figure out the best way to hash, salt, store and retrieve the password. Then, there's the password complexity requirements, password reset forms to implement and a whole bunch of other items to check off that will make you ask "isn't there a better way?" There is! Password free login!
+Nobody likes having to remember yet another password. The end user has trouble remembering a unique password for each service so they tend to [reuse](https://www.passwordboss.com/password-habits-survey-part-1/) a single password, the developer has to figure out the best way to hash, salt, store and retrieve the password. Then, there's the password complexity requirements, password reset forms to implement and a whole bunch of other items to check off that will make you ask "isn't there a better way?" There is! Passwordless login!
 
-## Password Free Login and Single Sign On (SSO)
-**Passwordless** or **password free** authentication allows a user to signup and login to your app without a password. Rather than enter a password, the user is given a one-time code or link delivered via SMS or email, which acts as the verification for the user. Many companies are embracing password free authentication including [Medium](https://medium.com/), [Slack](https://slack.com) and [Twitter](https://twitter.com).
+## Passwordless Login and Single Sign On (SSO)
+**Passwordless** or **password free** authentication allows a user to signup and login to your app without a password. Rather than enter a password, the user is given a one-time code or link delivered via SMS or email, which acts as the verification for the user. Many companies are embracing passwordless authentication including [Medium](https://medium.com/), [Slack](https://slack.com) and [Twitter](https://twitter.com).
 
 Single Sign On (SSO) allows users to login to multiple services with a single account. SSO integrations are commonly found in enterprise environments utilizing many disparate services. Combining passwordless authentication with SSO can greatly enhance the security and usability of such environments.
 
@@ -40,7 +40,7 @@ Single Sign On (SSO) allows users to login to multiple services with a single ac
 
 ![Facebook Account Kit](https://cdn.auth0.com/blog/account-kit-passwordless/account-kit.png)
 
-Facebook is embracing password free authentication with the release of [**Facebook Account Kit**](https://developers.facebook.com/blog/post/2016/04/12/grow-your-app-with-account-kit/). Facebook Account Kit allows developers to add passwordless authentication to their applications. Users authenticating through Account Kit do not even have to be registered Facebook users.
+Facebook is embracing passwordless authentication with the release of [**Facebook Account Kit**](https://developers.facebook.com/blog/post/2016/04/12/grow-your-app-with-account-kit/). Facebook Account Kit allows developers to add passwordless authentication to their applications. Users authenticating through Account Kit do not even have to be registered Facebook users.
 
 Currently, users are able to login by simply providing a phone number or email address. Account Kit takes care of sending out one-time codes and links and verifying them. Additionally, Account Kit allows for certain customizations such as allowing users to edit the colors of the dialog box, whitelisting and blacklisting by country codes and a few other settings. Facebook Account Kit just launched so additional configuration and customizations options in the future are expected.
 
@@ -152,13 +152,13 @@ Our frontend will have two views. A **login** view and an **authenticated** view
 
 #### Login View
 
-We have omitted common code that is not relevant for readability. You will find the complete example in the GitHub repo.
+We have omitted common code that is not relevant for readability. You will find the complete example in the [GitHub repo](https://github.com/auth0-blog/blog-passwordless-authentication).
 
 ```
 <!DOCTYPE html>
 <html>
   <head>
-	<title>Password Free: Facebook Account Kit</title>
+	<title>Passwordless Authentication: Facebook Account Kit</title>
 	<!-- Include the Account Kit SDK -->	
 	<script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
   </head>
@@ -323,7 +323,7 @@ Let's walk through the steps of how passwordless authentication works with the F
 
 ![Passwordless Authentication at Auth0](https://cdn.auth0.com/blog/passwordless/pwdless-locks.png)
 
-At Auth0, we are huge proponents of making the authentication experience the best it can be. Passwordless authentication is something we believe in and offer in all of our packages. Some of the benefits of integrating passwordless authentication with Auth0 include:
+At Auth0, we are huge proponents of making the authentication experience the best it can be. Passwordless authentication is something we believe in and offer in all of our packages. Get a taste for how passwordless authentication works with Auth0 at the [Playground](https://auth0.github.io/lock-passwordless/). Some of the benefits of integrating passwordless authentication with Auth0 include:
 
 * Email, SMS and [Apple Touch ID](https://auth0.com/docs/connections/passwordless/ios-touch-id-swift) support
 * Unified Authentication Workflow through [Lock](https://auth0.com/lock)
@@ -383,7 +383,7 @@ There is a number of configuration settings to play around on both the SMS and E
 
 ![Auth0 Passwordless App](https://cdn.auth0.com/blog/account-kit-passwordless/auth0-app.png)
 
-The frontend for our Auth0 Passwordless app will be identical to that of the Account Kit app we built earlier. The only notable difference will be the different authentication options. Auth0 provides various options for passwordless authentication. In addition to SMS code and email link verification options, Auth0 provides the ability to send verification codes to emails as well as combining multiple authentication options within a single workflow. You can see the UI changes in the GitHub repo.
+The frontend for our Auth0 Passwordless app will be identical to that of the Account Kit app we built earlier. The only notable difference will be the different authentication options. Auth0 provides various options for passwordless authentication. In addition to SMS code and email link verification options, Auth0 provides the ability to send verification codes to emails as well as combining multiple authentication options within a single workflow. You can see the UI changes in the [GitHub repo](https://github.com/auth0-blog/blog-passwordless-authentication).
 
 ### Adding Passwordless Authentication with Auth0
 
@@ -451,4 +451,4 @@ As you can see both passwordless authentication flows are fairly similar. Both a
 
 ## Conclusion
 
-Passwordless authentication is a great way to provide an alternative login option for your clients that is secure and easy to use. Facebook Account Kit provides a great starting point for implementing passwordless authentication in your applications. If you need greater control and customization though, Auth0 Passwordless may be right for you.
+Passwordless authentication is a great way to provide an alternative login option for your clients that is secure and easy to use. Facebook Account Kit provides a great starting point for implementing passwordless authentication in your applications. If you need greater control and [customization](https://auth0.com/docs/libraries/lock/customization) though, Auth0 Passwordless may be right for you.
