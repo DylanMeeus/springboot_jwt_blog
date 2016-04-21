@@ -9,8 +9,8 @@ author:
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design: 
-  bg_color: "#333333"
-  image: "https://cdn.auth0.com/blog/account-kit-passwordless/account-kit-main.png"
+  bg_color: "#353F4A"
+  image: "https://cdn.auth0.com/blog/account-kit-passwordless/account-kit-hero.png"
 tags: 
 - Facebook Account Kit
 - Password Free Login
@@ -21,7 +21,7 @@ tags:
 
 ---
 
-**TL;DR** Passwordless authentication allows your users to login without having to enter a password. Users are authenticated through one-time passcodes delivered via SMS or email. Learn how you can implement passwordless authentication in your application with **Facebook Account Kit**. Alternativelly, learn about **Auth0 Passwordless** and how you can have greater control over your passwordless integration.
+**TL;DR** Passwordless authentication allows your users to log in without having to enter a password. Users are authenticated through one-time passcodes delivered via SMS or email. Learn how you can implement passwordless authentication in your application with **Facebook Account Kit**. Alternatively, learn about **Auth0 Passwordless** and how you can have greater control over your passwordless integration.
 
 We are going to write a lot of code in this tutorial. If you would like a quick reference, all the code is located in this [Github repo](https://github.com/auth0-blog/blog-passwordless-authentication).
 
@@ -34,7 +34,7 @@ App developers have to walk a fine line between usability and security. If your 
 Nobody likes having to remember yet another password. The end user has trouble remembering a unique password for each service so they tend to [reuse](https://www.passwordboss.com/password-habits-survey-part-1/) a single password, the developer has to figure out the best way to hash, salt, store and retrieve the password. Then, there's the password complexity requirements, password reset forms to implement and a whole bunch of other items to check off that will make you ask "isn't there a better way?" There is! Passwordless login!
 
 ## Passwordless Login and Single Sign On (SSO)
-**Passwordless** or **password free** authentication allows a user to signup and login to your app without a password. Rather than enter a password, the user is given a one-time code or link delivered via SMS or email, which acts as the verification for the user. Many companies are embracing passwordless authentication including [Medium](https://medium.com/), [Slack](https://slack.com) and [Twitter](https://twitter.com).
+**Passwordless** or **password free** authentication allows a user to signup and login to your app without a password. Rather than entering a password, the user is given a one-time code or link delivered via SMS or email, which acts as the verification for the user. Many companies are embracing passwordless authentication including [Medium](https://medium.com/), [Slack](https://slack.com) and [Twitter](https://twitter.com).
 
 Single Sign On (SSO) allows users to login to multiple services with a single account. SSO integrations are commonly found in enterprise environments utilizing many disparate services. Combining passwordless authentication with SSO can greatly enhance the security and usability of such environments.
 
@@ -44,11 +44,11 @@ Single Sign On (SSO) allows users to login to multiple services with a single ac
 
 Facebook is embracing passwordless authentication with the release of [**Facebook Account Kit**](https://developers.facebook.com/blog/post/2016/04/12/grow-your-app-with-account-kit/). Facebook Account Kit allows developers to add passwordless authentication to their applications. Users authenticating through Account Kit do not even have to be registered Facebook users.
 
-Currently, users are able to login by simply providing a phone number or email address. Account Kit takes care of sending out one-time codes and links and verifying them. Additionally, Account Kit allows for certain customizations such as allowing users to edit the colors of the dialog box, whitelisting and blacklisting by country codes and a few other settings. Facebook Account Kit just launched so additional configuration and customizations options in the future are expected.
+Currently, users are able to log in by simply providing a phone number or email address. Account Kit takes care of sending out one-time codes and links and verifying them. Additionally, Account Kit allows for certain customizations such as allowing users to edit the colors of the dialog box, whitelisting and blacklisting by country codes and a few other settings. Facebook Account Kit just launched, so additional configuration and customizations options in the future are expected.
 
 ## Integrating Passwordless Authentication with Facebook Account Kit
 
-In today's tutorial, we are going to show you how to integrate Facebook Account Kit into your applications. Facebook has released SDKs for [Android](https://developers.facebook.com/docs/accountkit/android), [iOS](https://developers.facebook.com/docs/accountkit/ios) and [JavaScript](https://developers.facebook.com/docs/accountkit/web). We'll use the JavaScript SDK to build our application. NodeJs will power the backend of our app.
+In today's tutorial, we are going to show you how to integrate Facebook Account Kit into your applications. Facebook has released SDKs for [Android](https://developers.facebook.com/docs/accountkit/android), [iOS](https://developers.facebook.com/docs/accountkit/ios) and [JavaScript](https://developers.facebook.com/docs/accountkit/web). We'll use the JavaScript SDK to build our application. NodeJS will power the backend of our app.
 
 ### Getting Started
 
@@ -156,6 +156,8 @@ Our frontend will have two views. A **login** view and an **authenticated** view
 
 #### Login View
 
+![Sample App Login Screen](https://cdn.auth0.com/blog/account-kit-passwordless/app-sample-login.png)
+
 We have omitted common code that is not relevant for readability. You will find the complete example in the [GitHub repo](https://github.com/auth0-blog/blog-passwordless-authentication).
 
 ```
@@ -196,6 +198,8 @@ We have omitted common code that is not relevant for readability. You will find 
 ```
 
 #### Authenticated View
+
+![Sample App Authenticated Screen](https://cdn.auth0.com/blog/account-kit-passwordless/app-sample-authenticated.png)
 
 As with the login view, some code was omitted for readability.
 
@@ -320,7 +324,7 @@ Let's walk through the steps of how passwordless authentication works with the F
 2. User enters their phone number or email address
 3. User receives a one-time code to their phone or receives a link to click in their inbox
 4. User enters code or clicks on the link
-5. Account Kit verifies that this code is accurate or link valid and if it is returns a token
+5. Account Kit verifies that this code is accurate or link valid and if it is, returns a token
 6. A second request is made to Account Kit to exchange the token with the users information
 
 *Note: When using the email option, the Account Kit dialog box needs to remain open. Once the link is clicked, the dialog box will close on it's own. The link does not have to be clicked on the same machine, for example, you can login on your laptop and click the link from your mobile device and it will still work.*
@@ -383,7 +387,7 @@ For the **SMS** integration, we'll need need a [Twilio](https://www.twilio.com/)
 
 The **email** integration is much simpler by default. We only need to turn it on and in the settings and select the Auth0 app we'd like the passwordless to work with. By default, the emails will be sent from Auth0, but you can easily configure your own email provider in the [email providers](https://manage.auth0.com/#/emails/provider) section of the management dashboard.
 
-There is a number of configuration settings to play around on both the SMS and Email passwordless integration. You can set how long a code is valid for, customize the message the user receives, disable passwordless signups and more. We'll just stick to defaults in this tutorial, but you should explore and customize these settings to meet your needs. 
+There are a number of configuration settings to play around with on both the SMS and email passwordless integration. You can set how long a code is valid for, customize the message the user receives, disable passwordless signups and more. We'll just stick to defaults in this tutorial, but you should explore and customize these settings to meet your needs. 
 
 ### Building the UI
 
@@ -395,7 +399,7 @@ The frontend for our Auth0 Passwordless app will be identical to that of the Acc
 
 To integrate passwordless authentication we'll use the [Auth0 Passwordless](https://github.com/auth0/lock-passwordless) SDK. We'll show how to integrate passwordless in four different ways: **SMS**, **Email Code**, **Email Magiclink** and **Social or SMS**. For additional ways, check out the [docs](https://auth0.com/docs/connections/passwordless).
 
-You will need to get your **Client ID**, **Domain** and **Callback Url** to proceed. You can get all three of these from the Auth0 management [dashboard](https://manage.auth0.com).
+You will need to get your **Client ID**, **Domain** and **Callback URL** to proceed. You can get all three of these from the Auth0 management [dashboard](https://manage.auth0.com).
 
 ```
   var AUTH0_CLIENT_ID = 'YOUR-AUTH0-CLIENT-ID';
