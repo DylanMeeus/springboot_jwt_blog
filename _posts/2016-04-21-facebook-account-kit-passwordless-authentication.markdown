@@ -10,7 +10,7 @@ author:
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design: 
   bg_color: "#333333"
-  image: ""
+  image: "https://cdn.auth0.com/blog/account-kit-passwordless/account-kit-main.png"
 tags: 
 - Facebook Account Kit
 - Password Free Login
@@ -21,13 +21,15 @@ tags:
 
 ---
 
-**TL;DR** Passwordless authentication allows your users to login without having to enter a password. Users are authenticated through one-time passcodes delivered via SMS or email. Learn how you can implement passwordless authentication in your application with **Facebook Account Kit**. Alternativelly, learn about **Lock Passwordless** and how you can have greater control over your passwordless integration.
+**TL;DR** Passwordless authentication allows your users to login without having to enter a password. Users are authenticated through one-time passcodes delivered via SMS or email. Learn how you can implement passwordless authentication in your application with **Facebook Account Kit**. Alternativelly, learn about **Auth0 Passwordless** and how you can have greater control over your passwordless integration.
 
 We are going to write a lot of code in this tutorial. If you would like a quick reference, all the code is located in this [Github repo](https://github.com/auth0-blog/blog-passwordless-authentication).
 
 ---
 
-App developers have to walk a fine line between usability and security. If your authentication system is too complex, you'll lose customers, but if you skimp on security you could lose a lot more. Social login providers like Google, Facebook and Twitter have streamlined the registration process. Two-factor authentication has made it harder to compromise accounts and passwordless authentication is making it easier than ever to provide a seamless user experience. 
+App developers have to walk a fine line between usability and security. If your authentication system is too complex, you'll lose customers, but if you skimp on security you could lose a lot more. Social login providers like Google, Facebook and Twitter have streamlined the registration process. Two-factor authentication has made it harder to compromise accounts and passwordless authentication is making it easier than ever to provide a seamless user experience.
+
+{% include tweet_quote.html quote_text="App developers have to walk a fine line between usability and security." %}
 
 Nobody likes having to remember yet another password. The end user has trouble remembering a unique password for each service so they tend to [reuse](https://www.passwordboss.com/password-habits-survey-part-1/) a single password, the developer has to figure out the best way to hash, salt, store and retrieve the password. Then, there's the password complexity requirements, password reset forms to implement and a whole bunch of other items to check off that will make you ask "isn't there a better way?" There is! Passwordless login!
 
@@ -72,6 +74,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
  
 var csrf_guid = Guid.raw();
+// We are using Account Kit which is version 1.0
+// Facebook Graph API is version 2.6 and will be displayed in your
+// Facebook app dashboard, but setting 2.6 for the api_version will not work here
 const api_version = "v1.0";
 const app_id = YOUR_FACEBOOK_APP_ID;
 const app_secret = YOUR_ACCOUNT_KIT_SECRET_;
@@ -105,7 +110,6 @@ app.post('/sendcode', function(request, response){
       grant_type: 'authorization_code',
       code: request.body.code,
       access_token: app_access_token
-      //appsecret_proof: app_secret
     };
   
     // exchange tokens
@@ -251,9 +255,9 @@ With the backend and frontend complete, we are ready to implement Facebook Accou
   AccountKit_OnInteractive = function(){
     AccountKit.init(
       {
-        appId:153852245012351, 
-        state:"{{csrf}}", 
-        version:"v1.0"
+        appId:YOUR_FACEBOOK_APP_ID, 
+        state:"YOUR_RANDOMLY_GENERATED_CSRF_TOKEN", 
+        version:"v1.0" // We are using Account Kit which is version 1.0
       }
     );
   };
@@ -304,7 +308,7 @@ Additionally we'll add a hidden form that will send the authenticated token serv
 </html>
 ```
 
-We have added functionality to handle both SMS and email authentication. The `AccountKit.login` method takes three parameters: **login method**, **parameters object** and **callback function**. The login method and callback function are pretty self-explanatory, but the parameters object we've left blank. Based on the login method used, you can pass parameters such as the telephone number or country code that will be prefilled when the AccountKit dialog is opened. For the full API spec, check out the facebook [doc](https://developers.facebook.com/docs/accountkit/web/reference).
+We have added functionality to handle both SMS and email authentication. The `AccountKit.login` method takes three parameters: **login method**, **parameters object** and **callback function**. The login method and callback function are pretty self-explanatory, but the parameters object we've left blank. Depending on the login method used, you can pass parameters such as the telephone number or email address that will be prefilled when the AccountKit dialog is opened. For the full API spec, check out the Facebook [doc](https://developers.facebook.com/docs/accountkit/web/reference).
  
 ### Passwordless Authentication in Action
 
@@ -319,6 +323,8 @@ Let's walk through the steps of how passwordless authentication works with the F
 5. Account Kit verifies that this code is accurate or link valid and if it is returns a token
 6. A second request is made to Account Kit to exchange the token with the users information
 
+*Note: When using the email option, the Account Kit dialog box needs to remain open. Once the link is clicked, the dialog box will close on it's own. The link does not have to be clicked on the same machine, for example, you can login on your laptop and click the link from your mobile device and it will still work.*
+
 ## Aside: Passwordless Authentication with Auth0
 
 ![Passwordless Authentication at Auth0](https://cdn.auth0.com/blog/passwordless/pwdless-locks.png)
@@ -332,7 +338,7 @@ At Auth0, we are huge proponents of making the authentication experience the bes
 * 20+ Social [identity providers](https://auth0.com/docs/identityproviders) including Facebook, Twitter and Google
 * Enterprise connections and Single Sign On (SSO) integration
 
-The Lock Passwordless SDK is available for [iOS](https://github.com/auth0/Lock.iOS-OSX), [Android](https://github.com/auth0/Lock.Android) and the [Web](https://github.com/auth0/lock-passwordless).
+The Auth0 Passwordless SDK is available for [iOS](https://github.com/auth0/Lock.iOS-OSX), [Android](https://github.com/auth0/Lock.Android) and the [Web](https://github.com/auth0/lock-passwordless).
 
 ### Getting Started
 
@@ -387,7 +393,7 @@ The frontend for our Auth0 Passwordless app will be identical to that of the Acc
 
 ### Adding Passwordless Authentication with Auth0
 
-To integrate passwordless authentication we'll use the [Auth0 Lock Passwordless](https://github.com/auth0/lock-passwordless) SDK. We'll show how to integrate passwordless in four different ways: **SMS**, **Email Code**, **Email Magiclink** and **Social or SMS**. For additional ways, check out the [docs](https://auth0.com/docs/connections/passwordless).
+To integrate passwordless authentication we'll use the [Auth0 Passwordless](https://github.com/auth0/lock-passwordless) SDK. We'll show how to integrate passwordless in four different ways: **SMS**, **Email Code**, **Email Magiclink** and **Social or SMS**. For additional ways, check out the [docs](https://auth0.com/docs/connections/passwordless).
 
 You will need to get your **Client ID**, **Domain** and **Callback Url** to proceed. You can get all three of these from the Auth0 management [dashboard](https://manage.auth0.com).
 
@@ -447,7 +453,7 @@ With this code implemented, let's launch our server and go through the workflow 
 5. Auth0 verifies the code or link is valid and if so calls the callback with the JWT
 6. On the callback page, we use the JWT to get the users information
 
-As you can see both passwordless authentication flows are fairly similar. Both allow the user to authenticate with minimal effort. Auth0 Lock Passwordless is more customizable and allows for a greater range of integrations and use cases.
+As you can see both passwordless authentication flows are fairly similar. Both allow the user to authenticate with minimal effort. Auth0 Passwordless is more customizable and allows for a greater range of integrations and use cases.
 
 ## Conclusion
 
