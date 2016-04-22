@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Authenticate on Android Using Social Logins"
+title: "Authenticate on Android Using Social Logins"
 description: "Learn how to implement social logins on Android with Facebook, Google, Twitter and Instagram as providers"
 date: 2016-02-08 13:30
 author:
@@ -71,7 +71,7 @@ It is now time to run the sample app using the emulator. If everything goes well
 
 ![Sample app on emulator](https://cdn.auth0.com/blog/social_login_android/emulator-blank-activity.png)
 
-## Step-by-step implementations
+## Step-by-step Android Authentication
 Now we are all set to start integrating our social logins into our app. Let's dive in:
 
 ### Facebook
