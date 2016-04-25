@@ -119,52 +119,7 @@ In practice, certificate authorities do not sign user certificates with their ro
 
 ![Public-key infrastructure](https://cdn.auth0.com/blog/https/pki.png)
 
-## Example: get your own free TLS certificate for your domain
-There are not many free TLS certificate providers. In this example we will go through the process of getting a free TLS certificate from StartCom, which provides an entry level free certificate through its StartSSL branch.
-
-#### 1. Sign up to StartCom StartSSL
-Go to https://www.startssl.com and select "Start Now for Free SSL Certificate".
-
-![StartSSL start page](https://cdn.auth0.com/blog/https/startssl-start.png)
-
-After that you will be asked to either login or signup. In contrast to most services out there, StartSSL requires you to login with a client certificate (no user/password!). Client certificates are special certificates that are installed to your browser that can be used by servers to validate your identity. Just follow StartSSL's signup wizard and you will get your certificate installed after validating your e-mail. Remember which browser and user profile you used for this step, as you will need to use this every time you login to StartSSL.
-
-![StartSSL signup](https://cdn.auth0.com/blog/https/startssl-auth-signup.png)
-
-#### 2. Domain validation
-Before issuing a certificate to you, StartSSL requires each domain to be validated. This is an independent step from certificate generation. Log in to StartSSL and pick `Validations Wizard -> Domain Validation`
-
-![StartSSL domain validation](https://cdn.auth0.com/blog/https/startssl-domain.png)
-
-There are two ways in which you can validate a domain. You can either receive an e-mail to one of the predefined mailboxes at your domain (webmaster, postmaster or hostmaster@your-domain.com) or you can upload a specified file at the root of your domain. Pick whichever is easier for you.
-
-After the validation succeeds, you will be able to request a certificate.
-
-#### 3. Request a New Certificate
-Go to `Certificates Wizard` and pick "Web Server SSL/TLS Certificate".
-
-![StartSSL subdomains setup](https://cdn.auth0.com/blog/https/startssl-subdomains.png)
-
-Enter up to five subdomains you wish to associate this certificate to. Important popular choices are `www.you-domain.com` and `mail.your-domain.com`.
-
-Then you will need to generate a certificate request. If you are on Windows, you can use StartSSL's tool which can be downloaded from that same page. If you are on Linux or OS X, run:
-
-```sh
-openssl req -newkey rsa:2048 -keyout yourname.key -out yourname.csr
-```
-
-Answer each question and pay special attention when asked for the server FQDN. Use your domain. This is the information that will be embedded in your certificate and will be visible to all users who access your site, so it is important to use real information.
-
-Open the CSR file with a text editor and paste its contents to the input field on StartSSL's page. Then click "submit".
-
-> Note this step will also generate a private key along with the CSR file. Do not lose track of this file and keep it in a safe place. This will be your final certificate's private key. That is, the private key is not given to you by StartSSL, and you never share it with them or anybody else.
-
-#### 4. Download your new certificate!
-That's it! Now you will be presented with a link to your new certificate. Download it!
-
-StartSSL conveniently gives you a ZIP file with different certificate bundles prepackaged for different common web servers. These are no more than concatenated PEM files as required by Nginx or Apache. In the following examples you will learn how to use these files to set up your web server.
-
-The files downloaded are the public certificates (yours, and the intermediate certificate from StartSSL). These certificates require a private key when set up on any server. This private key IS NOT given to you by StartSSL but rather was generated in the previous step (as "yourname.key"). Keep this key safe and do not share it with anybody. This is what allows data encrypted using your public certificate to be decrypted by you and only you.
+{% include pdf_bonus.html text="PDF version with additional content: how to get your own free TLS certificate!" pdf="https" %}
 
 ## Example: setting up Nginx, Apache and Node.js servers with TLS
 Once you have your own TLS certificate and private key, it is time to use them in your public servers. Here is how:

@@ -1,0 +1,24 @@
+{% comment %}
+This is the template used for bonus PDF content.
+
+To use it just include it in a post (Don't use the outer quotes):
+
+'{% include pdf_bonus.html text="description text" pdf="pdf_id" %}'
+
+The PDF id uniquely identifies a PDF in our system.
+
+You can also save the text in a variable
+
+'{% assign text = "Some more text" %}'
+
+'{% include pdf_bonus.html text=text %}'
+
+{% endcomment %}
+
+{% assign current = page %}
+
+<div class="pdf-bonus">
+    <div class="pdf-left">Bonus PDF</div>
+    <div class="pdf-desc">{{ include.text }}</div>
+    <button class="btn btn-sm">DOWNLOAD</button>
+</div>
