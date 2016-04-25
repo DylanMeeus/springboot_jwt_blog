@@ -21,13 +21,13 @@ You can also save the text in a variable
     <div class="pdf-bonus">
         <div class="pdf-left">Bonus PDF</div>
         <div class="pdf-desc">{{ include.text }}</div>
-        <button type="button" data-toggle="modal" data-target="#modal-sample" class="btn btn-sm">
+        <button type="button" data-toggle="modal" data-target="#modal-pdf" class="btn btn-sm">
             DOWNLOAD
             <modal></modal>
         </button>
     </div>
 
-  <div id="modal-sample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal">
+  <div id="modal-pdf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal">
     <div class="modal-backdrop"></div>
     <div class="modal-dialog">
       <div class="modal-content">
@@ -53,7 +53,25 @@ You can also save the text in a variable
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">GET THE PDF</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-pdf-success">
+              GET THE PDF
+              <modal></modal>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-pdf-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header has-border">
+          <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 id="myModalLabel" class="modal-title">The PDF is on its way!</h4>
+        </div>
+        <div class="modal-body">
+          <p>We just sent you an email with the link to the bonus PDF - check your inbox now.</p>
         </div>
       </div>
     </div>
