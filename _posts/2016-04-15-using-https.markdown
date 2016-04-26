@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Using HTTPS to Secure Your Websites: an Intro to Web Security"
+title: "Using HTTPS to Secure Your Websites: An Intro to Web Security"
 description: "Learn how HTTPS, TLS and SSL are fundamental to online security and how to use them in your own websites"
-date: 2016-04-05 12:30
+date: 2016-04-26 12:30
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
@@ -31,7 +31,7 @@ More and more sites are switching to HTTPS. And with good reason! Security is es
 -----
 
 ## Introduction: the Importance of Online Encryption
-Have you ever watched an old spy film and felt shocked at how easy it was to learn a VIP's itinerary by wiretapping a landline? Now take that to a **global** level with Internet. Scared yet? Although the example may seem simplistic, in a very real sense it is not: it is totally possible to *wiretap* an Ethernet, WiFi or cellular communication. And, as was in the case of old landlines, this is even possible with **consumer grade equipment**. Spies do not need "spy stuff" to do their job.
+Have you ever watched an old spy film and felt shocked at how easy it was to learn a VIP's itinerary by wiretapping a landline? Now take that to a **global** level with the Internet. Scared yet? Although the example may seem simplistic, in a very real sense it is not: it is totally possible to *wiretap* an Ethernet, WiFi or cellular connection. And, as was in the case of old landlines, this is even possible with **consumer grade equipment**. Spies do not need "spy stuff" to do their job.
 
 As the web was conceived, security was not the most important concern. People cared about sharing. Other matters took second place as the web was developed.
 
@@ -46,7 +46,7 @@ So how does HTTPS enter the picture? It is important to understand what HTTP doe
 **Authentication is one of those tasks that requires strict security considerations**. Even though the HTTP authentication spec defines a series of mechanisms to identify users and parties (via credentials), it does not specify how to securely share that information.
 
 ### Personal Information and Online Tracking
-If unencrypted HTTP connections expose data as wiretapped landlines do, it is of no surprise that such data can be used to build profiles of the users who use and create that data. This is known as *online tracking*. Have you ever looked at flight prices for a potential future trip only to find, a few minutes later, ads in other pages talk about flights to that destination? This might seem convenient. After all, this could actually point you in the direction of a discount. However this should also make you wonder: **what other data am I unknowingly giving others?**
+If unencrypted HTTP connections expose data as wiretapped landlines do, it is of no surprise that such data can be used to build profiles of the users who use and create that data. This is known as *online tracking*. Have you ever looked at flight prices for a potential future trip only to find, a few minutes later, ads in other pages talking about flights to that destination? This might seem convenient. After all, this could actually point you in the direction of a discount. However this should also make you wonder: **what other data am I unknowingly giving others?**
 
 Ad companies have built whole enterprises from harvesting and then selling this information. The unencrypted web has expanded a market that used to operate in the shadows: buying and selling personal information.
 
@@ -77,7 +77,7 @@ If you are familiar with web systems architecture, you know **once a user is aut
 > Proper security in the modern web is not limited to just encrypting communications. Once data has reached its destination, proper steps must be taken to safely handle it. A sadly common example is how many web sites store passwords: how many times have you read of a major player being hacked and plain-text passwords being exposed? Surely more than one would hope. (Note: passwords must never be stored as plain-text, for this very same reason). Security and encryption are hard. Proper and tried practices are available for each level in a secure architecture. Be sure to follow them, and, as a general rule, do not role your own, internally developed encryption; use an existing, tried and tested solution.
 
 ## The Magic Behind HTTPS: Public-Key Cryptography and TLS/SSL
-[HTTP](https://tools.ietf.org/html/rfc2616) is simple: a header with a only a few mandatory fields and (usually, but not required) a body of content. Communications using HTTP as basis rely on an underlying protocol handling lower level details. In the case of the World Wide Web, this other protocol is [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite). Although the WWW's architecture can be rather complex to sum up, what you need to keep in mind is that TCP/IP handles routing, data integrity and provides delivery guarantees, while HTTP defines a way for two clients to interpret what to do with the data that is sent (How long is it? Are we requesting data or pushing data? Etc.). As you can see, no part of this stack handles data protection.
+[HTTP](https://tools.ietf.org/html/rfc2616) is simple: a header with only a few mandatory fields and (usually, but not required) a body of content. Communications using HTTP as basis rely on an underlying protocol handling lower level details. In the case of the World Wide Web, this other protocol is [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite). Although the WWW's architecture can be rather complex to sum up, what you need to keep in mind is that TCP/IP handles routing, data integrity and provides delivery guarantees, while HTTP defines a way for two clients to interpret what to do with the data that is sent (How long is it? Are we requesting data or pushing data? Etc.). As you can see, no part of this stack handles data protection.
 
 In the mid 90s, [HTTPS](https://tools.ietf.org/html/rfc2818) was developed to overcome this shortcoming. In contrast to its name, **HTTPS does not actually change anything from the HTTP spec. Rather, it adds a new layer between TCP/IP and HTTP: TLS (or SSL as it was called back then)**. [TLS](https://tools.ietf.org/html/rfc2246) stands for *Transport Layer Security*, while [SSL](https://tools.ietf.org/html/rfc6101) stands for *Secure Sockets Layer*.
 
@@ -107,7 +107,7 @@ Although not relevant for HTTPS, we will briefly mention what a web of trust is.
 The more a certain key is signed by trusted parties, the more one can be sure of its authenticity. So, how are keys initially trusted in practice? Most of the time, by physically performing the signing process in person. It is up to an individual, group or organization to define the scheme that can be used to establish initial validity of a key. Although flexible, this scheme requires caution and intelligent use.
 
 #### Public-Key Infrastructure
-On the other hand, public-key infrastructure is much more rigid. Instead of signing parties and different levels of trust, **in public-key infrastructure there are a group of *certificate authorities* that have the ultimate vetting and verification power**. These authorities are *trusted* to perform some sort of validation of others' keys. This trust is implicit and ultimate: if a certificate authority trusts something, then so you do. This is the model implemented and used in the web: a handful of certificate authorities' certificates are preinstalled in your system (either by the OS or your browser). These authorities' certificates are then used to validate other certificates that embed a certain website's public key.
+On the other hand, public-key infrastructure is much more rigid. Instead of signing parties and different levels of trust, **in public-key infrastructure there are a group of *certificate authorities* that have the ultimate vetting and verification power**. These authorities are *trusted* to perform some sort of validation of others' keys. This trust is implicit and ultimate: if a certificate authority trusts something, then so do you. This is the model implemented and used in the web: a handful of certificate authorities' certificates are preinstalled in your system (either by the OS or your browser). These authorities' certificates are then used to validate other certificates that embed a certain website's public key. Some important certificate authorities are Comodo, Symantec, GoDaddy, GlobalSign, DigiCert and StartCom.
 
 > Have you noticed there is an implicit step of trust being performed in this case? It is you, the end user, who is performing this step when installing a new web browser or a new OS. YOU are trusting that whatever certificates are installed by it are valid. If they were tampered in any way before you downloaded them, you could be giving a malicious party the keys to your kingdom. This is why downloading browsers and OS install media from reputable sources is essential.
 
