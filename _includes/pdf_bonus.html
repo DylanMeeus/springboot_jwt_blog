@@ -41,19 +41,19 @@ You can also save the text in a variable
             <div class="col-xs-12 form-group">
               <label class="control-label col-xs-3">Name</label>
               <div class="col-xs-9">
-                <input type="text" name="name" placeholder="Foo Bar" required="" autofocus="" class="input-block-level form-control">
+                <input id="pdf-name" type="text" name="name" placeholder="Foo Bar" required="" autofocus="" class="input-block-level form-control">
               </div>
             </div>
             <div class="col-xs-12 form-group">
               <label class="control-label col-xs-3">Email</label>
               <div class="col-xs-9">
-                <input type="text" name="name" placeholder="foo@bar.com" required="" autofocus="" class="input-block-level form-control">
+                <input id="pdf-email" type="text" name="email" placeholder="foo@bar.com" required="" autofocus="" class="input-block-level form-control">
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-pdf-success">
+          <button type="button" class="btn btn-primary" onclick="getPdf()">
               GET THE PDF
               <modal></modal>
           </button>
@@ -77,3 +77,39 @@ You can also save the text in a variable
     </div>
   </div>
 </div>
+
+<script>
+function getPdf() {
+    var pdfId = '{{ include.pdf }}';
+    var name = $('#pdf-name').val();
+    var email = $('#pdf-email').val();
+
+    localStorage.setItem('isBlogSubscriber', true);
+    var blogRegData = getBasicInfo();
+    blogRegData.trackData = email;
+    blogRegData.email = email;
+    blogRegData.formId = '1052';
+    blogRegData.lpId = '1117';
+    blogRegData.Blog_Subs__c = true;
+    metricsLib.track('register:lead:blog-download-pdf', blogRegData);
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://webtask.it.auth0.com/api/run/wt-sebastian_peyrott-auth0_com-0/main?webtask_no_cache=1',
+        data: {
+            pdfId: pdfId,
+            email: email,
+            name: name
+        },
+        success: function() {
+            $('#modal-pdf').modal('hide');
+            $('#modal-pdf-success').modal();
+        },
+        error: function() {
+            $('#modal-pdf').modal('hide');
+            $('#modal-pdf-success').modal('hide');
+            alert('Error sending PDF, is your email correct?');
+        }
+    });
+}
+</script>
