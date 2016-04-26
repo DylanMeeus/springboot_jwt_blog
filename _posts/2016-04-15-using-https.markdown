@@ -119,7 +119,7 @@ In practice, certificate authorities do not sign user certificates with their ro
 
 ![Public-key infrastructure](https://cdn.auth0.com/blog/https/pki.png)
 
-{% include pdf_bonus.html text="PDF version with additional content: how to get your own free TLS certificate!" pdf="https" modal-title="Get the PDF with additional content" %}
+{% include pdf_bonus.html text="PDF version with additional content: how to get your own free TLS certificate!" pdf="9dda17b0-b02a-4ca6-bb6b-da0e2b9232bb" modal-title="Get the PDF with additional content" %}
 
 ## Example: setting up Nginx, Apache and Node.js servers with TLS
 Once you have your own TLS certificate and private key, it is time to use them in your public servers. Here is how:
