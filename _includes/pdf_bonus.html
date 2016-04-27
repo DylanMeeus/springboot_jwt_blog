@@ -47,13 +47,13 @@ You can also save the text in a variable
             <div class="col-xs-12 form-group">
               <label class="control-label col-xs-3">Email</label>
               <div class="col-xs-9">
-                <input id="pdf-email" type="text" name="email" placeholder="foo@bar.com" required="" autofocus="" class="input-block-level form-control">
+                <input id="pdf-email" type="email" name="email" placeholder="foo@bar.com" required="" autofocus="" class="input-block-level form-control">
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="getPdf()">
+          <button id="pdf-get-button" type="button" class="btn btn-primary" onclick="getPdf()" disabled>
               GET THE PDF
               <modal></modal>
           </button>
@@ -79,6 +79,16 @@ You can also save the text in a variable
 </div>
 
 <script>
+$('#pdf-email').on('input', function() {
+    var email = $(this).val();
+    var regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(regex.test(email)) {
+        $('#pdf-get-button').prop('disabled', false);
+    } else {
+        $('#pdf-get-button').prop('disabled', true);
+    }
+});
+
 function getPdf() {
     var pdfId = '{{ include.pdf }}';
     var name = $('#pdf-name').val();
