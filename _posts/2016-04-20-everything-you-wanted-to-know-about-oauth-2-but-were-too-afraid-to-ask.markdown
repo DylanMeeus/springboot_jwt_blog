@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Everything You Wanted to Know About OAuth 2 (But Were too Afraid to Ask)"
+title: "Everything You Wanted to Know About OAuth 2"
 description: This is the recording and transcription of a webinar we ran about OAuth 2 recently.
 date: 2016-04-20 10:00
 author: 

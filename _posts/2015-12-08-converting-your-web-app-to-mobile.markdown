@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Converting your web app into a multiplatform mobile app using Apache Cordova"
+title: "Convert your Web App to a Mobile App with Apache Cordova"
 description: How you can effortlessly create your multiplatform application from a web application
 date: 2015-12-08 16:15
 author: 
