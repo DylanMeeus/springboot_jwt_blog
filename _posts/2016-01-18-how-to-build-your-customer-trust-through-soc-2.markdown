@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Build Customer Trust in Your SaaS Through SOC 2 And Boost Your Revenue"
+title: "How to Build Customer Trust in Your SaaS Through SOC 2"
 description: Learn what SOC2 is and how we implemented it at Auth0
 date: 2016-01-18 13:30
 author:

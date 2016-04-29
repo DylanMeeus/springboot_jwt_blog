@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What 3 Security Stories of 2015 Can Teach You About Your Security in 2016"
+title: "What 3 Security Stories of 2015 Can Tell About Security"
 description: Here’s why SaaS companies should be offering their premium security features to everyone next year.
 date: 2015-12-23 17:35
 author:

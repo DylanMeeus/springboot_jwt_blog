@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Big Milestone: $2.4M early funding, 8000 Subscribers and 124 countries."
+title: "Big Milestone: $2.4M early funding and 8000 Subscribers"
 date: 2014-09-17 7:30
 author:
   name: "Jon Gelsey"

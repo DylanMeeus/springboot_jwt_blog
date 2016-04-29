@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "More Benchmarks: Virtual DOM vs Angular 1 & 2 vs Mithril.js vs cito.js vs The Rest"
+title: "More Benchmarks: Virtual DOM vs Angular 1 & 2 vs Others"
 description: "You asked? We listened! Benchmark series is back with even more frameworks and metrics!"
 date: 2016-01-07 13:00
 author:
