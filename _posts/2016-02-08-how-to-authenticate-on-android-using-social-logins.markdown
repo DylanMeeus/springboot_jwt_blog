@@ -30,6 +30,10 @@ tags:
 - native login
 - oauth
 - oauth2
+related:
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2015-12-29-how-paypal-could-have-avoided-account-hack
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 In this article we will go through four popular social login providers and learn how to implement them on Android. Read on!

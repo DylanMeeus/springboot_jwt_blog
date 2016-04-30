@@ -24,6 +24,10 @@ tags:
 - call api
 - api
 - jwt
+related:
+- 2015-05-14-creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between
+- 2015-08-25-logging-and-debugging-in-react-with-flux-replaying-your-users-actions
+- 2015-08-05-creating-your-first-aurelia-app-from-authentication-to-calling-an-api
 ---
 > This is a guest post by [Diego Poza](https://twitter.com/diegopoza). He is a systems engineer who is passionate about technology. He works as a developer lead and specializes in emerging technologies, architecture, and technical writing. You can follow him on his [blog](http://southworks.com/blog/author/dpoza/)
 

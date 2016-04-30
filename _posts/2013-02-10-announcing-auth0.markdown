@@ -9,6 +9,13 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "We are very excited to announce Auth0 (AuthZero). Auth0 is identity management that \"just works\". It's about removing the pain of developing"
+tags:
+- business
+- announcements
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
+- 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
 ---
 
 

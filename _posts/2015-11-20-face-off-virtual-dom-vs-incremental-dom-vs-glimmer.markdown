@@ -25,6 +25,10 @@ tags:
 - javascript
 - glimmer
 - benchmark
+related:
+- 2016-01-11-updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
+- 2015-09-25-incremental-dom
+- 2016-03-23-intro-to-immutable-js
 ---
 
 In this post we will explore three technologies to build dynamic DOMs. We will also run benchmarks and find out which one is faster. At the end we will share with you why we choose one of them for our projects. Read on!

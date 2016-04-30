@@ -20,6 +20,10 @@ tags:
 - javascript
 - jwt
 - authentication
+related:
+- 2016-01-13-rise-of-the-high-boilerplate-framework-a-look-at-falcor-and-relay
+- 2016-04-20-angularjs-authentication-screencast-series-part-2
+- 2016-03-07-hapijs-authentication-secure-your-api-with-json-web-tokens
 ---
 
 ---

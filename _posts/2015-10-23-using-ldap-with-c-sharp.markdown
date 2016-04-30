@@ -24,6 +24,10 @@ tags:
 - .net
 - authentication
 - post-series
+related:
+- 2016-03-28-xamarin-authentication-and-cross-platform-app-development
+- 2014-10-22-simple-guide-to-setup-aws-directory-service
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 In this post series, we will study the [Lightweight Directory Access Protocol (LDAP)](https://tools.ietf.org/html/rfc4511): a protocol developed in the 90s to be an open, simpler alternative to other directory protocols. We will also talk about Active Directory (Microsoft's LDAP implementation with extra features) and how to use it as an authentication mechanism. For the purposes of this post, we will focus on the generic [LdapConnection API](https://msdn.microsoft.com/en-us/library/system.directoryservices.protocols.aspx). In the next post, we will take a look at the Active Directory specific [PrincipalContext API](https://msdn.microsoft.com/en-us/library/system.directoryservices.accountmanagement.principalcontext.aspx). Get the [full code](https://github.com/auth0/blog-ldap-csharp-example) and read on!

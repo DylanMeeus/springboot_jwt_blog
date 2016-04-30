@@ -16,6 +16,10 @@ tags:
 - vendor lock-in
 - startups
 
+related:
+- 2016-02-02-switching-from-social-logins-to-saml-in-minutes-with-auth0
+- 2014-08-22-sso-for-legacy-apps-with-auth0-openid-connect-and-apache
+- 2014-02-26-openid-connect-final-spec-10
 ---
 
 It’s hard to close an enterprise software deal with a large company, but once you do, you have a customer for life . . . or so the logic goes. If a big company goes through all the trouble to run through the buying process, integrate its systems, train its people and more, it’ll be a cold day in hell before it even considers ripping your software out. 

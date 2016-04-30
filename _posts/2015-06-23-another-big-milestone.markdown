@@ -21,6 +21,10 @@ tags:
 - announcement
 - capital
 - round
+related:
+- 2014-09-17-big-milestone
+- 2014-04-28-announcing-our-advisors
+- 2016-03-22-how-we-hire-engineers
 ---
 Only nine short months after our [previous funding announcement](https://auth0.com/blog/2014/09/17/big-milestone/), we are proud to announce that Auth0 has raised an additional $6.875 million in Series A funding, led once again by [Bessemer Venture Partners](http://www.bvp.com/) and [K9 Ventures](http://www.k9ventures.com/) bringing our funding total to $9.3 million.
 

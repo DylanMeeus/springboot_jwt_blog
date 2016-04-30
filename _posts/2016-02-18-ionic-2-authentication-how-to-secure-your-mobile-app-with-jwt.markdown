@@ -20,6 +20,10 @@ tags:
 - authentication
 - jwt
 - javascript
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
+- 2015-08-11-create-your-first-ember-2-dot-0-app-from-authentication-to-calling-an-api
 ---
 
 ---

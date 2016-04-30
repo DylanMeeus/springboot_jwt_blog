@@ -28,6 +28,10 @@ tags:
 - iphone
 - ipad
 - slack
+related:
+- 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 In this post we will explore how to implement a Slack-like login strategy (email with a magic link) on iOS using our simple [Lock](https://github.com/auth0/Lock.iOS-OSX) library. At the end of this post you will also find a seed Xcode project written in Swift to get started as soon as possible. Read on!

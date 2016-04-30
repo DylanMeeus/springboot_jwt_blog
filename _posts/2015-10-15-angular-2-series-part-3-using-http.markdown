@@ -21,6 +21,10 @@ tags:
 - http
 - javascript
 - post-series
+related:
+- 2015-09-15-angular-2-series-part-2-domain-models-and-dependency-injection
+- 2015-09-02-angular2-series-working-with-pipes
+- 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
 ---
 
 ---

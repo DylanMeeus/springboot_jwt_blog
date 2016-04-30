@@ -8,6 +8,10 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "Many of you have contacted us with concerns on the CVE-2014-0160 vulnerability in OpenSSL, which is better known as the “Heartbleed bug”. This was disclosed"
+related:
+- 2014-05-03-covert-redirect-oauth-vulnerability
+- 2014-12-11-auth0-achieves-soc-2-certification
+- 2016-03-17-data-breach-response-planning-for-startups
 ---
 
 Many of you have contacted us with concerns on the [CVE-2014-0160 vulnerability in OpenSSL](https://www.openssl.org/news/secadv_20140407.txt), which is better known as the “Heartbleed bug”. This was disclosed on April, Monday 7th. This is a very serious vulnerability that affects a very large number of websites on the internet.

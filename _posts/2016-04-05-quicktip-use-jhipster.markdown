@@ -26,6 +26,10 @@ tags:
 - microservice
 - microservices
 - rest
+related:
+- 2016-01-26-four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them
+- 2016-03-15-javascript-module-systems-showdown
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 Java's library ecosystem is deep and complex. This is both a blessing and a curse: there are great tools out there, but picking the right combination and setting them up to work together can be quite complex. Furthermore, the depth and breath of many of these libraries makes the getting-started step somewhat hard. [JHipster](http://jhipster.github.io/) comes to the rescue. See how easy it is to get started on your new Java + JavaScript web app with it. Read on!

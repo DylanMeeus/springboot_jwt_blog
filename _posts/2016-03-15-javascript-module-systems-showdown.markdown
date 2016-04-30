@@ -36,6 +36,10 @@ tags:
 - node.js modules
 - node modules
 - nodejs modules
+related:
+- 2015-10-09-whats-the-fuss-with-googles-accelerated-mobile-pages-amp
+- 2015-09-25-incremental-dom
+- 2016-03-23-intro-to-immutable-js
 ---
 
 As JavaScript development gets more and more common, namespaces and depedencies get much more difficult to handle. Different solutions were developed to deal with this problem in the form of module systems. In this post we will explore the different solutions currently employed by developers and the problems they try to solve. Read on!

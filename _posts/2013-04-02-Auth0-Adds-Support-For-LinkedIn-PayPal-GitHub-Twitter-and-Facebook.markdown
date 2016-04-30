@@ -9,6 +9,12 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "If your app uses Auth0 for authenticating users, adding SSO with LinkedIn, PayPal, GitHub, Twitter and Facebook is just a click away."
+related:
+- 2013-04-16-Custom-Authentication-With-Auth0
+- 2013-05-05-SSO-With-Salesforce-and-Auth0
+- 2013-06-04-introducing-db-connections
+tags:
+- announcements
 ---
 
 

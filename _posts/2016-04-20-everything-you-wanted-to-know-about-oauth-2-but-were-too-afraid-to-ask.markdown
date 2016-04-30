@@ -17,6 +17,10 @@ tags:
 - Webinar
 - OAuth 2
 - Video
+related:
+- 2014-08-22-sso-for-legacy-apps-with-auth0-openid-connect-and-apache
+- 2015-09-04-an-introduction-to-microservices-part-1
+- 2016-02-02-switching-from-social-logins-to-saml-in-minutes-with-auth0
 ---
 
 <div class="wistia_responsive_padding" style="padding:42.29% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/1vo7e1x18t?seo=false&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>

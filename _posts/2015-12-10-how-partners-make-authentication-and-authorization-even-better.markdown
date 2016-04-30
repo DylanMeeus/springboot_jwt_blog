@@ -21,6 +21,10 @@ tags:
 - controlling access to business apps
 - control external access to internal apps
 
+related:
+- 2015-12-03-why-using-open-standards-helps-close-enterprise-deals
+- 2015-10-02-how-to-get-from-0-to-10000-customers-with-b2b-app-marketplaces
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 One of the great things about offering an extensive authentication platform is seeing how other companies extend and augment it with their own unique solutions.  As Auth0’s ecosystem of partners grows, so too does the value we deliver to [**existing customers**](https://auth0.com/customers) already invested in our service.  An investment made to address one area of a customer’s business quickly finds an accelerated ROI when another part of the business soon realizes how they too can leverage the platform either directly or through a point solution provided by an Auth0 partner.

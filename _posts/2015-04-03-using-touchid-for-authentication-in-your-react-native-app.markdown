@@ -22,6 +22,10 @@ tags:
 - react-native
 - component
 - lock
+related:
+- 2015-04-09-adding-authentication-to-your-react-flux-app
+- 2015-05-14-creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between
+- 2015-08-25-logging-and-debugging-in-react-with-flux-replaying-your-users-actions
 ---
 
 **TL;DR**: You can see a sample of how to use **TouchID with React Native** in **[this Github repository](https://github.com/auth0/Lock.ReactNative/tree/master/Example)**

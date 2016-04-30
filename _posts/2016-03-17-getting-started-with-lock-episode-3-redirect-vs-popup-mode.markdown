@@ -15,6 +15,12 @@ design:
 tags: 
 - Lock
 - Tutorial
+- video
+- post-series
+related:
+- 2016-02-10-getting-started-with-lock-episode-2-using-customization-options
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 
 This is Kassandra with Auth0. This is the third episode of our Getting Started with Lock series. We also have [episode 1: implementing Lock](https://auth0.com/blog/2016/02/05/getting-started-with-auth0-lock-series-implementing-lock/) and [episode 2: using customization options](https://auth0.com/blog/2016/02/10/getting-started-with-lock-episode-2-using-customization-options/)

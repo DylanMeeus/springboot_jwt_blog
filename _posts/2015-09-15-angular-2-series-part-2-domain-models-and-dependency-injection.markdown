@@ -21,6 +21,10 @@ tags:
 - dependency-injection
 - javascript
 - post-series
+related:
+- 2015-09-02-angular2-series-working-with-pipes
+- 2015-10-15-angular-2-series-part-3-using-http
+- 2015-09-13-an-introduction-to-microservices-part-2-API-gateway
 ---
 
 ---

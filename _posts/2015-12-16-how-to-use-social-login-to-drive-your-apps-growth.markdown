@@ -15,6 +15,10 @@ tags:
 - social login
 - app growth
 - increase registrations
+related:
+- 2015-09-23-what-is-and-how-does-single-sign-on-work
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 People look at social login as just an easier way to log in. That’s true, but it’s a bit simplistic. 

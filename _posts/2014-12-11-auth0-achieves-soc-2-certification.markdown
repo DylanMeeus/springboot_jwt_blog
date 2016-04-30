@@ -12,11 +12,16 @@ design:
   image: https://s3.amazonaws.com/blog.auth0.com/soc2.png
   image_size: "75%"
   bg_color: "#333"
+related:
+- 2014-09-17-big-milestone.markdown
+- 2016-03-17-data-breach-response-planning-for-startups
+- 2016-01-18-how-to-build-your-customer-trust-through-soc-2
 tags:
 - security
 - trust
 - soc2
 - certification
+- enterprise
 ---
 Providing an always-on, highly secure identity service is core to the Auth0 brand promise. As such, all our systems, controls and processes have always been designed with security and availability as critical design points.  
 

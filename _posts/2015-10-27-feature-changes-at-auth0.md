@@ -15,6 +15,10 @@ design:
 tags:
 - nodejs
 - feature-changes
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 **tl;dr**: We created a [node module](https://github.com/dschenkelman/feature-change) to run two versions of a feature at once (original and new), compare the results, and always return the original results. It is useful in deploying new versions of features without breaking changes.

@@ -24,6 +24,10 @@ tags:
 - data modelling
 - modelling
 - post-series
+related:
+- 2015-09-04-an-introduction-to-microservices-part-1
+- 2015-10-02-an-introduction-to-microservices-part-3-the-service-registry
+- 2015-10-15-angular-2-series-part-3-using-http
 ---
 
 In this post in the microservices series we will study how to manage inter-service dependencies and how to deal with implicit interfaces in the form of data sharing. We will also extend our existing examples from the microservices series to show some of the concepts in this post. If you haven't done so, check [An Introduction to Microservices, Part 3](https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/).

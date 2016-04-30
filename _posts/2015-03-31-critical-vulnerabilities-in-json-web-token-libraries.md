@@ -21,7 +21,12 @@ tags:
 - security
 - authentication
 - crypto
+related:
+- 2014-04-08-our-response-to-heartbleed
+- 2014-12-11-auth0-achieves-soc-2-certification
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
+
 
 > tl;dr If you are using [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken), [pyjwt](https://github.com/jpadilla/pyjwt/), [namshi/jose](https://github.com/namshi/jose), [php-jwt](https://github.com/firebase/php-jwt) or [jsjwt](https://github.com/kjur/jsjws) with asymmetric keys (RS256, RS384, RS512, ES256, ES384, ES512) please update to the latest version. See [jwt.io](http://jwt.io) for more information on the vulnerable libraries. *(Updated 2015-04-20)*
 

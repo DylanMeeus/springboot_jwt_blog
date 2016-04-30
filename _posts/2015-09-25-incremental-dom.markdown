@@ -19,6 +19,10 @@ tags:
 - glimmer
 - ember
 - view
+related:
+- 2015-10-09-whats-the-fuss-with-googles-accelerated-mobile-pages-amp
+- 2015-10-14-7-things-you-should-know-about-web-assembly
+- 2016-01-07-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
 ---
 
 ## Introduction

@@ -28,6 +28,10 @@ tags:
 - saas
 - paas
 - webhook
+related:
+- 2016-04-20-everything-you-wanted-to-know-about-oauth-2-but-were-too-afraid-to-ask
+- 2015-12-11-get-your-twitter-share-count-back-with-a-webtask
+- 2015-07-28-if-this-then-node-dot-js-extending-ifttt-with-webtask-dot-io
 ---
 
 Create competitive advantage and increase stickiness of your SaaS platform by enabling extensibility with custom code using [webtasks](https://webtask.io). This post is about how we have done it at Auth0. 

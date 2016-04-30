@@ -16,6 +16,10 @@ tags:
 - security breaches
 - protonMail
 - DDoS
+related:
+- 2015-12-29-how-paypal-could-have-avoided-account-hack
+- 2015-10-22-5-ways-to-make-your-app-more-secure-in-less-than-20-minutes
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 2015 has been the year of the data breach. Ashley Madison, TalkTalk, Slack, LastPass, and HipChat, to name a few, have all seen their services compromised this year by unauthorized data breaches or attacks.

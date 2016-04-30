@@ -23,6 +23,10 @@ tags:
 - rsa
 - shared secret
 - asymetric cryptography
+related:
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
+- 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 JSON Web Tokens are used in the industry more and more. The spec which defines them ([RFC7519](https://tools.ietf.org/html/rfc7519)) describes them as a compact, URL-safe means of representing claims between parties by encoding them as JSON objects which can be digitally signed or encrypted. There are several algorithms which take place in this process, we will explore some of the most common ones below. Read on!

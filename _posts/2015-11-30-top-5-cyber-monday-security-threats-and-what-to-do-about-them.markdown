@@ -18,6 +18,10 @@ tags:
 - online shopping
 - security threats
 - security tips
+related:
+- 2015-12-23-tis-the-season-for-cyber-criminals
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 With **Cyber Monday** just around the corner, many people still wonder if it is safe to buy online during end-of-the-year sales events. Of course it is safe in the sense that you won't be pushed, hit, or crushed by other customers who also want to get their hands on the big deals. But is your credit or debit card information safe when you shop online? If you take a few basic precautions, you can enjoy the big discounts and not worry about getting into trouble.
