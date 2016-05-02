@@ -2,7 +2,7 @@
 layout: post
 title: "Angular 2 Series - Part 5: Forms and Custom Validation"
 description: "Angular 2 forms are powerful and come with many great features. Learn how to create both simple and complex forms, as well as how to do custom form validation."
-date: 2016-05-02 08:30
+date: 2016-05-03 08:30
 author: 
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
