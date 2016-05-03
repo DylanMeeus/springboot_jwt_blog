@@ -78,11 +78,11 @@ Once that's done, let's create a component for our first form. We'll start with 
 
 ![angular2 forms simple](https://cdn.auth0.com/blog/angular2-forms/angular2-forms-1.png)
 
-We've got what looks like a pretty standard form that uses Bootstrap for styling. The important things to note for this form are the directives that we're using in it, which include `ngForm`, `ngSubmit`, and `ngControl`. When we use the hash as we are with `#registrationForm="ngForm"`, we're creating a local variable for the form that is pointed to the `ngForm` directive. This means we can now use `registrationForm`'s properties and methods elsewhere within our `<form>`.
+We've got what looks like a pretty standard form that uses [Bootstrap](https://getbootstrap.com) for styling. The important things to note for this form are the directives that we're using, which include `ngForm`, `ngSubmit`, and `ngControl`. When we use the hash as we are with `#registrationForm="ngForm"`, we're creating a local variable for the form that is pointed to the `ngForm` directive. This means we can now use `registrationForm`'s properties and methods elsewhere within our `<form>`.
 
 One of the properties that an `ngForm` instance has is `value` which is an object that has keys and values for any elements that we have an `NgControl` directive on. So what exactly is `NgControl`? Well, it's a class that binds a `Control` object to an element. In this case, the element that it's applied to is an `input`. We'll take a closer look at `Control` objects later on.
 
-This is really all we need in our HTML to have our form wired up, but we also need to tell the component class that we want to have access to the form directives that come from Angular 2. At the same time, let's create the function that will be responsible for sending our user data to the database. 
+This is really all we need in our HTML to have our form wired up, but we also need to tell the component class that we want to have access to the form directives that come from Angular 2. At the same time, let's create the function that will be responsible for sending our user data to the backend. 
 
 ```js
 // src/client/app/simple-form/simple-form.component.ts
@@ -190,7 +190,7 @@ The first argument that goes in is the initial text that we want to have rendere
 - `maxLength` - a number specifying the maximum length allowed
 - `pattern` - a pattern (regex) that the input needs to follow
 
-The validator that we've set up on the `Control` for `password` looks a bit different. We want to use two validators on this input, one saying that it's a required field and the other saying that it must have a minimum length of 8 digits. To do this, we need to use `Validators.compose` and provide an array with the validators we're interested in. When we compose validators, any errors that are on an input element will be returned as a union.
+The validator that we've set up on the `Control` for `password` looks a bit different. We want to use two validators on this input, one saying that it's a required field and the other saying that it must have a minimum length of eight digits. To do this, we need to use `Validators.compose` and provide an array with the validators we're interested in. When we compose validators, any errors that are on an input element will be returned as a union.
 
 After we define our controls, we're registering our entire form as a `ControlGroup` with the `FormBuilder` class. By applying a group to our `Control`s, we can aggregate the values of each of them. It's also easier for us to check for errors because an error in one of the `Control`s will invalidate the entire group.
 
@@ -241,7 +241,7 @@ We're also conditionally inserting a bit of text to indicate the error for each 
 
 We've talked about **synchronous** validators already. If the ones that are provided by Angular aren't sufficient, then we can easily create our own by following the same pattern that is used for the [in-built ones](https://github.com/angular/angular/blob/2.0.0-beta.17/modules/angular2/src/common/forms/validators.ts#L29-L121).
 
-Instead of creating a synchronous custom validator in this tutorial, we'll make an **asynchronous** one. This is a great feature of validators in Angular 2: we can easily make them handle async operations. This is really useful if we want to do things like check for a user in the database to see if a username or email already exists. In fact, that's exactly what we'll do in this example.
+Instead of creating a synchronous custom validator in this tutorial, we'll make an **asynchronous** one. This is a great feature of validators in Angular 2: we can easily make them handle async operations. This is really useful if we want to do things like check if a username or email already exists in a database. In fact, that's exactly what we'll do in this example.
 
 The HapiJS backend that we're using has an endpoint for checking whether a username or email is already taken. If it is taken, a `400` response is returned with an error message indicating so. We can use this, along with an async validator, to let users know if their input is already reserved. 
 
@@ -392,7 +392,7 @@ Notice here that we aren't waiting until a submit attempt is made because we wan
 
 ## Aside: Angular 2 Authentication with Auth0
 
-Angular 2 forms are great, and the validation that we can do with them makes our lives easier. However, for the case of user registration and login, there is still a lot we need to consider for our apps, which often means a lot of manual work. This includes things like password reset, integration social identity login, using multifactor authentication, and more.
+Angular 2 forms are great, and the validation that we can do with them makes our lives easier. However, for the case of user registration and login, there is still a lot we need to consider for our apps, which often means a lot of manual work. This includes things like password reset, integrating social login, using multifactor authentication, and more.
 
 With Auth0, all of this is done for us out of the box, and we don't need to worry at all about form validation. Adding authentication to an Angular 2 app is really simple and, depending on your setup, can be done in under 10 minutes.
 
@@ -475,7 +475,7 @@ export class Auth {
 }
 ```
 
-### Step 3: A a Click Handler to Login
+### Step 3: Add a Click Handler to Login
 
 We can use the methods from our authentication service in any of our components which means we can easily add a click handler to a "Login" and "Logout" button.
 
