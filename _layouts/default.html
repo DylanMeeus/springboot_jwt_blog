@@ -468,7 +468,7 @@
 
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
-          
+
         }
 
         function setEvents() {
@@ -480,7 +480,7 @@
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           metricsLib.page();
-          
+
           $('p').selectionSharer();
 
           $(document)
@@ -527,23 +527,25 @@
             activeTab.addClass('active');
           });
 
+          var sticky = $('[data-sticky]');
           $(window).on('scroll', function() {
-            var sticky = $('[data-sticky]');
 
-            function toggleSticky($nav) {
-              if(!$nav.hasClass('fixed')) {
-                navOffset = $nav.offset().top;
+            function toggleSticky($elem) {
+              if(!$elem.hasClass('fixed')) {
+                elemOffset = $elem.offset().top;
               }
 
-              if ($(window).scrollTop() > navOffset) {
-                $nav.addClass('fixed');
+              if ($(window).scrollTop() > elemOffset) {
+                $elem.addClass('fixed');
               } else {
-                $nav.removeClass('fixed');
+                $elem.removeClass('fixed');
               }
             }
 
             if(sticky.length) {
-              toggleSticky(sticky);
+              sticky.each(function(index, elem){
+                toggleSticky($(elem));
+              });
             }
           });
 

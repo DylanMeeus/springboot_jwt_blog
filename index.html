@@ -10,17 +10,23 @@ latest_tab: active
 
 {% include navigation.html %}
 
-<div id="container">
-
-<ul class="archive">
-    {% for post in paginator.posts %}
-        {% unless post.draft %}
+<div class="container" id="container">
+  <div class="row">
+      <div class="col-md-8">
+        <ul class="archive">
+          {% for post in paginator.posts %}
+          {% unless post.draft %}
           {% include archive_post.html %}
-        {% endunless %}
-    {% endfor %}
-</ul>
+          {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-md-4">
+        {% include newsletter.html %}
+        {% include popular_posts.html %}
+      </div>
+  </div>
 
 </div>
 
-{% include newsletter_inline.html %}
 {% include paging.html %}

@@ -385,10 +385,11 @@ h1,h2,h3,h4,h5
   color: #333;
 
 #container.container
-  max-width: none;
-
-  +breakpoint("desktop")
-    padding: 0;
+  margin-top 50px
+  // max-width: none;
+  //
+  // +breakpoint("desktop")
+  //   padding: 0;
 
 .tab
 	@extend .small-caps;
@@ -396,7 +397,7 @@ h1,h2,h3,h4,h5
 	display: block;
 	padding: 18px 5px;
   margin-bottom: -1px;
-  font-size: 13px;
+  font-size: 14px;
 
   +breakpoint("desktop")
     margin: 0 25px;
@@ -416,7 +417,7 @@ h1,h2,h3,h4,h5
   	display: inline-block;
 
   a
-    color: color_grey_text;
+    color: white;
 
     &:hover,
     &:focus,
@@ -475,8 +476,8 @@ h1,h2,h3,h4,h5
 	 		opacity: 0.5;
 
   .collapse
-    +breakpoint("desktop")
-      border-bottom: 1px solid #ececec;
+    background-color: #232228;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
 
   ul, li, &
     list-style: none;
@@ -503,8 +504,8 @@ h1,h2,h3,h4,h5
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.92);
       z-index: 1000;
+      background-color: rgba(35, 34, 40, 0.87)
 
   > ul
   	+breakpoint("desktop")
@@ -718,124 +719,6 @@ pre.prettyprint
   a
     text-decoration: underline;
     color: currentColor;
-
-.newsletter-subscriber
-  visibility: hidden;
-  min-height: 56px;
-  min-width: 320px;
-  padding 0 40px
-  border-bottom 1px solid rgba(color_grey,.5)
-
-  p
-    margin: 15px;
-
-  .btn-lg
-    display: none;
-
-    +breakpoint("desktop")
-      display: inline-block;
-
-  &.is-inline
-    visibility: visible;
-    text-align: center;
-    padding: 40px 0;
-    border-top: 1px solid rgba(209, 210, 212, 0.5);
-    background-color: #5C666F;
-    color: white;
-    position: relative;
-    border: 0;
-
-    .btn-lg
-      display: none;
-
-    p
-      font-size: 16px;
-      color: white;
-      font-weight: 500;
-
-    .text
-      font-weight: 500;
-      font-size: 16px;
-      margin-right: 10px;
-      padding: 0;
-
-    .form-control
-      background: rgba(white, 0.1);
-      color: white;
-
-      &::-webkit-input-placeholder
-        color: white;
-        opacity: 0.7;
-
-      &::-moz-placeholder
-        color: white;
-        opacity: 0.7;
-
-
-  .text
-    font-size: 12px;
-    padding-top: 8px;
-
-    +breakpoint("tablet")
-      font-size: 14px;
-      padding: 0;
-
-  &.fixed
-    visibility: visible;
-    +breakpoint("tablet")
-      height 56px
-
-  > span
-    display: inline-block;
-
-  .form-control
-    display: inline-block;
-    border: 0;
-    background: rgba(0,0,0,0.05);
-    width: 100%;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    height: 35px;
-    width: auto;
-    margin: 10px 0;
-
-    +breakpoint("tablet")
-      margin: 10px 15px;
-      margin-right: 5px;
-
-  button
-    height: 35px;
-    line-height: 35px;
-    padding: 0;
-    width: 40px;
-
-    i
-      font-size: 18px;
-      vertical-align: middle;
-      line-height: 0;
-      display: inline-block;
-
-  .close-sticky
-    width: 18px;
-    height: 18px;
-    text-indent: -10000em;
-    opacity: .8;
-    background-size: 100%;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAFNUlEQVRYCa1XSU8cRxSuelXdTAaGMROwPRiMcJATQ3xISLwkccQhOUS28Sm/kkMEtqVEygHJdkgikYsFUQg2nhgYsYid8TBdS+q1qVZP09302PSltrd8/V69pShp8RsZGXG33Atlns/1SKFyXLGcpKQNxTBNjgTIOuNQF7X6RqmxVp2bm2u0ooJmJe67fe+SUmKQKNqVlcenA70NwJeWZx6tZOE7FVDv6P1u1iaHpaeLKJBSqgnXNe1BHbgQShNBFZF4poEwoIQrwTl1VM6c5LXWvg7m0F15xOZXZx9uIm3SlwgIBfXfenBdKW/gLbN6A5zsGQvVk4TF7oPOKUE6CYEP8BzAqbz+ffK5/2MxDLGARkdHnapz/ob57xIDcuQpvc3NGMOfeUso0uYA7ZJmJIxslb31P2dnZ72oABbdQDCb7PwdpUgRGSnRW8YNvkuitK2sj2UcaPAdXDqC9vLQxeJytVpVYTkQXqCb0DKC0DwwuQ5a74fPz2KOMlE26kBd9o5Z2U2A8M5QE0WKiqq5oW8s0ZmPRjbqQF2oMyw/cBlGkwmYTw36DSDwXvclrCBpDsTAAdlQSl8qlK9t7VcXakgbWAhDG+9MmmVcB0yE8cyWczgGQgo9esHo9HUfI/cthEmPKtWLFzjpj5irN149/bmyt7Kw9WHfMDGppyOJFvcpdzcrzx6/QvqegetaahFLb8K8YTLbuc7Ln9T3lhf2fQthBsbQTlKAlqk8+aVqz5f+mFpziLtm19ERwbx+NrVq91/89tM6ZfTQrqMj6vargDkArE1E6VxqngHQUSFJoKJgLB+NkWHPfN0GA2JhvO/LPuMOh2gqLEF0bAjSXrhwtXhQ/bcp7e+s/HMYdl8SmP6vfvhIK9mdpoMyImu6i4Lj0u4s5YAyNVT+/O61KFhrqTQw0iPD5LimRfmDtSlJiIWWb94dNeBOpPCA8HhiAJ2THitqCYvVvx7/HT2PW6NlEAwwk2C1ieBTPkmYAy49eT/i+AyQHebI3SRLRXlaBYP8iAUaSga5KCo0us4K6l3AoC7Ewk1LIVopncegiOYujwK2a1EHl7kyk5ssD46IBbiirZcJmltcnpl8HhYWnuMdc7Sb6Z6F+RALSCpOvdBhpqRoCtPg3EZfdD9tjVhMLdWZe50kMHhn0lJCGojwGWIBTzYy9TxpYDC0k6KvFUshFrhaIDthlHFzrNrh2mRpwtGUlhIQFAHttxeWN25ELDA9PS3SCh8yeoI3tZm4FwaDSe+0lADspAyUYz/EgFj8HOTkO5pqlCWyoySNzt4vxj+26ygYu58EauDb+4ONuui2dHGjxRC8Ovpujw8R1cjHEeOLwXR4F43Zt83DTONrJK0c2DLD2/S2ENLQc0NP14lW8c0duLXlmalF1B1k6VKhGPQ7UVDYHphHIb7Juk4Dg7zWUuII6XmJgjpIBGPow7oDC6Gg/q/He7VoJJvWPPr8qp3xAWCMk+OcmUY0wTJGZzR6mwDhk2Tgzr1B5aW3pwj+LD5w2EHlyaOl8Cs2cBkqwIOb5XzlbXN+FiqTZaAO1BUGg9TBM8iyzs/P6+9vfbazWpN5rbRr989yRMvc6O1YmpiYOFElmlwWVoruu/zNg3LqnQozZJzjnfnv6WQ1ahnL3uQyu4kjMmB2LhV7XhATluGzd5obGSgLZSaB8fVmFX7lux+LXu2g2zyw2rPy+ApMBsak9/LXid0sfIkuS2IeGxvjL0V7gRMoeEo4THNHUuU3a0yDwBbCAe4Jovav8MN9LAdJsuL2/we/urKeUsCFcAAAAABJRU5ErkJggg==");
-    cursor pointer
-    display block
-    position absolute
-    right 15px
-    top 50%
-    -webkit-transform translateY(-50%)
-    transform translateY(-50%)
-    &:hover
-      opacity 1
-
-.hiring-callout
-  text-align: center;
-  padding: 60px 20px;
 
 .separator
   border-top: 1px solid #ddd;
