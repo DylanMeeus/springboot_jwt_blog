@@ -37,8 +37,6 @@ body
 h1, h2,h3,h4,h5, pre
   margin-top: 20px;
   margin-bottom: 20px;
-i
-  // display: none
 
 h1
   margin-top: 0;
@@ -386,10 +384,6 @@ h1,h2,h3,h4,h5
 
 #container.container
   margin-top 50px
-  // max-width: none;
-  //
-  // +breakpoint("desktop")
-  //   padding: 0;
 
 .tab
 	@extend .small-caps;
@@ -408,7 +402,7 @@ h1,h2,h3,h4,h5
   	margin-right: 5px;
 
   & + li
-  	border-top: 1px solid #ECECEC;
+  	border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   	+breakpoint("desktop")
   		border-top: 0;
@@ -453,31 +447,31 @@ h1,h2,h3,h4,h5
       display: block !important;
       position: absolute !important;
 
-
 .blog-navigation
-	.jump-to
-		outline: none;
-		background: none;
-		display: block;
-		border: 0;
-		width: 100%;
-		border-bottom: 1px solid #ECECEC;
-		color: color_grey_text;
-		font-weight: 500;
-		z-index: 400;
-		position: relative;
-		@extend .tab;
-
-	 	+breakpoint("desktop")
-	 		display: none;
-
-	 	i
-	 		margin-left: 5px;
-	 		opacity: 0.5;
-
-  .collapse
+  .jump-to
+    outline: none;
+    display: block;
+    border: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 500;
+    z-index: 400;
+    position: relative;
     background-color: #232228;
-    border-top: 1px solid rgba(255, 255, 255, 0.1)
+    @extend .tab;
+
+    +breakpoint("desktop")
+      display: none;
+
+    i
+      margin-left: 5px;
+      opacity: 0.5;
+
+  #navigation_menu
+    background-color: #232228;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   ul, li, &
     list-style: none;
