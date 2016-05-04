@@ -1,0 +1,115 @@
+.post
+  position relative
+  box-shadow 0 0 20px rgba(0, 0, 0, 0.1)
+  text-align left
+  margin-bottom 30px
+
+  .image-container
+    position relative
+    background-color $bg-color-gray
+
+    +breakpoint("tablet", "max")
+      width 100%
+      height 140px
+
+    +breakpoint("tablet")
+      position absolute
+      top 0
+      left 0
+      bottom 0
+      width 150px
+
+    .entry-thumbnail
+      position absolute
+      top 50%
+      left 50%
+      transform( translateX(-50%) translateY(-50%) )
+      margin-top 0
+
+  .text-container
+    padding 30px
+    text-align center
+
+    +breakpoint("tablet")
+      text-align left
+      margin-left 150px
+
+  .post-category
+    font-size 12px
+    letter-spacing 1px
+    text-transform uppercase
+
+  .post-title
+    font-weight 500
+    font-size 22px
+    line-height 1.5em
+    margin 0
+    margin-bottom 10px
+    color black
+
+    a,
+    a:hover
+      color inherit
+
+    +breakpoint("tablet")
+      font-size 26px
+
+  .post-description
+    font-size 16px
+    line-height 2em
+
+  .more-info
+    margin-top 30px
+    text-align center
+
+    +breakpoint("tablet")
+      text-align left
+      height 30px
+      width 100%
+      position relative
+
+  .post-author
+
+    a,
+    a:hover
+      color inherit
+
+    img
+      border-radius 50%
+      margin-right 5px
+
+    +breakpoint("tablet", "max")
+      display block
+      margin-bottom 10px
+
+    +breakpoint("tablet")
+      display inline-block
+      position absolute
+      top 50%
+      left 0
+      transform translateY(-50%)
+
+  .post-time
+
+    +breakpoint("tablet", "max")
+      display block
+      margin-bottom 5px
+
+    +breakpoint("tablet")
+      display inline-block
+      position absolute
+      top 50%
+      left 50%
+      transform( translateY(-50%) translateX(-50%) )
+
+  .post-social
+
+    +breakpoint("tablet", "max")
+      display block
+
+    +breakpoint("tablet")
+      display inline-block
+      position absolute
+      top 50%
+      right 0
+      transform translateY(-50%)
