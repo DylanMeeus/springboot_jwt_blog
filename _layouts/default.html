@@ -528,6 +528,11 @@
           });
 
           var sticky = $('[data-sticky]');
+
+          $('#newsletter-subs .close-btn').on('click', function(){
+            $('#newsletter-subs').remove();
+          });
+
           $(window).on('scroll', function() {
 
             function toggleSticky($elem) {

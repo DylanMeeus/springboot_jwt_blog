@@ -1,13 +1,3 @@
-@import 'lib/mixins'
-@import 'lib/highlight'
-@import 'lib/nprogress'
-
-color_blue = #14204d;
-color_blue_light = #3cc8f4;
-color_red = #eb5422;
-color_grey = #d1d2d4;
-color_grey_text = #5C666F;
-
 html
   overflow-x: hidden;
 
@@ -209,11 +199,6 @@ p,li
     font-weight: 500;
     color: #333;
 
-    &:hover,
-    &:focus,
-    &:active
-      color: currentColor;
-
 .blog-title
   @extend .entry-title;
   font-size: 32px;
@@ -332,11 +317,8 @@ p.blog-description
   color: color_grey_text;
   text-decoration: none;
 
-  span
-    opacity: 0.7;
-
   & + .network
-    margin-left: 20px;
+    margin-left: 10px;
 
   svg
     position: relative;
@@ -514,29 +496,30 @@ h1,h2,h3,h4,h5
 ul.archive
   margin: 0;
   padding: 0;
-  margin: 0 auto;
-
-  .entry-content
-    text-align: center;
-    margin-bottom: 40px;
-
-  li.post
-    text-align: center;
-    list-style: none;
-    padding-bottom: 60px;
-    margin-bottom: 60px;
-    position: relative;
-
-    & + li.post
-      &:before
-        @extend .line;
-        position: absolute;
-        top: -50px;
-        left: 0;
-
-    .entry-content
-      img
-        display: none !important
+  list-style: none;
+  // margin: 0 auto;
+  //
+  // .entry-content
+  //   text-align: center;
+  //   margin-bottom: 40px;
+  //
+  // li.post
+  //   text-align: center;
+  //   list-style: none;
+  //   padding-bottom: 60px;
+  //   margin-bottom: 60px;
+  //   position: relative;
+  //
+  //   & + li.post
+  //     &:before
+  //       @extend .line;
+  //       position: absolute;
+  //       top: -50px;
+  //       left: 0;
+  //
+  //   .entry-content
+  //     img
+  //       display: none !important
 
 .author
   .name
