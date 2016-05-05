@@ -469,6 +469,82 @@
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
 
+          // Newsletter widget close button
+          $('.newsletter-subscriber .close-btn').on('click', function(){
+            $('.newsletter-subscriber').remove();
+          });
+
+          function stickyBottomHandler(){
+            var $elem = $('[data-sticky-bottom]');
+            var $reference = $('[data-sticky-reference]');
+            var $elemColumn = $('[data-sticky-element-column]');
+            var elemPadding = $elem.attr('data-sticky-padding') || 0;
+
+            var referenceScrollBottom = $reference.offset().top + $reference.outerHeight();
+            var elementEmptySpace = $(window).outerHeight() - $elem.outerHeight() - elemPadding;
+            $elemColumn.height($reference.outerHeight());
+
+            $(window).on('resize', stickyResizeHandler);
+            $(window).on('scroll', stickyScrollHandler);
+
+            function stickyResizeHandler(){
+              $elemColumn.height($reference.outerHeight());
+              referenceScrollBottom = $reference.offset().top + $reference.outerHeight();
+              elementEmptySpace = $(window).outerHeight() - $elem.outerHeight() - 100;
+            }
+
+            function stickyScrollHandler(){
+              var viewportScrollBottom = $(window).scrollTop() + $(window).outerHeight();
+
+              if( (viewportScrollBottom - elementEmptySpace) > referenceScrollBottom){
+                $elem.addClass("fixed-bottom");
+              } else {
+                $elem.removeClass("fixed-bottom");
+              }
+            }
+          }
+
+          // Sticky for navigation and popular posts
+          function stickyHandler() {
+            var sticky = $('[data-sticky]');
+
+            if(sticky.length) {
+              sticky.each(function(index, elem){
+                var $elem = $(elem);
+                $elem.data('_offset', $elem.offset().top);
+              });
+            }
+
+            function toggleSticky($elem) {
+              var stickyPadding = $elem.attr('data-sticky-padding') || 0;
+
+              if ($(window).scrollTop() > $elem.data('_offset') - stickyPadding) {
+                $elem.addClass('fixed');
+
+                if(stickyPadding > 0) {
+                  $elem.css({
+                    'top': stickyPadding + 'px'
+                  });
+                }
+              } else {
+                $elem.removeClass('fixed');
+
+                $elem.css({
+                  'top': ''
+                });
+              }
+            }
+
+            $(window).on('scroll', function() {
+              sticky.each(function(index, elem){
+                toggleSticky($(elem));
+              });
+            });
+          }
+
+          var sticky = stickyHandler();
+          var stickyBottomHandler = stickyBottomHandler();
+
         }
 
         function setEvents() {
@@ -525,33 +601,6 @@
 
             tabs.removeClass('active');
             activeTab.addClass('active');
-          });
-
-          var sticky = $('[data-sticky]');
-
-          $('#newsletter-subs .close-btn').on('click', function(){
-            $('#newsletter-subs').remove();
-          });
-
-          $(window).on('scroll', function() {
-
-            function toggleSticky($elem) {
-              if(!$elem.hasClass('fixed')) {
-                elemOffset = $elem.offset().top;
-              }
-
-              if ($(window).scrollTop() > elemOffset) {
-                $elem.addClass('fixed');
-              } else {
-                $elem.removeClass('fixed');
-              }
-            }
-
-            if(sticky.length) {
-              sticky.each(function(index, elem){
-                toggleSticky($(elem));
-              });
-            }
           });
 
           initialize();

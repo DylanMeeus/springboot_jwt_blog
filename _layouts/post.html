@@ -20,9 +20,8 @@ layout: default
 
       <div class="blog-post blog-single">
         <div class="inner">
-            <div class="entry-content">
-
-            {{ content }}
+            <div class="entry-content" data-sticky-reference>
+              {{ content }}
             </div>
 
             {% include reply_buttons.html %}
@@ -33,17 +32,13 @@ layout: default
                 </div>
             </div>
 
-
-            {% include related_posts.html %}
-
-            <div id="disqus_thread" class="container">
-            </div>
+            <div id="disqus_thread" class="container"></div>
         </div>
       </div>
       <br />
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" data-sticky-element-column>
       {% include newsletter.html %}
       {% include popular_posts.html %}
     </div>

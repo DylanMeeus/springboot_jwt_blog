@@ -462,7 +462,7 @@ h1,h2,h3,h4,h5
 
   &
     position: relative;
-    min-height: 55px;
+    min-height: 65px;
     text-align: center;
     margin-top: -15px;
 
@@ -640,26 +640,22 @@ pre.prettyprint
 #nav-below.navigation
   margin-bottom: 50px;
   text-align: center;
-  position: relative;
-
-  &:before
-    @extend .line;
-    position: absolute;
-    top: 0;
-    left: 0;
 
   .nav-previous, .nav-next
     display: inline-block
     a
       font-weight: 500;
-      margin: 0 20px;
-      margin-top: 40px;
       display: inline-block;
       color: #5c666f;
       line-height: 40px;
       padding: 0 20px;
-      border: 1px solid rgba(#5c666f, 0.11);
-      border-radius: 20px;
+      border-radius: 3px;
+
+  .nav-previous
+    float left
+
+  .nav-next
+    float right
 
 .related-posts
   grid(1, 20px, ".entry-related")
