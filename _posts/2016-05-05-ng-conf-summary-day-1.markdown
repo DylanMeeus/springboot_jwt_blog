@@ -9,8 +9,8 @@ author:
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design: 
-  bg_color: "#353F4A"
-  image: "https://cdn.auth0.com/blog/angular2-series/angular2-logo.png"
+  bg_color: "#000000"
+  image: "https://cdn.auth0.com/blog/ngconf2016/ng-conf-logo.png"
 tags: 
 - Angular
 - Angular 2
