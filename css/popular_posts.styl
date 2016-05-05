@@ -7,13 +7,18 @@
     border-bottom 2px solid #E3E5E7
 
   &.fixed
-    position: fixed;
-    top: 0;
-    max-width: 293.3px;
-    z-index: 1000;
+    width 293.328px
+    position fixed
+    top 0
+    z-index 100
 
-    +breakpoint("desktop")
-      max-width: 308.6px;
+    +breakpoint("desktop-hd")
+      width 308.6px
+
+  &.fixed-bottom
+    position absolute !important
+    top auto !important
+    bottom 0 !important
 
 .popular-post
   position relative
