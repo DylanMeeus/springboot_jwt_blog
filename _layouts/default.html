@@ -469,61 +469,50 @@
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
 
-          // Newsletter widget close button
-          $('.newsletter-subscriber .close-btn').on('click', function(){
-            $('.newsletter-subscriber').remove();
-          });
-
-          function stickyBottomHandler(){
-            var $elem = $('[data-sticky-bottom]');
-            var $reference = $('[data-sticky-reference]');
-            var $elemColumn = $('[data-sticky-element-column]');
-            var elemPadding = $elem.attr('data-sticky-padding') || 0;
-
-            var referenceScrollBottom = $reference.offset().top + $reference.outerHeight();
-            var elementEmptySpace = $(window).outerHeight() - $elem.outerHeight() - elemPadding;
-            $elemColumn.height($reference.outerHeight());
-
-            $(window).on('resize', stickyResizeHandler);
-            $(window).on('scroll', stickyScrollHandler);
-
-            function stickyResizeHandler(){
-              $elemColumn.height($reference.outerHeight());
-              referenceScrollBottom = $reference.offset().top + $reference.outerHeight();
-              elementEmptySpace = $(window).outerHeight() - $elem.outerHeight() - 100;
-            }
-
-            function stickyScrollHandler(){
-              var viewportScrollBottom = $(window).scrollTop() + $(window).outerHeight();
-
-              if( (viewportScrollBottom - elementEmptySpace) > referenceScrollBottom){
-                $elem.addClass("fixed-bottom");
-              } else {
-                $elem.removeClass("fixed-bottom");
-              }
-            }
-          }
-
-          // Sticky for navigation and popular posts
           function stickyHandler() {
             var sticky = $('[data-sticky]');
 
-            if(sticky.length) {
-              sticky.each(function(index, elem){
-                var $elem = $(elem);
-                $elem.data('_offset', $elem.offset().top);
-              });
-            }
+            sticky.each(function(index, elem){
+              var $elem = $(elem);
 
-            function toggleSticky($elem) {
-              var stickyPadding = $elem.attr('data-sticky-padding') || 0;
+              var elemData = {
+                offset: $elem.offset().top,
+                padding: $elem.attr('data-sticky-padding') || 0,
+                reference: $elem.attr('data-sticky-reference'),
+                container: $elem.attr('data-sticky-container')
+              };
 
-              if ($(window).scrollTop() > $elem.data('_offset') - stickyPadding) {
+              if(!elemData.container || !elemData.reference) {
+                return $elem.data('_sticky', elemData);
+              }
+
+              elemData.referenceScrollBottom = $(elemData.reference).offset().top + $(elemData.reference).outerHeight();
+              elemData.emptySpace = $(window).outerHeight() - $elem.outerHeight() - elemData.padding;
+
+              $(elemData.container).height($(elemData.reference).outerHeight());
+
+              return $elem.data('_sticky', elemData);
+            });
+
+            function scrollHandler($elem) {
+              var elemData = $elem.data('_sticky');
+
+              if(elemData.reference) {
+                var viewportScrollBottom = $(window).scrollTop() + $(window).outerHeight();
+
+                if( (viewportScrollBottom - elemData.emptySpace) > elemData.referenceScrollBottom){
+                  $elem.addClass("fixed-bottom");
+                } else {
+                  $elem.removeClass("fixed-bottom");
+                }
+              }
+
+              if ($(window).scrollTop() > elemData.offset - elemData.padding) {
                 $elem.addClass('fixed');
 
-                if(stickyPadding > 0) {
+                if(elemData.padding > 0) {
                   $elem.css({
-                    'top': stickyPadding + 'px'
+                    'top': elemData.padding + 'px'
                   });
                 }
               } else {
@@ -535,16 +524,52 @@
               }
             }
 
-            $(window).on('scroll', function() {
+            function resizeHandler($elem){
+              var elemData = $elem.data('_sticky');
+
+              $(elemData.container).height($(elemData.reference).outerHeight());
+
+              if(!elemData.reference){
+                return;
+              }
+
+              elemData.referenceScrollBottom = $(elemData.reference).offset().top + $(elemData.reference).outerHeight();
+              elemData.emptySpace = $(window).outerHeight() - $elem.outerHeight() - elemData.padding;
+            }
+
+            function updateElemOffset(){
               sticky.each(function(index, elem){
-                toggleSticky($(elem));
+                var $elem = $(elem);
+                var elemData = $elem.data('_sticky');
+                elemData.offset = $elem.offset().top;
+              });
+            }
+
+            $(window).on('scroll', function(){
+              sticky.each(function(index, elem){
+                scrollHandler($(elem));
               });
             });
+
+            $(window).on('resize', function(){
+              sticky.each(function(index, elem){
+                resizeHandler($(elem));
+              })
+            });
+
+            return {
+              updateElemOffset: updateElemOffset
+            };
           }
 
-          var sticky = stickyHandler();
-          var stickyBottomHandler = stickyBottomHandler();
+          var stickyHandler = stickyHandler();
 
+          // Newsletter widget close button
+          var $newsletterSubscriber = $('.newsletter-subscriber');
+          $newsletterSubscriber.find('.close-btn').on('click', function(){
+            $newsletterSubscriber.remove();
+            stickyHandler.updateElemOffset();
+          });
         }
 
         function setEvents() {
@@ -568,6 +593,8 @@
 
               // Hide content until the ab/experiments run
               $('#pjax').css('visibility', 'hidden');
+
+              $(window).unbind('scroll resize');
 
               initialize();
 
