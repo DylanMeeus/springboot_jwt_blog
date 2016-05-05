@@ -20,7 +20,7 @@ layout: default
 
       <div class="blog-post blog-single">
         <div class="inner">
-            <div class="entry-content" data-sticky-reference>
+            <div class="entry-content js-entry-content">
               {{ content }}
             </div>
 
@@ -38,9 +38,9 @@ layout: default
       <br />
 
     </div>
-    <div class="col-md-4" data-sticky-element-column>
+    <div class="col-md-4 sidebar-column">
       {% include newsletter.html %}
-      {% include popular_posts.html %}
+      {% include popular_posts.html sticky-padding="30" sticky-reference=".js-entry-content" %}
     </div>
   </div>
 

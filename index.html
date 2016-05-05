@@ -13,7 +13,7 @@ latest_tab: active
 <div class="container" id="container">
   <div class="row">
       <div class="col-md-8">
-        <ul class="archive" data-sticky-reference>
+        <ul class="archive">
           {% for post in paginator.posts %}
           {% unless post.draft %}
           {% include archive_post.html %}
@@ -22,9 +22,9 @@ latest_tab: active
         </ul>
         {% include paging.html %}
       </div>
-      <div class="col-md-4" data-sticky-element-column>
+      <div class="col-md-4 sidebar-column">
         {% include newsletter.html %}
-        {% include popular_posts.html sticky-padding='100' %}
+        {% include popular_posts.html sticky-padding='100' sticky-reference='.archive'%}
       </div>
   </div>
 
