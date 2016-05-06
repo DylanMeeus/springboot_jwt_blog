@@ -29,9 +29,14 @@ It may be a bit early to discuss the future of Angular 2 when it's not even out 
 
 {% include tweet_quote.html quote_text="It's early to discuss the future of Angular 2, but the theme of the day 2 keynote was looking ahead." %}
 
+### Offline Compiler
+
 Offline compiling is what allows the Angular 2 library to become smaller than Angular 1. This is done through a custom compiler that the Angular team built, which is invoked through the `ngc` command once installed, which examines your apps code and does tree shaking to remove any unnecessary modules. The ng-compiler is one of the key features of Angular 2 that is required before Angular 2.0 can be delivered but as of today it is not ready.
 
+### Advanced Material Components
 The Material Design team gave a brief talk about the future of Material Design with Angular 2. The team has already committed to parity with the existing Material 1 for Angular 1.x, but talked about future potential with components that could include components such as `<md-map>` which would embed a Google Map or `<md-chart>` which would be used for charting UI. The coolest potential component discussed was `<md-text-editor>` which would create a WYSIWYG text-editor which have traditionally been difficult to implement, especially with Angular 1 applications.
+
+### Seamless Upgrades
 
 Finally, the team discussed effortless future upgrades and even joked about Angular 3. The goal here is to give developers a seamless path to upgrading once future 2.x versions of Angular are released. The Angular team is already doing extensive testing to ensure that any change to the core Angular libraries does not break compatibility with existing modules. 
  
@@ -39,7 +44,7 @@ Finally, the team discussed effortless future upgrades and even joked about Angu
   
 There were plenty of Angular 2 workshops that took a deep dive into some of the technologies announced on day one of the keynote. Ionic had a great presentation on building hybrid mobile apps with Ionic 2 and Angular 2. The Telerik team took to the stage again and gave a detailed walkthrough of how to build native mobile applications with Angular 2 and NativeScript. Sean Larkin did a great workshop on integrating Angular 2 with Webpack.
  
- Auth0 hosted a workshop on integrating JSON Web Token (JWT) authentication with both Angular 1.x and Angular 2. The workshop highlighted the benefits of JWT authentication as well as differences in implementation between the two frameworks. If you would like to learn how to implement JWT authentication in your app check our guide for both [Angular 1](https://auth0.com/docs/client-platforms/angularjs) and [Angular 2](https://auth0.com/docs/client-platforms/angular2) 
+ Auth0 hosted a workshop on integrating JSON Web Token (JWT) authentication with both Angular 1.x and Angular 2. The workshop highlighted the benefits of JWT authentication as well as differences in implementation between the two frameworks. If you would like to learn how to implement JWT authentication in your app check our guide for both [Angular 1](https://auth0.com/docs/client-platforms/angularjs) and [Angular 2](https://auth0.com/docs/client-platforms/angular2).
  
 ## Conclusion - Day 3 Preview
  
