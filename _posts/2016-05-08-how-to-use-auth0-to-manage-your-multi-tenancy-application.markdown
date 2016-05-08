@@ -7,7 +7,7 @@ author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
-  avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
+  avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
 design: 
   bg_color: "#003573"
   image: https://cdn.auth0.com/blog/multi-tenancy/logo.png
