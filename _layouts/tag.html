@@ -9,16 +9,21 @@ is_tag_index: true
 
 <div id="container" class="container">
 
-  <ul class="archive">
+  <div class="row">
+    <ul class="archive">
 
-  {% for post in paginator.posts limit: 3 %}
-    {% unless post.draft %}
+      {% for post in paginator.posts limit: 3 %}
+      {% unless post.draft %}
       {% include archive_post.html %}
-    {% endunless %}
-  {% endfor %}
+      {% endunless %}
+      {% endfor %}
 
-  </ul>
+    </ul>
+  </div>
+
+  <div class="row">
+    {% include newsletter.html %}
+    {% include paging.html %}
+  </div>
+  
 </div>
-
-{% include newsletter.html %}
-{% include paging.html %}
