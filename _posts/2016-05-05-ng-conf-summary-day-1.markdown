@@ -23,7 +23,7 @@ tags:
 
 The annual [ng-conf](https://www.ng-conf.org/) conference is upon us once again. This year, Angular 2 is all the rage. Angular 2 has entered [release candidate](https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc0-2016-05-02) and is inching ever-closer to a final 1.0...err...2.0 release.
 
-In today's short post, we'll recap all the big announcements coming out of ng-conf 2016.
+In today's short post, we'll recap all the big announcements coming out of ng-conf 2016. Be sure to check out the big announcements from [day two](https://auth0.com/blog/2016/05/06/ng-conf-summary-day-2/) and [day three](https://auth0.com/blog/2016/05/07/ng-conf-summary-day-3/) as well.
 
 ## Keynote
 

@@ -25,7 +25,7 @@ Day three of ng-conf consisted of a single track of talks. The topics covered to
 
 {% include tweet_quote.html quote_text="One of the key missing pieces to the final release of Angular 2.0 is the offline compiler." %}
 
-If you missed our previous recaps of ng-conf, you can check out the big announcements from [day one](https://auth0.com/blog/2016/05/05/ng-conf-summary-day-1/) and [day two](https://auth0.com/blog/2016/05/05/ng-conf-summary-day-2/).
+If you missed our previous recaps of ng-conf, you can check out the big announcements from [day one](https://auth0.com/blog/2016/05/05/ng-conf-summary-day-1/) and [day two](https://auth0.com/blog/2016/05/06/ng-conf-summary-day-2/).
 
 ## Reactive Programming
 
