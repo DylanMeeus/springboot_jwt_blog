@@ -11,21 +11,24 @@ latest_tab: active
 {% include navigation.html %}
 
 <div class="container" id="container">
-  <div class="row">
-      <div class="col-md-8">
-        <ul class="archive">
-          {% for post in paginator.posts %}
-          {% unless post.draft %}
-          {% include archive_post.html %}
-          {% endunless %}
-          {% endfor %}
-        </ul>
-        {% include paging.html %}
-      </div>
-      <div class="col-md-4 sidebar-column">
-        {% include newsletter.html %}
-        {% include popular_posts.html sticky-padding='100' sticky-reference='.archive'%}
-      </div>
+  <div class="row sticky-container">
+    <div class="col-md-8 content-column">
+      <ul class="archive">
+        {% for post in paginator.posts %}
+        {% unless post.draft %}
+        {% include archive_post.html %}
+        {% endunless %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-4 sidebar-column" data-sticky-padding="125">
+      {% include newsletter.html %}
+      {% include popular_posts.html %}
+    </div>
   </div>
-
+  <div class="row">
+    <div class="col-md-8">
+      {% include paging.html %}
+    </div>
+  </div>
 </div>

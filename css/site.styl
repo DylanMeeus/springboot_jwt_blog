@@ -107,7 +107,7 @@ p,li
 .banner.banner-post
   background: #354171;
   padding: 20px 0;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 
   .banner-container
     -webkit-animation: none;
@@ -117,7 +117,6 @@ p,li
   +breakpoint("desktop")
     padding-top: 135px;
     padding-bottom: 40px;
-    margin-bottom: 30px;
 
   &.banner-blog
     padding-bottom: 40px;
@@ -423,6 +422,15 @@ h1,h2,h3,h4,h5
     	color: #333;
     	border-bottom: 1px solid;
 
+// Sticky element / sticky-kit
+
+.content-column
+  margin-right -1px //Fix for percentage width library error
+
+.content-column,
+.sidebar-column
+  position static
+
 .touch-focus
   .blog-navigation
     [data-sticky]
@@ -461,13 +469,10 @@ h1,h2,h3,h4,h5
     margin: 0;
 
   &
+    z-index: 1;
     position: relative;
     min-height: 65px;
     text-align: center;
-    margin-top: -15px;
-
-    +breakpoint("desktop")
-      margin-top: -30px;
 
   [data-sticky]
     &:after
@@ -497,29 +502,6 @@ ul.archive
   margin: 0;
   padding: 0;
   list-style: none;
-  // margin: 0 auto;
-  //
-  // .entry-content
-  //   text-align: center;
-  //   margin-bottom: 40px;
-  //
-  // li.post
-  //   text-align: center;
-  //   list-style: none;
-  //   padding-bottom: 60px;
-  //   margin-bottom: 60px;
-  //   position: relative;
-  //
-  //   & + li.post
-  //     &:before
-  //       @extend .line;
-  //       position: absolute;
-  //       top: -50px;
-  //       left: 0;
-  //
-  //   .entry-content
-  //     img
-  //       display: none !important
 
 .author
   .name
@@ -631,31 +613,49 @@ ul.archive
       margin-left: -20%;
       margin-right: -20%;
 
-
 pre.prettyprint
   padding: 20px !important;
   border: 0 !important;
   border-radius: 3px;
 
 #nav-below.navigation
+  overflow: hidden;
   margin-bottom: 50px;
   text-align: center;
 
-  .nav-previous, .nav-next
+  .nav-previous,
+  .nav-next
     display: inline-block
     a
-      font-weight: 500;
       display: inline-block;
-      color: #5c666f;
-      line-height: 40px;
-      padding: 0 20px;
+      background-color: rgba(0, 0, 0, .05);
+      font-size: 12px
+      color: black;
+      line-height: 34px;
+      padding: 0 12px
       border-radius: 3px;
+
+      i[class^="icon-"]
+        display inline-block
+        vertical-align middle
+        line-height 34px
+
 
   .nav-previous
     float left
 
+    i[class^="icon-"]
+      padding-right 12px
+      margin-right 12px
+      border-right 1px solid white
+
   .nav-next
     float right
+
+    i[class^="icon-"]
+      padding-left 12px
+      margin-left 12px
+      border-left 1px solid white
 
 .related-posts
   grid(1, 20px, ".entry-related")

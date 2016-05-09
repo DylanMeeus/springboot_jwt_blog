@@ -6,11 +6,11 @@
 
   .image-container
     position relative
-    background-color $bg-color-gray
 
     +breakpoint("tablet", "max")
       width 100%
       height 140px
+      border-bottom 1px solid rgba(151, 151, 151, 0.15)
 
     +breakpoint("tablet")
       position absolute
@@ -18,12 +18,15 @@
       left 0
       bottom 0
       width 150px
+      border-right 1px solid rgba(151, 151, 151, 0.15)
 
     .entry-thumbnail
       position absolute
       top 50%
       left 50%
       transform( translateX(-50%) translateY(-50%) )
+      max-width 100px
+      max-height 100px
       margin-top 0
 
   .text-container
