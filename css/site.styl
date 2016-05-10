@@ -506,11 +506,14 @@ ul.archive
     top: -2px;
 
 .entry-content
-  font-size: 18px;
+  font-size: 16px;
   line-height: 2;
   max-width: 600px;
   margin: 0 auto;
   font-family: "minion-pro", serif;
+
+  +breakpoint("tablet")
+    font-size: 20px;
 
   h1, h2, h3, h4, h5
     color: rgba(0,0,0,.35);
