@@ -87,7 +87,7 @@ Material 2 will allow developers to quickly build beautiful user interfaces with
  
 ## Aside: Auth0's Angular 2 JWT Library
  
- Now is the perfect time to deep your feet into Angular 2 development. If you are building a consumer facing app, you are likely to need a user authentication system. Here at Auth0, we've built a [helper library](https://github.com/auth0/angular2-jwt) for handling JSON Web Token (JWT) authentication. The Angular 2 JWT library can help you integrate JWT authentication with both the Auth0 platform or your own authentication system.
+ Now is the perfect time to deep your feet into Angular 2 development. If you are building a consumer facing app, you are likely to need a user authentication system. Here at Auth0, we've built a [helper library](https://github.com/auth0/angular2-jwt) for handling JSON Web Token (JWT) authentication. The Angular 2 JWT library can help you integrate JWT authentication with both the Auth0 platform or your own authentication system. If you don't already have an Auth0 account, [sign up](https://auth0.com/signup) for free and get started today.
  
  If you would like a crash course into Angular 2, check our Ryan Chenkie's Angular 2 series starting with [Angular 2 Pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/).
  
