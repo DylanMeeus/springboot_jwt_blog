@@ -46,6 +46,11 @@ layout: default
             reload: true,
             config: function () {
               this.page.url = location.href;
+
+              this.callbacks.afterRender = [function() {
+                  // your code here
+                  $(document.body).trigger("sticky_kit:recalc");
+              }];
             }
           });
       } else {

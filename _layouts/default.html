@@ -532,6 +532,10 @@
             });
           }
 
+          $(window).on('load', function() {
+            $(document.body).trigger("sticky_kit:recalc");
+          });
+
 
           $('body').on('click', '.blog-navigation a', function() {
             var tabs = $('.blog-navigation li');
