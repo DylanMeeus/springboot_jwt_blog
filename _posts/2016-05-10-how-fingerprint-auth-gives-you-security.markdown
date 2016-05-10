@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Fingerprint Authentication Gives You High Security And Low Friction"
+title: "How Fingerprint Auth Gives High Security & Low Friction"
 description: Implement fingerprint authentication to allow users easy access to apps while still keeping them secure
 date: 2016-05-10 8:30
 author:
@@ -9,8 +9,8 @@ author:
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design: 
-  bg_color: "#353F4A"
-  image: "https://cdn.auth0.com/blog/account-kit-passwordless/account-kit-hero.png"
+  bg_color: "#171717"
+  image: "https://cdn.auth0.com/blog/fingerprint-auth/logo.png"
 tags: 
 - fingerprint authentication
 - passwordless
@@ -82,16 +82,15 @@ Implementing fingerprint authentication for Passwordless is easy with Auth0. All
 or you can use Lock code for implementation:
 
 ```js
-
-let lock = A0Lock(clientId: "YOUR_CLIENT_ID", domain: "YOUR_DOMAIN")
-let controller = lock.newTouchIDViewController()
-lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
-    // Do something with token & profile. e.g.: save them.
-    // Lock will not save the Token and the profile for you.
-    // And dismiss the UIViewController.
-    self.dismissViewControllerAnimated(true, completion: nil)
-}
-lock.presentTouchIDController(controller, fromController: self)
+    let lock = A0Lock(clientId: "YOUR_CLIENT_ID", domain: "YOUR_DOMAIN")
+    let controller = lock.newTouchIDViewController()
+    lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
+        // Do something with token & profile. e.g.: save them.
+        // Lock will not save the Token and the profile for you.
+        // And dismiss the UIViewController.
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    lock.presentTouchIDController(controller, fromController: self)
 
 ```
 
