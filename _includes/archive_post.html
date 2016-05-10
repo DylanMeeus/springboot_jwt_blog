@@ -12,6 +12,7 @@ Archives include: "by tags" and "by time" archives.
 
 <li class="post {% if current.design.blog_series %} blog-series{% endif %}">
   <div class="image-container">
+    <div class="backdrop" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}></div>
     {% include entry_image.html %}
   </div>
   <div class="text-container">

@@ -6,8 +6,25 @@
   text-align left
   margin-bottom 30px
 
+  &:hover
+    .backdrop
+      opacity 0.02
+
+  .backdrop
+    transition opacity 0.2s easeInOut
+    opacity 0
+    display block
+    position absolute
+    top 0
+    left 0
+    height 100%
+    width 100%
+    border-radius 4px 0 0 4px
+
   .image-container
     position relative
+
+
 
     +breakpoint("tablet", "max")
       width 100%
@@ -30,6 +47,7 @@
       max-width 100px
       max-height 100px
       margin-top 0
+      z-index 1
 
   .text-container
     padding 30px
