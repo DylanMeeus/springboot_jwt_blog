@@ -44,7 +44,7 @@ Finally, the team discussed effortless future upgrades and even joked about Angu
   
 There were plenty of Angular 2 workshops that took a deep dive into some of the technologies announced on day one of the keynote. Ionic had a great presentation on building hybrid mobile apps with Ionic 2 and Angular 2. The Telerik team took to the stage again and gave a detailed walkthrough of how to build native mobile applications with Angular 2 and NativeScript. Sean Larkin did a great workshop on integrating Angular 2 with Webpack.
  
- Auth0 hosted a workshop on integrating JSON Web Token (JWT) authentication with both Angular 1.x and Angular 2. The workshop highlighted the benefits of JWT authentication as well as differences in implementation between the two frameworks. If you would like to learn how to implement JWT authentication in your app check our guide for both [Angular 1](https://auth0.com/docs/client-platforms/angularjs) and [Angular 2](https://auth0.com/docs/client-platforms/angular2).
+ Auth0 hosted a workshop on integrating JSON Web Token (JWT) authentication with both Angular 1.x and Angular 2. The workshop highlighted the benefits of JWT authentication as well as differences in implementation between the two frameworks. If you would like to learn how to implement JWT authentication in your app check our guide for both [Angular 1](https://auth0.com/docs/client-platforms/angularjs) and [Angular 2](https://auth0.com/docs/client-platforms/angular2). If you don't already have an Auth0 account, [sign up](https://auth0.com/signup) for free and get started today.
  
 ## Conclusion - Day 3 Preview
  
