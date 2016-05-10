@@ -80,7 +80,9 @@ Implementing fingerprint authentication for Passwordless is easy with Auth0. All
 ![Passwordless Connections](https://cdn.auth0.com/blog/fingerprint-auth/passwordless-connections.png)
 
 or you can use Lock code for implementation:
+
 ```js
+
 let lock = A0Lock(clientId: "YOUR_CLIENT_ID", domain: "YOUR_DOMAIN")
 let controller = lock.newTouchIDViewController()
 lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
@@ -90,6 +92,7 @@ lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () i
     self.dismissViewControllerAnimated(true, completion: nil)
 }
 lock.presentTouchIDController(controller, fromController: self)
+
 ```
 
 Fingerprint authentication is not currently part of the in-built capabilities of MFA and Step-up. However, Auth0’s flexible [rules execution pipeline](https://auth0.com/docs/rules) makes it easy to use these passwordless authentication methods as part of an MFA flow. 
