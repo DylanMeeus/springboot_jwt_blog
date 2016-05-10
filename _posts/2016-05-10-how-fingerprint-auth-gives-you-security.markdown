@@ -82,15 +82,15 @@ Implementing fingerprint authentication for Passwordless is easy with Auth0. All
 or you can use Lock code for implementation:
 
 ```js
-    let lock = A0Lock(clientId: "YOUR_CLIENT_ID", domain: "YOUR_DOMAIN")
-    let controller = lock.newTouchIDViewController()
-    lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
-        // Do something with token & profile. e.g.: save them.
-        // Lock will not save the Token and the profile for you.
-        // And dismiss the UIViewController.
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    lock.presentTouchIDController(controller, fromController: self)
+let lock = A0Lock(clientId: "YOUR_CLIENT_ID", domain: "YOUR_DOMAIN")
+let controller = lock.newTouchIDViewController()
+lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
+    // Do something with token & profile. e.g.: save them.
+    // Lock will not save the Token and the profile for you.
+    // And dismiss the UIViewController.
+    self.dismissViewControllerAnimated(true, completion: nil)
+}
+lock.presentTouchIDController(controller, fromController: self)
 
 ```
 
