@@ -354,22 +354,28 @@
 
           stickElement($('.sidebar-column'));
           stickElement($('.blog-navigation'));
+
+          stickElement($('.utility-bar'));
         }
 
         function initBlogSubscriber() {
           if(localStorage.isBlogSubscriber) {
-            $('form.newsletter-subscriber[data-sticky]').addClass('hide');
+            $('form.newsletter-subscriber').addClass('hide');
           }
 
-          // function closeSticky($module, animation) {
-          //   $module.addClass('animated ' + animation);
-          // }
+          function closeSticky($module, animation) {
+            $module.addClass('animated ' + animation);
 
-          // $('form.newsletter-subscriber').on('click', '.close-sticky', function() {
-          //   var $module = $(this).closest('form');
-          //
-          //   closeSticky($module, 'fadeOutUp');
-          // });
+            setTimeout(function() {
+              $module.remove();
+            }, 1000);
+          }
+
+          $('form.newsletter-subscriber').on('click', '[data-close]', function() {
+            var $module = $(this).closest('form');
+
+            closeSticky($module, 'fadeOutUp');
+          });
 
           $('form.newsletter-subscriber').on('submit', function(e) {
             var $module = $(this);

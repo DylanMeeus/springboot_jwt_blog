@@ -2,6 +2,15 @@
   position relative
   margin-bottom 40px
 
+  &.fadeOutUp
+    -webkit-animation-name: fadeOutUpNewsletter;
+    animation-name: fadeOutUpNewsletter;
+
+  [data-close]
+    position: absolute;
+    top: -2px;
+    right: 0;
+
   .title
     color black
     padding-bottom 10px
@@ -44,6 +53,3 @@
 
   p
     margin-bottom 0
-
-.hiring-callout
-  display none
