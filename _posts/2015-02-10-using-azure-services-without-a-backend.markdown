@@ -17,6 +17,10 @@ tags:
 - delegation
 - spa
 - login
+related:
+- 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies
+- 2015-12-17-json-web-token-signing-algorithms-overview
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
 ---
 
 **TL;DR**: you can access Azure Storage APIs securely from browsers (i.e. using JavaScript) or native apps, without the need of a backend server. Live demo @ <http://auth0.github.io/auth0-azure-blob-sample/>

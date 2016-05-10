@@ -24,6 +24,10 @@ tags:
 - pure data structures
 - purely functional data structures
 - lazy data structures
+related:
+- 2016-01-07-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
+- 2016-04-13-authentication-in-golang
+- 2016-02-22-12-steps-to-a-faster-web-app
 ---
 
 Functional programming has been on the rise the last few years. Languages such as Clojure, Scala and Haskell have brought to the eyes of imperative programmers interesting techniques that can provide significant benefits in certain use cases. Immutable.js aims to bring some of these benefits to JavaScript in an easy and intuitive API. Follow us through this overview to learn some of these benefits and how to make them count in your projects!

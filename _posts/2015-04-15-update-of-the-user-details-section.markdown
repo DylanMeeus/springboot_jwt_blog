@@ -16,6 +16,10 @@ design:
 tags:
 - dashboard
 - product
+related:
+- 2016-04-18-progressive-profiling
+- 2016-04-14-safely-use-best-customer-retention-tactics
+- 2015-09-11-7-ways-to-2x-your-revenue-growth-by-putting-your-user-data-to-work
 ---
 
 **TL;DR**

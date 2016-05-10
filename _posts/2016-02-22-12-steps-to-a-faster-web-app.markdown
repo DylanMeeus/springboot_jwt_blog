@@ -27,6 +27,10 @@ tags:
 - faster web
 - performance
 - improve performance
+related:
+- 2016-01-07-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
+- 2016-03-23-intro-to-immutable-js
+- 2015-10-09-whats-the-fuss-with-googles-accelerated-mobile-pages-amp
 ---
 
 Web apps are now more interactive than ever. Getting that last drop of performance can do a great deal to improve your end-users' experience. Read the following tips and learn if there is anything more you can do to improve latency, render times and general performance!

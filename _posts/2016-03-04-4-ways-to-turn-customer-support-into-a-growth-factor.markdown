@@ -15,6 +15,10 @@ tags:
 - customer service
 - growth hacking
 - customer support
+related:
+- 2016-04-18-progressive-profiling
+- 2016-04-19-supercharge-your-registration-process
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 Paul Graham, co-founder of prestigious startup fund Y Combinator, [believes](http://paulgraham.com/ds.html) that early founders don't try hard enough to delight their customers. 

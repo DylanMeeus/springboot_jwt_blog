@@ -20,6 +20,10 @@ tags:
 - RRouter
 - Universal Router
 - router5
+related:
+- 2016-04-13-authentication-in-golang
+- 2015-09-04-an-introduction-to-microservices-part-1
+- 2016-02-10-getting-started-with-lock-episode-2-using-customization-options
 ---
 
 The JavaScript ecosystem, for better or worse, is in a constant state of change and disarray. From the NodeJS [fork](https://iojs.org/en/faq.html) to [io.js](https://iojs.org/en/) and later [reconciliation](https://nodejs.org/en/blog/announcements/foundation-v4-announce/) to the npm [package-gate](http://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm) which broke many packages and ruined a lot of peoples day. The constant in all of this turbulence is that the JavaScript community was quick to react and resolve the issue for the better.

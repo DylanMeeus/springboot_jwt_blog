@@ -8,6 +8,12 @@ author:
   url: http://twitter.com/woloski
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 description: "Startup in-a-Box Bootcamp In partnership with Microsoft, NXTP Labs, Mural.ly and Ideame, Auth0 is very proud to have hosted the the Global Windows Azure"
+related:
+- 2013-03-15-Integrating-Auth0-with-Rights-Management-Services
+- 2013-03-07-On-Premises-SharePoint-Federated-with-Partner-AD
+- 2013-04-10-Auth0-Windows-Azure-Active-Directory
+tags:
+- microsoft
 ---
 
 

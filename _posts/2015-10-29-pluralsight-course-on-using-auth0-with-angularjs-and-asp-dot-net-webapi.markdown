@@ -18,6 +18,10 @@ tags:
 - angularjs
 - webapi
 - pluralsight
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
+- 2015-04-09-adding-authentication-to-your-react-flux-app
 ---
 
 _This is a guest post by Ajden Towfeek. Ajden has worked on everything from embedded devices to large scale enterprise systems during his 10+ years in commercial software development. Since 2007, Ajden has focused on Microsoft technologies and more lately on web technologies. Ajden is also a speaker at conferences and has a passion for teaching. He is a frequent blogger on [http://towfeek.se](http://www.towfeek.se), and you can follow him on twitter [@ajtowf](https://twitter.com/ajtowf). For screencasts on the latest web technology, make sure to check out his [youtube channel](https://www.youtube.com/c/AjdenTowfeek)._

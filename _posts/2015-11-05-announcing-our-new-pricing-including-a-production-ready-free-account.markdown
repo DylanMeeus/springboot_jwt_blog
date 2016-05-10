@@ -20,6 +20,10 @@ tags:
 - free plan
 - new pricing
 - developer plan
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, finding the right pricing and packaging is one of the hardest things a company does. That’s true even more for a platform like Auth0, given the enormous number of different use cases the Auth0 platform addresses.  Five months ago, we decided to focus on creating the best possible new pricing. As Auth0 is a company by engineers, for engineers, we wanted to use the most analytical possible approach to pricing, and hence both crunched a lot of data, and also incorporated qualitative feedback we received from our subscribers, in order to create a new version of Auth0 pricing and packaging that we think will have broad appeal to everyone from developers, startups and small businesses to the very largest global enterprises.
 

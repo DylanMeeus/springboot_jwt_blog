@@ -24,9 +24,12 @@ tags:
 - reducer
 - action
 - store
+related:
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2015-08-25-logging-and-debugging-in-react-with-flux-replaying-your-users-actions
+- 2015-04-09-adding-authentication-to-your-react-flux-app
 ---
 
----
 **TL;DR:** Redux is a state container for JavaScript applications by [Dan Abramov](https://twitter.com/dan_abramov) that lets us have a predictable unidirectional data flow. It offers some benefits over other libraries like Flux, but works in similar ways. In this article we explore how to add JWT authentication to a Redux app. Check out the [repo](https://github.com/auth0/redux-auth) to go straight to the code.
 
 ---

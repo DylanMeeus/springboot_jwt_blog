@@ -24,6 +24,10 @@ tags:
 - token
 - jwt
 - sliding sessions
+related:
+- 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
+- 2015-03-10-blacklist-json-web-token-api-keys
+- 2016-02-18-ionic-2-authentication-how-to-secure-your-mobile-app-with-jwt
 ---
 
 In this post we will explore the concept of refresh tokens as defined by [OAuth2](https://tools.ietf.org/html/rfc6749). We will learn why they came to be and how they compare to other types of tokens. We will also learn how to use them with a simple example. Read on!

@@ -19,6 +19,10 @@ tags:
 - Native
 - Hybrid
 - Responsive Web
+related:
+- 2016-04-05-quicktip-use-jhipster
+- 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
 ---
 
 ---

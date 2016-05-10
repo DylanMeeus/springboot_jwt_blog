@@ -16,6 +16,10 @@ tags:
 - cyber criminals
 - online security
 - shopping in holiday season
+related:
+- 2015-12-23-what-3-security-stories-of-2015-can-teach-you-about-security-in-2016
+- 2015-11-30-top-5-cyber-monday-security-threats-and-what-to-do-about-them
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 
 With the end of the year, the volume of internet sales increases drastically due to Black Friday, Cyber Monday, Christmas, and New Year's Eve. Cyber criminals also increase their activity on these dates, as they want to go unnoticed in the high number of transactions.

@@ -21,6 +21,10 @@ tags:
 - revenue
 - slack
 - auth0
+related:
+- 2016-04-18-progressive-profiling
+- 2016-03-04-4-ways-to-turn-customer-support-into-a-growth-factor
+- 2015-12-16-how-to-use-social-login-to-drive-your-apps-growth
 ---
 Companies that consolidate customer data for marketing purposes show nearly [2x yearly annual revenue growth](http://www.totango.com/blog/2012/06/suffering-from-siloed-customer-data-time-to-get-that-business-in-order/) versus companies that have that information fragmented across different apps.
 

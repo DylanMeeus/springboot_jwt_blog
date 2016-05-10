@@ -20,6 +20,10 @@ tags:
 - authentication
 - javascript
 - rxjs
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2015-06-26-auth0-ember-simple-auth
+- 2016-04-19-react-router-alternatives
 ---
 
 ---

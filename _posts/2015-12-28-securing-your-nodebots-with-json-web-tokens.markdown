@@ -20,6 +20,10 @@ tags:
 - JWT
 - NodeBots
 - hardware
+related:
+- 2015-11-06-surprised-turns-out-consumers-dont-trust-iot-security
+- 2015-10-22-5-ways-to-make-your-app-more-secure-in-less-than-20-minutes
+- 2015-12-17-json-web-token-signing-algorithms-overview
 ---
 
 # Securing your NodeBots with JSON Web Tokens

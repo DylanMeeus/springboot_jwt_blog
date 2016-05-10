@@ -14,6 +14,10 @@ design:
   image: https://cldup.com/_d6DG7yyR8.png
   image_left: 65%
 pr: 1
+related:
+- 2014-11-28-using-json-web-tokens-as-api-keys
+- 2015-12-17-json-web-token-signing-algorithms-overview
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
 tags:
 - featured
 

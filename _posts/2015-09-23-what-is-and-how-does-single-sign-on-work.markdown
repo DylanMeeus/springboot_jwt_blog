@@ -22,6 +22,10 @@ tags:
 - login
 - credentials
 - post-series
+related:
+- 2015-04-28-announcing-auth0-sso-dashboard
+- 2015-12-16-how-to-use-social-login-to-drive-your-apps-growth
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 
 Nowadays, almost every website requires some form of authentication to access its features and content. With the number of websites and services rising, a centralized login system has become a necessity. Single-sign-on (SSO) is now required more than ever. In this two-piece post we will study how SSO is implemented for the web and provide a working example using OpenID Connect (in part 2). Read on!

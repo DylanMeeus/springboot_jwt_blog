@@ -20,6 +20,10 @@ tags:
 - boom
 - api
 - jwt
+related:
+- 2015-11-30-build-an-api-in-rust-with-jwt-authentication-using-nickelrs
+- 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies
+- 2014-02-26-openid-connect-final-spec-10
 ---
 
 ---

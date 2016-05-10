@@ -9,6 +9,12 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "Auth0 is about making identity simple. And even simpler for the most common and recurrent scenarios. One such scenario is a company that is using SharePoint"
+related:
+- 2013-02-28-SaaS-App-Federated-with-Office-365
+- 2013-03-07-On-Premises-SharePoint-Federated-with-Partner-AD
+- 2013-03-27-Automating-SharePoint-Federation-Setup-With-Auth0
+tags:
+- video
 ---
 
 

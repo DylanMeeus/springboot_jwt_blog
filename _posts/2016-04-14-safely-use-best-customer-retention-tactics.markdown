@@ -16,6 +16,10 @@ tags:
 - customer retention
 - customer retention techniques
 - retention hacks
+related:
+- 2016-04-18-progressive-profiling
+- 2016-04-14-safely-use-best-customer-retention-tactics
+- 2016-04-25-angularjs-authentication-screencast-series-part-4
 ---
 
 So much of your energy after launching a product goes into marketing. You want to see your product in the hands of as many customers as possible, and you want it done quickly. However, if you want to see real growth, the energy you spend on acquiring new customers should always be outpaced by the energy you spend on retaining customers.

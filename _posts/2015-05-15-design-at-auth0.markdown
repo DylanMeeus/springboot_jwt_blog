@@ -19,7 +19,11 @@ design:
 permalink: /2015/06/08/design-at-auth0/
 
 tags:
-- foo
+- business
+related:
+- 2016-03-22-how-we-hire-engineers
+- 2015-06-23-another-big-milestone
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 <!-- image: https://cldup.com/P7V08dAY6M.png -->

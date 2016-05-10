@@ -8,6 +8,12 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "Auth0 is a truly symmetric service: it is offered as a service, it can be deployed on your own cloud environment, or it can run on-premises."
+related:
+- 2013-06-04-introducing-db-connections
+- 2015-12-17-json-web-token-signing-algorithms-overview
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+tags:
+- enterprise
 ---
 
 

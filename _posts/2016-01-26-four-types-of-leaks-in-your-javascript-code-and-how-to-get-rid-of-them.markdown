@@ -19,6 +19,10 @@ tags:
 - memory leaks
 - dom leaks
 - finding memory leaks
+related:
+- 2015-12-28-securing-your-nodebots-with-json-web-tokens
+- 2015-08-20-from-theory-to-practice-adding-two-factor-to-node-dot-js
+- 2016-03-15-javascript-module-systems-showdown
 ---
 
 In this article we will explore common types of memory leaks in client-side JavaScript code. We will also learn how to use the Chrome Development Tools to find them. Read on!

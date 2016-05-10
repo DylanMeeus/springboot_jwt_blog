@@ -15,6 +15,10 @@ tags:
 - customer registration
 - application registration
 - growth hacks
+related:
+- 2016-04-14-safely-use-best-customer-retention-tactics
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 Registering new users is the most basic, fundamental piece of the software business. If you don’t have customers, you don’t have money. With this in mind, you would think companies would devote time and energy into developing the perfect user registration process.

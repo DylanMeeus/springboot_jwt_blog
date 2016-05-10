@@ -19,6 +19,10 @@ tags:
 - jwt
 - openid connect
 - logo
+related:
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
+- 2014-02-26-openid-connect-final-spec-10
+- 2014-08-22-sso-for-legacy-apps-with-auth0-openid-connect-and-apache
 ---
 
 In 2013 when we started building Auth0 we had to decide which standard we wanted our platform to be built on. Back then there was [WS-Fed](https://en.wikipedia.org/wiki/WS-Federation) and [SAML2](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf). I was very familiar with both, having worked on many projects with Microsoft technologies. My main issue with these standards was that they were too complex: too many knobs and levers, interop issues and above all, a lack of libraries.

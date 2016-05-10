@@ -12,6 +12,10 @@ author:
 design:
   image: https://cldup.com/_DrZQjW90p.png
 pr: 3
+related:
+- 2014-02-26-openid-connect-final-spec-10
+- 2015-12-17-json-web-token-signing-algorithms-overview
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
 tags:
 - featured
 ---

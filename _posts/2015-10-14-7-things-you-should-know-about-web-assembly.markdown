@@ -25,6 +25,10 @@ tags:
 - javascript
 - emscripten
 - llvm
+related:
+- 2016-01-11-updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
+- 2015-10-09-whats-the-fuss-with-googles-accelerated-mobile-pages-amp
+- 2016-03-23-intro-to-immutable-js
 ---
 
 In this post we will explore seven key facts about *WebAssembly*, one of the biggest changes the web will experience in the coming years. Will it meet our expectations? Read on!

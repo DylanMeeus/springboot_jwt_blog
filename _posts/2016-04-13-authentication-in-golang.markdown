@@ -19,6 +19,10 @@ tags:
 - Go JWT
 - Authentication in Go
 - Go and React
+related:
+- 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
+- 2016-04-22-angularjs-authentication-screencast-series-part-3
+- 2015-09-15-angular-2-series-part-2-domain-models-and-dependency-injection
 ---
 
 ---

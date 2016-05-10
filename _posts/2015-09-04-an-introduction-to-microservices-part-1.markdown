@@ -26,6 +26,10 @@ tags:
 - webtasks
 - software architecture
 - post-series
+related:
+- 2015-09-13-an-introduction-to-microservices-part-2-API-gateway
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
+- 2015-12-03-why-using-open-standards-helps-close-enterprise-deals
 ---
 
 Everybody is talking about microservices. Industry veterans may remember monolithic or SOA-based solutions being *the way* of doing things. Times have changed. New tools have allowed developers to focus on specific problems without adding excessive complexity to deployment or other administrative tasks that are usually associated with isolated services. It has become increasingly easy to choose to work with the right tool for the right problem. 

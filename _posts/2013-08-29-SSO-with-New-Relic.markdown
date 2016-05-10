@@ -9,6 +9,12 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "A few days ago we released integration between Auth0 and New Relic. You can now login to New Relic with your Github, Google, Amazon, Twitter, Active Directory"
+related:
+- 2013-04-02-Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook
+- 2013-05-29-Authenticate-users-with-Amazon-accounts
+- 2013-06-04-introducing-db-connections
+tags:
+- announcements
 ---
 
 

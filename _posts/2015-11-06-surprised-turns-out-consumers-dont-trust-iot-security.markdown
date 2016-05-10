@@ -19,6 +19,10 @@ tags:
 - iot security
 - customer survey
 - security
+related:
+- 2015-12-28-securing-your-nodebots-with-json-web-tokens
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 _**TL;DR**: Auth0 recently surveyed both developers and consumers and it turns out everyone has concerns over device and application security when it comes to the Internet of Things._

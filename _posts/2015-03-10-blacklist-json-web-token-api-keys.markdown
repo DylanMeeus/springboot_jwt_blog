@@ -22,6 +22,10 @@ tags:
 - revoke
 - scopes
 - product
+related:
+- 2015-10-07-refresh-tokens-what-are-they-and-when-to-use-them
+- 2015-12-17-json-web-token-signing-algorithms-overview
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
 ---
 
 <!-- <a href="//cdn.auth0.com/blog/blacklist_header.jpg" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_header.jpg"></a> -->

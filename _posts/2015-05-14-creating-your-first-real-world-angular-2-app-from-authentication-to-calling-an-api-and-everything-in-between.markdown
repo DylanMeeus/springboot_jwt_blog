@@ -29,6 +29,10 @@ tags:
 - real world
 - example
 - talk
+related:
+- 2015-08-11-create-your-first-ember-2-dot-0-app-from-authentication-to-calling-an-api
+- 2015-04-09-adding-authentication-to-your-react-flux-app
+- 2015-08-05-creating-your-first-aurelia-app-from-authentication-to-calling-an-api
 ---
 ----
 

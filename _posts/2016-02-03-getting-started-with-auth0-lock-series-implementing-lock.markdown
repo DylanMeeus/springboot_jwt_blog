@@ -17,6 +17,10 @@ tags:
 - Enterprise
 - Social
 - Tutorial
+related:
+- 2016-02-10-getting-started-with-lock-episode-2-using-customization-options
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 
 So today we're introducing a new screencast series for Lock, which will include ways to get started with Lock, customizing it, and taking a look at the API. Today we'll start with the basic implementation of Lock in a web app:

@@ -15,6 +15,11 @@ design:
 tags: 
 - Lock
 - Tutorial
+- post-series
+related:
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
+- 2016-03-17-getting-started-with-lock-episode-3-redirect-vs-popup-mode
+- 2015-09-02-angular2-series-working-with-pipes
 ---
 
 Hi, this is Kassandra with Auth0. In [the first episode of our new Getting Started with Lock screencast](https://auth0.com/blog/2016/02/05/getting-started-with-auth0-lock-series-implementing-lock/), we talked about how to implement Lock. Today, we'll be talking about customizing Lock with the various options in our Lock library.

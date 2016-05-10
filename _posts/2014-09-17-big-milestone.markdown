@@ -8,6 +8,15 @@ author:
   url:  http://www.twitter.com/jgelsey
   avatar: https://auth0.com/lib/about/img/jon.png
 description: "Today I am very proud to announce that we’ve raised $2.4 Million in seed funding led by Bessemer Venture Partners, with participation from K9 Ventures"
+related:
+related:
+- 2015-06-23-another-big-milestone
+- 2014-04-28-announcing-our-advisors
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+tags:
+- business
+- enterprise
+- announcements
 ---
 
 Today I am very proud to announce that we’ve raised $2.4 Million in seed funding led by [Bessemer Venture Partners](http://bvp.com), with participation from [K9 Ventures](http://www.k9ventures.com/), [Portland Seed Fund](http://www.portlandseedfund.com/), [NXTP Labs](http://www.nxtplabs.com/) and individual investors.
