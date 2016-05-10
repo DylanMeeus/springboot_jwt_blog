@@ -1,32 +1,16 @@
 <section class="popular-posts">
   <h5 class="section-title">Popular Posts</h5>
+  {% for post in site.posts limit: 3 %}
+  {% assign current = post %}
   <article class="popular-post">
     <div class="image-container">
       {% include entry_image.html %}
     </div>
     <div class="text-container">
-      <a href="#"><h4 class="popular-post-title"> Lorem ipsum dolor sit amet</h4></a>
-      <span class="popular-post-author"><a href="#">Ado Kukic</a></span>
+      <a href="{{ site.baseurl }}{{ current.url }}"><h4 class="popular-post-title"> Lorem ipsum dolor sit amet</h4></a>
+      <span class="popular-post-author"><a href="#">{{current.author.name}}</a></span>
     </div>
   </article>
+  {% endfor %}
 
-  <article class="popular-post">
-    <div class="image-container">
-      {% include entry_image.html %}
-    </div>
-    <div class="text-container">
-      <a href="#"><h4 class="popular-post-title"> This essentially adds a bit of mySQL logic</h4></a>
-      <span class="popular-post-author"><a href="#">Matias Woloski</a></span>
-    </div>
-  </article>
-
-  <article class="popular-post">
-    <div class="image-container">
-      {% include entry_image.html %}
-    </div>
-    <div class="text-container">
-      <a href="#"><h4 class="popular-post-title"> Now what we have to do is to create</h4></a>
-      <span class="popular-post-author"><a href="#">Ricky Rauch</a></span>
-    </div>
-  </article>
 </section>

@@ -344,6 +344,18 @@
           return !!('ontouchstart' in window);
         }
 
+        function stickyElements() {
+          function stickElement($elem) {
+            $elem.stick_in_parent({
+              offset_top: parseInt($elem.attr("data-sticky-padding")) || 0,
+              recalc_every: 1
+            });
+          }
+
+          stickElement($('.sidebar-column'));
+          stickElement($('.blog-navigation'));
+        }
+
         function initBlogSubscriber() {
           if(localStorage.isBlogSubscriber) {
             $('form.newsletter-subscriber[data-sticky]').addClass('hide');
@@ -462,12 +474,7 @@
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
 
-          var stickyPadding = parseInt($('.sidebar-column').attr("data-sticky-padding")) || 0;
-          $(".sidebar-column").stick_in_parent({
-            offset_top: stickyPadding
-          });
-
-          $(".blog-navigation").stick_in_parent();
+          stickyElements();
         }
 
         function setEvents() {
@@ -481,25 +488,6 @@
           metricsLib.page();
 
           $('p').selectionSharer();
-
-          $(document)
-            .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
-            .on('pjax:click', function() {
-              NProgress.start();
-            })
-            .on('pjax:success pjax:popstate', function() {
-
-              // Hide content until the ab/experiments run
-              $('#pjax').css('visibility', 'hidden');
-
-              initialize();
-
-              NProgress.done();
-
-              metricsLib.page();
-
-              executeABExperiments();
-            });
 
           if(isTouch()) {
             $('body').on('focusin focus', 'input', function(e) {
