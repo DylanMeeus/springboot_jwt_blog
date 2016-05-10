@@ -1,7 +1,9 @@
 <section class="popular-posts">
   <h5 class="section-title">Popular Posts</h5>
+
   {% for post in site.posts limit: 3 %}
   {% assign current = post %}
+
   <article class="popular-post">
     <div class="image-container">
       {% include entry_image.html %}
