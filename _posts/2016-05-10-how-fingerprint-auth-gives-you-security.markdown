@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Fingerprint Auth Gives High Security & Low Friction"
+title: "Fingerprint Authentication: High Security & Low Friction"
 description: Implement fingerprint authentication to allow users easy access to apps while still keeping them secure
 date: 2016-05-10 8:30
 author:
