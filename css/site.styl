@@ -428,13 +428,8 @@ h1,h2,h3,h4,h5
 
 .content-column,
 .sidebar-column
-  position static
-
-.touch-focus
-  .blog-navigation
-    [data-sticky]
-      display: block !important;
-      position: absolute !important;
+  +breakpoint("desktop")
+    position static
 
 .blog-navigation
   .jump-to
@@ -475,7 +470,6 @@ h1,h2,h3,h4,h5
 
   [data-sticky]
     &:after
-      // @extend .line;
       width: 100%;
       margin: 0;
 

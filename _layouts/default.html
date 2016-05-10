@@ -340,11 +340,9 @@
       })();
 
       $(function() {
-        function isTouch() {
-          return !!('ontouchstart' in window);
-        }
 
         function stickyElements() {
+          
           function stickElement($elem) {
             $elem.stick_in_parent({
               offset_top: parseInt($elem.attr("data-sticky-padding")) || 0
@@ -517,20 +515,6 @@
           //
           //     executeABExperiments();
           //   });
-
-          if(isTouch()) {
-            $('body').on('focusin focus', 'input', function(e) {
-              var pos = $(this).offset().top;
-
-              document.body.scrollTop = pos - 35;
-
-              $('body').addClass('touch-focus');
-            });
-
-            $('body').on('blur', 'input', function() {
-              $('body').removeClass('touch-focus');
-            });
-          }
 
           $(window).on('load', function() {
             $(document.body).trigger("sticky_kit:recalc");
