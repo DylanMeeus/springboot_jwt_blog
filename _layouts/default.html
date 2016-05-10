@@ -347,8 +347,7 @@
         function stickyElements() {
           function stickElement($elem) {
             $elem.stick_in_parent({
-              offset_top: parseInt($elem.attr("data-sticky-padding")) || 0,
-              recalc_every: 1
+              offset_top: parseInt($elem.attr("data-sticky-padding")) || 0
             });
           }
 
@@ -368,6 +367,8 @@
 
             setTimeout(function() {
               $module.remove();
+
+              $(document.body).trigger("sticky_kit:recalc");
             }, 1000);
           }
 
