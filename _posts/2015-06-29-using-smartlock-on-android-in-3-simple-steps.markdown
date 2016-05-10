@@ -22,6 +22,10 @@ tags:
 - github
 - sample
 - tutorial
+related:
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-18-ionic-2-authentication-how-to-secure-your-mobile-app-with-jwt
 ---
 
 ----

@@ -1,13 +1,3 @@
-@import 'lib/mixins'
-@import 'lib/highlight'
-@import 'lib/nprogress'
-
-color_blue = #14204d;
-color_blue_light = #3cc8f4;
-color_red = #eb5422;
-color_grey = #d1d2d4;
-color_grey_text = #5C666F;
-
 html
   overflow-x: hidden;
 
@@ -25,20 +15,9 @@ body
   p, li
     color: color_grey_text;
 
-  a
-    transition: opacity 0.2s ease-in-out;
-
-    &:hover
-      opacity: 0.7;
-
-    &:focus
-      text-decoration: none;
-
 h1, h2,h3,h4,h5, pre
   margin-top: 20px;
   margin-bottom: 20px;
-i
-  // display: none
 
 h1
   margin-top: 0;
@@ -106,7 +85,7 @@ p,li
 .small-caps
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-weight: bold;
+  font-weight: 500;
 
 .line
   content: "";
@@ -119,7 +98,7 @@ p,li
 .banner.banner-post
   background: #354171;
   padding: 20px 0;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 
   .banner-container
     -webkit-animation: none;
@@ -129,15 +108,11 @@ p,li
   +breakpoint("desktop")
     padding-top: 135px;
     padding-bottom: 40px;
-    margin-bottom: 30px;
 
   &.banner-blog
     padding-bottom: 40px;
     background: #232228;
     position: relative;
-
-    +breakpoint("desktop")
-    	padding-bottom: 80px;
 
     &:before
       content: "";
@@ -163,7 +138,7 @@ p,li
 
   .entry-content p
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 40px;
     opacity: 0.7;
 
@@ -200,7 +175,7 @@ p,li
   font-size: 24px;
   line-height: 1.3;
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
 
   +breakpoint("desktop")
     font-size: 28px;
@@ -208,12 +183,8 @@ p,li
     margin: 25px auto;
 
   a
-    font-weight: bold;
-
-    &:hover,
-    &:focus,
-    &:active
-      color: currentColor;
+    font-weight: 500;
+    color: #333;
 
 .blog-title
   @extend .entry-title;
@@ -224,6 +195,7 @@ p,li
 p.blog-description
   color: white;
   opacity: 0.7;
+  font-size: 20px;
 
 .entry-thumbnail
   margin: 0 auto;
@@ -298,7 +270,7 @@ p.blog-description
   text-align: center;
 
   a
-    font-weight: bold;
+    font-weight: 500;
     color: currentColor;
 
     &:hover,
@@ -332,11 +304,8 @@ p.blog-description
   color: color_grey_text;
   text-decoration: none;
 
-  span
-    opacity: 0.7;
-
   & + .network
-    margin-left: 20px;
+    margin-left: 10px;
 
   svg
     position: relative;
@@ -367,7 +336,7 @@ p.blog-description
 
   .hn i
     color: color_red;
-    font-weight: bold;
+    font-weight: 500;
 
   a
     font-weight: normal;
@@ -383,10 +352,7 @@ h1,h2,h3,h4,h5
   color: #333;
 
 #container.container
-  max-width: none;
-
-  +breakpoint("desktop")
-    padding: 0;
+  margin-top 50px
 
 .tab
 	@extend .small-caps;
@@ -394,7 +360,7 @@ h1,h2,h3,h4,h5
 	display: block;
 	padding: 18px 5px;
   margin-bottom: -1px;
-  font-size: 13px;
+  font-size: 14px;
 
   +breakpoint("desktop")
     margin: 0 25px;
@@ -405,7 +371,7 @@ h1,h2,h3,h4,h5
   	margin-right: 5px;
 
   & + li
-  	border-top: 1px solid #ECECEC;
+  	border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   	+breakpoint("desktop")
   		border-top: 0;
@@ -414,7 +380,7 @@ h1,h2,h3,h4,h5
   	display: inline-block;
 
   a
-    color: color_grey_text;
+    color: white;
 
     &:hover,
     &:focus,
@@ -423,14 +389,19 @@ h1,h2,h3,h4,h5
     	text-decoration: none;
 
   &.active
-    background: #F7F7F7;
+    background: #27bff3;
     position: relative;
     z-index: 20;
-    border-bottom: 1px solid #ECECEC;
+    border-bottom: 1px solid #27bff3;
+    color: white;
+
+    +breakpoint("desktop")
+      color: #27bff3;
+    	background: none;
 
     a
-    	color: currentColor;
-    	font-weight: bold;
+    	color: #27bff3;
+    	font-weight: 500;
     	text-decoration: none;
 
     	&:hover,
@@ -439,42 +410,43 @@ h1,h2,h3,h4,h5
     		text-decoration: none;
     		opacity: 1;
 
-    +breakpoint("desktop")
-    	background: none;
-    	color: #333;
-    	border-bottom: 1px solid;
 
-.touch-focus
-  .blog-navigation
-    [data-sticky]
-      display: block !important;
-      position: absolute !important;
 
+// Sticky element / sticky-kit
+
+.content-column
+  margin-right -1px //Fix for percentage width library error
+
+.content-column,
+.sidebar-column
+  +breakpoint("desktop")
+    position static
 
 .blog-navigation
-	.jump-to
-		outline: none;
-		background: none;
-		display: block;
-		border: 0;
-		width: 100%;
-		border-bottom: 1px solid #ECECEC;
-		color: color_grey_text;
-		font-weight: bold;
-		z-index: 400;
-		position: relative;
-		@extend .tab;
+  .jump-to
+    outline: none;
+    display: block;
+    border: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 500;
+    z-index: 400;
+    position: relative;
+    background-color: #232228;
+    @extend .tab;
 
-	 	+breakpoint("desktop")
-	 		display: none;
-
-	 	i
-	 		margin-left: 5px;
-	 		opacity: 0.5;
-
-  .collapse
     +breakpoint("desktop")
-      border-bottom: 1px solid #ececec;
+      display: none;
+
+    i
+      margin-left: 5px;
+      opacity: 0.5;
+
+  #navigation_menu
+    background-color: #232228;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   ul, li, &
     list-style: none;
@@ -482,17 +454,13 @@ h1,h2,h3,h4,h5
     margin: 0;
 
   &
+    z-index: 200;
     position: relative;
-    min-height: 55px;
+    min-height: 65px;
     text-align: center;
-    margin-top: -15px;
-
-    +breakpoint("desktop")
-      margin-top: -30px;
 
   [data-sticky]
     &:after
-      // @extend .line;
       width: 100%;
       margin: 0;
 
@@ -501,8 +469,8 @@ h1,h2,h3,h4,h5
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.92);
       z-index: 1000;
+      background-color: rgba(35, 34, 40, 0.87)
 
   > ul
   	+breakpoint("desktop")
@@ -517,29 +485,7 @@ h1,h2,h3,h4,h5
 ul.archive
   margin: 0;
   padding: 0;
-  margin: 0 auto;
-
-  .entry-content
-    text-align: center;
-    margin-bottom: 40px;
-
-  li.post
-    text-align: center;
-    list-style: none;
-    padding-bottom: 60px;
-    margin-bottom: 60px;
-    position: relative;
-
-    & + li.post
-      &:before
-        @extend .line;
-        position: absolute;
-        top: -50px;
-        left: 0;
-
-    .entry-content
-      img
-        display: none !important
+  list-style: none;
 
 .author
   .name
@@ -551,12 +497,19 @@ ul.archive
     top: -2px;
 
 .entry-content
-  font-size: 18px;
-  color: #4d4d4d;
-  line-height: 160%;
+  font-size: 16px;
+  line-height: 2;
   max-width: 600px;
   margin: 0 auto;
-  font-family: "ff-tisa-web-pro", serif;
+  font-family: "minion-pro", serif;
+
+  +breakpoint("tablet")
+    font-size: 20px;
+
+  h1, h2, h3, h4, h5
+    color: rgba(0,0,0,.35);
+    line-height: 1.5
+    font-family: "Avenir Next", avenir-next-web, "Helvetica Neue", Hevetica, sans-serif;
 
   +breakpoint("mobile")
     padding: 0 25px;
@@ -611,7 +564,7 @@ ul.archive
 
   h1, h2, h3
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 500;
     margin: 30px 0;
 
   h3
@@ -623,16 +576,11 @@ ul.archive
 
 
   blockquote
-    margin: 60px 0;
-    padding: 0px 0 0 30px;
     font-size: 108%;
-    font-style: italic;
+    border-left: 1px solid #eee;
+    font-style: normal;
 
-    p
-      margin: 0;
-
-    author
-      font-style: normal;
+    .author
       font-size: 100%;
 
   hr
@@ -651,35 +599,49 @@ ul.archive
       margin-left: -20%;
       margin-right: -20%;
 
-
 pre.prettyprint
   padding: 20px !important;
   border: 0 !important;
   border-radius: 3px;
 
 #nav-below.navigation
+  overflow: hidden;
   margin-bottom: 50px;
   text-align: center;
-  position: relative;
 
-  &:before
-    @extend .line;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-  .nav-previous, .nav-next
+  .nav-previous,
+  .nav-next
     display: inline-block
     a
-      font-weight: bold;
-      margin: 0 20px;
-      margin-top: 40px;
       display: inline-block;
-      color: #5c666f;
-      line-height: 40px;
-      padding: 0 20px;
-      border: 1px solid rgba(#5c666f, 0.11);
-      border-radius: 20px;
+      background-color: rgba(0, 0, 0, .05);
+      font-size: 12px
+      color: black;
+      line-height: 34px;
+      padding: 0 12px
+      border-radius: 3px;
+
+      i[class^="icon-"]
+        display inline-block
+        vertical-align middle
+        line-height 34px
+
+
+  .nav-previous
+    float left
+
+    i[class^="icon-"]
+      padding-right 12px
+      margin-right 12px
+      border-right 1px solid white
+
+  .nav-next
+    float right
+
+    i[class^="icon-"]
+      padding-left 12px
+      margin-left 12px
+      border-left 1px solid white
 
 .related-posts
   grid(1, 20px, ".entry-related")
@@ -700,7 +662,7 @@ pre.prettyprint
   color: white;
   line-height: 1.5;
   margin-top: 20px;
-  font-weight: bold;
+  font-weight: 500;
   background: rgb(243, 53, 53);
   position: relative;
   padding-left: 62px;
@@ -717,122 +679,6 @@ pre.prettyprint
     text-decoration: underline;
     color: currentColor;
 
-.newsletter-subscriber
-  visibility: hidden;
-  min-height: 56px;
-  min-width: 320px;
-  padding 0 40px
-  border-bottom 1px solid rgba(color_grey,.5)
-
-  p
-    margin: 15px;
-
-  .btn-lg
-    display: none;
-
-    +breakpoint("desktop")
-      display: inline-block;
-
-  &.is-inline
-    visibility: visible;
-    text-align: center;
-    padding: 40px 0;
-    border-top: 1px solid rgba(209, 210, 212, 0.5);
-    background-color: #5C666F;
-    color: white;
-    position: relative;
-    border: 0;
-
-    .btn-lg
-      display: none;
-
-    p
-      font-size: 16px;
-      color: white;
-      font-weight: bold;
-
-    .text
-      font-weight: bold;
-      font-size: 16px;
-      margin-right: 10px;
-      padding: 0;
-
-    .form-control
-      background: rgba(white, 0.1);
-      color: white;
-
-      &::-webkit-input-placeholder
-        color: white;
-        opacity: 0.7;
-
-      &::-moz-placeholder
-        color: white;
-        opacity: 0.7;
-
-
-  .text
-    font-size: 12px;
-    padding-top: 8px;
-
-    +breakpoint("tablet")
-      font-size: 14px;
-      padding: 0;
-
-  &.fixed
-    visibility: visible;
-    +breakpoint("tablet")
-      height 56px
-
-  > span
-    display: inline-block;
-
-  .form-control
-    display: inline-block;
-    border: 0;
-    background: rgba(0,0,0,0.05);
-    width: 100%;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    height: 35px;
-    width: auto;
-    margin: 10px 0;
-
-    +breakpoint("tablet")
-      margin: 10px 15px;
-      margin-right: 5px;
-
-  button
-    height: 35px;
-    width: 40px;
-
-    i
-      font-size: 18px;
-      position: relative;
-      left: -5px;
-      top: -1px;
-
-  .close-sticky
-    width: 18px;
-    height: 18px;
-    text-indent: -10000em;
-    opacity: .8;
-    background-size: 100%;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAFNUlEQVRYCa1XSU8cRxSuelXdTAaGMROwPRiMcJATQ3xISLwkccQhOUS28Sm/kkMEtqVEygHJdkgikYsFUQg2nhgYsYid8TBdS+q1qVZP09302PSltrd8/V69pShp8RsZGXG33Atlns/1SKFyXLGcpKQNxTBNjgTIOuNQF7X6RqmxVp2bm2u0ooJmJe67fe+SUmKQKNqVlcenA70NwJeWZx6tZOE7FVDv6P1u1iaHpaeLKJBSqgnXNe1BHbgQShNBFZF4poEwoIQrwTl1VM6c5LXWvg7m0F15xOZXZx9uIm3SlwgIBfXfenBdKW/gLbN6A5zsGQvVk4TF7oPOKUE6CYEP8BzAqbz+ffK5/2MxDLGARkdHnapz/ob57xIDcuQpvc3NGMOfeUso0uYA7ZJmJIxslb31P2dnZ72oABbdQDCb7PwdpUgRGSnRW8YNvkuitK2sj2UcaPAdXDqC9vLQxeJytVpVYTkQXqCb0DKC0DwwuQ5a74fPz2KOMlE26kBd9o5Z2U2A8M5QE0WKiqq5oW8s0ZmPRjbqQF2oMyw/cBlGkwmYTw36DSDwXvclrCBpDsTAAdlQSl8qlK9t7VcXakgbWAhDG+9MmmVcB0yE8cyWczgGQgo9esHo9HUfI/cthEmPKtWLFzjpj5irN149/bmyt7Kw9WHfMDGppyOJFvcpdzcrzx6/QvqegetaahFLb8K8YTLbuc7Ln9T3lhf2fQthBsbQTlKAlqk8+aVqz5f+mFpziLtm19ERwbx+NrVq91/89tM6ZfTQrqMj6vargDkArE1E6VxqngHQUSFJoKJgLB+NkWHPfN0GA2JhvO/LPuMOh2gqLEF0bAjSXrhwtXhQ/bcp7e+s/HMYdl8SmP6vfvhIK9mdpoMyImu6i4Lj0u4s5YAyNVT+/O61KFhrqTQw0iPD5LimRfmDtSlJiIWWb94dNeBOpPCA8HhiAJ2THitqCYvVvx7/HT2PW6NlEAwwk2C1ieBTPkmYAy49eT/i+AyQHebI3SRLRXlaBYP8iAUaSga5KCo0us4K6l3AoC7Ewk1LIVopncegiOYujwK2a1EHl7kyk5ssD46IBbiirZcJmltcnpl8HhYWnuMdc7Sb6Z6F+RALSCpOvdBhpqRoCtPg3EZfdD9tjVhMLdWZe50kMHhn0lJCGojwGWIBTzYy9TxpYDC0k6KvFUshFrhaIDthlHFzrNrh2mRpwtGUlhIQFAHttxeWN25ELDA9PS3SCh8yeoI3tZm4FwaDSe+0lADspAyUYz/EgFj8HOTkO5pqlCWyoySNzt4vxj+26ygYu58EauDb+4ONuui2dHGjxRC8Ovpujw8R1cjHEeOLwXR4F43Zt83DTONrJK0c2DLD2/S2ENLQc0NP14lW8c0duLXlmalF1B1k6VKhGPQ7UVDYHphHIb7Juk4Dg7zWUuII6XmJgjpIBGPow7oDC6Gg/q/He7VoJJvWPPr8qp3xAWCMk+OcmUY0wTJGZzR6mwDhk2Tgzr1B5aW3pwj+LD5w2EHlyaOl8Cs2cBkqwIOb5XzlbXN+FiqTZaAO1BUGg9TBM8iyzs/P6+9vfbazWpN5rbRr989yRMvc6O1YmpiYOFElmlwWVoruu/zNg3LqnQozZJzjnfnv6WQ1ahnL3uQyu4kjMmB2LhV7XhATluGzd5obGSgLZSaB8fVmFX7lux+LXu2g2zyw2rPy+ApMBsak9/LXid0sfIkuS2IeGxvjL0V7gRMoeEo4THNHUuU3a0yDwBbCAe4Jovav8MN9LAdJsuL2/we/urKeUsCFcAAAAABJRU5ErkJggg==");
-    cursor pointer
-    display block
-    position absolute
-    right 15px
-    top 50%
-    -webkit-transform translateY(-50%)
-    transform translateY(-50%)
-    &:hover
-      opacity 1
-
-.hiring-callout
-  text-align: center;
-  padding: 60px 20px;
-
 .separator
   border-top: 1px solid #ddd;
   margin-bottom: 40px;
@@ -845,19 +691,27 @@ pre.prettyprint
   margin: 30px 0;
   overflow: hidden
 
+#disqus_thread
+  margin: 40px 0;
+
+[data-close]
+  width: 18px;
+  height: 18px;
+  opacity: .8;
+  background-size: 100%;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAFNUlEQVRYCa1XSU8cRxSuelXdTAaGMROwPRiMcJATQ3xISLwkccQhOUS28Sm/kkMEtqVEygHJdkgikYsFUQg2nhgYsYid8TBdS+q1qVZP09302PSltrd8/V69pShp8RsZGXG33Atlns/1SKFyXLGcpKQNxTBNjgTIOuNQF7X6RqmxVp2bm2u0ooJmJe67fe+SUmKQKNqVlcenA70NwJeWZx6tZOE7FVDv6P1u1iaHpaeLKJBSqgnXNe1BHbgQShNBFZF4poEwoIQrwTl1VM6c5LXWvg7m0F15xOZXZx9uIm3SlwgIBfXfenBdKW/gLbN6A5zsGQvVk4TF7oPOKUE6CYEP8BzAqbz+ffK5/2MxDLGARkdHnapz/ob57xIDcuQpvc3NGMOfeUso0uYA7ZJmJIxslb31P2dnZ72oABbdQDCb7PwdpUgRGSnRW8YNvkuitK2sj2UcaPAdXDqC9vLQxeJytVpVYTkQXqCb0DKC0DwwuQ5a74fPz2KOMlE26kBd9o5Z2U2A8M5QE0WKiqq5oW8s0ZmPRjbqQF2oMyw/cBlGkwmYTw36DSDwXvclrCBpDsTAAdlQSl8qlK9t7VcXakgbWAhDG+9MmmVcB0yE8cyWczgGQgo9esHo9HUfI/cthEmPKtWLFzjpj5irN149/bmyt7Kw9WHfMDGppyOJFvcpdzcrzx6/QvqegetaahFLb8K8YTLbuc7Ln9T3lhf2fQthBsbQTlKAlqk8+aVqz5f+mFpziLtm19ERwbx+NrVq91/89tM6ZfTQrqMj6vargDkArE1E6VxqngHQUSFJoKJgLB+NkWHPfN0GA2JhvO/LPuMOh2gqLEF0bAjSXrhwtXhQ/bcp7e+s/HMYdl8SmP6vfvhIK9mdpoMyImu6i4Lj0u4s5YAyNVT+/O61KFhrqTQw0iPD5LimRfmDtSlJiIWWb94dNeBOpPCA8HhiAJ2THitqCYvVvx7/HT2PW6NlEAwwk2C1ieBTPkmYAy49eT/i+AyQHebI3SRLRXlaBYP8iAUaSga5KCo0us4K6l3AoC7Ewk1LIVopncegiOYujwK2a1EHl7kyk5ssD46IBbiirZcJmltcnpl8HhYWnuMdc7Sb6Z6F+RALSCpOvdBhpqRoCtPg3EZfdD9tjVhMLdWZe50kMHhn0lJCGojwGWIBTzYy9TxpYDC0k6KvFUshFrhaIDthlHFzrNrh2mRpwtGUlhIQFAHttxeWN25ELDA9PS3SCh8yeoI3tZm4FwaDSe+0lADspAyUYz/EgFj8HOTkO5pqlCWyoySNzt4vxj+26ygYu58EauDb+4ONuui2dHGjxRC8Ovpujw8R1cjHEeOLwXR4F43Zt83DTONrJK0c2DLD2/S2ENLQc0NP14lW8c0duLXlmalF1B1k6VKhGPQ7UVDYHphHIb7Juk4Dg7zWUuII6XmJgjpIBGPow7oDC6Gg/q/He7VoJJvWPPr8qp3xAWCMk+OcmUY0wTJGZzR6mwDhk2Tgzr1B5aW3pwj+LD5w2EHlyaOl8Cs2cBkqwIOb5XzlbXN+FiqTZaAO1BUGg9TBM8iyzs/P6+9vfbazWpN5rbRr989yRMvc6O1YmpiYOFElmlwWVoruu/zNg3LqnQozZJzjnfnv6WQ1ahnL3uQyu4kjMmB2LhV7XhATluGzd5obGSgLZSaB8fVmFX7lux+LXu2g2zyw2rPy+ApMBsak9/LXid0sfIkuS2IeGxvjL0V7gRMoeEo4THNHUuU3a0yDwBbCAe4Jovav8MN9LAdJsuL2/we/urKeUsCFcAAAAABJRU5ErkJggg==");
+  cursor: pointer;
+  display: block;
+
 .tweet-quote
-  border-left 2px solid #E3E5E7
-  padding-left 20px
-  .tweet-text
-    opacity 0.86
-    font-style italic
-    font-size 25px
-    color #000000
-    line-height 36px
+  a
+    background-image none
+
   .tweet-link
     text-decoration none
     font-weight 500
     font-size 14px
+    font-family: "Avenir Next",avenir-next-web,"Helvetica Neue",Hevetica,sans-serif;
     color #55ACEE
     letter-spacing 0.6px
     &:hover

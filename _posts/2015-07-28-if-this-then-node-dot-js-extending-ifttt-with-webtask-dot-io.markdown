@@ -18,6 +18,10 @@ tags:
 - ifttt
 - pocket
 - tutorial
+related:
+- 2105-10-27-extensibility-through-code-using-webtasks
+- 2015-12-11-get-your-twitter-share-count-back-with-a-webtask
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 <img src="https://cdn.auth0.com/blog/ifttt-tutorial/ifttt-webtask-card.png" style="border: 2px solid #f4f2ed" />

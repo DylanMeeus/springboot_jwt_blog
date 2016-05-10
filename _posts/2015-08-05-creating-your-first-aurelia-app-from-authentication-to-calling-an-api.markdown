@@ -20,6 +20,10 @@ tags:
 - spa
 - api
 - auth
+related:
+- 2015-08-11-create-your-first-ember-2-dot-0-app-from-authentication-to-calling-an-api
+- 2015-12-15-create-a-desktop-app-with-angular-2-and-electron
+- 2015-12-17-json-web-token-signing-algorithms-overview
 ---
 
 -----

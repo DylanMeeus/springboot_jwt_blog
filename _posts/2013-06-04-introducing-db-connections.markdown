@@ -11,6 +11,13 @@ author:
   avatar: "https://secure.gravatar.com/avatar/d1a7e0fbfb2c1d9a8b10fd03648da78f.png"
 
 description: "Since we released the beta, one of the things our customers have been telling us, is they want us to support a \"username/password\" authentication."
+related:
+- 2013-04-02-Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook
+- 2013-07-17-SSO-with-any-saml-app
+- 2013-05-29-Authenticate-users-with-Amazon-accounts
+tags:
+- announcements
+- enterprise
 ---
 
 Since we released the beta, one of the things our customers have been telling us, is they want us to support a "username/password" authentication. Auth0 is being used today by two different audiences:

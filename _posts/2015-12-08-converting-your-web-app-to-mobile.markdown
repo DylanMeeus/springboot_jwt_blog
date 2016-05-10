@@ -16,6 +16,10 @@ tags:
 - mobile apps
 - apache cordova
 - cordova
+related:
+- 2016-03-28-xamarin-authentication-and-cross-platform-app-development
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
 ---
 
 ---

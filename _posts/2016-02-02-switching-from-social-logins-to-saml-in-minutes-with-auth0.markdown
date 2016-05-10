@@ -17,6 +17,10 @@ tags:
 - Enterprise
 - Social
 - Tutorial
+related:
+- 2015-09-30-auth0-passwordless-email-authentication-and-sms-login-without-passwords
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
+- 2015-09-23-what-is-and-how-does-single-sign-on-work
 ---
 
 Today's video is about how easy it is to make the switch from social identity providers like Google to more complex providers, like those using SAML, using Auth0. We'll cover how in minutes, with no change to client or server code, you can easily allow users from SAML systems to log in to your Auth0 application. We've included the video, as well as a short written summary, below:

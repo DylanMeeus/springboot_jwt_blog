@@ -22,6 +22,10 @@ tags:
 - javascript
 - jwt
 - post-series
+related:
+- 2015-12-15-create-a-desktop-app-with-angular-2-and-electron
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 ---

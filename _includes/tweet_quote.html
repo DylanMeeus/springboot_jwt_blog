@@ -15,9 +15,9 @@ You can also save the text in a variable
 
 {% assign current = page %}
 
-<div class="tweet-quote">
+<blockquote class="tweet-quote">
   <a href="https://twitter.com/intent/tweet?text=&quot;{{ include.quote_text }}&quot; via @auth0 http://auth0.com{{ site.baseurl }}{{current.url}}">
-    <p class="tweet-text">"{{ include.quote_text }}"</p>
+    <p>"{{ include.quote_text }}"</p>
     <p class="tweet-link">TWEET THIS <img src="https://cdn.auth0.com/blog/resources/twitter.svg"></p>
   </a>
-</div>
+</blockquote>

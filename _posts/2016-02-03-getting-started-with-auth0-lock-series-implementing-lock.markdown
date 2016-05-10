@@ -2,21 +2,25 @@
 layout: post
 title: "Getting Started with Auth0 Lock Series: Implementing Lock"
 description: "This is the start of the Lock screencast series, where we show how to implement Lock in a web application"
-date: 2016-02-05 09:54
-author: 
+date: 2016-02-03 09:54
+author:
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
   mail: kassandra.perch@auth0.com
   avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
   image_size: "50%"
-tags: 
+tags:
 - SAML
 - Enterprise
 - Social
 - Tutorial
+related:
+- 2016-02-10-getting-started-with-lock-episode-2-using-customization-options
+- 2016-02-08-how-to-authenticate-on-android-using-social-logins
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 
 So today we're introducing a new screencast series for Lock, which will include ways to get started with Lock, customizing it, and taking a look at the API. Today we'll start with the basic implementation of Lock in a web app:
@@ -66,7 +70,7 @@ The first argument is the options object. We'll go into detail on more options i
 * Redirect mode: this mode *is the recommended usage*, and used for regular web apps that use typical navigation
 * Popup mode: this mode is specifically designed for single-page applications, and uses tokens instead of redirects
 
-To set redirect mode, we set `callbackURL` to our server's `users/authenticate` route. 
+To set redirect mode, we set `callbackURL` to our server's `users/authenticate` route.
 
 We also send `rememberLastLogin` as `false` -- this prevents Lock from prompting us with the last user to log in.
 
@@ -86,6 +90,3 @@ The `returnTo` option tells Auth0 where to redirect the user once it has logged 
 That's it! With just a few lines of code you have implemented Lock in your web app! In the next episode we'll talk about the options you can use to construct your Lock instance-- things like what login types to show, remembering which user was logged in last, etc.
 
 Thanks for reading!
-
-
-

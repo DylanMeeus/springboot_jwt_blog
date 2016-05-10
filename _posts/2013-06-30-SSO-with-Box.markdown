@@ -9,6 +9,12 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "Another great app is added to the Auth0's portfolio. You can now setup SSO with Box. As usual, it will take just a few, very simple steps."
+related:
+- 2013-04-02-Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook
+- 2013-04-16-Custom-Authentication-With-Auth0
+- 2013-06-04-introducing-db-connections
+tags:
+- announcements
 ---
 
 

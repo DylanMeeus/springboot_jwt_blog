@@ -34,6 +34,10 @@ tags:
 - cito.js
 - performance
 - memory use
+related:
+- 2015-09-25-incremental-dom
+- 2016-01-11-updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 We have extended our [previous benchmarks](https://auth0.com/blog/2015/11/20/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/) to include other popular DOM manipulation libraries: Angular 1 and 2, Mithril.js, cito.js and the standalone independent implementation of React's Virtual DOM algorithm. We have also added more metrics (including memory use). Read on! **Update:** we have released an updated version of this article including the use of track-by and array key ids, [check it out](https://auth0.com/blog/2016/01/11/updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/).

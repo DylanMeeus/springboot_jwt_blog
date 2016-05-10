@@ -99,7 +99,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://auth0.com/blog/rss.xml">
     <link type="application/opensearchdescription+xml" rel="search" href="https://auth0.com/blog/osd.xml"/>
 
-    <link href="//cdn.auth0.com/styleguide/3.1.6/index.min.css" rel="stylesheet">
+    <link href="//cdn.auth0.com/styleguide/4.4.23/index.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/vendor/selection-sharer.min.css" />
@@ -116,7 +116,7 @@
         header.render('header.site-header');
       })();
     </script>
-    <div id="pjax" style="visibility: hidden;">
+    <div id="pjax">
 
       <!-- Facebook -->
       <div id="fb-root"></div>
@@ -223,6 +223,7 @@
     <script src="{{ site.baseurl }}/js/vendor/jquery.csbuttons.min.js"></script>
     <script async src="{{ site.baseurl }}/js/vendor/html2canvas.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/selection-sharer.min.js"></script>
+    <script src="{{ site.baseurl }}/js/vendor/jquery.sticky-kit.min.js"></script>
 
     <script type="text/javascript">
       var getBasicInfo = function () {
@@ -339,20 +340,37 @@
       })();
 
       $(function() {
-        function isTouch() {
-          return !!('ontouchstart' in window);
+
+        function stickyElements() {
+          
+          function stickElement($elem) {
+            $elem.stick_in_parent({
+              offset_top: parseInt($elem.attr("data-sticky-padding")) || 0
+            });
+          }
+
+          stickElement($('.sidebar-column'));
+          stickElement($('.blog-navigation'));
+
+          stickElement($('.utility-bar'));
         }
 
         function initBlogSubscriber() {
           if(localStorage.isBlogSubscriber) {
-            $('form.newsletter-subscriber[data-sticky]').addClass('hide');
+            $('form.newsletter-subscriber').addClass('hide');
           }
 
           function closeSticky($module, animation) {
             $module.addClass('animated ' + animation);
+
+            setTimeout(function() {
+              $module.remove();
+
+              $(document.body).trigger("sticky_kit:recalc");
+            }, 1000);
           }
 
-          $('form.newsletter-subscriber').on('click', '.close-sticky', function() {
+          $('form.newsletter-subscriber').on('click', '[data-close]', function() {
             var $module = $(this).closest('form');
 
             closeSticky($module, 'fadeOutUp');
@@ -380,7 +398,7 @@
             }
 
             function onValid() {
-              $module.html('<p class="loading">Sending...</p>');
+              $module.find('.fields').html('<p class="loading">Sending...</p>');
 
               $.ajax({
                 type: "POST",
@@ -394,12 +412,8 @@
             }
 
             function onFail(response) {
-              console.log(response);
-
-              $module.html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="mailto:support@auth0.com">contact support</a>.</p>');
+              $module.find('.fields').html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="mailto:support@auth0.com">contact support</a>.</p>');
             }
-
-
 
             function onSuccess(response) {
               localStorage.setItem('isBlogSubscriber', true);
@@ -412,13 +426,9 @@
               blogRegData.Blog_Subs__c = true;
               metricsLib.track('register:lead:blog-newsletter', blogRegData);
 
-              $module.html('<p class="thanks">Thank you for subscribing!</p>');
+              $module.find('.title').text('Thanks for subscribing');
+              $module.find('.fields').html('<p>You’ll be getting lots of awesome content!</p>');
 
-              if($module.is('[data-sticky]')) {
-                setTimeout(function() {
-                  closeSticky($module, 'fadeOut');
-                }, 1000);
-              }
             }
           });
         }
@@ -468,7 +478,9 @@
 
           // Update canonical url
           $("link[rel='canonical']").attr("href", window.location.href);
-          
+
+
+          stickyElements();
         }
 
         function setEvents() {
@@ -480,41 +492,33 @@
           NProgress.configure({ showSpinner: false, trickleSpeed: 600 });
 
           metricsLib.page();
-          
+
           $('p').selectionSharer();
 
-          $(document)
-            .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
-            .on('pjax:click', function() {
-              NProgress.start();
-            })
-            .on('pjax:success pjax:popstate', function() {
+          // PJAX temporarily disabled as it breaks sticky behavior
 
-              // Hide content until the ab/experiments run
-              $('#pjax').css('visibility', 'hidden');
+          // $(document)
+          //   .pjax('#pjax a', '#pjax', { fragment: '#pjax', timeout: 800 })
+          //   .on('pjax:click', function() {
+          //     NProgress.start();
+          //   })
+          //   .on('pjax:success pjax:popstate', function() {
+          //
+          //     // Hide content until the ab/experiments run
+          //     $('#pjax').css('visibility', 'hidden');
+          //
+          //     initialize();
+          //
+          //     NProgress.done();
+          //
+          //     metricsLib.page();
+          //
+          //     executeABExperiments();
+          //   });
 
-              initialize();
-
-              NProgress.done();
-
-              metricsLib.page();
-
-              executeABExperiments();
-            });
-
-          if(isTouch()) {
-            $('body').on('focusin focus', 'input', function(e) {
-              var pos = $(this).offset().top;
-
-              document.body.scrollTop = pos - 35;
-
-              $('body').addClass('touch-focus');
-            });
-
-            $('body').on('blur', 'input', function() {
-              $('body').removeClass('touch-focus');
-            });
-          }
+          $(window).on('load', function() {
+            $(document.body).trigger("sticky_kit:recalc");
+          });
 
 
           $('body').on('click', '.blog-navigation a', function() {
@@ -525,26 +529,6 @@
 
             tabs.removeClass('active');
             activeTab.addClass('active');
-          });
-
-          $(window).on('scroll', function() {
-            var sticky = $('[data-sticky]');
-
-            function toggleSticky($nav) {
-              if(!$nav.hasClass('fixed')) {
-                navOffset = $nav.offset().top;
-              }
-
-              if ($(window).scrollTop() > navOffset) {
-                $nav.addClass('fixed');
-              } else {
-                $nav.removeClass('fixed');
-              }
-            }
-
-            if(sticky.length) {
-              toggleSticky(sticky);
-            }
           });
 
           initialize();

@@ -10,6 +10,12 @@ author:
   url: http://twitter.com/eugenio_pace
   avatar: https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60
 description: "Windows Azure Mobile Services (WAMS) is a really neat technology by Microsoft to get you started very quickly with simple mobile apps."
+related:
+- 2013-03-15-Integrating-Auth0-with-Rights-Management-Services
+- 2013-03-07-On-Premises-SharePoint-Federated-with-Partner-AD
+- 2013-03-27-Automating-SharePoint-Federation-Setup-With-Auth0
+tags:
+- microsoft
 ---
 
 [Windows Azure Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/) (WAMS) is a really neat technology by Microsoft to get you started very quickly with simple mobile apps. It's a _"Mobile Backend as a Service"_. It also provides a nice extensibility model for more advanced scenarios with server-side JavaScript.

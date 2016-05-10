@@ -13,7 +13,11 @@ design:
   image_size: "110%"
   image: https://cdn.auth0.com/blog/security-post/security-post.png
 tags:
-- foo
+- Security
+related:
+- 2015-08-20-from-theory-to-practice-adding-two-factor-to-node-dot-js
+- 2015-12-29-how-paypal-could-have-avoided-account-hack
+- 2015-12-17-json-web-token-signing-algorithms-overview
 ---
 
 From Ashley Madison to Home Depot to Sony, it feels like every week, there’s a new high-profile security breach where millions of user records with sensitive information gets leaked to hackers.

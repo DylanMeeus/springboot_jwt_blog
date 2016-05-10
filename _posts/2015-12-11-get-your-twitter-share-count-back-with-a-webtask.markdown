@@ -24,6 +24,10 @@ tags:
 - http proxy
 - https proxy
 - http https proxy
+related:
+- 2105-10-27-extensibility-through-code-using-webtasks
+- 2015-07-28-if-this-then-node-dot-js-extending-ifttt-with-webtask-dot-io
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 Recently Twitter decided to [shutdown](https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform) one of its unofficial API endpoints: the URL share count. In this post we will show you how to get that functionality back with a simple [Webtask](https://webtask.io) acting as a proxy to a different counts provider.

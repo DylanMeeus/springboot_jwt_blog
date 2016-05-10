@@ -18,6 +18,10 @@ tags:
 - multifactor authentication
 - single sign on
 - passwordless
+related:
+- 2015-10-22-5-ways-to-make-your-app-more-secure-in-less-than-20-minutes
+- 2015-09-23-what-is-and-how-does-single-sign-on-work
+- 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
 ---
 
 Yesterday, _Brian Krebs_ from [Krebs on Security](http://krebsonsecurity.com/2015/12/2016-reality-lazy-authentication-still-the-norm/) reported that his PayPal account had been hacked using one of the oldest hacking methods: **social engineering**, and knowing some pieces of static information about the account owner —the last four digits of an old credit card and the last four digits of the social security number—.

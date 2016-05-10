@@ -16,6 +16,10 @@ tags:
 - IAM
 - amazon
 description: "TL;DR: You can get a working sample that uses Auth0, Cognito, and iOS in this Github repository   We’ve come to an era where a critical component of a"
+related:
+- 2015-12-04-how-to-implement-slack-like-login-on-ios-with-auth0
+- 2015-04-03-using-touchid-for-authentication-in-your-react-native-app
+- 2015-06-29-using-smartlock-on-android-in-3-simple-steps
 ---
 ---
 

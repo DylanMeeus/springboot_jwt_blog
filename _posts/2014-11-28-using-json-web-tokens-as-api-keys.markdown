@@ -16,6 +16,10 @@ tags:
 - granular-security
 - scopes
 description: "Most APIs today use an API Key to authenticate legitimate clients. API Keys are very simple to use from the consumer perspective:  You get an API key from the"
+related:
+- 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies
+- 2014-02-26-openid-connect-final-spec-10
+- 2015-12-17-json-web-token-signing-algorithms-overview
 ---
 
 Most APIs today use an **API Key** to authenticate legitimate clients. **API Keys** are very simple to use from the consumer perspective:

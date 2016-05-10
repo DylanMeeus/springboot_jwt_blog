@@ -22,6 +22,10 @@ tags:
 - component
 - javascript
 - post-series
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2015-05-14-creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 ---

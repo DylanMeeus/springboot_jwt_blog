@@ -10,6 +10,13 @@ author:
   avatar: https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=60
 
 description: "This week Microsoft announced the general availability of Windows Azure Active Directory (read ScottGu, Vittorio and Alex for the official word)."
+related:
+- 2013-04-16-Custom-Authentication-With-Auth0
+- 2013-03-28-Auth0-Now-Available-In-The-Windows-Azure-Store
+- 2013-06-04-introducing-db-connections
+tags:
+- announcements
+- microsoft
 ---
 
 

@@ -21,6 +21,10 @@ tags:
 - hybrid-apps
 - javascript
 - pouchdb
+related:
+- 2015-04-09-adding-authentication-to-your-react-flux-app
+- 2015-08-28-getting-started-with-falcor
+- 2016-03-28-xamarin-authentication-and-cross-platform-app-development
 ---
 
 ---

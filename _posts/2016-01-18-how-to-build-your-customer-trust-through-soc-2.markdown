@@ -16,6 +16,10 @@ tags:
 - soc
 - soc 2
 - boost revenue
+related:
+- 2014-12-11-auth0-achieves-soc-2-certification
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2015-06-23-another-big-milestone
 ---
 
 The SaaS model is built on one thing—trust. Data breaches can cost millions, so it’s paramount companies can trust their SaaS providers with their data. As a SaaS, if people don’t trust you with their data, it will destroy you.

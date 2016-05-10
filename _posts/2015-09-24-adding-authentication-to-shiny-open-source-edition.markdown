@@ -21,6 +21,10 @@ tags:
 - mod_auth_openidc
 - mod_auth
 - reverse proxy
+related:
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
+- 2015-10-23-using-ldap-with-c-sharp
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 

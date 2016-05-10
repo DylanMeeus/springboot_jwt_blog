@@ -28,6 +28,10 @@ tags:
 - registry
 - discovery
 - registration
+related:
+- 2015-11-09-introduction-to-microservices-part-4-dependencies
+- 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies
+- 2015-09-04-an-introduction-to-microservices-part-1
 ---
 
 In this post in the microservices series we will talk about *the service registry*. In [part 2](https://auth0.com/blog/2015/09/13/an-introduction-to-microservices-part-2-API-gateway/) we discussed the *API gateway*, where we mentioned that services are **registered in a database**. The gateway dispatches requests according to the information contained in that database. Below we will explore how that database is populated and in which way services, clients and the gateway interact with it.

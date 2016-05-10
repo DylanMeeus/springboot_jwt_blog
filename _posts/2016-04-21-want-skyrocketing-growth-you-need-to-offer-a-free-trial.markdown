@@ -14,6 +14,10 @@ design:
 tags: 
 - free trial
 - growth hacks
+related:
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-04-18-progressive-profiling
+- 2016-04-14-safely-use-best-customer-retention-tactics
 ---
 
 A lot of young SaaS companies are skeptical of free trials. Offer a free trial, the thinking goes, and you’ll attract a bunch of freeloaders who have no intention of sticking with your product once the trial ends. As a young startup, servicing a huge customer base that will never pay you is something you can't afford.

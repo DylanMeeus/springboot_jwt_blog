@@ -21,6 +21,10 @@ tags:
 - modern authentication
 - legacy apps
 - cookie authentication
+related:
+- 2014-08-22-sso-for-legacy-apps-with-auth0-openid-connect-and-apache
+- 2016-02-02-switching-from-social-logins-to-saml-in-minutes-with-auth0
+- 2016-04-05-quicktip-use-jhipster
 ---
 
 ---

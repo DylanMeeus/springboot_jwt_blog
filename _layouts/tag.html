@@ -7,18 +7,22 @@ is_tag_index: true
 {% include banner_blog.html %}
 {% include navigation.html %}
 
-<div id="container" class="container">
+<div class="container" id="container">
+  <div class="row sticky-container">
+    <div class="col-md-8 content-column">
+      <ul class="archive">
+        {% for post in paginator.posts limit: 4 %}
+        {% unless post.draft %}
+        {% include archive_post.html %}
+        {% endunless %}
+        {% endfor %}
+      </ul>
 
-  <ul class="archive">
-
-  {% for post in paginator.posts limit: 3 %}
-    {% unless post.draft %}
-      {% include archive_post.html %}
-    {% endunless %}
-  {% endfor %}
-
-  </ul>
+      {% include paging.html %}
+    </div>
+    <div class="col-md-4 sidebar-column" data-sticky-padding="90">
+      {% include newsletter.html %}
+      {% include popular_posts.html %}
+    </div>
+  </div>
 </div>
-
-{% include newsletter_inline.html %}
-{% include paging.html %}

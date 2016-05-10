@@ -27,6 +27,10 @@ tags:
 - issue
 - user
 - troubleshooting
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-01-04-secure-your-react-and-redux-app-with-jwt-authentication
+- 2015-06-26-auth0-ember-simple-auth
 ---
 ---
 

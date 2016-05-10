@@ -15,6 +15,10 @@ design:
 tags: 
 - bugs
 - user impersonation
+related:
+- 2016-02-10-getting-started-with-lock-episode-2-using-customization-options
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
+- 2016-04-07-integrate-auth0-into-your-existing-saas-tools
 ---
 
 A customer reports a bug in your app, but you can’t reproduce it on your end. The app works exactly as it should after you login to the  app yourself and follow the same steps that the user took.

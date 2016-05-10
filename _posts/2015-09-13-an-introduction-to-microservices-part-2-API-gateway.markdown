@@ -25,6 +25,10 @@ tags:
 - software architecture
 - post-series
 - API gateway
+related:
+- 2015-09-04-an-introduction-to-microservices-part-1
+- 2014-11-28-using-json-web-tokens-as-api-keys
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
 ---
 
 In this post in the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) in the series. 

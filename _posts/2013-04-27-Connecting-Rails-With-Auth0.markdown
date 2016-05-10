@@ -9,6 +9,10 @@ author:
   url: https://github.com/ezequielm
   avatar: https://secure.gravatar.com/avatar/6c62cc9e6d7c17e49debf1bc3755fe3a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
 description: "We have good news for our colleagues developing on Ruby. Last week we relased the Auth0 OmniAuth Strategy that makes it a bliss to connect Ruby apps"
+related:
+- 2013-09-10-auth0-for-Heroku-hosted-apps
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2013-07-17-SSO-with-any-saml-app
 ---
 
 

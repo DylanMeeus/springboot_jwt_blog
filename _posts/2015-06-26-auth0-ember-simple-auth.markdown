@@ -22,6 +22,10 @@ tags:
 - library
 - open source
 
+related:
+- 2015-08-11-create-your-first-ember-2-dot-0-app-from-authentication-to-calling-an-api
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 __TLDR;__ Install the add-on using ember-cli `ember install auth0-ember-simple-auth`, or checkout the generated [example application](https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/simple) to get started.
 

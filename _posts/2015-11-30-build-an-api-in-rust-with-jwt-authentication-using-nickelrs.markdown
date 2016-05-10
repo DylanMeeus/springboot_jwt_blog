@@ -22,6 +22,10 @@ tags:
 - nickel.rs
 - rust-jwt
 - hyper
+related:
+- 2016-03-07-hapijs-authentication-secure-your-api-with-json-web-tokens
+- 2016-04-13-authentication-in-golang
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 ---

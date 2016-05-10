@@ -20,6 +20,10 @@ tags:
 - boilerplate
 - authentication
 - jwt
+related:
+- 2016-04-15-angularjs-authentication-screencast-series-part-1
+- 2016-04-19-react-router-alternatives
+- 2016-03-15-javascript-module-systems-showdown
 ---
 
 ---

@@ -17,6 +17,10 @@ tags:
 - relay
 - react
 - javascript
+related:
+- 2015-08-28-getting-started-with-falcor
+- 2016-01-13-rise-of-the-high-boilerplate-framework-a-look-at-falcor-and-relay
+- 2015-11-30-build-an-api-in-rust-with-jwt-authentication-using-nickelrs
 ---
 
 ---

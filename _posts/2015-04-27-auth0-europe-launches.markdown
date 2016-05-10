@@ -18,6 +18,10 @@ reply:
  twitter: https://twitter.com/auth0/status/592765437634555904
 tags:
 - announcements
+related:
+- 2015-09-21-auth0-australia-launches
+- 2016-04-21-facebook-account-kit-passwordless-authentication
+- 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
 Today we're happy to announce the launch of the **Auth0 Europe** region. Auth0 makes identity simple for tens of thousands of developers in more than 150 countries around the world, and now those topographically closer to Frankfurt can enjoy even lower latency logins.  Further, subscribers everywhere that have the compliance requirement of EU data residence can check that box.

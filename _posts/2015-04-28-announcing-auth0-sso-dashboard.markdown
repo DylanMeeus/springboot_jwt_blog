@@ -15,6 +15,10 @@ design:
   image_opacity: "0.8"
 tags:
 - product
+related:
+- 2015-09-23-what-is-and-how-does-single-sign-on-work
+- 2014-08-22-sso-for-legacy-apps-with-auth0-openid-connect-and-apache
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
 ---
 
 **tl;dr**: Control which apps your users can access with an SSO dashboard. Download the [code](https://github.com/auth0/auth0-sso-dashboard) or [deploy to Heroku](https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fauth0%2Fauth0-sso-dashboard) in 5 minutes.

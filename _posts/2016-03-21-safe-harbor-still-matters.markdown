@@ -14,6 +14,10 @@ design:
 tags: 
 - safe harbor
 - privacy shield
+related:
+- 2015-04-27-auth0-europe-launches
+- 2014-12-11-auth0-achieves-soc-2-certification
+- 2015-03-10-blacklist-json-web-token-api-keys
 ---
 
 Late last year, the European Court of Justice declared that the existing rules for protecting data transferred between the United States and Europe—the Safe Harbor Privacy Principles—were no longer valid.
