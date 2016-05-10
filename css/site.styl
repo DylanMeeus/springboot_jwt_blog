@@ -401,7 +401,7 @@ h1,h2,h3,h4,h5
     	text-decoration: none;
 
   &.active
-    background: #F7F7F7;
+    background: #27bff3;
     position: relative;
     z-index: 20;
     border-bottom: 1px solid #ECECEC;
@@ -514,11 +514,14 @@ ul.archive
 
 .entry-content
   font-size: 18px;
-  color: #4d4d4d;
-  line-height: 160%;
+  line-height: 2;
   max-width: 600px;
   margin: 0 auto;
-  font-family: "ff-tisa-web-pro", serif;
+  font-family: "minion-pro", serif;
+
+  h1, h2, h3, h4, h5
+    color: rgba(0,0,0,.35);
+    font-family: "Avenir Next", avenir-next-web, "Helvetica Neue", Hevetica, sans-serif;
 
   +breakpoint("mobile")
     padding: 0 25px;
@@ -585,16 +588,11 @@ ul.archive
 
 
   blockquote
-    margin: 60px 0;
-    padding: 0px 0 0 30px;
     font-size: 108%;
-    font-style: italic;
+    border-left: 1px solid #eee;
+    font-style: normal;
 
-    p
-      margin: 0;
-
-    author
-      font-style: normal;
+    .author
       font-size: 100%;
 
   hr
@@ -706,18 +704,14 @@ pre.prettyprint
   overflow: hidden
 
 .tweet-quote
-  border-left 2px solid #E3E5E7
-  padding-left 20px
-  .tweet-text
-    opacity 0.86
-    font-style italic
-    font-size 25px
-    color #000000
-    line-height 36px
+  a
+    background-image none
+
   .tweet-link
     text-decoration none
     font-weight 500
     font-size 14px
+    font-family: "Avenir Next",avenir-next-web,"Helvetica Neue",Hevetica,sans-serif;
     color #55ACEE
     letter-spacing 0.6px
     &:hover

@@ -1,8 +1,14 @@
 <section class="popular-posts">
   <h5 class="section-title">Popular Posts</h5>
 
-  {% for post in site.posts limit: 3 %}
+  {% if page.related %}
+
+  {% for post in site.posts %}
+
   {% assign current = post %}
+  {% capture current_slug %}{{ current.id | slugify }}{% endcapture %}
+
+  {% if page.related[0] == current_slug %}
 
   <article class="popular-post">
     <div class="image-container">
@@ -13,6 +19,39 @@
       <span class="popular-post-author"><a href="#">{{current.author.name}}</a></span>
     </div>
   </article>
+
+  {% endif %}
+
+  {% if page.related[1] == current_slug %}
+
+  <article class="popular-post">
+    <div class="image-container">
+      {% include entry_image.html %}
+    </div>
+    <div class="text-container">
+      <a href="{{ site.baseurl }}{{ current.url }}"><h4 class="popular-post-title">{{ current.title }}</h4></a>
+      <span class="popular-post-author"><a href="#">{{current.author.name}}</a></span>
+    </div>
+  </article>
+
+  {% endif %}
+
+  {% if page.related[2] == current_slug %}
+
+  <article class="popular-post">
+    <div class="image-container">
+      {% include entry_image.html %}
+    </div>
+    <div class="text-container">
+      <a href="{{ site.baseurl }}{{ current.url }}"><h4 class="popular-post-title">{{ current.title }}</h4></a>
+      <span class="popular-post-author"><a href="#">{{current.author.name}}</a></span>
+    </div>
+  </article>
+
+  {% endif %}
+
   {% endfor %}
+
+  {% endif %}
 
 </section>

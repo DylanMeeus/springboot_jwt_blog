@@ -27,23 +27,17 @@ layout: default
         </div>
       </div>
       <br />
-
-    </div>
-    <div class="col-md-4 sidebar-column" data-sticky-padding="30">
-      {% include newsletter.html %}
-      {% include popular_posts.html%}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
       <div class="bottom-module">
           <div class="try-banner">
               <a href="javascript:signup()" class="signup-button btn btn-success btn-lg">Try Auth0 for Free</a>
           </div>
       </div>
+      <div id="disqus_thread"></div>
+
     </div>
-    <div class="col-xs-12">
-      <div id="disqus_thread" class="container"></div>
+    <div class="col-md-4 sidebar-column" data-sticky-padding="30">
+      {% include newsletter.html %}
+      {% include popular_posts.html%}
     </div>
   </div>
 
