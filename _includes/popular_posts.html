@@ -27,3 +27,9 @@
   {% endif %}
 
 </section>
+
+<script type="text/javascript">
+$('.popular-post a').click(function(e) {
+  metricsLib.track('click:blog-related');
+})
+</script>
