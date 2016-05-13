@@ -15,6 +15,10 @@ tags:
 - user onboarding
 - onboarding
 - customer success
+related:
+- 2016-04-21-want-skyrocketing-growth-you-need-to-offer-a-free-trial
+- 2016-04-18-progressive-profiling
+- 2016-04-14-safely-use-best-customer-retention-tactics
 ---
 
 Everyone knows that retained customers are more valuable than acquired ones. With mobile apps especially, where only 2.3% of customers remain after 30 days, your loyal customers are the most important thing to your business. 
