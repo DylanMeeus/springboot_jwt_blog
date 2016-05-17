@@ -32,27 +32,15 @@ p,li
     margin-top: 60px;
 
 .try-banner
-  margin: 0;
   background: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 40px;
-
-  +breakpoint("tablet")
-    padding-top: 60px;
 
   +breakpoint("desktop")
+    padding-top 60px
+    padding-bottom 40px
     border-left: 0;
     border-right: 0;
     border-radius: 0;
-
-  span
-    font-size: 16px;
-    display: inline-block;
-    font-weight: normal;
-    text-transform: uppercase;
-    position: relative;
-    top: -8px;
-    opacity: 0.7;
 
 .try-code
   a.btn
