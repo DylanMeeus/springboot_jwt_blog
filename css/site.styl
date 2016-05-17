@@ -497,16 +497,15 @@ ul.archive
     top: -2px;
 
 .entry-content
-  font-size: 16px;
+  font-size: 18px;
   line-height: 2;
   margin: 0 auto;
   font-family: "minion-pro", serif;
 
-  +breakpoint("tablet")
+  +breakpoint("desktop")
     font-size: 20px;
 
   h1, h2, h3, h4, h5
-    color: rgba(0,0,0,.35);
     line-height: 1.5
     font-family: "Avenir Next", avenir-next-web, "Helvetica Neue", Hevetica, sans-serif;
 
@@ -558,18 +557,27 @@ ul.archive
       padding: 0;
       white-space: pre;
 
-  h1, h2, h3
-    font-size: 25px;
+  h2, h3
     font-weight: 500;
     margin: 30px 0;
 
+  h2
+    margin-top 30px
+    margin-bottom 25px
+
+    +breakpoint("desktop", "max")
+      font-size 24px
+      margin-bottom 15px
+
   h3
-    font-size: 20px;
+    margin-bottom 20px
+
+    +breakpoint("desktop", "max")
+      font-size 22px
 
   h4, h5, h6
     @extend .small-caps;
     font-size: 14px;
-
 
   blockquote
     font-size: 108%;
