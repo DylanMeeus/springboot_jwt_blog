@@ -10,7 +10,7 @@ Archives include: "by tags" and "by time" archives.
   {% assign current = post %}
 {% endif %}
 
-<li class="post {% if current.design.blog_series %} blog-series{% endif %}">
+<article class="post {% if current.design.blog_series %} blog-series{% endif %}">
   <div class="image-container">
     <div class="backdrop" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}></div>
     {% include entry_image.html %}
@@ -19,9 +19,9 @@ Archives include: "by tags" and "by time" archives.
     <a href="{{ site.baseurl }}{{current.url}}" title="Published: {{ current.date | date: "%B %d, %Y" }}">
       <span class="post-category">{% for tags in current.tags limit: 1 %}{{ tags }}{% endfor %}</span>
 
-      <h2 class="post-title">
+      <h1 class="post-title">
         {{ current.title }}
-      </h2>
+      </h1>
       {% if post.description %}
         <div class="post-description">
           {{ post.description | markdownify }}
@@ -30,7 +30,7 @@ Archives include: "by tags" and "by time" archives.
     </a>
     <div class="more-info">
       <div class="post-author">
-        <a href="{{current.author.url}}" target="_blank"><img src="{{current.author.avatar}}" width="27" height="27"> <span class="name">{{current.author.name}}</span></a>
+        <a href="{{current.author.url}}" target="_blank" rel="author"><img src="{{current.author.avatar}}" width="27" height="27"> <span class="name">{{current.author.name}}</span></a>
       </div>
       <time datetime="{{ current.date | date: "%B %d, %Y" }}" class="post-time published updated">{{ current.date | date: "%B %d, %Y" }}</time>
       <div class="post-social">
@@ -38,4 +38,4 @@ Archives include: "by tags" and "by time" archives.
       </div>
     </div>
   </div>
-</li>
+</article>

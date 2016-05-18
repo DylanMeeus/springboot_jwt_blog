@@ -1,6 +1,6 @@
 {% if page.is_tag_index %}
 
-<div class="navigation" id="nav-below">
+<nav class="navigation" id="nav-below">
     {% if paginator.next_page %}
     <div class="nav-previous"><a href="{{ site.baseurl }}/tags/{{ page.tag }}/page{{paginator.next_page}}">
       <i class="icon-budicon-463"></i>
@@ -20,11 +20,11 @@
         </a></div>
         {% endif %}
     {% endif %}
-</div>
+</nav>
 
 {% else %}
 
-<div class="navigation" id="nav-below">
+<nav class="navigation" id="nav-below">
     {% if paginator.next_page %}
     <div class="nav-previous"><a href="{{ site.baseurl }}/page{{paginator.next_page}}">
       <i class="icon-budicon-463"></i>
@@ -44,6 +44,6 @@
         </a></div>
         {% endif %}
     {% endif %}
-</div>
+</nav>
 
 {% endif %}

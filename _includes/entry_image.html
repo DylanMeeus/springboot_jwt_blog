@@ -5,8 +5,13 @@
 {% endcapture %}
 
 {% capture size %}
-  {% if {{current.design.image_size}} %}
-  max-width: {{current.design.image_size}};
+  {% if current.design.image %}
+    {% if {{current.design.image_size}}  %}
+    max-width: {{current.design.image_size}};
+    {% endif %}
+  {% else %}
+    max-width: 50%;
+    top: 53%;
   {% endif %}
 {% endcapture %}
 
@@ -34,15 +39,13 @@
 {% endif %}
 {% endcapture %}
 
-{% if current.design.image %}
-  <a href="{{ site.baseurl }}{{current.url}}"
-    style="{{image_bg_color}} {{bg_merge}}"
-    class="entry-thumbnail">
-    <div class="holder">
-      <img
-      style="{{opacity}} {{size}} {{top}} {{left}}"
-      src="{{current.design.image}}"
-      alt="{{ current.title }}">
-    </div>
-  </a>
-{% endif %}
+<a href="{{ site.baseurl }}{{current.url}}"
+  style="{{image_bg_color}} {{bg_merge}}"
+  class="entry-thumbnail">
+  <div class="holder">
+    <img
+    style="{{opacity}} {{size}} {{top}} {{left}}"
+    src="{% if current.design.image %}{{ current.design.image }}{% else %}{{ current.design.image_default }}{% endif %}"
+    alt="{{ current.title }}">
+  </div>
+</a>

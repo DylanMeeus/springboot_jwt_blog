@@ -9,7 +9,7 @@ is_tag_index: true
 
 <div id="container" class="container">
 
-  <ul class="archive">
+  <div class="archive">
 
   {% for post in site.tags[page.tag] limit: 3 %}
     {% unless post.draft %}
@@ -17,6 +17,5 @@ is_tag_index: true
     {% endunless %}
   {% endfor %}
 
-  </ul>
 </div>
-
+</div>
