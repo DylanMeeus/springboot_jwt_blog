@@ -586,6 +586,16 @@ ul.archive
     max-width: 100%;
     margin: 40px 0;
 
+  img.expand
+    +breakpoint("desktop")
+      max-width: 140%;
+      margin-left: -20%;
+      margin-right: -20%;
+
+  iframe
+    // Fix - Prevent youtube videos from going out of the container
+    max-width 100% !important
+
 pre.prettyprint
   padding: 20px !important;
   border: 0 !important;
