@@ -64,7 +64,7 @@ Today, we see federated identity everywhere, most noticeably in what we call “
 
 ![Typical Single Sign On](https://cdn.auth0.com/blog/federated-identity/typical-sso.png)
 
-Dozens upon dozens](https://auth0.com/docs/identityproviders#enterprise) of different SSO identity providers have cropped up to provide this kind of service to webmasters, each with its unique requirements, uses, strengths and weaknesses:
+[Dozens upon dozens](https://auth0.com/docs/identityproviders#enterprise) of different SSO identity providers have cropped up to provide this kind of service to webmasters, each with its unique requirements, uses, strengths and weaknesses:
 
 * SAML
 * OpenID Connect
