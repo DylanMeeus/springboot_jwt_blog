@@ -21,6 +21,13 @@ defaults:
   -
     scope:
       path: ""
+      type: "posts"
+    values:
+      design:
+        image_default: https://cdn.auth0.com/styleguide/1.0.0/img/badge.png
+  -
+    scope:
+      path: ""
     values:
       related:
         - 2015-05-14-creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between

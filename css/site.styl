@@ -32,27 +32,15 @@ p,li
     margin-top: 60px;
 
 .try-banner
-  margin: 0;
   background: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 40px;
-
-  +breakpoint("tablet")
-    padding-top: 60px;
 
   +breakpoint("desktop")
+    padding-top 60px
+    padding-bottom 40px
     border-left: 0;
     border-right: 0;
     border-radius: 0;
-
-  span
-    font-size: 16px;
-    display: inline-block;
-    font-weight: normal;
-    text-transform: uppercase;
-    position: relative;
-    top: -8px;
-    opacity: 0.7;
 
 .try-code
   a.btn
@@ -131,10 +119,11 @@ p,li
       +breakpoint("desktop")
         bottom: -130px;
 
-  h1
+  .banner-subtitle
     @extend .small-caps;
     font-size: 14px;
     opacity: 0.7;
+    margin 0
 
   .entry-content p
     color: white;
@@ -497,16 +486,15 @@ ul.archive
     top: -2px;
 
 .entry-content
-  font-size: 16px;
+  font-size: 18px;
   line-height: 2;
   margin: 0 auto;
   font-family: "minion-pro", serif;
 
-  +breakpoint("tablet")
+  +breakpoint("desktop")
     font-size: 20px;
 
   h1, h2, h3, h4, h5
-    color: rgba(0,0,0,.35);
     line-height: 1.5
     font-family: "Avenir Next", avenir-next-web, "Helvetica Neue", Hevetica, sans-serif;
 
@@ -558,18 +546,27 @@ ul.archive
       padding: 0;
       white-space: pre;
 
-  h1, h2, h3
-    font-size: 25px;
+  h2, h3
     font-weight: 500;
     margin: 30px 0;
 
+  h2
+    margin-top 30px
+    margin-bottom 25px
+
+    +breakpoint("desktop", "max")
+      font-size 24px
+      margin-bottom 15px
+
   h3
-    font-size: 20px;
+    margin-bottom 20px
+
+    +breakpoint("desktop", "max")
+      font-size 22px
 
   h4, h5, h6
     @extend .small-caps;
     font-size: 14px;
-
 
   blockquote
     font-size: 108%;
@@ -588,6 +585,16 @@ ul.archive
     height: auto;
     max-width: 100%;
     margin: 40px 0;
+
+  img.expand
+    +breakpoint("desktop")
+      max-width: 140%;
+      margin-left: -20%;
+      margin-right: -20%;
+
+  iframe
+    // Fix - Prevent youtube videos from going out of the container
+    max-width 100% !important
 
 pre.prettyprint
   padding: 20px !important;

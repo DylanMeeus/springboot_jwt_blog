@@ -5,7 +5,7 @@
   {% assign current = post %}
 {% endif %}
 
-<div class="banner banner-post banner-blog" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}>
+<section class="banner banner-post banner-blog" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}>
     <div class="container banner-container">
         <a href="{{ site.baseurl }}/"
           style="background-color: white;"
@@ -15,7 +15,7 @@
           alt="Blog">
         </a>
 
-        <h2 class="blog-title"><a href="{{ site.baseurl }}" title="Company Updates & Technology Articles">Blog</a></h2>
+        <h1 class="blog-title"><a href="{{ site.baseurl }}" title="Company Updates & Technology Articles">Blog</a></h1>
 
         <p class="blog-description">
           Company Updates & Technology Articles
@@ -23,4 +23,4 @@
 
         <a href="javascript:signup()" class="signup-button btn btn-success btn-md">Try Auth0 for Free</a>
     </div>
-</div>
+</section>
