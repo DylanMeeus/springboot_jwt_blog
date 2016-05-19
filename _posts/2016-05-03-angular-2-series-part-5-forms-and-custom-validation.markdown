@@ -396,15 +396,15 @@ Angular 2 forms are great, and the validation that we can do with them makes our
 
 With Auth0, all of this is done for us out of the box, and we don't need to worry at all about form validation. Adding authentication to an Angular 2 app is really simple and, depending on your setup, can be done in under 10 minutes.
 
-### Step 0: Sign Up for Auth0 and Configure the Callback URL
+### Step 0: Sign Up for Auth0 and Configure
 
 If you don't already have any Auth0 account, [sign up](https://auth0.com/signup) for one now to follow along with the other steps.
 
 ### Step 1: Add Auth0Lock to Your App
 
-[Lock](https://auth0.com/lock) is the beautiful (and totally customizable) login box widget that comes with Auth0. The script for it can be brought in from a CDN link or with NPM.
+[Lock](https://auth0.com/lock) is the beautiful (and totally customizable) login box widget that comes with Auth0. The script for it can be brought in from a CDN link or with npm.
 
-> Note: If you use NPM to get Auth0Lock, you will need to include it in your build step.
+> Note: If you use npm to get Auth0Lock, you will need to include it in your build step.
 
 ```html
   <!-- src/client/index.html -->
@@ -423,6 +423,8 @@ If you don't already have any Auth0 account, [sign up](https://auth0.com/signup)
 ### Step 2: Add an Authentication Service
 
 It's best to set up an injectable service for authentication that can be used across the application.
+
+With Auth0, we get access to the user's profile and JWT in the `lock.show` callback and these items can be saved in local storage for use later.
 
 ```js
 // src/client/shared/auth.service.ts
