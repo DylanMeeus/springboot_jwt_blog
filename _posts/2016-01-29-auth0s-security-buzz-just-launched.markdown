@@ -15,7 +15,7 @@ tags:
 - security-buzz
 - security-news
 ---
-We are happy to announce the launch of our new communication channel: [Security Buzz](https://auth0.com/resources/security-buzz), where Auth0's experts will be sharing news, opinion articles, and more about security.
+We are happy to announce the launch of our new communication channel: [Security Buzz](https://auth0.com/resources#security-buzz), where Auth0's experts will be sharing news, opinion articles, and more about security.
 
 Stay tuned to learn about cyber security as it is being crafted!
 
