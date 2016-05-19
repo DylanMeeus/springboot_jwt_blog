@@ -8,10 +8,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#454543"
   image: https://cdn.auth0.com/blog/sms-authentication/logo.png
-tags: 
+tags:
 - passwordless
 - sms-authentication
 related:
@@ -24,21 +24,27 @@ Passwordless SMS doesn’t just make your users’ accounts safer, it makes thei
 
 ## How Does SMS Authentication Work?
 
-SMS authentication is a form of passwordless authentication, where users are authenticated on their access to another secure platform, instead of authenticated based on their possession of a password. 
+SMS authentication is a form of passwordless authentication, where users are authenticated on their access to another secure platform, instead of authenticated based on their possession of a password.
 
 In the case of SMS authentication, that secure platform is the user’s cell phone. Authentication requires the users to have both the correct cell phone number, and physical access to that phone.
 
 In Auth0’s SMS authentication, users enter their phone number into a login field:
 
-![Auth0 SMS lock](https://cdn.auth0.com/blog/sms-authentication/sms-lock.png)
+<div class="phone-mockup">
+  <img src="https://cdn.auth0.com/blog/sms-authentication/sms-lock.png" alt="Auth0 SMS lock">
+</div>
 
 Users then receive a text message with a one-time password:
 
-![Auth0's SMS received](https://cdn.auth0.com/blog/sms-authentication/auth0-sms.png)
+<div class="phone-mockup">
+  <img src="https://cdn.auth0.com/blog/sms-authentication/auth0-sms.png" alt="Auth0's SMS received">
+</div>
 
 And then have five minutes to input that password into the app:
 
-![Entering SMS Confirmation](https://cdn.auth0.com/blog/sms-authentication/sms-confirmation.png)
+<div class="phone-mockup">
+  <img src="https://cdn.auth0.com/blog/sms-authentication/sms-confirmation.png" alt="Entering SMS Confirmation">
+</div>
 
 If this is a user’s first time logging in, a new account is created for their phone number. If their phone number matches an existing account, they are authenticated and logged into that account.
 
@@ -72,7 +78,7 @@ Auth0 offers you this same security with simple implementation. With Twilio, you
 
 Auth0 makes passwordless SMS easy and powerful in three key ways:
 
-* **Minimal coding:** Implementing an instance of passwordless SMS requires only the following simple code snippet: 
+* **Minimal coding:** Implementing an instance of passwordless SMS requires only the following simple code snippet:
 
     ```
     <button id="signin-sms">Login</button>
@@ -105,5 +111,3 @@ There are three key benefits to account linking in Auth0:
 * **Centralized Information:** Linking with social allows users to authenticate with multiple identity providers, while only creating one account.
 * **Minimal Friction:  **Because Auth0 does not support automatic account linking, all account linking is user initiated. If users find linking accounts to be inconvenient, then they don’t have to.
 * **Expanded Engagement: **With social, you can pull information on users’ contacts and target new opportunities.
-
-
