@@ -15,14 +15,14 @@ design:
   image_bg_color: "#222228"
   blog_series: false
 tags:
-- json web token
+- json-web-token
 - jwt
 - algorithm
 - algo
 - hmac
 - rsa
-- shared secret
-- asymetric cryptography
+- shared-secret
+- asymetric-cryptography
 related:
 - 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
 - 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies

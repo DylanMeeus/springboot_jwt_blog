@@ -16,7 +16,7 @@ design:
   blog_series: false
 tags: 
 - webassembly
-- web assembly
+- web-assembly
 - wasm
 - wast
 - asm.js

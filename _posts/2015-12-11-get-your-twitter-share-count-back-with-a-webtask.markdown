@@ -16,14 +16,14 @@ design:
   blog_series: false
 tags:
 - twitter
-- share count
-- url count
-- url share count
+- share-count
+- url-count
+- url-share-count
 - webtask
 - proxy
-- http proxy
-- https proxy
-- http https proxy
+- http-proxy
+- https-proxy
+- http-https-proxy
 related:
 - 2105-10-27-extensibility-through-code-using-webtasks
 - 2015-07-28-if-this-then-node-dot-js-extending-ifttt-with-webtask-dot-io

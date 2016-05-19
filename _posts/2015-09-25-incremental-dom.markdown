@@ -13,8 +13,8 @@ design:
   image_bg_color: "transparent"
   image: https://cdn.auth0.com/docs/img/incremental-post-picture.png
 tags:
-- virtual DOM
-- incremental dom
+- virtual-DOM
+- incremental-dom
 - react
 - glimmer
 - ember

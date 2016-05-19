@@ -18,24 +18,24 @@ tags:
 - javascript
 - module
 - modules
-- module systems
-- module system
-- javascript module system
-- javascript module systems
+- module-systems
+- module-system
+- javascript-module-system
+- javascript-module-systems
 - commonjs
 - common.js
-- asynchronous module definition
+- asynchronous-module-definition
 - amd
 - system.js
 - systemjs
-- es2015 modules
-- es6 modules
-- es 2015 modules
-- javascript 6 modules
-- javascript 2015 modules
-- node.js modules
-- node modules
-- nodejs modules
+- es2015-modules
+- es6-modules
+- es-2015-modules
+- javascript-6-modules
+- javascript-2015-modules
+- node.js-modules
+- node-modules
+- nodejs-modules
 related:
 - 2015-10-09-whats-the-fuss-with-googles-accelerated-mobile-pages-amp
 - 2015-09-25-incremental-dom

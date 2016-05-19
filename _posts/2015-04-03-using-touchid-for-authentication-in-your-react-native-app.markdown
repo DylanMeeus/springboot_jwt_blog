@@ -18,7 +18,6 @@ tags:
 - keychain
 - jwt
 - react
-- react native
 - react-native
 - component
 - lock

@@ -13,12 +13,12 @@ design:
   image: "https://cdn.auth0.com/blog/xamarin/xamarin.png"
 tags: 
 - Xamarin
-- Xamarin Authentication
+- Xamarin-Authentication
 - C#
 - Cross-Platform
 - Native
 - Hybrid
-- Responsive Web
+- Responsive-Web
 related:
 - 2016-04-05-quicktip-use-jhipster
 - 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication

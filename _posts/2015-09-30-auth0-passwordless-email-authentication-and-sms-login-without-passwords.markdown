@@ -17,9 +17,9 @@ design:
   image_fb: https://cdn.auth0.com/blog/passwordless/social-card.png
 tags:
 - passwordless
-- sms login
-- email authentication
-- password sms
+- sms-login
+- email-authentication
+- password-sms
 related:
 - 2015-12-16-how-to-use-social-login-to-drive-your-apps-growth
 - 2016-04-21-facebook-account-kit-passwordless-authentication

@@ -18,15 +18,15 @@ tags:
 - frontend
 - backend
 - speed
-- web app
-- single-page app
-- multi-page app
-- backend tips
-- frontend tips
-- faster app
-- faster web
+- web-app
+- single-page-app
+- multi-page-app
+- backend-tips
+- frontend-tips
+- faster-app
+- faster-web
 - performance
-- improve performance
+- improve-performance
 related:
 - 2016-01-07-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
 - 2016-03-23-intro-to-immutable-js

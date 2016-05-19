@@ -20,8 +20,8 @@ tags:
 - react.js
 - react
 - dom
-- virtual dom
-- incremental dom
+- virtual-dom
+- incremental-dom
 - javascript
 - glimmer
 - benchmark

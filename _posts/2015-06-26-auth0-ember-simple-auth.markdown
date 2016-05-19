@@ -20,7 +20,7 @@ tags:
 - authentication
 - plugin
 - library
-- open source
+- open-source
 
 related:
 - 2015-08-11-create-your-first-ember-2-dot-0-app-from-authentication-to-calling-an-api

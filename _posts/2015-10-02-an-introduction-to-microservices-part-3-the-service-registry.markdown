@@ -16,15 +16,15 @@ design:
   blog_series: true
 tags: 
 - microservices
-- design patterns
-- api design
+- design-patterns
+- api-design
 - api
 - patterns
 - REST
 - SOA
-- software architecture
+- software-architecture
 - post-series
-- API gateway
+- API-gateway
 - registry
 - discovery
 - registration

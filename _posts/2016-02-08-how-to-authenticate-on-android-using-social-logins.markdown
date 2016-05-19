@@ -16,18 +16,18 @@ design:
   blog_series: false
 tags:
 - android
-- social login
+- social-login
 - facebook
-- facebook login
+- facebook-login
 - google
-- google login
+- google-login
 - twitter
-- twitter login
+- twitter-login
 - instagram
-- instagram login
-- single sign on
+- instagram-login
+- single-sign-on
 - sso
-- native login
+- native-login
 - oauth
 - oauth2
 related:

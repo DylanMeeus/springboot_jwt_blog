@@ -14,10 +14,10 @@ design:
   image_size: "100%"
   image_bg_color: "#B6C5CA"
 tags: 
-- internet of things
+- internet-of-things
 - iot
-- iot security
-- customer survey
+- iot-security
+- customer-survey
 - security
 related:
 - 2015-12-28-securing-your-nodebots-with-json-web-tokens

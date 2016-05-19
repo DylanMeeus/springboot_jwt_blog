@@ -12,8 +12,8 @@ design:
   bg_color: #222F64
   image: https://cdn.auth0.com/blog/safe-harbor-not-dead/logo.png 
 tags: 
-- safe harbor
-- privacy shield
+- safe-harbor
+- privacy-shield
 related:
 - 2015-04-27-auth0-europe-launches
 - 2014-12-11-auth0-achieves-soc-2-certification

@@ -17,13 +17,13 @@ design:
 tags:
 - javascript
 - immutable
-- immutable data structures
+- immutable-data-structures
 - immutable.js
-- functional data structures
-- data structures
-- pure data structures
-- purely functional data structures
-- lazy data structures
+- functional-data-structures
+- data-structures
+- pure-data-structures
+- purely-functional-data-structures
+- lazy-data-structures
 related:
 - 2016-01-07-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest
 - 2016-04-13-authentication-in-golang

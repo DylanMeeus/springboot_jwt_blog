@@ -12,10 +12,10 @@ design:
   bg_color: #221E20
   image: https://cdn.auth0.com/blog/soc/logo.png
 tags:
-- customer trust
+- customer-trust
 - soc
-- soc 2
-- boost revenue
+- soc-2
+- boost-revenue
 related:
 - 2014-12-11-auth0-achieves-soc-2-certification
 - 2016-04-21-facebook-account-kit-passwordless-authentication

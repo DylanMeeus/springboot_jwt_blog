@@ -13,7 +13,7 @@ design:
   image: https://cdn.auth0.com/blog/sms-authentication/logo.png
 tags: 
 - passwordless
-- sms authentication
+- sms-authentication
 related:
 - 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
 - 2016-02-10-getting-started-with-lock-episode-2-using-customization-options

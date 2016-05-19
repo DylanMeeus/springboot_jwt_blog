@@ -13,12 +13,12 @@ design:
   image: "https://cdn.auth0.com/blog/ngconf2016/ng-conf-logo.png"
 tags: 
 - Angular
-- Angular 2
+- Angular-2
 - angular
 - ng-conf
-- Angular Universal
-- Angular Mobile Toolkit
-- Angular CLI
+- Angular-Universal
+- Angular-Mobile-Toolkit
+- Angular-CLI
 ---
 
 Day three of ng-conf consisted of a single track of talks. The topics covered today included reactive programming, Firebase, Angular 2 form validation and animations amongst others. The question on everyones mind at the end of day three was **"When will Angular 2 be released?"** and we still don't have a definite date. One thing we do know for sure is that the Angular 2 offline compiler is one of the key missing pieces, so as soon as it lands, we'll know the release is imminent.

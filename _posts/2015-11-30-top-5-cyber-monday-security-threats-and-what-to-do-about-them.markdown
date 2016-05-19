@@ -14,10 +14,10 @@ design:
   image_size: "120%"
   image: https://cdn.auth0.com/blog/top-5-threats-cyber-monday/logo-cybermonday.png
 tags: 
-- cyber monday
-- online shopping
-- security threats
-- security tips
+- cyber-monday
+- online-shopping
+- security-threats
+- security-tips
 related:
 - 2015-12-23-tis-the-season-for-cyber-criminals
 - 2016-04-21-facebook-account-kit-passwordless-authentication

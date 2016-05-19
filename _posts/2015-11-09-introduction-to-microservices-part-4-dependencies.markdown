@@ -19,9 +19,9 @@ tags:
 - microservice
 - microservices
 - dependencies
-- data sharing
-- static data
-- data modelling
+- data-sharing
+- static-data
+- data-modelling
 - modelling
 - post-series
 related:

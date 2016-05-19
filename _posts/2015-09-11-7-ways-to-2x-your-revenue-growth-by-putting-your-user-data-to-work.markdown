@@ -16,7 +16,7 @@ design:
 tags: 
 - marketing
 - rules
-- Full Contact
+- Full-Contact
 - Segment
 - revenue
 - slack

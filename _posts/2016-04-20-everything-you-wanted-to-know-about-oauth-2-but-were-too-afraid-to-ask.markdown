@@ -15,7 +15,7 @@ design:
 tags: 
 - OAuth
 - Webinar
-- OAuth 2
+- OAuth2
 - Video
 related:
 - 2014-08-22-sso-for-legacy-apps-with-auth0-openid-connect-and-apache

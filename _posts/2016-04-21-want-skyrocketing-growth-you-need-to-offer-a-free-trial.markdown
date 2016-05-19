@@ -12,8 +12,8 @@ design:
   bg_color: "#5C666F"
   image: https://cdn.auth0.com/blog/free-trial/free-trial-icon.png
 tags: 
-- free trial
-- growth hacks
+- free-trial
+- growth-hacks
 related:
 - 2016-04-21-facebook-account-kit-passwordless-authentication
 - 2016-04-18-progressive-profiling

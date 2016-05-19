@@ -13,12 +13,12 @@ design:
   image: "https://cdn.auth0.com/blog/react-router-alt/react.png"
 tags: 
 - React
-- React Router
+- React-Router
 - rrtr
-- React Component Router
-- React Mini Router
+- React-Component-Router
+- React-Mini-Router
 - RRouter
-- Universal Router
+- Universal-Router
 - router5
 related:
 - 2016-04-13-authentication-in-golang

@@ -15,9 +15,9 @@ design:
   image_bg_color: "#455572"
   blog_series: true
 tags: 
-- single sign on
+- single-sign-on
 - sso
-- federated identity
+- federated-identity
 - saml
 - login
 - credentials

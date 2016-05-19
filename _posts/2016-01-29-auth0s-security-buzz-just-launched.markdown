@@ -12,8 +12,8 @@ design:
   bg_color: "#254973"
   image: https://cdn.auth0.com/blog/announcing-security-buzz/logo.png
 tags: 
-- security buzz
-- security news
+- security-buzz
+- security-news
 ---
 We are happy to announce the launch of our new communication channel: [Security Buzz](https://auth0.com/resources/security-buzz), where Auth0's experts will be sharing news, opinion articles, and more about security.
 

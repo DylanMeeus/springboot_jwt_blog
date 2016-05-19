@@ -17,7 +17,7 @@ tags:
 - angular2
 - angular
 - electron
-- navtive
+- native
 - app
 related:
 - 2015-09-02-angular2-series-working-with-pipes

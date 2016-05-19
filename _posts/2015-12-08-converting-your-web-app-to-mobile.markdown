@@ -12,9 +12,9 @@ design:
   bg_color: "#2C3946"
   image: https://cdn.auth0.com/blog/converting-your-app-to-mobile/logo.png
 tags: 
-- web apps
-- mobile apps
-- apache cordova
+- web-apps
+- mobile-apps
+- apache-cordova
 - cordova
 related:
 - 2016-03-28-xamarin-authentication-and-cross-platform-app-development
