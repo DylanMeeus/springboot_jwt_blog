@@ -13,12 +13,12 @@ design:
   image: "https://cdn.auth0.com/blog/ngconf2016/ng-conf-logo.png"
 tags: 
 - Angular
-- Angular 2
+- Angular2
 - angular
 - ng-conf
-- Angular Universal
-- Angular Mobile Toolkit
-- Angular CLI
+- Angular-Universal
+- Angular-Mobile-Toolkit
+- Angular-CLI
 ---
 
 The annual [ng-conf](https://www.ng-conf.org/) conference is upon us once again. This year, Angular 2 is all the rage. Angular 2 has entered [release candidate](https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc0-2016-05-02) and is inching ever-closer to a final 1.0...err...2.0 release.

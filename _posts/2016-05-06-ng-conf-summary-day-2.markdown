@@ -13,12 +13,12 @@ design:
   image: "https://cdn.auth0.com/blog/ngconf2016/ng-conf-logo.png"
 tags: 
 - Angular
-- Angular 2
+- Angular-2
 - angular
 - ng-conf
-- Angular Universal
-- Angular Mobile Toolkit
-- Angular CLI
+- Angular-Universal
+- Angular-Mobile-Toolkit
+- Angular-CLI
 ---
 
 Day two of ng-conf was titled **Fair Day**. Fair day consisted of a brief keynote in the morning and then a series of breakout sessions and workshops allowing developers to deep dive into all the new technologies announced on day one. Check out our [recap of day one](https://auth0.com/blog/2016/05/05/ng-conf-summary-day-1/) to learn about these technologies which include Angular Universal, Material, CLI, Augury and Mobile Toolkit. Day 1 was all about big announcements, [day three](https://auth0.com/blog/2016/05/07/ng-conf-summary-day-3) went hands-on on how to work with Angular 2 and associated projects.

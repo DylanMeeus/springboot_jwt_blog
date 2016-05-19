@@ -14,9 +14,9 @@ design:
   image: https://cdn.auth0.com/blog/artisanal-spam/logo.png
 tags: 
 - spam
-- artisanal spam
+- artisanal-spam
 - scamming
-- cyber criminals
+- cyber-criminals
 related:
 - 2015-08-20-from-theory-to-practice-adding-two-factor-to-node-dot-js
 - 2015-11-30-top-5-cyber-monday-security-threats-and-what-to-do-about-them

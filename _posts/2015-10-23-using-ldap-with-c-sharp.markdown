@@ -15,11 +15,11 @@ design:
   blog_series: true
 tags: 
 - ldap
-- lightweight directory access protocol
+- lightweight-directory-access-protocol
 - c#
-- single sign on
+- single-sign-on
 - sso
-- active directory
+- active-directory
 - ad
 - .net
 - authentication

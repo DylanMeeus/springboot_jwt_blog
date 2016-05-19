@@ -17,7 +17,7 @@ design:
   image_tw: http://jwt.io/img/twitter-card.png
 tags:
 - jwt
-- openid connect
+- openid-connect
 - logo
 related:
 - 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts

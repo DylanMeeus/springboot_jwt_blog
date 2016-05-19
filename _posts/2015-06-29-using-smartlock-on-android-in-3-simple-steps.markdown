@@ -13,8 +13,8 @@ design:
   image: https://cdn.auth0.com/blog/smart-lock/smart-lock.png
 tags: 
 - android
-- smart lock
-- password manager
+- smart-lock
+- password-manager
 - 1password
 - lastpass
 - auth0

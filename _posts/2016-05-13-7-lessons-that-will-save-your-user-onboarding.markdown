@@ -10,11 +10,11 @@ author:
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
 design: 
   bg_color: "#171717"
-  image: https://cdn.auth0.com/blog/user-onboarding-lessons/logo.png
+  image: git 
 tags: 
-- user onboarding
+- user-onboarding
 - onboarding
-- customer success
+- customer-success
 related:
 - 2016-04-21-want-skyrocketing-growth-you-need-to-offer-a-free-trial
 - 2016-04-18-progressive-profiling

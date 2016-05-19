@@ -13,10 +13,10 @@ design:
   image_tw: http://cdn.auth0.com/blog/paypal/twitter-card.png
   image_fb: http://cdn.auth0.com/blog/paypal/twitter-card.png
 tags: 
-- paypal hack
+- paypal-hack
 - security
-- multifactor authentication
-- single sign on
+- multifactor-authentication
+- single-sign-on
 - passwordless
 related:
 - 2015-10-22-5-ways-to-make-your-app-more-secure-in-less-than-20-minutes

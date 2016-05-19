@@ -14,8 +14,8 @@ design:
   image_size: "90%"
 tags: 
 - security
-- incident response
-- data breach
+- incident-response
+- data-breach
 related:
 - 2015-08-20-from-theory-to-practice-adding-two-factor-to-node-dot-js
 - 2016-01-18-how-to-build-your-customer-trust-through-soc-2

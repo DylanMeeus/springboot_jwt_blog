@@ -20,7 +20,7 @@ tags:
 - express.js
 - totp
 - rfc-6238
-- google authenticator
+- google-authenticator
 - node.js
 - two-factor
 - multi-factor

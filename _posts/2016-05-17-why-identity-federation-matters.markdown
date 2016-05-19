@@ -12,9 +12,9 @@ design:
   bg_color: "#1F3C5E"
   image: https://cdn.auth0.com/blog/federated-identity/logo.png
 tags: 
-- federated identity
-- single sign on
-- identity management
+- federated-identity
+- single-sign-on
+- identity-management
 related:
 - 2016-05-14-how-passwordless-sms-authentication-can-improve-your-app
 - 2016-05-08-how-to-use-auth0-to-manage-your-multi-tenancy-application

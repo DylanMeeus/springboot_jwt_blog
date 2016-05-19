@@ -13,10 +13,10 @@ design:
   bg_color: "#4A4A4A"
   image: https://cdn.auth0.com/blog/progressive-profiling/icon.png
 tags: 
-- customer service
+- customer-service
 - profiling
-- customer information
-- customer data
+- customer-information
+- customer-data
 related:
 - 2016-04-19-supercharge-your-registration-process
 - 2016-04-21-facebook-account-kit-passwordless-authentication

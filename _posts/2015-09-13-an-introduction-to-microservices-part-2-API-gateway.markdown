@@ -16,15 +16,15 @@ design:
   blog_series: true
 tags: 
 - microservices
-- design patterns
-- api design
+- design-patterns
+- api-design
 - api
 - patterns
 - REST
 - SOA
-- software architecture
+- software-architecture
 - post-series
-- API gateway
+- API-gateway
 related:
 - 2015-09-04-an-introduction-to-microservices-part-1
 - 2014-11-28-using-json-web-tokens-as-api-keys

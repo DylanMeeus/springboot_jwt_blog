@@ -15,10 +15,10 @@ design:
 tags: 
 - Go
 - Golang
-- Go API
-- Go JWT
-- Authentication in Go
-- Go and React
+- Go-API
+- Go-JWT
+- Authentication-in-Go
+- Go-and-React
 related:
 - 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
 - 2016-04-22-angularjs-authentication-screencast-series-part-3

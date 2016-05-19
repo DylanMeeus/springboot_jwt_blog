@@ -12,9 +12,9 @@ design:
   bg_color: "#171717"
   image: "https://cdn.auth0.com/blog/fingerprint-auth/logo.png"
 tags: 
-- fingerprint authentication
+- fingerprint-authentication
 - passwordless
-- step-up authentication
+- step-up-authentication
 ---
 
 ## Why Use Fingerprint Authentication

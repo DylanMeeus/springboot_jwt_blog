@@ -12,11 +12,11 @@ design:
   bg_color: "#353F4A"
   image: "https://cdn.auth0.com/blog/account-kit-passwordless/account-kit-hero.png"
 tags: 
-- Facebook Account Kit
-- Password Free Login
-- Passwordless Authentication
-- Passwordless Login
-- SMS Login
+- Facebook-Account-Kit
+- Password-Free-Login
+- Passwordless-Authentication
+- Passwordless-Login
+- SMS-Login
 related:
 - 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
 - 2016-02-10-getting-started-with-lock-episode-2-using-customization-options

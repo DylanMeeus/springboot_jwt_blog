@@ -16,9 +16,9 @@ design:
   blog_series: false
 tags:
 - javascript
-- memory leaks
-- dom leaks
-- finding memory leaks
+- memory-leaks
+- dom-leaks
+- finding-memory-leaks
 related:
 - 2015-12-28-securing-your-nodebots-with-json-web-tokens
 - 2015-08-20-from-theory-to-practice-adding-two-factor-to-node-dot-js

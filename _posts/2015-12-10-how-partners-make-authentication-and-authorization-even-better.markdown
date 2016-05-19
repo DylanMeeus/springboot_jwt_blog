@@ -14,12 +14,12 @@ design:
   image: https://cdn.auth0.com/blog/grean/logo.png
   image_size: "120%"
 tags:
-- technology partner opportunities
-- b2b partner opportunity
-- onboarding solution
-- onboarding and offboarding
-- controlling access to business apps
-- control external access to internal apps
+- technology-partner-opportunities
+- b2b-partner-opportunity
+- onboarding-solution
+- onboarding-and-offboarding
+- controlling-access-to-business-apps
+- control-external-access-to-internal-apps
 
 related:
 - 2015-12-03-why-using-open-standards-helps-close-enterprise-deals

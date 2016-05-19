@@ -12,9 +12,9 @@ design:
   bg_color: #222228"
   image: https://cdn.auth0.com/blog/social-login-makes-apps-grow/logo.png
 tags: 
-- social login
-- app growth
-- increase registrations
+- social-login
+- app-growth
+- increase-registrations
 related:
 - 2015-09-23-what-is-and-how-does-single-sign-on-work
 - 2016-02-08-how-to-authenticate-on-android-using-social-logins

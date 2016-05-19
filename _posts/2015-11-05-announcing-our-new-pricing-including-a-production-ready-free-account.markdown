@@ -14,12 +14,12 @@ design:
   image: https://cdn.auth0.com/blog/pricingv4/ticket-1.png
 tags:
 - pricing
-- free developer accoint
-- free open source
-- active users
-- free plan
-- new pricing
-- developer plan
+- free-developer-account
+- free-open source
+- active-users
+- free-plan
+- new-pricing
+- developer-plan
 related:
 - 2016-04-15-angularjs-authentication-screencast-series-part-1
 - 2016-04-21-facebook-account-kit-passwordless-authentication

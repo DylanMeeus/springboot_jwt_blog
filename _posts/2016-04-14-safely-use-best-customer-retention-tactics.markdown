@@ -13,9 +13,9 @@ design:
   bg_color: "#4A4A4A"
   image: https://cdn.auth0.com/blog/customer-retention-techniques/logo.png
 tags: 
-- customer retention
-- customer retention techniques
-- retention hacks
+- customer-retention
+- customer-retention-techniques
+- retention-hacks
 related:
 - 2016-04-18-progressive-profiling
 - 2016-04-14-safely-use-best-customer-retention-tactics

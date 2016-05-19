@@ -12,9 +12,9 @@ design:
   bg_color: "#19304C"
   image: https://cdn.auth0.com/blog/registration-process/reg-process-icon.png
 tags: 
-- customer registration
-- application registration
-- growth hacks
+- customer-registration
+- application-registration
+- growth-hacks
 related:
 - 2016-04-14-safely-use-best-customer-retention-tactics
 - 2016-04-21-facebook-account-kit-passwordless-authentication

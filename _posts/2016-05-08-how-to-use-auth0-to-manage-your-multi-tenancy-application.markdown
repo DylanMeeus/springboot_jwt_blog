@@ -13,8 +13,8 @@ design:
   image: https://cdn.auth0.com/blog/multi-tenancy/logo.png
 tags: 
 - multi-tenancy
-- multi-tenant applications
-- multi-tenancy benefits
+- multi-tenant-applications
+- multi-tenancy-benefits
 
 ---
 

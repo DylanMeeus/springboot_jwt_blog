@@ -14,12 +14,12 @@ design:
   image: http://auth0.github.io/newsletters/zero-to-lunch/img/1.png
   image_size: "60%"
 tags: 
-- customer success
-- partner success
-- partner program
+- customer-success
+- partner-success
+- partner-program
 - pre-release
-- customer engagement
-- early access
+- customer-engagement
+- early-access
 
 related:
 - 2016-04-15-angularjs-authentication-screencast-series-part-1

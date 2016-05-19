@@ -13,7 +13,7 @@ design:
   image: https://cdn.auth0.com/blog/t-shirt-tuesdays/logo.png
   image_size: "100%"
 tags: 
-- auth0 tshirt
+- auth0-tshirt
 - contest
 ---
 

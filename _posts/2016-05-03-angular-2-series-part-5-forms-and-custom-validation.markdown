@@ -18,11 +18,11 @@ design:
 tags: 
 - angular 2
 - forms
-- form validation
-- custom validation
+- form-validation
+- custom-validation
 - control
-- control group
-- control array
+- control-group
+- control-array
 ---
 
 ---

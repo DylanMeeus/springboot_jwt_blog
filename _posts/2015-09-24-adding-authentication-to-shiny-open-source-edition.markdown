@@ -17,10 +17,10 @@ tags:
 - shiny
 - r
 - apache
-- openid connect
+- openid-connect
 - mod_auth_openidc
 - mod_auth
-- reverse proxy
+- reverse-proxy
 related:
 - 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
 - 2015-10-23-using-ldap-with-c-sharp

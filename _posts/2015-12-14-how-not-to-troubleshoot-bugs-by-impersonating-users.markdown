@@ -14,7 +14,7 @@ design:
   image_size: "50%"
 tags: 
 - bugs
-- user impersonation
+- user-impersonation
 related:
 - 2016-02-10-getting-started-with-lock-episode-2-using-customization-options
 - 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock

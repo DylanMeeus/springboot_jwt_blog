@@ -12,9 +12,9 @@ design:
   bg_color: "#222228"
   image: https://cdn.auth0.com/blog/customer-support/logo.png
 tags: 
-- customer service
-- growth hacking
-- customer support
+- customer-service
+- growth-hacking
+- customer-support
 related:
 - 2016-04-18-progressive-profiling
 - 2016-04-19-supercharge-your-registration-process

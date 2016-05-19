@@ -15,15 +15,15 @@ design:
   image_bg_color: "#B6C5CA"
   blog_series: false
 tags: 
-- refresh token
+- refresh-token
 - authentication
 - authorization
 - oauth
 - openid
-- access token
+- access-token
 - token
 - jwt
-- sliding sessions
+- sliding-sessions
 related:
 - 2015-11-10-introducing-angular2-jwt-a-library-for-angular2-authentication
 - 2015-03-10-blacklist-json-web-token-api-keys

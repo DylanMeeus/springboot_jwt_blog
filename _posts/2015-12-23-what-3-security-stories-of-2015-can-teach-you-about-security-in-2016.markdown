@@ -12,8 +12,8 @@ design:
   bg_color: "#191716"
   image: https://cdn.auth0.com/blog/3-security-stories/logo2.png
 tags: 
-- security stories
-- security breaches
+- security-stories
+- security-breaches
 - protonMail
 - DDoS
 related:

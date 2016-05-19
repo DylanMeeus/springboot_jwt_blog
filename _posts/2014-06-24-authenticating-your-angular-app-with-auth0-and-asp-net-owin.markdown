@@ -11,7 +11,7 @@ author:
 tags:
 - authentication
 - angular
-- asp .net
+- asp.net
 - owin
 - spa
 - auth0

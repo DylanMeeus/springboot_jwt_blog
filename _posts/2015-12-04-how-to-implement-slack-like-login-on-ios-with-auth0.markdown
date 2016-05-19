@@ -17,13 +17,13 @@ design:
 tags:
 - auth0
 - passwordless
-- passwordless login
+- passwordless-login
 - login
 - authentication
-- email login
-- mail login
-- link login
-- magic link
+- email-login
+- mail-login
+- link-login
+- magic-link
 - ios
 - iphone
 - ipad

@@ -12,7 +12,7 @@ design:
   image_bg_color: "transparent"
   bg_color: "#412b13"
 tags: 
-- ember 2.0
+- ember-2.0
 - authentication
 - authorization
 - ember-cli
@@ -20,8 +20,8 @@ tags:
 - brocoli
 - ember
 - emberjs
-- emberjs 2.0
-- call api
+- emberjs-2.0
+- call-api
 - api
 - jwt
 related:

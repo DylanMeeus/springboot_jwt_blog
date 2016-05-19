@@ -23,10 +23,10 @@ tags:
 - pipes
 - component
 - directive
-- angular 2
+- angular-2
 - di
 - bind
-- real world
+- real-world
 - example
 - talk
 related:

@@ -12,8 +12,8 @@ design:
   bg_color: "#004E8A"
   image: https://cdn.auth0.com/blog/using-open-standards/logo.png
 tags: 
-- enterprise deals
-- vendor lock-in
+- enterprise-deals
+- vendor-lock-in
 - startups
 
 related:

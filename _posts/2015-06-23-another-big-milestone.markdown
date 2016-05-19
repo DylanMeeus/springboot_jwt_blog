@@ -16,7 +16,7 @@ design:
   bg_color: "#111118"
 
 tags:
-- series A
+- series-A
 - milestone
 - announcement
 - capital

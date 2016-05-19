@@ -21,8 +21,8 @@ tags:
 - react.js
 - react
 - dom
-- virtual dom
-- incremental dom
+- virtual-dom
+- incremental-dom
 - javascript
 - glimmer
 - benchmark
@@ -30,11 +30,11 @@ tags:
 - mithril.js
 - angular
 - angular.js
-- angular 2
-- angular 1
+- angular-2
+- angular-1
 - cito.js
 - performance
-- memory use
+- memory-use
 related:
 - 2015-11-20-face-off-virtual-dom-vs-incremental-dom-vs-glimmer
 - 2016-01-07-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest

@@ -19,9 +19,9 @@ tags:
 - https
 - tls
 - ssl
-- digital certificate
-- transport layer security
-- secure sockets layer
+- digital-certificate
+- transport-layer-security
+- secure-sockets-layer
 related:
 - 2016-04-07-integrate-auth0-into-your-existing-saas-tool
 - 2016-04-21-facebook-account-kit-passwordless-authentication

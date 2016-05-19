@@ -13,9 +13,9 @@ design:
   bg_color: "#203E62"
   image: https://cdn.auth0.com/blog/integrate-your-saas-tools/logo.png
 tags: 
-- auth0 integration
-- auth0 rules
-- saas tools
+- auth0-integration
+- auth0-rules
+- saas-tools
 - mailgun
 - mixpanel
 - analytics
