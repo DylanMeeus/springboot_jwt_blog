@@ -10,7 +10,7 @@ author:
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
 design: 
   bg_color: "#171717"
-  image: git 
+  image: https://cdn.auth0.com/blog/user-onboarding-lessons/logo.png 
 tags: 
 - user-onboarding
 - onboarding
