@@ -3,16 +3,16 @@ layout: post
 title: "How to migrate your existing users from Parse to Auth0"
 description: "Parse is shutting down on January 28, 2017. Learn how to easily migrate your users to Auth0, diversify risks and earn more features as a bonus"
 date: 2016-02-16 08:30
-author: 
+author:
   name: Ado Kukic
   url: https://twitter.com/kukicadnan
   mail: kukicadnan@gmail.com
   avatar: https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/blog/parse-migration/logo.png"
   image_size: "100%"
-tags: 
+tags:
 - Parse
 - Migration
 - MBaSS
@@ -25,12 +25,12 @@ related:
 
 ---
 
-**TL;DR:** Parse is shutting down on January 28, 2017. Auth0 allows you to easily migrate Parse users by implementing just a couple of scripts that interface with the Parse REST API. In this tutorial, we'll walk you through a step by step process of setting up Auth0 to automigrate your existing Parse userbase as well as how to implement Auth0 authentication in your app. 
+**TL;DR:** Parse is shutting down on January 28, 2017. Auth0 allows you to easily migrate Parse users by implementing just a couple of scripts that interface with the Parse REST API. In this tutorial, we'll walk you through a step by step process of setting up Auth0 to automigrate your existing Parse userbase as well as how to implement Auth0 authentication in your app.
 
 ---
 
 Facebook shocked the developer community when it announced it would be [shutting down](http://blog.parse.com/announcements/moving-on/) Parse, a [MBaaS](https://en.wikipedia.org/wiki/Mobile_backend_as_a_service), which powers over 500,000 apps. Applications relying on Parse have until January 28, 2017 to find a new home. The Parse team has released two tools to help developers migrate away, [Parse Server](https://github.com/ParsePlatform/parse-server/wiki) and the [Database Migration Tool](https://parse.com/docs/server/guide#migrating).
-  
+
 Today's tutorial will focus on migrating users from an existing Parse application to Auth0. We will implement Auth0's automatic migration feature to work with our existing Parse backend so that when our existing users login their account will be migrated to Auth0. We have developed a sample app that utilizes Parse - and this tutorial will take us step by step through the process of migrating users to Auth0.
 
 ## Introduction
@@ -51,12 +51,12 @@ Parse uses the `username` key when creating user accounts. The username key can 
 ## Implementing the Database Action Scripts
 To get the automatic migration working we will need to implement two scripts - **Login** and **Get User**. These scripts are used to interface with your external data store. We'll explain each of the scripts in greater detail below.
 
-### Login 
+### Login
 The login script is executed when a user attempts to sign in but their account is not found in the Auth0 database. Here we will implement the functionality to pass the user credentials provided to our Parse database and see if that user is valid. Auth0 provides templates for many common databases such as MongoDB, MySQL and Sql Server, but for Parse we will have to write our own. We will utilize Parse's REST API to authenticate the user.
 
 ```javascript
-// The login function takes 3 parameters: 
-// 1. username/email 
+// The login function takes 3 parameters:
+// 1. username/email
 // 2. password
 // 3. callback function
 function login (username, password, callback){
@@ -102,19 +102,19 @@ function login (username, password, callback){
 ```
 
 ### Get User
-The get user script is executed when the user attempts to do a password reset and their account is not found in the Auth0 database. The get user script interfaces with your Parse datastore and checks to see if the user exists there. If the user does exist, their data is sent back to Auth0 where the user is automigrated and a password reset email is sent out. Once the user confirms the reset, they are good to go and can access your app. Subsequent logins will be authenticated against the Auth0 database as the users profile is not stored with Auth0. 
+The get user script is executed when the user attempts to do a password reset and their account is not found in the Auth0 database. The get user script interfaces with your Parse datastore and checks to see if the user exists there. If the user does exist, their data is sent back to Auth0 where the user is automigrated and a password reset email is sent out. Once the user confirms the reset, they are good to go and can access your app. Subsequent logins will be authenticated against the Auth0 database as the users profile is not stored with Auth0.
 
 Let's take a look at the code to implement this functionality with Parse. Once more, we will be using Parse's REST API to implement a lookup of the users email and if we get a successful return we'll create the user and send out the reset password request.
 
 ```javascript
-// The getByEmail function takes 2 parameters: 
-// 1. email 
+// The getByEmail function takes 2 parameters:
+// 1. email
 // 2. callback function
 function getByEmail (email, callback) {
   var profile = {
     email:  email
   };
-  
+
   // We are going to make a query call to the /users endpoint of the Parse API
   // Visit https://parse.com/docs/rest/guide#users-querying for additional info
   request({
@@ -164,7 +164,7 @@ Auth0 additionally provides functionality to try your custom login function as w
 ## Implement Auth0 Authentication in CloudCakes
 We are now ready to implement Auth0 authentication in our app. CloudCakes was built as an AngularJS app that talks to a REST backend. If you would like to follow along get the code [here](https://github.com/kukicadnan/cloudcakes). Since our app was built with AngularJS we will add all the required and supplemental libraries to make the implementation as easy as possible. AngularJS setup is out of scope for this tutorial - we will primarily focus on integrating Auth0 authentication. We will assume you are following along with the CloudCakes code example.
 
-*Auth0 provides a REST based API that you can use to integrate into any app you are building. Additionally, Auth0 provides official libraries and SDK's for most frameworks and languages including Python, Node, Ruby, iOS, Android, Java, .Net and many others. To learn more about the different SDK's supported visit this [page](https://auth0.com/docs/sdks).*
+*Auth0 provides a REST based API that you can use to integrate into any app you are building. Additionally, Auth0 provides official libraries and SDK's for most frameworks and languages including Python, Node, Ruby, iOS, Android, Java, .Net and many others. To learn more about the different SDK's supported visit this [page](https://auth0.com/docs).*
 
 ### Hooking Into Auth0
 The first and most important step is to properly add your Auth0 credentials. For CloudCakes, David has created a file `auth0-variables.js` where he instantiated three global variables `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN` and `AUTH0_CALLBACK_URL` and inserted the appropriate values into the variables. You can get these values for your app by navigating to your Auth0 Dashboard, selecting your app and clicking on the **Settings** tab. The **Domain** and **Client ID** will be predefined for you and you can just copy and paste them. You will need to insert a value or values in the **Allowed Callback URLs**. The value here should be the domain you will be accessing your app from. In CloudCakes case, we are just going to add our local development url which is `http://localhost:3000`. With these three setting defined, you are ready for the next step.
@@ -226,7 +226,7 @@ The entire migration process is fully transparent to the user. The user did not 
 Once Parse shuts down, you can close the migration process by going back to the **Connections** -> **Database** menu in the Auth0 dashboard, navigating to the **Settings** tab and unchecking the "Import Users to Auth0" checkbox as well as turning off the "Use my own database" setting in the **Custom Database** tab.
 
 ## Social Login with Auth0
-David S. has successfully migrated his Parse users to Auth0. Business is booming but he really wants to get to the next level by adding social authentication and letting users sign up with their existing social media accounts. Auth0 has him covered! Navigating to the **Connections**, then **Social** menu, David is presented with an array of authentication providers including Facebook, Twitter, Google, GitHub and more. 
+David S. has successfully migrated his Parse users to Auth0. Business is booming but he really wants to get to the next level by adding social authentication and letting users sign up with their existing social media accounts. Auth0 has him covered! Navigating to the **Connections**, then **Social** menu, David is presented with an array of authentication providers including Facebook, Twitter, Google, GitHub and more.
 
 David decides that he wants to allow his users to login with **Facebook**. Enabling login through Facebook is as simple as switching the Facebook social connection to the "On" state and then clicking on it to bring up the settings menu. Here, all David has to add is his **App ID** and **App Secret** as well as any attributes and permissions he would like the user to grant. To get the **App ID** and **App Secret** you will need to create a Facebook app on the [Facebook Developers](https://developers.facebook.com/). Once your app is created, you will be able to find the **App ID** and **App Secret** at the very top of the page on the **Dashboard** tab of your app. One additional step that you will need to do to enable Facebook authentication with Auth0 is to add your Auth0 callback URL in the **Client OAuth Settings** of your Facebook app. To do this, inside of your Facebook app, navigate to the **Settings** tab, then **Advanced**. On this page, scroll to the section that reads **Client OAuth Settings** and insert your Auth0 callback url in the **Valid Oauth redirect URIs** box. The callback url looks like `https://{AUTH0_USERNAME}.auth0.com/login/callback`.
 
