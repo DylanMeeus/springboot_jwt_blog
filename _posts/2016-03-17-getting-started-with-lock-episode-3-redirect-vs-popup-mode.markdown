@@ -3,16 +3,16 @@ layout: post
 title: "Getting Started with Lock episode 3: Redirect vs Popup Mode"
 description: "This episode shows the difference in Lock between Redirect and Popup modes."
 date: 2016-03-17 08:37
-author: 
+author:
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
   mail: kassandra.perch@auth0.com
   avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
   image_size: "50%"
-tags: 
+tags:
 - Lock
 - Tutorial
 - video
@@ -23,7 +23,7 @@ related:
 - 2016-04-21-facebook-account-kit-passwordless-authentication
 ---
 
-This is Kassandra with Auth0. This is the third episode of our Getting Started with Lock series. We also have [episode 1: implementing Lock](https://auth0.com/blog/2016/02/05/getting-started-with-auth0-lock-series-implementing-lock/) and [episode 2: using customization options](https://auth0.com/blog/2016/02/10/getting-started-with-lock-episode-2-using-customization-options/)
+This is Kassandra with Auth0. This is the third episode of our Getting Started with Lock series. We also have [episode 1: implementing Lock](https://auth0.com/blog/2016/02/03/getting-started-with-auth0-lock-series-implementing-lock/) and [episode 2: using customization options](https://auth0.com/blog/2016/02/10/getting-started-with-lock-episode-2-using-customization-options/)
 
 <div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/ezt4g1ho7m?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
@@ -74,7 +74,7 @@ lock.show({}, function(err, profile, id_token){
 });
 ```
 
-This callback recieves an error `err` (`null` if successful), a `profile` object representing our logged-in user, and an `id_token`: this is the JWT that will authenticate your user, and is useful if you will be making calls to APIs that you protect with JWT authentication. You can then modify the DOM, or your application state, or whatever you need with the profile information. 
+This callback recieves an error `err` (`null` if successful), a `profile` object representing our logged-in user, and an `id_token`: this is the JWT that will authenticate your user, and is useful if you will be making calls to APIs that you protect with JWT authentication. You can then modify the DOM, or your application state, or whatever you need with the profile information.
 
 **Please remember that redirect mode is the recommended use of Lock [due to browser compatibility issues](https://auth0.com/docs/libraries/lock/authentication-modes#popup-mode). Please only use popup mode if you must.**
 

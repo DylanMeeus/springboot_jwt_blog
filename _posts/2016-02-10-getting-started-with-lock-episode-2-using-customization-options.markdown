@@ -3,16 +3,16 @@ layout: post
 title: "Getting Started with Lock Episode 2: Using Customization Options"
 description: "This is the second episode of the Lock screencast series, where we show the various customization options in Lock.js"
 date: 2016-02-10 10:00
-author: 
+author:
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
   mail: kassandra.perch@auth0.com
   avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
   image_size: "50%"
-tags: 
+tags:
 - Lock
 - Tutorial
 - post-series
@@ -22,7 +22,7 @@ related:
 - 2015-09-02-angular2-series-working-with-pipes
 ---
 
-Hi, this is Kassandra with Auth0. In [the first episode of our new Getting Started with Lock screencast](https://auth0.com/blog/2016/02/05/getting-started-with-auth0-lock-series-implementing-lock/), we talked about how to implement Lock. Today, we'll be talking about customizing Lock with the various options in our Lock library.
+Hi, this is Kassandra with Auth0. In [the first episode of our new Getting Started with Lock screencast](https://auth0.com/blog/2016/02/03/getting-started-with-auth0-lock-series-implementing-lock/), we talked about how to implement Lock. Today, we'll be talking about customizing Lock with the various options in our Lock library.
 
 <div class="wistia_responsive_padding" style="padding:62.71% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/bcdrrfc8eb?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
