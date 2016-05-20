@@ -22,7 +22,7 @@ Auth0 is a remote team. Our main bases might be in Seattle and Buenos Aires, but
 
 We’re not alone. Basecamp, Buffer, Zapier, and Help Scout are just some of the big tech names that have entirely remote teams. Basecamp literally [wrote the book on it](https://37signals.com/remote). But even more companies, large and small, are embracing remote working for all or part of their employee base. [37%](http://www.gallup.com/poll/184649/telecommuting-work-climbs.aspx) of Americans currently work from home part-time, and that number is growing. Dell, Oracle, Adobe, Salesforce, even the USDA all have part of their workforce remote, showing that remote workers can be just as productive as their office counterparts, no matter what [Marissa Mayer thinks](http://www.businessinsider.com/why-marissa-mayer-told-remote-employees-to-work-in-an-office--or-quit-2013-2).
 
-But it isn’t easy.Going remote, whether that means the whole team or just bringing on a new remote member, requires buy-in from the entire company. It doesn’t just happen, it needs to be a considered choice, and everyone needs to work to constantly improve the processes that make remote work work.
+But it isn’t easy. Going remote, whether that means the whole team or just bringing on a new remote member, requires buy-in from the entire company. It doesn’t just happen, it needs to be a considered choice, and everyone needs to work to constantly improve the processes that make remote work work.
 
 Here are 21 of the best tips we have for companies, managers, and remote workers that have helped us build an awesome remote team, work effectively, and stay 100% productive no matter where our team members are.
 
