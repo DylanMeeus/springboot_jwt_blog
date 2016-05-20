@@ -36,6 +36,8 @@ To help us (and our customers) visualize these logs, we spent some time creating
 
 <a target="_blank" href="https://cdn.auth0.com/blog/sumo-logic/sl-db-screenshot.jpg">![Sumo Logic dashboard for Auth0 logs_](https://cdn.auth0.com/blog/sumo-logic/sl-db-screenshot.jpg)</a>
 
-If you're a Sumo Logic customer and are interested in trying out this dashboard, just let us know via [Support Center](https://support.auth0.com) (be sure to include your Sumo Logic account name) and we will gladly share it with you. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful! We'd love to hear what you think, especially if you've got a great idea that we should incorporate back into our original version. Our goal is to eventually publish this dashboard via a real Sumo Logic app, so that it's automatically available to all users.
+If you're a Sumo Logic customer and are interested in trying out this dashboard, just let us know via [Support Center](https://support.auth0.com) (be sure to include your Sumo Logic account name) and we will gladly share it with you. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful!
+
+We'd love to hear what you think, especially if you've got a great idea that we should incorporate back into our original version. Our goal is to eventually publish this dashboard via a real Sumo Logic app, so that it's automatically available to all users.
 
 Have fun analyzing and visualizing those logs!
