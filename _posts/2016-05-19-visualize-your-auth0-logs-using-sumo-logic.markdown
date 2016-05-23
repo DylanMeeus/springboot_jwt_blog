@@ -30,7 +30,26 @@ Once enabled, the extension configuration screen will be displayed. You'll need 
 
 ![Sumo Logic extension configuration screen](https://cdn.auth0.com/blog/sumo-logic/sl-ext-config.png)
 
-We at Auth0 have been using this extension ourselves since it was first released, and it's proven to be very useful for staying on top of what's happening with our internal Auth0 account and our users (e.g., employees, contractors). Sumo Logic makes it easy to see the latest failed logins, find and alert on error messages, create charts to visualize trends, or even do complex statistical analysis on your data.
+Data should begin appearing in Sumo Logic a few minutes after you enable the extension. A simple search like `_sourceCategory=auth0_logs` will show you the most recent log events. Getting the top 10 users for a given time period is as easy as this query:
+
+```
+_sourceCategory=auth0_logs | keyvalue auto
+| count user_name | top 10 user_name by _count
+```
+
+Want to create a chart showing the popularity of a particular client based on the number of logins per hour over a few days? Sure, you can do that in Sumo Logic with just a few commands:
+
+```
+_sourceCategory=auth0_logs salesforce | keyvalue auto | timeslice 1h
+| count by _timeslice, client_name
+| transpose row _timeslice column client_name
+```
+
+The resulting chart will look something like this:
+
+![Sumo Logic trend chart sample](https://cdn.auth0.com/blog/sumo-logic/sl-chart-sample.png)
+
+We have been using the Auth0 to Sumo Logic extension ourselves since it was first released, and it's proven to be very useful for staying on top of what's happening with our own Auth0 accounts and our internal users (employees). Sumo Logic makes it easy to see the latest failed logins, find and alert on error messages, create charts to visualize trends, or even do complex statistical analysis on your data.
 
 To help us (and our customers) visualize these logs, we spent some time creating a dashboard. The Sumo Logic for Auth0 dashboard shows you the output of several saved searches all on one easy to read screen, and makes it easy to zoom in or drill down when something looks interesting.
 
