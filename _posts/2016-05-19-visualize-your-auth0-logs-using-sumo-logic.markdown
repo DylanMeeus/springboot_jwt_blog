@@ -20,9 +20,9 @@ tags:
 - logs
 ---
 
-If you're a user of both Auth0 and Sumo Logic, you can use this awesome [Auth0 extension](https://github.com/auth0/auth0-logs-to-sumologic) to send your tenant logs to Sumo Logic. Having all your logs centrally located makes them more valuable and easier to correlate when dealing with something like a security incident or a performance issue.
+If you're a user of both Auth0 and Sumo Logic, you can use this awesome [Auth0 extension](https://github.com/auth0/auth0-logs-to-sumologic) to send your tenant logs to Sumo Logic. Having all your logs centrally located makes them more valuable and easier to correlate when dealing with something like a security incident or a performance issue. Amazingly, you can sign up for a free [Sumo Logic](https://www.sumologic.com/pricing/) account and collect up to 500MB of data per day! That is more than enough to get started.
 
-It's super easy to install the "Auth0 Logs to Sumo Logic" extension right from your account [Dashboard](https://manage.auth0.com/#/extensions). Simply login, click on Extensions, then find and click on the Sumo Logic icon to configure and enable the extension.
+It's super easy to install the "Auth0 Logs to Sumo Logic" extension right from your Auth0 account [Dashboard](https://manage.auth0.com/#/extensions). Simply login, click on Extensions, then find and click on the Sumo Logic icon to configure and enable the extension.
 
 ![Sumo Logic extension icon](https://cdn.auth0.com/blog/sumo-logic/sl-ext-icon.png)
 
