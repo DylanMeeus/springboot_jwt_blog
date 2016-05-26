@@ -48,7 +48,7 @@ JavaScript applications are, in a lot of ways, large collections of data and sta
 
 Redux makes it very clear that the application's data itself should never be mutated directly. Instead, a function should be put in place that returns the **next** state by looking at the previous state, along with an action that describes how things should change. These functions are called **reducers** and are at the heart of Redux. It's important to note that reducers should be kept **pure**, meaning that their output should rely solely on the arguments passed to them with no side effects such as making an API call or mutating the arguments passed in.
 
-So why should reducers be pure and not have side effects? In short, it's to keep things simple and predictable. A function that relies only on the arguments passed to it to derive the next state will be easier to reason about and debug. If we wanted to we could return mutated objects and Redux wouldn't throw errors, as we mentioned, it is strongly discouraged.
+So why should reducers be pure and not have side effects? In short, it's to keep things simple and predictable. A function that relies only on the arguments passed to it to derive the next state will be easier to reason about and debug. If we wanted to we could return mutated objects and Redux wouldn't throw errors, but as mentioned, it is strongly discouraged.
 
 ### Actions
 
