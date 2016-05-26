@@ -837,7 +837,7 @@ First, add the Auth0 Lock script to your `index.html` file.
   ...
   
   <!-- Auth0Lock script -->
-  <script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>
+  <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
