@@ -2,7 +2,7 @@
 layout: post
 title: "Cookies vs Tokens: The Definitive Guide"
 description: "The cookie vs token debate favors token-based authentication. Learn the advantages and get answers to common concerns regarding token authentication."
-date: 2016-05-27 08:30
+date: 2016-05-31 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
