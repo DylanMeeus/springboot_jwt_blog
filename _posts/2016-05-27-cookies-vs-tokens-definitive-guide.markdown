@@ -17,6 +17,10 @@ tags:
 - Tokens
 - JWT
 - Progressive Web App
+related:
+- 2014-01-27-ten-things-you-should-know-about-tokens-and-cookies
+- 2015-12-17-json-web-token-signing-algorithms-overview
+- 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
 ---
 
 ---
