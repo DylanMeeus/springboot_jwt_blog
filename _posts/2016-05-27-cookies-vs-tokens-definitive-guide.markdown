@@ -35,7 +35,7 @@ Our [last article](https://auth0.com/blog/2014/01/07/angularjs-authentication-wi
 
 The rise of single page applications (SPAs) and decoupling of the front-end from the back-end is in full force. Frameworks like [Angular](https://angularjs.org/), [React](https://facebook.github.io/react/), and [Vue](https://vuejs.org/) allow developers to build bigger, better, and more performant single page applications than ever before. Token-based authentication goes hand in hand with these frameworks.
 
-{% include tweet_quote.html quote_text="Token-based authentication goes in hand in hand with SPA frameworks like Angular, React and Vue." %}
+{% include tweet_quote.html quote_text="Token-based authentication goes hand in hand with SPA frameworks like Angular, React and Vue." %}
 
 ## Cookie vs Token Authentication - Recap
 
