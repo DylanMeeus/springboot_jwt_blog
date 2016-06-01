@@ -33,14 +33,14 @@ Once enabled, the extension configuration screen will be displayed. You'll need 
 Data should begin appearing in Sumo Logic a few minutes after you enable the extension. A simple search like `_sourceCategory=auth0_logs` will show you the most recent log events. Getting the top 10 users for a given time period is as easy as this query:
 
 ```
-_sourceCategory=auth0_logs | keyvalue auto
+_sourceCategory=auth0_logs | json auto
 | count user_name | top 10 user_name by _count
 ```
 
 Want to create a chart showing the popularity of a particular client based on the number of logins per hour over a few days? Sure, you can do that in Sumo Logic with just a few commands:
 
 ```
-_sourceCategory=auth0_logs salesforce | keyvalue auto | timeslice 1h
+_sourceCategory=auth0_logs salesforce | json auto | timeslice 1h
 | count by _timeslice, client_name
 | transpose row _timeslice column client_name
 ```
@@ -51,12 +51,14 @@ The resulting chart will look something like this:
 
 We have been using the Auth0 to Sumo Logic extension ourselves since it was first released, and it's proven to be very useful for staying on top of what's happening with our own Auth0 accounts and our internal users (employees). Sumo Logic makes it easy to see the latest failed logins, find and alert on error messages, create charts to visualize trends, or even do complex statistical analysis on your data.
 
-To help us (and our customers) visualize these logs, we spent some time creating a dashboard. The Sumo Logic for Auth0 dashboard shows you the output of several saved searches all on one easy to read screen, and makes it easy to zoom in or drill down when something looks interesting.
+To help us (and our customers) visualize these logs, we spent some time creating a couple of dashboards. The Sumo Logic for Auth0 dashboards show you the output of several saved searches all on one easy to read screen, and makes it easy to zoom in or drill down when something looks interesting.
 
-<a target="_blank" href="https://cdn.auth0.com/blog/sumo-logic/sl-db-screenshot.jpg">![Sumo Logic dashboard for Auth0 logs_](https://cdn.auth0.com/blog/sumo-logic/sl-db-screenshot.jpg)</a>
+<a target="_blank" href="https://cdn.auth0.com/blog/sumo-logic/sl-db-screenshot.jpg">![Sumo Logic dashboard for Auth0 logs](https://cdn.auth0.com/blog/sumo-logic/sl-db-screenshot.jpg)</a><!-- __ -->
 
-If you're a Sumo Logic customer and are interested in trying out this dashboard, just let us know via [Support Center](https://support.auth0.com) (be sure to include your Sumo Logic account name) and we will gladly share it with you. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful!
+If you're a Sumo Logic customer and are interested in trying out these dashboards, just let us know via [Support Center](https://support.auth0.com) (be sure to include your Sumo Logic account name) and we will gladly share it with you. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful!
 
-We'd love to hear what you think, especially if you've got a great idea that we should incorporate back into our original version. Our goal is to eventually publish this dashboard via a real Sumo Logic app, so that it's automatically available to all users.
+<a target="_blank" href="https://cdn.auth0.com/blog/sumo-logic/sl-saved-searches.jpg">![Sumo Logic saved searches for Auth0 logs](https://cdn.auth0.com/blog/sumo-logic/sl-saved-searches.jpg)</a><!-- __ -->
+
+We'd love to hear what you think, especially if you've got a great idea that we should incorporate back into our original version. Our goal is to eventually publish these dashboards via a real Sumo Logic app, so that it's automatically available to all users.
 
 Have fun analyzing and visualizing those logs!
