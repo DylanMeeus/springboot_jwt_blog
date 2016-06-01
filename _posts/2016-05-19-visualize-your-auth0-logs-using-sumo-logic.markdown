@@ -57,7 +57,8 @@ To help us (and our customers) visualize these logs, we spent some time creating
 
 If you're a Sumo Logic customer and are interested in trying out these dashboards, just let us know via [Support Center](https://support.auth0.com) (be sure to include your Sumo Logic account name) and we will gladly share it with you. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful!
 
-<a target="_blank" href="https://cdn.auth0.com/blog/sumo-logic/sl-saved-searches.jpg">![Sumo Logic saved searches for Auth0 logs](https://cdn.auth0.com/blog/sumo-logic/sl-saved-searches.jpg)</a><!-- __ -->
+Here are the saved searches we've created so far:
+![Sumo Logic saved searches for Auth0 logs](https://cdn.auth0.com/blog/sumo-logic/sl-saved-searches.jpg)
 
 We'd love to hear what you think, especially if you've got a great idea that we should incorporate back into our original version. Our goal is to eventually publish these dashboards via a real Sumo Logic app, so that it's automatically available to all users.
 
