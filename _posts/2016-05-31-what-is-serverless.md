@@ -51,7 +51,7 @@ Serverless trend changes the abstractions used in software development, with dow
 
 ## Focus on code, not servers
 
-In traditional software development, the software engineer had to be acutely aware of the concept of a *server*. Servers are where their software runs. Servers communicate with each other. Servers have IP addresses which needs to be discovered. Servers go down which needs to be accounted for. Servers have local state that is not visible to other servers. Many facets of software development revolved around the first class concept of a server. 
+In traditional software development, the software engineer had to be acutely aware of the concept of a *server*. Servers are where their software runs. Servers communicate with each other. Servers have IP addresses which need to be discovered. Servers go down which must to be accounted for. Servers have local state that is not visible to other servers. Many facets of software development revolved around the first class concept of a server. 
 
 > The essence of the *serverless* trend is the absence of the server concept *during software development*.
 
