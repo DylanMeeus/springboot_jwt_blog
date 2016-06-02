@@ -65,7 +65,7 @@ Serverless pattern encourages development focus on well defined units of busines
 
 A common misconception surrounding *serverless* is that it removes the need for provisioning, maintaining, and scaling application infrastructure. Removing these concerns is in fact one of the value propositions that resonates with software developers writing code. However, at the level of the infrastructure their code runs on, these traditional operational concerns remain as valid as ever. 
 
-In other words, thanks to the crisply defined boundary between application code and underlying infrastrucure that *serverless* proposes, provisioning, maintenance, and scalability can be provided as a service to the application layer, creating an illusion it is *free*. 
+In other words, thanks to the crisply defined boundary between application code and underlying infrastructure that *serverless* proposes, provisioning, maintenance, and scalability can be provided as a service to the application layer, creating an illusion it is *free*. 
 
 ## What happened to my servers?
 
