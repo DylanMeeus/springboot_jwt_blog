@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Incremental DOM 101: What is it and why I should care?"
-description: Learn how Incremental DOM works and how it compares to Glimmer and Virutal DOM
+description: Learn how Incremental DOM works and how it compares to Glimmer and Virtual DOM
 date: 2015-10-23 19:00
 author:
   name: Pablo Terradillos
