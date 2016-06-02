@@ -47,7 +47,7 @@ As is usually the case, cows will continue to give milk and hens will lay eggs. 
 
 ## So what is serverless?
 
-Serverless trend changes the abstractions used in software development, with downstream implications on how this software is deployed and maintained. It does not remove the need for any work that is happening today within the lifetime of a software system, but it affects who does this work and improves its efficiency. 
+Serverless trend changes the abstractions used in software development, with downstream implications on how the software is deployed and maintained. It does not remove the need for any work that is happening today within the lifetime of a software system, but it affects who does this work and improves its efficiency. 
 
 ## Focus on code, not servers
 
