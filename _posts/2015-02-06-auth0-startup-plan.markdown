@@ -35,4 +35,4 @@ you get unrestricted usage of Auth0 for 1 year for $99 per month.
 
 It's that simple.
 
-Email [startup@auth0.com](mailto:startup@auth0.com) for requesting your Startup plan.
+Email [startup@auth0.com](mailto:startup@auth0.com) to request a Startup plan.
