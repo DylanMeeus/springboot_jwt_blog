@@ -39,7 +39,7 @@ Focus software development on application code and improve efficiency of operati
 
 ## Cows, hens, and serverless
 
-Birth of any breakthrough technology has a tendency to spark fierce discourse. It is frequently fueled by misconception about the nature of the invention or fear of the unknown. When the first steam locomotives were introduced in Great Britain in 1824, those opposed claimed they would turn cows' milk sour and prevent hens from laying eggs, apart from other despicable calamities. 
+The birth of any breakthrough technology has a tendency to spark fierce discourse. It is frequently fueled by misconception about the nature of the invention or fear of the unknown. When the first steam locomotives were introduced in Great Britain in 1824, those opposed claimed they would turn cows' milk sour and prevent hens from laying eggs, apart from other despicable calamities. 
 
 Quite a similar discourse is happening now around the new trend of *serverless* computing. Twitter is abuzz with opinions ridiculing the idea as an assault on the established ways of software delivery. The debate is further escalated by misconceptions around what *serverless* means to the value chain of software delivery, especially operations. 
 
