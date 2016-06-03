@@ -379,7 +379,7 @@ function login(){
         id_token : id_token,
         api : 'firebase',
         scope : 'openid name email displayName',
-        targetClientId: 'YOUR-AUTH0-CLIENT-ID'
+        target: 'YOUR-AUTH0-CLIENT-ID'
       };
       
       // Make a call to the Auth0 '/delegate' 
