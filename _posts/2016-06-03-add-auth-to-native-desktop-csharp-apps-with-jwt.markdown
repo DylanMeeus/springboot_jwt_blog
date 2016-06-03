@@ -26,7 +26,7 @@ related:
 
 ---
 
-**TL;DR:** In this tutorial, we'll see how easy it is to build a native desktop C# app and get up and running with JWT authentication. Check out the [repo](https://github.com/unicodeveloper/Csharp-jwt-authentication-sample/tree/master/WpfClient) to get the code.
+**TL;DR:** In this tutorial, we'll see how easy it is to build a native desktop C# app and get up and running with JWT authentication. If you're unfamiliar with JWT(JSON Web Token), you can read more about it [here](https://jwt.io/introduction/). Check out the [repo](https://github.com/unicodeveloper/Csharp-jwt-authentication-sample/tree/master/WpfClient) to get the code.
 
 ---
 
