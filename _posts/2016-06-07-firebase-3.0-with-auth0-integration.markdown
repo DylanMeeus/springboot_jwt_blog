@@ -2,7 +2,7 @@
 layout: post
 title: "Firebase 3.0 SDK with Auth0 Integration"
 description: "Build a serverless Firebase app using the new Firebase 3.0 SDK. Extend the app by letting Auth0 handle user authentication."
-date: 2016-06-06 08:30
+date: 2016-06-07 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
@@ -26,11 +26,11 @@ related:
 
 **TL;DR** Firebase is a real-time platform that allows developers to build serverless web and mobile apps. Release of the Firebase 3.0 SDK brings a refined API and additional features to the platform. We'll build an app with the new SDK and show how you can integrate Auth0 to handle user authentication.
 
-As the new SDK has not propogated to the official Firebase helper libraries, our app will be written in plain ol' JavaScript. Grab the [Github repo](https://github.com/auth0-blog/fireteller) if you would like to follow along.
+As the new SDK has not propogated to the official Firebase helper libraries, such as [AngularFire2](https://github.com/angular/angularfire2) or [EmberFire](https://github.com/firebase/emberfire/), our app will be written in plain ol' JavaScript. Grab the [Github repo](https://github.com/auth0-blog/fireteller) if you would like to follow along.
 
 ---
 
-At this years Google I/O conference, [Firebase](https://firebase.google.com) took the spotlight and ran with it. A major update pushes Firebase closer to becoming *the* platform for building real-time web and mobile apps. Firebase can now become a one-stop shop for your entire application, from inception to post-deployment.
+At this year's Google I/O conference, [Firebase](https://firebase.google.com) took the spotlight and ran with it. A major update pushes Firebase closer to becoming *the* platform for building real-time web and mobile apps. Firebase can now be a one-stop shop for your entire application, from inception to post-deployment.
 
 Firebase is a real-time database-as-a-service platform that allows developers to build apps that propagate updates in real-time. Through the Firebase SDK, apps can talk directly to the database without the need for a backend - but is not limited to this paradigm. The new Firebase offers much more and we'll look at what's new next.
 
@@ -40,7 +40,7 @@ Firebase is a real-time database-as-a-service platform that allows developers to
 
 ![The New Firebase](https://cdn.auth0.com/blog/new-firebase/firebase-home.png)
 
-The new updates to the platform have been categorized into three sections: **Develop**, **Grow**, and **Earn**. A new SDK, versioned 3.0, accompanies the new Firebase. The new SDK has many breaking changes and is incompatible with earlier versions. While there are many changes, the functionality remains familiar.
+The new updates to the platform have been categorized into three sections: **Develop**, **Grow**, and **Earn**. A new SDK, version 3.0, accompanies the new Firebase. The new SDK has many breaking changes and is incompatible with earlier versions. While there are many changes, the functionality remains familiar.
 
 For example, with Firebase SDK 2.x, if you wanted to retrieve a list of records from an endpoint you would do so like this:
 
@@ -63,7 +63,7 @@ firebase.database().ref('posts').on('value', function(snapshot) {
 });
 ```
 
-Check out the [migration guide](https://firebase.google.com/support/guides/firebase-web) to learn about all the changes if you are migrating an existing Firebase app to the new SDK. Let's examine how the new Firebase makes the developing apps awesome. 
+Check out the [migration guide](https://firebase.google.com/support/guides/firebase-web) to learn about all the changes if you are migrating an existing Firebase app to the new SDK. Let's examine how the new Firebase makes developing apps awesome. 
 
 ### Develop
 
@@ -85,7 +85,7 @@ The app we'll be building is called FireTeller. It is a collaborative storytelli
 
 ### From Humble Beginnings
 
-To get started, we'll install the Firebase CLI. You'll need [NodeJS](https://nodejs.org) and [npm](https://npmjs.com), so once you have those installed, in a terminal window enter the following command: `npm install -g firebase-tools`. Once the install is complete, type `firebase login` and you will be prompted to login to your Firebase account and grant permissions so the CLI can do its thing. Finally, navigate to a directory where you want your app to live and type `firebase init` to create a new application. You will go through a number of steps to setup the initial app, selecting the default for each should work just fine.
+To get started, we'll install the Firebase CLI. You'll need [NodeJS](https://nodejs.org) and [npm](https://npmjs.com), so once you have those installed, in a terminal window enter the following command: `npm install -g firebase-tools`. Once the install is complete, type `firebase login` and you will be prompted to log in to your Firebase account and grant permissions so the CLI can do its thing. Finally, navigate to a directory where you want your app to live and type `firebase init` to create a new application. You will go through a number of steps to setup the initial app, selecting the default for each should work just fine.
 
 ![Creating a new Firebase application](https://cdn.auth0.com/blog/new-firebase/firebase-init.png)
 
@@ -148,7 +148,7 @@ Let's build that UI.
 </html>
 ```
 
-Next, create an `app.js` file that will handle our app logic. For now, we'll just initialize our Firebase app. The values for the config can be found in your [Firebase console on](https://console.firebase.google.com) the homepage of your app.
+Next, let's create an `app.js` file that will handle our app logic. For now, we'll just initialize our Firebase app. The values for the config can be found in your [Firebase console on](https://console.firebase.google.com) the homepage of your app.
 
 ```js
 var config = {
@@ -178,31 +178,31 @@ Our data model will consist of the current story being written and an array of a
 // Anytime the stories endpoint changes data, we'll call this function
 // which empties the current list of stories and generates a new list
 // The generateStory(story) function is described below
-firebase.database().ref('stories').on('value', function(data){
+firebase.database().ref('stories').on('value', function(data) {
   $('#stories').empty();
-  data.forEach(function(story){
+  data.forEach(function(story) {
     generateStory(story);
-  })
+  });
 });
 
 // Anytime the story endpoint is changed, we similarly update
 // the current story.
-firebase.database().ref('story').on('value', function(data){
+firebase.database().ref('story').on('value', function(data) {
   $('#story').empty();
-  data.forEach(function(data){
+  data.forEach(function(data) {
     var emoji = data.val();
-    $('#story').append('<i class="em em-' + emoji + '"></i>')
-  })
+    $('#story').append('<i class="em em-' + emoji + '"></i>');
+  });
 })
 
 // The generate story function renders a story for each item in
 // the stories array and sets the latest story to the top of the stack.
-function generateStory(story){
-  var $div = $("<div>")
+function generateStory(story) {
+  var $div = $("<div>");
   $('#stories').prepend($div);
-  story.forEach(function(page){
+  story.forEach(function(page) {
     $($div).append('<i class="em em-' + page.val() + '"></i>');
-  })
+  });
 }
 
 // We'll add this code which will track changes to user authentication
@@ -230,9 +230,9 @@ If we had data in our database we would now see it in our application - but alas
 // We have over 800 emojis, rather than display them all at once
 // we'll show the user a list of 20 random emojis. We'll also
 // call this function to get an initial list of emojis for the user.
-function getRandomEmoji(){
+function getRandomEmoji() {
   $('#options').empty();
-  for(var i = 0; i < 30; i++){
+  for(var i = 0; i < 30; i++) {
     var number = randomNum();
     $('#options').append('<i class="em em-' + emoji[number] + '" onclick="addToStory('+ number +')"></i>');
   }
@@ -240,7 +240,7 @@ function getRandomEmoji(){
 
 // Remember when we created that variable that stored the emoji count?
 // We'll use that here so that we always get valid emojis back.
-function randomNum(){
+function randomNum() {
   return Math.floor(Math.random() * (emoji_count - 0)) + 0;
 }
 // We'll call the function once to get an initial list of emoji.
@@ -252,15 +252,14 @@ getRandomEmoji();
 // we'll automatically publish the story.
 // This is a pretty hacky way to go around implementing this particular
 // feature. Homework: Can you improve it?
-function addToStory(number){
+function addToStory(number) {
   var current = firebase.database().ref('story');
   // We are using a transaction to ensure that if two users
   // submit the final emoji at the same time we don't
   // publish the story twice.
-  current.transaction(function(data){
-    if(data){
-      console.log(Object.keys(data).length)
-      if(Object.keys(data).length == 9){
+  current.transaction(function(data) {
+    if(data) {
+      if(Object.keys(data).length == 9) {
         data.final = emoji[number];
         firebase.database().ref('stories').push(data);
         firebase.database().ref('story').remove();
@@ -277,7 +276,7 @@ Now we are ready to test our application. Head over to `localhost:5000` and star
 
 We don't want just anyone to add stories to our app, so we'll set up a user authentication system and require users to be logged in to contribute. Let's do that next.
 
-### Authentication with Firebase
+## Authentication with Firebase
 
 Firebase provides an authentication service that supports email/password, social, and anonymous authentication. Firebase also has support for integrating with external authentication providers, which we'll be doing with Auth0 a little bit later in this post. Enabling authentication with Firebase can be done by going to the **Auth** section in the [dashboard](https://console.firebase.google.com), then navigating to the **Sign In Methods** tab and selecting which methods of authentication you would like to enable.
 
@@ -286,7 +285,7 @@ Firebase provides an authentication service that supports email/password, social
 Since Firebase is a Google product, we'll add authentication with Google. In the dashboard, we'll enable the Google sign-in provider. In our code, lets create a function called `loginWithGoogle()` in our `app.js` file that will handle the authentication.
 
 ```js
-function loginWithGoogle(){
+function loginWithGoogle() {
   // Instantiate the Google authentication provider
   var provider = new firebase.auth.GoogleAuthProvider();
   // Handle the authentication request using the Popup method
@@ -298,19 +297,29 @@ function loginWithGoogle(){
 }
 ```
 
-In our UI, let's add this function to the **Sign Up to Contribute** button. Next, navigate to the app and click the button to login. You'll see a popup which will ask you to login to your Google account and then it will prompt you to grant our app permissions. Once you hit accept, the popup will close and you will be logged in.
+In our UI, let's add this function to the **Sign Up to Contribute** button. Next, navigate to the app and click the button to login. You'll see a popup which will ask you to log in to your Google account and then it will prompt you to grant our app permissions. Once you hit accept, the popup will close and you will be logged in.
 
 ![Authentication with Google](https://cdn.auth0.com/blog/new-firebase/auth-google.png)
 
-Uncomment out the code we wrote earlier that watches for changes to user authentication. Once you've done this, the UI will change based on the users state. If the user is logged in, they will be able to logout as well as contribute to the story. If they are logged out, they will only have the option to login, see the current story being written, and see existing stories, but will not be able to contribute.
+Uncomment the code we wrote earlier that watches for changes to user authentication. Once you've done this, the UI will change based on the user's state. If the user is logged in, they will be able to log out as well as contribute to the story. If they are logged out, they will only have the option to log in, see the current story being written, and see existing stories, but will not be able to contribute.
 
-With the `onAuthStateChanged()` observable, we are able to control the UI, but to further protect our database, let's update our Firebase database rules to only allow authenticated users to submit emoji to the story. We'll do this in the Firebase dashboard, navigate to the **Database** section in the main nav, then the **Rules** tab. Here we can define **read** and **write** permissions for our database. 
+With the `onAuthStateChanged()` observable, we are able to control the UI, but to further protect our database, let's update our Firebase database rules to only allow authenticated users to submit emoji to the story. We'll do this in the Firebase dashboard. Navigate to the **Database** section in the main nav, then the **Rules** tab. Here we can define **read** and **write** permissions for our database. 
 
-The default rule set allows anyone to read and write data to the entire database. Let's change this to allow anyone to read the contents of the database, but only authenticated users will be able to write. We can accomplish that with the following rule: `{"rules":{".read":true,".write": "auth != null"}}`. The rules system can get pretty complex and you can learn a lot more about it in the [Firebase docs](https://firebase.google.com/docs/database/security/), there is even a handy simulator that will allow you to experiment with the rules to make sure they meet your needs.
+The default rule set allows anyone to read and write data to the entire database. Let's change this to allow anyone to read the contents of the database, but only authenticated users will be able to write. We can accomplish that with the following rule: 
+
+```
+{ "rules":
+  { ".read" : true,
+    ".write": "auth != null"
+  }
+}
+```
+
+The rules system can get pretty complex and you can learn a lot more about it in the [Firebase docs](https://firebase.google.com/docs/database/security/), there is even a handy simulator that will allow you to experiment with the rules to make sure they meet your needs.
 
 ## Aside: Firebase SDK 3.0 and Auth0
 
-Auth0 is fully compatible with the new Firebase 3.0 SDK. A big thank you to **Jacob Wegner** for helping with the integration. Firebase already has an authentication service, so why integrate Auth0? While Firebase does have an authentication service, Auth0 can greatly enhance the user experience and add additional features that Firebase does not offer such as Single Sign On, 30+ Social Providers, Two Factor Authentication, Passwordless Authentication, and more. 
+Auth0 is fully compatible with the new Firebase 3.0 SDK. A big thank you to **Jacob Wegner** for helping with the integration. Firebase already has an authentication service, so why integrate Auth0? While Firebase does have an authentication service, Auth0 can greatly enhance the user experience and add additional features that Firebase does not offer such as [single sign on](https://auth0.com/docs/sso/single-sign-on), [30+ social providers](https://auth0.com/docs/identityproviders), [multifactor authentication](https://auth0.com/learn/get-started-with-mfa/), [passwordless authentication](https://auth0.com/passwordless), and more. 
 
 Let's see how we can integrate Auth0 with the new Firebase SDK. 
 
@@ -364,7 +373,7 @@ First, let's update our `index.html` file to include these libraries.
 Next, we'll implement the login function in our `app.js` file.
 
 ``` js
-function login(){
+function login() {
   // Instantiate the lock and auth0 libraries 
   var lock = new Auth0Lock('YOUR-AUTH0-CLIENT-ID', 'YOUR-AUTH0-DOMAIN.auth0.com');
   var auth0 = new Auth0({ domain : 'YOUR-AUTH0-DOMAIN.auth0.com', clientID: 'YOUR-AUTH0-CLIENT-ID'})
@@ -383,8 +392,8 @@ function login(){
       };
       
       // Make a call to the Auth0 '/delegate' 
-      auth0.getDelegationToken(options, function(err, result){
-        if(!err){
+      auth0.getDelegationToken(options, function(err, result) {
+        if(!err) {
           // Exchange the delegate token for a Firebase auth token
           firebase.auth().signInWithCustomToken(result.id_token).catch(function(error) {
             console.log(error);
@@ -398,7 +407,7 @@ function login(){
 
 // Finally, we'll implement a logout function to allow the user
 // to logout once they are done creating stories
-function logout(){
+function logout() {
   localStorage.removeItem('profile');
   firebase.auth().signOut().then(function() {
     console.log("Signout Successful")
@@ -414,17 +423,17 @@ With this code now in place, we are ready to test our Auth0 and Firebase impleme
 
 If you already have an account, you can login, otherwise signup using the Lock widget. Upon a successful sign up or sign in, you will be authenticated and have the option to contribute to the story. Once you are done, click the logout button to log out.
 
-### Serverless Apps
-
-What we just built was a serverless app. Our Firebase application does not need a backend server to process requests, the Firebase 3 SDK running on the front-end coupled with the database rules we defined allow us to build apps without the need for a back-end server. The Firebase database for all intents and purposes is our backend.
-
-Auth0 additionally offers a platform for building serverless apps called [Webtask](https://webtask.io). Firebase can run as a serverless app, but it can also run on the server. You can even have Firebase communicate with Webtask! [Learn more](https://webtask.io/docs/how) about how Webtask works and how it can change the way you build apps.
-
 ### Deploying a Firebase App
 
 ![Deploying a Firebase app](https://cdn.auth0.com/blog/new-firebase/firebase-deploy.png)
 
 To conclude our tutorial today, let's deploy our application using the Firebase CLI. You can deploy a static Firebase app by running the `firebase deploy` command from the terminal. Within seconds, your app will be deployed and live. Check out the app we just built [here](https://project-8302152786657556368.firebaseapp.com/).
+
+## Serverless Apps
+
+What we just built was a serverless app. Our Firebase application does not need a backend server to process requests, the Firebase 3 SDK running on the front-end coupled with the database rules we defined allow us to build apps without the need for a back-end server. The Firebase database for all intents and purposes is our backend.
+
+Auth0 additionally offers a platform for building serverless apps called [Webtask](https://webtask.io). Firebase can run as a serverless app, but it can also run on the server. You can even have Firebase communicate with Webtask! [Learn more](https://webtask.io/docs/how) about how Webtask works and how it can change the way you build apps.
 
 ## Putting It All Together
 
