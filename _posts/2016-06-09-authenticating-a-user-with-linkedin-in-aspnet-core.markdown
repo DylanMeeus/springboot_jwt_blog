@@ -404,3 +404,7 @@ Now when you run the application and you sign in, you will see the user's name d
 Clicking on the user's name will take you to the new User Profile page where you can see all the claims for the user listed:
 
 ![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/user-profile.png)
+
+## Sample project
+
+The sample project for this blog post can be found at [https://github.com/jerriep/aspnet-core-oauth-linkedin](https://github.com/jerriep/aspnet-core-oauth-linkedin).
