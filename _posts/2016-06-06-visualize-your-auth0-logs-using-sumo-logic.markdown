@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "Visualize and Search Your Auth0 Logs Using Sumo Logic"
-description: <A SHORT DESCRIPTION OF THE POST>
-date: 2016-05-19 17:57
+description: The Auth0 Logs to Sumo Logic extension helps you dealing with security incidents and performance issues
+date: 2016-06-06 8:30
 author:
   name: Eugene Kogan
   url: https://twitter.com/eugk
   mail: eugene.kogan@auth0.com
   avatar: https://s.gravatar.com/avatar/667b1c82b6cc2241ff176d50c65da603?s=200
 design:
-  bg_color: #16214D
+  bg_color: "#16214D"
   image: https://cdn.auth0.com/blog/sumo-logic/sumo-logic-logo.jpg
 tags:
 - visualization
@@ -18,6 +18,9 @@ tags:
 - sumo-logic
 - logging
 - logs
+related:
+- 2016-04-07-integrate-auth0-into-your-existing-saas-tools
+- 2016-03-10-introducing-auth0-collections-for-postman
 ---
 
 If you're a user of both Auth0 and Sumo Logic, you can use this awesome [Auth0 extension](https://github.com/auth0/auth0-logs-to-sumologic) to send your tenant logs to Sumo Logic. Having all your logs centrally located makes them more valuable and easier to correlate when dealing with something like a security incident or a performance issue. Amazingly, you can sign up for a free [Sumo Logic](https://www.sumologic.com/pricing/) account and collect up to 500MB of data per day! That is more than enough to get started.
