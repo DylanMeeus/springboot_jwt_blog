@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What's TJ's Stack These Days?"
+title: "What's TJ Holowaychuck's Stack These Days?"
 description: "TJ Holowaychuck has been working on a new project called Apex. We caught up with him to get all the details!"
 date: 2016-06-07 8:30
 author: 
