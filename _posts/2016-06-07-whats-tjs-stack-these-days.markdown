@@ -12,6 +12,7 @@ design:
   bg_color: "#2d5487"
   image: https://cdn.auth0.com/blog/apex-ping/apex-ping-icon.png
 tags: 
+- interview
 - go
 - serverless
 - react
