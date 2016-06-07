@@ -212,9 +212,9 @@ For the `/logout` route we simply sign the user out of the Cookie middleware, wh
 
 One final thing we want to do is to add a Login button on the website, so open the `/Views/Shared/_Layout.cshtml` file and in the nav bar section add some logic which check if the user is authenticated and then send them either to the `/logout` or the `/login` route. 
 
-Also, if the user is actually authenticated we will display a greeting that will display the string "Hello <user name>". Clicking on this link will take the user to a profile page which we will develop later in this blog post. 
+Also, if the user is actually authenticated we will display a greeting that will display the string "Hello [user name]". Clicking on this link will take the user to a profile page which we will develop later in this blog post. 
 
-``` html
+{% highlight html %}
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
@@ -233,7 +233,7 @@ Also, if the user is actually authenticated we will display a greeting that will
         }
     </ul>
 </div>
-```
+{% endhighlight %}
 
 ## Running the application
 
@@ -356,7 +356,7 @@ public class HomeController : Controller
 
 And also add a view called `UserProfile.cshtml` to the `\Views\Home` folder:
 
-``` html
+{% highlight html %}
 @{
     ViewData["Title"] = "User Profile";
 
@@ -395,7 +395,7 @@ And also add a view called `UserProfile.cshtml` to the `\Views\Home` folder:
         </table>
     </div>
 </div>
-```
+{% endhighlight %}
 
 Now when you run the application and you sign in, you will see the user's name displayed correctly:
 
