@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Firebase 3.0 SDK with Auth0 Integration"
-description: "Build a serverless Firebase app using the new Firebase 3.0 SDK. Extend the app by letting Auth0 handle user authentication."
-date: 2016-06-07 08:30
+title: "Firebase Authentication with the Firebase 3.0 SDK and Auth0 Integration"
+description: "Build a serverless Firebase app using the new Firebase 3.0 SDK. Secure your app with Firebase authentication and learn about custom authentication through Auth0."
+date: 2016-06-08 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
@@ -14,6 +14,7 @@ design:
 tags: 
 - Firebase
 - Firebase 3.0 SDK
+- Firebase Authentication
 - Firebase Custom Authentication
 - Auth0 Delegation
 related:
@@ -24,7 +25,7 @@ related:
 
 ---
 
-**TL;DR** Firebase is a real-time platform that allows developers to build serverless web and mobile apps. Release of the Firebase 3.0 SDK brings a refined API and additional features to the platform. We'll build an app with the new SDK and show how you can integrate Auth0 to handle user authentication.
+**TL;DR** Firebase is a real-time platform that allows developers to build serverless web and mobile apps. Release of the Firebase 3.0 SDK brings a refined API and additional features to the platform. We'll build an app with the new SDK, implement Firebase authentication and show how you can integrate Auth0 for additional functionality.
 
 As the new SDK has not propogated to the official Firebase helper libraries, such as [AngularFire2](https://github.com/angular/angularfire2) or [EmberFire](https://github.com/firebase/emberfire/), our app will be written in plain ol' JavaScript. Grab the [Github repo](https://github.com/auth0-blog/fireteller) if you would like to follow along.
 
@@ -67,7 +68,7 @@ Check out the [migration guide](https://firebase.google.com/support/guides/fireb
 
 ### Develop
 
-When we talk about Firebase, we generally are talking about the real-time database feature of the platform, but there is much more to it than that. Website **hosting** as well as **file storage** allow you to get your app up and running without thinking about servers and infrastructure. Additionally, utilities for testing, analytics, and crash reporting are included. Finally, the [Firebase CLI](https://firebase.google.com/docs/cli/) allows you to easily create and deploy your app with just a few simple commands.
+When we talk about Firebase, we generally are talking about the real-time database feature of the platform, but there is much more to it than that. Website **hosting** as well as **file storage** allow you to get your app up and running without thinking about servers and infrastructure. Additionally, utilities for authentication, testing, analytics, and crash reporting are included. Finally, the [Firebase CLI](https://firebase.google.com/docs/cli/) allows you to easily create and deploy your app with just a few simple commands.
 
 ### Grow
 
@@ -276,11 +277,11 @@ Now we are ready to test our application. Head over to `localhost:5000` and star
 
 We don't want just anyone to add stories to our app, so we'll set up a user authentication system and require users to be logged in to contribute. Let's do that next.
 
-## Authentication with Firebase
+## Firebase Authentication
 
-Firebase provides an authentication service that supports email/password, social, and anonymous authentication. Firebase also has support for integrating with external authentication providers, which we'll be doing with Auth0 a little bit later in this post. Enabling authentication with Firebase can be done by going to the **Auth** section in the [dashboard](https://console.firebase.google.com), then navigating to the **Sign In Methods** tab and selecting which methods of authentication you would like to enable.
+Firebase provides an authentication service that supports email/password, social, and anonymous authentication. Firebase also has support for integrating with external authentication providers, which we'll be doing with Auth0 a little bit later in this post. Enabling Firebase authentication can be done by going to the **Auth** section in the [dashboard](https://console.firebase.google.com), then navigating to the **Sign In Methods** tab and selecting which methods of authentication you would like to enable.
 
-![Enable Google Authentication](https://cdn.auth0.com/blog/new-firebase/enable-google-auth.png)
+![Enable Google Authentication with Firebase Authentication](https://cdn.auth0.com/blog/new-firebase/enable-google-auth.png)
 
 Since Firebase is a Google product, we'll add authentication with Google. In the dashboard, we'll enable the Google sign-in provider. In our code, lets create a function called `loginWithGoogle()` in our `app.js` file that will handle the authentication.
 
@@ -319,7 +320,7 @@ The rules system can get pretty complex and you can learn a lot more about it in
 
 ## Aside: Firebase SDK 3.0 and Auth0
 
-Auth0 is fully compatible with the new Firebase 3.0 SDK. A big thank you to **Jacob Wegner** for helping with the integration. Firebase already has an authentication service, so why integrate Auth0? While Firebase does have an authentication service, Auth0 can greatly enhance the user experience and add additional features that Firebase does not offer such as [single sign on](https://auth0.com/docs/sso/single-sign-on), [30+ social providers](https://auth0.com/docs/identityproviders), [multifactor authentication](https://auth0.com/learn/get-started-with-mfa/), [passwordless authentication](https://auth0.com/passwordless), and more. 
+Auth0 is fully compatible with the new Firebase 3.0 SDK. A big thank you to **Jacob Wegner** for helping with the integration. With Firebase authentication available, why integrate Auth0? While Firebase does have an authentication service, Auth0 can greatly enhance the user experience and add additional features that Firebase does not offer such as [single sign on](https://auth0.com/docs/sso/single-sign-on), [30+ social providers](https://auth0.com/docs/identityproviders), [multifactor authentication](https://auth0.com/learn/get-started-with-mfa/), [passwordless authentication](https://auth0.com/passwordless), and more. 
 
 Let's see how we can integrate Auth0 with the new Firebase SDK. 
 
