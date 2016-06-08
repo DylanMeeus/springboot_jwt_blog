@@ -9,8 +9,8 @@ author:
   url: https://twitter.com/jerriepelser
   avatar: https://secure.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=60
 design:
-  bg_color: "#4D185A"
-  image: https://cdn.auth0.com/blog/native-csharp/logo.png
+  bg_color: "#0D3483"
+  image: https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/logo.png
 tags:
 - authentication
 - asp.net
@@ -19,6 +19,12 @@ tags:
 - oauth
 - linkedin
 related:
+
+---
+
+---
+
+TL;DR: In this blog post we'll see how easy it is to authenticate a user with any OAuth2 service using the new generic OAuth middleware in ASP.NET Core. Check out the [repo](https://github.com/jerriep/aspnet-core-oauth-linkedin) to get the code.
 
 ---
 
@@ -405,6 +411,8 @@ Clicking on the user's name will take you to the new User Profile page where you
 
 ![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/user-profile.png)
 
-## Sample project
+## Conclusion
 
-The sample project for this blog post can be found at [https://github.com/jerriep/aspnet-core-oauth-linkedin](https://github.com/jerriep/aspnet-core-oauth-linkedin).
+The new generic OAuth middleware in ASP.NET Core makes it really simple to authenticate your users using any OAuth2 service. All you need have is a Client ID and Client Secret for the relevant service, as well as know the service's OAuth2 Authorization and Token endpoints. 
+
+With that information, and a little but of custom code, you can enable logging in using the relevant service in a couple of minutes.
