@@ -154,8 +154,8 @@ Next, let's create an `app.js` file that will handle our app logic. For now, we'
 ```js
 var config = {
   apiKey: "YOUR-API-KEY",
-  authDomain: "YOUR-AUTH-DOMAIN.firebaseapp.com",
-  databaseURL: "https://YOUR-AUTH-DOMAIN.firebaseio.com",
+  authDomain: "YOUR-DATABASE-NAME.firebaseapp.com",
+  databaseURL: "https://YOUR-DATABASE-NAME.firebaseio.com",
 };
 firebase.initializeApp(config);
 ```
