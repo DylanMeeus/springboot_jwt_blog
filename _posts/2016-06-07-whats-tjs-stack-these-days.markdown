@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "What's TJ Holowaychuck's Stack These Days?"
-description: "TJ Holowaychuck has been working on a new project called Apex. We caught up with him to get all the details!"
+title: "What's TJ Holowaychuk's Stack These Days?"
+description: "TJ Holowaychuk has been working on a new project called Apex. We caught up with him to get all the details!"
 date: 2016-06-07 8:30
 author: 
   name: Ryan Chenkie
@@ -27,11 +27,11 @@ related:
 
 ---
 
-<span <span style="font-weight:700">TL;DR:</span> TJ Holowaychuck's tech stack for his new startup includes AWS Lambda, Go, React, and Auth0. We interviewed him to get the full details on his first product, Apex Ping, and what his motivations were for choosing the stack he did.
+<span <span style="font-weight:700">TL;DR:</span> TJ Holowaychuk's tech stack for his new startup includes AWS Lambda, Go, React, and Auth0. We interviewed him to get the full details on his first product, Apex Ping, and what his motivations were for choosing the stack he did.
 
 ---
 
-You might be familiar with [TJ Holowaychuck](https://twitter.com/tjholowaychuk) from one of his [550 modules](https://www.npmjs.com/~tjholowaychuk) on npm, including [express](http://expressjs.com/). TJ is well known for his NodeJS work, but he's recently made the switch to Go and has been working on his own self-funded startup called [Apex](https://apex.sh). We wanted to catch up with him about his new project and learn more about the tech stack he's chosen for his first product called [Ping](https://apex.sh/ping/).
+You might be familiar with [TJ Holowaychuk](https://twitter.com/tjholowaychuk) from one of his [550 modules](https://www.npmjs.com/~tjholowaychuk) on npm, including [express](http://expressjs.com/). TJ is well known for his NodeJS work, but he's recently made the switch to Go and has been working on his own self-funded startup called [Apex](https://apex.sh). We wanted to catch up with him about his new project and learn more about the tech stack he's chosen for his first product called [Ping](https://apex.sh/ping/).
 
 ![apex ping dashboard](https://cdn.auth0.com/blog/apex-ping/apex-ping.png)
 
