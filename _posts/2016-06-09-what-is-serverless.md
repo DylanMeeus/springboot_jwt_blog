@@ -3,18 +3,14 @@ layout: post
 title: "What is serverless"
 description: "Serverless is a new cloud computing trend that changes the way you think about writing and maintaining applications"
 date: 2016-06-09 08:30
-permalink: /2016/06/10/what-is-serverless/
 author:
   name: Tomasz Janczuk
   url: https://twitter.com/tjanczuk?lang=en
   mail: tomek@auth0.com
   avatar: https://s.gravatar.com/avatar/53f70144dc9d7c76455fa91f858d4cec?s=200
 design:
-  bg_color: "#415156"
-  image: https://cdn.auth0.com/blog/webtasks/webtask_logo.png
-  image_size: "120%"
-  image_bg_color: "#B6C5CA"
-  blog_series: false
+  bg_color: "#5F3237"
+  image: https://cdn.auth0.com/blog/serverless/logo.png
 tags:
 - serverless
 - backendless
@@ -86,6 +82,8 @@ The lightweight nature of the programming abstraction in *serverless* combined w
 How do you get started with *serverless*? There are several vendors that allow you to focus on application development while running the generic infrastructure for you. Amazon AWS Lambda, Google Cloud Functions, and Windows Azure Functions are some of the choices. 
 
 > At Auth0, we have built and have been running [Auth0 Webtasks](https://webtask.io) *serverless* platform.
+
+![Webtasks is Auth0 serverless platform](https://cdn.auth0.com/blog/serverless/webtasks.png)
 
 We have been using webtasks to support [platform extensibility through custom code](https://auth0.com/blog/2015/10/07/extensibility-through-code-using-webtasks/). Webtasks allow us to execute untrusted code with very low latency in a secure way, which is the foundation of a key customization feature we offer our customers. We like to think about webtasks as a much more developer friendly alternative compared to other vendors, and one that offers great flexibility thanks to high fidelity to HTTP. You can use webtasks in a variety of applications, from sandboxing untrusted code, to creating API gateways, lightweight HTML applications, or API backends for mobile apps. 
 
