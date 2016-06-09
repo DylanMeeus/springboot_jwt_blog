@@ -2,7 +2,7 @@
 layout: post
 title: "What is serverless"
 description: "Serverless is a new cloud computing trend that changes the way you think about writing and maintaining applications"
-date: 2016-06-10 09:00
+date: 2016-06-09 08:30
 permalink: /2016/06/10/what-is-serverless/
 author:
   name: Tomasz Janczuk
