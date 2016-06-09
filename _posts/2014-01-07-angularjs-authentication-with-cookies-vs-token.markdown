@@ -23,8 +23,12 @@ tags:
 
 ---
 
-
 <!-- <img src="https://s3.amazonaws.com/blog.auth0.com/img/poisoned-cookies.jpg" style="width: 400px; margin-left: auto; margin-right: auto; display: block;" /> -->
+
+<div class="alert" style="background-color:#daf4fd;color:#097093">
+  <i class="icon-budicon-390" style="top: 14px; left: 20px"></i>
+  <strong style="font-size: 18px">We just added a new updated article that covers the same topic. You can find it here: <a href="https://auth0.com/blog/2016/05/31/cookies-vs-tokens-definitive-guide/">Cookies vs Tokens: The definitive guide<a/>.</strong>
+</div>
 
 ### Introduction
 
