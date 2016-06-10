@@ -124,14 +124,14 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
   <section>
     <h2>Random Quote</h2>
     <hr>
-    <h3>{{ randomQuote }}</h3>
+      <h3>{{ "{{randomQuote" }}}}</h3>
     <button (click)="getRandomQuote()">Get Random Quote!</button>
   <section>
 
   <section>
     <h2>Secret Quote</h2>
     <hr>
-    <h3>{{ secretQuote }}</h3>
+    <h3>{{ "{{secretQuote" }}}}</h3>
     <button (click)="getSecretQuote()">Get Secret Quote!</button>
   <section>
   `
