@@ -411,6 +411,14 @@ Clicking on the user's name will take you to the new User Profile page where you
 
 ![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/user-profile.png)
 
+## Aside: Authenticating using LinkedIn in Auth0
+
+Auth0 also supports allowing users to sign in with their LinkedIn accounts, along with [30+ other Social providers](https://auth0.com/docs/identityproviders). 
+
+If you are using ASP.NET Core you will be pleased to know that because we use industry standards such as OAuth2, OpenID Connect and JWT, you can implement Auth0 in your ASP.NET Core applications using the standard ASP.NET Core libraries.
+
+For more information on how to use Auth0 to allow users to sign in to your MVC applications, please look at our [ASP.NET Core quickstart](https://auth0.com/docs/quickstart/webapp/aspnet-core/). If you want to secure your Web API using Auth0 issued JWTs, then have a look at our [ASP.NET Core Web API Quickstart](https://auth0.com/docs/quickstart/backend/aspnet-core-webapi/).
+
 ## Conclusion
 
 The new generic OAuth middleware in ASP.NET Core makes it really simple to authenticate your users using any OAuth2 service. All you need have is a Client ID and Client Secret for the relevant service, as well as know the service's OAuth2 Authorization and Token endpoints. 
