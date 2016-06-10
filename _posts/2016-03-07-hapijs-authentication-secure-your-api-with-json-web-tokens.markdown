@@ -183,10 +183,9 @@ module.exports = {
   method: 'POST',
   path: '/api/users',
   config: {
-    // Before the route handler runs, verify that
-    // the user is unique and assign the result to 'user'
+    // Before the route handler runs, verify that the user is unique
     pre: [
-      { method: verifyUniqueUser, assign: 'user' }
+      { method: verifyUniqueUser }
     ],
     handler: (req, res) => {
       
@@ -279,7 +278,7 @@ module.exports = {
 }
 ```
 
-This function looks in the database for a user with the same username or email address that is delivered in the payload, and if one is found, returns the appropriate error message. If everything checks out, the payload is sent on for the `handler` to use. When we set up the `pre` method, we are able to optionally assign the response to a property, and in this case, we've assigned it to `user`. This property is available in the route handler and is what we use to create the token.
+This function looks in the database for a user with the same username or email address that is delivered in the payload, and if one is found, returns the appropriate error message. If everything checks out, the payload is sent on for the `handler` to use.
 
 ## Signing JSON Web Tokens
 
