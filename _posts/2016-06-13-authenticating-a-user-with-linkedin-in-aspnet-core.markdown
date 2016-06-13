@@ -48,13 +48,13 @@ This blog post is based on Release Candidate 2, and assumes that you have the [c
 
 In Visual Studio, create a new project (File > New > Project), and select **ASP.NET Core Web Application (.NET Core)**. 
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/new-project.png)
+![Creating a new ASP.NET Core Web Application](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/new-project.png)
 
-Enter a name of the application and click OK. 
+Enter a name of the application and click **OK**. 
 
 Next, select **Web Application** and ensure that you have set the **Authentication** to **No Authentication**
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/select-aspnet-template.png)
+![Selecting the ASP.NET template](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/select-aspnet-template.png)
 
 ## Register your application in the LinkedIn Developer Portal
 
@@ -64,7 +64,7 @@ Go to the [LinkedIn Developer Portal](https://developer.linkedin.com/) and selec
 
 You will be taken to a page which displays the detail about your new application, including the **Client ID** and **Client Secret**:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/linkedin-application-details.png)
+![Getting your LinkedIn application details](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/linkedin-application-details.png)
 
 We will be storing these values in the configuration file so we can retrieve them later on when registering the OAuth2 middleware. So head over to your `appsettings.json` and add the values:
 
@@ -87,11 +87,11 @@ We will be storing these values in the configuration file so we can retrieve the
 
 The final thing you need to do on the LinkedIn side is to register the Redirect URL for our application. For this you will need your application's URL, so head over to Visual Studio again, open your application's Properties and go to the **Debug** tab. Copy the value for the **App URL**:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/project-properties.png)
+![Project Properties](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/project-properties.png)
 
 Now head over to LinkedIn again and under **Authorized Redirect URLs** add the URL for your application with the path `/signin-linkedin` appended to it, and then make sure to click on the **Update** button to save the settings:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/authorized-redirect-url.png)
+![Adding the Authorized Redirect URL](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/authorized-redirect-url.png)
 
 ## Register the authentication middleware
 
@@ -246,15 +246,15 @@ Also, if the user is actually authenticated we will display a greeting that will
 
 We can now run the application. After the application starts up, click on the **Login** link in the top right:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/application-start.png)
+![Running the Application](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/application-start.png)
 
 This will take you to the LinkedIn website where you will be prompted to sign in if you are not already signed in to LinkedIn, and then give the application access to your basic information and email address. Click on the **Allow** button:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/linkedin-authorize.png)
+![LinkedIn Authorization Dialog](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/linkedin-authorize.png)
 
 You will be redirected back to your ASP.NET application where you will see that you are signed in:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/application-signed-in-1.png)
+![Signed in the Application](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/application-signed-in-1.png)
 
 ## Retrieving the User Information
 
@@ -406,11 +406,11 @@ And also add a view called `UserProfile.cshtml` to the `\Views\Home` folder:
 
 Now when you run the application and you sign in, you will see the user's name displayed correctly:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/application-signed-in-2.png)
+![The user's name is displayed correctly](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/application-signed-in-2.png)
 
 Clicking on the user's name will take you to the new User Profile page where you can see all the claims for the user listed:
 
-![](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/user-profile.png)
+![User Profile Page](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/user-profile.png)
 
 ## Aside: Authenticating using LinkedIn in Auth0
 
