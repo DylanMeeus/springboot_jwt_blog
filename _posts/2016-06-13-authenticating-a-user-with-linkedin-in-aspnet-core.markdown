@@ -2,7 +2,7 @@
 layout: post
 title: "Authenticating a user with LinkedIn in ASP.NET Core"
 description: Learn how to use the new OAuth middleware in ASP.NET Core to authenticate a user.
-date: 2016-06-09 8:30
+date: 2016-06-13 8:30
 author:
   name: Jerrie Pelser
   mail: jerrie@auth0.com
@@ -19,6 +19,7 @@ tags:
 - oauth
 - linkedin
 related:
+2016-06-03-add-auth-to-native-desktop-csharp-apps-with-jwt
 
 ---
 
