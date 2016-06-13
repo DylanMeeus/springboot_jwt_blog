@@ -19,7 +19,7 @@ tags:
 - oauth
 - linkedin
 related:
-2016-06-03-add-auth-to-native-desktop-csharp-apps-with-jwt
+- 2016-06-03-add-auth-to-native-desktop-csharp-apps-with-jwt
 
 ---
 
