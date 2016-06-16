@@ -40,7 +40,7 @@ OK, let’s get started with our setup.
 
 ### Setup and Installation
 
-First, we should cover the basics. You'll need to have [Node.js installed][12], and you'll need to have [Xcode installed][11] if you're developing on OS X, as we are in this tutorial. OK, let’s start by setting up a React Native app. We can start with a brand new one, for the purposes of this tutorial, so just spin up a new project. For anyone who is unfamiliar with React Native, the [documentation][3] has an excellent Getting Started page to help get that set up. If you follow along with the Getting Started post, you’ll have already set up and run your starting project with `react-native run-ios` and will now have the iOS Simulator up and going with your starter app in it. We'll use that as we build our app, to see what we're doing and debug our work. If you didn't use the Getting Started article as a basis, make sure you have the iOS Simulator running before we begin.
+First, we should cover the basics. You'll need to have [Node.js installed][12], and you'll need to have [Xcode installed][11] if you're developing on OS X, as we are in this tutorial. OK, let’s start by setting up a React Native app. We can start with a brand new one, for the purposes of this tutorial, so just spin up a new project. For anyone who is unfamiliar with React Native, the [documentation][3] has an excellent Getting Started page to help you practice getting that set up. If you follow along with the Getting Started post, you’ll have already set up and run your starting project with `react-native run-ios` and will have had the iOS Simulator up and going with your starter app in it. We'll build on that basic knowledge as we create our app. If you didn't walk through the Getting Started article just now, make sure you have the iOS Simulator running before we begin.
 
 We also want to go ahead and clone [this Auth0 sample API][4] backend, which employs Node.js, and get it running locally. We can just leave that in a separate folder, and start it up before we begin work on our React Native app. We’ll also want to go ahead and grab [Tcomb’s Form Library][5] for easily adding forms to our app. We can do this most quickly with npm ( `npm install tcomb-form-native` ).
 
@@ -52,65 +52,7 @@ OK, so we have our backend downloaded and running locally. Let’s  hit the URL 
 
 ## Laying Out Our App
 
-Next up, let’s take a look at our starter React Native app, which, if following the tutorial linked above, should look something like this:
-
-```node
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-class AwesomeProject extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
-```
-
-So let’s now modify this a bit. First, let’s go ahead and alter the way we’re grabbing `react-native` - we need to get both `react` and `react-native`. Let’s go ahead and pick up our tcomb library as well. Now the start of our app should look something like this:
+OK. Let's get started, now that we are all passingly acquainted with React Native and have our environment ready. First, let’s go ahead and require both `react` and `react-native`. Let’s go ahead and pick up our `tcomb-form-native` library as well. Now the start of our app should look something like this:
 
 ```node
 var React = require('react');
