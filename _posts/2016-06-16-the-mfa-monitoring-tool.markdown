@@ -39,7 +39,7 @@ The [MFA monitor](https://github.com/radekk/webtask-mfa-monitor) uses an API to 
 
 ![Slack MFA alert](https://cdn.auth0.com/blog/mfa-monitor/slack.mfa.alert.png)
 
-Possibilities for implementing additional monitors or notifiers which will receive your alerts are endless as long as there's an API on the provider side. For now, we have implemented checks for GitHub and we added Slack as a notification provider. If you use Hipchat or Twitter for notifications, you can quickly add them as an additional module. Feel free to send pull requests!
+Possibilities for implementing additional monitors or notifiers which will receive your alerts are endless as long as there's an API on the provider side. For now, we have implemented checks for GitHub and Amazon Web Services (AWS), we added Slack as a notification provider. If you use Hipchat or Twitter for notifications, you can quickly add them as an additional module. Feel free to send pull requests!
 
 ### Implementation
 
