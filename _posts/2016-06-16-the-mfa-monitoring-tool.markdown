@@ -2,7 +2,7 @@
 layout: post
 title: "The MFA monitoring tool"
 description: Automation which helps you monitor the multi-factor authentication status of various services.
-date: 2016-06-08 13:37
+date: 2016-06-16 8:30
 author:
   name: Radek Karpowicz
   url: https://twitter.com/radekk
@@ -15,8 +15,12 @@ tags:
 - security
 - github
 - slack
-- mfa (multi-factor authentication)
-- tfa (two-factor authentication)
+- mfa
+- tfa
+related:
+- 2016-04-07-integrate-auth0-into-your-existing-saas-tools
+- 2016-03-10-introducing-auth0-collections-for-postman
+- 2016-06-06-visualize-your-auth0-logs-using-sumo-logic
 ---
 
 Imagine a situation where your company hires more and more people and uses a lot of external services. The number of available assets you need to track is always growing. It's hard to keep up with all the services that employees at your company use on a day-to-day basis. Are you sure that you have appropriate security checks in place?
