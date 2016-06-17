@@ -24,9 +24,9 @@ tags:
 - hmac
 ---
 
-Do you find yourself visiting JWT.io a lot to debug your tokens? Then you'll love what we have in store for you: [JWT.io as a Chrome extension](https://chrome.google.com/webstore/detail/jwt-debugger/ppmmlchacdbknfphdeafcbmklcghghmd) with extra features!
+Do you find yourself visiting [JWT.io](https://jwt.io) a lot to debug your tokens? Then you'll love what we have in store for you: [JWT.io as a Chrome extension](https://chrome.google.com/webstore/detail/jwt-debugger/ppmmlchacdbknfphdeafcbmklcghghmd) with extra features!
 
-{% include tweet_quote.html quote_text="Do you find yourself visiting JWT.io a lot? Then you'll love this: https://goo.gl/axNsXn" %}
+{% include tweet_quote.html quote_text="Debug JWTs from your browser with our new extension: https://goo.gl/axNsXn" %}
 
 -----
 
