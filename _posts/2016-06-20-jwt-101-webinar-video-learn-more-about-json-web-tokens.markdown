@@ -7,10 +7,12 @@ author:
   name: Kassandra Perch
   url: http://twitter.com/nodebotanist
   mail: kassandra.perch@auth0.com
+  avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
 design: 
-  bg_color: "#333333"
-  image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
-  image_size: "50%"
+  bg_color: "#222228"
+  image: https://cdn.auth0.com/blog/jwtalgos/logo.png
+  image_size: "100%"
+  image_bg_color: "#222228"
 tags: 
 - JSON-Web-Tokens
 - Webinar
@@ -24,6 +26,8 @@ related:
 
 <div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/7xbfdhqt8z?seo=false&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
+## Transcript
 
 Good afternoon. This is Kassandra with Auth0. This webinar is about JWTs. So what I'm going to do is go over what JWTs are used for and then I'm actually going to write a small note application that generates JWTs and show you how they're used in the debugger so that you can write and debug your own JWTs. I have a questions panel open and I will check it from time to time. So if you have a question, feel free to put it in there. Let's get started. I'm going to start by sharing my screen and going over here. 
 
