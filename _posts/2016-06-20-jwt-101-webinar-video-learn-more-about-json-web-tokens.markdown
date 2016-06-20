@@ -12,7 +12,7 @@ design:
   image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
   image_size: "50%"
 tags: 
-- JSON Web Tokens
+- JSON-Web-Tokens
 - Webinar
 - JWT
 - Video
