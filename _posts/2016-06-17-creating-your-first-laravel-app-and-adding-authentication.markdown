@@ -74,6 +74,8 @@ Laravel applications follow the **Model-View-Controller** design pattern.
 
 ![mvc_diagram_with_routes](https://cloud.githubusercontent.com/assets/2946769/16150856/adb0a74c-3491-11e6-82c5-701941efd1fe.png)
 
+*(Source: [Self Taught Coders](https://selftaughtcoders.com))*
+
 In a nutshell,
 
   * **Models** query your database and returns the necessary data.
