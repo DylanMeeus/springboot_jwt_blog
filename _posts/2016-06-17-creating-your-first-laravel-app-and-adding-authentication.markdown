@@ -42,7 +42,7 @@ related:
 
 Laravel is currently at version 5.2. **Laravel 5.3** is currently in development and is due for release this month. Here is a quick look at some of these new features:
 
-* **Laravel Echo** - I'm actually looking forward to this. It will make building realtime apps with Laravel very painless.
+* **Laravel Echo** - I'm actually looking forward to this. It will make building realtime apps with Laravel very painless
 * Ability to rollback one migration like so `php artisan migrate:rollback --step-1`
 * The Blade foreach/forelse loops now gives you access to a `$loop` variable to easily determine first and last iterations
 * Eloquent collections are cleanly serialized and re-pulled by queued jobs
@@ -50,7 +50,7 @@ Laravel is currently at version 5.2. **Laravel 5.3** is currently in development
 * Ability to customize simple paginations in your views
 * Ability to pass additional values to firstOrCreate Model method
 * Query Builder will return collections instead of arrays
-* Ability to load your own migration paths from a service provider.
+* Ability to load your own migration paths from a service provider
 
 
 We'll be building a simple character listing app with **Laravel 5.2**. Our app will simply list **10 Game of Thrones characters** and their real names. Once we add authentication to the app, all logged-in users will have the privilege of knowing these celebrity characters personally.
