@@ -19,6 +19,7 @@ tags:
 related:
 - 2016-06-15-adding-authentication-to-react-native-using-jwt
 - 2016-06-02-ruby-authentication-secure-rack-apps-with-jwt
+- 2015-12-17-json-web-token-signing-algorithms-overview
 ---
 
 <div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/7xbfdhqt8z?seo=false&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
