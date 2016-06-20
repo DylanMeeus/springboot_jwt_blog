@@ -30,7 +30,7 @@ related:
 
 ---
 
-Laravel is a free, open-source PHP framework designed for building web applications with an expressive and elegant syntax. Laravel has a high level of abstraction which shields the common developer from complex inner workings. Laravel saves you time and effort because it comes shipped with a lot of features out of the box. These amazing features include:
+**Laravel** is a free, open-source PHP framework designed for building web applications with an expressive and elegant syntax. **Laravel** has a high level of abstraction which shields the common developer from complex inner workings. **Laravel** saves you time and effort because it comes shipped with a lot of features out of the box. These amazing features include:
 
 * Database Migrations
 * Eloquent ORM
@@ -43,9 +43,9 @@ Laravel is a free, open-source PHP framework designed for building web applicati
 * Filesystem and Cloud Storage
 * Event Handling
 
-Laravel did not attempt to rewrite a lot of its functionalities from scratch, it makes good use of already written and well tested components from the PHP community. Laravel is one of the few frameworks that actually comes with development environments such as [Homestead](https://laravel.com/docs/5.2/homestead) and [Valet](https://laravel.com/docs/5.2/valet). The [documentation](https://laravel.com/docs) is very detailed and there is a large community around Laravel. Some of the notable communities are [laracasts.com](https://laracasts.com/discuss), [larajobs.com](https://larajobs.com/), [laravel-news.com](https://laravel-news.com/), [laravelpodcast.com](http://www.laravelpodcast.com/) and [larachat.co](https://larachat.co/).
+**Laravel** did not attempt to rewrite a lot of its functionalities from scratch, it makes good use of already written and well tested components from the PHP community. Laravel is one of the few frameworks that actually comes with development environments such as [Homestead](https://laravel.com/docs/5.2/homestead) and [Valet](https://laravel.com/docs/5.2/valet). The [documentation](https://laravel.com/docs) is very detailed and there is a large community around Laravel. Some of the notable communities are [laracasts.com](https://laracasts.com/discuss), [larajobs.com](https://larajobs.com/), [laravel-news.com](https://laravel-news.com/), [laravelpodcast.com](http://www.laravelpodcast.com/) and [larachat.co](https://larachat.co/).
 
-Laravel is currently at version 5.2. Laravel 5.3 is currently in development and is due for release this month. Here is a quick look at some of these new features:
+Laravel is currently at version 5.2. **Laravel 5.3** is currently in development and is due for release this month. Here is a quick look at some of these new features:
 
 * Ability to rollback one migration like so `php artisan migrate:rollback --step-1`
 * The Blade foreach/forelse loops now gives you access to a `$loop` variable to easily determine first and last iterations
@@ -57,7 +57,7 @@ Laravel is currently at version 5.2. Laravel 5.3 is currently in development and
 * Ability to load your own migration paths from a service provider.
 * **Laravel Echo** - I'm actually looking forward to this. It will make building realtime apps with Laravel very painless.
 
-We'll be building a simple character listing app with **Laravel 5.2**. Our app will simply list 10 Game of throne characters and their fictitious networth. Once we add authentication to the app, all logged-in users will have the privilege of viewing their networth.
+We'll be building a simple character listing app with **Laravel 5.2**. Our app will simply list **10 Game of throne characters** and their real names. Once we add authentication to the app, all logged-in users will have the privilege of knowing these celebrity characters personally.
 
 
 ## Let's get started
@@ -143,7 +143,7 @@ class ListController extends Controller
 }
 ```
 
-`view('welcome')->withCharacters($characters)` indicates that we are passing the $characters array to a view called `welcome.blade.php`. We'll create that view in the later part of this post.
+`view('welcome')->withCharacters($characters)` indicates that we are passing the `$characters` array to a view called `welcome.blade.php`. We'll create that view in the later part of this post.
 
 ## Setting Up The Model
 
@@ -185,6 +185,7 @@ php artisan make:auth
 ```
 
 Be careful enough to only do this on fresh applications.
+
 <img width="1008" alt="screen shot 2016-06-19 at 2 34 10 pm" src="https://cloud.githubusercontent.com/assets/2946769/16177617/f0ff3406-362a-11e6-9144-1393c8031f2b.png">
 
 As you can see, some files have been copied into our application, the routes have also been updated. The route file has been populated with additional information like so:
@@ -255,9 +256,9 @@ Register Page
 
 ## Run Migrations
 
-Migrations are like version control for your database, allowing a team to easily modify and share the application's database schema. In Laravel, they are placed in the `database/migrations` directory. Each migration file name contains a timestamp which allows Laravel to determine the order of the migrations.
+Migrations are like version control for your database, allowing a team to easily modify and share the application's database schema. In **Laravel**, they are placed in the `database/migrations` directory. Each migration file name contains a timestamp which allows **Laravel** to determine the order of the migrations.
 
-Luckily for us, the user migration files comes by default with a fresh Laravel install. Check the `database/migrations` directory to ensure you have at least two migration files named `xxx_create_users_table.php` and `xxx_create_password_resets_table.php` where `xxx` represents the timestamp.
+Luckily for us, the user migration files comes by default with a fresh **Laravel** install. Check the `database/migrations` directory to ensure you have at least two migration files named `xxx_create_users_table.php` and `xxx_create_password_resets_table.php` where `xxx` represents the timestamp.
 
 Now, run this command from your terminal:
 
@@ -287,11 +288,11 @@ Now, go ahead and register. It should register you successfully and log you in l
 
 ## Using the Auth Middleware
 
-Middlewares provide a convenient mechanism for filtering HTTP requests entering your application. For example, Laravel includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further. The `app/Http/Middleware` directory contains several middlewares.
+Middlewares provide a convenient mechanism for filtering HTTP requests entering your application. For example, **Laravel** includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further. The `app/Http/Middleware` directory contains several middlewares.
 
 Let's check out how the `auth` middleware works.
 
-Add a new route to your routes.php file like so:
+Add a new route to your `routes.php` file like so:
 
 ```php
 Route::get('/got', [
@@ -304,9 +305,9 @@ Now, log out, then try to access that route, you will be redirected back to the 
 
 ## Aside: Using Auth0 with Laravel
 
-Auth0 issues [JSON Web Tokens](https://jwt.io/) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+**Auth0** issues [JSON Web Tokens](https://jwt.io/) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
-We can easily set up authentication in our Laravel apps by using the [Lock Widget](https://auth0.com/lock). If you don't already have an Auth0 account, [sign up](https://auth0.com/signup) for one now. Navigate to the Auth0 [management dashboard](https://manage.auth0.com/), select Applications from the navigational menu, then select the app you want to connect with Laravel.
+We can easily set up authentication in our Laravel apps by using the [Lock Widget](https://auth0.com/lock). If you don't already have an Auth0 account, [sign up](https://auth0.com/signup) for one now. Navigate to the Auth0 [management dashboard](https://manage.auth0.com/), select **Applications** from the navigational menu, then select the app you want to connect with **Laravel**.
 
 ### Step 1: Install and Configure Auth0 plugin
 
@@ -352,6 +353,7 @@ Open up `welcome.blade.php` and configure it like so:
 @endsection
 ```
 When the login button is clicked, the auth screen comes up like so:
+
 <img width="1099" alt="screen shot 2016-06-19 at 8 17 49 pm" src="https://cloud.githubusercontent.com/assets/2946769/16179378/ab1b3292-365b-11e6-929f-13352d0447bd.png">
 
 
