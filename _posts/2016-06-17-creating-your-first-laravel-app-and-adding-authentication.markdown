@@ -10,7 +10,7 @@ author:
   mail: prosper.otemuyiwa@auth0.com
 design:
   bg_color: "#4D185A"
-  image: https://cdn.auth0.com/blog/native-csharp/logo.png
+  image: https://laravel.com/assets/img/laravel-logo.png
 tags:
 - api
 - jwts
