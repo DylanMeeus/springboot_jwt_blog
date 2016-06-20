@@ -26,27 +26,23 @@ related:
 
 ---
 
-**TL;DR:** Laravel is a great PHP framework. Currently, it is the most starred PHP project on [github.com](https://github.com) and a lot of companies and people all over the world use it to build amazing applications. In this tutorial, I'll show you how easy it is to build a simple web application with Laravel and add authentication to it without breaking a sweat. Check out the [repo](https://github.com/auth0/laravel-auth0-got) to get the code.
+**TL;DR:** Laravel is a great PHP framework. Currently, it is the most starred PHP project on [Github](https://github.com) and a lot of companies and people all over the world use it to build amazing applications. In this tutorial, I'll show you how easy it is to build a web application with Laravel and add authentication to it without breaking a sweat. Check out the [repo](https://github.com/auth0/laravel-auth0-got) to get the code.
 
 ---
 
-**Laravel** is a free, open-source PHP framework designed for building web applications with an expressive and elegant syntax. **Laravel** has a high level of abstraction which shields the common developer from complex inner workings. **Laravel** saves you time and effort because it comes shipped with a lot of features out of the box. These amazing features include:
+**Laravel** is a free, open-source PHP framework designed for building web applications with an expressive and elegant syntax. **Laravel** has a high level of abstraction which shields the common developer from complex inner workings. **Laravel** saves you time and effort because it ships with a lot of features out of the box. These amazing features include:
 
 * Database Migrations
 * Eloquent ORM
-* Simple Authentication
 * Authorization and Policies
 * Scheduler
 * Queuing
-* Mailing
-* Blade templating engine
-* Filesystem and Cloud Storage
-* Event Handling
 
-**Laravel** did not attempt to rewrite a lot of its functionalities from scratch, it makes good use of already written and well tested components from the PHP community. Laravel is one of the few frameworks that actually comes with development environments such as [Homestead](https://laravel.com/docs/5.2/homestead) and [Valet](https://laravel.com/docs/5.2/valet). The [documentation](https://laravel.com/docs) is very detailed and there is a large community around Laravel. Some of the notable communities are [laracasts.com](https://laracasts.com/discuss), [larajobs.com](https://larajobs.com/), [laravel-news.com](https://laravel-news.com/), [laravelpodcast.com](http://www.laravelpodcast.com/) and [larachat.co](https://larachat.co/).
+**Laravel** did not attempt to rewrite a lot of its functionality from scratch, it makes good use of already written and well tested components from the PHP community. Laravel is one of the few frameworks that actually comes with development environments such as [Homestead](https://laravel.com/docs/5.2/homestead) and [Valet](https://laravel.com/docs/5.2/valet). The [documentation](https://laravel.com/docs) is very detailed and there is a large community based around Laravel. Some of the notable communities are [laracasts.com](https://laracasts.com/discuss), [larajobs.com](https://larajobs.com/), [laravel-news.com](https://laravel-news.com/), [laravelpodcast.com](http://www.laravelpodcast.com/) and [larachat.co](https://larachat.co/).
 
 Laravel is currently at version 5.2. **Laravel 5.3** is currently in development and is due for release this month. Here is a quick look at some of these new features:
 
+* **Laravel Echo** - I'm actually looking forward to this. It will make building realtime apps with Laravel very painless.
 * Ability to rollback one migration like so `php artisan migrate:rollback --step-1`
 * The Blade foreach/forelse loops now gives you access to a `$loop` variable to easily determine first and last iterations
 * Eloquent collections are cleanly serialized and re-pulled by queued jobs
@@ -55,9 +51,9 @@ Laravel is currently at version 5.2. **Laravel 5.3** is currently in development
 * Ability to pass additional values to firstOrCreate Model method
 * Query Builder will return collections instead of arrays
 * Ability to load your own migration paths from a service provider.
-* **Laravel Echo** - I'm actually looking forward to this. It will make building realtime apps with Laravel very painless.
 
-We'll be building a simple character listing app with **Laravel 5.2**. Our app will simply list **10 Game of throne characters** and their real names. Once we add authentication to the app, all logged-in users will have the privilege of knowing these celebrity characters personally.
+
+We'll be building a simple character listing app with **Laravel 5.2**. Our app will simply list **10 Game of Thrones characters** and their real names. Once we add authentication to the app, all logged-in users will have the privilege of knowing these celebrity characters personally.
 
 
 ## Let's get started
@@ -86,11 +82,11 @@ Read more about [MVC](http://www.tomdalling.com/blog/software-design/model-view-
 
 <img width="1034" alt="screen shot 2016-06-17 at 1 55 25 pm" src="https://cloud.githubusercontent.com/assets/2946769/16151142/474075e4-3493-11e6-8f46-c846646c6287.png">
 
-The app directory is the **meat** of your laravel application. It houses the following directories:
+The app directory is the **meat** of your Laravel application. It houses the following directories:
 
   * `Console` - Contains all your Artisan commands
-  * `Http` - Contains all your controllers, middlewares, requests and routes file
-  * `Providers` - Contains all your application service providers. You can read more about [Service Providers]() here
+  * `Http` - Contains all your controllers, middleware, requests and routes file
+  * `Providers` - Contains all your application service providers. You can read more about [Service Providers](https://laravel.com/docs/5.2/providers) here
   * `Events` - Contains all your event classes.
   * `Exceptions` - Contains your application exception handler and custom exception classes.
   * `Jobs` - Contains all the jobs queued by your application
@@ -110,7 +106,7 @@ The other directories namely:
 
 ## Setting Up The Controller
 
-Open up your terminal and run this command below to create a `ListController`.
+Open up your terminal and run the command below to create a `ListController`.
 
 ```bash
 php artisan make:controller ListController
@@ -149,7 +145,7 @@ class ListController extends Controller
 
 ## Setting Up The Model
 
-Laravel Models are stored by default in the root of the `app` directory. The `User` model comes shipped and configured with the Laravel framework. Only the `User` model is needed in this application so we won't create any model. However, if you want to create more models, you can simply run the command below like so:
+Laravel Models are stored by default in the root of the `app` directory. The `User` model ships with the Laravel framework. Only the `User` model is needed in this application so we won't create any additional models. However, if you want to create more models, you can simply run the command below like so:
 
 ```bash
 php artisan make:model <modelName>
@@ -290,7 +286,7 @@ Now, go ahead and register. It should register you successfully and log you in l
 
 ## Using the Auth Middleware
 
-Middlewares provide a convenient mechanism for filtering HTTP requests entering your application. For example, **Laravel** includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further. The `app/Http/Middleware` directory contains several middlewares.
+Middlewares provide a convenient mechanism for filtering HTTP requests entering your application. For example, **Laravel** includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further. The `app/Http/Middleware` directory contains several middleware.
 
 Let's check out how the `auth` middleware works.
 
@@ -317,7 +313,7 @@ Follow the instructions [here](https://auth0.com/docs/quickstart/webapp/laravel)
 
 ### Step 2: Register the callback
 
-Head over to your Auth0 [dashboard](https://manage.auth0.com/#/applications/PATkFym2gZQS3lEIUCS68qrSl8jgVD7P/settings) and register a callback like so: `http://laravel-auth0.dev/auth0/callback` and logout URL `http://laravel-auth0.dev/logout`.
+Head over to your Auth0 [dashboard](https://manage.auth0.com/#/applications/) and register a callback like so: `http://laravel-auth0.dev/auth0/callback` and logout URL `http://laravel-auth0.dev/logout`.
 
 Open up your routes and add this:
 
@@ -376,12 +372,10 @@ Now, once a user registers, it stores the user information in your Auth0 dashboa
 
 Access can be restricted with **Auth0 Middleware**, just add this `'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware'` in the `$routeMiddleware` array in `app/Http/Kernel.php`. Then use `auth0.jwt` middleware on your routes.
 
-With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI, It provides powerful analytics about users signing up on your platform such as, the browser the user logged in with, the location, device, number of logins out of the box!
+With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI, It provides powerful analytics about users signing up on your platform such as, the browser the user logged in with, the location, device, number of logins and more out of the box!
 
 <img width="845" alt="screen shot 2016-06-19 at 8 43 50 pm" src="https://cloud.githubusercontent.com/assets/2946769/16179466/c67f3bac-365e-11e6-8b22-67db28b9b7ba.png">
 
-
-It's actually very simple to use Auth0 Lock Widget, just as we have seen above!
 
 ## Wrapping Up
 
