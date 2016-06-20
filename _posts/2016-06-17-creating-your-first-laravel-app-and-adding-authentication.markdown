@@ -242,12 +242,15 @@ Here, we are looping through the `$characters` array data passed from the `ListC
 Now that we have all the routes and views setup, your application should look like this:
 
 Landing Page
-<img width="1099" alt="screen shot 2016-06-19 at 3 28 55 pm" src="https://cloud.githubusercontent.com/assets/2946769/16177927/af03a6d8-3632-11e6-93e3-68cbb3cd273c.png">
+
+<img width="1107" alt="screen shot 2016-06-19 at 3 41 17 pm" src="https://cloud.githubusercontent.com/assets/2946769/16184678/390eb9a2-36b6-11e6-8e70-4c4550e2a3b4.png">
 
 Login Page
+
 <img width="1098" alt="screen shot 2016-06-19 at 3 29 33 pm" src="https://cloud.githubusercontent.com/assets/2946769/16177928/b4ce7822-3632-11e6-9f9c-34bacd74eba7.png">
 
 Register Page
+
 <img width="1099" alt="screen shot 2016-06-19 at 3 29 44 pm" src="https://cloud.githubusercontent.com/assets/2946769/16177929/b9b7741a-3632-11e6-92da-95b5039c4cce.png">
 
 ## Run Migrations
@@ -369,7 +372,7 @@ Now, once a user registers, it stores the user information in your Auth0 dashboa
 
 Access can be restricted with **Auth0 Middleware**, just add this `'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware'` in the `$routeMiddleware` array in `app/Http/Kernel.php`. Then use `auth0.jwt` middleware on your routes.
 
-With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI, It provides powerful analytics about users signing up on your platform such as the browser the user logged in with, the location, device, number of logins out of the box!
+With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI, It provides powerful analytics about users signing up on your platform such as, the browser the user logged in with, the location, device, number of logins out of the box!
 
 <img width="845" alt="screen shot 2016-06-19 at 8 43 50 pm" src="https://cloud.githubusercontent.com/assets/2946769/16179466/c67f3bac-365e-11e6-8b22-67db28b9b7ba.png">
 
