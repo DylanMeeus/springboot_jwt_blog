@@ -242,15 +242,15 @@ Now that we have all the routes and views setup, your application should look li
 
 Landing Page
 
-<img width="1107" alt="screen shot 2016-06-19 at 3 41 17 pm" src="https://cloud.githubusercontent.com/assets/2946769/16184678/390eb9a2-36b6-11e6-8e70-4c4550e2a3b4.png">
+<img width="1109" alt="screen shot 2016-06-20 at 10 21 39 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210747/8d0ffd20-3735-11e6-94ef-cf2d1c4766ea.png">
 
 Login Page
 
-<img width="1098" alt="screen shot 2016-06-19 at 3 29 33 pm" src="https://cloud.githubusercontent.com/assets/2946769/16177928/b4ce7822-3632-11e6-9f9c-34bacd74eba7.png">
+<img width="1109" alt="screen shot 2016-06-20 at 10 23 21 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210776/b9115aea-3735-11e6-81f3-2c6d10790f8f.png">
 
 Register Page
 
-<img width="1099" alt="screen shot 2016-06-19 at 3 29 44 pm" src="https://cloud.githubusercontent.com/assets/2946769/16177929/b9b7741a-3632-11e6-92da-95b5039c4cce.png">
+<img width="1104" alt="screen shot 2016-06-20 at 10 23 36 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210784/c46b98b0-3735-11e6-9692-005b9598919d.png">
 
 ## Run Migrations
 
@@ -281,7 +281,7 @@ It can be configured to whatever route you want the user to be redirected to jus
 
 Now, go ahead and register. It should register you successfully and log you in like so:
 
-<img width="1102" alt="screen shot 2016-06-19 at 5 45 22 pm" src="https://cloud.githubusercontent.com/assets/2946769/16178630/c31a5898-3645-11e6-8ca2-7f38360ad2c6.png">
+<img width="1109" alt="screen shot 2016-06-20 at 10 31 57 pm" src="https://cloud.githubusercontent.com/assets/2946769/16211017/fd20a1cc-3736-11e6-98d4-1dcab634cae3.png">
 
 
 ## Using the Auth Middleware
@@ -352,7 +352,7 @@ Open up `welcome.blade.php` and configure it like so:
 ```
 When the login button is clicked, the auth screen comes up like so:
 
-<img width="1099" alt="screen shot 2016-06-19 at 8 17 49 pm" src="https://cloud.githubusercontent.com/assets/2946769/16179378/ab1b3292-365b-11e6-929f-13352d0447bd.png">
+<img width="1105" alt="screen shot 2016-06-20 at 10 16 01 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210600/d1941da6-3734-11e6-9d56-e9232bc5fcb7.png">
 
 
 ### Step 4: Configure & Use Lock Widget in Routes.php
@@ -367,7 +367,7 @@ Route::get('/auth0/callback', function() {
 
 Now, once a user registers, it stores the user information in your Auth0 dashboard. We can retrieve this info using the `Auth0::getUser()` method. We can also hook onto the onLogin event using `Auth0::onLogin(function(...))`.
 
-<img width="1106" alt="screen shot 2016-06-19 at 8 18 47 pm" src="https://cloud.githubusercontent.com/assets/2946769/16179468/d645c33a-365e-11e6-9f04-389cfe1d81c5.png">
+<img width="1104" alt="screen shot 2016-06-20 at 10 19 18 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210650/17837802-3735-11e6-8a60-80795e543f09.png">
 
 
 Access can be restricted with **Auth0 Middleware**, just add this `'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware'` in the `$routeMiddleware` array in `app/Http/Kernel.php`. Then use `auth0.jwt` middleware on your routes.
