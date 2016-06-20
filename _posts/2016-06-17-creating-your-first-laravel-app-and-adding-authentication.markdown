@@ -305,8 +305,6 @@ Auth0 issues [JSON Web Tokens](https://jwt.io/) on every login for your users. T
 
 We can easily set up authentication in our Laravel apps by using the [Lock Widget](https://auth0.com/lock). If you don't already have an Auth0 account, [sign up](https://auth0.com/signup) for one now. Navigate to the Auth0 [management dashboard](https://manage.auth0.com/), select Applications from the navigational menu, then select the app you want to connect with Laravel.
 
-![Auth0 Lock Widget](http://puu.sh/3YxF9.png)
-
 ### Step 1: Install and Configure Auth0 plugin
 
 Follow the instructions [here](https://auth0.com/docs/quickstart/webapp/laravel) to configure the Auth0 plugin.
