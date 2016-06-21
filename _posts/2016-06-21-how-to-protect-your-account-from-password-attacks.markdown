@@ -8,7 +8,7 @@ author:
   url: https://twitter.com/unicodeveloper
   avatar: https://en.gravatar.com/avatar/1097492785caf9ffeebffeb624202d8f?s=200
 design:
-  bg_color: "#222D65"
+  bg_color: "#910012"
   image: https://cdn.auth0.com/blog/paypal/logo.png
   image_tw: http://cdn.auth0.com/blog/paypal/twitter-card.png
   image_fb: http://cdn.auth0.com/blog/paypal/twitter-card.png
@@ -24,7 +24,27 @@ related:
 - 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
 ---
 
-Just last week, [GitHub](github.com) reported that there were several unauthorized attempts to access a large number of their accounts. A thorough investigation revealed that it was an attacker using lists of email addresses and passwords from other online services that have been compromised in the past on several [Github](github.com) accounts. So many people use the same password on multiple online services thus allowing the attacker to log in to a number of GitHub accounts. Thankfully, GitHub was not compromised. Here are some tips to make it difficult for hackers to gain access to your account.
+Just last week, [GitHub](github.com) reported that there were several unauthorized attempts to access a large number of their accounts. A thorough investigation revealed that it was an attacker using lists of email addresses and passwords from other online services that have been compromised in the past on several [Github](github.com) accounts. So many people use the same password on multiple online services thus allowing the attacker to log in to a number of GitHub accounts. Thankfully, GitHub was not compromised. Auth0 can help deal effectively with cases like this. Let's take a deeper look at how Auth0 can handle password attacks.  
+
+##  How Auth0 Can Help Protect Your Account
+
+Auth0 provides an awesome security feature called **Anomaly Detection**. There are in-built tools that help detect suspicious activities on your users account, alerts them of these activities and also stops malicious attempts to access your application. **Anomaly Detection** provides the following benefits below:
+
+- **Breached Password Detections**: Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By enabling Breached Password Detection, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach.
+
+- **Brute Force Protection**: Using Auth0, you can easily set a certain number of failed login attempts on your account. if it exceeds that set number, you can block the suspicious user, send an email to the affected user and also notify dashboard owners.
+
+Using Auth0, you can set up [Anomaly Detection](Anomaly Detection) on your dashboard.
+
+<img src="https://cdn.auth0.com/docs/media/articles/anomaly-detection/anomaly-detection-overview.png" alt="Anomaly Detection Overview"/>
+
+You can use the toggle to enable/disable all the actions of a certain shield.
+
+<img src="https://cdn.auth0.com/docs/media/articles/anomaly-detection/changing-actions.png" alt="Changing Actions" />
+
+> Read more about Auth0's Anomaly Detection [here](https://auth0.com/docs/anomaly-detection)
+
+In addition to this, here are 5 tips for protecting your passwords.
 
 ### 1 - Don't use the same password across multiple online services
 
@@ -53,25 +73,6 @@ With Passwordless Login you can use one-time codes or “magic links” delivere
 > Read more about Passwordless [here](https://auth0.com/blog/2015/09/30/auth0-passwordless-email-authentication-and-sms-login-without-passwords/).
 
 ![Passwordless Login](https://cdn.auth0.com/blog/passwordless/pwdless-locks.png)
-
-## Aside: How Auth0 Can Help Protect Your Account
-
-Auth0 provides an awesome security feature called **Anomaly Detection**. There are in-built tools that help detect suspicious activities on your account, alert you of these activities and also stop malicious attempts to access your application. **Anomaly Detection** provides the following benefits below:
-
-- **Breached Password Detections**: Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By enabling Breached Password Detection, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach.
-
-- **Brute Force Protection**: Using Auth0, you can easily set a certain number of failed login attempts on your account. if it exceeds that set number, you can block the suspicious user, send an email to the affected user and also notify dashboard owners.
-
-Using Auth0, you can set up [Anomaly Detection](Anomaly Detection) on your dashboard.
-
-<img src="https://cdn.auth0.com/docs/media/articles/anomaly-detection/anomaly-detection-overview.png" alt="Anomaly Detection Overview"/>
-
-You can use the toggle to enable/disable all the actions of a certain shield.
-
-<img src="https://cdn.auth0.com/docs/media/articles/anomaly-detection/changing-actions.png" alt="Changing Actions" />
-
-> Read more about Auth0's Anomaly Detection [here](https://auth0.com/docs/anomaly-detection)
-
 
 ## Conclusion
 
