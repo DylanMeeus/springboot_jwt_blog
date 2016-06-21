@@ -3,16 +3,16 @@ layout: post
 title: "How PayPal could have easily avoided the last account hack"
 description: In this post you'll learn 5 techniques that can prevent your users' accounts from being hacked and would have made Brian happier
 date: 2015-12-29 18:00
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#222D65"
   image: https://cdn.auth0.com/blog/paypal/logo.png
   image_tw: http://cdn.auth0.com/blog/paypal/twitter-card.png
   image_fb: http://cdn.auth0.com/blog/paypal/twitter-card.png
-tags: 
+tags:
 - paypal-hack
 - security
 - multifactor-authentication
@@ -34,7 +34,7 @@ In this post, we'll teach you five things you can implement to prevent your user
 
 ### 1 - Multifactor Authentication
 
-**Multifactor Authentication (MFA)** is a method of identifying users by presenting several separate authentication stages. Some of those stages could be a Time-based One-Time Password (TOTP), mobile verification, or a hardware token, among others. 
+**Multifactor Authentication (MFA)** is a method of identifying users by presenting several separate authentication stages. Some of those stages could be a Time-based One-Time Password (TOTP), mobile verification, or a hardware token, among others.
 
 > Learn more about MFA, in the [Get Started with MFA landing page](https://auth0.com/learn/get-started-with-mfa).
 
@@ -55,7 +55,7 @@ With Passwordless Login you can use one-time codes or “magic links” delivere
 ![Passwordless Login](https://cdn.auth0.com/blog/passwordless/pwdless-locks.png)
 
 ### 3 - Step Up Security
-With **Step Up Security**, critical actions in user accounts—adding or changing email accounts, changing passwords, and so on—require additional security measures. Brian Krebs' attacker called customer support to reset his password. This critical action needed stronger security measures—such as multifactor or passwordless authentication—as the company should have ensured that it was being performed by the legitimate user. 
+With **Step Up Security**, critical actions in user accounts—adding or changing email accounts, changing passwords, and so on—require additional security measures. Brian Krebs' attacker called customer support to reset his password. This critical action needed stronger security measures—such as multifactor or passwordless authentication—as the company should have ensured that it was being performed by the legitimate user.
 
 ![Step Up Security](https://cdn.auth0.com/blog/paypal/step-up-security.png)
 
