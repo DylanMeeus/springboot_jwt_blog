@@ -12,11 +12,11 @@ design:
   bg_color: "#4D185A"
   image: https://laravel.com/assets/img/laravel-logo.png
 tags:
+- laravel
 - api
 - jwts
 - authentication
 - web-app
-- laravel
 - auth0
 related:
 - 2015-11-13-build-an-app-with-vuejs
