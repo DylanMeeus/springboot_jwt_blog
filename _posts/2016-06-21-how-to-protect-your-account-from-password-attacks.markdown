@@ -24,7 +24,7 @@ related:
 - 2016-01-27-setting-up-passwordless-authentication-with-the-auth0-dashboard
 ---
 
-Just last week, [GitHub](github.com) reported that there were several unauthorized attempts to access a large number of their accounts. A thorough investigation revealed that it was an attacker using lists of email addresses and passwords from other online services that have been compromised in the past on several [Github](github.com) accounts. So many people use the same password on multiple online services thus allowing the attacker to log in to a number of GitHub accounts. Thankfully, GitHub was not compromised. Auth0 can help deal effectively with cases like this. Let's take a deeper look at how Auth0 can handle password attacks.  
+Just last week, [GitHub](github.com) reported that there were several unauthorized attempts to access a large number of their accounts. A thorough investigation revealed that it was an attacker using lists of email addresses and passwords from other online services that have been compromised in the past on several [Github](github.com) accounts. So many people use the same password on multiple online services thus allowing the attacker to log in to a number of GitHub accounts. Thankfully, GitHub was not compromised. **Auth0** can help deal effectively with cases like this. Let's take a deeper look at how **Auth0** can handle password attacks.  
 
 ##  How Auth0 Can Help Protect Your Account
 
