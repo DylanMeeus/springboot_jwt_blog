@@ -35,10 +35,10 @@ Auth0 provides an awesome security feature called **Anomaly Detection**. It comp
 Enable **Breached Password Detection** by flipping the switch in your dashboard as shown in the following image:
 <img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-dashboard.png" alt="Breached Password Dashboard"/>
 
-When the feature is enabled and a user attempts to login with credentials that were leaked in a security breach, the lock will show an alert like this:
+When the feature is enabled and a user attempts to login with credentials that were leaked in a security breach, the lock will show an alert:
 <img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-lock.png" alt="Breached Password Lock Error"/>
 
-Lastly, the user will get the following notification email like so:
+Lastly, the user will get the following notification email:
 <img src="https://cdn.auth0.com/blog/anomaly-detection/breached-pass-email.png" alt="Breached Password Email" />
 
 
