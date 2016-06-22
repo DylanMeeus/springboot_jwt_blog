@@ -27,7 +27,7 @@ related:
 
 **TL;DR** Webtask.io allows you to build applications without thinking about infrastructure. Simply write your server-side logic, deploy your functions via the Webtask CLI and access your serverless backend over HTTP. Preferring code to configuration, the Webtask platform comes with a familiar programming model, excellent authentication and authorization support, and more to ensure a pleasant development experience.
 
-For our tutorial today, we'll enhance a static blog with some dynamic functionality that would normally require a traditional backend. Check out the Github repo for the code to follow along. 
+For our tutorial today, we'll enhance a static blog with some dynamic functionality that would normally require a traditional backend. Check out the [Github repo](https://github.com/auth0-blog/serverless-stories) for the code to follow along. 
 
 ---
 
@@ -61,7 +61,7 @@ Our blog is comprised of HTML, CSS and JS files. We don't have a backend nor do 
 
 ## User Interface
 
-Our blog has three main views. The **homepage**, where we can see a list of stories and subscribe to the newsletter. A **tips** page, where users can submit tips to our authors. Finally, the individual **article** page, which contains the full content for each article. We'll use [Bootstrap](http://getbootstrap.com/) to help us build out a clean UI. Get the code from the Github repo to follow along.
+Our blog has three main views. The **homepage**, where we can see a list of stories and subscribe to the newsletter. A **tips** page, where users can submit tips to our authors. Finally, the individual **article** page, which contains the full content for each article. We'll use [Bootstrap](http://getbootstrap.com/) to help us build out a clean UI. Get the code from the [Github repo](https://github.com/auth0-blog/serverless-stories) to follow along.
 
 ### Homepage
 
