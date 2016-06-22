@@ -9,7 +9,7 @@ author:
   avatar: https://en.gravatar.com/avatar/1097492785caf9ffeebffeb624202d8f?s=200
 design:
   bg_color: "#910012"
-  image: https://cdn.auth0.com/blog/anomaly-detection/logo.png 
+  image: https://cdn.auth0.com/blog/anomaly-detection/logo.png
 tags:
 - anomaly-detection
 - github-hack
@@ -30,7 +30,17 @@ At **Auth0**, we are aware of this problem and we can help you deal effectively 
 
 Auth0 provides an awesome security feature called **Anomaly Detection**. It comprises in-built tools that help you detect suspicious activities on your users' accounts, alert them of these activities, and it can also stop malicious attempts to access your application. **Anomaly Detection** provides the following benefits:
 
-- **Breached Password Detections**: Auth0 tracks large security breaches that are happening on major third-party sites to help keeping your users and systems secure. By enabling Breached Password Detection, your users can be notified and/or blocked from logging in if we suspect that their credentials were part of a published security breach. The best part? It is enabled just by flipping a switch.
+- **Breached Password Detections**: Auth0 tracks large security breaches that are happening on major third-party sites to help keep your users and systems secure. By enabling Breached Password Detection, your users can be notified and/or blocked from logging in if we suspect that their credentials were part of a published security breach. The best part? It is enabled just by flipping a switch.
+
+
+<img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-lock.png" alt="Breached Password Lock Error"/>
+> Lock Error on Login
+
+<img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-dashboard.png" alt="Breached Password Dashboard"/>
+> Enabling Breached Password Detection on the Dashboard
+
+<img src="https://cdn.auth0.com/blog/anomaly-detection/breached-pass-email.png" alt="Breached Password Email" />
+> Notification Email Sent to the user when a breached password is used.
 
 - **Brute Force Protection**: Using Auth0, you can easily set a certain number of failed login attempts on your account. If it exceeds that set number, you can block the user, send him an email, and also notify dashboard owners.
 
