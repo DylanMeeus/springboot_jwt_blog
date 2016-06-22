@@ -32,14 +32,14 @@ Auth0 provides an awesome security feature called **Anomaly Detection**. It comp
 
 - **Breached Password Detections**: Auth0 tracks large security breaches that are happening on major third-party sites to help keep your users and systems secure. By enabling Breached Password Detection, your users can be notified and/or blocked from logging in if we suspect that their credentials were part of a published security breach. The best part? It is enabled just by flipping a switch.
 
-Enable **Breached Password Detection** by flipping the switch in your dashboard as shown in the following image:
-<img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-dashboard.png" alt="Breached Password Dashboard"/>
+    Enable **Breached Password Detection** using the toggle in your dashboard as shown in the following image:
+    <img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-dashboard.png" alt="Breached Password Dashboard"/>
 
-When the feature is enabled and a user attempts to login with credentials that were leaked in a security breach, the lock will show an alert:
-<img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-lock.png" alt="Breached Password Lock Error"/>
+    When the feature is enabled and a user attempts to login with credentials that were leaked in a security breach, the lock will show an alert:
+    <img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-lock.png" alt="Breached Password Lock Error"/>
 
-Lastly, the user will get the following notification email:
-<img src="https://cdn.auth0.com/blog/anomaly-detection/breached-pass-email.png" alt="Breached Password Email" />
+    Lastly, the user will get the following notification email:
+    <img src="https://cdn.auth0.com/blog/anomaly-detection/breached-pass-email2.png" alt="Breached Password Email" />
 
 
 - **Brute Force Protection**: Using Auth0, you can easily set a certain number of failed login attempts on your account. If it exceeds that set number, you can block the user, send him an email, and also notify dashboard owners.
