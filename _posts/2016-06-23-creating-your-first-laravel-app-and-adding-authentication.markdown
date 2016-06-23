@@ -9,7 +9,7 @@ author:
   avatar: https://en.gravatar.com/avatar/1097492785caf9ffeebffeb624202d8f?s=200
   mail: prosper.otemuyiwa@auth0.com
 design:
-  bg_color: "#4D185A"
+  bg_color: "#4A4A4A"
   image: https://laravel.com/assets/img/laravel-logo.png
 tags:
 - laravel
