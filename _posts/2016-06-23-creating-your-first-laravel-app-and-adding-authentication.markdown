@@ -68,7 +68,7 @@ If you used the `laravel` installer command to create a new app, then you have t
 
 Laravel applications follow the **Model-View-Controller** design pattern.
 
-![mvc_diagram_with_routes](https://cloud.githubusercontent.com/assets/2946769/16150856/adb0a74c-3491-11e6-82c5-701941efd1fe.png)
+![Model View Controller Diagram](https://cdn.auth0.com/blog/laravel-auth/mvc-diagram.png)
 
 *(Source: [Self Taught Coders](https://selftaughtcoders.com))*
 
@@ -79,8 +79,6 @@ In a nutshell,
   * **Controllers** handle user requests, retrieve data from the Models and pass them unto the views.
 
 Read more about [MVC](http://www.tomdalling.com/blog/software-design/model-view-controller-explained/) here.
-
-![Model View Controller Diagram](https://cdn.auth0.com/blog/laravel-auth/mvc-diagram.png)
 
 The app directory is the **meat** of your Laravel application. It houses the following directories:
 
