@@ -39,7 +39,7 @@ Auth0 provides an awesome security feature called **Anomaly Detection**. It comp
     <img src="http://cdn.auth0.com/blog/anomaly-detection/breached-pass-lock.png" alt="Breached Password Lock Error"/>
 
     Lastly, the user will get the following notification email:
-    <img src="https://cdn.auth0.com/blog/anomaly-detection/breached-pass-email2.png" alt="Breached Password Email" />
+    <img src="https://cdn.auth0.com/blog/anomaly-detection/breached-pass-email3.png" alt="Breached Password Email" />
 
 
 - **Brute Force Protection**: Using Auth0, you can easily set a certain number of failed login attempts on your account. If it exceeds that set number, you can block the user, send him an email, and also notify dashboard owners.

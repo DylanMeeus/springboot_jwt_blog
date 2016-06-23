@@ -80,7 +80,7 @@ In a nutshell,
 
 Read more about [MVC](http://www.tomdalling.com/blog/software-design/model-view-controller-explained/) here.
 
-<img width="1034" alt="screen shot 2016-06-17 at 1 55 25 pm" src="https://cloud.githubusercontent.com/assets/2946769/16151142/474075e4-3493-11e6-8f46-c846646c6287.png">
+![Model View Controller Diagram](https://cdn.auth0.com/blog/laravel-auth/mvc-diagram.png)
 
 The app directory is the **meat** of your Laravel application. It houses the following directories:
 
@@ -94,6 +94,7 @@ The app directory is the **meat** of your Laravel application. It houses the fol
   * `Policies` - Contains the authorization policy classes for your application. Policies are used to determine if a user can perform a given action against a resource.
 
 The other directories namely:
+
   * `boostrap` contains your framework autoloading files and generated cache files
   * `config` contains your app's configuration files.
   * `database` contains your database migrations and seeds.
@@ -242,15 +243,15 @@ Now that we have all the routes and views setup, your application should look li
 
 _Landing Page_
 
-<img width="1109" alt="screen shot 2016-06-20 at 10 21 39 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210747/8d0ffd20-3735-11e6-94ef-cf2d1c4766ea.png">
+![Landing Page](https://cdn.auth0.com/blog/laravel-auth/landing-page.png)
 
 _Login Page_
 
-<img width="1109" alt="screen shot 2016-06-20 at 10 23 21 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210776/b9115aea-3735-11e6-81f3-2c6d10790f8f.png">
+![Login Page](https://cdn.auth0.com/blog/laravel-auth/login-page.png)
 
 _Register Page_
 
-<img width="1104" alt="screen shot 2016-06-20 at 10 23 36 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210784/c46b98b0-3735-11e6-9692-005b9598919d.png">
+![Register Page](https://cdn.auth0.com/blog/laravel-auth/register-page.png)
 
 ## Run Migrations
 
@@ -281,7 +282,7 @@ It can be configured to whatever route you want the user to be redirected to jus
 
 Now, go ahead and register. It should register you successfully and log you in like so:
 
-<img width="1109" alt="screen shot 2016-06-20 at 10 31 57 pm" src="https://cloud.githubusercontent.com/assets/2946769/16211017/fd20a1cc-3736-11e6-98d4-1dcab634cae3.png">
+![Landing Page while authenticated](https://cdn.auth0.com/blog/laravel-auth/landing-authenticated.png)
 
 
 ## Using the Auth Middleware
@@ -327,7 +328,7 @@ Route::get('/auth0/callback', function() {
 
 Open up `welcome.blade.php` and configure it like so:
 
-```php
+{% highlight php %}
 @extends('layouts.app')
 
 @section('content')
@@ -349,10 +350,11 @@ Open up `welcome.blade.php` and configure it like so:
 </script>
 <button onclick="window.signin();">Login</button>
 @endsection
-```
-When the login button is clicked, the auth screen comes up like so:
+{% endhighlight %}
 
-<img width="1105" alt="screen shot 2016-06-20 at 10 16 01 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210600/d1941da6-3734-11e6-9d56-e9232bc5fcb7.png">
+When the login button is clicked, the auth0 lock widget comes up:
+
+![Auth0 Lock Widget](https://cdn.auth0.com/blog/laravel-auth/auth0-lock.png)
 
 
 ### Step 4: Configure & Use Lock Widget in Routes.php
@@ -367,14 +369,14 @@ Route::get('/auth0/callback', function() {
 
 Now, once a user registers, it stores the user information in your Auth0 dashboard. We can retrieve this info using the `Auth0::getUser()` method. We can also hook onto the onLogin event using `Auth0::onLogin(function(...))`.
 
-<img width="1104" alt="screen shot 2016-06-20 at 10 19 18 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210650/17837802-3735-11e6-8a60-80795e543f09.png">
+![Access Token](https://cdn.auth0.com/blog/laravel-auth/access-token.png)
 
 
 Access can be restricted with **Auth0 Middleware**, just add this `'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware'` in the `$routeMiddleware` array in `app/Http/Kernel.php`. Then use `auth0.jwt` middleware on your routes.
 
 With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI, It provides powerful analytics about users signing up on your platform such as, the browser the user logged in with, the location, device, number of logins and more out of the box!
 
-<img width="845" alt="screen shot 2016-06-19 at 8 43 50 pm" src="https://cloud.githubusercontent.com/assets/2946769/16179466/c67f3bac-365e-11e6-8b22-67db28b9b7ba.png">
+![User Information](https://cdn.auth0.com/blog/laravel-auth/user-information.png)
 
 
 ## Wrapping Up
