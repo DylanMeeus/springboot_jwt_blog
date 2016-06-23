@@ -196,7 +196,7 @@ Now, the views needed for authentication are in the `resources/views/auth` direc
 
 Open up your `welcome.blade.php` and configure it like so:
 
-```php
+{% highlight html %}
 @extends('layouts.app')
 
 @section('content')
@@ -230,7 +230,7 @@ Open up your `welcome.blade.php` and configure it like so:
     </div>
 </div>
 @endsection
-```
+{% endhighlight %}
 
 Here, we are looping through the `$characters` array data passed from the `ListController` for appropriate rendering in the `welcome` view.
 
@@ -240,15 +240,15 @@ Here, we are looping through the `$characters` array data passed from the `ListC
 
 Now that we have all the routes and views setup, your application should look like this:
 
-Landing Page
+_Landing Page_
 
 <img width="1109" alt="screen shot 2016-06-20 at 10 21 39 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210747/8d0ffd20-3735-11e6-94ef-cf2d1c4766ea.png">
 
-Login Page
+_Login Page_
 
 <img width="1109" alt="screen shot 2016-06-20 at 10 23 21 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210776/b9115aea-3735-11e6-81f3-2c6d10790f8f.png">
 
-Register Page
+_Register Page_
 
 <img width="1104" alt="screen shot 2016-06-20 at 10 23 36 pm" src="https://cloud.githubusercontent.com/assets/2946769/16210784/c46b98b0-3735-11e6-9692-005b9598919d.png">
 
