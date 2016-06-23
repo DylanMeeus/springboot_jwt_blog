@@ -7,5 +7,6 @@ layout: null
     "excerpt": "{{ site.posts[0].excerpt | markdownify | strip_html | truncate: 140 | replace:'"':'\"' | strip_newlines }}",
     "link": "https://auth0.com{{ site.baseurl }}{{ site.posts[0].url }}",
     "date": "{{ site.posts[0].date | date: "%B %-d" }}",
-    "author": "{{ site.posts[0].author.name }}"
+    "author": "{{ site.posts[0].author.name }}",
+    "thumbnail": "{{ site.posts[0].design.image }}"
 }
