@@ -10,7 +10,7 @@ author:
   mail: prosper.otemuyiwa@auth0.com
 design:
   bg_color: "#4A4A4A"
-  image: https://laravel.com/assets/img/laravel-logo.png
+  image: https://cdn.auth0.com/blog/laravel-auth/logo.png
 tags:
 - laravel
 - api
