@@ -42,7 +42,7 @@ Serverless computing is a fairly recent trend is software development that allow
  
 Serverless, and by extension Webtask, is there for you when you need it and out of the way when you don't. You can extend your current backend with Webtask, build your entire backend around Webtask functions and never provision any servers or set up infrastructure yourself, or use it for more specialized cases such as webhooks. To learn more about serverless computing, check out this [blog post](https://auth0.com/blog/2016/06/09/what-is-serverless/).
 
-## Serverless Use-Cases
+## Serverless Use Cases
 
 Serverless and FaaS can prove useful in various use-cases. If you are building a static website, but would like to add the ability to capture user emails for a newsletter, you would either need to setup a backend or register with a 3rd party email service and use their widget or API to capture emails. If a 3rd party API you want to use requires secret keys, you would have to build a backend so that you could safely make calls to the API. Webtasks, like other first class backends, allow the developer to create a trust boundary between the client and server.
 
@@ -93,7 +93,7 @@ module.exports = function(callback){
 }
 ```
 
-Next, a more advanced programming model that accepts two parameters: `context` and `callback`. The `context` parameter is a JavaScript object that contains various properties such as `query`, `secrets`, `body`. The `context` parameter also offers access to the `context.get` and `context.set` API which allow access to Webtasks durable storage. An example of a Webtask using this programming model:
+Next, a more advanced programming model that accepts two parameters: `context` and `callback`. The `context` parameter is a JavaScript object that contains various properties such as `query`, `secrets`, `body`. The `context` parameter also offers access to the `context.storage.get` and `context.storage.set` API which allow access to Webtasks durable storage. An example of a Webtask using this programming model:
 
 ```js
 module.exports = function(context, callback){
