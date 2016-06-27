@@ -31,11 +31,15 @@ TL;DR: Auth0's usage of open standards such as [OAuth](http://oauth.net/2/), [Op
 
 ## Overview
 
+![.Net Core 1.0.0](https://cdn.auth0.com/blog/dotnetcore/dotnet-core.png)
+
 With the final release of ASP.NET Core 1.0 happening today, we are happy to announce that you can now also use Auth0 in your ASP.NET Core applications. Because Auth0 is built on open standards, such as [OAuth](http://oauth.net/2/), [OpenID Connect](http://openid.net/connect/) and [JSON Web Tokens](https://jwt.io/), and all of those are supported by ASP.NET Core middleware out of the box, there was in fact very little we had to do in order to help you use Auth0 in your applications.
 
 Our support at this stage is therefore limited to new Quickstarts for MVC and Web API applications, as well as a number samples which demonstrates various usage scenarios. Over time our Quickstarts will be expanded to cover more of the typical onboarding steps, and our samples will also expand to cover more usage scenarios based on your feedback.
 
 ## Embedded Lock
+
+![Embedd Lock](https://cdn.auth0.com/blog/dotnetcore/dotnet-embedded-lock.png)
 
 One usage scenario in particular which is a bit tricky is the one where you want to embed Lock into your ASP.NET Core MVC application, and still use the standard OAuth or OpenID Connect middleware. 
 
@@ -48,6 +52,8 @@ After the user has authenticated and Auth0 redirects back to the redirect URL in
 The problem is that when you embed Lock in your application, the OAuth/OIDC middleware is not initiating the 1st leg of the OAuth/OIDC flow. Lock is.
 
 So in this instance you will need to construct correct state and nonce parameters (as if the OAuth/OIDC middleware did it so that it can validate it correctly), and then be sure to specify the state and nonce parameters on Lock so that Auth0 can send back the correct values for these parameters after the user has authenticated.
+
+![Authenticated User](https://cdn.auth0.com/blog/dotnetcore/dotnet-login.png)
 
 We have very well documented samples for this scenario however, but as mentioned before it requires some extra legwork from your side, and also to add a few extra files to your application. We would love to create a NuGet package which automatically adds the correct helper files to your project, but due to technical limitations with NuGet and `project.json` we cannot create a NuGet that adds content files to your project at this stage. Microsoft has stated that they are going to be [reverting back to csproj files](https://blogs.msdn.microsoft.com/dotnet/2016/05/23/changes-to-project-json/) at some stage, so once this is technically feasible again we will create a NuGet package which will make your life a bit easier in this particular scenario. 
 
