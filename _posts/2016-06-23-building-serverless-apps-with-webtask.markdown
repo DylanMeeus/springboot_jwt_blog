@@ -15,9 +15,9 @@ tags:
 - Serverless
 - Webtask
 - Webtask.io
-- Function as a Service
+- Function-as-a-Service
 - faas
-- Serverless Authentication
+- Serverless-Authentication
 related:
 - 2016-06-09-what-is-serverless
 - 2015-10-07-extensibility-through-code-using-webtasks
