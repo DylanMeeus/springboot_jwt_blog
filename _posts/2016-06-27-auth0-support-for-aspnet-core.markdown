@@ -12,13 +12,14 @@ design:
   bg_color: "#0D3483"
   image: https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/logo.png
 tags:
-- asp.net core
+- asp.net-core
 - asp.net
 - c#
 - oauth
-- openid connect
+- openid-connect
 related:
 - 2016-06-13-authenticating-a-user-with-linkedin-in-aspnet-core
+- 2016-06-03-add-auth-to-native-desktop-csharp-apps-with-jwt
 
 ---
 
