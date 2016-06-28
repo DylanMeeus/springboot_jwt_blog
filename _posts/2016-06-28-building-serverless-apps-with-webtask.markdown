@@ -34,7 +34,7 @@ For our tutorial today, we'll enhance a static blog with some dynamic functional
 
 [Webtask.io](https://webtask.io) is a Function-as-a-Service (FaaS) platform that allows you to build serverless applications. Built by the team that brought you Auth0, Webtask features a familiar programming model, an easy to use CLI and a powerful infrastructure to help you accomplish your goals.
 
-Webtasks are secure, self-contained functions accessed over the HTTP protocol that perform server-side logic. With Webtasks, you can securely call APIs that require secret keys, set up webhooks that get triggered after certain actions in your application are performed, or talk directly to your existing database or backend just to name a few. The power of serverless computing is that it is there for you when you need it and out of the way when you don't.
+Webtasks are secure, self-contained functions accessed over the HTTPS protocol that perform server-side logic. With Webtasks, you can securely call APIs that require secret keys, set up webhooks that get triggered after certain actions in your application are performed, or talk directly to your existing database or backend just to name a few. The power of serverless computing is that it is there for you when you need it and out of the way when you don't.
 
 ## Serverless? Function as a Service? What?
 
