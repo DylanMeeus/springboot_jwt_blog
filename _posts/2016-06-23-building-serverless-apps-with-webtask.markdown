@@ -108,8 +108,8 @@ Finally, the most advanced programming model gives us full control over the HTTP
 
 ```js
 module.exports = function(context, request, response){
-  res.writeHead(200, { 'Content-Type': 'text/html '});
-  res.end('<h1>Hello Webtask!</h1>');
+  response.writeHead(200, { 'Content-Type': 'text/html '});
+  response.end('<h1>Hello Webtask!</h1>');
 }
 ```
 
