@@ -27,6 +27,8 @@ related:
 <div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/m7ctnnu4et?seo=false&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 
+## Transcript
+
 Hi, this is Kassandra with Auth0, and today we're gonna talk about the new JWT plugin that we've launched. So I've already installed it, and you can see the logo over here, and so I'm gonna click on it. And you can see the debugger. Now, there are quite a few features that are brand-new to this debugger that I want to show you. One of the first ones is this "Open JWT From." So what I'm gonna do is, it says, "Web Storage" and "Cookies," so I'm actually going to use the local storage API to save a JWT into local storage and show you how you can debug it.
 
 Okay, now to do that, what I'm going to do is say, "localStorage.setItem()" with our token. Okay. So now I'm going to reopen the JWT debugger and go to Open JWT From. And as you can see, my token now shows up here. Now it does still say invalid signature, so I'm gonna have to change the secret to the secret I made this key with, and you can now see signature verified, just like with the JWT debugger on the webpage. You can also share JWTs with this button. You copy the URL, and it will send people to the debugger on the website.
