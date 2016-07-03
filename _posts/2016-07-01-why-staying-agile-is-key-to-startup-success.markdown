@@ -42,9 +42,9 @@ Developers are broken up into small teams known as scrums. Each scrum takes owne
 
 In its simplest form, the scrum framework has three key components.
 
-### 1. THe product backlog
+### 1. The product backlog
 
-The product backlog is where the ideas come from. It's a list of features to be implemented put together by the **product owner**, the stakeholder in the software. 
+The product backlog is where the ideas come from. It's a list of features to be implemented and is put together by the **product owner**, the stakeholder in the software. 
 
 The product owner differs from a product manager in that product managers are [customer facing](http://blog.aha.io/the-product-manager-vs-product-owner/), whereas product owners interact internally with the development team.
 
@@ -106,21 +106,21 @@ One of the great strengths of agile is its ability to engage every member of the
 
 In order for the scrum to work, you need to first implement every rule and process without alteration. This is something a lot of companies get wrong. They try to tailor it to their teams by changing things right away. But it's only by experiencing the raw, default processes that you can start to really bend Agile to your will.
 
-### The struggles of Time boxing
+### The Struggles of Time Boxing
 
 For example, in the scrum framework, everything happens according to definite timelines. A sprint has a start and end date, [daily stand-ups](http://blog.idonethis.com/ultimate-guide-remote-standups/) are rigidly structured, and all meetings have hard time limits.
 
-This concept is called **time boxing**, and it is fundamental to the scrum framework. However, when you first transition to time boxing, there will be struggles. Some team members will dominant too much meeting time, and things that need to be addressed won't be brought up. It will be frustrating, and then, it will get better.
+This concept is called **time boxing**, and it is fundamental to the scrum framework. However, when you first transition to time boxing, there will be struggles. Some team members will dominate too much meeting time, and things that need to be addressed won't be brought up. It will be frustrating, and then, it will get better.
 
 Team members will understand the need for reorganizing the meeting structure, and they will be bought into the new process. Even if you can see this pain-point coming, the team needs to experience it to know *why* they're restructuring their meetings.
 
 ![Stick to the timebox](https://cdn.auth0.com/blog/agile/stick-to-the-timebox.png)
 
-### Finding a definition of done
+### Finding a Definition of Done
 
 Another key agile value is transparency. The scrum system depends on everyone being self-motivated and autonomous, and so it is a massive disadvantage if individual team members don't have a complete picture of what work is left to be done.
 
-Before every sprint, the scrum needs to come together and define what “Done” looks like for this sprint. This sounds simple, but it is one of the most common pain points for companies new to agile.
+Before every sprint, the scrum needs to come together and define what “done” looks like for this sprint. This sounds simple, but it is one of the most common pain points for companies new to agile.
 
  If a new problem arises that falls outside of your sprint goals, you cannot switch gears and work on it. Nothing outside the sprint gets worked on during the sprint. Seeing fires and not being able to put them out is a living nightmare to developers.
 
@@ -134,7 +134,7 @@ Your only chance as a startup is to be too fast for your competition. Mega-compa
 
 Spotify is probably the best example of this. The music streaming service posted revenues in excess of [$2 billion](http://www.statista.com/statistics/244990/spotifys-revenue-and-net-income/) between 2009 and 2015, which by any standard constitutes a success. However, their competition includes Google Play Music, Amazon's Prime Music, and Apple's iTunes Radio—meaning they're fighting three of the most profitable companies in the world.
 
-All three of these companies have seemingly infinite resources. Google, for example, has [15,000 developers](http://labs.openviewpartners.com/agile-done-right-agile-gone-wrong/) developing one single branch of code. Spotify only has around[1,600](https://en.wikipedia.org/wiki/Spotify) employees total.
+All three of these companies have seemingly infinite resources. Google, for example, has [15,000 developers](http://labs.openviewpartners.com/agile-done-right-agile-gone-wrong/) developing one single branch of code. Spotify only has around [1,600](https://en.wikipedia.org/wiki/Spotify) employees total.
 
 ![Music Services](https://cdn.auth0.com/blog/agile/music-services.png)
 
@@ -160,7 +160,7 @@ The insane speed of development in the tech world is what makes disruption possi
 
 But for startups, disruption is a double-edged sword. We're always on the brink of a new technology, and the same technology that was cutting edge when you first launched might be antiquated in a year. 
 
-In order to sustain your growth, you need to be constantly be starting from scratch, introducing new tools and processes that disrupt your existing setup. This is what agile *is all about*. At the end of each sprint, you get to reflect and hit the reset button on your entire process to make it better.
+To sustain your growth, you need to constantly be starting from scratch, introducing new tools and processes that disrupt your existing setup. This is what agile *is all about*. At the end of each sprint, you get to reflect and hit the reset button on your entire process to make it better.
 
 It's not just about iterating new features, it's about creating new procedures so that your product *and* team are constantly improving—keeping you one step ahead of the rest of the world. 
 
