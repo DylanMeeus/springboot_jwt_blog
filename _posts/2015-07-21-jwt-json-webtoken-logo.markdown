@@ -60,6 +60,8 @@ About 2 years since the first draft this simple, yet useful standard expanded:
 
 If you use Android, AWS, Microsoft Azure, Salesforce, or Google then chances are that you are already using JWT.
 
+{% include tweet_quote.html quote_text="If you use Android, AWS, Microsoft Azure, Salesforce, or Google then chances are that you are already using JWT." %}
+
 We very much believe in this standard so we wanted to keep making contributions to foster its adoption. We are happy to share the **new logo**, the **new website**, **badges**, and other things. :)
 
 
