@@ -3,7 +3,7 @@ layout: post
 title: "An Introduction to Microservices, Part 1"
 description: "Learn what are microservices and how they are used in the industry"
 date: 2015-09-04 18:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -14,7 +14,7 @@ design:
   image_size: "60%"
   image_bg_color: "#596D5F"
   blog_series: true
-tags: 
+tags:
 - microservices
 - design-patterns
 - api-design
@@ -32,7 +32,7 @@ related:
 - 2015-12-03-why-using-open-standards-helps-close-enterprise-deals
 ---
 
-Everybody is talking about microservices. Industry veterans may remember monolithic or SOA-based solutions being *the way* of doing things. Times have changed. New tools have allowed developers to focus on specific problems without adding excessive complexity to deployment or other administrative tasks that are usually associated with isolated services. It has become increasingly easy to choose to work with the right tool for the right problem. 
+Everybody is talking about microservices. Industry veterans may remember monolithic or SOA-based solutions being *the way* of doing things. Times have changed. New tools have allowed developers to focus on specific problems without adding excessive complexity to deployment or other administrative tasks that are usually associated with isolated services. It has become increasingly easy to choose to work with the right tool for the right problem.
 
 In this **post series**, we will explore the world of microservices, how it can help solve real world problems, and why the industry is increasingly picking it as the standard way of doing things. In this series, we will attempt to tackle common problems related to this approach, and provide convenient and simple examples. By the end of the series, we should have a skeleton implementation of a full microservice-based architecture. Today, we will focus on what microservices are and how they compare to the alternatives. We will also list the problems we plan to discuss in the following posts.
 
@@ -42,6 +42,8 @@ In this **post series**, we will explore the world of microservices, how it can 
 
 ## What is a microservice?
 A microservice is an **isolated**, **loosely-coupled** unit of development that works on a **single concern**. This is similar to the old "Unix" way of doing things: do one thing, and do it well. Matters such as how to "combine" whatever is provided by the service are left to higher layers or to policy. This usually means that microservices tend to avoid interdependencies: if one microservice has a hard requirement for other microservices, then you should ask yourself if it makes sense to make them all part of the same unit.
+
+{% include tweet_quote.html quote_text="A microservice is an isolated, loosely-coupled unit of development that works on a single concern." %}
 
 ![Typical microservices diagram](https://cdn.auth0.com/blog/microservices/Microservices2.png)
 
@@ -114,8 +116,8 @@ logger.stream = {
 var app = express();
 app.use(
     //Log requests
-    morgan(':method :url :status :response-time ms - :res[content-length]', { 
-        stream: logger.stream 
+    morgan(':method :url :status :response-time ms - :res[content-length]', {
+        stream: logger.stream
     })
 );
 
@@ -155,7 +157,7 @@ app.get('/tickets', function(req, res, next) {
             logger.error(err);
             res.sendStatus(500);
             return;
-        } 
+        }
         res.json(result);
     });   
 });
@@ -195,7 +197,7 @@ We have converted the example above to a webtask, see how easy it is:
 npm install wt-cli -g
 
 # This will send an activation link to your email. One time only.
-wt init your.name@email.com 
+wt init your.name@email.com
 
 # This will return a new endpoint for your webtask
 wt create https://raw.githubusercontent.com/sebadoom/auth0/master/microservices/microservice-1-webtask/server.js
@@ -208,6 +210,3 @@ See the [code](https://github.com/sebadoom/auth0/blob/master/microservices/micro
 
 ## Conclusion
 Microservices are the new way of doing distributed computing. Advances in deployment and monitoring tools have eased the pain involved in managing many independent services. The benefits are clear: using the right tool for the right problem, and letting teams use their specific know-how to tackle each problem. The hard part is dealing with shared data. Special considerations must be taken into account when dealing with shared data and inter-service dependencies. Data modeling is an essential step in any design, and is even more so in the case of a microservices-based architecture. We will explore other common patterns and practices in detail in the following articles.
-
-
-
