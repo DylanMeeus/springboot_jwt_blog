@@ -4,7 +4,7 @@ title: "Securing your NodeBots with JSON Web Tokens"
 description: "Secure your internet-connected NodeBots projects with JSON Web Tokens."
 date: 2015-12-28 9:00
 permalink: /2015/12/22/securing-nodebots-with-JWT
-author: 
+author:
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
   mail: kassandra.perch@auth0.com
@@ -15,8 +15,8 @@ design:
   image_size: "120%"
   image_bg_color: "#B6C5CA"
   blog_series: false
-tags: 
-- product 
+tags:
+- product
 - JWT
 - NodeBots
 - hardware
@@ -28,7 +28,7 @@ related:
 
 # Securing your NodeBots with JSON Web Tokens
 
-NodeBots are amazing! One of the best things about them is that you can connect them to the internet in new and amazing ways. This can include controlling NodeBots via your own Node.JS API! 
+NodeBots are amazing! One of the best things about them is that you can connect them to the internet in new and amazing ways. This can include controlling NodeBots via your own Node.JS API!
 
 However, this can lead to some interesting scenarios regarding security-- especially if you choose to control a system like a door lock via NodeBots. Without a cloud service like Particle's Cloud or Electric Imp's agent/client system, security can be tricky! Even with third-party cloud solutions providing basic security, this security mainly covers your API's communication with your NodeBot-- not the internet's communication with your API!
 
@@ -44,7 +44,9 @@ Just in case you've never heard of them, NodeBots refers to any project that run
 
 If you've never used JSON Web Tokens, there is some great introductory material [at jwt.io](https://jwt.io/introduction).
 
-When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security-- especially when you're stuck on HTTP. JSON Web Tokens use a payload, encyption, and either a secret or private/public key pair in order to provide a signed token that allows you to verify that your NodeBots APIs are only being used by you (or other NodeBots and users that you approve)!
+When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security-- especially when you're stuck on HTTP. JSON Web Tokens use a payload, encryption, and either a secret or private/public key pair in order to provide a signed token that allows you to verify that your NodeBots APIs are only being used by you (or other NodeBots and users that you approve)!
+
+{% include tweet_quote.html quote_text="When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security" %}
 
 In order to use JSON Web Tokens with NodeBots, you'll want to look into [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken). This library allows you to create JSON Web Tokens:
 
@@ -85,7 +87,7 @@ app.get('/protected', function(req, res){
 });
 ```
 
-Now all of your requests to this API will require the authentication header to contain a valid JWT token signed with your secret in order to complete-- otherwise they will return with a 401. 
+Now all of your requests to this API will require the authentication header to contain a valid JWT token signed with your secret in order to complete-- otherwise they will return with a 401.
 
 ## When is this useful for NodeBots?
 
@@ -166,7 +168,7 @@ This way, you can easily allow users to log into your NodeBots interface, with j
 
 Some things to keep in mind when using this method to protect your robotics APIs:
 
-* **You can revoke access in multiple ways, quickly:** the `jsonwebtoken` API gives you ways to revoke specific tokens, but you can quickly invalidate all tokens by changing your secret. 
+* **You can revoke access in multiple ways, quickly:** the `jsonwebtoken` API gives you ways to revoke specific tokens, but you can quickly invalidate all tokens by changing your secret.
 * **You can provide a login, but you don't have to!:** as long as you can use the API to generate tokens using your secret, you don't need to provide a login interface to the rest of the world.
 * **Be sure to set expirations on your tokens:** security is a "better safe than sorry" topic, so be sure to set a lifetime on your tokens to prevent an old token coming back to haunt you!
 
