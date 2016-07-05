@@ -3,16 +3,16 @@ layout: post
 title: "Pluralsight Course on using Auth0 with AngularJS and ASP.NET WebAPI"
 description: This is a guest post by Ajden Towfeek. Ajden is a full-stack developer with focus on Microsoft technologies with 10+ years of experience in commercial software development.
 date: 2015-10-29 00:41
-author: 
+author:
   name: Ajden Towfeek
   url: http://twitter.com/ajtowf
   mail: ajden@towfeek.se
   avatar: https://secure.gravatar.com/avatar/f7144da08aeb41a93256f8ae88f507d2?s=64
-design: 
+design:
   bg_color: "#222222"
   image_bg_color: "transparent"  
   image: https://googledrive.com/host/0B-aMLt4Tj0k5TzQyNzlkMFpLaDg/auth0bloglogo.png
-tags: 
+tags:
 - asp.net
 - c#
 - angularjs
@@ -48,7 +48,7 @@ The course is split into the following three modules:
 
 First of all, I'm new to using Auth0 as a service, I stumbled upon it when trying to find a quick to implement solution for a client I was working with a couple of months ago. I was amazed by how fast we were up and running and could move on to writing the business logic. Unfortunately, that particular client didn't end up using Auth0 in production for various reasons but I'm currently discussing the possibility of using Auth0 for user management with a new client.    
 
-Aside from consulting I also teach and speak at conferences and to strengthen my brand I decided to try out for becoming a pluralsight author. The [audition](https://youtu.be/QjAfgfTZfho) went well, but angular 2 was off the table since it's still in alpha. When browsing the pluralsight library I noticed there was nothing on Auth0 there, so why not be the first one to contribute with an Auth0 course? 
+Aside from consulting I also teach and speak at conferences and to strengthen my brand I decided to try out for becoming a pluralsight author. The [audition](https://youtu.be/QjAfgfTZfho) went well, but angular 2 was off the table since it's still in alpha. When browsing the pluralsight library I noticed there was nothing on Auth0 there, so why not be the first one to contribute with an Auth0 course?
 
 I've also added an Auth0 session to my ASP.NET classroom training after going through ASP.NET Identity to show how identity can be implemented even simpler, and the student reactions to how simple it is to use has been really positive.   
 
@@ -59,3 +59,6 @@ From the initial contact with the audition to working close with my editor on th
 # Conclusion
 
 After 30 hours of recording and editing the course was finished and it's now live, make sure to [check it out](http://www.pluralsight.com/courses/authenticating-angular-spa-aspnet-webapi-auth0). Auth0 is an awesome service and I'll definitely recommend it to future clients and keep teaching it in my class room training.
+
+{% include tweet_quote.html quote_text="Auth0 is an awesome service and I'll definitely recommend it to future clients and keep teaching it in my class room training.
+" %}
