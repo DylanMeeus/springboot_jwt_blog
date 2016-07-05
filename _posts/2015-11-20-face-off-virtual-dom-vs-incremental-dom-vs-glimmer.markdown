@@ -3,7 +3,7 @@ layout: post
 title: "React Virtual DOM vs Incremental DOM vs Ember’s Glimmer: Fight"
 description: "Take a look at competing DOM manipulation libraries and find out which one is faster with a performance benchmark!"
 date: 2015-11-20 10:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -14,7 +14,7 @@ design:
   image_size: "100%"
   image_bg_color: "#B6C5CA"
   blog_series: false
-tags: 
+tags:
 - ember
 - ember.js
 - react.js
@@ -51,7 +51,7 @@ Besides aiding in binding the data model to the view, these libraries help in do
 Directly issuing DOM API calls for doing changes such as these will result in intermediate repaints and reflows of the content. These are expensive operations. By working on a virtual model these steps can be flattened into one.
 
 ### Templates
-Templates are a popular way of building DOM trees. With templates a developer can use a specific template syntax that tells a template compiler how to turn that into a DOM tree (or HTML document). Templates can look like an extension of HTML, or be completely different. 
+Templates are a popular way of building DOM trees. With templates a developer can use a specific template syntax that tells a template compiler how to turn that into a DOM tree (or HTML document). Templates can look like an extension of HTML, or be completely different.
 
 Not every library in this post favors the use of templates. For instance, React favors the use of JSX: an extension of Javascript (in the form of a precompiler) that allows easy insertion of HTML-like snippets in Javascript code. Ember, on the other hand, favors the use of [Handlebars](http://guides.emberjs.com/v1.10.0/templates/handlebars-basics/), a template language.
 
@@ -140,6 +140,6 @@ At Auth0 we are constantly evaluating the best technologies for our platform. Fo
 ## Conclusion
 Virtual DOM, Glimmer and Incremental DOM are all excellent options for handling dynamic DOM updates. React's mindshare and ease of integration make it a no brainer for many projects. Increased memory use can be a problem in memory constrained devices for big websites. This problem, however, is getting smaller everyday as mobile devices carry more and more memory. Incremental DOM surprises by remaining fast even when doing less. We look forward to seeing Incremental DOM integrated into Closure and other libraries. React and Ember remain as well balanced approaches each favoring different development methodologies.
 
+{% include tweet_quote.html quote_text="Virtual DOM, Glimmer and Incremental DOM are all excellent options for handling dynamic DOM updates." %}
+
 When picking one of these libraries focus on mindshare and ease of integration unless you are pushing the number of updates per frame to the limit. In that case, study carefully the results from this post and don't forget to run your own specialized benchmarks.
-
-
