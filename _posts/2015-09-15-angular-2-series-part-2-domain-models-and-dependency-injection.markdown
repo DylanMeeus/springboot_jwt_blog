@@ -3,18 +3,18 @@ layout: post
 title: "Angular 2 Series - Part 2: Domain Models and Dependency Injection"
 description: "Learn about Angular 2's new Dependency Injection system and how to use models to organize your app."
 date: 2015-09-17 11:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
   blog_series: true
-tags: 
+tags:
 - angular2
 - angularjs
 - models
@@ -29,7 +29,7 @@ related:
 
 ---
 
-**TL;DR:** Domain models are important for defining and enforcing business logic in applications and are especially relevant as apps become larger and more people work on them. In this article, we show how this can be done in an Angular 2 app by moving logic out of the component and into a model. We also cover how to inject model classes using Angular 2's new Dependency Injection system. Check out the [repo](https://github.com/auth0/angular2-models-di) for the article to see the code. 
+**TL;DR:** Domain models are important for defining and enforcing business logic in applications and are especially relevant as apps become larger and more people work on them. In this article, we show how this can be done in an Angular 2 app by moving logic out of the component and into a model. We also cover how to inject model classes using Angular 2's new Dependency Injection system. Check out the [repo](https://github.com/auth0/angular2-models-di) for the article to see the code.
 
 This is the second part of our Angular 2 series. You can also check out the first part about [Angular 2 pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/).
 
@@ -38,6 +38,8 @@ This is the second part of our Angular 2 series. You can also check out the firs
 > Auth0's Angular 2 series brings you tutorials on how to implement the latest features from the framework using the most recent Alpha release at the time of writing.
 
 As applications grow in size, it becomes increasingly important that they be well organized with a solid structure in place. This is especially critical as increasing numbers of developers are added to the team. Application architecture should also strongly focus on the business rules that govern the application and protect sensitive methods from being exposed where they shouldn't be.
+
+{% include tweet_quote.html quote_text="Application architecture should also strongly focus on the business rules that govern the application and protect sensitive methods from being exposed where they shouldn't be" %}
 
 At the same time, it is important that we keep our applications DRY and maintainable by moving logic out of components themselves and into separate classes that can be called upon. A modular approach such as this makes our app's business logic reusable.  
 
@@ -121,19 +123,19 @@ class User {
 })
 
 class UsersAppComponent {
-  
+
   // We instantiate the user class.
   user = new User();
 
   submit(userInfo) {
     // HTTP request would go here
     console.log(
-      this.user.name, 
-      this.user.email, 
+      this.user.name,
+      this.user.email,
       this.calculateRating(this.user)
     );
   }
-  
+
   // Method to calculate the user's points
   calculateRating(userInfo) {
     var rating = 0;
@@ -233,7 +235,7 @@ import {User} from 'models/user';
 class UsersAppComponent {
 
   submit(userInfo) {
-    
+
     // Instantiate and save when the form is submitted
     this.user = new User(userInfo);
     this.user.save();
@@ -257,7 +259,7 @@ constructor(userInfo:any) {
   this.name = userInfo.name;
   this.email = userInfo.email;
   this.rating = calculateRating(userInfo);
-  
+
   // Function is only available inside the constructor
   // when the logic really needs to be protected.
   function calculateRating(userInfo) {...}
@@ -268,7 +270,7 @@ constructor(userInfo:any) {
 
 ## Moving to Factories
 
-We've seen how we can instantiate a new model and access methods on it, but what if we wanted to take the factory approach? In this approach, instead of instantiating the model directly in our components, we would call a method like `create` on the factory. As applications grow and classes become increasinly complex, this can have certain advantages, especially for maintainability. For example, if we wanted to change the name of a class that gets instantiated, the factory approach allows us to make a change solely to the factory itself and not all the instantiation points around the app.
+We've seen how we can instantiate a new model and access methods on it, but what if we wanted to take the factory approach? In this approach, instead of instantiating the model directly in our components, we would call a method like `create` on the factory. As applications grow and classes become increasingly complex, this can have certain advantages, especially for maintainability. For example, if we wanted to change the name of a class that gets instantiated, the factory approach allows us to make a change solely to the factory itself and not all the instantiation points around the app.
 
 This is also where Angular 2's Dependency Injection comes in, as we'll need to inject the factory to make use of it.
 
@@ -278,7 +280,7 @@ This is also where Angular 2's Dependency Injection comes in, as we'll need to i
 import {User} from './user';
 
 export class UserFactory {
-  
+
   // Uses the User model to create a new User
   create(userInfo:any) {
     return new User(userInfo);
@@ -302,12 +304,12 @@ class UsersAppComponent {
   userName: string;
   userRating: number;
   rating: number;
-  
+
   // We inject the UserFactory
   constructor(@Inject(UserFactory) UserFactory) {  
     this.UserFactory = UserFactory;
   }
-  
+
   ...
 }
 
@@ -402,29 +404,3 @@ Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. Thi
 It's important that thought be given to how applications are architected so that they are easier to maintain and can be collaborated on by more developers as team sizes grow. It's also important to protect business logic and keep sensitive methods from being accessed outside the class to which they belong. These effects can be achieved by moving logic into models.
 
 Angular 2 gives us a new Dependency Injection system that allows us to inject classes into our components easily. We had a brief look at how the new DI system works, but for a more thorough overview, we recommend you check out [Pascal Precht](https://twitter.com/PascalPrecht)'s post on [Dependency Injection in Angular 2](http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
