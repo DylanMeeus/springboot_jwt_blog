@@ -29,6 +29,8 @@ At Auth0, we move fast — I mean _really_ fast. Last Friday alone (yes, Friday)
 
 This is something I really like and a positive thing in general, as for example it allows us to do things like [fixing production bugs in short timeframes](https://twitter.com/trydis/status/642809967859380224). Shipping fast is great, but we can't do it recklessly, because stability and availability are core concerns for us. And I'm not just talking about our service, but also about the contracts we commit to in our APIs and SDKS. We never break compatibility, unless there's a security concern involved.
 
+{% include tweet_quote.html quote_text="Shipping fast is great, but we can't do it recklessly, because stability and availability are core concerns for us." %}
+
 To prevent issues, one option is to move slower. Another option is to start relying more on tools and automated tests to make sure that deployments do not introduce any breaking changes.
 
 We settled on a hybrid approach. On the one hand, we host segregated production clusters with different release cadences. One of the clusters gets updated on every change we make, and the other one gets a batch update with a one day delay (approximately). On the other hand, we constantly improve the automated tests that run in our build server before each release, to include additional checks before new versions are deployed to production.
