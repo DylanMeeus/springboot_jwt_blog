@@ -8,12 +8,12 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60design
-design: 
+design:
   bg_color: "#375F89"
   image: https://cdn.auth0.com/blog/post-images/datalogo_big.svg
   image_bg_color: "#B2D7FF"
   image_size: "60%"
-tags: 
+tags:
 - marketing
 - rules
 - Full-Contact
@@ -28,7 +28,7 @@ related:
 ---
 Companies that consolidate customer data for marketing purposes show nearly [2x yearly annual revenue growth](http://www.totango.com/blog/2012/06/suffering-from-siloed-customer-data-time-to-get-that-business-in-order/) versus companies that have that information fragmented across different apps.
 
-Yet your user table in your app contains incredibly valuable information that right now isn’t being shared with your marketing tools, and that’s a huge, missed opportunity. 
+Yet your user table in your app contains incredibly valuable information that right now isn’t being shared with your marketing tools, and that’s a huge, missed opportunity.
 
 Bring that information into the marketing tools that you use, and it’ll give you what will feel like marketing superpowers—you’ll be able to send targeted messages and offer truly personal service based on contextual user data. You’ll see response rates go up, and your revenue numbers will grow.
 
@@ -48,7 +48,7 @@ That essentially allows you to extend the Auth0 API with your own customizations
 
 When a user signs up, logs in, or authenticates in general, an authentication request is made to Auth0 (Step 1). After the user authenticates in step (3), the rules are run on step (4) and the result is passed back to the App.
 
-This all happens at the time of authentication when we’re gathering valuable data around who the customer is, when they started using the product and when they most recently used it. 
+This all happens at the time of authentication when we’re gathering valuable data around who the customer is, when they started using the product and when they most recently used it.
 
 Instead of keeping that data locked up in the user table, you'll write rules that will pull data and send it to the different marketing services that you use. That’ll make your marketing much more on point and drive 2x revenue growth for your company.
 
@@ -56,19 +56,23 @@ Instead of keeping that data locked up in the user table, you'll write rules tha
 
 Developers have a number of ways to track data and integrate that with their various marketing tools. What makes rules in Auth0 so powerful is that it gives you accuracy and reliability in a no-hassle, worry-free way.
 
+{% include tweet_quote.html quote_text="What makes rules in Auth0 so powerful is that it gives you accuracy and reliability in a no-hassle, worry-free way." %}
+
 When you need accuracy, server-side analytics is where you turn. The problem is that installing server-side analytics is a super hairy and annoying problem that even having a unified, [clean API](https://segment.com/blog/the-way-server-side-analytics-should-be/) doesn’t solve.
 
 On the other hand, client-side analytics are incredibly convenient—because you can just drop in a Javascript snippet to get Google Analytics and the like up and running—but they can be terribly inaccurate. That’s why running 2-3 client-side analytics services side-by-side to compare numbers is an all too common practice.
 
 For example, when a user blocks Javascript, the code won’t execute and the data won’t get recorded. The same thing will happen if the user navigates away from the page before the code block gets executed. Client-side Javascript can conflict and result in buggy code. All of this makes for unreliable data that you need to be able to trust.
 
-Auth0 rules run on the server, so you get the reliability of server-side analytics but with the convenience of client-side analytics. For your rules, all you need to do is to drop in a Javascript snippet, just like with client-side analytics. 
+Auth0 rules run on the server, so you get the reliability of server-side analytics but with the convenience of client-side analytics. For your rules, all you need to do is to drop in a Javascript snippet, just like with client-side analytics.
 
 * You don’t have to go through the complex process of wiring your internal code with API calls to analytics providers.
 * You write your rules in the browser on Auth0, so you don’t need to write more code in your app or add any additional infrastructure.
 * Rules are [sandboxed](https://webtask.io) and they run on Auth0, so they won’t break your app (and nobody elses) when they fail.
 
 > Aside: Auth0 developed a specialized multi-tenant sandbox technology called [webtask](https://webtask.io) to run the untrusted code submitted by customers. Webtask will ensure that the code runs in isolation, with certain CPU, RAM and I/O limits and without interfering with other tenants.
+
+{% include tweet_quote.html quote_text="Auth0 rules run on the server, so you get the reliability of server-side analytics but with the convenience of client-side analytics." %}
 
 When analytics are a pain to set up and maintain, they add to your technical debt, you move slower on product, and you stop short of collecting enough data. When your data is inaccurate, at best, you’ll send marketing messages that people ignore or that piss people off. At worst, you won’t trust your data enough to look at it or use it at all.
 
@@ -82,7 +86,7 @@ function (user, context, callback) {
   var SLACK_HOOK = 'YOUR SLACK HOOK URL';
 
   var slack = require('slack-notify')(SLACK_HOOK);
-  
+
   // skip if no email
   if(!user.email) return callback(null, user, context);
   // skip if fullcontact metadata is already there
@@ -95,7 +99,7 @@ function (user, context, callback) {
     }
   }, function (error, response, body) {
     if (error || (response && response.statusCode !== 200)) {
-      
+
       slack.alert({
         channel: '#external_blog',
         text: 'Fullcontact API Error',
@@ -114,7 +118,7 @@ function (user, context, callback) {
     user.user_metadata.fullcontact = JSON.parse(body);
 
     auth0.users.updateUserMetadata(user.user_id, user.user_metadata);
-    
+
     // don’t wait for the FullContact API call to finish, return right away (the request will continue on the sandbox)`
     return callback(null, user, context);
   });
@@ -151,7 +155,7 @@ function(user, context, callback) {
     text:  message,
     channel: channel
   });
-  
+
   callback(null, user, context);
 }
 ```
@@ -204,7 +208,7 @@ function(user, context, callback) {
       body: JSON.stringify(sioTrack),
     });
   }
-  
+
   // don’t wait for the Segment API call to finish, return right away (the request will continue on the sandbox)`
   callback(null, user, context);
 }
@@ -217,11 +221,11 @@ When you email your entire list—for example, with a new feature announcement�
 For instance,
 
 * If a user has logged in recently, you can expect that they’re up to date with the product. You can write to them with specificity and familiarity.
-* If a user hasn’t logged in in over 90 days, it’s likely that they don’t even remember what your product does. You’ll need to remind them why you exist before you even go into the details about your new feature. 
+* If a user hasn’t logged in in over 90 days, it’s likely that they don’t even remember what your product does. You’ll need to remind them why you exist before you even go into the details about your new feature.
 
 That’s why it’s so important that you get your user account data into your marketing tools. Using Auth0 rules to send user data into [Segment](http://segment.com/) is a super simple way to do this. Segment is a single hub that collects, manages and routes your customer analytics data to other apps that make use of it.
 
-The rule above sends a “Logged in” or “Signed up” event to Segment whenever a user logs in or signs up. That event gets logged in Segment with a timestamp. 
+The rule above sends a “Logged in” or “Signed up” event to Segment whenever a user logs in or signs up. That event gets logged in Segment with a timestamp.
 
 Turn on the [Customer.io](http://customer.io/) integration with Segment, and any data you send to Segment will go to Customer.io. You’ll be able to easily segment your email list based on the “Logged in” event so that you can send highly targeted, effective email marketing.
 
@@ -255,7 +259,7 @@ function(user, context, callback) {
     body: JSON.stringify(keenEvent),
   },
   function (error, response, body) {
-    
+
     if( error || (response && response.statusCode !== 200) ) {
       slack.alert({
         channel: '#some_channel',
@@ -266,7 +270,7 @@ function(user, context, callback) {
       });
     }
   });
-  
+
   // don’t wait for the keen API call to finish, return right away (the request will continue on the sandbox)`
   callback(null, user, context);
 }
@@ -278,7 +282,7 @@ If you’re not visualizing your sign up data over time, you don't have a clue a
 
 This rule sends an event to [Keen.io](http://keen.io/) every time a new customer signs up with the user’s ID and name that’s timestamped for when the event is sent.
 
-Inside of Keen.io, it’s very easy to take that event data and create a graph which shows you whether new customer acquisition is increasing or decreasing over time. 
+Inside of Keen.io, it’s very easy to take that event data and create a graph which shows you whether new customer acquisition is increasing or decreasing over time.
 
 ![Keen io](https://cdn.auth0.com/blog/rules-auth0/keenio.png)
 
@@ -294,9 +298,9 @@ function (user, context, callback) {
   }
 
   var _ = require('lodash');
-  
+
   var ZAP_HOOK_URL = 'REPLACE_ME';
-  
+
   var small_context = {
     appName: context.clientName,
     userAgent: context.userAgent,
@@ -304,14 +308,14 @@ function (user, context, callback) {
     connection: context.connection,
     strategy: context.connectionStrategy
   };
-  
+
   var payload_to_zap = _.extend({}, user, small_context);
-  
+
   request.post({
     url: ZAP_HOOK_URL,
     json: payload_to_zap
   });
-  
+
   // don’t wait for the ZAP HOOK call to finish, return right away (the request will continue on the sandbox)`
   callback(null, user, context);
 }
@@ -418,7 +422,7 @@ function (user, context, done) {
         return callback(JSON.parse(b));
       });
   }
-  
+
   // don’t wait for the SF API call to finish, return right away (the request will continue on the sandbox)`
   done(null, user, context);
 }
@@ -430,7 +434,7 @@ You’ve captured a lead and gotten them to sign up for a trial. It’s time to 
 
 You need a CRM to manage what can quickly become a complex logistical problem.
 
-This Auth0 rule creates a new lead in Salesforce when a new trial account signs up. The username you use to authenticate the API will appear as the creator of the lead in Salesforce. 
+This Auth0 rule creates a new lead in Salesforce when a new trial account signs up. The username you use to authenticate the API will appear as the creator of the lead in Salesforce.
 
 Using [Salesforce](http://salesforce.com/) as your CRM to manage this kind of sales rather than eyeballing your Auth0 user list will make the whole process easier for you in a number of ways:
 
@@ -440,9 +444,8 @@ Using [Salesforce](http://salesforce.com/) as your CRM to manage this kind of sa
 
 ### 7. All OF The Above
 
-If you run each of these individually you will have plenty of extra information and tools to make your marketing campaigns successful. But what if you ran them altogether? 
+If you run each of these individually you will have plenty of extra information and tools to make your marketing campaigns successful. But what if you ran them altogether?
 
 Rules in Auth0 are run sequentially and you can run an arbitrary number of them. You could chain all of the above together to create a powerful marketing automation engine for every new signup and login.
 
 You now have all the information you need on your user, you're tracking them through your funnel, and you’re reaching out to start the conversion process—all through rules, with zero infrastructure on your end. And, of course, you also have all of this information passed back to your app as well. With the simple application of Rules in the authentication pipeline, you’re suddenly able to take formerly silo’ed user data and put it to use to drive marketing processes and generate revenue.
-
