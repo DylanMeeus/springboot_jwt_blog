@@ -34,18 +34,20 @@ We’re happy to announce that the Auth0 Australia Region has launched! Auth0 is
 
 ## One Auth0, three continents
 
-The Auth0 Australia Region joins the [US and EU regions](https://auth0.com/blog/2015/04/27/auth0-europe-launches/) previously available, extending our ability to offer the lowest login latency and allow subscribers to meet and exceed any applicable compliance requirements. Respective to all of the regions in which we operate, Auth0 is committed to following all legislation governing data regulation, privacy and consumer law. 
+The Auth0 Australia Region joins the [US and EU regions](https://auth0.com/blog/2015/04/27/auth0-europe-launches/) previously available, extending our ability to offer the lowest login latency and allow subscribers to meet and exceed any applicable compliance requirements. Respective to all of the regions in which we operate, Auth0 is committed to following all legislation governing data regulation, privacy and consumer law.
 
-Auth0 subscribers can specify their preferred location by simply choosing from a dropdown when they create a free developer account. Existing subscribers who are running from the US or EU regions and want to switch should just [let us know](mailto:support@auth0.com) and we’ll help with the migration. Several Auth0 subscribers have already made a quick and successful transition. 
+Auth0 subscribers can specify their preferred location by simply choosing from a dropdown when they create a free developer account. Existing subscribers who are running from the US or EU regions and want to switch should just [let us know](mailto:support@auth0.com) and we’ll help with the migration. Several Auth0 subscribers have already made a quick and successful transition.
 
 ![auth0 australia](https://cdn.auth0.com/blog/australia-launches/australia-region.gif)
 
 ## Even faster
 
-When you choose a service region closer to where your customers operate, you can experience some great login latency improvements. Subscribers who migrated from the US to the EU Region saw [latency improvements of nearly 2x](https://auth0.com/blog/2015/04/27/auth0-europe-launches/); the same is true for those now migrating to Auth0 Australia. 
+When you choose a service region closer to where your customers operate, you can experience some great login latency improvements. Subscribers who migrated from the US to the EU Region saw [latency improvements of nearly 2x](https://auth0.com/blog/2015/04/27/auth0-europe-launches/); the same is true for those now migrating to Auth0 Australia.
+
+{% include tweet_quote.html quote_text="When you choose a service region closer to where your customers operate, you can experience some great login latency improvements." %}
 
 ## We’re here to help
 
-As always, we’d be happy to answer any questions or provide any assistance related to the new Australia region, or anything else. Send us an email at [support@auth0.com](mailto:support@auth0.com), chat with us at [https://chat.auth0.com](https://chat.auth0.com) or ask anything at ask.auth0.com. 
+As always, we’d be happy to answer any questions or provide any assistance related to the new Australia region, or anything else. Send us an email at [support@auth0.com](mailto:support@auth0.com), chat with us at [https://chat.auth0.com](https://chat.auth0.com) or ask anything at ask.auth0.com.
 
 We look forward to hearing from you!
