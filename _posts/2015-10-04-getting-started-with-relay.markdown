@@ -8,12 +8,12 @@ author:
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image: https://cdn.auth0.com/blog/relay/relay-logo-transparent.png
   bg_color: "#3B3738"
   image_size: "80%"
   image_bg_color: "#3B3738"
-tags: 
+tags:
 - relay
 - react
 - javascript
@@ -34,9 +34,11 @@ Facebook has just open sourced Relay, a JavaScript framework for data interactio
 
 Those familiar with Flux will know that it allows apps to have one-way data flow, which means that the data needs for each component are easy to reason about. However, Flux didn't provide a good way to interact with the server, so Relay can be thought of as the next evolution of Flux.
 
-Often, crafting application data sources can  come down to trade-offs between performance and duplication of code. To make sure all the data our application needs for a given component is ready at the same time, we could set up an endpoint to request everything. However, this will have impact performance. We could define a lot of custom endpoints that serve us only the data we need, but this would mean writing a lot of code and potentially making a lot of HTTP requests. In either case, if we were to change our components so they required more data, we would probably need to adjust the structure of the data coming from our server. Ultimately, this arrangement between client and server can be somewhat brittle.
+Often, crafting application data sources can come down to trade-offs between performance and duplication of code. To make sure all the data our application needs for a given component is ready at the same time, we could set up an endpoint to request everything. However, this will have impact performance. We could define a lot of custom endpoints that serve us only the data we need, but this would mean writing a lot of code and potentially making a lot of HTTP requests. In either case, if we were to change our components so they required more data, we would probably need to adjust the structure of the data coming from our server. Ultimately, this arrangement between client and server can be somewhat brittle.
 
 To address these issues, Relay allows us to specify exactly the shape of the data that we want from the server for a given component. Because we can place our queries within our components, we can better reason about the data associations for each component.
+
+{% include tweet_quote.html quote_text="Relay allows us to specify exactly the shape of the data that we want from the server for a given component." %}
 
 Without Relay, components make requests to many different endpoints.
 
@@ -146,17 +148,17 @@ module.exports = {
   User: User,
   Framework: Framework,
   Conference: Conference,
-  
-  getUser: function(id) { 
-    return users.filter(function(user) { 
-      return user.id == id 
-    })[0] 
+
+  getUser: function(id) {
+    return users.filter(function(user) {
+      return user.id == id
+    })[0]
   },
-  
-  getConference: function(id) { 
-    return conferences.filter(function(conference) { 
-      return conference.id == id 
-    })[0] 
+
+  getConference: function(id) {
+    return conferences.filter(function(conference) {
+      return conference.id == id
+    })[0]
   },
 
   getConferencesByUser: function(userId) {
@@ -211,7 +213,7 @@ Next, we'll need to define our user type. This is where we detail all of fields 
 var conferenceType = new GraphQL.GraphQLObjectType({
   name: 'Conference',
   description: 'A conference',
-  
+
   // Relay will use this function to determine if an object in your system is
   // of a particular GraphQL type
   isTypeOf: function(obj) { return obj instanceof db.Conference },
@@ -247,7 +249,7 @@ var userType = new GraphQL.GraphQLObjectType({
       // We can set up a relationship between users and conferences here
       conferences: {
         description: 'A listing of the user\'s conferences',
-        
+
         // Relay gives us helper functions to define the Connection and its args
         type: GraphQLRelay.connectionDefinitions({name: 'Conference', nodeType: conferenceType}).connectionType,
 
@@ -271,7 +273,7 @@ var userType = new GraphQL.GraphQLObjectType({
 ...
 ```
 
-We've now registered the `conferenceType` and `userType` with `GraphQLObjectType` and named and described them. The `isTypeOf` method checks whether objects used in the application are instances of those we defined in our mock database. We register root fields and relationships in `fields`, and in the case of `userType`, we define a relationship with `conferences`. 
+We've now registered the `conferenceType` and `userType` with `GraphQLObjectType` and named and described them. The `isTypeOf` method checks whether objects used in the application are instances of those we defined in our mock database. We register root fields and relationships in `fields`, and in the case of `userType`, we define a relationship with `conferences`.
 
 On the `type` key within the `conferences` relationship, we use `connectionDefinitions` to refer to the conference type defined above. We've got an argument defined on `args` called `userToShow`, which we will use later to find users by id from the front end. It is this argument that is passed into the `getConferencesByUser` method to pull out a listing of conferences for a given user.
 
@@ -292,8 +294,8 @@ module.exports = new GraphQL.GraphQLSchema({
       // Root queries
       user: {
         type: userType,
-        resolve: function() { 
-          return db.getUser(1) 
+        resolve: function() {
+          return db.getUser(1)
         },
       },
     },
@@ -432,7 +434,7 @@ var Relay = require('react-relay')
 var ConferenceApp = require('./ConferenceApp')
 
 ReactDOM.render(
-  <Relay.RootContainer 
+  <Relay.RootContainer
     Component={ConferenceApp.Container}
     route={ConferenceApp.queries}
     onReadyStateChange={({error}) => { if (error) console.error(error) }} />,
@@ -527,5 +529,3 @@ When it comes to data interaction, Relay takes care of details that developers w
 This first look at Relay showed only how to retrieve data from a server. In a future post, we'll cover how to do **mutation** with Relay.
 
 Big thanks to [Michael Hart](https://twitter.com/hichaelmart) for his [simple-relay-starter](https://github.com/mhart/simple-relay-starter) repo.
-
-
