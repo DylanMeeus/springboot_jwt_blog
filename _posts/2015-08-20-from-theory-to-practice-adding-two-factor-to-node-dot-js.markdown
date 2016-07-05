@@ -3,7 +3,7 @@ layout: post
 title: "From Theory to Practice: Adding Two-Factor Authentication to Node.js"
 description: "Learn how to easily add 2FA/MFA to your Node.js + Express.js apps using TOTP"
 date: 2015-08-20 18:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -13,7 +13,7 @@ design:
   image: https://cdn.auth0.com/blog/mfa/logo_ga.svg
   image_size: "70%"
   image_bg: "#3071BE"
-tags: 
+tags:
 - authentication
 - passport.js
 - passport-totp
@@ -52,7 +52,7 @@ TOTP is defined in [RFC 6238](https://tools.ietf.org/html/rfc6238). It is free a
 
 As you may have gathered from the chart above, the main requirement for TOTP to work is a **shared secret**. This shared secret needs to be generated and then stored by both the client- and the server-side components of the system. This usually means that an "enrollment" step is necessary before making TOTP available in an application.
 
-Another important thing to keep in mind, as the name of the algorithm implies, the generated codes are time-dependent. The **client and the server need to synchronize their clocks**, and the codes become invalid after a certain amount of time. 
+Another important thing to keep in mind, as the name of the algorithm implies, the generated codes are time-dependent. The **client and the server need to synchronize their clocks**, and the codes become invalid after a certain amount of time.
 
 ## Adding TOTP to your Node.js application
 As you have seen in the previous chart, adding 2FA with TOTP to an application requires two independent steps. In our example, the second step (the actual authentication) will be handled by passport-totp, a passport.js strategy that validates the user-entered TOTP code and requires access to the user-specific key. We will also require the user to install Google Authenticator (or another similar app) to generate codes with his or her cellphone. The user may also choose to use the Google Authenticator Chrome app.
@@ -84,22 +84,22 @@ As usual, passport will call this callback with the actual 'user' object as dese
 The enrollment step requires the user to be already logged in (as this is necessary to enable or disable TOTP in the server for each specific account). If the user chooses to enable TOTP, we present the shared secret as a QR code ready to scan and save in Google Authenticator:
 
 ```javascript
-app.get('/totp-setup', 
+app.get('/totp-setup',
     isLoggedIn,
     ensureTotp,
     function(req, res) {
         var url = null;
         if(req.user.key) {
-            var qrData = sprintf('otpauth://totp/%s?secret=%s', 
+            var qrData = sprintf('otpauth://totp/%s?secret=%s',
                                  req.user.username, req.user.key);
-            url = "https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=" + 
+            url = "https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=" +
                    qrData;
         }
-    
+
         res.render('totp-setup', {
             strings: strings,
             user: req.user,
-            qrUrl: url 
+            qrUrl: url
         });
     }
 );
@@ -110,21 +110,21 @@ app.post('/totp-setup',
     function(req, res) {
         if(req.body.totp) {
             req.session.method = 'totp';
-            
+
             var secret = base32.encode(crypto.randomBytes(16));
-            //Discard equal signs (part of base32, 
+            //Discard equal signs (part of base32,
             //not required by Google Authenticator)
-            //Base32 encoding is required by Google Authenticator. 
+            //Base32 encoding is required by Google Authenticator.
             //Other applications
             //may place other restrictions on the shared key format.
             secret = secret.toString().replace(/=/g, '');
             req.user.key = secret;
         } else {
             req.session.method = 'plain';
-            
+
             req.user.key = null;
         }
-        
+
         res.redirect('/totp-setup');
     }
 );
@@ -138,7 +138,7 @@ Once 2FA is enabled, logins will now have two steps: a username and password wil
 #### Logins are now performed in two steps if the user has 2FA enabled
 
 ```javascript
-app.post('/login', 
+app.post('/login',
     passport.authenticate('local', { failureRedirect: '/login' }),
     function(req, res) {
         if(req.user.key) {
@@ -155,22 +155,22 @@ app.post('/login',
 After the usual username + password authentication, we check whether a TOTP code is required. If so, we redirect the user to the "totp-input" page. Otherwise we send him or her to the usual place after logging in (in this case, for simplicity, we just keep a totp-setup page as the landing page after a successful login). Keep in mind that all places that require authentication need to check for both the standard login and the TOTP login (which is optional) for this to be secure. For instance:
 
 ```javascript
-app.get('/totp-setup', 
+app.get('/totp-setup',
     isLoggedIn,
     ensureTotp,
     function(req, res) {
         var url = null;
         if(req.user.key) {
-            var qrData = sprintf('otpauth://totp/%s?secret=%s', 
+            var qrData = sprintf('otpauth://totp/%s?secret=%s',
                                  req.user.username, req.user.key);
-            url = "https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=" + 
+            url = "https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=" +
                    qrData;
         }
-    
+
         res.render('totp-setup', {
             strings: strings,
             user: req.user,
-            qrUrl: url 
+            qrUrl: url
         });
     }
 );
@@ -208,6 +208,8 @@ In the previous paragraphs we covered the basics of 2FA. Here's what you need to
 - **Audit and notify users of changes:** Provide convenient ways for users to see if the authentication details (or methods) have been changed or enabled in their accounts. This allows for early detection of suspicious activity. Automated emails are a good choice.
 - **Encrypt shared secrets**: Per [RFC 6238](https://tools.ietf.org/html/rfc6238#section-5), you should store shared-secrets using a cryptographically secure reversible algorithm and keep the keys in memory only as long as necessary. Do not reinvent the wheel; use existing and well-tested libraries for this.
 
+{% include tweet_quote.html quote_text="You should store shared-secrets using a cryptographically secure reversible algorithm and keep the keys in memory only as long as necessary" %}
+
 ## Conclusion
 We showed in this blog post how easy it is to get started with 2FA using TOTP. It does not require a lot of infrastructure. Google Authenticator, Microsoft Authenticator, Authy and other TOTP applications are available in multiple platforms which makes adoption easy. But don't forget to take into account the non-happy-path: people reset their phone, it gets lost or stolen, or sometimes they don't even have one.
 
@@ -223,4 +225,3 @@ Auth0 provides convenient [2FA](https://auth0.com/learn/multifactor-authenticati
 - **Contextual and Programmable 2FA:** Contextual 2FA: enforce 2FA for users according to your own scripted rules.
 
 Check the [docs](https://auth0.com/docs/mfa) and the [multi factor authentication page](https://auth0.com/learn/multifactor-authentication).
-
