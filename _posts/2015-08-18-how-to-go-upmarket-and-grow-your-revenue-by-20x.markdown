@@ -64,6 +64,8 @@ Offering premium support is often a matter of assigning an individual on your te
 
 This may sound like a big hairy problem—keeping an enterprise customer happy—but it turns out that the more a customer pays you, the more they respect you. If you haven’t noticed yet, it’s often the free users that are the most time consuming when it comes to support.
 
+{% include tweet_quote.html quote_text="..the more a customer pays you, the more they respect you." %}
+
 The main thing that premium support should offer is that when a customer does decide to reach out to you, though, you are incredibly responsive in replying and resolving the customer issue.
 
 Premium support is a great way to offer something of value to your enterprise customers, and you don’t need to build a thing to offer it.
