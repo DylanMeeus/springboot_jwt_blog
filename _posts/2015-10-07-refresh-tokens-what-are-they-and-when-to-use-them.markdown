@@ -3,7 +3,7 @@ layout: post
 title: "Refresh Tokens: When to Use Them and How They Interact with JWTs"
 description: "Learn about refresh tokens and how they fit in the modern web. Get a working sample of how to implement it with NodeJS"
 date: 2015-10-07 09:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -14,7 +14,7 @@ design:
   image_size: "120%"
   image_bg_color: "#B6C5CA"
   blog_series: false
-tags: 
+tags:
 - refresh-token
 - authentication
 - authorization
@@ -63,6 +63,8 @@ Sliding-sessions are sessions that expire after a **period of inactivity**. As y
 ### Security considerations
 Refresh tokens are **long-lived**. This means when a client gets a refresh token from a server, this token must be **stored securely** to keep it from being used by potential attackers. If a refresh token is leaked, it may be used to obtain new access tokens (and access protected resources) until it is either blacklisted or it expires (which may take a long time). Refresh tokens must be issued to a single authenticated client to prevent use of leaked tokens by other parties. Access tokens must be kept secret, but as you may imagine, security considerations are less strict due to their shorter life.
 
+{% include tweet_quote.html quote_text="Refresh tokens must be issued to a single authenticated client to prevent use of leaked tokens by other parties." %}
+
 ## Example: a refresh-token issuing server
 For the purposes of this example we will use a simple server based on [node-oauth2-server](https://github.com/thomseddon/node-oauth2-server) that will issue access and refresh tokens. Access tokens will be required to access a protected resource. The client will be a simple CURL command. The code from this example is based on the [examples from node-oauth2-server](https://github.com/thomseddon/node-oauth2-server/tree/master/examples). We have modified the base examples to use JWT for access tokens.
 
@@ -78,7 +80,7 @@ model.generateToken = function(type, req, callback) {
     callback(null, null);
     return;
   }
-  
+
   //Use JWT for access tokens
   var token = jwt.sign({
     user: req.user.id
@@ -86,7 +88,7 @@ model.generateToken = function(type, req, callback) {
     expiresIn: model.accessTokenLifetime,
     subject: req.client.clientId
   });
-  
+
   callback(null, token);
 }
 
@@ -94,7 +96,7 @@ model.getAccessToken = function (bearerToken, callback) {
   console.log('in getAccessToken (bearerToken: ' + bearerToken + ')');
 
   try {
-    var decoded = jwt.verify(bearerToken, secretKey, { 
+    var decoded = jwt.verify(bearerToken, secretKey, {
         ignoreExpiration: true //handled by OAuth2 server implementation
     });
     callback(null, {
@@ -109,13 +111,13 @@ model.getAccessToken = function (bearerToken, callback) {
 };
 
 model.saveAccessToken = function (token, clientId, expires, userId, callback) {
-  console.log('in saveAccessToken (token: ' + token + 
-              ', clientId: ' + clientId + ', userId: ' + userId.id + 
+  console.log('in saveAccessToken (token: ' + token +
+              ', clientId: ' + clientId + ', userId: ' + userId.id +
               ', expires: ' + expires + ')');
 
   //No need to store JWT tokens.
   console.log(jwt.decode(token, secretKey));
-  
+
   callback(null);
 };
 ```
@@ -194,5 +196,3 @@ At Auth0 we do the hard part of authentication for you. Refresh tokens are not a
 Refresh tokens improve security and allow for reduced latency and better access patterns to authorization servers. Implementations can be simple using tools such as JWT + JWS. If you are interested in learning more about tokens (and cookies), check our article [here](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).
 
 > You can also check the [Refresh Tokens landing page](https://auth0.com/learn/refresh-tokens) for more information.
-
-
