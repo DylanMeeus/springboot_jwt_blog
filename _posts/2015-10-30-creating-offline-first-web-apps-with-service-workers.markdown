@@ -3,12 +3,12 @@ layout: post
 title: "Creating Offline-First Web Apps with Service Workers"
 description: "Learn about the importance of creating an offline-first experience for app users and how to accomplish it easily with the Service Worker API"
 date: 2015-10-30 16:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   bg_color: "#444C52"
   image: https://cdn.auth0.com/blog/offline-first/offline-first-logo.png
   image_size: "120%"
@@ -47,10 +47,12 @@ What we need, then, is a way for our app to detect when we don't have an interne
 
 A service worker is a bit like a proxy server between the application and the browser, and it has quite a bit of power. With a service worker, we can completely take over the response from an HTTP request and alter it however we like. This is a key feature for serving an offline experience. Since we can detect when the user is disconnected, and we can respond to HTTP requests differently, we have a way of serving the user files and resources that have been saved locally when they are offline.
 
+{% include tweet_quote.html quote_text="With a service worker, we can completely take over the response from an HTTP request and alter it however we like." %}
+
 ![service-worker](https://cdn.auth0.com/blog/offline-first/offline-first-diagram.png)
 
 ## Service Workers > AppCache
- 
+
 The service worker API is an attempt to replace the **HTML5 Application Cache**. Nothing is perfect, but AppCache has a host of issues that frustrate developers trying to create offline experiences. One of the biggest issues is that apps won't work at all unless AppCache is set up just right, which means debugging is very tricky. With AppCache, only same-origin resources can be cached, and when it comes to updating resources, it's all or nothing—we can't update cached items individually.
 
 Service workers really shine when stacked up against AppCache. They give us a lot of fine-grained control, so we're able to customize the process of serving an offline experience. Some of this ability is because service workers use promises, which allow us to respond to both `success` and `error` conditions.  
@@ -199,7 +201,7 @@ We might be inclined to roll our  own solutions, but dealing with timestamps, re
 
 ### PouchDB
 
-[PouchDB](http://pouchdb.com/) is an open source local data storage library that can be set up with [CouchDB](http://couchdb.apache.org/) to automatically sync data. PouchDB emulates CouchDB very closely, so the API between the two looks and feels quite similar. 
+[PouchDB](http://pouchdb.com/) is an open source local data storage library that can be set up with [CouchDB](http://couchdb.apache.org/) to automatically sync data. PouchDB emulates CouchDB very closely, so the API between the two looks and feels quite similar.
 
 PouchDB makes it trivial to set up a local and remote database and to have them automatically sync with one another. Local databases use the browser's IndexedDB to store data.
 
