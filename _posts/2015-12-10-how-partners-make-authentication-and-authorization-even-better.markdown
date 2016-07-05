@@ -46,13 +46,15 @@ And these are some of your challenges:
 * You need to authenticate their users in a way that’s convenient to them and secure enough to you,
 * You need a way for the firms to manage the permissions of the users in the context of your application.
 
-![Grean provides easy onboarding, authentication and authroization of B2B useres in custom business apps](https://cdn.auth0.com/blog/grean/greansc.png)
+![Grean provides easy onboarding, authentication and authorization of B2B users in custom business apps](https://cdn.auth0.com/blog/grean/greansc.png)
 
 ## A full onboarding, authentication and authorization solution
 
 Grean manages everything related to onboarding of business partners and their employees. Subsequently Grean provides management of access roles, that is, how each business partner and their employees are allowed to use your web, mobile, and API applications.
 
 Grean was built to work seamlessly with Auth0 by integrating into the authentication flow, independent of actual authentication method. Put simply, Auth0 determines who you are, Grean determines which organization you belong to and what you will be allowed to do in the context of that organization and the application you are using.
+
+{% include tweet_quote.html quote_text="Grean was built to work seamlessly with Auth0 by integrating into the authentication flow, independent of actual authentication method" %}
 
 > “Auth0 determines who you are, Grean determines which organization you belong to and what you will be allowed to do.”
 
