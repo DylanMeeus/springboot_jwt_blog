@@ -3,7 +3,7 @@ layout: post
 title: "Using LDAP and Active Directory with C# 101"
 description: "In this tutorial learn how to integrate LDAP and Active Directory (AD) with your C# projects"
 date: 2015-10-28 10:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -13,7 +13,7 @@ design:
   image: https://cdn.auth0.com/blog/ldap/logo.png
   image_size: "110%"
   blog_series: true
-tags: 
+tags:
 - ldap
 - lightweight-directory-access-protocol
 - c#
@@ -50,6 +50,8 @@ The best way to understand a protocol is to get your hands a bit dirty and learn
 
 - **Directory System Agent (DSA):** a server which allows LDAP operations
 - **Global Catalog:** a special type of server that stores reduced sets of replicated information from DSAs to speed up searches.
+
+{% include tweet_quote.html quote_text="The best way to understand a protocol is to get your hands a bit dirty and learn its inner workings." %}
 
 Clients send requests to the server. In turn, the server answers those requests. Most requests are **asynchronous**; others are necessarily synchronous (such as the connection handshake). Additionally, the server may send special messages to clients even when there are no pending requests that require a response (for example, the server may send a message to notify clients that it is shutting down). All information is encoded using **ASN.1** (see below for more details). TLS and/or SASL may be used to ensure privacy and perform authentication.
 
@@ -146,7 +148,7 @@ In the example above, we can see that an LDAP message carries a message id (an i
 A simpler example with actual data:
 
 ```ASN.1
-World-Schema DEFINITIONS AUTOMATIC TAGS ::= 
+World-Schema DEFINITIONS AUTOMATIC TAGS ::=
 BEGIN
   Human ::= SEQUENCE {
      name UTF8String,
@@ -158,9 +160,9 @@ BEGIN
   }
 END
 
-first-man Human ::= 
+first-man Human ::=
 {
-    name "Adam", 
+    name "Adam",
     -- use default for first-words --
     age biblical: 930
 }
@@ -240,7 +242,7 @@ public bool validateUserByBind(string username, string password)
     {
         result = false;
     }
-    
+
     conn.Dispose();
 
     return result;
@@ -263,7 +265,7 @@ public bool validateUser(string username, string password)
 {
     var sha1 = new SHA1Managed();
     var digest = Convert.ToBase64String(sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password)));
-    var request = new CompareRequest(string.Format("uid={0},ou=users,dc=example,dc=com", username), 
+    var request = new CompareRequest(string.Format("uid={0},ou=users,dc=example,dc=com", username),
         "userPassword", "{SHA}" + digest);
     var response = (CompareResponse)connection.SendRequest(request);
     return response.ResultCode == ResultCode.CompareTrue;
@@ -298,7 +300,7 @@ sasl-auxprops sasldb
 ```C#
 /// <summary>
 /// Adds a user to the LDAP server database. This method is intentionally less generic than the search one to
-/// make it easier to add meaningful information to the database. 
+/// make it easier to add meaningful information to the database.
 /// NOTE: this is not an Active Directory user.
 /// </summary>
 /// <param name="user">The user to add</param>
@@ -369,4 +371,3 @@ curl -H 'Content-Type: application/json' -X POST -d '{ "client_id":"FyFnhDX2kSqt
 
 ## Conclusion
 LDAP was designed as a lightweight protocol that can access directory contents. As it evolved over the years, it gained important features, such as authentication and transport security. As a well defined means to get user information, it has found its way to small and big deployments. Its simplicity and openness have kept LDAP relevant through the years. Nowadays, single sign on systems can also work using LDAP. Fortunately, integrating LDAP to existing or new projects is easy. In our next post, we will focus on Active Directory specifics using the [PrincipalContext API](https://msdn.microsoft.com/en-us/library/system.directoryservices.accountmanagement.principalcontext.aspx). Stay tuned!
-
