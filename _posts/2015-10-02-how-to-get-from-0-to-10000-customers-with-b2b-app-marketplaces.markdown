@@ -8,12 +8,12 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: "#295F3C"
   image_bg_color: "#5E9270"
   image_size: "70%"
   image: https://cdn.auth0.com/blog/marketplace/cart.png
-tags: 
+tags:
 - business
 related:
 - 2016-04-21-want-skyrocketing-growth-you-need-to-offer-a-free-trial
@@ -22,7 +22,7 @@ related:
 ---
 In 5 short years, Pipedrive has grown from a small group of 5 co-founders to a global CRM software company with over [100 employees](http://blog.pipedrive.com/2015/09/5-years-100-people-and-lessons-learned/) and millions upon millions in annual revenue.
 
-But like the rest of us, they started at 0. 
+But like the rest of us, they started at 0.
 
 When they launched in 2010, they had a product that their friends and family found useful, but they had no marketing plan. They reached out manually to people on Twitter to acquire one or two customers here and there, but they didn’t have any real sustainable and scalable way to get more.
 
@@ -45,7 +45,7 @@ The Chrome Web Store has grown in importance—especially for business—due to 
 1. Google Chrome the web browser is dominating with consumers—with a 25%+ market share and growing fast—and it’s also surpassing Microsoft Internet Explorer among businesses, too. According to Gartner, by 2016, [66% of enterprise users](http://www.computerworld.com/article/2932672/web-browsers/ie-loses-stranglehold-on-the-enterprise-as-chrome-makes-major-inroads.html) will be running Chrome.
 2. Chromebooks are the fastest growing B2B laptop segment with [43% growth](http://www.zdnet.com/article/npd-chromebooks-outsell-windows-laptops/) during the first half of 2015. Chromebooks are laptops that only run the Chrome browser, so the only apps available to Chromebook users come from the Chrome Store.
 
-Finally, Chrome is included as the default browser on all Android devices, and Android is taking market share away from iOS in the enterprise. That boosts the Chrome ecosystem for those who want a consistent experience across all their devices. 
+Finally, Chrome is included as the default browser on all Android devices, and Android is taking market share away from iOS in the enterprise. That boosts the Chrome ecosystem for those who want a consistent experience across all their devices.
 
 All of that adds up to massive opportunity for B2B SaaS developers to reach business customers via the Chrome Web Store.
 
@@ -55,7 +55,7 @@ Salesforce founder and CEO Marc Benioff first coined and trademarked the term �
 
 The AppExchange doesn’t consist of only sales-related apps, although that’s its expertise. Just as Salesforce has expanded beyond pure CRM, so has the AppExchange, with apps ranging from project management to customer service to HR and more.
 
-[71% of Salesforce](https://medium.com/@salesforce/power-of-the-platform-salesforce-appexchange-hits-3-million-installs-5168928ce94e) customers use apps, and app usage is growing: it took 6 years to get 1 million app installs, 2 years to break 2 million, and just 18 months to get to 3 million. What’s amazing about this number is that a single app install means that the app potentially gets deployed to hundreds or even thousands of employees inside of the company. 
+[71% of Salesforce](https://medium.com/@salesforce/power-of-the-platform-salesforce-appexchange-hits-3-million-installs-5168928ce94e) customers use apps, and app usage is growing: it took 6 years to get 1 million app installs, 2 years to break 2 million, and just 18 months to get to 3 million. What’s amazing about this number is that a single app install means that the app potentially gets deployed to hundreds or even thousands of employees inside of the company.
 
 Entire businesses have been built on top of Salesforce using the AppExchange for distribution. ServiceMax, which just raised another $82 million in funding—helps companies service and maintain the equipment—and it has grown a huge business focused entirely on its partnership with Salesforce.
 
@@ -63,11 +63,13 @@ Entire businesses have been built on top of Salesforce using the AppExchange for
 
 Like with AppExchange, the power of the Google Apps Marketplace is that a single install there can mean that the app is deployed to every person in the entire organization.
 
-Google Apps is a suite of productivity tools that you need for work. It features email but it also includes online storage, calendars, collaboration, and more. Because Google Apps is based around email—which everyone in the company needs—it can easily become the central place in your company where you manage each employee’s identity and their access to the different tools they use. 
+Google Apps is a suite of productivity tools that you need for work. It features email but it also includes online storage, calendars, collaboration, and more. Because Google Apps is based around email—which everyone in the company needs—it can easily become the central place in your company where you manage each employee’s identity and their access to the different tools they use.
 
 That makes the Apps Marketplace the obvious place to install and deploy apps to the organization. According to a recent study, [33% of Google Apps administrators](http://www.appneta.com/blog/the-market-is-migrating-to-google-apps/) said that the existence of an app within the Google Apps Marketplace helped encourage its adoption by the whole business.
 
 Among small businesses, the Google Apps suite of tools is #1 and owns [22.8% of the market](http://www.winbeta.org/news/office-365-overtakes-google-apps-in-business-market-triples-share-in-a-year). That makes the Apps Marketplace a really attractive place to acquire business customers.
+
+{% include tweet_quote.html quote_text="Among small businesses, the Google Apps suite of tools is #1 and owns 22.8% of the market" %}
 
 ### And More
 
@@ -101,7 +103,7 @@ Each app store has a different set of requirements and approaches to finding suc
 
 ### Get into the app store with single sign-on
 
-Often, the most basic requirement to get into the app store is to have single sign-on for the app store provider. 
+Often, the most basic requirement to get into the app store is to have single sign-on for the app store provider.
 
 * It makes account management easy for the customer so that your app doesn't feel like yet another tool that has its own separate login credentials.
 * It provides continuity between app experiences by authorizing access to user information to can be used to tailor the app experience.
@@ -120,7 +122,7 @@ With [Auth0](https://auth0.com/signup), all you need to do is flip a switch to a
 
 ![Auth0 Social connections](https://cdn.auth0.com/blog/marketplace/auth0-social.jpeg)
 
-### Polish your listing 
+### Polish your listing
 
 Your app store listing consists of a few main components. Optimize these, and you’ll dramatically improve your chances of having your app discovered among the vast number of apps in the app store.
 
@@ -129,13 +131,13 @@ Your app store listing consists of a few main components. Optimize these, and yo
 * Ratings and Reviews
 * Download Count
 
-**Text**: You want to think of this the same way you think about SEO: What keywords do I want to rank for and how do I optimize for those keywords? 
+**Text**: You want to think of this the same way you think about SEO: What keywords do I want to rank for and how do I optimize for those keywords?
 
 Put your most important keywords in your listing’s title and make sure they appear with some frequency in your listing body. However, don’t over-stuff your keywords as it will look spammy and lower your conversion rate from view to download as a result.
 
 **Images and Video**: Don’t just include any images in any order—tell a story with your images. This is incredibly important because most people won’t read the text of your product description, so they rely on the images and screenshots to understand your product.
 
-Wherever possible, use video, because it’s even more powerful than images in conveying what the product is for and the emotion behind your brand. 
+Wherever possible, use video, because it’s even more powerful than images in conveying what the product is for and the emotion behind your brand.
 
 For your images, put your main screen that captures what your product does as your first image. Then, include the following images in a narrative order with short copy on each that explains the screen. This will help get your product from a view to a download.
 
@@ -161,9 +163,9 @@ The Chrome Store for Brazil, for instance, is in Portuguese, while the Chrome St
 
 ![Internationalize your app](https://cdn.auth0.com/blog/marketplace/chrome-store.jpeg)
 
-The upshot is that if Chrome Store is working for you, you have a great opportunity to drive growth by internationalizing the app. 
+The upshot is that if Chrome Store is working for you, you have a great opportunity to drive growth by internationalizing the app.
 
-Pipedrive, for instance, “[translated the app](http://purde.net/2014/12/how-to-get-from-0-to-10000-paying-customers-in-saas/) and website to Spanish, German, Russian, Brazilian Portuguese, French and Estonian pretty early on.” They ended up seeing huge growth from the Chrome Store in Brazil, due to having a localized listing and getting mentioned in a prominent Brazilian blog. 
+Pipedrive, for instance, “[translated the app](http://purde.net/2014/12/how-to-get-from-0-to-10000-paying-customers-in-saas/) and website to Spanish, German, Russian, Brazilian Portuguese, French and Estonian pretty early on.” They ended up seeing huge growth from the Chrome Store in Brazil, due to having a localized listing and getting mentioned in a prominent Brazilian blog.
 
 ### Deepen your integration
 
@@ -182,10 +184,10 @@ When Google Drive launched, they looked for partner apps to showcase what you co
 
 Often, the hardest part of starting a company isn’t building product or innovating on technology—it’s acquiring customers. Building sales and marketing teams is particularly tough for engineering-focused founders.
 
+{% include tweet_quote.html quote_text="Often, the hardest part of starting a company isn’t building product or innovating on technology—it’s acquiring customers." %}
+
 What’s most awesome about acquiring customers via apps marketplaces is that it turns the process of customer acquisition into a process of improving the product. As you add single sign-on and deeper integrations, you add and deepen your product’s functionality as the same time as you improve your product’s app store acquisition.
 
 A few years in, the importance of the Chrome Store for Pipedrive’s business had dramatically decreased. Yet, those tailwinds provided by the free, frictionless customer acquisition via Chrome Store helped them build the rare, absolutely critical momentum that startups need to succeed in a big way.
 
 They were able to focus 100% of their energy on improving the product, which got them from 0 to 10,000 customers and now has put them in a position to challenge the giants of CRM.
-
-
