@@ -3,7 +3,7 @@ layout: post
 title: "An Introduction to Microservices, Part 3: The Service Registry"
 description: "How the service registry works in a microservice-based architecture"
 date: 2015-10-02 09:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -14,7 +14,7 @@ design:
   image_size: "60%"
   image_bg_color: "#596D5F"
   blog_series: true
-tags: 
+tags:
 - microservices
 - design-patterns
 - api-design
@@ -70,6 +70,8 @@ As you can imagine, discovery is the counterpart to registration from the point 
 
 **Server-side discovery** makes the **API gateway handle the discovery** of the right endpoint (or endpoints) for a request. This is normally used in bigger architectures. As all requests are directly sent to the gateway, all the benefits discussed in relation to it apply (see [part 2](https://auth0.com/blog/2015/09/13/an-introduction-to-microservices-part-2-API-gateway/)). The gateway may also implement discovery caching, so that many requests may have lower latencies. The logic behind cache invalidation is specific to an implementation.
 
+{% include tweet_quote.html quote_text="Server-side discovery makes the API gateway handle the discovery of the right endpoint (or endpoints) for a request." %}
+
 ![Server-side discovery](https://cdn.auth0.com/blog/microservices/server-side-discovery-diagram.png)
 
 ## Example: A registry service
@@ -88,20 +90,20 @@ module.exports.register = function(service, callback) {
     if(!validateService(service)) {
         callback(new Error("Invalid service"));
     }
-    
+
     findExisting(service.name, function(err, found) {
         if(found) {
             callback(new Error("Existing service"));
             return;
         }
-        
+
         var dbService = new Service({
             name: service.name,
             url: service.url,
             endpoints: service.endpoints,
             authorizedRoles: service.authorizedRoles
         });
-        
+
         dbService.save(function(err) {
             callback(err);
         });
@@ -114,7 +116,7 @@ module.exports.unregister = function(name, callback) {
             callback(new Error("Service not found"));
             return;
         }
-        
+
         found.remove(function(err) {
             callback(err);
         });
@@ -225,4 +227,3 @@ Your *client id* and *client secret* are available through the Auth0 dashboard. 
 
 ## Conclusion
 The service registry is an essential part of a microservice-based architecture. There are different ways of handling registration and discovery that fit different architectural complexities. Consider the pros and cons described above for each alternative before committing to one. In Part 4 we will study service dependencies in detail and how to manage them efficiently.
-
