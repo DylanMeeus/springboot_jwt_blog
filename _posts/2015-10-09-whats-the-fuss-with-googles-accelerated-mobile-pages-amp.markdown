@@ -8,12 +8,12 @@ author:
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image: https://cdn.auth0.com/blog/amp/google-logo.png
   bg_color: "#1A466D"
   image_size: "120%"
   image_bg_color: "#fff"
-tags: 
+tags:
 - amp
 - accelerated-mobile-pages
 - google
@@ -56,6 +56,8 @@ That's quite a large set of restrictions, and we're just scratching the surface!
 
 AMP comes with a small set of custom components to provide ways of implementing commonly needed features. It does so with custom elements that coordinate JavaScript execution (where applicable) and generally optimize performance. For example, the `amp-img` tag replaces the standard HTML `img` tag, and the reason is that `amp-img` can let the browser manage delaying or prioritizing image loading, depending on the position of the viewport and other factors. If an image is outside of the current view, the page can be sped up by not requiring it immediately.
 
+{% include tweet_quote.html quote_text="AMP comes with a small set of custom components to provide ways of implementing commonly needed features." %}
+
 AMP also provides extended components that can be requested from separate JS files to do even more. Here's a list of both the core and extended AMP components:
 
 `amp-img` `amp-audio` `amp-pixel` `amp-video` `amp-carousel` `amp-lightbox` `amp-ad` `amp-anim` `amp-iframe` `amp-instagram` `amp-twitter` `amp-youtube`
@@ -84,7 +86,7 @@ The first step is to create an AMP HTML document and include the AMP project Jav
       <style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
     </head>
     <body>
-      
+
     </body>
   </html>
 ```
@@ -117,11 +119,11 @@ Next, let's put in a header image and title line.
 ...
 
   <header class="header-image">
-    <amp-img 
-      src="https://cdn.auth0.com/website/jobs/team_2.jpg" 
-      layout="responsive" 
-      width="2000" 
-      height="1035" 
+    <amp-img
+      src="https://cdn.auth0.com/website/jobs/team_2.jpg"
+      layout="responsive"
+      width="2000"
+      height="1035"
       alt="Team">
     </amp-img>
 
@@ -166,7 +168,7 @@ Next, let's put some content and a lightbox in place.
 
           <amp-lightbox id="lightbox" class="lightbox" layout="nodisplay">
             <div class="lightbox-content">
-              <amp-img 
+              <amp-img
                 src="https://cdn.auth0.com/website/jobs/team_2.jpg"
                 width="2000"
                 height="1035"
@@ -230,7 +232,7 @@ We can place ads on our page much like we normally would, but this time, we use 
         data-ad-client="ca-pub-8125901705757971"
         data-ad-slot="7783467241">
     </amp-ad>
-    
+
     <amp-ad width="320" height="250"
         type="doubleclick"
         data-slot="/4119129/mobile_ad_banner">
