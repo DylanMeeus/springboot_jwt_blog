@@ -3,16 +3,16 @@ layout: post
 title: "Creating your first Aurelia app: From authentication to calling an API"
 description: "Learn how to create a real world Aurelia app using ES6, aurelia-auth and much more! We'll implement from Authentication to calling an API and everything in between"
 date: 2015-08-05 18:28
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   bg_color: "#646F71"
   image: https://cdn.auth0.com/blog/aurelia-logo.png
   image_size: "70%"
-tags: 
+tags:
 - aurelia
 - authentication
 - authorization
@@ -33,6 +33,8 @@ related:
 -----
 
 Aurelia is a client-side JavaScript framework that has been gaining a lot of popularity lately. One of the nice aspects of Aurelia is that it anticipates common application needs and provides simple conventions for accomplishing them. In some ways, Aurelia is similar to Angular 2, so parts of it may look familiar if you've [checked out Angular 2](https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/) already.
+
+{% include tweet_quote.html quote_text="One of the nice aspects of Aurelia is that it anticipates common application needs and provides simple conventions for accomplishing them." %}
 
 ## Getting Started
 
@@ -159,7 +161,7 @@ We'll now need to set up the application's routing configuration. Let's first se
     <div class="container">      
       <router-view></router-view>
     </div>
-    
+
   </template>
 ```
 
@@ -184,7 +186,7 @@ import AppRouterConfig from 'router-config';
 export class App {
 
   constructor(router, httpClientConfig, appRouterConfig) {
-    
+
     this.router = router;
 
     // Client configuration provided by the aureliauth plugin
@@ -194,9 +196,9 @@ export class App {
     // route definitions that we've declared in router-config.js
     this.appRouterConfig = appRouterConfig;
   };
-  
+
   activate() {
-    
+
     // Here, we run the configuration when the app loads.
     this.httpClientConfig.configure();
     this.appRouterConfig.configure();
@@ -231,7 +233,7 @@ export default class {
   configure() {
 
     var appRouterConfig = function(config) {
-      
+
       config.title = 'Random Quotes App';
 
       // Here, we hook into the authorize extensibility point
@@ -266,7 +268,7 @@ With the configuration out of the way, let's get to coding the actual routes and
 
 ## Setting up Routes and Views
 
-Two files are required for each route in Aurelia--a JavaScript file for the view model logic and an HTML file for the view itself. Views are enclosed within `<template>` tags but are otherwise created with normal HTML that can make use of Aurelia's databinding. 
+Two files are required for each route in Aurelia--a JavaScript file for the view model logic and an HTML file for the view itself. Views are enclosed within `<template>` tags but are otherwise created with normal HTML that can make use of Aurelia's databinding.
 
 ### The Nav Bar and Welcome Route
 
@@ -276,7 +278,7 @@ Let's start at the top and setup the navigation bar.
   <!-- nav-bar.html -->
 
   ...
-      
+
   <ul class="nav navbar-nav">
     <li repeat.for="row of router.navigation | authFilter: isAuthenticated" class="${row.isActive ? 'active' : ''}">
       <a data-toggle="collapse" data-target="#bs-example-navbar-collapse-1.in" href.bind="row.href">${row.title}</a>
@@ -336,7 +338,7 @@ The Aurelia seed comes with a welcome route, but in our case, we can trim it dow
       <div class="well">
         <h4>${info}</h4>
       </div>
-      
+
     </section>
   </template>
 ```
@@ -393,7 +395,7 @@ import {AuthService} from 'paulvanbladel/aureliauth';
 @inject(AuthService)
 
 export class Signup {
-  
+
   heading = 'Sign Up';
 
   // These view models will be given values
@@ -422,7 +424,7 @@ export class Signup {
     .catch(error => {
       this.signupError = error.response;
     });
-    
+
   };
 }
 ```
@@ -495,7 +497,7 @@ export class RandomQuote {
 
   heading = 'Random Quote';
 
-  // View model that will be populated with the 
+  // View model that will be populated with the
   // the random quote retrieved from the API and
   // displayed in the view
   randomQuote = '';
@@ -562,9 +564,9 @@ Next, instantiate Lock with your Auth0 credentials.
 // app.js
 
 export class App {
-  
+
   lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN');
-  
+
   ...
 }
 
