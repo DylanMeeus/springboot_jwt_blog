@@ -3,16 +3,16 @@ layout: post
 title: "Getting Started With Falcor"
 description: "Learn the essentials of Falcor--the newly open-sourced library from Netflix that lets you represent your data as a single virtual JSON object."
 date: 2015-08-28 08:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   bg_color: "#761984"
   image: https://cdn.auth0.com/blog/falcor/falcor-logo.png
   image_size: "70%"
-tags: 
+tags:
 - falcor
 - falcorjs
 - jsongraph
@@ -65,7 +65,9 @@ categories: {
 
 As it is expressed here, ng-conf has a parent-child relationship with both categories, when really it is related to both. Falcor makes it possible to deal with data as a graph, but still output it as a normal JSON object.
 
-Falcor also helps to make data retrieval more efficient. Instead of pulling many JSON objects from an API and then only using some parts of them in the view layer, Falcor wires together a single *virtual* JSON model that provides only the data that is required at the time that it is needed. For example, if we wanted to get the name of a conference and the first names of its attendees, we typically would first have our API serve the user data and then we would use the first name value in our view. However, with Falcor, we can easily say that we want only the first name value for each attendee and then have that be the only piece of user data that is returned. In this way, Falcor essentially customizes data to the application's view. Falcor does this through its JSON Graph convention, which is used to model graph information as a JSON object. 
+{% include tweet_quote.html quote_text="Falcor makes it possible to deal with data as a graph, but still output it as a normal JSON object." %}
+
+Falcor also helps to make data retrieval more efficient. Instead of pulling many JSON objects from an API and then only using some parts of them in the view layer, Falcor wires together a single *virtual* JSON model that provides only the data that is required at the time that it is needed. For example, if we wanted to get the name of a conference and the first names of its attendees, we typically would first have our API serve the user data and then we would use the first name value in our view. However, with Falcor, we can easily say that we want only the first name value for each attendee and then have that be the only piece of user data that is returned. In this way, Falcor essentially customizes data to the application's view. Falcor does this through its JSON Graph convention, which is used to model graph information as a JSON object.
 
 Furthermore, Falcor caches the virtual JSON model so that it can be accessed in-memory. When it becomes necessary to request more or different data, Falcor first consults the cache and if the data is not available there, it makes another request for *only* the fragment that is missing.
 
@@ -171,7 +173,7 @@ However, when we try to run this, we see that the data looks exactly the same an
 
 ...
 
-// To get the values on the "location" object, we need to pass multiple pathSets and 
+// To get the values on the "location" object, we need to pass multiple pathSets and
 // query the specifc keys on the location object
 .get(["events", {from: 0, to: 2}, ["name", "description"]],['events', {from: 0, to: 2}, 'location', ['city', 'state']])
 
@@ -185,7 +187,7 @@ However, when we try to run this, we see that the data looks exactly the same an
 If we ever want to make a change to one of the properties of this location, we can do so using the `set` method. Let's say that we want to change the value of `state` from "Utah" to "UT."
 
 ```js
-// app.js 
+// app.js
 
 ...
 
@@ -276,7 +278,7 @@ We now use JSON Graph's `$ref` to associate each event's location with a single 
 
 Priming the client cache with data is great, but we will of course need to have our data served from a back end. To accomplish this, Falcor provides a DataSource implementation that lets us tie JSON Graph information from the back end to our model. The DataSource implements a Router interface that lets us build routes on the server that we can wire up to respond with data.
 
-We'll be using `falcor-express` along with the `falcor-router` to expose our JSON Graph data. Although we won't actually be pulling data from a persistent data store at this time, you would generally want to set up services to query and return data that can then be handled by Falcor. 
+We'll be using `falcor-express` along with the `falcor-router` to expose our JSON Graph data. Although we won't actually be pulling data from a persistent data store at this time, you would generally want to set up services to query and return data that can then be handled by Falcor.
 
 In `app.js`, we'll still need to specify that we want to use a `falcor.Model`, but this time we need to set its data source to be remote. We can do this by setting `source` to a `falcor.HttpDataSource` at `model.json`. This will set up the necessary connection between our model on the front end and the JSON Graph information coming from the server.
 
@@ -315,7 +317,7 @@ var eventsData = {
       city: "Salt Lake City",
       state: "Utah"
     },
-    
+
     ...
 ```
 We'll set up Express to `use` an endpoint at `model.json` which has Falcor's `dataSourceRoute` return a `new Router`.
@@ -335,7 +337,7 @@ app.use('/model.json', falcorExpress.dataSourceRoute(function(req, res) {
       // are used as eventIds
       route: "events[{integers:eventIds}]['name', 'description']",
       get: function(pathSet) {
-        
+
         var results = [];
 
         // Above we specified an eventIds identifier that is an
@@ -351,13 +353,13 @@ app.use('/model.json', falcorExpress.dataSourceRoute(function(req, res) {
             // Finally we push a path/value object onto
             // the results array
             results.push({
-              path: ['events', eventId, key], 
+              path: ['events', eventId, key],
               value: eventRecord[key]
             });
           });          
         });
 
-        return results; 
+        return results;
       }      
     }
   ]);
@@ -393,7 +395,7 @@ If we also wanted to get the location data associated with each event, we would 
 // are used as locationId
 route: "locationsById[{integers:locationId}]['city', 'state']",
 get: function(pathSet) {
-  
+
   var results = [];
 
   // Above we specified an locationId identifier that is an
@@ -409,17 +411,17 @@ get: function(pathSet) {
       // Finally we push a path/value object onto
       // the results array
       results.push({
-        path: ['locationsById', locationId, key], 
+        path: ['locationsById', locationId, key],
         value: location[key]
       });
     });          
   });
 
-  return results; 
+  return results;
 }
 
 ...
-``` 
+```
 
 ## Search for an Event by Name
 
@@ -435,7 +437,7 @@ The client can send integers as a KeySet to pull a range of results, but it can 
     // of our conferences
     route: "events.byName[{keys}]['description']",
     get: function(pathSet) {
-            
+
       var results = [];
 
       // We want to loop over each of the conference names provided
@@ -484,10 +486,8 @@ Auth0 provides an easy way to add authentication to your Falcor app. The set up 
 
 ## Wrapping Up
 
-Through its JSON Graph implementation, Falcor provides an innovative way to pull data into a virtual JSON model and cache it on the client side. It also gives us an easy way to serve routes from a back end through its integration with Express. 
+Through its JSON Graph implementation, Falcor provides an innovative way to pull data into a virtual JSON model and cache it on the client side. It also gives us an easy way to serve routes from a back end through its integration with Express.
 
 The new approach to retrieving data that Falcor provides is intriguing and generally nice to work with. It did, however, seem like a lot of boilerplate code was required to serve data from the Falcor router on the server side. We've reached out to the Falcor team to let them know about our experience with the coding for the router.
 
-The Falcor project has excellent documentation on its [website](http://netflix.github.io/falcor). There you'll find guides, videos, and API documentation that all go into much more detail on the concepts covered in this tutorial. 
-
-
+The Falcor project has excellent documentation on its [website](http://netflix.github.io/falcor). There you'll find guides, videos, and API documentation that all go into much more detail on the concepts covered in this tutorial.
