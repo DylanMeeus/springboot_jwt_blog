@@ -9,12 +9,12 @@ author:
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image: https://cdn.auth0.com/blog/vuejs/vue-logo.png
   bg_color: "#35495e"
   image_size: "80%"
   image_bg_color: "#fff"
-tags: 
+tags:
 - vue
 - vuejs
 - javascript
@@ -36,7 +36,7 @@ We are lucky to have plenty of JavaScript frameworks to choose from these days b
 
 If you're still choosing a framework for your Single Page App (SPA), or if you just want to learn a new technology, I believe [Vue.js](http://vuejs.org/) is one of the best frameworks you can pick. I love Vue.js for its simplicity and elegance, and how I can be super productive with it without needing to spend tons of time learning. In my experience, Vue.js **just works** and gets out of my way when developing applications.
 
-Those are some anecdotal selling points, but let's cut to the hard facts: what exactly is Vue.js and how does it differ from other frameworks? If you're familiar with AngularJS 1.x, then Vue.js will probably look pretty familiar. In fact, Vue is heavily inspired by Angular. So what's the difference then? Essentially, Vue has a much simpler and cleaner API, is more flexible, and claims better performance. 
+Those are some anecdotal selling points, but let's cut to the hard facts: what exactly is Vue.js and how does it differ from other frameworks? If you're familiar with AngularJS 1.x, then Vue.js will probably look pretty familiar. In fact, Vue is heavily inspired by Angular. So what's the difference then? Essentially, Vue has a much simpler and cleaner API, is more flexible, and claims better performance.
 
 Vue.js is firstly a view layer for applications that allows for reactive data binding and composable view components, and many developers use it only for their view layers. However, when combined with other tools in the Vue ecosystem, such as **[vue-router](https://github.com/vuejs/vue-router)**, **[vue-resource](https://github.com/vuejs/vue-resource)**, and **[vue-loader](https://github.com/vuejs/vue-loader)**, we get all the benefits of a great SPA framework while simplicity and developer experience are maintained.
 
@@ -122,7 +122,7 @@ module.exports = {
 
 In this config file, we're first specifying where our app's main entry point is and what the output path should be. The bundled JavaScript will be served as one file called `build.js`.
 
-In the `module.loaders` array, we're setting up processing for our Vue components. These components have an extension of `.vue` and are processed by `vue-loader`. 
+In the `module.loaders` array, we're setting up processing for our Vue components. These components have an extension of `.vue` and are processed by `vue-loader`.
 
 That's all the configuration we need for now. Once we have our files in place, we just need to run `webpack-dev-server --inline --hot` to bundle and serve everything.
 
@@ -169,7 +169,7 @@ To see how this works, let's start with the `Home` component.
   </script>
 ```
 
-The **template** is just some simple markup with a button that calls the method `getQuote`. We can notice some similarities to Angular in this code already. The template uses directives like `v-on:click` for click events, and `v-if` to conditionally show and hide the `quote-area` div. Vue also uses the double curly brace syntax for templating, which is how we take care of rendering the `quote` property. 
+The **template** is just some simple markup with a button that calls the method `getQuote`. We can notice some similarities to Angular in this code already. The template uses directives like `v-on:click` for click events, and `v-if` to conditionally show and hide the `quote-area` div. Vue also uses the double curly brace syntax for templating, which is how we take care of rendering the `quote` property.
 
 The **script** area exports an object that is converted into a **component constructor function** by Vue. It has on it a `data` method and a `methods` object where we can register custom methods. When we want to register a data property to be used in the template, we need to do so in the `data` method. If we were to leave out the `quote` property from the returned object, that property wouldn't be rendered in the template. The `getQuote` method makes an HTTP request to our back end and sets the returned data on the `quote` property.
 
@@ -277,7 +277,7 @@ const LOGIN_URL = API_URL + 'sessions/create/'
 const SIGNUP_URL = API_URL + 'users/'
 
 export default {
-  
+
   // User object will let us check authentication status
   user: {
     authenticated: false
@@ -357,8 +357,8 @@ The **Login** component will need some HTML for the user inputs and a method to 
         <p>{{ "{{ error " }}}}</p>
       </div>
       <div class="form-group">
-        <input 
-          type="text" 
+        <input
+          type="text"
           class="form-control"
           placeholder="Enter your username"
           v-model="credentials.username"
@@ -401,7 +401,7 @@ The **Login** component will need some HTML for the user inputs and a method to 
         auth.login(this, credentials, 'secretquote')
       }
     }
-    
+
   }
   </script>
 ```
@@ -447,7 +447,7 @@ When a user successfully authenticates, they will be able to access the **secret
           .get('http://localhost:3001/api/protected/random-quote', (data) => {
             this.quote = data;
           }, {
-            // Attach the JWT header 
+            // Attach the JWT header
             headers: auth.getAuthHeader()
           })
           .error((err) => console.log(err))
@@ -547,6 +547,8 @@ Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. Thi
 
 We can easily set up authentication in our Vue.js apps by using the **[Lock Widget](https://auth0.com/lock)**.
 
+{% include tweet_quote.html quote_text="We can easily set up authentication in our Vue.js apps by using the Lock Widget" %}
+
 ![auth0 lock vuejs](https://cdn.auth0.com/blog/node-knockout/node-knockout-1.png)
 
 ### Step 1: Include Auth0's Lock Widget
@@ -595,7 +597,7 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
   export default {
 
     methods: {
-      
+
       login() {
 
         // Show the Lock Widget and save the user's JWT on a successful login
@@ -615,7 +617,7 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
 
       }
     }
-    
+
   }
 
   </script>
