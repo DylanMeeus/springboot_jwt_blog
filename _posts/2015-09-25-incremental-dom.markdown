@@ -84,7 +84,9 @@ That was a simple example, but the real power comes when we have a DOM structure
 
 ## Making IDOM friendlier
 
-The API that IDOM provides makes it really simple to target a custom template engine or any other more expresive API. Lets build something to write our components in a more declarative way.
+The API that IDOM provides makes it really simple to target a custom template engine or any other more expressive API. Lets build something to write our components in a more declarative way.
+
+{% include tweet_quote.html quote_text="The API that IDOM provides makes it really simple to target a custom template engine or any other more expressive API." %}
 
 Taking a look at the HTML, we know that each element can contain text or other elements, so lets build a recursive function to allow that using JavaScript. The final result will be an API that allow us to write IDOM components like the following:
 
@@ -327,7 +329,7 @@ Fire up your inspector and note that even though we're telling our component to 
 
 ## Conclusion
 
-The Incremental DOM approach seems to not be as fast as _virtual DOM_ based implementations. However, IDOM uses less memory since it doesn't need to mantain a _live_  representation of the DOM. Rather, it uses the _real DOM_ to walk and compare against the new *state*. This is great for underpowered devices like low-end phones.
+The Incremental DOM approach seems to not be as fast as _virtual DOM_ based implementations. However, IDOM uses less memory since it doesn't need to maintain a _live_  representation of the DOM. Rather, it uses the _real DOM_ to walk and compare against the new *state*. This is great for underpowered devices like low-end phones.
 
 IDOM's simple API makes it really powerful for targeting template engines. Google is working on using it as a backend for [Closure Templates](https://developers.google.com/closure/templates/) and there's also an implementation of React's JSX syntax using a [Babel plugin](https://github.com/babel-plugins/babel-plugin-incremental-dom) so we can expect a lot of other template engines to start using it in the short term.
 
