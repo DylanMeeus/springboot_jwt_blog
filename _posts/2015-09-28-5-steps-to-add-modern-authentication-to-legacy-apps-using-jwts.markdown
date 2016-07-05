@@ -8,12 +8,12 @@ author:
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image: //cdn.auth0.com/blog/jwt/logo-400.png
   image_bg_color: "#000"
   bg_color: "#000"
   image_size: "170%"
-tags: 
+tags:
 - authentication
 - jwt
 - javascript
@@ -48,7 +48,7 @@ Modern web applications present a few challenges for authentication that are dif
 
 ### 1. Apps are distributed across many servers
 
-Many of today's applications aren't deployed the same way they were in the past. It is now very common--and often necessary--for apps to be distributed across many servers so that up-time is increased and latency issues are mitigated. With this comes the side effect that, when a user accesses an application, it is no longer guaranteed that they are always accessing the same server. 
+Many of today's applications aren't deployed the same way they were in the past. It is now very common--and often necessary--for apps to be distributed across many servers so that up-time is increased and latency issues are mitigated. With this comes the side effect that, when a user accesses an application, it is no longer guaranteed that they are always accessing the same server.
 
 Since traditional authentication relies on the server to keep the user's authentication state in memory, things break down when the app is accessed from different servers. The user might be logged in on one server but not on the others that the application is distributed across.
 
@@ -60,11 +60,13 @@ A common pattern for modern applications, especially single-page apps, is to ret
 
 Using APIs in this fashion is great, but things can become challenging when it comes to authentication. The traditional approach of using sessions and cookies for the user's identity doesn't work so well in these cases because their use introduces **state** to the application. One of the tenets of a RESTful API is that it should be **stateless**, meaning that, when a request is made, a response within certain parameters can always be anticipated without side effects. A user's authentication state introduces such a side effect, which breaks this principle. Keeping the API stateless and therefore without side effect means that maintainability and debugging are made much easier.
 
+{% include tweet_quote.html quote_text="Keeping the API stateless and therefore without side effect means that maintainability and debugging are made much easier." %}
+
 Another challenge here is that it is quite common for an API to be served from one server and for the actual application to consume it from another. To make this happen, we need to enable [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). Since cookies can only be used for the domain from which they originated, they aren't much help for APIs on different domains than the application.
 
 ### 3. Apps rely on downstream services
 
-Another common pattern seen with modern web applications is that they often rely on downstream services. For example, a call to the main application server might make a request to a downstream server before the original request is resolved. The issue here is that cookies don't "flow" easily to the downstream servers and can't tell those servers about the user's authentication state. Since each server has its own scheme for cookies, there is a lot of resistance to flow, and connecting to them is difficult. 
+Another common pattern seen with modern web applications is that they often rely on downstream services. For example, a call to the main application server might make a request to a downstream server before the original request is resolved. The issue here is that cookies don't "flow" easily to the downstream servers and can't tell those servers about the user's authentication state. Since each server has its own scheme for cookies, there is a lot of resistance to flow, and connecting to them is difficult.
 
 ## A Modern Alternative: The JSON Web Token (JWT)
 
@@ -129,7 +131,7 @@ var cookieParser = require('cookie-parser');
 ...
 
 app.configure(function() {
-  
+
   app.use(cookieParser());
 
   ...
@@ -200,9 +202,9 @@ Next, lets set up the `authorize-cookie` endpoint to handle this call.
 // server.js
 
 app.post('/secured/authorize-cookie', authenticate, function(req, res) {
-  res.cookie('id_token', req.body.token, { 
+  res.cookie('id_token', req.body.token, {
     expires: new Date(Date.now() + 36000),
-    httpOnly: true 
+    httpOnly: true
   });
   res.send(200, { message: 'Cookie set!' });
 });
@@ -256,5 +258,3 @@ As we saw in this tutorial, switching to JWT authentication from traditional ses
 ## Wrapping Up
 
 As we've seen, modern web applications are crafted and deployed in ways that make conventional user authentication challenging. JWT authentication is an excellent way to get around these challenges and allows us to keep our application server stateless. If we need to lean on old practices, such as using cookies, we can do so and still support JWT authentication with a little tweaking on the server.
-
-
