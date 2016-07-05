@@ -8,12 +8,12 @@ author:
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image: https://cdn.auth0.com/blog/angular2-electron/angular2-electron-logo.png
   bg_color: "#076274"
   image_size: "75%"
   image_bg_color: "#fff"
-tags: 
+tags:
 - angular2
 - angular
 - electron
@@ -28,7 +28,7 @@ related:
 ---
 **TL;DR:** Electron is an open-source project from GitHub that lets us create cross-platform desktop applications with web technologies. It doesn't matter which specific framework we use; if it works for the web, it works for Electron. We can use Angular 2 for Electron apps, and in this tutorial, we explore how to get a desktop image size calculator app wired up. Check out the [code on GitHub](https://github.com/auth0/angular2-electron).
 
-You can also check out our other Angular 2 material, including tutorials on working with **[pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/)**, **[models](https://auth0.com/blog/2015/09/17/angular-2-series-part-2-domain-models-and-dependency-injection/)**, and **[Http](https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/)**. 
+You can also check out our other Angular 2 material, including tutorials on working with **[pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/)**, **[models](https://auth0.com/blog/2015/09/17/angular-2-series-part-2-domain-models-and-dependency-injection/)**, and **[Http](https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/)**.
 
 ---
 
@@ -171,7 +171,7 @@ Now let's configure the application window.
 ```js
 // app/main.js
 
-var app = require('app'); 
+var app = require('app');
 
 // browser-window creates a native window
 var BrowserWindow = require('browser-window');
@@ -187,10 +187,10 @@ app.on('ready', function () {
 
   // Initialize the window to our specified dimensions
   mainWindow = new BrowserWindow({ width: 1200, height: 900 });
-  
+
   // Tell Electron where to load the entry point from
   mainWindow.loadURL('file://' + __dirname + '/index.html');
-  
+
   // Clear out the main window when the app is closed
   mainWindow.on('closed', function () {
 
@@ -219,12 +219,12 @@ Just like with a regular web app, we need an `index.html` entry point.
       <div class="container">
         <h1>Hello Electron</h1>
       </div>
-      
+
       <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
       <script src="../build/common.js"></script>
       <script src="../build/angular2.js"></script>
       <script src="../build/app.js"></script>
-    </body> 
+    </body>
   </html>
 ```
 
@@ -266,16 +266,16 @@ import {NgFor} from 'angular2/common';
 @Component({
   selector: 'app',
   template: `
-    <div 
-      (dragover)="false" 
-      (dragend)="false" 
+    <div
+      (dragover)="false"
+      (dragend)="false"
       (drop)="handleDrop($event)"
       style="height: 300px; border: 5px dotted #ccc;">
       <p style="margin: 10px; text-align: center">
         <strong>Drop Your Images Here</strong>
       </p>
     </div>
-  ` 
+  `
 })
 
 export class App {
@@ -318,7 +318,7 @@ So how are we getting this information, exactly? Electron provides an abstractio
 
 ## Displaying the Images
 
-Let's now put in some templating to display the images. For this, we'll want to use `ngFor` to iterate over the images we drop in. 
+Let's now put in some templating to display the images. For this, we'll want to use `ngFor` to iterate over the images we drop in.
 
 > **Note:** As of Beta, templates are now case-sensitive. This means that what used to be `ng-for` is now `ngFor`.
 
@@ -392,7 +392,7 @@ We want to have a way to display the total number of images dropped into the app
 
     let sizes:Array<Number> = [];
     let totalSize:number = 0;
-    
+
     this
       .images
       .forEach((image:File) => sizes.push(image.size));
@@ -453,6 +453,8 @@ This pipe checks for the file size in bytes and returns the appropriate conversi
 
 When distributing Electron apps, it's essential to generate an archive of the application files so that the source code is concealed. This can be done with the `asar` utility.
 
+{% include tweet_quote.html quote_text="When distributing Electron apps, it's essential to generate an archive of the application files so that the source code is concealed." %}
+
 ```bash
 npm install -g asar
 asar pack image-size-calculator app.asar
@@ -494,7 +496,7 @@ Next, create a new instance of Lock and set `window.electron` to an empty object
   <!-- index.html -->
 
   <script>
-    
+
     var lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_CLIENT_DOMAIN');
 
     window.electron = {};
@@ -508,18 +510,18 @@ Finally, trigger the Lock widget to be shown when the user clicks the **Login** 
   <!-- index.html -->
 
   <script>
-    
+
     ...
 
     document.getElementById('login').addEventListener('click', function() {
       lock.show(function(err, profile, token) {
         if (err) {
-          
+
           // Error callback
           console.error("Something went wrong: ", err);
 
         } else {
-          
+
           // Success calback. Save the profile and JWT token.
           localStorage.setItem('profile', JSON.stringify(profile));
           localStorage.setItem('id_token', token);
@@ -531,7 +533,7 @@ Finally, trigger the Lock widget to be shown when the user clicks the **Login** 
   </script>
 ```
 
-With the token in local storage, it can now be used as an `Authorization` header to access secured API endpoints. The way to attach the header to HTTP calls differs depending on which library or framework you're using. If you're using Angular 2 in your Electron app, you can use **[angular2-jwt](https://www.npmjs.com/package/angular2-jwt)**. Follow the steps in the [Angular 2 docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) for more details. Not using Angular 2? We've got [intergrations](https://auth0.com/docs) for many other frameworks and libraries as well!
+With the token in local storage, it can now be used as an `Authorization` header to access secured API endpoints. The way to attach the header to HTTP calls differs depending on which library or framework you're using. If you're using Angular 2 in your Electron app, you can use **[angular2-jwt](https://www.npmjs.com/package/angular2-jwt)**. Follow the steps in the [Angular 2 docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) for more details. Not using Angular 2? We have got [integrations](https://auth0.com/docs) for many other frameworks and libraries as well!
 
 ## Wrapping Up
 
