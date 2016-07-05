@@ -48,6 +48,8 @@ Apple has long provided a way to *connect* applications through URLs: [URL schem
 
 Universal Links allow you to **register a series of domains** that are allowed to **interact with an installed application**. If the application is not installed, the universal link is opened with Safari, allowing you to inform the user of the existence of an application or whatever is necessary. To prevent other applications from taking control of this association, a special file, called the *association file*, must be uploaded to the domains that are registered as associated to an application. In this way, **the person or organization that controls the domain is the only one who can control the association between an application and a URL**.
 
+{% include tweet_quote.html quote_text="Universal Links allow you to register a series of domains that are allowed to interact with an installed application." %}
+
 Before diving straight into our example, if you are already familiar with our [Lock library](https://github.com/auth0/Lock.iOS-OSX) let me tell you won't need many changes to your code: it is just a matter of setting a few flags and settings. If you are not familiar with our library, [our docs provide an excellent introduction](https://auth0.com/docs/libraries/lock-ios). If it seems too daunting, don't worry, download the example from this post and use that as a starting point.
 
 We will use our iOS passwordless email example as a base for the following steps. Get the [full code](https://github.com/auth0/Mobile-Samples.iOS), go to the `Passwordless-Email/Lock/Swift` folder and open the Xcode workspace.
