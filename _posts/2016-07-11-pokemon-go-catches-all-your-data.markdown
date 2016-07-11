@@ -63,5 +63,7 @@ Authentication and authorization are hard. Even when using the [excellent docume
 
 Our single-sign-on solution gives applications only minimal access to account details by default. Google, Facebook, Twitter and many other login providers are all supported and available under one click. Using a simple, safe-by-default solution can make all the difference between a costly mistake and smooth sailing. <a href="javascript:signup()">Try Auth0 now</a> and focus on your app, not logins.
 
+These are our default permissions for Google sign-in: 
+
 ![Auth0 default Google permissions](https://cdn.auth0.com/blog/pokemon/auth0-perms-2.png)
 
