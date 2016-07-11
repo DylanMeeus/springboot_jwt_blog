@@ -58,6 +58,8 @@ For some reason this screen is not showing and the app is still getting full-acc
 
 This means **emails (reading and sending), Google Drive documents, your browsing history, your photos, your maps and locations** are *all* available to Niantic. As far as we know, the Android version does not exhibit the same issue (unless you log in with an account previously used on an iOS device for Pokémon GO), so it was probably not the developer's intention to do this. In other words, this is probably a bug or a simple coding mistake.
 
+Until this issue is resolved, our advice is to simply revoke the application's permissions to your Google account by going to the [connected apps page](https://security.google.com/settings/security/permissions).
+
 ## Let the experts do the hard work
 Authentication and authorization are hard. Even when using the [excellent documentation provided by Google](https://developers.google.com/identity/sign-in/ios/sign-in) for their single-sign-on solution, bugs and mistakes happen. And when you are growing as fast as Pokémon GO, mistakes can be costly.
 
