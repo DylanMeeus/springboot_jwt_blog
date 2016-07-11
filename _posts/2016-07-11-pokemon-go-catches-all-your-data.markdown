@@ -36,7 +36,7 @@ tags:
 
 ## A Pokémon fan's dream game
 Pokémon GO, available in [Apple's App Store](https://itunes.apple.com/us/app/pokemon-go/id1094591345?mt=8) and [Google's Play Store](https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo&hl=en), is an augmented-reality game that lets users be part of a world full of Pokémon ready to be caught. Using the phone's camera and GPS, Pokémon are distributed in the user's vicinity. Hints are displayed to give the user a notion of where to find Pokémon.
-To give you an idea of what this means for your average Pokémon fan: it's crazy. We've already heard stories of people going into bars just to catch Pokémon (no drinking involved (!)), others [finding corpses](http://arstechnica.com/gaming/2016/07/gamer-stumbles-onto-dead-body-while-testing-pokemon-gos-gps-fueled-features/). This is pretty much every Pokémon fan's dream game: a game that fuzzes the boundaies between fantasy and reality and lets users be part of an ever changing semi-real world full of Pokémon.
+To give you an idea of what this means for your average Pokémon fan: it's crazy. We've already heard stories of people going into bars just to catch Pokémon (no drinking involved (!)), others [finding corpses](http://arstechnica.com/gaming/2016/07/gamer-stumbles-onto-dead-body-while-testing-pokemon-gos-gps-fueled-features/). This is pretty much every Pokémon fan's dream game: a game that fuzzes the boundaries between fantasy and reality and lets users be part of an ever changing semi-real world full of Pokémon.
 
 No wonder the explosion in social media. And among the many eyes looking at Pokémon GO [some](http://adamreeve.tumblr.com/post/147120922009/pokemon-go-is-a-huge-security-risk) were keen enough to notice users were giving full access to their Google accounts!
 
@@ -62,4 +62,6 @@ This means **emails (reading and sending), Google Drive documents, your browsing
 Authentication and authorization are hard. Even when using the [excellent documentation provided by Google](https://developers.google.com/identity/sign-in/ios/sign-in) for their single-sign-on solution, bugs and mistakes happen. And when you are growing as fast as Pokémon GO, mistakes can be costly.
 
 Our single-sign-on solution gives applications only minimal access to account details by default. Google, Facebook, Twitter and many other login providers are all supported and available under one click. Using a simple, safe-by-default solution can make all the difference between a costly mistake and smooth sailing. <a href="javascript:signup()">Try Auth0 now</a> and focus on your app, not logins.
+
+![Auth0 default Google permissions](https://cdn.auth0.com/blog/pokemon/auth0-perms-2.png)
 
