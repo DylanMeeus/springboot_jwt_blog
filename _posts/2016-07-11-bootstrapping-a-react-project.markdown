@@ -31,6 +31,7 @@ related:
 ---
 
 **TL;DR:** The Javascript ecosystem has a plethora of libraries and frameworks for front-end development. ReactJS is one of the young and shiny new library on the block. Just a little over a year old, it has gained lots of traction from javascript developers around the world. One of ReactJS's selling points is the ability to easily build reusable components. Another salient point is that not only does it perform on the client side, it can also be rendered on the server side. In fact, when compared to other front-end libraries and frameworks currently available, ReactJS claims to be the "V" in "MVC".
+
 ---
 
 ## Why React?
