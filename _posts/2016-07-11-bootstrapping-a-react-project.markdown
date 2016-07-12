@@ -321,7 +321,7 @@ A comprehensive example of adding authentication to a **ReactJS** app is [here](
 
 With Auth0, you can add authentication to any app in under 10 minutes and implement features like social login, multifactor auth, and single sign-on at the flip of a switch. It is the easiest way to add authentication to your app!
 
-A full implementation of Authentication with Auth0 in a **ReactJS** application is [here](https://davidwalsh.name/react-authentication).
+A full implementation of Authentication with Auth0 in a **ReactJS** application is [here](https://auth0.com/docs/quickstart/spa/react).
 
 ## Data Persistence
 
@@ -332,6 +332,7 @@ npm install reactfire react firebase --save
 ```
 
 _TodoList Example_
+
 ```js
 import React from 'react';
 
@@ -437,6 +438,6 @@ A lot of tools have been mentioned in this post in relation to setting up differ
 
 ## Conclusion
 
-There are several tools that will help bootstrap your React app, we looked at a couple that we consider are quite good to have that will have your application up and running in no time. But feel free to search for your own tools, and if you think that we are missing something, let us know in the comments. Setting up a React project should be painless!
+There are several tools that will help bootstrap your React app, we looked at a couple that we consider are quite good, that will have your application up and running in no time. But feel free to search for your own tools, and if you think that we are missing something, let us know in the comments. Setting up a React project should be painless!
 
 {% include tweet_quote.html quote_text="Setting up a React project should be painless!" %}
