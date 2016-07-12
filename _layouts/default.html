@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html class="header-dark">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta property="fb:app_id" content="196885384022260" />
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    {% if page.tags %}
-    <meta name="keywords" content="{{ page.tags | join: ', ' }}">
-    {% endif %}
 
     {% include sharing_metas.html %}
 
-    <title>{{ page.title }}</title>
+    {% if page.is_tag_index %}
+      <title>{{ page.tag | capitalize }} - Auth0 Blog</title>
+    {% else %}
+      <title>{{ page.title }}</title>
+    {% endif %}
+
+    <link href="https://plus.google.com/+Auth0" rel="publisher" /> 
 
     <script src="//use.typekit.net/tde2fii.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -95,17 +98,33 @@
     <link rel="canonical" href="https://auth0.com{{ site.baseurl }}{{page.url | replace:'index.html',''}}" />
     {% endif %}
 
+    {% if page.is_tag_index %}
+      {% if paginator.previous_page %}
+      <link rel="prev" href="https://auth0.com{{ site.baseurl }}/tags/{{ page.tag }}/page{{paginator.previous_page}}">
+      {% endif %}
+      {% if paginator.next_page %}
+      <link rel="next" href="https://auth0.com{{ site.baseurl }}/tags/{{ page.tag }}/page{{paginator.next_page}}">
+      {% endif %}
+    {% else %}
+      {% if paginator.previous_page %}
+      <link rel="prev" href="https://auth0.com{{ site.baseurl }}/page{{paginator.previous_page}}">
+      {% endif %}
+      {% if paginator.next_page %}
+      <link rel="next" href="https://auth0.com{{ site.baseurl }}/page{{paginator.next_page}}">
+      {% endif %}
+    {% endif %}
+
     <link rel="shortcut icon" href="//cdn.auth0.com/styleguide/latest/lib/logos/img/favicon.png">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://auth0.com/blog/rss.xml">
     <link type="application/opensearchdescription+xml" rel="search" href="https://auth0.com/blog/osd.xml"/>
 
-    <link href="//cdn.auth0.com/styleguide/4.6.8/index.min.css" rel="stylesheet">
+    <link href="//cdn.auth0.com/styleguide/4.8.1/index.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/vendor/selection-sharer.min.css" />
     <script src="//load.sumome.com/" data-sumo-site-id="295a2f6c9ea9bacfc44815f6b7da672d35b951f2b9ad3eaa55c701f4166c706d" async="async"></script>
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 
     <header class="site-header clearfix">
     </header>

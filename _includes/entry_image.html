@@ -42,10 +42,13 @@
 <a href="{{ site.baseurl }}{{current.url}}"
   style="{{image_bg_color}} {{bg_merge}}"
   class="entry-thumbnail">
-  <div class="holder">
+  <div class="holder" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
     <img
     style="{{opacity}} {{size}} {{top}} {{left}}"
     src="{% if current.design.image %}{{ current.design.image }}{% else %}{{ current.design.image_default }}{% endif %}"
     alt="{{ current.title }}">
+    <meta itemprop="url" content="{% if current.design.image %}{{ current.design.image }}{% else %}{{ current.design.image_default }}{% endif %}">
+    <meta itemprop="width" content="128">
+    <meta itemprop="height" content="128">
   </div>
 </a>
