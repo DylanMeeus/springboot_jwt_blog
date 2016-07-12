@@ -32,6 +32,8 @@ tags:
 
 {% include tweet_quote.html quote_text="Pokémon GO has been installed by thousands and the developer has full access to their Google accounts!" %}
 
+**Update:** Ari Rubinstein from Slack has [dived deeper](https://gist.github.com/arirubinstein/fd5453537436a8757266f908c3e41538) and performed an analysis of what can be done with tokens obtained using this authentication flow. It appears additional steps must be performed to obtain a full access token. These steps *are* possible for Pokemon GO, as it is granted access to the necessary APIs, though the app does not appear to be using them. This issue may be attributed to programming mistakes and a permissive API on the part of Google. Both Google and Niantic are looking into the issue and attempting to provide a fix as soon as possible.      
+
 -----
 
 ## A Pokémon fan's dream game
@@ -59,6 +61,8 @@ For some reason this screen is not showing and the app is still getting full-acc
 This means **emails (reading and sending), Google Drive documents, your browsing history, your photos, your maps and locations** are *all* available to Niantic. As far as we know, the Android version does not exhibit the same issue (unless you log in with an account previously used on an iOS device for Pokémon GO), so it was probably not the developer's intention to do this. In other words, this is probably a bug or a simple coding mistake.
 
 Until this issue is resolved, our advice is to simply revoke the application's permissions to your Google account by going to the [connected apps page](https://security.google.com/settings/security/permissions).
+
+**Update:** now we know why this screen is not being displayed. Read the excellent [analysis](https://gist.github.com/arirubinstein/fd5453537436a8757266f908c3e41538) by Ari Rubinstein and then take a look at [what is necessary](https://duo.com/blog/beyond-the-vulnerabilities-of-the-application-specific-password-exploiting-google-chrome-s-oauth2-tokens) to get a full access token from the one obtained by Pokémon GO. Although possible, there is no reason to believe Pokémon GO is exploting this.
 
 ## Let the experts do the hard work
 Authentication and authorization are hard. Even when using the [excellent documentation provided by Google](https://developers.google.com/identity/sign-in/ios/sign-in) for their single-sign-on solution, bugs and mistakes happen. And when you are growing as fast as Pokémon GO, mistakes can be costly.
