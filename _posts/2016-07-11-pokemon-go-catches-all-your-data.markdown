@@ -34,6 +34,8 @@ tags:
 
 **Update:** Ari Rubinstein from Slack has [dived deeper](https://gist.github.com/arirubinstein/fd5453537436a8757266f908c3e41538) and performed an analysis of what can be done with tokens obtained using this authentication flow. It appears additional steps must be performed to obtain a full access token. These steps *are* possible for Pokemon GO, as it is granted access to the necessary APIs, though the app does not appear to be using them. This issue may be attributed to programming mistakes and a permissive API on the part of Google. Both Google and Niantic are looking into the issue and attempting to provide a fix as soon as possible.      
 
+**Update 2:** Niantic has released an [official statement](https://support.pokemongo.nianticlabs.com/hc/en-us/articles/222648408-Permissions-update) regarding the Pokemon Go iOS permissions problem. And also, the app has been updated in the [App Store](https://itunes.apple.com/us/app/pokemon-go/id1094591345?mt=8) with the correct permission scopes. 
+
 -----
 
 ## A Pokémon fan's dream game
