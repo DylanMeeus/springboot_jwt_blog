@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker 101 for Developers"
-description: <A SHORT DESCRIPTION OF THE POST>
+description: Now is your chance to learn about Docker in this introductory webinar!
 date: 2016-07-12 10:30
 author: 
   name: Kassandra Perch
@@ -9,9 +9,8 @@ author:
   mail: kassandra.perch@auth0.com
   avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
 design: 
-  bg_color: "#333333"
-  image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
-  image_size: "50%"
+  bg_color: "#244F63"
+  image: "https://cdn.auth0.com/blog/docker/logo.png"
 tags: 
 - docker
 - webinar
