@@ -360,7 +360,7 @@ class TodoApp extends React.Component {
       items: [],
       text: ''
     };
-  },
+  }
 
   componentWillMount() {
     this.firebaseRef = firebase.database().ref('todoApp/items');
@@ -376,20 +376,20 @@ class TodoApp extends React.Component {
         items: items
       });
     }.bind(this));
-  },
+  }
 
   componentWillUnmount() {
     this.firebaseRef.off();
-  },
+  }
 
   onChange(e) {
     this.setState({text: e.target.value});
-  },
+  }
 
   removeItem(key) {
     var firebaseRef = firebase.database().ref('todoApp/items');;
     firebaseRef.child(key).remove();
-  },
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -401,7 +401,7 @@ class TodoApp extends React.Component {
         text: ''
       });
     }
-  },
+  }
 
   render() {
     return (
