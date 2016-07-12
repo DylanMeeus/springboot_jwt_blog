@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bootstrapping a React project"
-description: Learn how to fully bootstrap a React project.
+description: Setting up a React application requires a lot. Learn how to bootstrap a React project without complexities!
 date: 2016-07-11 3:17
 author:
   name: Prosper Otemuyiwa
@@ -9,8 +9,11 @@ author:
   avatar: https://en.gravatar.com/avatar/1097492785caf9ffeebffeb624202d8f?s=200
   mail: prosper.otemuyiwa@auth0.com
 design:
-  bg_color: "#4A4A4A"
-  image: https://cdn.auth0.com/blog/laravel-auth/logo.png
+  bg_color: "rgb(25, 25, 25)"
+  bg_merge: true
+  image: https://cdn.auth0.com/blog/react-js/react.png
+  image_size: "80%"
+  image_bg_color: "rgb(25, 25, 25)"
 tags:
 - react
 - reactjs
@@ -81,11 +84,12 @@ Bootstrapping a **ReactJS** project involves setting up lots of tools, and it ca
 
 The first step is to set up a development environment for your **ReactJS** project. [Webpack](http://webpack.github.io/), a bundler utility and [Babel](http://babeljs.io/) are key tools here. Babel lets us write code that uses new ES6 features, and then transpiles that code into standard ES5 code that can run in older JavaScript environments. When setting up a new project:
 
-  * I assume Nodejs and NPM is installed, run `npm init` to create a `package.json` file
-  * Run this `npm install react react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react webpack webpack-dev-server --save`
+  * I assume Nodejs and NPM is installed, run this command:  `npm init` to create a `package.json` file
+  * Run this command in your terminal:  `npm install react react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react webpack webpack-dev-server --save`
   * Create a `webpack.config.js` file. This file handles bundling all our assets, converting JSX to JS files and launching the development server.
 
 A sample _webpack.config.js_ is shown below:
+
 ```js
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
@@ -123,6 +127,7 @@ module.exports = {
   ],
 };
 ```
+
 The application's entry point is set at the `entry`, Webpack will bundle all the `JS` and `JSX` files into the file that's specified in the output object. Webpack dev server is set to inline which allows a kind of reload on the fly and the application will be served at port `3333`. In the module object, we specify the babel loader to use `react` and `es2015` presets for converting `ES6` and `React` code into code that the browser understands. The webpack plugins add the ability to use class properties and decorators.
 
 ### Hot reloading
@@ -155,6 +160,7 @@ loader: ['babel-loader', 'react-hot']
 ```
 
 To make things really easy, add a start option to the scripts object in `package.json` file like so:
+
 ```js
 {
   "scripts": {
@@ -162,6 +168,7 @@ To make things really easy, add a start option to the scripts object in `package
   }
 }
 ```
+
 The code above shows we have added `--hot` option. This simply enables the the hot reloading once you start your app by running `npm run start`.
 
 ## Routing
@@ -194,17 +201,28 @@ render(
   document.getElementById('app')
 )
 ```
+
+![Routing](https://cdn.auth0.com/blog/react:routing.png)
+
 You actually might not need React Router. More info [here](https://medium.com/@tarkus/you-might-not-need-react-router-38673620f3d#.u64h0gcl4)
 
 ## Internationalization
 
-There are over 6 billion people in the world. These people speak different languages. One way of making your app available to billions of people around the world is providing support for native languages on your app. In a **ReactJS** project, you can easily achieve that with a very good and well tested library [react-intl](https://github.com/yahoo/react-intl). This library provides React components and an API to format dates, numbers, and strings, including pluralization and handling translations. Oh, it supports over 150 languages!
+There are over 6 billion people in the world. These people speak different languages. One way of making your app available to billions of people around the world is providing support for native languages on your app. In a **ReactJS** project, you can easily achieve that with a very good and well tested library [react-intl](https://github.com/yahoo/react-intl). By default, [react-intl](https://github.com/yahoo/react-intl) ships with the locale data for English built-in to the library's runtime. When you need to format data in another locale, include its data. This library provides React components and an API to format dates, numbers, and strings, including pluralization and handling translations. Oh, it supports over 150 languages!
+
+![Internationalization Translation](https://cdn.auth0.com/blog/my-folder:intl-translation.png)
 
 ## UI Styling
 
 In **ReactJS** projects, you can create custom stylesheets and UI Components. A developer that's looking to rapidly build an application might not have time to create UI components from scratch. The community has blessed us with two popular libraries that possess ready-made UI components for use in your application. [React-Bootstrap](https://react-bootstrap.github.io/) has all of bootstrap features written purely as reusable React Components. [Material-UI](https://github.com/callemall/material-ui) is a set of React Components that Implement Google's Material Design.
 
-_Material UI Example_
+_Material UI_
+![Material UI](https://cdn.auth0.com/blog/material-ui:raisedbutton.png)
+
+_React Bootstrap_
+![React Bootstrap](https://cdn.auth0.com/blog/react-bootstrap:buttons.png)
+
+_Material UI Code Example_
 
 ```js
 import React from 'react';
@@ -234,7 +252,7 @@ ReactDOM.render(
 );
 ```
 
-One effective way of bootstrapping your **ReactJS** project is to start by designing your UI components and then glue them together, that way you can split up the initial setup effort into several small parts along the project lifecycle. [Pure UI](http://rauchg.com/2015/pure-ui/) explains this in detail. I recommend these tools: [Carte-blanche](https://github.com/carteb/carte-blanche), [React Storybook](https://github.com/kadirahq/react-storybook), [uiharness.com](http://www.uiharness.com/start)
+One effective way of bootstrapping your **ReactJS** project is to start by designing your UI components and then glue them together, that way you can split up the initial setup effort into several small parts along the project lifecycle. [Pure UI](http://rauchg.com/2015/pure-ui/) explains this in detail. I also recommend these tools: [Carte-blanche](https://github.com/carteb/carte-blanche), [React Storybook](https://github.com/kadirahq/react-storybook), [uiharness.com](http://www.uiharness.com/start). They will help a lot!
 
 ## Network Requests
 
@@ -273,12 +291,17 @@ This is a helper utility that you can now call and render out in different **Rea
 
 Flux is an application architecture for React that utilizes a unidirectional flow for building client-side web applications. With Flux, when a user interacts with a React view, the view propagates an action through a central dispatcher, to the various stores that hold the application's data and business logic, which updates all of the views that are affected. When choosing a dispatcher for your app, Facebook's [dispatcher](https://github.com/facebook/flux/blob/master/src/Dispatcher.js) library should come in handy. It's easy to instantiate and use. Alongside this library, you will need any good Javascript event library. NodeJS [EventEmmiter](https://nodejs.org/api/events.html#events_class_events_eventemitter) module is a good option. You can install flux from [npm](https://www.npmjs.com), the dispatcher will be immediately available via `var Dispatcher = require('flux').Dispatcher;`. More details about the Flux pattern can be found [here](http://facebook.github.io/flux/docs/overview.html).
 
+![Data Flow](https://facebook.github.io/flux/img/flux-simple-f8-diagram-1300w.png)
+*(Source: [Facebook](https://facebook.github.io/flux/docs/overview.html))*
+
+
 ### Redux
 Redux evolves the idea of Flux but avoid its complexity. It's a state management library with minimal API but completely predictable behavior, so it is possible to implement logging, hot reloading, time travel, universal apps, record and replay, without any buy-in from the developer. You can also install it via NPM like so: `npm install redux redux-devtools --save`. Redux attempts to make state mutations predictable by imposing certain restrictions on how and when updates can happen. Redux has three fundamental principles:
 
 * Single source of truth
 * State is read-only
 * Changes are made with pure functions
+
 
 Read More about Redux [here](http://redux.js.org/). [Here](Awesome list of Redux examples and middlewares) is also an awesome list of Redux examples and middlewares. Another alternative for state management within your **ReactJS** application is [Alt](http://alt.js.org/). More information about Alt [here](http://alt.js.org/guide/).
 
@@ -288,6 +311,10 @@ Authentication is an important part of any application. And the best way to do u
 
 * A user signs up/logs in, generate JWT token and return it to the client
 * Store the JWT token on the client and send it via headers/query parameters for future requests
+
+_Authentication flow_
+
+<img alt="How JSON Web Tokens work?" style="background-color: #4e92df;" src="https://auth0.com/learn/wp-content/uploads/2016/01/jwt-how-it-works.png">
 
 A comprehensive example of adding authentication to a **ReactJS** app is [here](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/). Using Redux? [Here](https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/) is a good example of setting up authentication in your **ReactJS** application.
 
@@ -405,11 +432,11 @@ Facebook uses [Jest](https://github.com/facebook/jest) to test React application
 
 ## Generators and Boilerplates
 
-A lot of tools have been mentioned in this post in relation to setting up different parts of a **ReactJS** app. If you don't intend writing from scratch, there are lots of generators and boilerplates that tie all these tools together to give you a great starting point for your app. One fantastic one is [React Starter Kit](https://github.com/kriasoft/react-starter-kit). It has a [Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack). It's an isomorphic web app boilerplate that contains almost everything you need to build a **ReactJS** app. Another boilerplate is [React Static boilerplate](https://github.com/kriasoft/react-static-boilerplate), It helps you build a web app that can be hosted directly from CDNs like Firebase and Github Pages. Other alternatives are [React redux starter kit](https://github.com/davezuko/react-redux-starter-kit) and [React webpack generator](https://github.com/newtriks/generator-react-webpack).
+A lot of tools have been mentioned in this post in relation to setting up different parts of a **ReactJS** app. If you don't intend writing from scratch, there are lots of generators and boilerplates that tie all these tools together to give you a great starting point for your app. One fantastic one is [React Starter Kit](https://github.com/kriasoft/react-starter-kit). It has a [Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack). It's an isomorphic web app boilerplate that contains almost everything you need to build a **ReactJS** app. Another boilerplate is [React Static boilerplate](https://github.com/kriasoft/react-static-boilerplate), it helps you build a web app that can be hosted directly from CDNs like Firebase and Github Pages. Other alternatives are [React redux starter kit](https://github.com/davezuko/react-redux-starter-kit) and [React webpack generator](https://github.com/newtriks/generator-react-webpack).
 
 
 ## Conclusion
 
-**ReactJS** is an awesome Javascript library for building large applications with frequent data changes. Setting up a React Project should be painless!
+There are several tools that will help bootstrap your react app, we selected a couple that we consider are quite good to have your application up and running in no time. But feel free to search for your own tools, and if you think that we are missing something, let us know in the comments. Setting up a React Project should be painless!
 
 {% include tweet_quote.html quote_text="Setting up a React Project should be painless!" %}
