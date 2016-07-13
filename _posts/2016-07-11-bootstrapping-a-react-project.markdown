@@ -33,7 +33,35 @@ related:
 ---
 
 ## Why React?
-**ReactJS** was built by Facebook to solve one problem: building large applications with data that changes over time. It utilizes the concept of the Virtual DOM that selectively renders subtrees of nodes based upon state changes. The component based architecture that **ReactJs** emulates makes it incredible to work with. Components in **ReactJS** are self-contained views that get their data from triggered events or as inherited property from other components.
+**ReactJS** was built by Facebook to solve one problem: building large applications with data that changes over time. It utilizes the concept of the Virtual DOM that selectively renders subtrees of nodes based upon state changes. The component based architecture that **ReactJs** emulates makes it incredible to work with. Components in **ReactJS** are self-contained views that get their data from triggered events or as inherited property from other components. There are basically two main ways of writing components. Props and States in **ReactJs** also makes it fun to work with. Learn more about the basic concepts of React [here](https://scotch.io/tutorials/learning-react-getting-started-and-concepts).
+
+_Using React.createClass Syntax_
+
+```js
+var HelloComponent = React.createClass({
+  render: function() {
+    return (
+      <div className="hello">
+        Hello, world!
+      </div>
+    );
+  }
+});
+```
+
+_ES6 Way_
+
+```js
+class HelloComponent extends React.Component {
+  render() {
+    return (
+      <div className="hello">
+        Hello, world!
+      </div>
+    );
+  }
+}
+```
 
 **ReactJS** supports the use of ECMAScript 6 features. With **Babel**, you can write **ReactJS** the ES6 way, making use of classes, arrow functions and a host of other ES6 features.
 
@@ -68,14 +96,13 @@ export default class Main extends React.Component {
     );
   }
 }
-
 ```
 
 ## Let's Get Started
 
 Bootstrapping a **ReactJS** project involves setting up lots of tools, and it can really be a daunting task. Thankfully there are several tools provided for developers by the community to aid in setting up your project without breaking a sweat. In this post, we'll cover tools that you should be aware of in bootstrapping your next **ReactJS** project.
 
-## Build Tools
+## Building a React App
 
 The first step is to set up a development environment for your **ReactJS** project. [Webpack](http://webpack.github.io/), a bundler utility and [Babel](http://babeljs.io/) are key tools here. Babel lets us write code that uses new ES6 features, and then transpiles that code into standard ES5 code that can actually run in the browser. When setting up a new project:
 
@@ -84,6 +111,7 @@ The first step is to set up a development environment for your **ReactJS** proje
   * Create a `webpack.config.js` file. This file handles bundling all our assets, converting JSX to JS files and launching the development server. Bundling refers to combining, compiling and minimizing multiple files into just one file to be served to the client.
 
 **Note:** JSX is a JavaScript syntax extension that looks similar to XML. You can write concise HTML/XML-like structures in the same file as you write JavaScript code. With Babel, JSX files can be transpiled into actual javascript code.
+
 
 A sample _webpack.config.js_ is shown below:
 
@@ -125,7 +153,7 @@ module.exports = {
 };
 ```
 
-The application's entry point is set at the `entry`, Webpack will bundle all the `JS` and `JSX` files into the file that's specified in the output object. Webpack dev server is set to inline which allows a kind of reload on the fly and the application will be served at port `3333`. In the module object, we specify the babel loader to use `react` and `es2015` presets for converting `ES6` and `React` code into code that the browser understands. The webpack plugins add the ability to use class properties and decorators.
+The application's entry point is set at the `entry`. The file specified at the `entry` is the first component that the Web page loads. Webpack will bundle all the `JS` and `JSX` files into the file that's specified in the output object. Webpack dev server is set to inline which allows a kind of reload on the fly and the application will be served at port `3333`. In the module object, we specify the babel loader to use `react` and `es2015` presets for converting `ES6` and `React` code into code that the browser understands. The webpack plugins add the ability to use class properties and decorators.
 
 **Note:** Babel presets are basically plugins that have been configured to do a particular task.
 
@@ -416,7 +444,6 @@ class TodoApp extends React.Component {
     );
   }
 }
-
 
 ReactDOM.render(<TodoApp />, document.getElementById('todoApp'));
 ```
