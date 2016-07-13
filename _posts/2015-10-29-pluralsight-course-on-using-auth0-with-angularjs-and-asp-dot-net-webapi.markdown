@@ -60,5 +60,4 @@ From the initial contact with the audition to working close with my editor on th
 
 After 30 hours of recording and editing the course was finished and it's now live, make sure to [check it out](http://www.pluralsight.com/courses/authenticating-angular-spa-aspnet-webapi-auth0). Auth0 is an awesome service and I'll definitely recommend it to future clients and keep teaching it in my class room training.
 
-{% include tweet_quote.html quote_text="Auth0 is an awesome service and I'll definitely recommend it to future clients and keep teaching it in my class room training.
-" %}
+{% include tweet_quote.html quote_text="Auth0 is an awesome service and I'll definitely recommend it to future clients and keep teaching it in my class room training." %}
