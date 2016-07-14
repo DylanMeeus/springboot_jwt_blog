@@ -34,7 +34,7 @@ related:
 
 Aurelia is a client-side JavaScript framework that has been gaining a lot of popularity lately. One of the nice aspects of Aurelia is that it anticipates common application needs and provides simple conventions for accomplishing them. In some ways, Aurelia is similar to Angular 2, so parts of it may look familiar if you've [checked out Angular 2](https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/) already.
 
-{% include tweet_quote.html quote_text="One of the nice aspects of Aurelia is that it anticipates common application needs and provides simple conventions for accomplishing them." %}
+{% include tweet_quote.html quote_text="Aurelia anticipates common application needs and provides simple conventions for accomplishing them." %}
 
 ## Getting Started
 

@@ -49,8 +49,7 @@ Statistics like these would typically slow progress, innovation and growth in th
 
 **Nearly 35 percent of consumer survey respondents claimed that the breaches of major brands have not had much of an effect on the trust or consumer interest in these brands.**
 
-
-{% include tweet_quote.html quote_text="Nearly 35 percent of consumer survey respondents claimed that the breaches of major brands have not had much of an effect on the trust or consumer interest in these brands." %}
+{% include tweet_quote.html quote_text="The best security measures are the ones you actually deploy" %}
 
 As consumers continue to question the security of Internet of Things devices, developers and CIOs will need to find ways to simplify the implementation of strong identity security (hint: use ***Auth0***! 😉) and be well equipped to stay up to date on the latest security vulnerabilities - keeping their devices, applications and, ultimately, their consumer and enterprise data safe.
 

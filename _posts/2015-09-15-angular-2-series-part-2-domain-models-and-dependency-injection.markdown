@@ -39,7 +39,7 @@ This is the second part of our Angular 2 series. You can also check out the firs
 
 As applications grow in size, it becomes increasingly important that they be well organized with a solid structure in place. This is especially critical as increasing numbers of developers are added to the team. Application architecture should also strongly focus on the business rules that govern the application and protect sensitive methods from being exposed where they shouldn't be.
 
-{% include tweet_quote.html quote_text="Application architecture should also strongly focus on the business rules that govern the application and protect sensitive methods from being exposed where they shouldn't be" %}
+{% include tweet_quote.html quote_text="As applications grow in size, it becomes important that they be well organized with a solid structure in place" %}
 
 At the same time, it is important that we keep our applications DRY and maintainable by moving logic out of components themselves and into separate classes that can be called upon. A modular approach such as this makes our app's business logic reusable.  
 

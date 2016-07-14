@@ -56,7 +56,7 @@ Instead of keeping that data locked up in the user table, you'll write rules tha
 
 Developers have a number of ways to track data and integrate that with their various marketing tools. What makes rules in Auth0 so powerful is that it gives you accuracy and reliability in a no-hassle, worry-free way.
 
-{% include tweet_quote.html quote_text="What makes rules in Auth0 so powerful is that it gives you accuracy and reliability in a no-hassle, worry-free way." %}
+{% include tweet_quote.html quote_text="Rules in Auth0 are so powerful that it gives you accuracy and reliability in a no-hassle, worry-free way." %}
 
 When you need accuracy, server-side analytics is where you turn. The problem is that installing server-side analytics is a super hairy and annoying problem that even having a unified, [clean API](https://segment.com/blog/the-way-server-side-analytics-should-be/) doesn’t solve.
 

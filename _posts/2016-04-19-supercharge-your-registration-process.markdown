@@ -8,10 +8,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#19304C"
   image: https://cdn.auth0.com/blog/registration-process/reg-process-icon.png
-tags: 
+tags:
 - customer-registration
 - application-registration
 - growth-hacks
@@ -59,7 +59,9 @@ The mustachioed man is positioned just in front of the CTA, drawing your eye to 
 
 ## 3. Collect Your Customers' Data Gradually With Progressive Profiling
 
-We all know the frustration of trying to register for a service that wants your name, phone number, pet’s name, current address, and greatest childhood fear before you can make an account. In fact, [86%](http://www.sampleforms.org/wp-content/uploads/2012/12/How-to-optimize-registration-forms.jpg) of users say they quit on registrations because they’re too long and too prying. 
+We all know the frustration of trying to register for a service that wants your name, phone number, pet’s name, current address, and greatest childhood fear before you can make an account. In fact, [86%](http://www.sampleforms.org/wp-content/uploads/2012/12/How-to-optimize-registration-forms.jpg) of users say they quit on registrations because they’re too long and too prying.
+
+{% include tweet_quote.html quote_text="86% of users say they quit on registrations because they’re too long and too prying." %}
 
 Spare your customers this struggle by breaking your registration up into multiple stages—what is known as [progressive profiling](https://auth0.com/blog/2016/04/18/progressive-profiling/).
 
@@ -76,7 +78,7 @@ Customers choose between either the ease of SSO, or filling out a single field f
 
 ## 4. Set Your Customers' Minds At Ease By Making Your Security Obvious
 
-Even though you’re asking customers for the only the most necessary information, there is still a good chance they will be nervous about giving you their private data.  Americans worry more about their data privacy than their [income](http://www.cbsnews.com/news/truste-survey-more-americans-concerned-about-data-privacy-than-losing-income/). 
+Even though you’re asking customers for the only the most necessary information, there is still a good chance they will be nervous about giving you their private data.  Americans worry more about their data privacy than their [income](http://www.cbsnews.com/news/truste-survey-more-americans-concerned-about-data-privacy-than-losing-income/).
 
 Minimize this anxiety by making it clear that your site is secure, and that you have high standards for privacy. You can explain some key points about your privacy policy on your landing page, so that your customer doesn’t have to dig through a massive “Terms and Conditions” document. You can also display that your site is compliant with security standards like SOC2 and HIPAA, something you get [for free with Auth0](https://auth0.com/security), to reassure customers you take their privacy seriously.
 
@@ -109,10 +111,10 @@ The “Sign Up with Email” button remains un-clickable until your input looks 
 You don’t have an excuse for not offering mobile support—It’s 2016. [51%](http://www.smartinsights.com/mobile-marketing/mobile-marketing-analytics/mobile-marketing-statistics/) of all internet traffic comes from mobile, and Google is beginning to rank sites according to their [mobile-friendliness](https://webmasters.googleblog.com/2015/02/finding-more-mobile-friendly-search.html).
 
  You want customers to be able to register at any point in their day, whether they’re out and about with their smartphone, or at home in front of a computer. And you can offer this cross-device support securely, because Auth0 Lock can be deployed for [Android](https://auth0.com/docs/libraries/lock-android) and [iOS](https://auth0.com/docs/libraries/lock-ios). Whatever the platform, lock retains its look and function, as evidenced by this side-by-side comparison of Lock on a mobile device versus what a desktop version of Lock looks like:
- 
+
 ![mobile devices registration process](https://cdn.auth0.com/blog/registration-process/reg-process-7.jpg)
 
-This is important for all registration forms. You don’t want your mobile page to lose the content or style of your desktop page, but you want to optimize it for the smaller screen.  Adopting a simple, vertically-aligned landing page with your key call-to-actions emphasized is a recipe for success. 
+This is important for all registration forms. You don’t want your mobile page to lose the content or style of your desktop page, but you want to optimize it for the smaller screen.  Adopting a simple, vertically-aligned landing page with your key call-to-actions emphasized is a recipe for success.
 
 [Wistia](http://wistia.com/), a video hosting platform for businesses, does this very well with their mobile and desktop versions.
 
@@ -143,4 +145,3 @@ This is not an optional step. [77%](https://www.ometria.com/blog/welcome-email-c
 The registration process is the first part of the larger customer lifecycle, meaning that there is no one fix that will make everything better. The design of your landing page is critical, but if your registration process is drawn and convoluted, that nice design is useless. Similarly, getting more customers to complete your registration process will not lead you to growth unless you engage them early and often.
 
 Implementing just one of these hacks will not guarantee a successful registration process. You need to use all of them, or as many as apply to you, in order to see—and profit from—that massive spike in registrations that you’re looking for.
-

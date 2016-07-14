@@ -3,19 +3,21 @@ layout: post
 title: "Auth0's Security Buzz just launched!"
 description: Our new channel for sharing our thoughts on security
 date: 2016-01-29 17:31
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
   mail: diego.poza@auth0.com
-design: 
+design:
   bg_color: "#254973"
   image: https://cdn.auth0.com/blog/announcing-security-buzz/logo.png
-tags: 
+tags:
 - security-buzz
 - security-news
 ---
 We are happy to announce the launch of our new communication channel: [Security Buzz](https://auth0.com/resources#security-buzz), where Auth0's experts will be sharing news, opinion articles, and more about security.
+
+{% include tweet_quote.html quote_text="We are happy to announce the launch of our new Security Buzz communication channel" %}
 
 Stay tuned to learn about cyber security as it is being crafted!
 

@@ -43,7 +43,7 @@ At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, f
 </div>
 </div>
 
-{% include tweet_quote.html quote_text="We ♥ OSS so we wanted to offer every project the ability to use the full Auth0 platform without worrying about $$ ever." %}
+{% include tweet_quote.html quote_text="We ♥ OSS so we wanted to offer every project the ability to use the full Auth0 platform." %}
 
 <!-- <img alt="Free plan for 7K users and open source plan" src="https://cdn.auth0.com/blog/pricingv4/usersv6.png" /> -->
 

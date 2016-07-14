@@ -63,7 +63,7 @@ Sliding-sessions are sessions that expire after a **period of inactivity**. As y
 ### Security considerations
 Refresh tokens are **long-lived**. This means when a client gets a refresh token from a server, this token must be **stored securely** to keep it from being used by potential attackers. If a refresh token is leaked, it may be used to obtain new access tokens (and access protected resources) until it is either blacklisted or it expires (which may take a long time). Refresh tokens must be issued to a single authenticated client to prevent use of leaked tokens by other parties. Access tokens must be kept secret, but as you may imagine, security considerations are less strict due to their shorter life.
 
-{% include tweet_quote.html quote_text="Refresh tokens must be issued to a single authenticated client to prevent use of leaked tokens by other parties." %}
+{% include tweet_quote.html quote_text="Access tokens must be kept secret, security considerations are less strict due to their shorter life." %}
 
 ## Example: a refresh-token issuing server
 For the purposes of this example we will use a simple server based on [node-oauth2-server](https://github.com/thomseddon/node-oauth2-server) that will issue access and refresh tokens. Access tokens will be required to access a protected resource. The client will be a simple CURL command. The code from this example is based on the [examples from node-oauth2-server](https://github.com/thomseddon/node-oauth2-server/tree/master/examples). We have modified the base examples to use JWT for access tokens.

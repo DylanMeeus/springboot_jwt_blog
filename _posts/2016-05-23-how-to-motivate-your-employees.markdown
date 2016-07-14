@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
-design: 
+design:
   bg_color: "#2B2B45"
   image: https://cdn.auth0.com/blog/motivate-employees/logo.png
-tags: 
+tags:
 - motivation
 - employee-motivation
 - tips-for-motivating-your-employees
@@ -25,13 +25,15 @@ When startups die, it's not because they run out of money. It's not because they
 
 Startups die because they run out of morale.
 
+{% include tweet_quote.html quote_text="Startups die because they run out of morale." %}
+
 And the companies that make it through the hard times and come out stronger on the other end are not the ones with the best perks or the ones that pay the most. They're the ones where people feel deeply invested in their work, where they actually garner meaning out of it, where they're motivated to succeed by something intrinsic to them rather than externally imposed.
 
 The only way to build a culture like that is to build meaning into the work that you and your team do everyday. Here are some practical ways to start doing that today.
 
 ## 1. Write Up A Mission Statement
 
-When it comes to motivation, money isn't enough. Counter-intuitively, money actually seems to dampen our [intrinsic sense of motivation](https://hbr.org/2013/04/does-money-really-affect-motiv/). What builds it up, on the other hand, is the idea that you're pursuing a higher mission while you're at work. 
+When it comes to motivation, money isn't enough. Counter-intuitively, money actually seems to dampen our [intrinsic sense of motivation](https://hbr.org/2013/04/does-money-really-affect-motiv/). What builds it up, on the other hand, is the idea that you're pursuing a higher mission while you're at work.
 
 It's really easy to say, "Well, I'm a B2B SaaS adtech company, so we can't have some fancy higher mission,” but companies in “boring” industries can have cultures that are just as powerful as any other company.
 
@@ -45,7 +47,7 @@ That's why they make crazy videos and air all kinds of internal antics on their 
 
 First, zoom out from your product and put it in context. Is your product faster than the alternative? Is it more affordable, or more powerful? What is the larger purpose that your product can serve in a customer's life?
 
-Once you figure that out, write it down and start brainstorming with your team to find ways you can fulfill that mission even better than you are right now. 
+Once you figure that out, write it down and start brainstorming with your team to find ways you can fulfill that mission even better than you are right now.
 
 ## 2. Make Your Values Explicit
 
@@ -63,7 +65,7 @@ There's nothing wrong with offering your employees a little incentive to go abov
 
 Charles M. Schwab, the American steel magnate, once bred competition inside his factories by [tallying up the production numbers](http://www.businessinsider.com/how-charles-schwab-got-his-workers-to-produce-more-steel-2013-7?op=1) of both the day & night shifts, then writing them up on a wall in chalk. When the night crew started its shift and saw their last count bested by the day crew, they'd work super hard to try and best their colleagues.
 
-It's easy to look at something like that and assume that it would reduce overall cohesion, lessening the chances of cross-team learning and sharing of information. That's why you can't just go hands-off after introducing competition. You have to watch over your teams like an umpire to make sure that no one's competitiveness gets the better of them. 
+It's easy to look at something like that and assume that it would reduce overall cohesion, lessening the chances of cross-team learning and sharing of information. That's why you can't just go hands-off after introducing competition. You have to watch over your teams like an umpire to make sure that no one's competitiveness gets the better of them.
 
 Overall, though, a bit of friendly competition can actually do a lot to boost your company's overall cohesion and motivation. When you hire people who are goal-oriented and want to do great work, "gamifying" work in this way can be a hugely gratifying thing.
 
@@ -81,13 +83,13 @@ You need everyone to walk around the office "like they own the place," so make s
 
 In his new book, Pulitzer Prize-winner Charles Duhigg explains how Google's long quest to figure out how great teams work finally concluded. Much to the surprise of Google's data-driven People team, it was found that the best teams were simply teams where everyone spoke for about the [same amount of time](http://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html).
 
-It sounds strange, but speaking time has big implications for actual workplace behavior. When great teams at Google held meetings, for instance, everyone had a chance to voice their opinion. No one person controlled the flow of any conversation. 
+It sounds strange, but speaking time has big implications for actual workplace behavior. When great teams at Google held meetings, for instance, everyone had a chance to voice their opinion. No one person controlled the flow of any conversation.
 
-What Google concluded from their study was that people needed to feel "psychologically safe" at work if they were going to perform up to their potential. 
+What Google concluded from their study was that people needed to feel "psychologically safe" at work if they were going to perform up to their potential.
 
-Encourage psychological safety in your workplace by instructing managers to pay special attention. During meetings, they should be focused on making sure that everyone gets a chance to talk. If people clam up, their manager should take an active role and find out what's going on. 
+Encourage psychological safety in your workplace by instructing managers to pay special attention. During meetings, they should be focused on making sure that everyone gets a chance to talk. If people clam up, their manager should take an active role and find out what's going on.
 
-## 6. Give Honest Critiques 
+## 6. Give Honest Critiques
 
 Kimball Scott was still buzzing with excitement from giving her first presentation at Google when her boss, Sheryl Sandberg, pulled her aside.
 

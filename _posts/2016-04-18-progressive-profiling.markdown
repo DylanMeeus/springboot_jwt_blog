@@ -9,10 +9,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: "#4A4A4A"
   image: https://cdn.auth0.com/blog/progressive-profiling/icon.png
-tags: 
+tags:
 - customer-service
 - profiling
 - customer-information
@@ -36,6 +36,8 @@ Most importantly, it means your users can immediately engage with your product, 
 ## The Problem With Long Forms
 
 Customers are simply turned off by a long signup form. [86% ](http://www.sampleforms.org/wp-content/uploads/2012/12/How-to-optimize-registration-forms.jpg)of users say overly long forms make them quit on registrations, and reducing form fields from 11 to 4 [increases conversion rates by 120%](http://unbounce.com/conversion-rate-optimization/how-to-optimize-contact-forms/).
+
+{% include tweet_quote.html quote_text="86% of users say overly long forms make them quit on registrations." %}
 
 There are 4 main reasons people don’t fill out long forms:
 
@@ -70,7 +72,7 @@ Finally, after a few more logins, you can ask for phone number to help you keep 
 
 Over the course of a few interactions, you have collected exactly the same information as you would with a long registration form. But instead of putting potential customers off with an annoyingly long form, you have only asked them for the pertinent information each time, showing them the reasoning behind this information, and making each step quicker.
 
-This engages Dr. Robert Cialdini’s [principle](http://business.illinois.edu/shavitt/BA_531/Cialdini%20-%20Compliance.pdf) of “Commitment and Consistency.” Human beings naturally strive for consistency. Once we make a mental commitment to something, regardless of how small it is, we are exponentially more likely to stay consistent in our commitment to it. 
+This engages Dr. Robert Cialdini’s [principle](http://business.illinois.edu/shavitt/BA_531/Cialdini%20-%20Compliance.pdf) of “Commitment and Consistency.” Human beings naturally strive for consistency. Once we make a mental commitment to something, regardless of how small it is, we are exponentially more likely to stay consistent in our commitment to it.
 
 By getting a small commitment up front with a short form, you make it much more likely that your customer will give you more information in the future. Using progressive profiling, you users can experience your product straight away, getting to understand its core value and committing to it. Though this only gives you less initial data, you can build up a relationship with users first, and then gather further information you need over time.
 
@@ -85,15 +87,15 @@ Contents for the user profile can come from 3 different sources:
 ![progressive profiling flow-chart](https://cdn.auth0.com/blog/progressive-profiling/progressive-profiling-1.png)
 
 
-If you are using both social/enterprise login and Rules with Auth0 during your authentication process, then you should need little extra information added from your user. 
+If you are using both social/enterprise login and Rules with Auth0 during your authentication process, then you should need little extra information added from your user.
 
-Therefore, you should **never ask what you already know**. If you already have extensive demographics from LinkedIn or Facebook, it isn’t necessary to add questions about this information to your registration process. 
+Therefore, you should **never ask what you already know**. If you already have extensive demographics from LinkedIn or Facebook, it isn’t necessary to add questions about this information to your registration process.
 
 ## Implementing Progressive Profiling With Auth0
 
 Information from these social providers is likely to be high-quality compared to what users may add to your login form, therefore pre-populating their profile from these sources is preferential. But if you don’t have this data, or you want to augment it, a progressive profiling structure can add any additional data you need for either customer communication, or for marketing or sales leads.
 
-Using Rules, you can easily track how many sign in events have occurred for a user. 
+Using Rules, you can easily track how many sign in events have occurred for a user.
 
 Using the Auth0 [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id), Auth0 provides a “bucket” for user metadata:  `user_metadata`. The user token (obtained after authentication), is sufficient to modify the contents of `user_metadata`. This feature makes it very easy to control what information gets collected and when, and then through the Users API, enrich the user profile with any information collected:
 
@@ -135,7 +137,7 @@ Instead of one long form, which a new user would either ignore and thus never si
 
 One of the great strengths of progressive profiling is that it makes your registration process dynamic. As a user registers, you can construct a buyer persona for them and tailor the registration process to them.
 
-For example, you could use metadata in conjunction with Rules to check if your user is using a personal email address (Gmail, Hotmail, Yahoo, etc.) or a private domain, as in a work email. 
+For example, you could use metadata in conjunction with Rules to check if your user is using a personal email address (Gmail, Hotmail, Yahoo, etc.) or a private domain, as in a work email.
 
 If a customer is using a company address, it will make more sense for you to ask for their corporate information before you ask for more detailed contact details like phone numbers. If they’re using a personal email address, it makes more sense to collect more contact info first.
 
@@ -146,3 +148,5 @@ From there, you can segment you users depending on how they answered previous qu
 * If you asked when they would be interested in further information on your product, you would want a different flow depending on if the answer was *now* or *never*.
 
 With progressive profiling, you can get high-quantity, high-quality information from your users without pushing them away with aggressive forms and questionnaires.  Progressive profiling allows you to collect just the right information from your users at just the right time. You can build up a true profile of each one, allowing you to not only serve them better, but also to help your team generate just the right leads to help your company grow.
+
+{% include tweet_quote.html quote_text="Progressive profiling allows you to collect just the right information from your users at just the right time." %}

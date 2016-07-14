@@ -9,10 +9,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#4A4A4A"
   image: https://cdn.auth0.com/blog/customer-retention-techniques/logo.png
-tags: 
+tags:
 - customer-retention
 - customer-retention-techniques
 - retention-hacks
@@ -24,7 +24,9 @@ related:
 
 So much of your energy after launching a product goes into marketing. You want to see your product in the hands of as many customers as possible, and you want it done quickly. However, if you want to see real growth, the energy you spend on acquiring new customers should always be outpaced by the energy you spend on retaining customers.
 
-Acquiring a new customer can cost anywhere from[ 5 to 25 times](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers/) as much as retaining an existing one, and a simple 5% increase in customer retention can lead to a profit increase of [25% to 95%](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers/). Fortunately, this is common knowledge at this point, and most companies prioritize retention. 
+Acquiring a new customer can cost anywhere from[ 5 to 25 times](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers/) as much as retaining an existing one, and a simple 5% increase in customer retention can lead to a profit increase of [25% to 95%](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers/). Fortunately, this is common knowledge at this point, and most companies prioritize retention.
+
+{% include tweet_quote.html quote_text="A simple 5% increase in customer retention can lead to a profit increase of 25% to 95%" %}
 
 Unfortunately, most companies only focus their retention strategies around building a more engaging user experience, and fail to give enough attention to the most important part of customer retention: security.
 
@@ -49,11 +51,13 @@ It makes sense. If readers aren’t looking at your app, it doesn’t matter wha
 
 ### Why it’s a security risk
 
-Microsoft released an iOS version of their Outlook app in 2015 that featured push notifications. However, developer and security blogger René Winkelmeyer discovered that the app was collecting an invasive amount of data. For example, the app required access to your Google Drive, DropBox, and OneDrive accounts. It also [stored your mail and server credentials](https://blog.winkelmeyer.com/2015/01/warning-microsofts-outlook-app-for-ios-breaks-your-company-security/), constantly scanning your server and account. 
+Microsoft released an iOS version of their Outlook app in 2015 that featured push notifications. However, developer and security blogger René Winkelmeyer discovered that the app was collecting an invasive amount of data. For example, the app required access to your Google Drive, DropBox, and OneDrive accounts. It also [stored your mail and server credentials](https://blog.winkelmeyer.com/2015/01/warning-microsofts-outlook-app-for-ios-breaks-your-company-security/), constantly scanning your server and account.
 
 This means that even if you turned the app off, Microsoft’s central service would check your email and send push notifications to you. This also means that all of your personal information and credentials would be stored on Microsoft’s cloud.
 
 Issues of privacy aside, collecting data you don’t need increases your liability without any benefit to you. The more of a customer’s data you hold, the greater the damage will be should you ever experience a breach. Look at TJX.
+
+{% include tweet_quote.html quote_text="The more of a customer’s data you hold, the greater the damage will be should you ever experience a breach." %}
 
 In 2005, the retailer was the victim of one of the [largest cyber attacks in history](http://www.wired.com/2007/10/tjx-failed-to-n/), resulting in the theft of thousands of credit card numbers. In the words of Canadian privacy commissioner [Jennifer Stoddart](https://www.washingtonpost.com/business/technology/), “The company collected too much personal information, kept it too long and relied on weak encryption to protect it.”
 
@@ -85,7 +89,7 @@ Increasing conversion rates and making your customers’ lives easier is a hard 
 
 In 2013, Facebook locked thousands of users out of their accounts and required that they submit [proof of a government ID](http://www.theblaze.com/stories/2013/10/29/absurd-facebook-requesting-government-id-to-unlock-accounts-again/) for processing. Companies whose apps relied on Facebook social logins were subsequently [locking their customers out](https://hbr.org/2013/12/mitigating-the-risks-of-social-login/) for days.
 
-While being locked out of Facebook isn’t life or death (unless you built your company on Facebook, as many do), being locked out of your work account, or being locked out of a service your company requires, can cause downtime, costing you money and customers. 
+While being locked out of Facebook isn’t life or death (unless you built your company on Facebook, as many do), being locked out of your work account, or being locked out of a service your company requires, can cause downtime, costing you money and customers.
 
  In Fortune 1000 companies, for example, the cost of application failure is between [$500,000 and $1 million per hour](http://www.reuters.com/article/idUSnMKWyC4T8a+1d4+MKW20150204).
 
@@ -106,7 +110,7 @@ Incorporating a system of redundancies in this way doesn’t just increase the n
 
 ## 3.  Email Is A Corner Stone of Retention, And a Huge Security Risk
 
-If you read any list of customer retention tactics, one of the first suggestions will always be to use a service like [Customer.io](https://customer.io/) to send targeted and automated messages to your customers at different stages in their lifecycle. 
+If you read any list of customer retention tactics, one of the first suggestions will always be to use a service like [Customer.io](https://customer.io/) to send targeted and automated messages to your customers at different stages in their lifecycle.
 
 For example, you can have emails [automatically sent](https://customer.io/docs/transactional-email.html) to customers when they register, when they finish onboarding, and when their usage data slows. In addition, you can personalize how you send the message, for example sending at the [time of day](https://customer.io/docs/welcome-email.html) most convenient to your customer.
 
@@ -116,9 +120,9 @@ However, using email without regard for security is a big gamble—one that coul
 
 ### Why it’s a security risk
 
-Phishing scams—from old-fashioned [Nigerian prince scams](http://www.pcworld.com/article/192664/the_story_behind_the_nigerian_phishing_scam.html) to more modern “[artisanal spam](https://auth0.com/blog/2016/02/29/the-new-trend-of-artisanal-spam/)”—are a cultural staple of the internet at this point. Everyone has received a dodgy email or seen a questionable pop-up asking them to “Download this urgent update!!!” and most of us have the wherewithal to ignore them. 
+Phishing scams—from old-fashioned [Nigerian prince scams](http://www.pcworld.com/article/192664/the_story_behind_the_nigerian_phishing_scam.html) to more modern “[artisanal spam](https://auth0.com/blog/2016/02/29/the-new-trend-of-artisanal-spam/)”—are a cultural staple of the internet at this point. Everyone has received a dodgy email or seen a questionable pop-up asking them to “Download this urgent update!!!” and most of us have the wherewithal to ignore them.
 
-You would think that in today’s tech-savvy world, government agencies would be too sophisticated to fall for these ploys. You’d be wrong. 
+You would think that in today’s tech-savvy world, government agencies would be too sophisticated to fall for these ploys. You’d be wrong.
 
 In the last year, the director of the CIA, the [US Director of National Intelligence](http://motherboard.vice.com/read/teen-who-hacked-cia-email-is-back-to-prank-us-spy-chief), and President Obama’s senior advisor on science and technology have all fallen victim to phishing attacks, allegedly led by the same group of high school students.
 

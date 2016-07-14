@@ -22,6 +22,8 @@ related:
 
 Passwordless SMS doesn’t just make your users’ accounts safer, it makes their lives easier too. Here’s how it works, why it’s important, and how Auth0 makes implementing it a breeze.
 
+{% include tweet_quote.html quote_text="Passwordless SMS doesn’t just make your users’ accounts safer, it makes their lives easier too." %}
+
 ## How Does SMS Authentication Work?
 
 SMS authentication is a form of passwordless authentication, where users are authenticated on their access to another secure platform, instead of authenticated based on their possession of a password.

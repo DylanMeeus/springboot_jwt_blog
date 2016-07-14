@@ -13,7 +13,7 @@ design:
   image: https://cdn.auth0.com/blog/boilerplate/falcor-relay.png
   image_size: "100%"
   image_bg_color: "#fff"
-tags: 
+tags:
 - falcor
 - relay
 - javascript
@@ -33,7 +33,7 @@ To get a sense of each, check out our getting started tutorials for both [Falcor
 
 ---
 
-There’s been a lot of talk about JavaScript fatigue lately, and perhaps rightly so. It can be tough to keep up with all the new frameworks, modules, and libraries that pop up every day, and now that we’re in the era of next gen JavaScript and the build step, things can be even more difficult when we throw in transpilation and build tools. 
+There’s been a lot of talk about JavaScript fatigue lately, and perhaps rightly so. It can be tough to keep up with all the new frameworks, modules, and libraries that pop up every day, and now that we’re in the era of next gen JavaScript and the build step, things can be even more difficult when we throw in transpilation and build tools.
 
 We’ve even got people that are [really angry](https://medium.com/@wob/the-sad-state-of-web-development-1603a861d29f#.x1zwe3db2) about the current state of JavaScript and web development. Personally, I find this a kind of anger to be pretty odd. Everyone is entitled to their opinion of course, but getting mad about technology that is both **optional** and **free** just seems weird.
 
@@ -101,13 +101,13 @@ app.use('/model.json', falcorExpress.dataSourceRoute(function(req, res) {
             // Finally we push a path/value object onto
             // the results array
             results.push({
-              path: ['events', eventId, key], 
+              path: ['events', eventId, key],
               value: eventRecord[key]
             });
           });          
         });
 
-        return results; 
+        return results;
       }      
     }
   ]);
@@ -178,8 +178,8 @@ module.exports = new GraphQL.GraphQLSchema({
       // Root queries
       user: {
         type: userType,
-        resolve: function() { 
-          return db.getUser(1) 
+        resolve: function() {
+          return db.getUser(1)
         },
       },
     },
@@ -267,7 +267,7 @@ var authenticate = jwt({
   audience: 'YOUR_CLIENT_ID'
 });
 
-app.use('/api/model.json', authenticate, falcorExpress.dataSourceRoute(function(req, res) 
+app.use('/api/model.json', authenticate, falcorExpress.dataSourceRoute(function(req, res)
   {
     return new Router([
       {...}
@@ -330,5 +330,7 @@ Maybe the audience that frameworks like Falcor and Relay are intended for is one
 I’m sure the newcomers aren’t alone. I doubt that seasoned developers like writing a lot of boilerplate and I have a feeling they have a special appreciation for simple and approachable APIs.
 
 All this considered, I think High Boilerplate Frameworks like Falcor and Relay would do well to simplify their APIs and make themselves more approachable to noobs and veterans alike.
+
+{% include tweet_quote.html quote_text="High Boilerplate Frameworks like Falcor and Relay would do well to simplify their APIs" %}
 
 What do you think about the boilerplate required in frameworks like Falcor and Relay? Has this hindered you from getting started with them? If you’re working with them, is it hindering productivity, or do the benefits they bring outweigh the amount of boilerplate that is needed?

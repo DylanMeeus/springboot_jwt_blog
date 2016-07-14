@@ -66,8 +66,6 @@ _When you are browsing a site look for **https** and the padlock icon to ensure 
 
 Big sites have strong security measures in place, but independent of all that security, the weakest link is probably your _password_.
 
-{% include tweet_quote.html quote_text="Big sites have strong security measures in place, but independent of all that security, the weakest link is probably your password." %}
-
 Nowadays, several sites enforce the use of secure passwords, but for those that don't, you should be proactive.
 
 Here are some suggestions for creating passwords:
@@ -181,5 +179,7 @@ Lastly, you can also enable [multifactor authentication](https://auth0.com/learn
 ## Closing Comments
 
 Cyber criminals are always lurking to steal information from vulnerable devices and incautious customers, especially this season.
+
+{% include tweet_quote.html quote_text="Cyber criminals are always lurking to steal information from vulnerable devices and incautious customers" %}
 
 The best defense against cyber crime is prevention - knowing the threats and taking action to minimize the risk of being an easy target. We have given you the knowledge - use it to your advantage and shop safely.

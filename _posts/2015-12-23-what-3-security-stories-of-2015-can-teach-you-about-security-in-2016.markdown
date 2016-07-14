@@ -76,7 +76,7 @@ AWS isn’t the only cloud provider that supports auto-scaling for dealing with 
 
 Contingency planning is key for DDoS attacks. DDoSing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline for long, and might end up paying any ransom demands to get their product back up. By putting a plan in place before your servers go down, you can make sure your service is available consistently and that you aren’t beholden to blackmailers if they do target your site.
 
-{% include tweet_quote.html quote_text="DDoSing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline for long" %}
+{% include tweet_quote.html quote_text="DDoSing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline." %}
 
 Additionally, building on top of an existing framework such as AWS means that you will definitely have the capacity to scale when the time comes, and can quickly take on any extra load without having to deal with all of these issues at the absolute worst time—when you’re being attacked.
 

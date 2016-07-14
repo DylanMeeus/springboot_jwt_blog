@@ -44,7 +44,7 @@ Auth0 subscribers can specify their preferred location by simply choosing from a
 
 When you choose a service region closer to where your customers operate, you can experience some great login latency improvements. Subscribers who migrated from the US to the EU Region saw [latency improvements of nearly 2x](https://auth0.com/blog/2015/04/27/auth0-europe-launches/); the same is true for those now migrating to Auth0 Australia.
 
-{% include tweet_quote.html quote_text="When you choose a service region closer to where your customers operate, you can experience some great login latency improvements." %}
+{% include tweet_quote.html quote_text="Choosing a service region closer to where your customers operate can improve login latency." %}
 
 ## We’re here to help
 

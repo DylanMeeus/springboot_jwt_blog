@@ -26,6 +26,8 @@ related:
 
 Today we're happy to announce the launch of the **Auth0 Europe** region. Auth0 makes identity simple for tens of thousands of developers in more than 150 countries around the world, and now those topographically closer to Frankfurt can enjoy even lower latency logins.  Further, subscribers everywhere that have the compliance requirement of EU data residence can check that box.
 
+{% include tweet_quote.html quote_text="Today we're happy to announce the launch of the Auth0 Europe region." %}
+
 <!-- more -->
 
 ![](https://cdn.auth0.com/blog/eu-launch.png)

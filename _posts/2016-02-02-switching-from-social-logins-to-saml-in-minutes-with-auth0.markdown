@@ -3,16 +3,16 @@ layout: post
 title: "Switching from Social Authentication to SAML in Minutes with Auth0"
 description: "Setting up SAML authentication with Auth0 is as easy as setting any social connection (like Google!)"
 date: 2016-02-02 10:00
-author: 
+author:
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist
   mail: kassandra.perch@auth0.com
   avatar: https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/styleguide/1.0.0/img/badge.png"
   image_size: "50%"
-tags: 
+tags:
 - SAML
 - Enterprise
 - Social
@@ -35,6 +35,8 @@ So let's start with a hypothetical: you're building a SaaS product, and some of 
 SAML is a complex standard, and so implementing Federation yourself, even with [already existing libraries](https://www.npmjs.org/package/saml2-js) can be quite a nightmare, and require lots of code and maintenance.
 
 Luckily, Auth0 supports SAML authentication (you can even use [Lock](https://auth0.com/lock)) with just a few lines of code and some configuration.
+
+{% include tweet_quote.html quote_text="Auth0 supports SAML authentication with just a few lines of code and some configuration." %}
 
 So what we're going to go over today is how to get that started and how easy it is to switch over to SAML authentication from a social login provider like Google.
 
@@ -117,8 +119,6 @@ That's it for SAML authentication configuration! Click 'Save' and 'Continue'. Yo
 
 Once you have done this, you can test your new SAML connection in the Dashboard. Go to 'Connections' > 'Enterprise', then select 'SAMLP Identity Provider'. Next to your connection name, you should see a play icon. Click it to try your SAML login from the dashboard. If this works, you are ready to log in using SAML authentication in your Auth0 app!
 
-With just a few minutes and no code changes, we have incorporated a SAML SSO into our Auth0 app! Want to learn more? [try our free plan](https://auth0.com/pricing), and you can checkout the [30+ social IdPs](https://auth0.com/docs/identityproviders#social) and the [enterprise IdPs](https://auth0.com/docs/identityproviders#enterprise) that we support. 
+With just a few minutes and no code changes, we have incorporated a SAML SSO into our Auth0 app! Want to learn more? [try our free plan](https://auth0.com/pricing), and you can checkout the [30+ social IdPs](https://auth0.com/docs/identityproviders#social) and the [enterprise IdPs](https://auth0.com/docs/identityproviders#enterprise) that we support.
 
 I'm Kassandra from Auth0, and thanks for reading!
-
-

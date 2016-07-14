@@ -208,7 +208,7 @@ In the previous paragraphs we covered the basics of 2FA. Here's what you need to
 - **Audit and notify users of changes:** Provide convenient ways for users to see if the authentication details (or methods) have been changed or enabled in their accounts. This allows for early detection of suspicious activity. Automated emails are a good choice.
 - **Encrypt shared secrets**: Per [RFC 6238](https://tools.ietf.org/html/rfc6238#section-5), you should store shared-secrets using a cryptographically secure reversible algorithm and keep the keys in memory only as long as necessary. Do not reinvent the wheel; use existing and well-tested libraries for this.
 
-{% include tweet_quote.html quote_text="You should store shared-secrets using a cryptographically secure reversible algorithm and keep the keys in memory only as long as necessary" %}
+{% include tweet_quote.html quote_text="Shared secrets should be stored using a cryptographically secure reversible algorithm" %}
 
 ## Conclusion
 We showed in this blog post how easy it is to get started with 2FA using TOTP. It does not require a lot of infrastructure. Google Authenticator, Microsoft Authenticator, Authy and other TOTP applications are available in multiple platforms which makes adoption easy. But don't forget to take into account the non-happy-path: people reset their phone, it gets lost or stolen, or sometimes they don't even have one.

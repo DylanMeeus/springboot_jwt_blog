@@ -49,7 +49,7 @@ Even MailChimp—which came out against social login after [experimenting with i
 
 Per ounce of work, implementing social login is one of the quickest wins around for driving up your sign up conversion rates and widening your funnel.
 
-{% include tweet_quote.html quote_text="Implementing social login is one of the quickest wins around for driving up your sign up conversion rates and widening your funnel." %}
+{% include tweet_quote.html quote_text="Implementing social login is one of the quickest wins around for driving up your sign up conversion rates." %}
 
 <div class="" style="text-align: center;"><img style="margin: 0; max-width: 250px;" src="https://cdn.auth0.com/docs/media/landings/sl-what-is/what-is-social-login.png" alt="Social Login with Auth0" />
 </div>

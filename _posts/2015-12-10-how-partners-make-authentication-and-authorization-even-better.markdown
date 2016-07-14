@@ -54,7 +54,7 @@ Grean manages everything related to onboarding of business partners and their em
 
 Grean was built to work seamlessly with Auth0 by integrating into the authentication flow, independent of actual authentication method. Put simply, Auth0 determines who you are, Grean determines which organization you belong to and what you will be allowed to do in the context of that organization and the application you are using.
 
-{% include tweet_quote.html quote_text="Grean was built to work seamlessly with Auth0 by integrating into the authentication flow, independent of actual authentication method" %}
+{% include tweet_quote.html quote_text="Grean was built to work seamlessly with Auth0 by integrating into the authentication flow" %}
 
 > “Auth0 determines who you are, Grean determines which organization you belong to and what you will be allowed to do.”
 

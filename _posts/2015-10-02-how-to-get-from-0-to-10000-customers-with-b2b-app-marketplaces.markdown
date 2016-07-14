@@ -184,7 +184,7 @@ When Google Drive launched, they looked for partner apps to showcase what you co
 
 Often, the hardest part of starting a company isn’t building product or innovating on technology—it’s acquiring customers. Building sales and marketing teams is particularly tough for engineering-focused founders.
 
-{% include tweet_quote.html quote_text="Often, the hardest part of starting a company isn’t building product or innovating on technology—it’s acquiring customers." %}
+{% include tweet_quote.html quote_text="Often, the hardest part of starting a company isn’t building product—it’s acquiring customers." %}
 
 What’s most awesome about acquiring customers via apps marketplaces is that it turns the process of customer acquisition into a process of improving the product. As you add single sign-on and deeper integrations, you add and deepen your product’s functionality as the same time as you improve your product’s app store acquisition.
 

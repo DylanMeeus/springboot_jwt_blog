@@ -36,7 +36,7 @@ Reactive programming has been gaining a lot of popularity in recent years. In th
 
 In this tutorial, we'll see how we can implement Reactive programming by creating a simple app that fetches and displays data. We'll also see how we can handle authentication in our app and have what we'll call "authenticable observables". Our goal throughout this tutorial is to see how we can shift our thinking about app architecture. We'll move away from the simple Promise-based asynchronous models we're used to and see how we can benefit from working with Observables.
 
-{% include tweet_quote.html quote_text="In the Reactive paradigm, data is handled as streams that can be composed of anything from events to simple variables and everything in between. ." %}
+{% include tweet_quote.html quote_text="In the Reactive paradigm, data is handled as streams that can be composed of anything from variables to events" %}
 
 ## Building Our Reactive App
 

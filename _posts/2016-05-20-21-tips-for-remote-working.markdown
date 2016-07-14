@@ -3,15 +3,15 @@ layout: post
 title: "21 Tried-and-True Tips For Remote Working"
 description: How to Embrace Remote Working and Still Be Productive
 date: 2016-05-20 11:53
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
   mail: diego.poza@auth0.com
-design: 
+design:
   bg_color: "#08192D"
   image: https://cdn.auth0.com/blog/remote-working/logo.png
-tags: 
+tags:
 - remote-working
 - remote-culture
 - communication
@@ -34,9 +34,11 @@ Here are 21 of the best tips we have for companies, managers, and remote workers
 
 ### 1. Communicate Deliberately
 
-Contrary to popular belief, remote workers have to be better at communication than their office brethren. Communication plays a vital role in work, and when team members are apart, it’s vital to put communication front and center. 
+Contrary to popular belief, remote workers have to be better at communication than their office brethren. Communication plays a vital role in work, and when team members are apart, it’s vital to put communication front and center.
 
-Without being able to tap the person at the desk next to you on the shoulder, you need to be clear in your chosen communication channel if you need something or are stuck. If you don’t then people can lose track of where the company is, where projects are, and lose their own focus. 
+{% include tweet_quote.html quote_text="Remote workers have to be better at communication than their office brethren." %}
+
+Without being able to tap the person at the desk next to you on the shoulder, you need to be clear in your chosen communication channel if you need something or are stuck. If you don’t then people can lose track of where the company is, where projects are, and lose their own focus.
 
 **Tool**: [Slack](http://slack.com/). At Auth0, Slack is our primary mode of communication, as it is for a growing number of remote or local companies. With the ability to set up different channels for different teams, [add integrations to make life easier](https://auth0.com/blog/2016/01/18/how-to-build-your-customer-trust-through-soc-2/), and keep everyone in the loop at all times, we can constantly communicate anything that the team needs to know (and in #random, plenty they don’t!).
 
@@ -49,7 +51,7 @@ When communicating, don’t just type, talk. Sometimes you need face to face com
 ### 3. Find the team's golden hour
 
 With team members spread all over the world, getting everyone online and around at the same time can be a challenge. And that’s before trying to remember who is +4 UTC and who is -5 UTC (plus factoring in daylight savings). However, it still makes sense to find the time when the majority of the team is available, so that you can schedule all-hands meetings or other important events during that time.
- 
+
 **Tool**: [Every Time Zone](http://everytimezone.com/). This allows you to see what time it is in a ton of time zones all at once, so you can set the team schedule appropriately. It gives you a visual reference to whether you are talking to someone in the middle of their work day, or waking them up in the middle of the night.
 
 ![Every Time Zone](https://cdn.auth0.com/blog/remote-working/every-time-zone.png)
@@ -84,7 +86,7 @@ Don’t be afraid to protect your time, as others won’t.
 
 ### 7. Set up your work space
 
-When your home is your office, it can be whatever you want it to be. But it needs to be a place of work. Setting your work space apart from your home space allows you to better delineate the two, and lets your brain know when it needs to be in work mode or home mode. 
+When your home is your office, it can be whatever you want it to be. But it needs to be a place of work. Setting your work space apart from your home space allows you to better delineate the two, and lets your brain know when it needs to be in work mode or home mode.
 
 If you’ve got the room, then setting up your own office is ideal, but even if not, take a corner of a room just for work, where you go to do that and only that. Then the rest of the home is for rest.
 
@@ -114,7 +116,7 @@ When you are in your own space, you can do your own things. Want to work in your
 
 To-do lists are all the rage, but when working remotely, a *to-don’t list *can be just as useful. When you’re at home, then you’re acutely aware that there are other things you could be doing. Laundry, Dishes, Cooking. Online, it’s even easier to get sucked into the internet when there is no one looking over your shoulder. People who work remotely need solid intrinsic motivation, but everyone has been down the rabbit hole of following article after article online, finding that it’s an hour later and they can’t even remember how they got there.
 
-Every time you think about doing something that could be a distraction. Reading an article, replying to a non-urgent email, doing the dishes, write it down on your to-don’t list and save it for later. 
+Every time you think about doing something that could be a distraction. Reading an article, replying to a non-urgent email, doing the dishes, write it down on your to-don’t list and save it for later.
 
 **Tool:** [Pocket](http://getpocket.com/). You can use Pocket, an app for saving web articles for later, as a special version of this, saving articles that you want to read for later in the day. For other jobs, a simple pen and paper will work just as well as any app.
 

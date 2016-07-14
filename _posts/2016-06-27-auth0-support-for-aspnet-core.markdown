@@ -41,11 +41,11 @@ Our support at this stage is therefore limited to new Quickstarts for MVC and We
 
 ![Embedd Lock](https://cdn.auth0.com/blog/dotnetcore/dotnet-embedded-lock.png)
 
-One usage scenario in particular which is a bit tricky is the one where you want to embed Lock into your ASP.NET Core MVC application, and still use the standard OAuth or OpenID Connect middleware. 
+One usage scenario in particular which is a bit tricky is the one where you want to embed Lock into your ASP.NET Core MVC application, and still use the standard OAuth or OpenID Connect middleware.
 
 When using the normal OAuth or OIDC middleware as-is, when a user wants to log in and the middleware is called, the user will be redirected to the Auth0 website to log in using the hosted version of Lock. This may not be the user experience you are looking for. You may for example want to embed Lock inside your application so it has more of the look-and-feel of your own application. In this instance you can use both Lock and the OAuth/OIDC middleware together, but it requires a bit of extra work on your side.
 
-Normally when the OAuth or OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in a `state` parameter (and in the case of OIDC also a `nonce` parameter). It will also set a couple of cookies containing the values of the `state` and `nonce`. 
+Normally when the OAuth or OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in a `state` parameter (and in the case of OIDC also a `nonce` parameter). It will also set a couple of cookies containing the values of the `state` and `nonce`.
 
 After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, it will pass back this state and nonce parameters. The OAuth/OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the code for an access_token. It will however validate the state and nonce parameters to protect against CSRF.
 
@@ -55,7 +55,7 @@ So in this instance you will need to construct correct state and nonce parameter
 
 ![Authenticated User](https://cdn.auth0.com/blog/dotnetcore/dotnet-login.png)
 
-We have very well documented samples for this scenario however, but as mentioned before it requires some extra legwork from your side, and also to add a few extra files to your application. We would love to create a NuGet package which automatically adds the correct helper files to your project, but due to technical limitations with NuGet and `project.json` we cannot create a NuGet that adds content files to your project at this stage. Microsoft has stated that they are going to be [reverting back to csproj files](https://blogs.msdn.microsoft.com/dotnet/2016/05/23/changes-to-project-json/) at some stage, so once this is technically feasible again we will create a NuGet package which will make your life a bit easier in this particular scenario. 
+We have very well documented samples for this scenario however, but as mentioned before it requires some extra legwork from your side, and also to add a few extra files to your application. We would love to create a NuGet package which automatically adds the correct helper files to your project, but due to technical limitations with NuGet and `project.json` we cannot create a NuGet that adds content files to your project at this stage. Microsoft has stated that they are going to be [reverting back to csproj files](https://blogs.msdn.microsoft.com/dotnet/2016/05/23/changes-to-project-json/) at some stage, so once this is technically feasible again we will create a NuGet package which will make your life a bit easier in this particular scenario.
 
 ## Our ASP.NET Core Quickstarts and Samples
 
@@ -82,3 +82,5 @@ Here is a list of the samples we currently have available:
 ## Conclusion
 
 Auth0 works great with the standard ASP.NET Core middleware out of the box due to our use of open standards. We have supplied samples demonstrating various usage scenarios, but please let us know if you would like us to expand on those.
+
+{% include tweet_quote.html quote_text="Auth0 works great with the standard ASP.NET Core middleware out of the box due to our use of open standards." %}

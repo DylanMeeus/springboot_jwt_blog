@@ -110,6 +110,8 @@ For instance, following the example of the cache, an immutable data structure th
 
 **Functional programming as a paradigm favors the use of side-effect free functions**. For this to apply, functions must only perform operations on the data that is passed to them, and the effects of those operations should only be seen to the callee. **Immutable data structures go hand-in-hand with side-effect free functions**.
 
+{% include tweet_quote.html quote_text="Immutable data structures go hand-in-hand with side-effect free functions." %}
+
 ```JavaScript
 var globalCounter = 99;
 

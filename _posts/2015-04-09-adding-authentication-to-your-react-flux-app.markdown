@@ -46,6 +46,9 @@ However, once you start creating a bigger app, you realize that just using React
 
 As we learned in a [previous blog post](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), learning how to conduct authentication in a Single Page App can get super complex. We had to learn about tokens, [JWTs](http://jwt.io/) and how to integrate them with SPAs. Learning how to do it with Flux is even harder! That’s why in this blogpost we’ll learn how to add authentication to a React Flux app.
 
+{% include tweet_quote.html quote_text="Learning how to conduct authentication in a Single Page App can get super complex" %}
+
+
 ![Image](https://docs.google.com/drawings/d/12Y8gWirtVhvrHrlyc1Z7P59c2NkY6m3zThsSL1L0gP0/pub?w=959&h=638)
 
 <!-- more -->
@@ -328,5 +331,3 @@ Auth0 issues **JSON Web Tokens** on every login for your users. That means that 
 We’ve finished implementing the Login for a React Flux app. If you want to know how to implement a signup or if you want to see the full example at work, you can [grab the code from Github](https://github.com/auth0/react-flux-jwt-authentication-sample).
 
 Happy Hacking! :).
-
-

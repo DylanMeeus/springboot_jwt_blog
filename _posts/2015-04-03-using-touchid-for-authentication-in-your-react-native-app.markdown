@@ -31,7 +31,7 @@ related:
 
 <!-- more -->
 
-A few days ago, Facebook finally made **React Native** available in [Github](https://github.com/facebook/react-native), so, like everybody else, we decided to give it a try.
+A few days ago, Facebook finally made **React Native** available on [Github](https://github.com/facebook/react-native), so, like everybody else, we decided to give it a try.
 After the usual “Hello, World” examples and test applications, we were pretty amazed at how easy it was to code a native app with Javascript.
 This is when we decided to try implementing something a little more complicated like **TouchID authentication**.
 

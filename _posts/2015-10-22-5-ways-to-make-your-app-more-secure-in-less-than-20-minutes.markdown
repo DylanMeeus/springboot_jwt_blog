@@ -30,8 +30,6 @@ When you finally come out the other side, you need to do a massive overhaul of y
 
 But the security landscape is changing. With identity-as-a-service providers like Auth0, you’re able to outsource security to experts whose 100% focus day and night is to make sure that your user data is secure. Your IaaS becomes a platform on top of which you can easily layer on additional security services that protects your user data as you grow and scale.
 
-{% include tweet_quote.html quote_text="With identity-as-a-service providers like Auth0, you’re able to outsource security to experts whose 100% focus day and night is to make sure that your user data is secure." %}
-
 ## An App Store for Adding Security to Your App
 
 When you add a new security measure to your homegrown identity system, like multifactor authentication (MFA), you need to wire it up to your code by hand. This can be very time consuming, add considerable code complexity, and leave room for inconsistencies and errors.
@@ -326,7 +324,7 @@ function (user, context, callback) {
 
 Encrypting sensitive user data minimizes the damage that occurs if hackers compromise a user’s account or find a way to leak user data.
 
-{% include tweet_quote.html quote_text="Encrypting sensitive user data minimizes the damage that occurs if hackers compromise a user’s account or find a way to leak user data." %}
+{% include tweet_quote.html quote_text="Encrypting sensitive user data minimizes the damage that occurs if hackers compromise a user’s account." %}
 
 Recently, crowdfunding site Patreon announced that it had been [hacked](http://motherboard.vice.com/read/the-whole-works-is-in-there-hackers-dump-data-from-patreon-crowdfunding-site). Attackers got away with 2.3 million email addresses, user names, and shipping addresses—plus, it included private messages sent via the site’s internal messaging platform of a highly personal nature.
 

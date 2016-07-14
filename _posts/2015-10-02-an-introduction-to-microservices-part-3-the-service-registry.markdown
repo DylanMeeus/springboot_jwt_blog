@@ -70,7 +70,7 @@ As you can imagine, discovery is the counterpart to registration from the point 
 
 **Server-side discovery** makes the **API gateway handle the discovery** of the right endpoint (or endpoints) for a request. This is normally used in bigger architectures. As all requests are directly sent to the gateway, all the benefits discussed in relation to it apply (see [part 2](https://auth0.com/blog/2015/09/13/an-introduction-to-microservices-part-2-API-gateway/)). The gateway may also implement discovery caching, so that many requests may have lower latencies. The logic behind cache invalidation is specific to an implementation.
 
-{% include tweet_quote.html quote_text="Server-side discovery makes the API gateway handle the discovery of the right endpoint (or endpoints) for a request." %}
+{% include tweet_quote.html quote_text="Server-side discovery makes the API gateway handle the discovery of the right endpoint for a request." %}
 
 ![Server-side discovery](https://cdn.auth0.com/blog/microservices/server-side-discovery-diagram.png)
 

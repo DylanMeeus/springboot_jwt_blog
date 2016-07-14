@@ -29,6 +29,8 @@ related:
 
 ---
 
+{% include tweet_quote.html quote_text="Auth0 allows you to easily migrate Parse users by implementing just a couple of scripts." %}
+
 Facebook shocked the developer community when it announced it would be [shutting down](http://blog.parse.com/announcements/moving-on/) Parse, a [MBaaS](https://en.wikipedia.org/wiki/Mobile_backend_as_a_service), which powers over 500,000 apps. Applications relying on Parse have until January 28, 2017 to find a new home. The Parse team has released two tools to help developers migrate away, [Parse Server](https://github.com/ParsePlatform/parse-server/wiki) and the [Database Migration Tool](https://parse.com/docs/server/guide#migrating).
 
 Today's tutorial will focus on migrating users from an existing Parse application to Auth0. We will implement Auth0's automatic migration feature to work with our existing Parse backend so that when our existing users login their account will be migrated to Auth0. We have developed a sample app that utilizes Parse - and this tutorial will take us step by step through the process of migrating users to Auth0.

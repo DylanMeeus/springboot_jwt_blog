@@ -8,7 +8,7 @@ author:
   url: http://twitter.com/searsaw
   mail: alexwsears@gmail.com
   avatar: "https://s.gravatar.com/avatar/6c0654e56c8c73ffee8f76fe03d18ccf?s=80"
-design: 
+design:
   bg_color: "#240B0D"
   image: https://cdn.auth0.com/blog/ruby-auth-with-jwt/logo.png
 tags:
@@ -456,3 +456,5 @@ This is only a portion of the information you can get from their docs. [Head ove
 ## Authentication is hard
 
 Authentication in a web application can be difficult. However, whether you use Auth0 or roll your own solution, the `jwt` ruby gem offers a simple way to use JWTs in your ruby application. This allows stateless authentication that can be used in a traditional application or a decentralized API.
+
+{% include tweet_quote.html quote_text="Authentication in a web application can be difficult. However, Auth0 simplifies it with JWTs." %}

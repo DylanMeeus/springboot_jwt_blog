@@ -47,7 +47,7 @@ What we need, then, is a way for our app to detect when we don't have an interne
 
 A service worker is a bit like a proxy server between the application and the browser, and it has quite a bit of power. With a service worker, we can completely take over the response from an HTTP request and alter it however we like. This is a key feature for serving an offline experience. Since we can detect when the user is disconnected, and we can respond to HTTP requests differently, we have a way of serving the user files and resources that have been saved locally when they are offline.
 
-{% include tweet_quote.html quote_text="With a service worker, we can completely take over the response from an HTTP request and alter it however we like." %}
+{% include tweet_quote.html quote_text="With a service worker, we can completely take over the response from an HTTP request and alter it." %}
 
 ![service-worker](https://cdn.auth0.com/blog/offline-first/offline-first-diagram.png)
 

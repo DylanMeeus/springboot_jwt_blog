@@ -46,7 +46,7 @@ If you've never used JSON Web Tokens, there is some great introductory material 
 
 When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security-- especially when you're stuck on HTTP. JSON Web Tokens use a payload, encryption, and either a secret or private/public key pair in order to provide a signed token that allows you to verify that your NodeBots APIs are only being used by you (or other NodeBots and users that you approve)!
 
-{% include tweet_quote.html quote_text="When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security" %}
+{% include tweet_quote.html quote_text="When using your own Node server for robotics control, JSON Web Tokens can provide an extra level of security" %}
 
 In order to use JSON Web Tokens with NodeBots, you'll want to look into [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken). This library allows you to create JSON Web Tokens:
 

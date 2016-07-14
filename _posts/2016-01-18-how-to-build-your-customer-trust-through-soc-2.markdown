@@ -8,7 +8,7 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: #221E20
   image: https://cdn.auth0.com/blog/soc/logo.png
 tags:
@@ -41,7 +41,7 @@ This was all well and good, but then SaaS came along. This paradigm shift from i
 
 For some time, SAS 70 continued to be used, but it [became widely abused](http://blogs.gartner.com/french_caldwell/2012/10/09/time-to-stop-misusing-ssae-16-in-vendor-marketing/comment-page-1). Renamed SOC 1 (Service Organization Controls 1), some SaaS providers touted a SOC 1 attestation as proof that their service is secure and can be trusted, but that was never the intent. SOC 1 helped firms comply with financial audits and prevent fraud, but it says nothing about what controls external providers should have in place to protect customer data in the cloud.
 
-As SaaS took off, it became increasingly important for businesses to know that these external companies had the right security in place to protect any sensitive data. A new standard was needed, built around increasing the trust financial firms could put in SaaS. 
+As SaaS took off, it became increasingly important for businesses to know that these external companies had the right security in place to protect any sensitive data. A new standard was needed, built around increasing the trust financial firms could put in SaaS.
 
 Along came SOC 2.
 
@@ -63,10 +63,10 @@ Both SOC 1 and SOC 2 reports have two types, Type I and Type II.  Last year we a
 
 The distinction is in what each attestation reports:
 
-* Type I—reports on whether the systems are **suitably designed**. It gives an overview of the systems a SaaS has in place to satisfy the Trust Principles it’s being audited on. 
+* Type I—reports on whether the systems are **suitably designed**. It gives an overview of the systems a SaaS has in place to satisfy the Trust Principles it’s being audited on.
     * This type of report looks at your company and your procedures to determine whether they are designed to do the job you say they do. For instance, does your secure communications app correctly encrypt data?
     * However, a Type I report doesn’t take into consideration how well these actually work in practice. For that, you need:
-* Type II—these reports look at the actual effectiveness of the system design and if it’s **operating as designed**. 
+* Type II—these reports look at the actual effectiveness of the system design and if it’s **operating as designed**.
     * They audit how well your software, team, and procedures worked with actual data within that timeframe.
     *  Were there any security lapses? Was your service down for any significant time? Was the data processed effectively? Did your secure comms app continually encrypt data over the timeframe, 12 months in our case, the auditors tested your system?
 
@@ -88,7 +88,7 @@ And SOC 2 goes even further. Because these billion-dollar enterprise firms requi
 
 ![Being SOC compliant lets you sell to companies that require it](https://cdn.auth0.com/blog/soc/soc2-compliance.png)
 
-Not only can you increase your customer base through a SOC 2 audit, branching out into financial sectors, health sectors, and other areas with sensitive data, it also works as a marketing tool for more general customers, implicitly demonstrating how well your company works. 
+Not only can you increase your customer base through a SOC 2 audit, branching out into financial sectors, health sectors, and other areas with sensitive data, it also works as a marketing tool for more general customers, implicitly demonstrating how well your company works.
 
 This report shows that you have been externally audited as trustworthy. More than marketing materials, or your word, it's objective proof that you can be trusted with someone else's data.
 
@@ -100,7 +100,9 @@ Here’s how our methods and procedures helped get Auth0 SOC 2 ready in the 2 Tr
 
 ### Security
 
-A big part of Auth0 is our continual deployment. We deploy three to four times a day without downtime. 
+A big part of Auth0 is our continual deployment. We deploy three to four times a day without downtime.
+
+{% include tweet_quote.html quote_text="A big part of Auth0 is our continual deployment. We deploy three to four times a day without downtime." %}
 
 To make this work, we need to be continually testing and integrating new code through staging and into production. Nobody at Auth0 can push to production without the approval of another team member, and no code goes live without making its way through our continuous integration and delivery server. This orchestrates all the tests needed for each job:
 
@@ -130,7 +132,7 @@ The 3-part strategy is actually quite simple:
 
 * **Redundancy in critical systems**—If one database is taken down, a secondary database from a different availability zone is elected as primary.
 * **Rapid failure detection**—If there is an outage on the primary datacenter, the DNS immediately detects that and start redirecting requests to another datacenter in a different location.
-* **Quick, safe failover**—We take a database snapshot every few hours, so we always have an up-to-date backup of all data available in case of catastrophe. 
+* **Quick, safe failover**—We take a database snapshot every few hours, so we always have an up-to-date backup of all data available in case of catastrophe.
 
 Our database snapshots also lets us recover from any issue quickly. It also has a feature that has come in very helpful for some of our customers. We can query the backup snapshot without having to restore the full dataset. This means that if a customer makes a mistake and, say, accidentally deletes all their data, we can recover their data in a matter of minutes.  A few of our customers have been very grateful for this service so far!
 
@@ -145,7 +147,7 @@ Additionally, we hit up Twitter and email whenever we need to get in contact wit
 
 ### Common Criteria: People & Procedures
 
-As important as the software and infrastructure we use are the people, procedures, and policies we have instituted to optimize our workflow at Auth0. 
+As important as the software and infrastructure we use are the people, procedures, and policies we have instituted to optimize our workflow at Auth0.
 
 Internally we keep track of our policies and procedures with versioning, so we can easily review how they’ve changed over time. Whenever a policy or procedure is approved we simply add the approver and date to the end of the document so everyone know it’s up-to-date.
 
@@ -155,6 +157,6 @@ For procedures, we have approved measures for change management, data breaches, 
 ——
 For companies that deal with financial data, or any data of a sensitive nature, SOC 2 is non-negotiable. Though it may seem like a significant burden for you and your team to pursue this attestation, the rewards can be immense.
 
-A SOC 2 banner on your site starts to put you in line for an entirely new level of company, large enterprise businesses that need to protect their customer data, their employee data, and their corporate data with the highest levels of security. Successfully completing a SOC 2 audit shows these companies that you meet these high standards and that you’re serious about compliance if its required in their industry. 
+A SOC 2 banner on your site starts to put you in line for an entirely new level of company, large enterprise businesses that need to protect their customer data, their employee data, and their corporate data with the highest levels of security. Successfully completing a SOC 2 audit shows these companies that you meet these high standards and that you’re serious about compliance if its required in their industry.
 
-Not only that, but it also shows them that you can be trusted and that your entire team is dedicated to this security mission and the protection of your customers data. 
+Not only that, but it also shows them that you can be trusted and that your entire team is dedicated to this security mission and the protection of your customers data.

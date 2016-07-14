@@ -704,6 +704,9 @@ Get the [full example code](https://github.com/auth0/blog-android-social-login-s
 ## Aside: Don't Repeat Yourself, use Auth0
 If you've read this far you probably realized supporting several social logins providers is somewhat cumbersome. Using our [Lock library](https://github.com/auth0/Lock.Android) for Android makes this a breeze. Integrating it is as simple as integrating any of the solutions mentioned above, with the added benefit that you pick which social login providers are supported from the settings dashboard. Yup, that's it: do this integration once and get as many social login providers as you want with a few clicks! Let's see how it is done.
 
+
+{% include tweet_quote.html quote_text="Using Auth0 Lock for Android makes social login integration a breeze."%}
+
 ![Auth0 social login switches](https://cdn.auth0.com/blog/social_login_android/dashboard-social-login-switches.png)
 
 #### 1. Sign up

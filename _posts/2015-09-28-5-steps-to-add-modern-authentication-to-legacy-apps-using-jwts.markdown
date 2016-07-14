@@ -60,7 +60,7 @@ A common pattern for modern applications, especially single-page apps, is to ret
 
 Using APIs in this fashion is great, but things can become challenging when it comes to authentication. The traditional approach of using sessions and cookies for the user's identity doesn't work so well in these cases because their use introduces **state** to the application. One of the tenets of a RESTful API is that it should be **stateless**, meaning that, when a request is made, a response within certain parameters can always be anticipated without side effects. A user's authentication state introduces such a side effect, which breaks this principle. Keeping the API stateless and therefore without side effect means that maintainability and debugging are made much easier.
 
-{% include tweet_quote.html quote_text="Keeping the API stateless and therefore without side effect means that maintainability and debugging are made much easier." %}
+{% include tweet_quote.html quote_text="Keeping the API stateless means that maintainability and debugging are made much easier." %}
 
 Another challenge here is that it is quite common for an API to be served from one server and for the actual application to consume it from another. To make this happen, we need to enable [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). Since cookies can only be used for the domain from which they originated, they aren't much help for APIs on different domains than the application.
 

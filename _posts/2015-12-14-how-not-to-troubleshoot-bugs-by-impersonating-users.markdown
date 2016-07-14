@@ -120,7 +120,7 @@ In short, it’s hard to prevent unintended or malicious impersonation when buil
 
 With an identity-as-a-service infrastructure (IaaS) like [Auth0](http://auth0.com/), you get impersonation out of the box and built by security experts. Because you get it delivered to you as a SaaS product, you get continual security updates and improvements to it so that it becomes something that you don’t have to worry about.
 
-{% include tweet_quote.html quote_text="With an identity-as-a-service infrastructure (IaaS) like Auth0, you get impersonation out of the box and built by security experts." %}
+{% include tweet_quote.html quote_text="With an IaaS like Auth0, you get impersonation out of the box and built by security experts." %}
 
 ![Impersonation as a SaaS product](https://cdn.auth0.com/blog/how-not-to-troubleshoot/signin.png)
 

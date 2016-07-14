@@ -199,7 +199,7 @@ class PipesAppComponent {
 
 Angular 2 provides a special pipe known as `async`, which allows us to bind our templates directly to values that arrive asynchronously. This ability is great for working with promises and observables. To see how this works, we'll create a simple promise and have it resolve with a string.
 
-{% include tweet_quote.html quote_text="Angular 2 provides a special pipe known as async, which allows us to bind our templates directly to values that arrive asynchronously." %}
+{% include tweet_quote.html quote_text="Angular 2's async allows us to bind our templates directly to values that arrive asynchronously" %}
 
 ```js
 // app.ts

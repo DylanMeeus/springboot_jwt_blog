@@ -27,7 +27,7 @@ related:
 
 ---
 
-Today’s modern cloud provides developers with a rich choice of building blocks for creating new and innovative applications faster than ever before. Utilizing Auth0 developers can build applications that are secure and scalable without the need for a traditional backend server. This significantly reduces your time to release as well as the cost of maintenance over the life of your application.
+Today’s modern cloud provides developers with a rich choice of building blocks for creating new and innovative applications faster than ever before. Utilizing Auth0, developers can build applications that are secure and scalable without the need for a traditional backend server. This significantly reduces your time to release as well as the cost of maintenance over the life of your application.
 
 In this post you will see an example of how you can use Auth0 and the near infinite scale of Azure Blob Storage to build a rich and secure client application without a traditional backend. This example is built entirely in HTML/JavaScript and runs in the browser while still providing secure, authenticated access to resources in Azure Blob Storage.
 
@@ -39,7 +39,7 @@ Below you will find a simple diagram showing how this application will work. Not
 
 ## Logging In
 
-Authenticating with Auth0 is a breeze. To log the user in we will use the Auth0 Lock widget. After the user clicks throught to login the callback will be returned and we can take the token and profile data and store them in the browser's local storage. After the data is stored, we redirect the user to the files.html page.
+Authenticating with Auth0 is a breeze. To log the user in we will use the Auth0 Lock widget. After the user clicks through to login the callback will be returned and we can take the token and profile data and store them in the browser's local storage. After the data is stored, we redirect the user to the files.html page.
 
 ```js
 

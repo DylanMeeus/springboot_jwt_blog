@@ -30,7 +30,7 @@ But there’s a catch—because vendor lock-in is so advantageous to the vendor,
 
 It’s counterintuitive, but one of the ways we’ve been able to win at enterprise sales here at Auth0 is through *reducing* vendor lock-in. We build upon open standards rather than creating our own proprietary standards that force involuntary vendor lock-in. In the end, we acquire and keep our customers by making it possible for them to leave at any time.
 
-{% include tweet_quote.html quote_text="We build upon open standards rather than creating our own proprietary standards that force involuntary vendor lock-in." %}
+{% include tweet_quote.html quote_text="We build upon open standards rather than creating proprietary standards that force involuntary vendor lock-in." %}
 
 ## Open Standards in an App Built for the Enterprise
 

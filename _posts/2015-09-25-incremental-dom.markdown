@@ -86,7 +86,7 @@ That was a simple example, but the real power comes when we have a DOM structure
 
 The API that IDOM provides makes it really simple to target a custom template engine or any other more expressive API. Lets build something to write our components in a more declarative way.
 
-{% include tweet_quote.html quote_text="The API that IDOM provides makes it really simple to target a custom template engine or any other more expressive API." %}
+{% include tweet_quote.html quote_text="The API that IDOM provides makes it simple to target a custom template engine or any other more expressive API." %}
 
 Taking a look at the HTML, we know that each element can contain text or other elements, so lets build a recursive function to allow that using JavaScript. The final result will be an API that allow us to write IDOM components like the following:
 

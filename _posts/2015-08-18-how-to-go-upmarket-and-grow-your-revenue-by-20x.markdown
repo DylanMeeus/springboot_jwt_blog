@@ -70,7 +70,7 @@ The main thing that premium support should offer is that when a customer does de
 
 Premium support is a great way to offer something of value to your enterprise customers, and you don’t need to build a thing to offer it.
 
-{% include tweet_quote.html quote_text="Premium support is a great way to offer something of value to your enterprise customers, and you don’t need to build a thing to offer it." %}
+{% include tweet_quote.html quote_text="Premium support is a great way to offer something of value to your enterprise customers." %}
 
 ![](http://cdn.auth0.com/blog/grow-revenue/statuspage%20pricing.jpg)
 

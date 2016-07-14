@@ -453,7 +453,7 @@ This pipe checks for the file size in bytes and returns the appropriate conversi
 
 When distributing Electron apps, it's essential to generate an archive of the application files so that the source code is concealed. This can be done with the `asar` utility.
 
-{% include tweet_quote.html quote_text="When distributing Electron apps, it's essential to generate an archive of the application files so that the source code is concealed." %}
+{% include tweet_quote.html quote_text="When distributing Electron apps, generate an archive of the application files so that the source is concealed." %}
 
 ```bash
 npm install -g asar

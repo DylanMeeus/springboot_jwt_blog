@@ -83,7 +83,7 @@ What we do is talk. We go over situations that we have faced at Auth0 and have d
 
 We believe this has worked well so far. Being in an interview is enough to make people nervous even without requiring live coding. Most candidates have expressed relief when being explained that they are not going to have to do that. We actually try to state that at the beginning of the interview, as it seems to relax them.
 
-We know that this way of evaluating knowledge is not perfect and are continuosly improving based on feedback, but we need a way to try to determine if this person is someone we want to invest more time on for the technical exercise.
+We know that this way of evaluating knowledge is not perfect and are continuously improving based on feedback, but we need a way to try to determine if this person is someone we want to invest more time on for the technical exercise.
 
 <div>
     <img style="margin: 10px; max-width: 150px; max-height:89px" src="https://cdn.auth0.com/blog/hire-engineers/tech-exercise.png">
@@ -128,6 +128,8 @@ We all know hiring is hard. We actually measure how hard it is. For example, for
 
 ## Wrapping up
 
-This is what works for us now; and we know there's room for improvement. We continuosly adjust the technical discussions and exercises based on feedback from candidates. In fact, one of the reasons for publishing this post is that some candidates wanted to know about our hiring process before they went through it.
+This is what works for us now; and we know there's room for improvement. We continuously adjust the technical discussions and exercises based on feedback from candidates. In fact, one of the reasons for publishing this post is that some candidates wanted to know about our hiring process before they went through it.
+
+{% include tweet_quote.html quote_text="We all know hiring is hard. At Auth0 we want to be transparent about our recruiting process." %}
 
 At Auth0 we value transparency, and to practice what we preach we want to be transparent about our recruiting process. So if at any time you want to [be part of Auth0's engineering team](https://auth0.com/jobs/engineer), you now have an idea of what to expect. 😉
