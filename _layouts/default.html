@@ -14,7 +14,7 @@
       <title>{{ page.title }}</title>
     {% endif %}
 
-    <link href="https://plus.google.com/+Auth0" rel="publisher" /> 
+    <link href="https://plus.google.com/+Auth0" rel="publisher" />
 
     <script src="//use.typekit.net/tde2fii.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -22,7 +22,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <script type="text/javascript" src="//cdn.auth0.com/js/lock-8.min.js"></script>
-    <script type="text/javascript" src="//cdn.auth0.com/web-header/latest/standalone.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react-dom.min.js"></script>
+    <script src="//npmcdn.com/auth0-web-header@1.0.5"></script>
+    <link rel="stylesheet" href="//npmcdn.com/auth0-web-header@1.0.5/dist/index.css" />
     <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
     <script type="text/javascript">
       !function(){
@@ -126,15 +129,90 @@
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
 
-    <header class="site-header clearfix">
-    </header>
+    <div id="header"></div>
+    <script>
+    (function () {
+      var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
+      var options = {
+        callbackURL:    'https://manage.auth0.com/callback',
+        socialBigButtons: true,
+        dict: {
+          signup: {
+            footerText: 'By signing up, you agree to our <a href="/terms" target="_new">terms of service</a> and <a href="/privacy" target="_new">privacy policy</a>'
+          }
+        },
+        icon: '//cdn.auth0.com/styleguide/latest/lib/logos/img/badge.png'
+      };
 
-    <script type="text/javascript">
-      (function() {
-        var header = new WebHeader({ base_url: 'https://auth0.com' });
+      lock.on('signup ready', function () {
+        metricsLib.track('open:signup', getBasicInfo());
+      });
 
-        header.render('header.site-header');
-      })();
+      lock.on('signin ready', function () {
+        metricsLib.track('open:signin', getBasicInfo());
+      });
+
+      window.login = function login() {
+        metricsLib.track('click:signin', getBasicInfo());
+
+        lock.hide(function() {
+          lock.show(options);
+        });
+      }
+
+      window.signup = function() {
+        metricsLib.track('click:signup', getBasicInfo());
+
+        lock.hide(function() {
+          lock.showSignup(options);
+        });
+      }
+
+      // Header
+      var React = window.React;
+      var ReactDOM = window.ReactDOM;
+      var Auth0WebHeader = window.Auth0WebHeader.default;
+      var Header = React.createClass({
+        getInitialState: function () {
+          return {
+            logged: false
+          };
+        },
+
+        componentDidMount: function () {
+          var _this = this;
+          lock.getClient().getSSOData(false, function (err, data) {
+            var logged = data.sso;
+            _this.setState({ logged: logged });
+          });
+        },
+
+        render: function () {
+          var HeaderProps = { logged: this.state.logged, showLock: window.login };
+          var Auth0WebHeaderProps = toAuth0WebHeaderProps(HeaderProps);
+
+          return React.createElement(Auth0WebHeader, Auth0WebHeaderProps);
+        }
+      });
+
+      function toAuth0WebHeaderProps(props) {
+        var Auth0WebHeaderProps = {
+          theme: 'dark',
+          secondaryButtonLink: 'https://auth0.com/?contact=true'
+        };
+
+        if (props.logged) {
+          Auth0WebHeaderProps.primaryButtonText = 'Open Dashboard';
+          Auth0WebHeaderProps.primaryButtonLink = 'https://manage.auth0.com';
+        } else {
+          Auth0WebHeaderProps.primaryButtonOnClick = props.showLock;
+        }
+
+        return Auth0WebHeaderProps;
+      }
+
+      ReactDOM.render(React.createElement(Header, null), document.getElementById('header'));
+    })();
     </script>
     <div id="pjax">
 
@@ -314,51 +392,6 @@
       var getBlogBanner = function() {
           getBlogImage('banner');
       };
-
-      (function () {
-        var lock = window.lock = new Auth0Lock('zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI', 'auth0.auth0.com');
-        var options = {
-          callbackURL:    'https://manage.auth0.com/callback',
-          socialBigButtons: true,
-          dict: {
-            signup: {
-              footerText: 'By signing up, you agree to our <a href="/terms" target="_new">terms of service</a> and <a href="/privacy" target="_new">privacy policy</a>'
-            }
-          },
-          icon: '//cdn.auth0.com/styleguide/latest/lib/logos/img/badge.png'
-        };
-
-        lock.on('signup ready', function () {
-          metricsLib.track('open:signup', getBasicInfo());
-        });
-
-        lock.on('signin ready', function () {
-          metricsLib.track('open:signin', getBasicInfo());
-        });
-
-        lock.getClient().getSSOData(false, function (err, data) {
-          if (!data || !data.sso) return;
-          $('.login')
-            .attr('href', 'https://manage.auth0.com')
-            .html('Open Dashboard');
-        });
-
-        window.login = function login() {
-          metricsLib.track('click:signin', getBasicInfo());
-
-          lock.hide(function() {
-            lock.show(options);
-          });
-        }
-
-        window.signup = function() {
-          metricsLib.track('click:signup', getBasicInfo());
-
-          lock.hide(function() {
-            lock.showSignup(options);
-          });
-        }
-      })();
 
       $(function() {
 
