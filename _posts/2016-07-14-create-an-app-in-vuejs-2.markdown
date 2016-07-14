@@ -820,6 +820,6 @@ We added the add form to our template and pass it an `onAdd` prop. We also use `
 
 If we view our application in the browser, we can now add an exclamation. If you refresh the browser after adding one, it will still be there! Baller.
 
-# Where do we go from here?
+## Where do we go from here?
 
 We have only scratched the surface of what Vue can do. And with this new version of Vue, many improvements have been made. Not only is it faster, the API has been cleaned up and the tooling around it will be getting better as it gets closer to the official release of Vue 2.0. To stay on top of the changes as they happen, [monitor this Github issue on the Vue repo](https://github.com/vuejs/vue/issues/2873). As always, reach out in the comments and let us know how you're liking Vue!
