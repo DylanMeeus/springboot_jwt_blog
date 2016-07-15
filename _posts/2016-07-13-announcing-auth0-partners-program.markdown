@@ -34,7 +34,7 @@ Partnering with Auth0 enables system integrators and digital agencies who develo
 
 ### Technology Partner
 
-Technology Partners leverage the Auth0 platform to integrate, market and sell their own 	software solutions including SaaS and mobile applications, or extend the Auth0 platform with value added capabilities.
+Technology Partners leverage the Auth0 platform to integrate, market and sell their own software solutions including SaaS and mobile applications, or extend the Auth0 platform with value added capabilities.
 
 Our Technology Partners take two forms. ISV and SaaS providers who embed Auth0 to provide their identity management for their applications, and partners who extend the Auth0 platform through sophisticated identity scenarios that previously were not possible. 
 
