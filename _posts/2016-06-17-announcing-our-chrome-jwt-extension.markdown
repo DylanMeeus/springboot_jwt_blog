@@ -22,6 +22,10 @@ tags:
 - chrome extension
 - rsa
 - hmac
+related:
+- 2016-06-29-learn-more-about-our-jwt-chrome-debugger-extension
+- 2016-06-15-adding-authentication-to-react-native-using-jwt
+- 2016-06-02-ruby-authentication-secure-rack-apps-with-jwt
 ---
 
 Do you find yourself visiting [JWT.io](https://jwt.io) a lot to debug your tokens? Then you'll love what we have in store for you: [JWT.io as a Chrome extension](https://chrome.google.com/webstore/detail/jwt-debugger/ppmmlchacdbknfphdeafcbmklcghghmd) with extra features!

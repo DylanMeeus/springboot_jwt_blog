@@ -19,6 +19,10 @@ tags:
 - passport
 - pug
 - express
+related:
+- 2015-11-13-build-an-app-with-vuejs
+- 2016-04-13-authentication-in-golang
+- 2016-06-23-creating-your-first-laravel-app-and-adding-authentication
 ---
 
 > **TL;DR** VueJS has a new version coming out. Check out [all the changes here](https://github.com/vuejs/vue/issues/2873). There is a working example of [an application built using this new version here](https://vuejs2-authentication.herokuapp.com). The code can [be found on Github](https://github.com/searsaw/vue2-auth). Get out there and make something awesome!
