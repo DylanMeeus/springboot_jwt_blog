@@ -25,7 +25,7 @@ related:
 
 ---
 
-**TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with Webtask. Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with AWS Lambda and to compare and contrast Lambda to Webtask. 
+**TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with [Webtask](https://webtask.io). Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with Lambda and to compare and contrast the differences between Lambda and Webtask. 
 
 As always, get the sample code from our [GitHub repo](ADD URL) to follow along.
 
@@ -35,15 +35,15 @@ As always, get the sample code from our [GitHub repo](ADD URL) to follow along.
 
 {% include tweet_quote.html quote_text="Serverless platforms are gaining traction because they allow developers to build apps without worrying about infrastructure." %}
 
-Function-as-a-Service or serverless platforms are gaining traction because they allow developers to build applications without focusing on infrastructure. Check out our ["What is serverless" article](https://auth0.com/blog/2016/06/09/what-is-serverless/) to learn more what serverless is and how it can benefit you. In this post we will focus on writing a serverless application.
+Function-as-a-Service or serverless platforms are gaining traction because they allow developers to build applications without focusing on infrastructure. Check out our ["What is serverless"](https://auth0.com/blog/2016/06/09/what-is-serverless/) post to learn more what serverless is and how it can benefit you. In this post we will focus on writing a serverless application.
 
 ## Serverless Stories Revisited
 
 ![Serverless Stories](https://cdn.auth0.com/blog/webtask/app.png)
 
-The serverless application [we built](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with Webtask was a news blog called Serverless Stories. Today, we will rebuild this application and use AWS Lambda for our backend. In the interest of time, we will omit building the user interface. Check out the code from our [GitHub repo] for the user interface.
+The serverless application [we built](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with Webtask was a news blog called Serverless Stories. Today, we will rebuild this application and use AWS Lambda for our backend. In the interest of time, we will omit building the user interface. Check out the code from our [GitHub repo](URL) for the user interface.
 
-The Serverless Stories app is a static blog that covers all things serverless. We added the ability for users to sign up for the newsletter. Additionally, admins could login and access a secret page where they could retrieve the list of newsletter subscribers. To break down our requirements then, we'll need:
+The Serverless Stories app is a static blog that covers all things serverless. We added the ability for users to sign up for a newsletter. Additionally, admins could login and access a secret page where they could retrieve the list of newsletter subscribers. To break down our requirements then, we'll need:
 
 1. A Lambda function and API endpoint to handle newsletter signups
 2. A Lambda function and API endpoint to retrieve the list of subscribers
@@ -71,7 +71,7 @@ Before closing out the database setup section, let's add some seed data. To do t
 
 Now that we have our database setup, let's go ahead and implement our Lambda functions. We will be creating two Lambda functions. The first will store a user provided email address into our database and the second will retrieve the list of emails in the database.
 
-Writing Lambda functions is similar to how you would write [Webtask](https://webtask.io) functions. You export a function that takes multiple parameters that help set the context of the request. Within the function, you write your implementation. To close out the execution, you call the callback function and pass into it data you would like to respond with. 
+Writing Lambda functions is similar to how you would write [Webtask](https://webtask.io) functions. You export a function that accepts multiple parameters that help set the context of the request. Within the function, you write your implementation. To complete the operation, you call the callback function and pass into it data you would like to respond with. 
 
 In addition to Node.js, Lambda supports Python and Java runtimes for writing our functions, but we'll stick to Node.js as that's what our Webtask implemantion used. We can write our functions inline within the Lambda dashboard or locally on our computer, zip it up and upload it. For our examples, we'll write the code inline.
 
@@ -81,7 +81,7 @@ Let's implement our first function. Navigate to the Lambda [homepage](https://co
 
 ![Creating Lambda Functions](https://cdn.auth0.com/blog/lambda-serverless/creating-lambda-functions.png)
 
-We'll have to configure a few more settings and we'll be ready to write code. Here, set the name the Lambda function, for the runtime select Node 4.3, and the rest of the settings can be left to their default state. Before moving on, set the role to "Choose Existing Role" and from here you should have the option to select "server-role/admin". This will give the Lambda function the ability to call and execute code from various AWS services such as DynamoDB. Not setting the role properly will cause your errors in your Lambda function. *The permission we granted here are very liberal. In a real application, you would want to set narrower permissions to ensure that the code has access to only the parts of your infrastructure that it needs.*
+We'll have to configure a few more settings before we're ready to write code. Here, set the name the Lambda function, for the runtime select Node 4.3, and the rest of the settings can be left to their default state. Before moving on, set the role to "Choose Existing Role" and from here you should have the option to select "server-role/admin". This will give the Lambda function the ability to call and execute code from various AWS services such as DynamoDB. Not setting the role properly will cause your errors in your Lambda function. *The permission we granted here are very liberal. In a real application, you would want to set narrower permissions to ensure that the code has access to only the parts of your infrastructure that it needs.*
 
 We will make use of the AWS SDK which will allow us to easily interact with other AWS services within our code. Take a look at our implementation below.
 
@@ -118,7 +118,7 @@ exports.handler = (event, context, callback) => {
 
   // Capture the email from our POST request
   // For now, we'll just set a fake email
-  var email = "test@example.com";
+  var email = event.body.email;;
     
   if(!email){
     // If we don't get an email, we'll end our execution and send an error
@@ -147,7 +147,7 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
-This implementation will work for now. We'll update our code to get the email from the request once we have the API Gateway integrated. For now, let's go ahead and implement our second Lambda function which will retrieve the newsletter subscribers.
+In this function, we will get the email from the event object passed in when the function is called. Let's go ahead and implement our second Lambda function which will retrieve the newsletter subscribers.
 
 #### Retrieve Serverless Stories Newsletter Subscribers
 
@@ -196,7 +196,7 @@ Before continuing on, let's test our function. You can easily test your Lambda f
 
 ### Expose Lambda Functions with API Gateway
 
-We have our Lambda functions created, but at the moment they are of not much use to our Serverless Stories app. We cannot access them outside the AWS ecosystem. Let's change that by exposing our functions via the AWS API Gateway service. API Gateway allows us to expose our Lambda functions and access them over HTTP like any other RESTful API.
+We have our Lambda functions created, but at the moment they are of little use to our Serverless Stories app. We cannot access them outside the AWS ecosystem. Let's change that by exposing our functions via the AWS API Gateway service. API Gateway allows us to expose our Lambda functions and access them over HTTP like any other RESTful API.
 
 For our purposes, we will create an API that exposes two routes. The first will be the `/subscribe` route which will be accessed via a POST request. The second, `/subscribers` will be accessed via a GET request, but will only be accessible by an authorized user. We'll start by building our `/subscribe` route.
 
@@ -252,7 +252,7 @@ Before we implement Cognito in our application, let's edit the IAM role we just 
 
 We are finally ready to start implementing our Lambda functions in the Serverless Stories app. There are many JavaScript libraries that will be required for our app to work with the AWS services so I strongly recommend you pull down the code from our [GitHub repo](URL).
 
-The first thing we'll do is add in the required JavaScript libraries to our `index.html` file. Unzip the file that we downloaded earlier containing our JavaScript SDK. The unzipped folder will contain many of the libraries we'll need. The others, you can either find on npm or get from our [GitHub repo]. If you are using our sample project from GitHub, be sure to still overwrite the `apigClient.js` file located under `./assets/gateway/` as this file contains code specific to your API Gateway API. Below is a list of libraries we'll be using:
+The first thing we'll do is add in the required JavaScript libraries to our `index.html` file. Unzip the file that we downloaded earlier containing our JavaScript SDK. The unzipped folder will contain many of the libraries we'll need. The others, you can either find on npm or get from our [GitHub repo]. If you are using our sample project from GitHub, be sure to still overwrite the `apigClient.js` file located under `./assets/gateway/` with your `apigClient.js` as this file contains code specific to your API Gateway API. Below is a list of libraries we'll be using:
 
 ```
 <head>
@@ -430,7 +430,7 @@ This wraps up our user authentication implementation. In the next section, we'll
 
 ### Implementing Our Lambda Functions
 
-The first Lambda function we'll implement is the one that deals with the user subscribing to our newsletter. The reason we're doing this one first is because it does not require user authentication. This way we can introduce you to the `apiClient` SDK that AWS provided for us without overloading you with information. Let's look at the implementation below.
+The first Lambda function we'll implement is the one that deals with the user subscribing to our newsletter. The reason we're doing this one first is because it does not require user authentication. This way we can introduce you to the `apigClientFactory` SDK that AWS provided for us without overloading you with information. Let's look at the implementation below.
 
 ```
 $('#newsletter').submit(function(e){
@@ -542,7 +542,7 @@ The goal of this article was to compare the development experience between AWS L
 
 ### Initial Setup
 
-When it came to the initial setup for Webtask, all I had to do was install the Webtask CLI by running the npm command `npm install wt-cli`. From there, I created an account and was up and running. For the Lambda implementation, all that was needed to get started was an AWS account. I could create Lambda functions from the AWS dashboard.
+When it came to the initial setup for Webtask, all I had to do was install the Webtask CLI by running the npm command `npm install wt-cli -g`. From there, I created an account and was up and running. For the Lambda implementation, all that was needed to get started was an AWS account. I could create Lambda functions from the AWS dashboard.
 
 ### Configuration
 
