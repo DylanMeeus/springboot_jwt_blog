@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing the Auth0 Partners Program"
 description: "The Auth0 Partners Program allows system integrators and digital agencies to offload identity management to Auth0 so they can focus on building business value. Learn how and join today!"
-date: 2016-07-13 08:30
+date: 2016-07-18 08:30
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicado"
