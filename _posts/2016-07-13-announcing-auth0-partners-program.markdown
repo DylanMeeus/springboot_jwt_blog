@@ -34,11 +34,13 @@ Partnering with Auth0 enables system integrators and digital agencies who develo
 
 ### Technology Partner
 
-Technology Partners leverage the Auth0 platform to integrate, market and sell their own repeatable B2B solutions. Our Technology Partners have a deep understanding of identity management best practices and translate those best practices into scalable solutions for their customers.
+Technology Partners leverage the Auth0 platform to integrate, market and sell their own 	software solutions including SaaS and mobile applications, or extend the Auth0 platform with value added capabilities.
+
+Our Technology Partners take two forms. ISV and SaaS providers who embed Auth0 to provide their identity management for their applications, and partners who extend the Auth0 platform through sophisticated identity scenarios that previously were not possible. 
 
 ### Solution Partner
 
-Solution Partners consult, resell, refer and help customers find and integrate the right identity solutions for both new and existing applications. Our Solution Partners work hard to find the right solutions that fit complex environments and unique organizational needs.
+Solution Partners consult, resell, refer and help customers find and integrate the right identity solutions for both new and existing applications. Our Solution Partners integrate identity solutions into complex environments with unique organizational needs.
 
 Whether you need a consultation or implementation of an identity system, [our partners](https://auth0.com/partners#find-a-partner) are here to help. Reach out and we'll get you in touch with one of our worldwide partners.
 
