@@ -14,7 +14,7 @@ design:
   image: https://cdn.auth0.com/blog/react-js/react.png
   image_size: "80%"
   image_bg_color: "rgb(25, 25, 25)"
-tags: 
+tags:
 - react
 - flux
 - debug
@@ -75,6 +75,8 @@ export default function dispatch(action) {
 }
 ```
 
+{% include tweet_quote.html quote_text="Actions are dispatched to stores, and stores will notify components to update themselves." %}
+
 The `dispatch` method we're exposing here will forward the action to the dispatcher, but after that, it will forward the data to `LogActions.log`. This method will then send the action to our back-end:
 
 ```javascript
@@ -128,7 +130,7 @@ debugSession: (session, untilAction) => {
 }
 ```
 
-When replaying a session, we'll first dispatch the `RESET` and the `START_DEBUG` actions. The `RESET` action can be handled by all stores to reset their state (clear all data, clear alerts, etc.). 
+When replaying a session, we'll first dispatch the `RESET` and the `START_DEBUG` actions. The `RESET` action can be handled by all stores to reset their state (clear all data, clear alerts, etc.).
 
 The `START_DEBUG` action tells the rest of the applications that we are now going to replay certain actions. This is very important because one thing we'll want to avoid is our application making calls to the API. So our HttpClient will not be making calls during this time (in the next section, we'll explain how this works and how we're leveraging Flux to record every request and every response so we can replay everything later without requiring interaction with the API).
 
@@ -163,7 +165,7 @@ And in the case that something goes wrong, we will also dispatch this action wit
 {
   actionType: 'LOAD_OPEN_TICKETS_FAILED',
   err: {
-   message: 'The user "sandrino" has been disabled. You cannot load tickets for this user.' 
+   message: 'The user "sandrino" has been disabled. You cannot load tickets for this user.'
   }
 }
 ```
@@ -203,7 +205,7 @@ class HttpClient {
           dispatch({ actionType: action + '_FAILED', err: err });
           return reject(err);
         }
-        
+
         dispatch({ actionType: action + '_SUCCESS', res: res });
         return resolve(res);
       });

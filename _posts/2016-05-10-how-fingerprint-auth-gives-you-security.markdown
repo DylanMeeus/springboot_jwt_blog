@@ -8,10 +8,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#171717"
   image: "https://cdn.auth0.com/blog/fingerprint-auth/logo.png"
-tags: 
+tags:
 - fingerprint-authentication
 - passwordless
 - step-up-authentication
@@ -26,6 +26,8 @@ One way to combine both performance and security is to take advantage of fingerp
 * **Performance:** Modern capacitive touch fingerprint sensors (such as the Touch ID sensor on the latest Apple iPhones and sensors on recent Android devices) recognize the fingerprint and unlock in less than a second, quicker than inputting an extensive password.
 * **Security:** Fingerprints are unique (even among identical twins), impossible to guess, and difficult to fake without significant effort. Modern fingerprint authentication uses the fingerprint to create an encrypted key, which is sent for server authentication.
 * **Permanence:** Complex passwords are hard to remember, leading to the majority of people reusing passwords on multiple sites. As a physical feature, fingerprints are unforgettable.
+
+{% include tweet_quote.html quote_text="One way to combine both performance and security is to take advantage of fingerprint sensors." %}
 
 ## The History of Fingerprint Authentication
 
@@ -94,8 +96,8 @@ lock.presentTouchIDController(controller, fromController: self)
 
 ```
 
-Fingerprint authentication is not currently part of the in-built capabilities of MFA and Step-up. However, Auth0’s flexible [rules execution pipeline](https://auth0.com/docs/rules) makes it easy to use these passwordless authentication methods as part of an MFA flow. 
+Fingerprint authentication is not currently part of the in-built capabilities of MFA and Step-up. However, Auth0’s flexible [rules execution pipeline](https://auth0.com/docs/rules) makes it easy to use these passwordless authentication methods as part of an MFA flow.
 
-Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. 
+Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic.
 
-Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](https://auth0.com/docs/mfa). 
+Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](https://auth0.com/docs/mfa).

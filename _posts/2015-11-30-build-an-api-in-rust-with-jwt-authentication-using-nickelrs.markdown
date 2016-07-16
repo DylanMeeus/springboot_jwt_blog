@@ -8,12 +8,12 @@ author:
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image: https://cdn.auth0.com/blog/rust-api/rust-logo.png
   bg_color: "#564941"
   image_size: "90%"
   image_bg_color: "#fff"
-tags: 
+tags:
 - rust
 - cargo
 - mongodb
@@ -36,13 +36,15 @@ related:
 
 Rust has many concepts that are familiar and seen frequently in other languages and some that aren't. A unique feature that Rust has is the way it enforces memory safety. It doesn't have a garbage collector like some other languages do, but rather handles memory allocation with the concept of **ownership**. With ownership, the compiler automatically deallocates memory when something goes out of scope.
 
+{% include tweet_quote.html quote_text="A unique feature that Rust has is the way it enforces memory safety." %}
+
 While Rust is a general-purpose programming language, there are many packages available that make it possible to spin up a web server with it. This means that Rust might be the ideal choice for a web project if memory safety and speed are non-trivial.
 
 In this article, we'll see how we can create a simple RESTful API with Rust. We'll also connect it to MongoDB so we can get a feel for a full end-to-end API solution. It's possible that many readers will be familiar with JavaScript and, in particular, NodeJS. For this reason, we'll intentionally draw some comparisons between our Rust implementation and how an API would be created in NodeJS. While this won't be a crash course in the Rust language itself, we'll also take some time to explain syntax and semantics in certain places.
 
 ## Getting Started
 
-To create and serve our API, we'll use **[Nickel.rs](http://nickel.rs/)**, and to interact with the database, we'll use the **[MongoDB Rust Driver](https://github.com/mongodb-labs/mongo-rust-driver-prototype)**. There are other crates (aka packages) available, especially for creating a server and API, but Nickel.rs offers an abstraction that provides a similar feel to NodeJS and, in particular, Express. This can be helpful for those coming from a Node background. 
+To create and serve our API, we'll use **[Nickel.rs](http://nickel.rs/)**, and to interact with the database, we'll use the **[MongoDB Rust Driver](https://github.com/mongodb-labs/mongo-rust-driver-prototype)**. There are other crates (aka packages) available, especially for creating a server and API, but Nickel.rs offers an abstraction that provides a similar feel to NodeJS and, in particular, Express. This can be helpful for those coming from a Node background.
 
 If you don't already have Rust installed, you can check out the [installation instructions](https://doc.rust-lang.org/stable/book/installing-rust.html) to get going.
 
@@ -77,7 +79,7 @@ To take things one step at a time, let's first get the API running and simply re
 ```rust
 // src/main.rs
 
-#[macro_use] 
+#[macro_use]
 extern crate nickel;
 
 use nickel::{Nickel, JsonBody, HttpRouter, Request, Response, MiddlewareResult, MediaType};
@@ -125,7 +127,7 @@ If we compile the program with `cargo run`, we can see the API is working.
 
 ## Connecting to a MongoDB Collection
 
-The MongoDB Rust Driver provides a nice interface for interacting with databases, collections, and cursors. With it, we can establish a database connection and create, read, update, and delete documents as we typically would. 
+The MongoDB Rust Driver provides a nice interface for interacting with databases, collections, and cursors. With it, we can establish a database connection and create, read, update, and delete documents as we typically would.
 
 MongoDB will need to be installed and running at this point, which we won't cover in this article. To get set up with MongoDB, follow the [getting started guide](https://docs.mongodb.org/getting-started/shell/).
 
@@ -134,7 +136,7 @@ Let's start by establishing a connection and getting the **POST** `/users/new` r
 ```rust
 // src/main.rs
 
-#[macro_use] 
+#[macro_use]
 extern crate nickel;
 
 extern crate rustc_serialize;
@@ -179,7 +181,7 @@ struct User {
 
 A `struct` in Rust give us a way to create data types that can be arbitrarily complex.
 
-### Saving User Data 
+### Saving User Data
 
 Now within our `/users/new` route, we can connect to the database and insert a document.
 
@@ -205,10 +207,10 @@ router.post("/users/new", middleware! { |request, response|
     let coll = client.db("rust-users").collection("users");
 
     // Insert one user
-    match coll.insert_one(doc! { 
+    match coll.insert_one(doc! {
         "firstname" => firstname,
         "lastname" => lastname,
-        "email" => email 
+        "email" => email
     }, None) {
         Ok(_) => (StatusCode::Ok, "Item saved!"),
         Err(e) => return response.send(format!("{}", e))
@@ -263,7 +265,7 @@ router.get("/users", middleware! {
     for (i, result) in cursor.enumerate() {
         match get_data_string(result) {
             Ok(data) => {
-                let string_data = if i == 0 { 
+                let string_data = if i == 0 {
                     format!("{}", data)
                 } else {
                     format!("{},", data)
@@ -290,7 +292,7 @@ router.get("/users", middleware! {
 ...
 ```
 
-For our **GET** `/users` route, we establish a `cursor` for the endpoint that uses the `find` method to get all the documents in the `users` collection. We then iterate over the results with a `for` loop and match the results against a function called `get_data_string`. This function expects an argument of type `MongoResult` and returns a JSON string using `Bson::Document` for decoding, which happens in the `Ok` branch of the `match` statement. 
+For our **GET** `/users` route, we establish a `cursor` for the endpoint that uses the `find` method to get all the documents in the `users` collection. We then iterate over the results with a `for` loop and match the results against a function called `get_data_string`. This function expects an argument of type `MongoResult` and returns a JSON string using `Bson::Document` for decoding, which happens in the `Ok` branch of the `match` statement.
 
 After pushing any results onto the `data_result` string and closing it off, we set the `MediaType` as `Json` so that it is returned in JSON form instead of a string.
 
@@ -478,7 +480,7 @@ fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) ->Middle
         // Format the header to only take the value
         let jwt = header::HeaderFormatter(auth_header).to_string();
 
-        // We don't need the Bearer part, 
+        // We don't need the Bearer part,
         // so get whatever is after an index of 7
         let jwt_slice = &jwt[7..];
 
@@ -490,9 +492,9 @@ fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) ->Middle
 
         // Verify the token
         if token.verify(&secret, Sha256::new()) {
-          
+
             response.next_middleware()         
-          
+
         } else {
 
             response.error(Forbidden, "Access denied")
@@ -508,7 +510,7 @@ fn authenticator<'mw>(request: &mut Request, response: Response<'mw>, ) ->Middle
 
 Our `authenticator` function takes a `request` and `response` and returns a `MiddlewareResult`. For our purposes, the result will either be `next_middleware`, which lets the request pass through to the endpoint, or `error`, which will stop the request.
 
-We shouldn't have the middleware apply to `OPTIONS` requests, and the user doesn't need to be authenticated to access the `/login` route, so we check against those conditions first. For all other routes, we need to get hold of the `Authorization` header, which we do with the getter provided by **Hyper**. To make use of the JWT in the header, we need to get it as a string, which we do with `HeaderFormatter`. This string will be of the form `Bearer <token>`, and we don't need the `Bearer` part, so we take a subset of the string from index 7 onward and save it in `jwt_slice`. Taking only the token from the string could also be done with a regular expression to be more robust, but using the index operator to take the slice is a quick and convenient way of accomplishing it. 
+We shouldn't have the middleware apply to `OPTIONS` requests, and the user doesn't need to be authenticated to access the `/login` route, so we check against those conditions first. For all other routes, we need to get hold of the `Authorization` header, which we do with the getter provided by **Hyper**. To make use of the JWT in the header, we need to get it as a string, which we do with `HeaderFormatter`. This string will be of the form `Bearer <token>`, and we don't need the `Bearer` part, so we take a subset of the string from index 7 onward and save it in `jwt_slice`. Taking only the token from the string could also be done with a regular expression to be more robust, but using the index operator to take the slice is a quick and convenient way of accomplishing it.
 
 To get the token as the correct type, we use **rust-jwt**'s `parse` method. Finally, we use `verify` on the token and pass in the `AUTH_SECRET` in byte form. If the token checks out, `next_middleware` is called to send the user through to the endpoint. If the token is invalid, a `Forbidden` error is thrown.
 

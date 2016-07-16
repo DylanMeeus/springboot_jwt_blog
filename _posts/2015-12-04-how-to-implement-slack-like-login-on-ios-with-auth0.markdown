@@ -179,3 +179,5 @@ Get the [full code](https://github.com/auth0/Mobile-Samples.iOS) to our seed pro
 
 ## Conclusion
 Universal Links get rid of the old URL schemes inefficiencies. Furthermore, passwordless logins through email are a convenient strategy. By removing the step of manually inputting the code the result is a pretty straightforward login process. And thanks to the Lock library, adding this to your application can be done in a matter of minutes. Hack away!
+
+{% include tweet_quote.html quote_text="Universal Links get rid of the old URL schemes inefficiencies." %}

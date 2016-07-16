@@ -31,7 +31,7 @@ Monitoring your assets can be a manual or an automated job. If you implement the
 
 If you go the manual route, that just creates more routine work. More routine at work (and sometimes in life) doesn't lead to good things. Also, with shifting priorities everyday, it's easy to skip a manual process or even forget about them. Automation is a better solution.
 
-By being more proactive and productive, we mean automation and an appropriate solution to the problem. At the Auth0, we want to automate as many things as we can and decrease the number of alerts we receive to get only the real threats and not noise. It gives us the best overview of our infrastructure's security status.
+By being more proactive and productive, we mean automation and an appropriate solution to the problem. At Auth0, we want to automate as many things as we can and decrease the number of alerts we receive to get only the real threats and not noise. It gives us the best overview of our infrastructure's security status.
 
 ## The MFA Monitoring tool
 
@@ -99,7 +99,7 @@ An early version of this tool was using MongoDB as a storage. It generated many 
 db.init(ctx.storage);
 ```
 
-Using the [Webtask storage](https://webtask.io/docs/storage) is easy, to write or read data you need to call methods on the ``ctx.storage`` object. Bellow is the implementation of the storage wrapper which helps to handle storing and receiving data using Promises.
+Using the [Webtask storage](https://webtask.io/docs/storage) is easy, to write or read data you need to call methods on the ``ctx.storage`` object. Below is the implementation of the storage wrapper which helps to handle storing and receiving data using Promises.
 
 ```javascript
 'use strict';
@@ -150,5 +150,8 @@ You can periodically check the log stream to verify that MFA monitor is working 
 ## Awareness
 
 Keep in mind that monitoring the MFA status will not protect you against other malicious activities that could occur. The purpose of this particular tool is to alert you every time your users forget to enable MFA.
+
+{% include tweet_quote.html quote_text="The MFA monitoring tool will alert you every time your users forget to enable MFA." %}
+
 
 This tool works well for us; it fits into our methodology of being a proactive team. Setup your monitors and start protecting your accounts now.

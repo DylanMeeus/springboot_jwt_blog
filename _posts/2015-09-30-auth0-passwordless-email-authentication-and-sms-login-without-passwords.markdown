@@ -90,6 +90,8 @@ As developers we have to deal with a handful of devices, screen sizes, and brows
 
 Auth0 Passwordless can be used on all platforms: native apps, web apps, mobile web, command line interfaces or anything that can send an HTTP request over the net. It's a great way to achieve Single Sign On across everything with a single uniform authentication scheme across the board.
 
+{% include tweet_quote.html quote_text="Auth0 Passwordless can be used on all platforms and anything that can send an HTTP request over the net." %}
+
 ## Future directions
 
 We are seeing a trend that web applications are moving to longer session expirations so that **users are not asked to log in frequently** - similar to a native app on a mobile device. Then, whenever a user asks to perform a sensitive operation, they’re asked for **"step up" authentication** (think "sudo" command on Linux). [Auth0 Passwordless](http://www.businesswire.com/news/home/20150930005480/en/Auth0-Introduces-Passwordless-Authentication) is a way to implement such a mechanism quickly and securely. Combine this with **anomaly detection**, **suspicious logins** and **centralized session revocation** and you have a robust yet usable authentication system.

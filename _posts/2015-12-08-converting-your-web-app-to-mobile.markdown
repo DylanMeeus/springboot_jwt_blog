@@ -3,15 +3,15 @@ layout: post
 title: "Convert your Web App to a Mobile App with Apache Cordova"
 description: How you can effortlessly create your multiplatform application from a web application
 date: 2015-12-08 16:15
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
   mail: diego.poza@auth0.com
-design: 
+design:
   bg_color: "#2C3946"
   image: https://cdn.auth0.com/blog/converting-your-app-to-mobile/logo.png
-tags: 
+tags:
 - web-apps
 - mobile-apps
 - apache-cordova
@@ -28,6 +28,8 @@ related:
 ---
 
 Mobile applications is one of the fastest-growing categories in the mobility market today. If you already have a web application up and running and want to get on board with this trend, you can do it very quickly using Apache Cordova.
+
+{% include tweet_quote.html quote_text="Mobile applications is one of the fastest-growing categories in the mobility market today." %}
 
 The promise of Cordova development is quite charming: you can use your existing HTML + JavaScript + CSS application to build cross-platform mobile applications for iOS, Android, Windows Phone, and other platforms.
 
@@ -92,7 +94,7 @@ In your project folder, you should find the `/www` directory. This is where your
 Your app's `index.html` body content goes into the body of `/www/index.html`. Perform these three simple steps to update it:
 
 1. Update the **head** of the file carefully so as not to remove or modify Cordova's required meta tags, but add the elements necessary to your app. In this case, we added our app's title, CSS references, and the charset meta tag.
-2. Update the **body** content with your app content. 
+2. Update the **body** content with your app content.
 3. Add the references to your app's required .js files (typically, at the end of the _body_).
 
 The `/js/index.js` includes functions that are required for Cordova. You just need to call your app init logic inside the **onDeviceReady** method, as shown in the example below:
@@ -112,7 +114,7 @@ app.initialize();
 
 ```
 
-> As the TodoMVC is very simple, just ensuring that the cordova.js and index.js files are executed before the app logic is sufficient. 
+> As the TodoMVC is very simple, just ensuring that the cordova.js and index.js files are executed before the app logic is sufficient.
 
 Finally, all the CSS files, images, and JavaScript files should be moved to the corresponding folder inside the `/www/` folder.
 
@@ -194,7 +196,7 @@ The following code snippet shows the definition of a generic icon and platform-s
 </widget>
 ```
 
-> Notice that the value of the `src` attribute is relative to the project directory and not to the www directory. 
+> Notice that the value of the `src` attribute is relative to the project directory and not to the www directory.
 
 ## Adding native features
 
@@ -208,7 +210,7 @@ First, install the **cordova-plugin-geolocation** plugin by running the followin
 cordova plugin add cordova-plugin-geolocation
 ```
 
-Once the plugin is installed, just add a call to the **navigator.geolocation.getCurrentPosition** method in your app's code, and that's it. 
+Once the plugin is installed, just add a call to the **navigator.geolocation.getCurrentPosition** method in your app's code, and that's it.
 
 ```
 navigator.geolocation.getCurrentPosition(geolocationSuccessCallback,
@@ -265,7 +267,7 @@ sudo npm install -g ios-sim
 
 Once you have installed the Android SDK and configured the enviroment variables, run the following command to list the available targets:
 
-``` 
+```
 android list targets
 ```
 
@@ -300,9 +302,9 @@ cordova run [platform]
 <div class="" style="text-align: center;"><img style="margin: 0; max-width: 250px;" src="https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/recommendations.png" alt="Tips for creating your Cordova app" />
 </div>
 
-Based on our experience with this type of app, we created the following list of tips for creating your own Cordova apps. 
+Based on our experience with this type of app, we created the following list of tips for creating your own Cordova apps.
 
-1. **Single Page Apps work better.** Remember that the recommended architecture for Cordova applications is Single-Page Applications (SPAs). This way, all of the resources are only loaded once when the app starts, and can stay in the web view for as long as the application is running. In addition, with SPAs, the user will not have page reloads, which are simply not typical for native applications. 
+1. **Single Page Apps work better.** Remember that the recommended architecture for Cordova applications is Single-Page Applications (SPAs). This way, all of the resources are only loaded once when the app starts, and can stay in the web view for as long as the application is running. In addition, with SPAs, the user will not have page reloads, which are simply not typical for native applications.
 
 2. **Make your app responsive.** Ensure your app is responsive, in that it adapts gracefully to different devices and resolutions. Using CSS media queries is a good approach for this.
 

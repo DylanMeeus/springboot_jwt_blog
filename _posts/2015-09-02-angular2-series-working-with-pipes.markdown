@@ -3,18 +3,18 @@ layout: post
 title: "Angular 2 Series - Part 1: Working with Pipes"
 description: "Learn how to implement pipes (formerly known as filters) in your Angular 2 apps"
 date: 2015-09-03 11:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
   blog_series: true
-tags: 
+tags:
 - angular2
 - angularjs
 - pipes
@@ -110,13 +110,13 @@ AngularJS 1.x filters are helpful for formatting output in our templates. With A
 </tbody>
 </table>
 
-In this article, we will explore the features provided by some of Angular 2's pipes that aren't comparable to Angular 1.x filters. We'll also learn how to create a custom pipe and use it in our templates. 
+In this article, we will explore the features provided by some of Angular 2's pipes that aren't comparable to Angular 1.x filters. We'll also learn how to create a custom pipe and use it in our templates.
 
 You'll need to have an Angular 2 sandbox set up for this tutorial. A good one to get started with is [ng2-play](https://github.com/pkozlowski-opensource/ng2-play) by [Pawel Kozlowski](https://twitter.com/pkozlowski_os).
 
 ## Basic Pipes
 
-Many of the pipes provided by Angular 2 will be familiar if you've worked with fitlers in Angular 1.x. Pipes are accessed in our templates in the same way that filters were--with the "pipe" character `|`. For example, we can use the `date` pipe to transform a date object in any way we like by providing it with an argument for formatting:
+Many of the pipes provided by Angular 2 will be familiar if you've worked with filters in Angular 1.x. Pipes are accessed in our templates in the same way that filters were--with the "pipe" character `|`. For example, we can use the `date` pipe to transform a date object in any way we like by providing it with an argument for formatting:
 
 ```js
 // app.ts
@@ -134,16 +134,16 @@ import {Component, View, bootstrap} from 'angular2/angular2';
 // Component controller
 class PipesAppComponent {
   date: Date;
-  
+
   constructor() {
     this.date = new Date();
-  } 
+  }
 }
 
 bootstrap(PipesAppComponent);
 ```
 
-We pointed our `@View` decorator to a `templateUrl` in which we make use of the `date` pipe: 
+We pointed our `@View` decorator to a `templateUrl` in which we make use of the `date` pipe:
 
 ```html
   <!-- pipesTemplate.html -->
@@ -198,6 +198,8 @@ class PipesAppComponent {
 ## The Async Pipe
 
 Angular 2 provides a special pipe known as `async`, which allows us to bind our templates directly to values that arrive asynchronously. This ability is great for working with promises and observables. To see how this works, we'll create a simple promise and have it resolve with a string.
+
+{% include tweet_quote.html quote_text="Angular 2's async allows us to bind our templates directly to values that arrive asynchronously" %}
 
 ```js
 // app.ts
@@ -309,9 +311,3 @@ Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. Thi
 Angular 2 provides some great pipes that carry over well from the filters we are used to in Angular 1.x. We also get some new pipes that give us special functionality, such as the `async` pipe, which binds our templates to asynchronous resources. It's also easy to create our own pipes via the `@Pipe` decorator and the `pipes` key in our `@View` decorators.
 
 You can find the code for this tutorial on [GitHub](https://github.com/auth0/angular2-pipes).
-
-
-
-
-
-

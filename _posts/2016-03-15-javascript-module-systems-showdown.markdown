@@ -190,6 +190,8 @@ module.exports = (width) => {
 
 CommonJS modules were designed with server development in mind. Naturally, the API is synchronous. In other words, modules are loaded at the moment and in the order they are required inside a source file.
 
+{% include tweet_quote.html quote_text="CommonJS modules were designed with server development in mind." %}
+
 #### Pros
 - Simple: a developer can grasp the concept without looking at the docs.
 - Dependency management is integrated: modules require other modules and get loaded in the needed order.
@@ -212,6 +214,8 @@ For the client there are currently two popular options: [webpack](https://webpac
 
 ## Asynchronous Module Definition (AMD)
 AMD was born out of a group of developers that were displeased with the direction adopted by CommonJS. In fact, AMD was split from CommonJS early in its development. The main difference between AMD and CommonJS lies in its support for asynchronous module loading.
+
+{% include tweet_quote.html quote_text="The main difference between AMD and CommonJS lies in its support for asynchronous module loading." %}
 
 ```JavaScript
 //Calling define with a dependency array and a factory function

@@ -4,18 +4,18 @@ title: "Angular 2 Series - Part 5: Forms and Custom Validation"
 description: "Angular 2 forms are powerful and come with many great features. Learn how to create both simple and complex forms, as well as how to do custom form validation."
 date: 2016-05-03 08:30
 permalink: /2016/05/03/angular2-series-forms-and-custom-validation/
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
   blog_series: true
-tags: 
+tags:
 - angular 2
 - forms
 - form-validation
@@ -51,14 +51,14 @@ Once that's done, let's create a component for our first form. We'll start with 
 
 ```html
   <!-- src/client/app/simple-form/simple-form.component.html -->
-  
+
   <form #registrationForm="ngForm" (ngSubmit)="registerUser(registrationForm.value)">
-    
+
     <div class="form-group">
       <label for="username">Username</label>
       <input id="username" type="text" class="form-control" placeholder="Username" ngControl="username">
     </div>
-    
+
     <div class="form-group">
       <label for="email">Email</label>
       <input id="email" type="text" class="form-control" placeholder="Email" ngControl="email">
@@ -68,11 +68,11 @@ Once that's done, let's create a component for our first form. We'll start with 
       <label for="password">Password</label>
       <input id="password" type="password" class="form-control" placeholder="Password" ngControl="password">
     </div>
-    
+
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Register</button>
     </div>
-    
+
   </form>
 ```
 
@@ -82,7 +82,7 @@ We've got what looks like a pretty standard form that uses [Bootstrap](https://g
 
 One of the properties that an `ngForm` instance has is `value` which is an object that has keys and values for any elements that we have an `NgControl` directive on. So what exactly is `NgControl`? Well, it's a class that binds a `Control` object to an element. In this case, the element that it's applied to is an `input`. We'll take a closer look at `Control` objects later on.
 
-This is really all we need in our HTML to have our form wired up, but we also need to tell the component class that we want to have access to the form directives that come from Angular 2. At the same time, let's create the function that will be responsible for sending our user data to the backend. 
+This is really all we need in our HTML to have our form wired up, but we also need to tell the component class that we want to have access to the form directives that come from Angular 2. At the same time, let's create the function that will be responsible for sending our user data to the backend.
 
 ```js
 // src/client/app/simple-form/simple-form.component.ts
@@ -102,9 +102,9 @@ import {CREATE_USER_ENDPOINT} from '../shared/api';
   directives: [FORM_DIRECTIVES]
 })
 export class SimpleFormComponent {
-  
+
   constructor(private http: Http) {}
-  
+
   registerUser(user) {
     let data = JSON.stringify(user);
     this.http.post(CREATE_USER_ENDPOINT, data)
@@ -113,11 +113,11 @@ export class SimpleFormComponent {
         error => alert(error.json().message)
       );
   }
-  
+
 }
 ```
 
-We get access to all of the form directives by importing them with `FORM_DIRECTIVES`. To make them accessible to the component, we need to pass them into the `directives` array in the `@Component` decorator. The `registerUser` method makes a simple `POST` request to our server with the form data, and we are just doing a simple `alert` on success or error for now. 
+We get access to all of the form directives by importing them with `FORM_DIRECTIVES`. To make them accessible to the component, we need to pass them into the `directives` array in the `@Component` decorator. The `registerUser` method makes a simple `POST` request to our server with the form data, and we are just doing a simple `alert` on success or error for now.
 
 Keep in mind that the form data is coming through as the `user` parameter because we passed `registrationForm.value` from the template. If we had only passed `registrationForm`, then we would be getting all of the properties and methods that come along with an `NgForm` in our `registerUser` method, which isn't what we want. However, why don't we take a look at some of the useful properties that come with `NgForm`:
 
@@ -150,15 +150,15 @@ import {CREATE_USER_ENDPOINT} from '../shared/api';
   directives: [FORM_DIRECTIVES]
 })
 export class ValidatedFormComponent {
-  
+
   registrationForm: ControlGroup;
   username: Control;
   email: Control;
   password: Control;
   submitAttempt: boolean = false;
-  
+
   constructor(private http: Http, private builder: FormBuilder) {
-    
+
     // Synchronous validators are passed in as the second
     // argument to our Controls
     this.username = new Control('', Validators.required)
@@ -172,7 +172,7 @@ export class ValidatedFormComponent {
       password: this.password
     });
   }
-  
+
   registerUser(user) {
     this.submitAttempt = true;
     ...
@@ -200,15 +200,15 @@ Now we need to apply these changes to the template.
 
 ```html
   <!-- src/client/app/validated-form/validated-form.component.html -->
-  
+
   <form [ngFormModel]="registrationForm" (ngSubmit)="registerUser(registrationForm.value)">
-  
+
     <div class="form-group" [ngClass]="{ 'has-error' : !username.valid && submitAttempt }">
       <label class="control-label" for="username">Username</label>
       <em *ngIf="!username.valid && submitAttempt">Required</em>
       <input id="username" type="text" class="form-control" placeholder="Username" ngControl="username">
     </div>
-    
+
     <div class="form-group" [ngClass]="{ 'has-error' : !email.valid && submitAttempt }">
       <label class="control-label" for="email">Email</label>
       <em *ngIf="!email.valid && submitAttempt">Required</em>
@@ -221,17 +221,17 @@ Now we need to apply these changes to the template.
       <em *ngIf="password.hasError('minlength') && submitAttempt">Must be at least 8 characters</em>
       <input id="password" type="password" class="form-control" placeholder="Password" ngControl="password">
     </div>
-    
+
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Register</button>
     </div>
-    
+
   </form>
 ```
 
 There are a few changes to note here. To start, we've taken out `#registrationForm="ngForm"` and instead placed `[ngFormModel]` on the `<form>` tag. This property binding is used to bind our `ControlGroup` that we set up in the component to the `<form>` tag. With that, we can use the `registrationForm` as we would have previously, sending the `value` from it to our submit handler and such.
 
-Since we're using Bootstrap, we can take advanatage of `NgClass` to conditionally apply classes. In this case we are applying the `has-error` class to each form group if the inputs are invalid and if a submit attempt has been made. This class will turn the label red and give a red border around the input element.
+Since we're using Bootstrap, we can take advantage of `NgClass` to conditionally apply classes. In this case we are applying the `has-error` class to each form group if the inputs are invalid and if a submit attempt has been made. This class will turn the label red and give a red border around the input element.
 
 We're also conditionally inserting a bit of text to indicate the error for each element which, again, is based on the input's validity and whether a submit attempt has been made.
 
@@ -243,7 +243,7 @@ We've talked about **synchronous** validators already. If the ones that are prov
 
 Instead of creating a synchronous custom validator in this tutorial, we'll make an **asynchronous** one. This is a great feature of validators in Angular 2: we can easily make them handle async operations. This is really useful if we want to do things like check if a username or email already exists in a database. In fact, that's exactly what we'll do in this example.
 
-The HapiJS backend that we're using has an endpoint for checking whether a username or email is already taken. If it is taken, a `400` response is returned with an error message indicating so. We can use this, along with an async validator, to let users know if their input is already reserved. 
+The HapiJS backend that we're using has an endpoint for checking whether a username or email is already taken. If it is taken, a `400` response is returned with an error message indicating so. We can use this, along with an async validator, to let users know if their input is already reserved.
 
 Let's start with the custom validator itself.
 
@@ -262,11 +262,11 @@ interface IUsernameEmailValidator {
 }
 
 function checkUser(control: Control, source: string) : Observable<IUsernameEmailValidator> {
-  
+
   // Manually inject Http
   let injector = Injector.resolveAndCreate([HTTP_PROVIDERS]);
   let http = injector.get(Http);
-  
+
   // Return an observable with null if the
   // username or email doesn't yet exist, or
   // an objet with the rejetion reason if they do
@@ -303,7 +303,7 @@ export class UsernameEmailValidator {
   static checkUsername(control: Control) {
     return checkUser(control, 'username');
   }
-  
+
   static checkEmail(control: Control) {
     return checkUser(control, 'email');
   }
@@ -336,9 +336,9 @@ import {UsernameEmailValidator} from '../shared/username-email-validator';
 export class CustomValidatedFormComponent {
 
   ...
-  
+
   constructor(private builder: FormBuilder, private http: Http) {
-    
+
     this.username = new Control('', Validators.required, UsernameEmailValidator.checkUsername);
     this.email = new Control('', Validators.required, UsernameEmailValidator.checkEmail);
     this.password = new Control('', Validators.required);
@@ -349,11 +349,11 @@ export class CustomValidatedFormComponent {
       password: this.password
     });
   }
-  
+
   registerUser(user) {
     ...
   }
-  
+
 }
 ```
 
@@ -361,7 +361,7 @@ With that in place in the component, we can apply proper error messaging to the 
 
 ```html
   <!-- src/client/app/custom-validated-form/custom-validated-form.component.html -->
-  
+
   <form [ngFormModel]="registrationForm" (ngSubmit)="registerUser(registrationForm.value)">
     <div class="form-group" [ngClass]="{ 'has-error' : username.hasError('usernameTaken') }">
       <label for="username">Username</label>
@@ -379,7 +379,7 @@ With that in place in the component, we can apply proper error messaging to the 
       <label for="password">Password</label>
       <input type="password" class="form-control" placeholder="Password" ngControl="password">
     </div>
-    
+
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Register</button>
     </div>
@@ -416,7 +416,7 @@ If you don't already have any Auth0 account, [sign up](https://auth0.com/signup)
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    
+
   ...
 ```
 
@@ -482,13 +482,13 @@ export class Auth {
 We can use the methods from our authentication service in any of our components which means we can easily add a click handler to a "Login" and "Logout" button.
 
 ```html
-  <!-- src/client/app.component.html --> 
-  
+  <!-- src/client/app.component.html -->
+
   ...
-  
+
   <button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
   <button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-  
+
   ...
 ```
 
@@ -519,9 +519,9 @@ import 'rxjs/add/operator/map';
 export class Ping {
   API_URL: string = 'http://localhost:3001';
   message: string;
-  
+
   constructor(private http: Http, private authHttp: AuthHttp, private auth: Auth) {}
-  
+
   securedPing() {
     this.authHttp.get(`${this.API_URL}/secured/ping`)
       .map(res => res.json())
@@ -540,4 +540,5 @@ That's all there is to it to add authentication to your Angular 2 app with Auth0
 ## Wrapping Up
 
 Implementing HTML forms can seem trivial, but it's something that can get tricky pretty fast when we want to introduce validation. Thankfully, Angular 2 gives us some great tools to use to make working with forms really simple. Angular really shines with async validators so that we can have a streamlined construct to handle asynchronous operations in our form validation. All around, Angular 2 improves the developer experience when working with forms, which hopefully translates to an improved end user experience as well.
- 
+
+{% include tweet_quote.html quote_text="Angular 2 gives us some great tools to use to make working with forms really simple." %}

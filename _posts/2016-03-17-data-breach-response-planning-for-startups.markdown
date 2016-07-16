@@ -3,16 +3,16 @@ layout: post
 title: "Data Breach Response Plan - Your Startup Needs one"
 description: Security is a challenge at most startups. Here's some advice on how to create a data breach response plan for the worst case scenario, a large-scale data breach.
 date: 2016-03-17 08:30
-author: 
+author:
   name: Eugene Kogan
   url: https://twitter.com/eugk
   mail: eugene.kogan@auth0.com
   avatar: https://s.gravatar.com/avatar/667b1c82b6cc2241ff176d50c65da603?s=200
-design: 
+design:
   bg_color: "#16214D"
   image: https://cdn.auth0.com/blog/data-breach-response-plan/data-breach-icon.png
   image_size: "90%"
-tags: 
+tags:
 - security
 - incident-response
 - data-breach
@@ -93,5 +93,7 @@ Selecting a cyber insurance policy should actually be one of your first steps, o
 1. Carefully select vendors to help you in case of a breach. That includes at least legal, PR, and IR firms.
 1. Sign a contract with these vendors so that they are ready to help you respond at a moment’s notice. Go for zero cost retainers if that makes financial sense for your business.
 1. Review all of the above as your startup grows and changes over the year. If your revenue explodes, you will need to increase your insurance coverage sooner rather than later.
+
+{% include tweet_quote.html quote_text="Think about security, work on improving it, and have a decent incident response plan." %}
 
 You can never be too prepared when it comes to security. So what are you waiting for?

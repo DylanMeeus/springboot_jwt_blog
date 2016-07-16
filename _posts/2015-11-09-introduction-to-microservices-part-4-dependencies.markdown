@@ -4,7 +4,7 @@ title: "Intro to Microservices, Part 4: Dependencies and Data Sharing"
 description: "Learn the basics of dependency management and data sharing for microservices architectures"
 date: 2015-11-09 10:00
 permalink: /2015/11/07/introduction-to-microservices-part-4-dependencies/
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -15,7 +15,7 @@ design:
   image_size: "60%"
   image_bg_color: "#596D5F"
   blog_series: true
-tags: 
+tags:
 - microservice
 - microservices
 - dependencies
@@ -35,9 +35,11 @@ In this post in the microservices series we will study how to manage inter-servi
 -----
 
 ## The problem of dependencies
-As we have discussed in [previous posts](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/), one of the biggest enemies of distributed architectures are dependencies. In a microservice-based architecture, services are modeled as isolated units that manage a reduced set of problems. However, fully functional systems rely on the **cooperation and integration** of its parts, and microservice architectures are not an exception. 
+As we have discussed in [previous posts](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/), one of the biggest enemies of distributed architectures are dependencies. In a microservice-based architecture, services are modeled as isolated units that manage a reduced set of problems. However, fully functional systems rely on the **cooperation and integration** of its parts, and microservice architectures are not an exception.
 
-In a traditional monolithic application, dependencies usually appear as method calls. It is usually a matter of *importing* the right parts of the project to access their functionality. In esence, doing so creates a **dependency** between the different parts of the application. With microservices, each microservice is meant to operate on its own. However, sometimes one may find that to provide certain functionality, **access to some other part** of the system is necessary. In concrete, some part of the system needs access to data managed by other part of the system. 
+{% include tweet_quote.html quote_text="In a microservice architecture, services are modeled as isolated units that manage a reduced set of problems." %}
+
+In a traditional monolithic application, dependencies usually appear as method calls. It is usually a matter of *importing* the right parts of the project to access their functionality. In esence, doing so creates a **dependency** between the different parts of the application. With microservices, each microservice is meant to operate on its own. However, sometimes one may find that to provide certain functionality, **access to some other part** of the system is necessary. In concrete, some part of the system needs access to data managed by other part of the system.
 
 This is what is commonly known as **data sharing**: two separate parts of a system *share* the same data. If you are familiar with multithreaded programming you have a taste of **how hard data sharing can get**. However, in contrast to multithreaded applications, data sharing in a distributed architecture has its own sets of problems:
 
@@ -135,23 +137,23 @@ function callNext(i) {
     if(i === services.length) {
         callback(new Error("No service available"));
         return;
-    } 
+    }
 
-    logger.debug('Calling ' + services[i].name + ' version: ' + 
-        services[i].versionMajor + '.' + 
-        services[i].versionMinor + '.' + 
+    logger.debug('Calling ' + services[i].name + ' version: ' +
+        services[i].versionMajor + '.' +
+        services[i].versionMinor + '.' +
         services[i].versionPatch);
 
-    dispatch.serviceDispatch(services[i], data, 
+    dispatch.serviceDispatch(services[i], data,
         function(err, response) {
             if(err) {
                 logger.info("Failed call to: " + services[i]);                        
                 logger.error(err);
-                
+
                 callNext(i + 1);
             } else {
                 logger.info("Succeeded call to: " + services[i]);
-            
+
                 callback(null, response);
             }                        
         }
@@ -172,7 +174,7 @@ function subscribe() {
     var data = JSON.stringify({
         url: eventUrl
     });
-    
+
     registry.call('Ticket Subscribe', 1, 0, 1, data, function(err, response) {
         if(err) {
             logger.error(err);
@@ -182,9 +184,9 @@ function subscribe() {
 
 app.post('/replyEvent', function(req, res) {
     //TODO: validate req.body data
-    
+
     logger.debug(req.body);
-    
+
     latestReplies.push(req.body);
     if(latestReplies.length > 10) {
         latestReplies.splice(0, latestReplies.length - 10);
@@ -204,18 +206,18 @@ function notifySubscribers(data) {
             logger.error(err);
             return;
         }       
-        
+
         data.title = ticket.title;
         var jsonData = JSON.stringify(data);
-        
+
         logger.debug(data);
-        
+
         for(var subscriber in commentSubscribers) {
             if(commentSubscribers.hasOwnProperty(subscriber)) {
-                console.log('EVENT: sending new reply to subscriber: ' + 
+                console.log('EVENT: sending new reply to subscriber: ' +
                     subscriber);
                 dest = url.parse(subscriber);
-            
+
                 var req = http.request({
                     hostname: dest.hostname,
                     port: dest.port,
@@ -226,11 +228,11 @@ function notifySubscribers(data) {
                         'Content-Length': jsonData.length
                     }                    
                 });
-                
+
                 req.on('error', function(err) {
                     logger.error(err);
                 });
-                
+
                 req.write(jsonData);
                 req.end();
             }
@@ -254,5 +256,3 @@ wt logs
 
 ## Conclusion
 Dependencies are **hard**, moreso in a distributed architecture. Data sharing and interservice calls **should be kept to a minimum** if possible. If you cannot avoid them, consider the implications of turning **multiple services into one**. If that is not the right choice, study what kind of data you are sharing (static or mutable) and what are the proper ways of sharing it according to your **current and future use cases** (volume of data, scaling considerations, algorithmic and implementation complexity, consistency requirements, etc.). Remember that you can and you should make modifications to your architecture as you find better ways of doing things. **Microservices favor iteration**, use it to your advantage and avoid integration patterns that prevent future modifications.
-
-

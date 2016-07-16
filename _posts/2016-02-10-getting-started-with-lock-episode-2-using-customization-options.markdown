@@ -50,7 +50,7 @@ lock.show({
 
 ```
 
-First, we'll talk about the `connections` option: this option allows us to select a subset of our configured login providers to show to a user. This is handy if you have configured a login type, but do not want it to be an open option to potential users. THis is an array of the connections you'd like to show.
+First, we'll talk about the `connections` option: this option allows us to select a subset of our configured login providers to show to a user. This is handy if you have configured a login type, but do not want it to be an open option to potential users. This is an array of the connections you'd like to show.
 
 Next is `dictionary`: you can convert the dialogue to a different language by using its language code (e.g. 'es' for Spanish).
 
@@ -62,7 +62,7 @@ You can change the presentation of the social provider buttons using the `social
 
 `focusInput` places focus on the username field in the Lock dialog, when set to `true`. This can be especially handy in situations where your login dialog is mandatory or overlays the screen-- however, it's best set to `false` in optional or embedded contexts. (It's set to false in the playground so that our cursor stays with the code.)
 
-The `usernameStyle` option is handy if you'd rather users use usernames instead of emails to identify themselves. By default, the prompt in username is set to 'Email', but by setting `usernameStyle` to `username`, the prompt will change to 'Username'.
+The `usernameStyle` option is handy if you'd rather use usernames instead of emails to identify themselves. By default, the prompt in username is set to 'Email', but by setting `usernameStyle` to `username`, the prompt will change to 'Username'.
 
 The `gravatar` options, which defaults to `true`, watches the email entered in the Email field, and, if it matches a gravatar account, will replace the logo at the top of the dialog with the user's gravatar.
 

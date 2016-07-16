@@ -3,18 +3,18 @@ layout: post
 title: "Angular 2 Series - Part 3: Using Http"
 description: "Learn the differences between $http in Angular 1.x and Http in Angular 2. Find out how to use the RxJS Observables that Http returns."
 date: 2015-10-15 16:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
   blog_series: true
-tags: 
+tags:
 - angular2
 - angularjs
 - observables
@@ -152,7 +152,7 @@ As you can see, we've imported some familiar pieces like `Component` and `View`,
 
 We're making use of a form for the user to eventually provide their credentials. The form calls an `authenticate` method on submit.
 
-In the `App` class, we're passing `Http` to the constructor so that we can use it in our class methods. 
+In the `App` class, we're passing `Http` to the constructor so that we can use it in our class methods.
 
 ## Simple GET Request
 
@@ -174,9 +174,11 @@ logError(err) {
 }
 ```
 
-The `getRandomQuote` method starts off looking pretty familiar--we do an `http.get` request by passing in a URL as an argument. Remembering `$http` from Angular 1.x, this is where we would tap into the promise that gets returned by using `.then`, but as you can see here, we're doing something pretty different. 
+The `getRandomQuote` method starts off looking pretty familiar--we do an `http.get` request by passing in a URL as an argument. Remembering `$http` from Angular 1.x, this is where we would tap into the promise that gets returned by using `.then`, but as you can see here, we're doing something pretty different.
 
-As was mentioned earlier, HTTP calls in Angular 2 return observables, so we need to use RxJS methods to operate on them. The first thing we do is map the values that are returned as text, since our call to the `api/random-quote` endpoint returns text. If we were expecting a JSON response, we would call `res.json()` instead. After this, we need to **subscribe** to it so that we can **observe** values that are returned. 
+As was mentioned earlier, HTTP calls in Angular 2 return observables, so we need to use RxJS methods to operate on them. The first thing we do is map the values that are returned as text, since our call to the `api/random-quote` endpoint returns text. If we were expecting a JSON response, we would call `res.json()` instead. After this, we need to **subscribe** to it so that we can **observe** values that are returned.
+
+{% include tweet_quote.html quote_text="HTTP calls in Angular 2 return observables, so we need to use RxJS methods to operate on them." %}
 
 An observable subscription takes three functions to handle what happens as the stream is observed. The first function is the **next** case, or what happens when the HTTP call is successful. If the call is successful, we're saying that the data returned should be put on a property `randomQuote` so it can be displayed in the view. The second function is the **error** case, and in our example we are logging any error messages to the console by calling our `logError` method. Finally, the third function defines what happens once the call is **complete**, and here we are simply logging out the things are finished.
 

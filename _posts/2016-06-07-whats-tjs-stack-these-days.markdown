@@ -3,15 +3,15 @@ layout: post
 title: "What's TJ Holowaychuk's Stack These Days?"
 description: "TJ Holowaychuk has been working on a new project called Apex. We caught up with him to get all the details!"
 date: 2016-06-07 8:30
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   bg_color: "#2d5487"
   image: https://cdn.auth0.com/blog/apex-ping/apex-ping-icon.png
-tags: 
+tags:
 - interview
 - go
 - serverless
@@ -43,9 +43,9 @@ You might be familiar with [TJ Holowaychuk](https://twitter.com/tjholowaychuk) f
 
 <span <span style="font-weight:700">Auth0:</span> Can you tell us more about Apex Ping? What is it and what does it do?
 
-<span <span style="font-weight:700">TJ:</span> [Apex Ping]((https://apex.sh/ping/) is an uptime and performance monitoring tool with rich reporting and alerting capabilities. Anyone maintaining a website, app, or API can create “checks”, HTTP requests performed against an HTTP end-point every minute from a number of selectable locations all over the globe. 
+<span <span style="font-weight:700">TJ:</span> [Apex Ping]((https://apex.sh/ping/) is an uptime and performance monitoring tool with rich reporting and alerting capabilities. Anyone maintaining a website, app, or API can create “checks”, HTTP requests performed against an HTTP end-point every minute from a number of selectable locations all over the globe.
 
-Alerts and weekly reporting keep the team informed so your customers are always provided with the best experience possible. 
+Alerts and weekly reporting keep the team informed so your customers are always provided with the best experience possible.
 
 ### The Tech Stack
 
@@ -79,9 +79,11 @@ I also really wanted to utilize [JSON Web Tokens (JWT)](https://jwt.io/introduct
 
 <span <span style="font-weight:700">Auth0:</span> How did Auth0 help with this?
 
-<span <span style="font-weight:700">TJ:</span> Auth0’s [documentation](https://auth0.com/docs) is fantastic, it was easy to find an example for [React & Go](https://auth0.com/docs/quickstart/spa/react/golang) in order to get started right away. The provided open-source [Go JWT middleware](https://github.com/auth0/go-jwt-middleware) worked as-advertised. 
+<span <span style="font-weight:700">TJ:</span> Auth0’s [documentation](https://auth0.com/docs) is fantastic, it was easy to find an example for [React & Go](https://auth0.com/docs/quickstart/spa/react/golang) in order to get started right away. The provided open-source [Go JWT middleware](https://github.com/auth0/go-jwt-middleware) worked as-advertised.
 
 Going with <a href="javascript:signup()">Auth0</a> meant I didn’t have to spend days fiddling with half-baked solutions, which is especially frustrating with new specifications such as OpenID Connect. With Auth0 I was able to just focus on building my application, instead of re-inventing auth.
+
+{% include tweet_quote.html quote_text="Going with Auth0 meant I didn’t have to spend days fiddling with half-baked solutions." %}
 
 <span <span style="font-weight:700">Auth0:</span> You recently published a package called [auth0-lite](https://www.npmjs.com/package/auth0-lite) to npm. Can you tell us about that?
 

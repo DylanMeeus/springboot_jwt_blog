@@ -3,17 +3,17 @@ layout: post
 title: "Authenticable Observables: Build a Reactive App with JWT Auth"
 description: "Learn how to make a reactive application and add authentication to it with RxJS and the Fetch API"
 date: 2015-09-10 11:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "#dbdbdb"
   bg_color: "#36243F"
   image: https://cdn.auth0.com/blog/auth-observables/rxjs-logo.png
   image_size: "80%"
-tags: 
+tags:
 - reactive
 - observables
 - jwt
@@ -36,9 +36,11 @@ Reactive programming has been gaining a lot of popularity in recent years. In th
 
 In this tutorial, we'll see how we can implement Reactive programming by creating a simple app that fetches and displays data. We'll also see how we can handle authentication in our app and have what we'll call "authenticable observables". Our goal throughout this tutorial is to see how we can shift our thinking about app architecture. We'll move away from the simple Promise-based asynchronous models we're used to and see how we can benefit from working with Observables.
 
+{% include tweet_quote.html quote_text="In the Reactive paradigm, data is handled as streams that can be composed of anything from variables to events" %}
+
 ## Building Our Reactive App
 
-We'll make use of Auth0's trusty [NodeJS backend](https://github.com/auth0/nodejs-jwt-authentication-sample) that serves us both public and private Chuck Norris quotes. The API uses JWT authentication, which is perfect for our case, as we'll want to see how we can use observables to handle JWTs. We'll also be using [The Reactive Extensions for JavaScript](https://github.com/Reactive-Extensions/RxJS), otherwise known as RxJS, which is a set of libraries that provide a wealth of tooling for working with observables. To actually retrieve data, we'll use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). 
+We'll make use of Auth0's trusty [NodeJS backend](https://github.com/auth0/nodejs-jwt-authentication-sample) that serves us both public and private Chuck Norris quotes. The API uses JWT authentication, which is perfect for our case, as we'll want to see how we can use observables to handle JWTs. We'll also be using [The Reactive Extensions for JavaScript](https://github.com/Reactive-Extensions/RxJS), otherwise known as RxJS, which is a set of libraries that provide a wealth of tooling for working with observables. To actually retrieve data, we'll use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
 In the interest of brevity, we won't deal with error conditions. However, the Fetch API and RxJS both have methods for handling errors, as would be expected. Also, since we want to focus mainly on how to handle observables for our sample application, we'll keep things simple and won't worry too much about any kind of routing or other ways we could polish the app. Instead, we'll provide some simple controls for the user to log in and retrieve public and private quotes.
 
@@ -79,14 +81,14 @@ Let's first set up the HTML. We'll include RxJS from the CDN and use Bootstrap f
     </button>
 
     <h1></h1>
-    
+
   </div>
 
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/2.3.22/rx.all.js"></script>
   <script src="app.js"></script>
-  
+
   ...
 ```
 
@@ -120,9 +122,9 @@ With these streams set up, we could at this point `subscribe` to the events and 
 
 When working with streams, we will often need to combine or create new streams out of existing ones. RxJS gives us many useful ways of doing this, and one of them is `map`. This method projects a value we pass into it into a new stream that is dependent on an existing stream.
 
-![reactive](https://cdn.auth0.com/blog/auth-observables/auth-observables-map.png) 
+![reactive](https://cdn.auth0.com/blog/auth-observables/auth-observables-map.png)
 
-Let's make a new stream called `quoteStream` that takes care of getting the publicly accessible quotes. We'll need to create a new stream that maps a value (in this case an object with a `route` key) to the `quoteClickStream`. 
+Let's make a new stream called `quoteStream` that takes care of getting the publicly accessible quotes. We'll need to create a new stream that maps a value (in this case an object with a `route` key) to the `quoteClickStream`.
 
 ```js
 // app.js
@@ -168,7 +170,7 @@ var quoteResponseStream = quoteStream
 The `quoteResponseStream` relies on the `quoteStream`, which, as we saw above, maps an object with a `url` key that can be passed to the `fetchQuote` method to make the request. Since the values emitted by the `map` method are themselves streams, we need a way to get access the actual data. In this new stream we are using `flatMap` which effectively flattens the emitted values and gives us access to the JSON returned by the `fetch` operation.
 
 We are returning the `fetchQuote` function with the request URL but we haven't yet set it up.
-  
+
  ```js   
 // app.js
 
@@ -256,7 +258,7 @@ Rx.Observable.prototype.authenticate = function(config) {
   // We need a function to handle the fetch request for the JWT
   function getJwt(config) {
     var body;
-    
+
     // Check the content type header and format the request data accordingly
     if(config.headers['Content-Type'] === 'application/x-www-form-urlencoded') {
       body = 'username=' + config.username + '&password=' + config.password;
@@ -303,7 +305,7 @@ Now that we've got our authentication in place and we have a JWT saved in local 
 Rx.Observable.prototype.authenticated = function(route) {
 
   var jwt = localStorage.getItem('id_token');
-  
+
   // Return the JWT if it exists
   if(jwt != undefined && jwt != null) {
     return this.map(function() {
@@ -338,7 +340,7 @@ var secretQuoteStream = secretQuoteClickStream
 
 ## The Secret Quote Response
 
-We could set up a separate response stream for our secret quotes that simply mimics the `quoteResponseStream`, but instead of repeating ourselves, let's use RxJS's `merge` method to combine the `quoteStream` and the `secretQuoteStream` into one single `quoteResponseStream`. This gives us the benefit of only needing to subscribe to a single stream that will observe events for public and private quotes. 
+We could set up a separate response stream for our secret quotes that simply mimics the `quoteResponseStream`, but instead of repeating ourselves, let's use RxJS's `merge` method to combine the `quoteStream` and the `secretQuoteStream` into one single `quoteResponseStream`. This gives us the benefit of only needing to subscribe to a single stream that will observe events for public and private quotes.
 
 ```js
 // app.js
@@ -368,7 +370,7 @@ We just need to modify the `fetchQuote` function so that it properly handles the
 
 ...
 
-// One fetch function will handle getting both the public and private quotes 
+// One fetch function will handle getting both the public and private quotes
 function fetchQuote(request) {
   // We just need to check whether a JWT was sent in as part of the
   // config object. If it was, we'll include it as an Authorization header
@@ -472,4 +474,4 @@ You might be wondering why we'd bother architecting our applications using obser
 
 With this tutorial we've really just skimmed the surface. The possibilities that we have with Reactive programming and supporting libraries such as RxJS are huge. If you like the idea of turning nearly all the parts of your application into data streams, it would certainly be beneficial to explore Reactive programming further.
 
-Big thanks to [André Staltz](https://twitter.com/andrestaltz) for his [article on Reactive programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), which informed many of these examples. 
+Big thanks to [André Staltz](https://twitter.com/andrestaltz) for his [article on Reactive programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), which informed many of these examples.

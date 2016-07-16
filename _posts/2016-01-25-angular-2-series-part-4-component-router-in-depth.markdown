@@ -3,18 +3,18 @@ layout: post
 title: "Angular 2 Series - Part 4: Component Router In-Depth"
 description: "Learn all about the new Angular 2 router and how to set it up in your app."
 date: 2016-01-25 08:30
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
   blog_series: true
-tags: 
+tags:
 - angular2
 - angularjs
 - routing
@@ -64,7 +64,7 @@ import {LocationStrategy, PathLocationStrategry} from 'angular2/router';
 
 bootstrap(App, [
   ...
-  
+
   provide(LocationStrategy, { useClass: PathLocationStrategy })
 ])
 ```
@@ -94,7 +94,7 @@ import {Http} from 'angular2/http';
       </div>
       <div class="list-group">
         <p class="no-users" *ngIf="users.total_count == 0">No users found</p>
-        <a 
+        <a
           class="users list-group-item"
           *ngFor="#user of users.items"
         >
@@ -120,7 +120,7 @@ import {Http} from 'angular2/http';
 export class App {
   users: Array<Object> = [];
   searchTerm: Control = new Control();
-  
+
   constructor(public http: Http) {}
 
   getUsers() {
@@ -225,7 +225,7 @@ import {Users} from './Users';
 
 template: `
   ...
-  <a 
+  <a
     class="users list-group-item"
     *ngFor="#user of users.items"
     [routerLink]="['Users', { userLogin: user.login }]"
@@ -300,20 +300,20 @@ import {ROUTER_DIRECTIVES, Router, RouteParams, RouteConfig} from 'angular2/rout
     <div class="col-sm-3">
       <img class="img-circle" src="{{userData.avatar_url}}" />
       <p *ngIf="userData.name">
-        <i class="glyphicon glyphicon-user"></i> 
+        <i class="glyphicon glyphicon-user"></i>
         {{userData.name}}
       </p>
       <p *ngIf="userData.company">
-        <i class="glyphicon glyphicon-briefcase"></i> 
+        <i class="glyphicon glyphicon-briefcase"></i>
         {{userData.company}}
       </p>
       <p *ngIf="userData.location">
-        <i class="glyphicon glyphicon-globe"></i> 
+        <i class="glyphicon glyphicon-globe"></i>
         {{userData.location}}
       </p>
     </div>
     <div class="col-sm-9">
-    
+
     </div>
   `,
   styles: [`
@@ -340,7 +340,7 @@ export class UserDetail {
         err => console.log(err)
       );
   }
-  
+
 }
 ```
 
@@ -387,6 +387,7 @@ import {RouteParams, OnActivate, ComponentInstruction} from 'angular2/router';
     </ul>
   `
 })
+
 export class UserFollowers implements OnActivate {
   userLogin: string;
   followers: Array<Object> = [];
@@ -429,17 +430,17 @@ Getting the `userLogin` from the params in this component can be done like we di
 
 template: `
   ...
-  
+
   <div class="col-sm-9">
     <button class="btn btn-primary" (click)="getFollowers()">Load Followers</button>
     <router-outlet></router-outlet>
   </div>
-  
+
   ...
  `,
- 
+
 ...
- 
+
 @RouteConfig([
   { path: '/followers', component: UserFollowers, name: 'UserFollowers' }
 ]
@@ -450,7 +451,7 @@ template: `
     this.params = injector.parent.parent.get(RouteParams);
     this.userLogin = this.params.get('userLogin');
   }
-  
+
   getFollowers() {
     this._router.navigate(['UserFollowers', { userLogin: this.userLogin }]);
   }
@@ -483,13 +484,13 @@ export class MyComponent {
 ```
 
 ### Passing Data in Routes
- 
+
  Much like UI Router, we can pass an arbitrary data object with routes if we like. This is done in the `@RouteConfig`.
- 
+
  ```js
- 
+
  ...
- 
+
  @RouteConfig([
   { path: '/myroute', component: MyComponent, name: 'MyRoute', data: { isAdmin: true } }
 ])
@@ -506,7 +507,7 @@ import {RouteData} from 'angular2/router';
 
 export class MyComponent {
   isAdmin: boolean;
-  
+
   constructor(data: RouteData) {
     this.isAdmin = data.get('isAdmin');
   }
@@ -547,7 +548,7 @@ import {Router, RouterOutlet, ComponentInstruction} from 'angular2/router';
 
 export class MyOwnRouterOutlet extends RouterOutlet {
   ...
-  
+
   activate() {
     console.log('Hello from the new router outlet!');
   }
@@ -658,10 +659,12 @@ import {tokenNotExpired} from 'angular2-jwt';
 export class MyComponent {}
 ```
 
-### Done! 
+### Done!
 
 For full details, including configuration, check out the [Auth0 Angular 2 docs](https://auth0.com/docs/quickstart/spa/angular2/no-api) or download a [seed project for Webpack and SystemJS](https://github.com/auth0/auth0-angular2).
 
 ## Wrapping Up
 
 The new router in Angular 2 has some powerful features and is, for the most part, fairly intuitive. The main point of confusion for developers right now is the distinction between **terminal** and **non-terminal** routes, and the need for separate **routing** and **view** components. If issues which point this out as a flaw like [this one](https://github.com/angular/angular/issues/6204) keep popping up, it's possible that we might see some changes to the router API in the future.
+
+{% include tweet_quote.html quote_text="The main point of confusion for developers right now is the distinction between terminal and non-terminal routes" %}

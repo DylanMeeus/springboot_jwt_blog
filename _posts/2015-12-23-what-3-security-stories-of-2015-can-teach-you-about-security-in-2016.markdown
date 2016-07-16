@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: "#191716"
   image: https://cdn.auth0.com/blog/3-security-stories/logo2.png
-tags: 
+tags:
 - security-stories
 - security-breaches
 - protonMail
@@ -38,7 +38,7 @@ Back in November, anyone attempting to access Swiss-based encrypted email servic
 
 The [entire service was offline](https://grahamcluley.com/2015/11/armada-collective-ddos/), hit by a powerful Distributed Denial of Service (DDoS) attack. Over 100 companies that relied on ProtonMail for encrypted communications were paralyzed, unable to work themselves while ProtonMail’s servers were being assaulted. This wasn’t done for fun by some tweens, or by some anarchist group for some perceived sleight to the world.
 
-It was purely for money. 
+It was purely for money.
 
 ProtonMail was blackmailed by a group called ‘The Armada Collective’ who turned their DDoS cannon on the site and demanded $6,000 worth of Bitcoin to stop. DDoSing is nothing new, but add blackmail via a completely anonymous payment system like Bitcoin, and what was a minor annoyance becomes a serious criminal threat.
 
@@ -50,7 +50,7 @@ A Distributed Denial of Service (DDoS) attack takes this type of attack one step
 
 ![How DDoS attacks work](https://cdn.auth0.com/blog/3-security-stories/DDoS-attack.png)
 
-ProtonMail was hit with over 100 Gbps of traffic, wiping out access to the company's servers. The assault continued for days, until, under pressure from their customers, ProtonMail paid up. ProtonMail wasn’t the first, and won’t be the last to be hit by DDoSing blackmailers. The Armada Collective continues, DDoS-sing its way around SaaS companies, trying to extort Bitcoins from anyone they can hit and take offline. 
+ProtonMail was hit with over 100 Gbps of traffic, wiping out access to the company's servers. The assault continued for days, until, under pressure from their customers, ProtonMail paid up. ProtonMail wasn’t the first, and won’t be the last to be hit by DDoSing blackmailers. The Armada Collective continues, DDoS-sing its way around SaaS companies, trying to extort Bitcoins from anyone they can hit and take offline.
 
 ### How to mitigate against DDoS: Outscale the attack
 
@@ -72,9 +72,11 @@ AWS lets you set up [auto scaling](http://docs.aws.amazon.com/AutoScaling/latest
 
 In this scenario, the AWS system will always make sure you have 1 instance at your disposal, try and keep 2 available, and give you up to 4 when things go sideways. This extra scale will then give you the latitude to look at where the attack is coming from and determine whether you can georestrict traffic, set thresholds for HTTP requests, or block specific IP addresses from accessing your servers.
 
-AWS isn’t the only cloud provider that supports auto-scaling for dealing with changes in traffic demand. [Microsoft Azure](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-scale/), [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-automate-the-scaling-of-your-web-application-on-digitalocean), and other big cloud hosting companies offer auto-scaling. Even smaller ISPs will help you out of a hole if you get attacked. 
+AWS isn’t the only cloud provider that supports auto-scaling for dealing with changes in traffic demand. [Microsoft Azure](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-scale/), [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-automate-the-scaling-of-your-web-application-on-digitalocean), and other big cloud hosting companies offer auto-scaling. Even smaller ISPs will help you out of a hole if you get attacked.
 
 Contingency planning is key for DDoS attacks. DDoSing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline for long, and might end up paying any ransom demands to get their product back up. By putting a plan in place before your servers go down, you can make sure your service is available consistently and that you aren’t beholden to blackmailers if they do target your site.
+
+{% include tweet_quote.html quote_text="DDoSing blackmailers are now targeting SaaS sites, knowing that these companies can’t afford to be offline." %}
 
 Additionally, building on top of an existing framework such as AWS means that you will definitely have the capacity to scale when the time comes, and can quickly take on any extra load without having to deal with all of these issues at the absolute worst time—when you’re being attacked.
 
@@ -103,7 +105,7 @@ More worrying was the easy access to the personal information of the children on
 
 So not only were the DOB, gender and password (totally unencrypted this time) of the children’s accounts easily accessible, but using the *Parent ID*, these accounts could be then linked to full names and addresses of parents. [Further reports](http://motherboard.vice.com/en_uk/read/hacker-obtained-childrens-headshots-and-chatlogs-from-toymaker-vtech) showed that images and chatlogs from the children were also obtained in the same data breach.
 
-Luckily, the hacker who hit VTech did it only to highlight the lax security implemented by the tech company, passing the data to a journalist at [Motherboard](http://motherboard.vice.com/read/one-of-the-largest-hacks-yet-exposes-data-on-hundreds-of-thousands-of-kids) instead of selling it. 
+Luckily, the hacker who hit VTech did it only to highlight the lax security implemented by the tech company, passing the data to a journalist at [Motherboard](http://motherboard.vice.com/read/one-of-the-largest-hacks-yet-exposes-data-on-hundreds-of-thousands-of-kids) instead of selling it.
 
 Not only was the site susceptible to SQL injection, but the site also transmitted all information—passwords and all personal information—*en clair*, over an unencrypted connection and never using a TLS connection. Neither was the data held encrypted, apart from the cursory encryption of the passwords.  
 
@@ -119,7 +121,7 @@ SQL Injection is just one of the [Top 10 Web Application Security Risks](https:/
 
 Along with SQL Injection, VTech was making at least 2 further mistakes—data exposure and security misconfiguration—that are on this list. No doubt a security researcher would find that they were making almost all of these mistakes.
 
-That is why it is vital for all companies to run security audits on their sites. Unfortunautely, this isn’t what happened. Instead, developers take a ‘I’ll fix it when it’s found’ mentality, presuming that their coding skills are awesome enough that they don’t make such elementary mistakes. That’s probably what VTech’s developers thought.
+That is why it is vital for all companies to run security audits on their sites. Unfortunately, this isn’t what happened. Instead, developers take a ‘I’ll fix it when it’s found’ mentality, presuming that their coding skills are awesome enough that they don’t make such elementary mistakes. That’s probably what VTech’s developers thought.
 
 Services such as [Tinfoil Security](https://www.tinfoilsecurity.com/) will scan your site monthly, weekly, or even daily looking for possible vulnerabilities that attackers could use to compromise your service.
 
@@ -129,7 +131,7 @@ Tinfoil will run automated scans on your site, checking for these vulnerabilitie
 
 ![Tinfoil Security Results](https://cdn.auth0.com/blog/3-security-stories/tinfoil-results.png)
 
-For any developer, these would be easy fixes. It is more common that the developers simply don’t realize that the site is vulnerable rather than them being unable to secure it effectively. 
+For any developer, these would be easy fixes. It is more common that the developers simply don’t realize that the site is vulnerable rather than them being unable to secure it effectively.
 
 The continuous security that a SaaS product affords means that any updates to your site that might break your security can easily be found and fixed, and any new vulnerabilities that become known in the security field are quickly implemented in the scan and can be found on your site.
 
@@ -143,7 +145,7 @@ But Starbucks aren’t the only people making money off the app—[so are thieve
 
 Worse still, the app has a function called ‘auto-reload’. When your account hits zero it will automatically add more money to your Starbucks card from your linked account. This way thieves can drain your bank account or Paypal account in a matter of a few minutes, transferring the money onto Starbucks cards that they can then sell on the black market.
 
-Thieves can do all of this with simple stolen passwords. Users don’t consider their coffee app as something that needs strong security, but once it is linked up to a bank account or PayPal account, it suddenly becomes a conduit to all of your money. We don’t immediately associate these apps with all our wealth, but if you have a gift card or payment app that is linked directly to your bank account, then anyone with access has access to your money. 
+Thieves can do all of this with simple stolen passwords. Users don’t consider their coffee app as something that needs strong security, but once it is linked up to a bank account or PayPal account, it suddenly becomes a conduit to all of your money. We don’t immediately associate these apps with all our wealth, but if you have a gift card or payment app that is linked directly to your bank account, then anyone with access has access to your money.
 
 ### How to mitigate against lack of authentication: multifactor authentication
 
@@ -171,13 +173,12 @@ Because MFA is so easy to implement via services such as Auth0, there is now no 
 
 ## The Need For a 'Security First' Model
 
-In a [recent post](http://blog.learningbyshipping.com/2015/12/15/hallway-debates-a-2016-product-manager-discussion-guide/) on his thoughts for the coming year, Steven Sinofsky, venture capitalist at prominent firm Andreessen Horowitz, emphasized the importance of security in 2016: 
+In a [recent post](http://blog.learningbyshipping.com/2015/12/15/hallway-debates-a-2016-product-manager-discussion-guide/) on his thoughts for the coming year, Steven Sinofsky, venture capitalist at prominent firm Andreessen Horowitz, emphasized the importance of security in 2016:
 
 *“Nearly every discussion about what to purchase or what to build next needs to happen in the context of security and privacy.”*
 
-With all the data breaches and security issues in 2015, customers are going to expect that providers build their products with intrinsic security features. So far in SaaS, security has been a bolt-on feature, mainly emphasized for enterprise clients and left out of lower-priced tiers. 
+With all the data breaches and security issues in 2015, customers are going to expect that providers build their products with intrinsic security features. So far in SaaS, security has been a bolt-on feature, mainly emphasized for enterprise clients and left out of lower-priced tiers.
 
 But, as the example of ProtonMail shows, smaller companies are no longer out of the hackers' sights. What was previously only for enterprise is now as important for boostrapping services. Security should be among the first wave of product features that developers build in to their own services, making sure that security is deep-rooted within the product.
 
 But with the proliferation of affordable Security-as-a-Service products now available, any developer, whether bootstrapper or enterprise, can embed security right at the core of their product, offering what was once a premium offering to every customer, and making their service safer to use for all.
-

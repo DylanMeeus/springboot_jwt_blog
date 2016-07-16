@@ -8,7 +8,7 @@ author:
   name: Tim McLean
   url: https://timmclean.net
   avatar: https://www.gravatar.com/avatar/dfea5c5f769cc4a6cce74d3eda20bba3?size=200
-design: 
+design:
   bg_color: "#49525B"
   image: https://cldup.com/ZfDpgn223K.png
   image_size: "50%"
@@ -39,6 +39,8 @@ attackers to bypass the verification step.  The same two flaws were found
 across many implementations and languages, so I thought it would be helpful to
 write up exactly where the problems occur.  I believe that a change to the
 standard could help prevent future vulnerabilities.
+
+{% include tweet_quote.html quote_text="I found many libraries with critical vulnerabilities allowing attackers to bypass the verification step." %}
 
 <!-- more -->
 

@@ -46,6 +46,8 @@ Customization is what distinguishes platforms from applications. The most powerf
 
 When we set off to create the Auth0 identity management platform, we had a singular goal: create a product developers will love. We've learned that nothing makes developers happier than writing code. [Auth0 rules](https://auth0.com/docs/rules) enable developers to extend the processing within the Auth0 authorization pipeline by writing custom Node.js code. Developers write Auth0 rules to support a wide range of scenarios, from running custom business logic to enforce authorization, to integration with external systems, sending notifications, logging, and more. Extensibility through custom code affords developers far more flexibility than any set of declarative controls ever could.  
 
+{% include tweet_quote.html quote_text="We've learned that nothing makes developers happier than writing code." %}
+
 ## CFOs love revenue and customer retention
 
 Successful subscription business requires many ingredients to deliver great performance. Standout features of the product generate new signups. Uniqueness of the capabilities creates stickiness and increases customer retention.

@@ -3,15 +3,15 @@ layout: post
 title: "'Tis the Season for Cyber Criminals"
 description: The threats you might be exposed to this holiday season and what to do about them to stay safe online.
 date: 2015-12-23 14:30
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
 design:
-  image: https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/logo.png 
+  image: https://cdn.auth0.com/blog/this-the-season-for-cyber-criminals/logo.png
   image_bg_color: "transparent"
   bg_color: "#06344B"
-tags: 
+tags:
 - holidays
 - cyber-criminals
 - online-security
@@ -51,7 +51,7 @@ Unfortunately, there isn't much you can do to avoid malvertising, but make sure 
 
 One of the most dangerous threats this season is **Phishing**. Phishing occurs when cyber criminals attempt to get your usernames, passwords, and credit card details by creating a fake version of a real and well-known site. Users get tricked into entering their sensitive information, thinking that the site is the real one. You may arrive at one of these sites by misspelling the site address or by following links on forged emails, ads, or posts.
 
-This time of year we always see several fake stores emerge. They are there for a couple of weeks, then disappear with your sentitive data and your money.
+This time of year we always see several fake stores emerge. They are there for a couple of weeks, then disappear with your sensitive data and your money.
 
 The [Anti-Phishing Working Group](http://www.antiphishing.org/) reports that in the last quarter of 2014, there was an increase of 18 percent in the number of unique phishing reports compared to the previous quarter, and that **Retail/Service** was the most-targeted industry sector, with **Payment Services** close behind.
 
@@ -64,7 +64,7 @@ _When you are browsing a site look for **https** and the padlock icon to ensure 
 
 # Weak Passwords
 
-Big sites have strong security measures in place, but independent of all that security, the weakeast link is probably your _password_.
+Big sites have strong security measures in place, but independent of all that security, the weakest link is probably your _password_.
 
 Nowadays, several sites enforce the use of secure passwords, but for those that don't, you should be proactive.
 
@@ -83,6 +83,8 @@ Here are some suggestions for creating passwords:
 - If you use a phrase, using random words is preferred.
 
 - Use multifactor authentication wherever available. Multifactor authentication adds one or more security layers to accessing accounts, making them almost impossible to compromise, even if the attacker gets your password.
+
+{% include tweet_quote.html quote_text="Multifactor authentication adds one or more security layers to accessing accounts, making them almost impossible to compromise" %}
 
 ![Weak Passwords](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/Weak-Password.png)
 
@@ -177,5 +179,7 @@ Lastly, you can also enable [multifactor authentication](https://auth0.com/learn
 ## Closing Comments
 
 Cyber criminals are always lurking to steal information from vulnerable devices and incautious customers, especially this season.
+
+{% include tweet_quote.html quote_text="Cyber criminals are always lurking to steal information from vulnerable devices and incautious customers" %}
 
 The best defense against cyber crime is prevention - knowing the threats and taking action to minimize the risk of being an easy target. We have given you the knowledge - use it to your advantage and shop safely.

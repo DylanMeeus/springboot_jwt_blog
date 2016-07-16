@@ -89,4 +89,6 @@ The `returnTo` option tells Auth0 where to redirect the user once it has logged 
 
 That's it! With just a few lines of code you have implemented Lock in your web app! In the next episode we'll talk about the options you can use to construct your Lock instance-- things like what login types to show, remembering which user was logged in last, etc.
 
+{% include tweet_quote.html quote_text="With just a few lines of code, you can implement Lock in your web app" %}
+
 Thanks for reading!

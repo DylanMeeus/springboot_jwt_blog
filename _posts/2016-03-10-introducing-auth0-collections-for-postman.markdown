@@ -8,10 +8,10 @@ author:
   mail: jerrie@auth0.com
   url: https://twitter.com/jerriepelser
   avatar: https://secure.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=60
-design: 
+design:
    bg_color: "#222228"
    image: "http://cdn.auth0.com/blog/postman-integration/logo.png"
-tags: 
+tags:
 - api
 - postman
 related:
@@ -21,9 +21,11 @@ related:
 ---
 
 
-For developers wanting to use our Authentication or Management APIs we have a pretty great experience in place with our API Explorer which allows the developers to test API calls from within their browser. 
+For developers wanting to use our Authentication or Management APIs we have a pretty great experience in place with our API Explorer which allows the developers to test API calls from within their browser.
 
 We are now extending that support to Postman, by making available a Postman collection for the Management API, and one for the Authentication API following soon.
+
+{% include tweet_quote.html quote_text="We are making available a Postman collection for our Authentication and Management API." %}
 
 In this blog post I will walk you through this experience.
 
@@ -43,7 +45,7 @@ At this point Postman will prompt you whether you want to open the Collection in
 
 Select the one you have installed. In this blog post I will open it in the Chrome App, but the experience is similar in the Mac App.
 
-At this point we will Postman will do 2 things:
+At this point Postman will do 2 things:
 
 1. It will install the Auth0 Management API collection
 2. It will create an environment for you based on the tenant account you are signed into Auth0 with.

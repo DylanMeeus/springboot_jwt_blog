@@ -3,17 +3,17 @@ layout: post
 title: "Top 5 Cyber Monday Security Threats and What To Do About Them"
 description: Five tips that will help you to shop safely from your home during the sale season
 date: 2015-11-30 14:20
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
   mail: diego.poza@auth0.com
-design: 
+design:
   bg_color: "#2A4A80"
   image_bg_color: "#5E7192"
   image_size: "120%"
   image: https://cdn.auth0.com/blog/top-5-threats-cyber-monday/logo-cybermonday.png
-tags: 
+tags:
 - cyber-monday
 - online-shopping
 - security-threats
@@ -31,7 +31,7 @@ Historically, November and December are the months with the most online transact
 We will enumerate the top five security threats you may encounter when shopping online and give you hints about how to shop safely on these dates.
 
 ## 1. Phishing
-![Phishing](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/Phishing.png) 
+![Phishing](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/Phishing.png)
 
 The [Anti-Phishing Working Group](http://www.antiphishing.org/) reports that in the last quarter of 2014, there was an **18 percent increase in the number of unique phishing reports** compared to the previous quarter, and that **Retail/Service** was the most targeted industry sector in the fourth quarter of 2014, with **Payment Services** close behind.
 
@@ -49,6 +49,8 @@ Additionally, you can get phishing filters as an additional measure to keep your
 ![Weak Passwords](https://cdn.auth0.com/blog/top-5-threats-cyber-monday/Weak-Password.png)
 
 Big sites typically have strong security measures, but security is only as strong as its weakest link. Don't let your password be your weakest link, especially if your password is for a site that contains sensitive information, such as your credit card information. Nowadays, several sites enforce the usage of secure passwords, but for those that don't, you should be proactive.
+
+{% include tweet_quote.html quote_text="Big sites typically have strong security measures, but security is only as strong as its weakest link." %}
 
 Here are some tips to help you create a secure password:
 
@@ -85,7 +87,7 @@ Maybe you want to buy something from a small site, or a new site. Maybe that lit
 
 - Ensure that the site protects the security of your information during transmission by using Secure Sockets Layer (SSL) software, which encrypts the information you input. You can verify this by checking to see that the URL of the website starts with *https*, and that the browser shows the **padlock icon** to indicate the use of SSL certificates.
 - Read the privacy and security information for the site to find out how it handles privacy and security. From this document, you can also learn whether the site takes security seriously. For example, you can find out whether it implements Brute Force Protection and IP logging, among other measures.
-- Some sites outsource their payment platforms to online payment services such as **[Paypal](http://www.paypal.com)**; in this way, these well-known services handle all the user's data and typically have strong security measures in place. 
+- Some sites outsource their payment platforms to online payment services such as **[Paypal](http://www.paypal.com)**; in this way, these well-known services handle all the user's data and typically have strong security measures in place.
 - Share only as much information as is necessary to make your purchase. For example, if a site asks you for your social security number, employer, relative's information, and such, do not trust that site.
 - If you log in using a social provider, always verify the information that the site asks for. Often you will find that sites ask for information that they do not need, such as your friends list.
 

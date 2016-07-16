@@ -3,7 +3,7 @@ layout: post
 title: "7 Things You Should Know About WebAssembly"
 description: "Learn 7 things you should know about WebAssembly, one of the biggest changes the web will experience in the coming years."
 date: 2015-10-14 18:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -14,7 +14,7 @@ design:
   image_size: "120%"
   image_bg_color: "#B6C5CA"
   blog_series: false
-tags: 
+tags:
 - webassembly
 - web-assembly
 - wasm
@@ -60,6 +60,8 @@ It's been said before and it will be said again: **JavaScript is here to stay**.
 - It was designed as a compiler target from the beginning.
 - It is supported by all major browser vendors.
 - It can diverge from JavaScript semantics as much as needed.
+
+{% include tweet_quote.html quote_text="Thanks to the growth of the web, JavaScript has become a **lingua franca** among developers and tool vendors." %}
 
 WebAssembly is the much needed **complement** to JavaScript for the web.
 
@@ -143,5 +145,3 @@ At Auth0 we have a full body of work written in JavaScript. The cool thing about
 
 ## Conclusion
 During the last few years, we have seen an explosion of frameworks, compilers and other types of solutions that aim to take your existing code and make it *web-compatible*. This has caused a lot of **frustration in the community**. On one hand, features that do not fit well with JavaScript semantics or ideology have started showing up in implementors' forums and have raised **serious questions** among JavaScript developers. On the other hand, developers who want to use their existing code, or who want to use their favorite language or framework, have found themselves **locked out of the web**, or facing serious debugging challenges (among other problems). Even though existing solutions such as asm.js or PNaCl have done a lot to reduce these concerns, up to now there hasn't been a **proper, cross-vendor solution**. WebAssembly aims to solve that. A proper, cross-vendor, cross-language target for compilers, aiming at supporting all necessary features for making **a great all-around platform**. The stakes are high, but so are the rewards. And the people working on this know their stuff. WebAssembly is the evolution of an idea that has been requested by developers for a long time. WebAssembly is the future.
-
-

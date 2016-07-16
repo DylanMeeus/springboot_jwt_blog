@@ -43,6 +43,8 @@ JavaScript is one of the so called *garbage collected* languages. Garbage collec
 ## Leaks in JavaScript
 The main cause for leaks in garbage collected languages are *unwanted references*. To understand what unwanted references are, first we need to understand how a garbage collector determines whether a piece of memory can be reached or not.
 
+{% include tweet_quote.html quote_text="The main cause for leaks in garbage collected languages are unwanted references." %}
+
 ### Mark-and-sweep
 Most garbage collectors use an algorithm known as *mark-and-sweep*. The algorithm consists of the following steps:
 

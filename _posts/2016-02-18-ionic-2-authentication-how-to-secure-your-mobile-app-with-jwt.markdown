@@ -3,16 +3,16 @@ layout: post
 title: "Ionic 2 Authentication: How to Secure Your Mobile App with JWT"
 description: "Ionic 2 Beta has been released. Learn how to add JWT authentication to your Ionic 2 app and make secure calls to an API."
 date: 2016-02-18 08:30
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   bg_color: "#133D82"
   image: https://cdn.auth0.com/blog/ionic2-auth/ionic-logo.png
   image_size: "101%"
-tags: 
+tags:
 - angular2
 - angularjs
 - ionic
@@ -33,6 +33,8 @@ related:
 ---
 
 Ionic 2 Beta has been released and, just as Angular 2 is vastly different from Angular 1.x, the brand new Ionic is completely revamped as well. Ionic 2 brings all the power of Angular 2, and provides several of its own decorators for crafting cross-platform mobile applications easily. We still get a lot of the great features from Ionic 1, plus a lot more.
+
+{% include tweet_quote.html quote_text="Ionic 2 brings to the table all the power of Angular 2, and also provides several of its own decorators" %}
 
 Authentication is a critical component of non-trivial mobile apps, and with Ionic 2, we can add JWT authentication easily by following the same process we would for an Angular 2 app.
 
@@ -76,7 +78,7 @@ By default we are given a "tabs" style layout that has three pages linked in a t
 
 ## Bootstrapping the Application
 
-All of the action starts with the root component which is found in `app/app.ts`. Ionic apps are bootstrapped a bit differently than a regular Angular 2 application. With Ionic, we are given an `@App` decorator that is responsibile for wiring up the application, and then we use the `@Page` decorator for individual pages. The `@App` decorator can take some configuration, and is also the spot where we can set any providers we want. 
+All of the action starts with the root component which is found in `app/app.ts`. Ionic apps are bootstrapped a bit differently than a regular Angular 2 application. With Ionic, we are given an `@App` decorator that is responsibile for wiring up the application, and then we use the `@Page` decorator for individual pages. The `@App` decorator can take some configuration, and is also the spot where we can set any providers we want.
 
 Since we'll be making authenticated HTTP requests, we'll need to use the [angular2-jwt](https://github.com/auth0/angular2-jwt) library. This gives us a chance to see how to use providers in Ionic 2 apps, since we'll need to configure angular2-jwt. To do so, we can use the `providers` array on the `@App` decorator.
 
@@ -113,7 +115,7 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 We'll really just need two pages for our app: one that retrieves quotes and another that acts as a profile area where the user can log in and out. Let's set up the profile page first.
 
-You'll notice that the template that comes with Ionic 2 has three generic pages and a `TabsPage` component in the `pages` directory. The `TabsPage` is used to provide navigation to the other pages and gives us the tab strip at the bottom of the app. 
+You'll notice that the template that comes with Ionic 2 has three generic pages and a `TabsPage` component in the `pages` directory. The `TabsPage` is used to provide navigation to the other pages and gives us the tab strip at the bottom of the app.
 
 We can delete all the generic placeholder pages (but keep the `TabsPage`) and use Ionic's CLI to generate new ones. Here's the structure we want:
 
@@ -132,18 +134,18 @@ We can delete all the generic placeholder pages (but keep the `TabsPage`) and us
         -- tabs.html
         -- tabs.ts
  ```
- 
+
  Using the CLI, we can easily generate pages.
- 
+
  ```bash
  ionic g page profile
  ionic g page quotes
  ```
- 
+
  It should be noted that this command will generate `.js` files, so we'll need to give them a `.ts` extension to switch them over to TypeScript.
- 
+
  We'll need to change up the SASS files we import in `app/theme/app.core.scss`:
- 
+
  ```css
  ...
 
@@ -203,7 +205,7 @@ import 'rxjs/add/operator/map'
 export class ProfilePage {
   LOGIN_URL: string = "http://localhost:3001/sessions/create";
   SIGNUP_URL: string = "http://localhost:3001/users";
-  
+
   auth: AuthService;
   // When the page loads, we want the Login segment to be selected
   authType: string = "login";
@@ -213,7 +215,7 @@ export class ProfilePage {
   jwtHelper: JwtHelper = new JwtHelper();
   local: Storage = new Storage(LocalStorage);
   user: string;  
-  
+
   constructor(private http: Http) {
     this.auth = AuthService;
     this.local.get('profile').then(profile => {
@@ -222,7 +224,7 @@ export class ProfilePage {
       console.log(error);
     });
   }
-  
+
   login(credentials) {
     this.http.post(this.LOGIN_URL, JSON.stringify(credentials), { headers: this.contentHeader })
       .map(res => res.json())
@@ -231,7 +233,7 @@ export class ProfilePage {
         err => this.error = err
       );
   }
-  
+
   signup(credentials) {
     this.http.post(this.SIGNUP_URL, JSON.stringify(credentials), { headers: this.contentHeader })
       .map(res => res.json())
@@ -240,12 +242,12 @@ export class ProfilePage {
         err => this.error = err
       );
   }
-  
+
   logout() {
     this.local.remove('id_token');
     this.user = null;
   }
-  
+
   authSuccess(token) {
     this.error = null;
     this.local.set('id_token', token);
@@ -271,7 +273,7 @@ Let's now create the view.
   </ion-navbar>
 
   <ion-content class="login" *ngIf="!auth.authenticated()">
-    
+
       <div padding>
         <ion-segment [(ngModel)]="authType">
           <ion-segment-button value="login">
@@ -282,47 +284,47 @@ Let's now create the view.
           </ion-segment-button>
         </ion-segment>
       </div>
-      
+
       <div [ngSwitch]="authType">
         <form *ngSwitchWhen="'login'" #loginCreds="ngForm" (ngSubmit)="login(loginCreds.value)">
           <ion-item>
             <ion-label>Username</ion-label>
             <ion-input type="text" ngControl="username"></ion-input>
           </ion-item>
-          
+
           <ion-item>
             <ion-label>Password</ion-label>
             <ion-input type="password" ngControl="password"></ion-input>
           </ion-item>
-          
+
           <div padding>
             <button block type="submit">Login</button>        
           </div>
-          
+
         </form>
-        
+
         <form *ngSwitchWhen="'signup'" #signupCreds="ngForm" (ngSubmit)="signup(signupCreds.value)">
           <ion-item>
             <ion-label>Username</ion-label>
             <ion-input type="text" ngControl="username"></ion-input>
           </ion-item>
-          
+
           <ion-item>
             <ion-label>Password</ion-label>
             <ion-input type="password" ngControl="password"></ion-input>
           </ion-item>
-          
+
           <div padding>
             <button block type="submit">Signup</button>
           </div>
-          
+
         </form>
       </div>
-      
+
       <div padding>
         <p *ngIf="error" class="error">{{ "{{ error._body " }}}}</p>  
       </div>
-    
+
   </ion-content>
 
   <ion-content>
@@ -350,7 +352,7 @@ import {tokenNotExpired} from 'angular2-jwt';
 
 export class AuthService {
   constructor() {}
-  
+
   public static authenticated() {
     return tokenNotExpired();
   }
@@ -384,11 +386,11 @@ export class QuotesPage {
   quote: string;
   error: string;
   auth: AuthService;
-  
+
   constructor(private http: Http, private authHttp: AuthHttp) {
     this.auth = AuthService;
   }
-  
+
   getQuote() {
     // Use a regular Http call to access unsecured routes
     this.http.get(`${this.API}/random-quote`)
@@ -398,7 +400,7 @@ export class QuotesPage {
         err => this.error = err
       );
   }
-  
+
   getSecretQuote() {
     // Use authHttp to access secured routes
     this.authHttp.get(`${this.API}/protected/random-quote`)
@@ -422,12 +424,12 @@ In this component we have two methods, `getQuote` and `getSecretQuote` which wil
   <ion-content padding class="quotes">
     <h2>Welcome to the Ionic 2 Quotes App!</h2>
     <p>You can get a regular quote below, or you can sign in to get a secret quote.</p>
-    
+
     <button (click)="getQuote()">Get Quote</button>
     <button *ngIf="auth.authenticated()" (click)="getSecretQuote()">Get Secret Quote</button>
-    
+
     <h3>{{ "{{ quote " }}}}</h3>
-    
+
     <p class="error" *ngIf="error">{{ "{{ error " }}}}</p>
   </ion-content>
 ```
@@ -473,7 +475,7 @@ file://\*
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    
+
   ...
 ```
 
@@ -494,7 +496,7 @@ export class ProfilePage {
   lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
   local: Storage = new Storage(LocalStorage);
   user: Object;
-  
+
   constructor() {
     this.auth = AuthService;
     this.local.get('profile').then(profile => {
@@ -503,21 +505,21 @@ export class ProfilePage {
       console.log(error);
     });
   }
-  
+
   login() {
     this.lock.show((err, profile, token) => {
       if (err) {
         alert(err);
         return;
       }
-      
+
       this.local.set('profile', JSON.stringify(profile));
       this.local.set('id_token', token);
       this.user = profile;
-      
+
     });
   }
-  
+
   logout() {
     this.local.remove('profile');
     this.local.remove('id_token');
@@ -536,9 +538,9 @@ Now in our `login` method, we just need to call `this.lock.show` to open the Log
   </ion-navbar>
 
   <ion-content padding *ngIf="!auth.authenticated()">
-    
+
     <button block (click)="login()">Login</button>
-    
+
   </ion-content>
 
   <ion-content padding *ngIf="auth.authenticated()">
@@ -552,9 +554,9 @@ Now in our `login` method, we just need to call `this.lock.show` to open the Log
         <p>{{ "{{ user.email " }}}}</p>
       </ion-item>
     </ion-card>
-    
+
     <button block (click)="logout()">Logout</button>
-    
+
   </ion-content>
 ```
 

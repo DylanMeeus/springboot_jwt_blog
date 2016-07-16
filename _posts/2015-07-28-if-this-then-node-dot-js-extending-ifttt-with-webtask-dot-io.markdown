@@ -67,6 +67,8 @@ module.exports = function (done) {
 
 The only requirement is that you supply an entry function to be run on webtask.io's servers, here we just send back a simple message. Just run:
 
+{% include tweet_quote.html quote_text="The only requirement is that you supply an entry function to be run on webtask.io's servers." %}
+
 `$ wt create hello-webtasks.js`
 
 And you should be given a URL. Visit it in you're browser or console of choice and you can see the message is returned. It's pretty neat, right?
