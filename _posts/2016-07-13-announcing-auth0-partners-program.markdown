@@ -26,7 +26,7 @@ We are happy to announce the [Auth0 Partners](https://auth0.com/partners) progra
 
 Through collaborative partnerships, Auth0 partners can leverage our industry leading tools and expertise to deliver proven solutions to their customers.
 
-{% include tweet_quote.html quote_text="Auth0 partners can leverage our industry leading tools and expertise to deliver proven solutions to their customers. Join today!" %}
+{% include tweet_quote.html quote_text="Auth0 partners can leverage our industry leading tools and expertise. Join today!" %}
 
 ## Why a Partners Program?
 
