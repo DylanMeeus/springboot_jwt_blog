@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
-design: 
+design:
   bg_color: "#171717"
-  image: https://cdn.auth0.com/blog/user-onboarding-lessons/logo.png 
-tags: 
+  image: https://cdn.auth0.com/blog/user-onboarding-lessons/logo.png
+tags:
 - user-onboarding
 - onboarding
 - customer-success
@@ -21,16 +21,17 @@ related:
 - 2016-04-14-safely-use-best-customer-retention-tactics
 ---
 
-Everyone knows that retained customers are more valuable than acquired ones. With mobile apps especially, where only 2.3% of customers remain after 30 days, your loyal customers are the most important thing to your business. 
+Everyone knows that retained customers are more valuable than acquired ones. With mobile apps especially, where only 2.3% of customers remain after 30 days, your loyal customers are the most important thing to your business.
 
-There are many theories about why customers churn so quickly in their early days, some believe downloading is so easy it’s basically noncommittal, while others believe that competition between apps drives users to switch frequently. 
+There are many theories about why customers churn so quickly in their early days, some believe downloading is so easy it’s basically noncommittal, while others believe that competition between apps drives users to switch frequently.
 
 The less-discussed and more obvious reason is this: Most apps suck at onboarding new users.
 
-It doesn’t matter how much long term value your app provides, and it doesn’t matter how many customers your marketing strategy brings on, if you can’t get users from day 1  to day 30 without losing their business, your business has no chance. 
+{% include tweet_quote.html quote_text="Most apps suck at onboarding new users." %}
+
+It doesn’t matter how much long term value your app provides, and it doesn’t matter how many customers your marketing strategy brings on, if you can’t get users from day 1  to day 30 without losing their business, your business has no chance.
 
 With this in mind, we compiled the seven most important lessons for onboarding new users.
-
 
 ## 1. Real World Use-Cases Are All Your Users Care About
 
@@ -41,7 +42,7 @@ A great example of focusing onboarding around real life use-cases is Spring, the
 
 ![Spring Onboarding](https://cdn.auth0.com/blog/user-onboarding-lessons/spring-onboarding.png)
 
-Spring’s onboarding could detail the behavioral analytics behind their recommendation engine, or the infrastructure behind their daily updates, but instead they focus on how users actually get value from their app. 
+Spring’s onboarding could detail the behavioral analytics behind their recommendation engine, or the infrastructure behind their daily updates, but instead they focus on how users actually get value from their app.
 
 ### key takeaway:
 
@@ -84,6 +85,8 @@ Every startup knows the importance of automation. It’s how you service 10,000 
 Kristen Craft, director of business development for [Wistia](http://wistia.com/), a video platform for businesses, [explains that with video](http://wistia.com/blog/video-familiarity) “You can express the full range of human emotions, explain things in great clarity, and generally appeal to the viewer's humanity.”
 
 The benefit to this, in her words, is that “One video can speak to thousands of customers.”
+
+{% include tweet_quote.html quote_text="One video can speak to thousands of customers." %}
 
 Wistia’s own onboarding process reflects this. Instead of just giving you a series of articles to read, they give you this 5-minute video at the beginning of the [onboarding process](https://wistia.com/community/posts/jaio/are-you-using-video-in-your-new-user-onboarding):
 
@@ -153,7 +156,7 @@ With your app, you have to strike a balance between collecting necessary informa
 
 ![Duoling User Onboarding](https://cdn.auth0.com/blog/user-onboarding-lessons/duolingo-onboarding.png)
 
-After you click to sign up, these are the first three screens you see. You make three decisions, and you are all set up to start learning a new language with a complete plan. 
+After you click to sign up, these are the first three screens you see. You make three decisions, and you are all set up to start learning a new language with a complete plan.
 
 This gradual collection of information is called [progressive profiling](https://auth0.com/blog/2016/04/18/progressive-profiling/). With Auth0, you can easily implement it with our [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id). The API collects user metadata in a “bucket” conveniently called “user_metadata” which you can update at any time throughout the customer’s lifecycle.
 

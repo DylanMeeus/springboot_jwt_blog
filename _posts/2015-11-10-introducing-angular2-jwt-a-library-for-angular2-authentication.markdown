@@ -3,18 +3,18 @@ layout: post
 title: "Introducing angular2-jwt: A Library for Angular 2 Authentication"
 description: "Learn about what's new with Angular 2 authentication and how to use angular2-jwt to make it easier."
 date: 2015-11-10 16:00
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   image_bg_color: "linear-gradient(#0143A3,#0273D4)"
   bg_color: "#7C161E"
   image: https://cdn.auth0.com/blog/angular2-series/angular2-logo.png
   image_size: "70%"
   blog_series: true
-tags: 
+tags:
 - angular2
 - angularjs
 - observables
@@ -68,7 +68,7 @@ If you're using **SystemJS**, you can `map` to `angular2-jwt` in your configurat
 
 It should be noted that **angular2-jwt** makes no assumptions about how you authenticate your users. If you're using Auth0, though, we've got an [example](https://github.com/auth0/auth0-angular2) of how it can be done in just a few lines of code.
 
-The `AuthHttp` class lets you send any HTTP request with an authentication header atttached. The class wraps regular HTTP requests and is injected and accessed in much the same way as `Http`.
+The `AuthHttp` class lets you send any HTTP request with an authentication header attached. The class wraps regular HTTP requests and is injected and accessed in much the same way as `Http`.
 
 > Note: These examples assume you have a user's JWT saved.
 
@@ -131,7 +131,7 @@ bootstrap(App, [
       headerPrefix: YOUR_HEADER_PREFIX,
       tokenName: YOUR_TOKEN_NAME,
       tokenGetter: YOUR_TOKEN_GETTER_FUNCTION,
-      noJwtError: true 
+      noJwtError: true
     })
   }})
 ])
@@ -146,6 +146,8 @@ Using an explicit `AuthHttp` request is nice because we can use it in tandem wit
 We'll often find ourselves needing to protect certain routes from unauthenticated users. Even though our data from the API will be safe since a valid JWT is required to access it, unless we put some blocks in place, users will still be able to navigate to routes that are designated for authenticated users only.
 
 In Angular 1.x, if we use UI Router, we might put a property on our route declarations that says a given route requires authentication. Angular 2's Router gives us some lifecycle hooks that are useful for tapping into various events along the routing pipeline. One of these hooks is called `CanActivate` and it is fired **before** a route is navigated to and its component class is instantiated. This is the perfect hook for checking whether the user has a valid JWT.
+
+{% include tweet_quote.html quote_text="Angular 2's Router gives us some lifecycle hooks that are useful for tapping into various events." %}
 
 ```js
 // app.ts

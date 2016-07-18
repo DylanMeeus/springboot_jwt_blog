@@ -737,4 +737,6 @@ Visual Studio is a complete IDE, we have witnessed how easy it was to create pag
 
 As we saw in this tutorial, we can easily add authentication to our desktop apps using JWTs. Also, the inbuilt WebClient class makes it trivial to send requests with an Authorization header.
 
+{% include tweet_quote.html quote_text="We can easily add authentication to our desktop apps using JWTs." %}
+
 Please, let me know if you have any questions or observations in the comment section. 😊

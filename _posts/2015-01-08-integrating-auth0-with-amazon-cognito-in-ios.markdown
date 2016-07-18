@@ -28,6 +28,7 @@ related:
 ---
 We’ve come to an era where a critical component of a solution is providing a fantastic experience for the user. The focus is now on the client: web or native. But all powerful apps need a backend, which usually mean servers you run that expose an API.  However, it is now possible to securely interact with services like Amazon Cognito, Firebase, and others directly from the client code, with no server of your own.
 
+{% include tweet_quote.html quote_text="It is now possible to securely interact with services like Amazon Cognito from the client code" %}
 
 In this post, I’ll explain how you can integrate your mobile app with two solutions: Auth0 to get authentication with either [Social Providers](https://auth0.com/docs/identityproviders#2) (Facebook, Twitter, etc.), [Enterprise providers](https://auth0.com/docs/identityproviders#1) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code
 

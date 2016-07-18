@@ -3,12 +3,12 @@ layout: post
 title: "Insight and Execution: Why Analytics Matter"
 description: 3 ways you can use Analytics to build your product
 date: 2016-05-27 9:30
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
   mail: diego.poza@auth0.com
-design: 
+design:
   bg_color: "#0D3F41"
   image: https://cdn.auth0.com/blog/analytics-matter/logo.png
 tags:
@@ -27,7 +27,7 @@ Your goal in building a product is to create something that gives value to your 
 
 You can improve your product forever. There is always a way to deliver more value to your customers. The question is, how do you decide what to improve?
 
-You can use either analytics or intuition to drive your development. If you use analytics, you can be certain you're developing what customers want. If you [use your intuition](https://amplitude.com/blog/2016/05/19/square-built-data-driven-culture/), well, good luck with that. 
+You can use either analytics or intuition to drive your development. If you use analytics, you can be certain you're developing what customers want. If you [use your intuition](https://amplitude.com/blog/2016/05/19/square-built-data-driven-culture/), well, good luck with that.
 
 With this in mind, we've broken down three of the most powerful ways you can use analytics to develop your product.
 
@@ -39,22 +39,24 @@ Many have heard the story of Facebook's [seven friends in ten days](http://andre
 
 All Facebook had to do for this viral growth [was make it easy](https://www.quora.com/What-are-some-decisions-taken-by-the-Growth-team-at-Facebook-that-helped-Facebook-reach-500-million-users) to pull your other contacts into the network. It might seem like some high-tech magic, but it's something you can do very simply in your own app.
 
-Using Auth0's [Single Sign On](https://auth0.com/docs/sso/single-sign-on), or SSO, you can collect such customer data from other social platforms automatically. 
+Using Auth0's [Single Sign On](https://auth0.com/docs/sso/single-sign-on), or SSO, you can collect such customer data from other social platforms automatically.
 
 Through Auth0's Social Connections dashboard, all you have to do is toggle a switch to enable SSO for any of the 30+ platforms Auth0 supports. This way, if a user authenticates through Facebook, Twitter, LinkedIn, Google, or any other provider, you can immediately pull their contact list and connect them with users in their social network.
 
 ![Social Connections](https://cdn.auth0.com/blog/analytics-matter/social-connections.png)
 
-If you want to make all of your users feel valuable, the first step is to find out who you're dealing with. This means contact lists, but also locations, birthdays, work history, education background, and so much more. With [Auth0's Social Connections](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/), you can easily collect all of these things. 
+If you want to make all of your users feel valuable, the first step is to find out who you're dealing with. This means contact lists, but also locations, birthdays, work history, education background, and so much more. With [Auth0's Social Connections](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/), you can easily collect all of these things.
 
 ## 2. Build The Right Product/Feature
 
-With analytics, you can build the product your customers want before they know they want it. 
+With analytics, you can build the product your customers want before they know they want it.
+
+{% include tweet_quote.html quote_text="With analytics, you can build the product your customers want before they know they want it." %}
 
 One of the best real-world examples of this is Netflix. The streaming service collects an [insane amount of data](https://pilotfiber.com/blog/how-netflix-know-what-you-want-to-watch/), including:
 
-* Your viewing habits relative to the time of day 
-* The devices you watch from 
+* Your viewing habits relative to the time of day
+* The devices you watch from
 * What customers similar to you watch
 
 This data helped Netflix create a show they knew viewers would love before they'd ever shot a single scene, *House of Cards*. While Netflix couldn’t have known the show would go on to be nominated for [32 Emmy](https://en.wikipedia.org/wiki/House_of_Cards_(U.S._TV_series)#Accolades) awards, they knew the show would be successful before they gave it the green light. How? Customer analytics.
@@ -71,7 +73,7 @@ Knowing you have an audience before you build something is always helpful, but i
 
 ## 3. Create A Truly Sticky App
 
-Your app might be extremely engaging to a customer when they first open it, and completely lose a customer's interest one day later. In fact, the average Google app loses [90% of its daily active users](http://andrewchen.co/new-data-shows-why-losing-80-of-your-mobile-users-is-normal-and-that-the-best-apps-do-much-better/) within the first 30 days. 
+Your app might be extremely engaging to a customer when they first open it, and completely lose a customer's interest one day later. In fact, the average Google app loses [90% of its daily active users](http://andrewchen.co/new-data-shows-why-losing-80-of-your-mobile-users-is-normal-and-that-the-best-apps-do-much-better/) within the first 30 days.
 
 The key to creating a sticky app, one which keeps customers engaged, is to use analytics to discover how to engage not just new customers, but old ones as well. One example of this is *behavioral cohorting*.
 
@@ -114,7 +116,7 @@ function(user, context, callback) {
   } else {
     sendEvent('signup');  
   }
-  
+
   function sendEvent(e)
   {
     var sioTrack =  
@@ -139,7 +141,7 @@ function(user, context, callback) {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(sioTrack),
-    }, 
+    },
     function (err, response, body) {
       if(err) return callback(err, user, context);
       if(e === 'signup'){ user.persistent.signedUp = true; }
@@ -153,7 +155,6 @@ In less than an hour, you could go from [analysis to execution](https://auth0.co
 
 ## Analytics Keep You In Growth Mode
 
-The key to sustaining rapid growth is to keep experimenting. You should always be trying new things, building onto your product to make it better for your customers. 
+The key to sustaining rapid growth is to keep experimenting. You should always be trying new things, building onto your product to make it better for your customers.
 
-However, if you want that experimentation to be effective and not just a resource drain, it needs to be informed by the best analytics you can provide. Experimentation is your vehicle for growth, but analytics is the engine. 
-
+However, if you want that experimentation to be effective and not just a resource drain, it needs to be informed by the best analytics you can provide. Experimentation is your vehicle for growth, but analytics is the engine.

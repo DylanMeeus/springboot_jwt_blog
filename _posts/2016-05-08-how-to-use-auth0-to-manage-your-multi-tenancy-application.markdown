@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
-design: 
+design:
   bg_color: "#003573"
   image: https://cdn.auth0.com/blog/multi-tenancy/logo.png
-tags: 
+tags:
 - multi-tenancy
 - multi-tenant-applications
 - multi-tenancy-benefits
@@ -25,9 +25,9 @@ A multi-tenanted software architecture allows you to serve multiple customers fr
 * Multi-tenant: One instance, multiple customers.
 * Single-tenant: One instance, one customer.
 
-A tenant is defined as a group of users who share access to that application instance. For instance, this could be a company with multiple employees, all who have access to your SaaS service. In a multi-tenant architecture, a single instance of your application would be shared across multiple companies (tenants), and across multiple employees within those companies. 
+A tenant is defined as a group of users who share access to that application instance. For instance, this could be a company with multiple employees, all who have access to your SaaS service. In a multi-tenant architecture, a single instance of your application would be shared across multiple companies (tenants), and across multiple employees within those companies.
 
-Every tenant would however have a dedicated share of that instance, and multi-tenant application can then be customized for each specific tenant's need, in particular: 
+Every tenant would however have a dedicated share of that instance, and multi-tenant application can then be customized for each specific tenant's need, in particular:
 
 * Branding: Each instance would likely need to be “skinned” to fit with the branding of the organization. This is akin to how [Lock](https://auth0.com/lock) can be customized for each user's login page.
 * Functionality: Each tenant may require certain workflow changes that fit better with their business.
@@ -37,7 +37,7 @@ Every tenant would however have a dedicated share of that instance, and multi-te
 
 Building multi-tenant applications conveys a number of benefits for a SaaS company:
 
-**Scalability**: There is overhead associated with spooling up each application instance. Extra processing power and memory is required over and above just that for the single instance. Additionally, resources can be shared across tenants in a multi-tenant architecture. 
+**Scalability**: There is overhead associated with spooling up each application instance. Extra processing power and memory is required over and above just that for the single instance. Additionally, resources can be shared across tenants in a multi-tenant architecture.
 
 For example, if a SaaS company had 10 tenants, and each tenant needed just over 1 server to fulfill their requirements (say, 1.1 servers), in a single-tenant architecture this would require 20 servers as each tenant would need dedicated servers. In multi-tenant architectures, only 11 servers are needed, as resources can be shared easier.
 
@@ -60,6 +60,8 @@ Additionally, as each tenant’s data is stored together, significant security t
 
 Authentication and authorization are fundamental to multi-tenant architectures. Correctly authenticating individual users within a tenant organization and determining what they are authorized to access are paramount to this software model.
 
+{% include tweet_quote.html quote_text="Authentication and authorization are fundamental to multi-tenant architectures." %}
+
 To build multi-tenant applications within Auth0, you only need to create separate applications for each of your tenants from Dashboard → Applications → Create App:
 
 ![Creating Auth0 Applications](https://cdn.auth0.com/blog/multi-tenancy/applications.png)
@@ -74,7 +76,7 @@ Metadata in an Auth0 user profile allows you to associate specific information t
 For instance, a user might be authenticated for multiple tenants and have different roles in those tenants:
 
 ```json
-{ 
+{
   "email": "matias@auth0.com",
   "app_metadata" : {
     "permissions" : {

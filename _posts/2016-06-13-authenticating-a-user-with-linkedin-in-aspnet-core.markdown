@@ -46,11 +46,11 @@ This blog post is based on Release Candidate 2, and assumes that you have the [c
 
 ## Creating a new ASP.NET Core Application
 
-In Visual Studio, create a new project (File > New > Project), and select **ASP.NET Core Web Application (.NET Core)**. 
+In Visual Studio, create a new project (File > New > Project), and select **ASP.NET Core Web Application (.NET Core)**.
 
 ![Creating a new ASP.NET Core Web Application](https://cdn.auth0.com/blog/authenticate-linkedin-aspnetcore/new-project.png)
 
-Enter a name of the application and click **OK**. 
+Enter a name of the application and click **OK**.
 
 Next, select **Web Application** and ensure that you have set the **Authentication** to **No Authentication**
 
@@ -58,7 +58,7 @@ Next, select **Web Application** and ensure that you have set the **Authenticati
 
 ## Register your application in the LinkedIn Developer Portal
 
-Next up you will need to register your application in LinkedIn and obtain a **Client ID** and **Client Secret**. 
+Next up you will need to register your application in LinkedIn and obtain a **Client ID** and **Client Secret**.
 
 Go to the [LinkedIn Developer Portal](https://developer.linkedin.com/) and select **My Apps** from the top menu. Click on the **Create Application** button. You will need to complete all the information for your application, and once you are done click on the **Submit** button.
 
@@ -81,7 +81,7 @@ We will be storing these values in the configuration file so we can retrieve the
   "linkedin": {
     "clientid": "75xcbb4icwltx3",
     "clientSecret": "giSng0gfq81DTUzZ"
-  } 
+  }
 }
 ```
 
@@ -178,9 +178,9 @@ app.UseOAuthAuthentication(new OAuthOptions
 });
 ```
 
-For the **OAuth** middleware options, we set the `AuthenticationScheme` to **LinkedIn**. The `ClientId` and `ClientSecret` is obtained from the Configuration. The `CallbackPath` is set to `/signin-linkedin` and this correlates with the value we registered in LinkedIn as an Authorized Redirect URL. 
+For the **OAuth** middleware options, we set the `AuthenticationScheme` to **LinkedIn**. The `ClientId` and `ClientSecret` is obtained from the Configuration. The `CallbackPath` is set to `/signin-linkedin` and this correlates with the value we registered in LinkedIn as an Authorized Redirect URL.
 
-The correct values for `AuthorizationEndpoint` and `TokenEndpoint` was obtained from the [LinkedIn OAuth documentation](https://developer.linkedin.com/docs/oauth2). To obtain the user's profile information we configure the `UserInformationEndpoint` property to point to the `/v1/people/~` endpoint which will return the details for the authenticated user. We also limit the fields we will return from LinkedIn to the ID, Formatted Name, Email Address and Picture URL. For more information on the available fields you can refer to the [Basic Profile Fields](https://developer.linkedin.com/docs/fields/basic-profile) documentation on LinkedIn. 
+The correct values for `AuthorizationEndpoint` and `TokenEndpoint` was obtained from the [LinkedIn OAuth documentation](https://developer.linkedin.com/docs/oauth2). To obtain the user's profile information we configure the `UserInformationEndpoint` property to point to the `/v1/people/~` endpoint which will return the details for the authenticated user. We also limit the fields we will return from LinkedIn to the ID, Formatted Name, Email Address and Picture URL. For more information on the available fields you can refer to the [Basic Profile Fields](https://developer.linkedin.com/docs/fields/basic-profile) documentation on LinkedIn.
 
 Lastly we configure the `Scope` to request access to the user's basic profile information and email address.
 
@@ -211,15 +211,15 @@ app.Map("/logout", builder =>
         context.Response.Redirect("/");
     });
 });
-``` 
+```
 
 When a request is made to the `/login` route, the **LinkedIn** authentication scheme will be challenged, which will invoke the OAuth2 middleware and redirect the user to the LinkedIn website to authenticate themselves.
 
 For the `/logout` route we simply sign the user out of the Cookie middleware, which effectively signs them out of the application.
 
-One final thing we want to do is to add a Login button on the website, so open the `/Views/Shared/_Layout.cshtml` file and in the nav bar section add some logic which check if the user is authenticated and then send them either to the `/logout` or the `/login` route. 
+One final thing we want to do is to add a Login button on the website, so open the `/Views/Shared/_Layout.cshtml` file and in the nav bar section add some logic which check if the user is authenticated and then send them either to the `/logout` or the `/login` route.
 
-Also, if the user is actually authenticated we will display a greeting that will display the string "Hello [user name]". Clicking on this link will take the user to a profile page which we will develop later in this blog post. 
+Also, if the user is actually authenticated we will display a greeting that will display the string "Hello [user name]". Clicking on this link will take the user to a profile page which we will develop later in this blog post.
 
 {% highlight html %}
 <div class="navbar-collapse collapse">
@@ -264,7 +264,7 @@ The `OAuthOptions` class contains an `Events` property which will allow us to su
 
 So head back to your `Startup` class and change the OAuth middleware registration code as follows:
 
-``` cs 
+``` cs
 // Add the OAuth2 middleware
 app.UseOAuthAuthentication(new OAuthOptions
 {
@@ -275,7 +275,7 @@ app.UseOAuthAuthentication(new OAuthOptions
     ClientId = Configuration["linkedin:clientId"],
     ClientSecret = Configuration["linkedin:clientSecret"],
 
-    // Set the callback path, so LinkedIn will call back to http://APP_URL/signin-linkedin 
+    // Set the callback path, so LinkedIn will call back to http://APP_URL/signin-linkedin
     // Also ensure that you have added the URL as an Authorized Redirect URL in your LinkedIn application
     CallbackPath = new PathString("/signin-linkedin"),
 
@@ -288,7 +288,7 @@ app.UseOAuthAuthentication(new OAuthOptions
 
     Events = new OAuthEvents
     {
-        // The OnCreatingTicket event is called after the user has been authenticated and the OAuth middleware has 
+        // The OnCreatingTicket event is called after the user has been authenticated and the OAuth middleware has
         // created an auth ticket. We need to manually call the UserInformationEndpoint to retrieve the user's information,
         // parse the resulting JSON to extract the relevant information, and add the correct claims.
         OnCreatingTicket = async context =>
@@ -336,7 +336,7 @@ app.UseOAuthAuthentication(new OAuthOptions
         }
     }
 });
-``` 
+```
 
 The code above will set some of the standard claims, such as the `ClaimTypes.NameIdentifier` and the `ClaimTypes.Name` claims. The latter is the one which is used to display the user's name when you make a call to `User.Identity.Name`.
 
@@ -414,7 +414,9 @@ Clicking on the user's name will take you to the new User Profile page where you
 
 ## Aside: Authenticating using LinkedIn in Auth0
 
-Auth0 also supports allowing users to sign in with their LinkedIn accounts, along with [30+ other Social providers](https://auth0.com/docs/identityproviders). 
+Auth0 also supports allowing users to sign in with their LinkedIn accounts, along with [30+ other Social providers](https://auth0.com/docs/identityproviders).
+
+{% include tweet_quote.html quote_text="Auth0 also supports allowing users to sign in with their LinkedIn accounts, along with other Social providers." %}
 
 If you are using ASP.NET Core you will be pleased to know that because we use industry standards such as OAuth2, OpenID Connect and JWT, you can implement Auth0 in your ASP.NET Core applications using the standard ASP.NET Core libraries.
 
@@ -422,6 +424,6 @@ For more information on how to use Auth0 to allow users to sign in to your MVC a
 
 ## Conclusion
 
-The new generic OAuth middleware in ASP.NET Core makes it really simple to authenticate your users using any OAuth2 service. All you need have is a Client ID and Client Secret for the relevant service, as well as know the service's OAuth2 Authorization and Token endpoints. 
+The new generic OAuth middleware in ASP.NET Core makes it really simple to authenticate your users using any OAuth2 service. All you need have is a Client ID and Client Secret for the relevant service, as well as know the service's OAuth2 Authorization and Token endpoints.
 
 With that information, and a little but of custom code, you can enable logging in using the relevant service in a couple of minutes.

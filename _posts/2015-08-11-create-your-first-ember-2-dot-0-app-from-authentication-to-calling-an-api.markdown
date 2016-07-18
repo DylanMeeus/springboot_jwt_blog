@@ -3,7 +3,7 @@ layout: post
 title: "Create your first Ember 2.0 app: From authentication to calling an API"
 description: "Learn how to create your first Ember 2.0 app using ES6, ember-cli, ember-simple-auth and much more! We'll implement everything from Authentication to calling an API."
 date: 2015-08-11 11:51
-author: 
+author:
   name: Diego Poza
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
@@ -11,7 +11,7 @@ design:
   image: https://cdn.auth0.com/blog/ember-simple-auth/ember-logo-small.png
   image_bg_color: "transparent"
   bg_color: "#412b13"
-tags: 
+tags:
 - ember-2.0
 - authentication
 - authorization
@@ -49,7 +49,7 @@ This means that if you manage to create a v1.13 application with no deprecation 
 
 As you may know **ember-cli** is a command line utility for developing Ember apps that was adopted by the dev team. However, the current release only supports Ember v1.13. Therefore, to use Ember 2.0 and take advantage of **ember-cli**, we have to tweak the application it has generated.
 
-Once you have created your Ember application with **ember-cli**, edit the _bower.json_ file, look for the Ember version, and replace it with _'**2.0.0-beta.3**'_. After that, delete the _bower_components/ember_ folder and run: 
+Once you have created your Ember application with **ember-cli**, edit the _bower.json_ file, look for the Ember version, and replace it with _'**2.0.0-beta.3**'_. After that, delete the _bower_components/ember_ folder and run:
 
 _bower install_ to fetch the 2.0 beta version. You may be prompted to manually choose the Ember version, as it cannot be resolved automatically. If this happens, just choose **Ember 2.0.0 beta 3** to continue.
 
@@ -113,7 +113,7 @@ Ember Simple Auth also provides the **AuthenticatedRouteMixin** mixin, to secure
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 export default Ember.Route.extend(AuthenticatedRouteMixin, {  
-}); 
+});
 ```
 
 Last, there is the **LoginControllerMixin**, which allows you to specify the controller that will perform the login process.
@@ -131,7 +131,7 @@ export default Ember.Controller.extend(LoginControllerMixin, {
 
 From here two new concepts arise: **Authenticators** & **Authorizers**.
 
-Authenticators implement the logic necessary to authenticate the session. You will have one authenticator for every _authentication mechanism_ / _provider_ you use. Authorizers, on the other hand, use the secret information acquired by the authenticator to authorize subsequent requests. 
+Authenticators implement the logic necessary to authenticate the session. You will have one authenticator for every _authentication mechanism_ / _provider_ you use. Authorizers, on the other hand, use the secret information acquired by the authenticator to authorize subsequent requests.
 
 You can see our custom implementations below:
 
@@ -232,6 +232,9 @@ As we mentioned at the start of the post, the Ember 2.0 approach for creating ap
 
 Ember components are based on the [W3C Web Components specification](http://www.w3.org/TR/components-intro), which are views that are completely isolated. Properties accessed in its templates go to the view object and actions are targeted at the view object. There is no access to the surrounding context or outer controller; all contextual information must be passed in. Components should have a well-defined interface to the outside world and can broadcast events. A component must have a dash in its name to avoid conflicts with built-in controls that wrap HTML elements. You can see a component definition in the following image.
 
+{% include tweet_quote.html quote_text="Components should have a well-defined interface to the outside world and can broadcast events." %}
+
+
 ![Component Definition](https://cdn.auth0.com/blog/ember-2.0/component-definition.PNG)
 
 _Component definition_
@@ -240,21 +243,21 @@ Let's see how the **login-form** component is defined. You can see that the view
 
 ```HTML
   <!-- app/templates/components/login-form.hbs -->
-  <form {{ "{{action 'authenticate' on='submit'" }}}}> 
-    <div class="form-group"> 
-      <label for="identification">Login</label> 
-      {{ "{{input value=identification placeholder='Enter Login' class='form-control'" }}}} 
-    </div> 
-    <div class="form-group"> 
-      <label for="password">Password</label> 
-      {{ "{{input value=password placeholder='Enter Password' class='form-control' type='password'" }}}} 
-    </div> 
-    <button type="submit" class="btn btn-default">Login</button> 
-  </form> 
-  {{ "{{#if errorMessage" }}}} 
-    <div class="alert alert-danger"> 
-      <strong>Login failed:</strong> {{ "{{errorMessage" }}}} 
-    </div> 
+  <form {{ "{{action 'authenticate' on='submit'" }}}}>
+    <div class="form-group">
+      <label for="identification">Login</label>
+      {{ "{{input value=identification placeholder='Enter Login' class='form-control'" }}}}
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{ "{{input value=password placeholder='Enter Password' class='form-control' type='password'" }}}}
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+  {{ "{{#if errorMessage" }}}}
+    <div class="alert alert-danger">
+      <strong>Login failed:</strong> {{ "{{errorMessage" }}}}
+    </div>
   {{ "{{/if" }}}}
 ```
 

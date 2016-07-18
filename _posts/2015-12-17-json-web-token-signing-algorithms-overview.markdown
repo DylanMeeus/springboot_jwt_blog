@@ -65,7 +65,7 @@ BASE64URL(JWS Payload) + '.' +
 BASE64URL(JWS Signature)
 ```
 
-The compact representation is basically the concatenation of the JOSE header, the JWT and the details of the signature. Each component es BASE64 encoded and separated by a single dot ('.').
+The compact representation is basically the concatenation of the JOSE header, the JWT and the details of the signature. Each component is BASE64 encoded and separated by a single dot ('.').
 
 This results in the typical JWT representation we find in the web:
 
@@ -145,7 +145,7 @@ Both RSA and ECDSA algorithms are more complex than HMAC. If you are interested 
 The main difference between RSA and ECDSA lies in speed and key size. ECDSA requires smaller keys to achieve the same level of security as RSA. This makes it a great choice for small JWTs. RSA, however, is usually faster than ECDSA. As usual, pick the one that best aligns with your requirements.
 
 ## Aside: JWTs are everywhere at Auth0
-At Auth0 we rely heavily on the fetures of JWTs. All of our APIs handle authentication and authorization through JWTs. For instance, our Lock library returns a JWT that you can store client side and use for future requests to your own APIs. Thanks to JWS and JWE, the contents of the client-side JWTs are safe.
+At Auth0 we rely heavily on the features of JWTs. All of our APIs handle authentication and authorization through JWTs. For instance, our Lock library returns a JWT that you can store client side and use for future requests to your own APIs. Thanks to JWS and JWE, the contents of the client-side JWTs are safe.
 
 The following code shows a client-side script that performs authentication using our Lock library (plus jQuery) and stores the returned JWT as a local storage item:
 
@@ -190,4 +190,6 @@ $.ajaxSetup({
 ```
 
 ## Conclusion
-JWTs are convenient way of representing authentication and authorization claims for your application. They are easy to parse, human readable and compact. But the killer features are in the JWS and JWE specs. With JWS and JWE all claims can be conveniently signed and encrypted, while remaining compact enough to be part of every API call. Solutions such as session-ids and server-side tokens seem old and cumbersome when compared to the power of JWTs. If you haven't worked with these technologies yet, we strongly recommend you do so in your next project. You won't be disappointed.
+JWTs are a convenient way of representing authentication and authorization claims for your application. They are easy to parse, human readable and compact. But the killer features are in the JWS and JWE specs. With JWS and JWE all claims can be conveniently signed and encrypted, while remaining compact enough to be part of every API call. Solutions such as session-ids and server-side tokens seem old and cumbersome when compared to the power of JWTs. If you haven't worked with these technologies yet, we strongly recommend you do so in your next project. You won't be disappointed.
+
+{% include tweet_quote.html quote_text="JWTs are a convenient way of representing authentication and authorization claims for your application." %}

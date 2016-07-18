@@ -40,6 +40,8 @@ related:
 
 **Laravel** did not attempt to rewrite a lot of its functionality from scratch, it makes good use of already written and well tested components from the PHP community. Laravel is one of the few frameworks that actually comes with development environments such as [Homestead](https://laravel.com/docs/5.2/homestead) and [Valet](https://laravel.com/docs/5.2/valet). The [documentation](https://laravel.com/docs) is very detailed and there is a large community based around Laravel. Some of the notable communities are [laracasts.com](https://laracasts.com/discuss), [larajobs.com](https://larajobs.com/), [laravel-news.com](https://laravel-news.com/), [laravelpodcast.com](http://www.laravelpodcast.com/) and [larachat.co](https://larachat.co/).
 
+{% include tweet_quote.html quote_text="Laravel is one of the few frameworks that actually comes with development environments such as Homestead" %}
+
 Laravel is currently at version 5.2. **Laravel 5.3** is currently in development and is due for release this month. Here is a quick look at some of these new features:
 
 * **Laravel Echo** - I'm actually looking forward to this. It will make building realtime apps with Laravel very painless

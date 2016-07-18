@@ -25,6 +25,8 @@ related:
 
 Today, we are excited to announce the release of the Auth0 [Open Source Single-Sign-On Dashboard](https://github.com/auth0/auth0-sso-dashboard). This SSO dashboard is designed to solve a problem familiar to many people. Organizations of all sizes maintain a variety of different applications to handle various business functions like accounting, HR, development, support, etc. Remembering usernames and passwords and login urls for all of these apps is a pain. With this app we take another step in simplifying the authentication experience.
 
+{% include tweet_quote.html quote_text="Today, we are excited to announce the release of the Auth0 Open Source Single-Sign-On Dashboard." %}
+
 <!-- more -->
 
 ![SSO Dashboard](https://cloudup.com/cfENOYpKxfL+)

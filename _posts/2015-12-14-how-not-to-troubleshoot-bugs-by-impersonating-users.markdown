@@ -8,11 +8,11 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: "#49525B"
   image: https://cldup.com/ZfDpgn223K.png
   image_size: "50%"
-tags: 
+tags:
 - bugs
 - user-impersonation
 related:
@@ -36,9 +36,9 @@ But impersonating users can open up a pandora’s box of security complications 
 
 ## 1. Build in a Superuser Backdoor
 
-Early on, it’s an easy fix to give your site admin superuser access to view the logged-in pages of other users. You can then go to user-specific URLs and see what the user is sees.
+Early on, it’s an easy fix to give your site admin superuser access to view the logged-in pages of other users. You can then go to user-specific URLs and see what the user sees.
 
-In reality, you’ve taken 1 problem and turned it into 2. You’ve added technical and security debt that will make your app less secure over time, and this form of debugging with actually make your app more buggy.
+In reality, you’ve taken 1 problem and turned it into 2. You’ve added technical and security debt that will make your app less secure over time, and this form of debugging will actually make your app more buggy.
 
 ### You’re deliberately making your app less secure
 
@@ -54,7 +54,7 @@ def user_can(user, action, obj):
         return False
 ```
 
-Over time, though, you’ll add multiple types of admins and additional layers of permissions. As your app complexity increases, your code complexity will increase dramatically and you’ll see your permissions code get very complicated. What’s scary is when you’re barely able to comprehend your own permissions code, and have to rely on a combination of tests and  trial-and-error to get it right. 
+Over time, though, you’ll add multiple types of admins and additional layers of permissions. As your app complexity increases, your code complexity will increase dramatically and you’ll see your permissions code get very complicated. What’s scary is when you’re barely able to comprehend your own permissions code, and have to rely on a combination of tests and  trial-and-error to get it right.
 
 With any change to your code, you could be opening up admin power to a whole class of unintended users in your app—and that would be disastrous for privacy and security.
 
@@ -78,13 +78,13 @@ It sounds easy enough. Change the user’s password, login, and reproduce the is
 
 ### Increased Vulnerability to human error
 
-Usernames and passwords are meant to be personal to the user. When you introduce a support rep into the mix, you’re doubling the probability of human error. 
+Usernames and passwords are meant to be personal to the user. When you introduce a support rep into the mix, you’re doubling the probability of human error.
 
 Enact a company policy of having support resolve issues by changing passwords and logging in as users, and they will make human mistakes in handling those passwords. This can manifest itself in a few ways:
 
 * **Choosing a weak password**: Instead of choosing a strong password, the support rep quickly changes the password to “password”. The password doesn’t get changed for a few days while they nail down the issue and before they get back to the user.
 * **Fail to instruct or force the user to change password**: The user is given a password that they never change. The password may never have been strong enough to have been intended for normal use.  
-* **Emailing password in plaintext**: The rep reproduces the issue and then emails the password in plaintext to the user. Unlike a password reset link, that password sits in the user’s inbox with credentials exposed and no expiration date. 
+* **Emailing password in plaintext**: The rep reproduces the issue and then emails the password in plaintext to the user. Unlike a password reset link, that password sits in the user’s inbox with credentials exposed and no expiration date.
 * **Impersonation not possible for 3rd party login**: If a user has signed up via Facebook or Google sign on, the support rep won’t be able to use this method to resolve the customer issue because the rep won’t be able to change the password in the other system. That results in more confusion and potential mistakes to be made.
 * **And more . . .**
 
@@ -98,7 +98,7 @@ In May 2015, Uber got called out by users and the security community after [a nu
 
 ![Uber email with plaintext password](https://cdn.auth0.com/blog/how-not-to-troubleshoot/uber-letter.png)
 
-To security expert Per Thorsheim, that proves that Uber either has “no procedures for handling incidents like this, or they have an employee who doesn't follow procedure.”
+Top security expert Per Thorsheim, proves that Uber either has “no procedures for handling incidents like this, or they have an employee who doesn't follow procedure.”
 
 It’s disconcerting to the user to know that another person—even if it’s a support rep—knows your password and is handling it without care. In the end, Jack, the Uber user whose account was compromised, ended up leaving Uber and asking for all of his data to be deleted.
 
@@ -110,15 +110,17 @@ The problem is that it’s hard. Do it wrong, and you’re opening up a way for 
 
 ### DIY impersonation
 
-Tableau Software, a business intelligence platform, is just one of many companies that have issued a [security advisory](http://kb.tableau.com/articles/knowledgebase/security-advisory-users-can-be-impersonated) that users can impersonate other users in their system in a way that wasn’t intended. 
+Tableau Software, a business intelligence platform, is just one of many companies that have issued a [security advisory](http://kb.tableau.com/articles/knowledgebase/security-advisory-users-can-be-impersonated) that users can impersonate other users in their system in a way that wasn’t intended.
 
 And these aren’t your “here today, gone tomorrow” startups. Tableau went public in 2013. Influitive, a B2B marketing software startup, is another company that had a [security breach](http://status.influitive.com/incidents/ltlwms8rgx6r) due to the ability to impersonate other user accounts in its system—and they’ve raised over $40M in funding from investors.
 
-In short, it’s hard to prevent unintended or malicious impersonation when building your account and permissions system yourself, into an already complex system. Security is one of the hardest parts of building on the web today. That’s why you want to outsource it to security experts who work obsessively to protect your app and continue to improve it. 
+In short, it’s hard to prevent unintended or malicious impersonation when building your account and permissions system yourself, into an already complex system. Security is one of the hardest parts of building on the web today. That’s why you want to outsource it to security experts who work obsessively to protect your app and continue to improve it.
 
 ### Outsourcing it to the experts
 
 With an identity-as-a-service infrastructure (IaaS) like [Auth0](http://auth0.com/), you get impersonation out of the box and built by security experts. Because you get it delivered to you as a SaaS product, you get continual security updates and improvements to it so that it becomes something that you don’t have to worry about.
+
+{% include tweet_quote.html quote_text="With an IaaS like Auth0, you get impersonation out of the box and built by security experts." %}
 
 ![Impersonation as a SaaS product](https://cdn.auth0.com/blog/how-not-to-troubleshoot/signin.png)
 
@@ -136,9 +138,8 @@ For engineering, you get this all without adding code complexity to your applica
 
 ## When Hacking Support Goes Wrong
 
-As you build and grow, you need to develop a secure procedure for troubleshooting bugs and managing customer support issues. Although it might be tempting to bank on quick fixes, at the end of the day, cutting corners strips away at the integrity of your application and puts your entire business at risk. 
+As you build and grow, you need to develop a secure procedure for troubleshooting bugs and managing customer support issues. Although it might be tempting to bank on quick fixes, at the end of the day, cutting corners strips away at the integrity of your application and puts your entire business at risk.
 
 If you give your customer support team the right tools for the job, they can focus on solving customer problems and making customers happy. Give your support team the wrong tools, and you’re setting them up to make mistakes and ultimately potentially threaten the very integrity of your app.
 
 Rather than try to hack together a solution for resolving support issues, think it all the way through, from the customer support agent on the backend to the customer experience on the front. You’ll find that the solution won’t just “get the job done” in a single instance, it’ll set your team and your customers up for long-term success.
-

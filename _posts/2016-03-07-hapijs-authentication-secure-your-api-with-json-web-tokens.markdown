@@ -3,16 +3,16 @@ layout: post
 title: "HapiJS Authentication - Secure Your API With JWT"
 description: "HapiJS is a great framework for building NodeJS APIs. Get started with HapiJS Authentication to create users and protect your API endpoints."
 date: 2016-03-07 08:30
-author: 
+author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en
   mail: ryanchenkie@gmail.com
   avatar: https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200
-design: 
+design:
   bg_color: "#4f4d40"
   image: https://cdn.auth0.com/blog/hapi/hapi-logo-1.png
   image_size: "83%"
-tags: 
+tags:
 - nodejs
 - hapijs
 - hapi
@@ -71,19 +71,19 @@ server.connection({ port: 3000 });
 const dbUrl = 'mongodb://localhost:27017/hapi-app';
 
 server.register(require('hapi-auth-jwt'), (err) => {
-  
+
   // We're giving the strategy both a name
   // and scheme of 'jwt'
   server.auth.strategy('jwt', 'jwt', {
     key: secret,
     verifyOptions: { algorithms: ['HS256'] }
   });
-  
+
   // Look through the routes in
   // all the subdirectories of API
   // and create a new route for each
-  glob.sync('api/**/routes/*.js', { 
-    root: __dirname 
+  glob.sync('api/**/routes/*.js', {
+    root: __dirname
   }).forEach(file => {
     const route = require(path.join(__dirname, file));
     server.route(route);
@@ -188,7 +188,7 @@ module.exports = {
       { method: verifyUniqueUser }
     ],
     handler: (req, res) => {
-      
+
       let user = new User();
       user.email = req.payload.email;
       user.username = req.payload.username;
@@ -206,7 +206,7 @@ module.exports = {
           res({ id_token: createToken(user) }).code(201);
         });
       });
-      
+
     },
     // Validate the payload against the Joi schema
     validate: {
@@ -251,9 +251,9 @@ const User = require('../model/User');
 function verifyUniqueUser(req, res) {
   // Find an entry from the database that
   // matches either the email or username
-  User.findOne({ 
-    $or: [ 
-      { email: req.payload.email }, 
+  User.findOne({
+    $or: [
+      { email: req.payload.email },
       { username: req.payload.username }
     ]
   }, (err, user) => {
@@ -305,7 +305,7 @@ function createToken(user) {
 }
 
 module.exports = createToken;
-``` 
+```
 
 You'll likely have noticed that we are defaulting to `admin` to `false` in the `createUser` route handler above. When we go to sign the JWT, we're checking whether the user is an administrator first, and if so, we attach the appropriate scope. We're also specifying here that we want to use `HS256` as our algorithm and have the JWT expire in one hour.
 
@@ -329,13 +329,13 @@ We'll see how to protect various routes a little later, but first, let's put in 
 ...
 
 function verifyCredentials(req, res) {
-  
+
   const password = req.payload.password;
-  
+
   // Find an entry from the database that
   // matches either the email or username
-  User.findOne({ 
-    $or: [ 
+  User.findOne({
+    $or: [
       { email: req.payload.email },
       { username: req.payload.username }
     ]
@@ -361,7 +361,7 @@ module.exports = {
 }
 ```
 
-This function uses `bcrypt` to check the password sent in the payload against the database entry for the user, and if it is valid, the user object is sent through to the handler. We're using **boom** to respond the error cases, and they will bubble up to the handler if they are encountered. 
+This function uses `bcrypt` to check the password sent in the payload against the database entry for the user, and if it is valid, the user object is sent through to the handler. We're using **boom** to respond the error cases, and they will bubble up to the handler if they are encountered.
 
 Our route setup can now be very small.
 
@@ -396,7 +396,7 @@ module.exports = {
 }
 ```
 
-Now we need to set up our `authenticateUserSchema` so that we can have **Joi** validation for this route, but this time it will work a bit differently. The user was required to sign up with a username *and* email, but when they go to authenticate, they should only need one or the other. For this, we can use `Joi.alternatives`. 
+Now we need to set up our `authenticateUserSchema` so that we can have **Joi** validation for this route, but this time it will work a bit differently. The user was required to sign up with a username *and* email, but when they go to authenticate, they should only need one or the other. For this, we can use `Joi.alternatives`.
 
 ```js
 // api/users/schema/authenticateUser.js
@@ -424,7 +424,7 @@ The `try` method accepts arguments for whichever validation alternatives we wan 
 
 ## Listing Users
 
-For this simple API, we'll say that admins should be the only ones able to get a list of all users in the database. Using JWT authentication with scopes in a Hapi application makes it easy to create fine-grained user access, but for now we'll just have two levels: admins and everyone else. Remember that we coded our `createUser` route to set new users' `admin` scope to `false` by default. We can set this to `true` temporarily in the handler to get a user with admin access, or we can just change that value in the database. See the [repo](https://github.com/auth0/hapi-jwt-authentication) for an endpoint that responds to `PATCH` requests which lets admins change this scope for other users. 
+For this simple API, we'll say that admins should be the only ones able to get a list of all users in the database. Using JWT authentication with scopes in a Hapi application makes it easy to create fine-grained user access, but for now we'll just have two levels: admins and everyone else. Remember that we coded our `createUser` route to set new users' `admin` scope to `false` by default. We can set this to `true` temporarily in the handler to get a user with admin access, or we can just change that value in the database. See the [repo](https://github.com/auth0/hapi-jwt-authentication) for an endpoint that responds to `PATCH` requests which lets admins change this scope for other users.
 
 After setting `admin` to `true` for one of our users, let's see how we can limit API access for an endpoint that displays a list of all users.
 
@@ -465,7 +465,7 @@ module.exports = {
 }
 ```
 
-We've specified that this route should implement the `jwt` auth strategy (which we defined in `server.js`), and that the user must have a scope of `admin` to access the route. If we [inspect our JWT](http://jwt.io), we can see that we've got a `scope` of `admin`. 
+We've specified that this route should implement the `jwt` auth strategy (which we defined in `server.js`), and that the user must have a scope of `admin` to access the route. If we [inspect our JWT](http://jwt.io), we can see that we've got a `scope` of `admin`.
 
 ![hapijs authentication](https://cdn.auth0.com/blog/hapi/hapi-auth-3.png)
 
@@ -530,15 +530,15 @@ First, add the Lock library to your front end.
 
 ```html
   <!-- index.html -->
-  
+
   ...
-  
+
   <!-- Auth0Lock script -->
   <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  
+
   ...
 ```
 
@@ -585,5 +585,7 @@ The API we built above checks for a simple `admin` scope which gives us at least
 ## Wrapping Up
 
 HapiJS is an awesome framework for Node that makes building APIs simple and flexible. Other packages in the Hapi ecosystem, including **Joi** and **Boom** make it easy to create a robust app and spares us from doing a lot of the heavy lifting. As we've seen, JWT authentication for Hapi is really simple as well--we just need to use **hapi-auth-jwt** and register our authentication strategy.
+
+{% include tweet_quote.html quote_text="HapiJS is an awesome framework for Node that makes building APIs simple and flexible." %}
 
 What are your thoughts on HapiJS? Does it seem like a good alternative to Express? Let us know!

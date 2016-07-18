@@ -3,7 +3,7 @@ layout: post
 title: "API Gateway. An Introduction to Microservices, Part 2"
 description: "Learn about API gateways and how they work in a microservice-based architecture"
 date: 2015-09-13 09:00
-author: 
+author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
   mail: speyrott@auth0.com
@@ -14,7 +14,7 @@ design:
   image_size: "60%"
   image_bg_color: "#596D5F"
   blog_series: true
-tags: 
+tags:
 - microservices
 - design-patterns
 - api-design
@@ -31,7 +31,7 @@ related:
 - 2015-09-28-5-steps-to-add-modern-authentication-to-legacy-apps-using-jwts
 ---
 
-In this post in the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) in the series. 
+In this post in the microservices series we will talk about API gateways and how they can help us solve some important concerns in a microservice-based architecture. We described these and other issues in our [first post](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/) in the series.
 
 -----
 
@@ -51,6 +51,8 @@ Most gateways perform some sort of authentication for **each request** (or serie
 
 ### Security
 Many gateways function as a single entry point for a public API. In such cases, the **gateways handle transport security** and then dispatch the requests either by using a different secure channel or by removing security constraints that are not necessary inside the internal network. For instance, for a RESTful HTTP API, a gateway may perform **"SSL termination"**: a secure SSL connection is established between the clients and the gateway, and proxied requests are then sent over non-SSL connections to internal services.
+
+{% include tweet_quote.html quote_text="Many gateways function as a single entry point for a public API." %}
 
 ### Load-balancing
 Under high-load scenarios, gateways can **distribute requests among microservice-instances** according to custom logic. Each service may have specific scaling limitations. Gateways are designed to balance the load by taking these limitations into account. For instance, some services may scale by having multiple instances running under different internal endpoints. Gateways can dispatch requests to these endpoints (or even request the dynamic instantiation of more endpoints) to handle load.
@@ -75,16 +77,16 @@ Authentication using **JWT**. A single endpoint handles initial authentication: 
  * Simple login: returns a JWT if login data is valid.
  */
 function doLogin(req, res) {
-    getData(req).then(function(data) { 
+    getData(req).then(function(data) {
         try {
             var loginData = JSON.parse(data);
-            User.findOne({ username: loginData.username }, function(err, user) { 
+            User.findOne({ username: loginData.username }, function(err, user) {
                 if(err) {
                     logger.error(err);
                     send401(res);
                     return;
                 }
-            
+
                 if(user.password === loginData.password) {
                     var token = jwt.sign({
                         jti: uuid.v4(),
@@ -93,7 +95,7 @@ function doLogin(req, res) {
                         subject: user.username,
                         issuer: issuerStr
                     });
-                    
+
                     res.writeHeader(200, {
                         'Content-Length': token.length,
                         'Content-Type': "text/plain"
@@ -122,13 +124,13 @@ function validateAuth(data, callback) {
         callback(null);
         return;
     }
-    
+
     data = data.split(" ");
     if(data[0] !== "Bearer" || !data[1]) {
         callback(null);
         return;
     }
-    
+
     var token = data[1];    
     try {
         var payload = jwt.verify(token, secretKey);
@@ -164,38 +166,38 @@ Requests also support the **aggregation strategy** for splitting requests among 
 **Failed internal requests** are handled by logging the error and returning less information than requested.
 
 ```javascript
-/* 
+/*
  * Parses the request and dispatches multiple concurrent requests to each
  * internal endpoint. Results are aggregated and returned.
  */
 function serviceDispatch(req, res) {
     var parsedUrl = url.parse(req.url);
-    
+
     Service.findOne({ url: parsedUrl.pathname }, function(err, service) {
         if(err) {
             logger.error(err);
             send500(res);
             return;
         }
-    
+
         var authorized = roleCheck(req.context.authPayload.jwt, service);
         if(!authorized) {
             send401(res);
             return;
         }       
-        
-        // Fanout all requests to all related endpoints. 
+
+        // Fanout all requests to all related endpoints.
         // Results are aggregated (more complex strategies are possible).
         var promises = [];
         service.endpoints.forEach(function(endpoint) {   
-            logger.debug(sprintf('Dispatching request from public endpoint ' + 
-                '%s to internal endpoint %s (%s)', 
+            logger.debug(sprintf('Dispatching request from public endpoint ' +
+                '%s to internal endpoint %s (%s)',
                 req.url, endpoint.url, endpoint.type));
-                         
+
             switch(endpoint.type) {
                 case 'http-get':
                 case 'http-post':
-                    promises.push(httpPromise(req, endpoint.url, 
+                    promises.push(httpPromise(req, endpoint.url,
                         endpoint.type === 'http-get'));
                     break;
                 case 'amqp':
@@ -205,11 +207,11 @@ function serviceDispatch(req, res) {
                     logger.error('Unknown endpoint type: ' + endpoint.type);
             }            
         });
-        
+
         //Aggregation strategy for multiple endpoints.
         Q.allSettled(promises).then(function(results) {
             var responseData = {};
-        
+
             results.forEach(function(result) {
                 if(result.state === 'fulfilled') {
                     responseData = _.extend(responseData, result.value);
@@ -217,7 +219,7 @@ function serviceDispatch(req, res) {
                     logger.error(result.reason.message);
                 }
             });
-            
+
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(responseData));
         });
@@ -259,9 +261,9 @@ Get the full [code](https://github.com/sebadoom/auth0/tree/master/microservices/
 
 ## Aside: How webtask and Auth0 implement these patterns?
 
-We told you about [webtasks](https://webtask.io) in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too. 
+We told you about [webtasks](https://webtask.io) in our first post in the series. As webtasks *are* microservices they too run behind a gateway. The webtasks gateway handles authentication, dynamic-dispatching and centralized logging so that you don't have too.
 
-* For authentication, [Auth0](https://auth0.com) is the issuer of tokens and webtask will verify those tokens. There is a trust relationship between them so that tokens can be verified. 
+* For authentication, [Auth0](https://auth0.com) is the issuer of tokens and webtask will verify those tokens. There is a trust relationship between them so that tokens can be verified.
 * For real time logging webtask implemented a stateless resilient [ZeroMQ architecture](http://tomasz.janczuk.org/2015/09/from-kafka-to-zeromq-for-log-aggregation.html) which works across the cluster.
 * For dynamic-dispatching, there is a custom-built Node.js proxy which uses [CoreOS etcd](https://github.com/coreos/etcd) as a pub-sub mechanism to route webtasks accordingly.
 
@@ -269,5 +271,3 @@ We told you about [webtasks](https://webtask.io) in our first post in the series
 
 ## Conclusion
 API gateways are an essential part of any microservice-based architecture. Cross-cutting concerns such as authentication, load balancing, dependency resolution, data transformations and dynamic request dispatching can be handled in a convenient and generic way. Microservices can then focus on their specific tasks without code-duplication. This results in easier and faster development of each microservice.
-
-

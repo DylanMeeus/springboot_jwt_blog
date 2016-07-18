@@ -137,6 +137,8 @@ The proxy has a simple embedded whitelist to prevent misuse by third-parties. Af
 ## Get Your Twitter Share Counts Back: Create Your Own Webtask!
 If you are interested in learning more about webtasks or creating your own, head over to [https://webtask.io](https://webtask.io) and get started. With the webtasks command line interface, creating your first script is a matter of running a few commands:
 
+{% include tweet_quote.html quote_text="With the webtasks command line interface, creating your first script is a matter of running a few commands." %}
+
 ```
 npm install wt-cli -g
 wt init your@email.com

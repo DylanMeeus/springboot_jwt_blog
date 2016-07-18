@@ -4,16 +4,16 @@ title: “Pre-release Program, Zero To Launch, Blasts Off!”
 description: “Auth0 introduces pre-release program, Zero To Launch, giving qualifying customers exclusive early access to new features and functionality.”
 date: 2015-11-11 16:00
 permalink: /2015/11/10/pre-release-program-zero-to-launch-blasts-off/
-author: 
+author:
   name: Clayton Moulynox
   url: https://twitter.com/claytonhm
   mail: clayton@auth0.com
   avatar: https://s.gravatar.com/avatar/ef2eecee7655f814bd7a9228ba0c6992?s=200
-design: 
+design:
   bg_color: "#333333"
   image: http://auth0.github.io/newsletters/zero-to-lunch/img/1.png
   image_size: "60%"
-tags: 
+tags:
 - customer-success
 - partner-success
 - partner-program
@@ -28,6 +28,8 @@ related:
 ---
 
 The pace of innovation in this new world of always-on cloud services is phenomenal.  At Auth0 we live and breathe it everyday – continually releasing updates, service enhancements and amazing new features.
+
+{% include tweet_quote.html quote_text="The pace of innovation in this new world of always-on cloud services is phenomenal." %}
 
 More often than not these improvements to our service stem from the way our customers and partners use our platform.  This eco-system continually challenges us with new use cases, scenarios and requirements - customers, technology partners and solution providers themselves pushing to drive innovation in what they do.  Frankly, it makes me pretty excited!
 

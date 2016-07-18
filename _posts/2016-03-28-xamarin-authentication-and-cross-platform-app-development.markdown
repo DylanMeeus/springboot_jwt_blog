@@ -3,15 +3,15 @@ layout: post
 title: "Xamarin Authentication and Cross-Platform Mobile App Development"
 description: "Learn how to build and authenticate cross-platform mobile apps written in C# with Xamarin"
 date: 2016-03-28 08:30
-author: 
+author:
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/blog/xamarin/xamarin.png"
-tags: 
+tags:
 - Xamarin
 - Xamarin-Authentication
 - C#
@@ -39,6 +39,8 @@ While learning new technologies is great, many developers like to stick to the r
 
 Xamarin allows you to build native iOS, Android, Windows and Mac applications in C#. The company was founded by the creators of [Mono](http://www.mono-project.com/) and recently [acquired](https://blog.xamarin.com/a-xamarin-microsoft-future/) by Microsoft. Over 1 million developers are using Xamarin to build apps like [CineMark](http://www.cinemark.com/mobile-apps-cinemode), [MixRadio](https://play.google.com/store/apps/details?id=com.mixradio.droid&hl=en) and [Bastion](https://itunes.apple.com/us/app/bastion/id537773100?mt=8). Xamarin is a great fit for companies who are already embedded in the Microsoft stack and have developers with extensive C# knowledge. The Xamarin Platform runs on both Windows and Mac so you truly are not limited to the Windows ecosystem but have the full strength of C# at your disposal.
 
+{% include tweet_quote.html quote_text="Xamarin allows you to build native iOS, Android, Windows and Mac applications in C#." %}
+
 C# is an excellent programming language. Statically typed, object-oriented, garbage collected and asynchronous are just some of the benefits. With Xamarin, your entire app will be written in C# and then compiled to it's native binary. The Xamarin Platform exposes platform specific APIs when needed, interfaced again with C#, but generally you will be able to write the majority of your code once and have it run everywhere.
 
 ## Getting Started with Xamarin
@@ -65,7 +67,7 @@ The platform specific directories are for writing code that will only execute on
 
 ### Hello World in Xamarin
 
-Before we write our app, let's quickly open up the `CloudCakes.cs` or `{AppName}.cs` in the shared code directory. This is the entry or main function into our application. Xamarin has added some boilerplate code when it created the solution that just displays a message once the app is opened. To make sure this runs, let's build and run the solution. To do this, simply click the play icon in the top left corner of the screen and the iOS Simulator should launch with our Xamarin app and display the message "Welcome to Xamarin Forms!" Now let's build our app. 
+Before we write our app, let's quickly open up the `CloudCakes.cs` or `{AppName}.cs` in the shared code directory. This is the entry or main function into our application. Xamarin has added some boilerplate code when it created the solution that just displays a message once the app is opened. To make sure this runs, let's build and run the solution. To do this, simply click the play icon in the top left corner of the screen and the iOS Simulator should launch with our Xamarin app and display the message "Welcome to Xamarin Forms!" Now let's build our app.
 
 *Since we are developing on a Mac, we have defaulted to using the iOS simulator for a majority of our examples, if you are on a Windows machine you can use the Android or Windows Mobile emulators and should have the same experience.*
 

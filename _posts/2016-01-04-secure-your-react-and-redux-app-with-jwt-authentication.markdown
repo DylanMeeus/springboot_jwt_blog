@@ -14,7 +14,7 @@ design:
   image: https://cdn.auth0.com/blog/react-js/react.png
   image_size: "80%"
   image_bg_color: "rgb(25, 25, 25)"
-tags: 
+tags:
 - redux
 - react
 - authentication
@@ -60,11 +60,11 @@ Since all data flow is strictly one-way, and because data is never mutated, Redu
 
 ## Redux Authentication App - Getting Started
 
-To get a sense for using JWT authentication with Redux, we'll build a simple app that retrieves Chuck Norris quotes. The app will let users log in and get a JWT that can be used to access protected endpoints with JWT middleware. We've already explored how to [add JWT authentication to a React and Flux app](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/) on the blog, so feel free to check that out as well. 
+To get a sense for using JWT authentication with Redux, we'll build a simple app that retrieves Chuck Norris quotes. The app will let users log in and get a JWT that can be used to access protected endpoints with JWT middleware. We've already explored how to [add JWT authentication to a React and Flux app](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/) on the blog, so feel free to check that out as well.
 
 ![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-1.png)
 
-We could spend a good amount of time just talking about and setting up the build tools for our app. Instead, let's use the Webpack setup that is provided in the [Redux examples](https://github.com/rackt/redux/tree/master/examples) to get going quickly. We'll try to mimic the architecture of the example applications where we can to follow best practices. 
+We could spend a good amount of time just talking about and setting up the build tools for our app. Instead, let's use the Webpack setup that is provided in the [Redux examples](https://github.com/rackt/redux/tree/master/examples) to get going quickly. We'll try to mimic the architecture of the example applications where we can to follow best practices.
 
 ### Dependencies and Build Process
 
@@ -241,11 +241,11 @@ App.propTypes = {
 // These props come from the application's
 // state when it is started
 function mapStateToProps(state) {
-  
+
   const { quotes, auth } = state
   const { quote, authenticated } = quotes
   const { isAuthenticated, errorMessage } = auth
-  
+
   return {
     quote,
     isSecretQuote: authenticated,
@@ -266,7 +266,7 @@ Before we go on to create the other React components, let's finish out with the 
 ## The Redux Authentication Actions
 
 The actions that we need in our case are all going to be asynchronous because we are calling an API. To handle the async calls, we need a setup that has actions which cover the three possible states that exist:
- 
+
 1. A request was sent
 2. A request successful
 3. A request failed
@@ -322,17 +322,17 @@ So those are the action functions, but when do they actually get called? We can 
 // Calls the API to get a token and
 // dispatches actions along the way
 export function loginUser(creds) {
-  
+
   let config = {
     method: 'POST',
     headers: { 'Content-Type':'application/x-www-form-urlencoded' },
     body: `username=${creds.username}&password=${creds.password}`
   }
-  
+
   return dispatch => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))
-		
+
     return fetch('http://localhost:3001/sessions/create', config)
       .then(response =>
         response.json().then(user => ({ user, response }))
@@ -398,7 +398,7 @@ export function logoutUser() {
     dispatch(requestLogout())
     localStorage.removeItem('id_token')
     dispatch(receiveLogout())
-  }	
+  }
 }
 
 ...
@@ -457,7 +457,7 @@ function auth(state = {
 // The quotes reducer
 function quotes(state = {}, action) {
   switch (action.type) {
-    
+
     default:
       return state
   }
@@ -475,7 +475,7 @@ export default quotesApp
 
 Taking a look at the `auth` reducer, we can get a sense for how reducers get set up. The first parameter represents the starting state and in this case, we're assigning a default value that is an object. The default state just needs to say that we're not fetching any data to start out with, and whether the user has a JWT in local storage. We're using the presence of a JWT to determine if the user is authenticated, but in a full setup we could also use a utility to check if the JWT is expired or not. In either case, we can be sure that our API is secure because the user needs a valid JWT to get access to it.
 
-The second paramter is the action which carries the type and any other data that describes the change to our data. The switch statement lets us respond to the various action types in whichever way we want. Remember that reducers need to return an unmutated object, so we use `Object.assign` with an empty object as the first argument so we can be sure the return value is a unique object. Notice that in the `LOGIN_FAILURE` case we are getting the error message that gets passed back from the `loginError` function.
+The second parameter is the action which carries the type and any other data that describes the change to our data. The switch statement lets us respond to the various action types in whichever way we want. Remember that reducers need to return an unmutated object, so we use `Object.assign` with an empty object as the first argument so we can be sure the return value is a unique object. Notice that in the `LOGIN_FAILURE` case we are getting the error message that gets passed back from the `loginError` function.
 
 The `quotes` reducer is just a skeleton right now, but we'll populate that once we get the actions for it set up.
 
@@ -483,7 +483,7 @@ Redux gives us a handy `combineReducers` function that lets us split our individ
 
 Note that we need to make use of the Redux thunk middleware to handle the async reducers. This makes it possible to have a reducer that returns something other than an object.
 
-## The Navbar and Login Components 
+## The Navbar and Login Components
 
 We should see if everything is wiring up properly in the browser at this point. But before we do, we'll need the `Navbar` and `Login` components in place.
 
@@ -496,27 +496,27 @@ import Logout from './Logout'
 import { loginUser, logoutUser } from '../actions'
 
 export default class Navbar extends Component {
-  
+
   render() {
     const { dispatch, isAuthenticated, errorMessage } = this.props
-    
+
     return (
       <nav className='navbar navbar-default'>
         <div className='container-fluid'>
           <a className="navbar-brand" href="#">Quotes App</a>
           <div className='navbar-form'>
-          
+
             {!isAuthenticated &&
               <Login
                 errorMessage={errorMessage}
                 onLoginClick={ creds => dispatch(loginUser(creds)) }
               />
             }
-            
+
             {isAuthenticated &&
               <Logout onLogoutClick={() => dispatch(logoutUser())} />
             }
-            
+
           </div>
         </div>
       </nav>
@@ -542,10 +542,10 @@ Here's our `Login` component:
 import React, { Component, PropTypes } from 'react'
 
 export default class Login extends Component {
-  
+
   render() {
     const { errorMessage } = this.props
-    
+
     return (
       <div>
         <input type='text' ref='username' className="form-control" style={{ marginRight: '5px' }} placeholder='Username'/>
@@ -553,14 +553,14 @@ export default class Login extends Component {
         <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
           Login
         </button>
-        
+
         {errorMessage &&
           <p style={{color:'red'}}>{errorMessage}</p>
         }
       </div>
     )
   }
-  
+
   handleClick(event) {
     const username = this.refs.username
     const password = this.refs.password
@@ -583,10 +583,10 @@ Here's our `Logout` component:
 import React, { Component, PropTypes } from 'react'
 
 export default class Logout extends Component {
-  
+
   render() {
     const { onLogoutClick } = this.props
-    
+
     return (
       <button onClick={() => onLogoutClick()} className="btn btn-primary">
         Logout
@@ -619,10 +619,10 @@ Redux lets us tie in middleware to our apps, which opens up a lot of possibiliti
 const BASE_URL = 'http://localhost:3001/api/'
 
 function callApi(endpoint, authenticated) {
-  
+
   let token = localStorage.getItem('id_token') || null
   let config = {}
-  
+
   if(authenticated) {
     if(token) {
       config = {
@@ -633,15 +633,15 @@ function callApi(endpoint, authenticated) {
       throw "No token saved!"
     }
   }
-  
+
   return fetch(BASE_URL + endpoint, config)
-    .then(response => 
+    .then(response =>
       response.text().then(text => ({ text, response }))
     ).then(({ text, response }) => {
       if (!response.ok) {
         return Promise.reject(text)
       }
-      
+
       return text
     }).catch(err => console.log(err))
 }
@@ -649,18 +649,18 @@ function callApi(endpoint, authenticated) {
 export const CALL_API = Symbol('Call API')
 
 export default store => next => action => {
-  
+
   const callAPI = action[CALL_API]
-  
+
   // So the middleware doesn't get applied to every single action
   if (typeof callAPI === 'undefined') {
     return next(action)
   }
-  
+
   let { endpoint, types, authenticated } = callAPI
-  
+
   const [ requestType, successType, errorType ] = types
-  
+
   // Passing the authenticated boolean back in our data will let us distinguish between normal and secret quotes
   return callApi(endpoint, authenticated).then(
     response =>
@@ -703,7 +703,7 @@ export function fetchQuote() {
   }
 }
 
-// Same API middlware is used to get a 
+// Same API middlware is used to get a
 // secret quote, but we set authenticated
 // to true so that the auth header is sent
 export function fetchSecretQuote() {
@@ -761,7 +761,7 @@ function quotes(state = {
     }
 }
 
-... 
+...
 ```
 
 Now we just need our `Quotes` component to have a place to fetch and display our quotes.
@@ -772,10 +772,10 @@ Now we just need our `Quotes` component to have a place to fetch and display our
 import React, { Component, PropTypes } from 'react'
 
 export default class Quotes extends Component {
-  
+
   render() {
     const { onQuoteClick, onSecretQuoteClick, isAuthenticated, quote, isSecretQuote } = this.props
-    
+
     return (
       <div>
         <div className='col-sm-3'>
@@ -783,7 +783,7 @@ export default class Quotes extends Component {
             Get Quote
           </button>
         </div>
-        
+
         { isAuthenticated &&
           <div className='col-sm-3'>
             <button onClick={onSecretQuoteClick} className="btn btn-warning">
@@ -791,14 +791,14 @@ export default class Quotes extends Component {
             </button>
           </div>
         }
-        
+
         <div className='col-sm-6'>
           { quote && !isSecretQuote &&
             <div>
               <blockquote>{quote}</blockquote>
             </div>
           }
-          
+
           { quote && isAuthenticated && isSecretQuote &&
             <div>
               <span className="label label-danger">Secret Quote</span>
@@ -835,13 +835,13 @@ First, add the Auth0 Lock script to your `index.html` file.
 
 ```html
   ...
-  
+
   <!-- Auth0Lock script -->
   <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  
+
   ...
 ```
 
@@ -927,6 +927,8 @@ With these actions in place, we can now add them to our reducer to handle authen
 ## Wrapping Up
 
 Redux offers an alternative to libraries like Flux for implementing one-way data flow in single page apps. Like Flux, Redux isn't limited to React. However, there are a lot of modules out there that are used with the two technologies, so putting them together is a natural choice.
+
+{% include tweet_quote.html quote_text="Redux offers an alternative to libraries like Flux for implementing one-way data flow in single page apps." %}
 
 As we've seen, we can add JWT authentication to our Redux apps and use actions and reducers to track changes to the login state. We made use of Redux middleware to make secure calls to our API, and by abstracting the API communication away to a middleware, we just need to pass a property that specifies whether an `Authorization` header with a JWT should be sent with the request.
 

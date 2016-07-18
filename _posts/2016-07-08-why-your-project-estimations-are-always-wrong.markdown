@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
-design: 
+design:
   bg_color: "#393939"
   image: https://cdn.auth0.com/blog/estimations/logo.png
-tags: 
+tags:
 - growth
 - estimations
 - startups
@@ -30,7 +30,7 @@ As many as [80%](http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1237981&u
 * **Known-Unknowns. **Things you haven't learned yet, but you know you'll need for this project are harder to estimate, but are at least somewhat predictable.
 * **Unknown-Unknowns. **Obstacles that you cannot predict or prepare for are the things that destroy project schedules. If you don't know you'll need something down the line, you have no way of accounting for it in your estimation.
 
-Accounting for these different factors is almost impossible, but there is one thing you're probably doing that is making the task even harder. **You're re-inventing the wheel**. 
+Accounting for these different factors is almost impossible, but there is one thing you're probably doing that is making the task even harder. **You're re-inventing the wheel**.
 
 Dumping hours into developing software and features you could get off-the-shelf is a time-suck you can't afford if you want to stay on schedule. Let's take a look at how missing your estimations hurts you, and how Auth0 can make things easier.
 
@@ -38,7 +38,9 @@ Dumping hours into developing software and features you could get off-the-shelf 
 
 Tom Cargill of Bell Labs once said, “The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time.”
 
-This quip from 1985 has rung so true with developers over the decades that it is now referred to as the “[Ninety-ninety rule.](http://www.wou.edu/las/cs/csclasses/cs161/Lectures/rulesofthumb.html)” The joke is so light-hearted that it might lead you to believe that missing your estimations isn't a big deal. 
+{% include tweet_quote.html quote_text="The remaining 10 percent of the code accounts for the other 90 percent of the development time." %}
+
+This quip from 1985 has rung so true with developers over the decades that it is now referred to as the “[Ninety-ninety rule.](http://www.wou.edu/las/cs/csclasses/cs161/Lectures/rulesofthumb.html)” The joke is so light-hearted that it might lead you to believe that missing your estimations isn't a big deal.
 
 The reality is, missing your estimations hurts you on several different levels:
 
@@ -48,7 +50,7 @@ The reality is, missing your estimations hurts you on several different levels:
 
 ![Hurting yourself by missing estimations](https://cdn.auth0.com/blog/estimations/hurting-yourself-missing-estimations.png)
 
-Some elements of the process are going to be beyond your control. An obstacle is going to arise that you had never considered, that no one on your team has experience with, and that's okay. 
+Some elements of the process are going to be beyond your control. An obstacle is going to arise that you had never considered, that no one on your team has experience with, and that's okay.
 
 What's not okay is wasting time developing in-house solutions when there are tools available on the market that can fix your problems today.
 
@@ -74,7 +76,7 @@ One of the benefits of those years of development is that Auth0 has been a part 
 
 ## Making Auth0 The Bedrock Of Your Software
 
-Auth0's massive feature set doesn't just provide a solution to your authentication needs. It can serve as the spine of your entire project. Thanks to [Auth0 Rules](https://auth0.com/docs/rules) and [User Profiles](https://auth0.com/docs/user-profile), any automation that involves collecting user data or authentication is perfectly served by using Auth0. 
+Auth0's massive feature set doesn't just provide a solution to your authentication needs. It can serve as the spine of your entire project. Thanks to [Auth0 Rules](https://auth0.com/docs/rules) and [User Profiles](https://auth0.com/docs/user-profile), any automation that involves collecting user data or authentication is perfectly served by using Auth0.
 
 Need to run an automated email campaign? Use Auth0's Segment Rule to collect user data, analyze it in Segment, and use Segment's built-in [Customer.io integration to automate your emailing](https://auth0.com/blog/2016/04/19/supercharge-your-registration-process/).
 

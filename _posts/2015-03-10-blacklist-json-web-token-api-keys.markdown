@@ -38,7 +38,7 @@ related:
 On a [previous post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) we proposed an approach to using JSON Web Tokens as API Keys, going over some of the benefits of doing so and also providing some examples based on our [API v2 scenarios](https://auth0.com/docs/apiv2). This post follows up by explaining an aspect that was not covered before: how to blacklist a JWT API key so it is no longer valid.
 
 # A real world example
-Let's for a second assume that GitHub used JSON Web Tokens as API Keys and one of them was accidentaly published on the web. You would want to make sure an app can no longer access your information by revoking that token:
+Let's for a second assume that GitHub used JSON Web Tokens as API Keys and one of them was accidentally published on the web. You would want to make sure an app can no longer access your information by revoking that token:
 
 <a href="//cdn.auth0.com/blog/blacklist_token.png" target="_blank"><img src="//cdn.auth0.com/blog/blacklist_token.png"></a>
 
@@ -66,10 +66,11 @@ The tokens accepted by our API use the `aud` claim to determine the tenant for w
 
 Similarly, if a token does not include the `jti` claim we do not allow it to be revoked.
 
-
 ## 2. Who should be able to revoke JWTs?
 
 If anyone could revoke our API keys then unfortunately they wouldn't be of much use. We need a way of restricting who can revoke a JWT.
+
+{% include tweet_quote.html quote_text="If anyone could revoke our API keys then unfortunately they wouldn't be of much use." %}
 
 The way we solved it in our API is by defining a specific scope (permission) that allows blacklisting tokens. If you generate a JWT like the one shown in the next figure you will be able to revoke JWTs:
 <a href="//cdn.auth0.com/blog/jwt_blacklist_02.png" target="_blank"><img src="//cdn.auth0.com/blog/jwt_blacklist_02.png"></a>

@@ -19,6 +19,10 @@ tags:
 - passport
 - pug
 - express
+related:
+- 2015-11-13-build-an-app-with-vuejs
+- 2016-04-13-authentication-in-golang
+- 2016-06-23-creating-your-first-laravel-app-and-adding-authentication
 ---
 
 > **TL;DR** VueJS has a new version coming out. Check out [all the changes here](https://github.com/vuejs/vue/issues/2873). There is a working example of [an application built using this new version here](https://vuejs2-authentication.herokuapp.com). The code can [be found on Github](https://github.com/searsaw/vue2-auth). Get out there and make something awesome!
@@ -26,6 +30,8 @@ tags:
 VueJS is coming out with a new version. For those of you who don't know about VueJS, you can check it [out on their website](https://vuejs.org/). It's *another* JavaScript framework that combines some things from the AngularJS and React frameworks. The first version of VueJS may have been best described as "AngularJS lite." It has a templating system that looks like Angular's and also used "dirty checking" to monitor things that needed to be changed in the DOM. However, it keeps its API small by not including extra utilities like AJAX, much like React does.
 
 However, in the next version, [it switches some things around](https://vuejs.org/2016/04/27/announcing-2.0/). It moves to a "Virtual DOM" model like React. It also opens the door for developers to use whatever kind of templating they choose. Because of this, the maintainers have also implemented streaming server-side rendering, which is always welcome in today's Web landscape. Luckily, the API itself hasn't really changed. Much of the tooling around VueJS development still needs to be updated to work with the new version, but we can use Vueify to develop components in one file still. For a good look at what is implemented in the current alpha versions and what has changed, read [this Github issue in the VueJS repository](https://github.com/vuejs/vue/issues/2873).
+
+{% include tweet_quote.html quote_text="VueJS 2.0, like React, uses a ‘Virtual DOM’ and allows you to choose the kind of templating you want" %}
 
 Let's build a simple application using Express, PassportJS, and VueJS 2.0 to demonstrate how to setup authentication in an application and then how to communicate with our backend server from the client side. The application will let a user view, add, and delete "Exclamations." You can view anyone's exclamations. You can only add them if you have that "scope." You can always delete your own exclamations, but you can also delete other users' exclamations if you have the `delete` scope.
 
@@ -819,6 +825,86 @@ We added the add form to our template and pass it an `onAdd` prop. We also use `
 ![Add Form](https://s3.amazonaws.com/vue2-pics/add_form.png)
 
 If we view our application in the browser, we can now add an exclamation. If you refresh the browser after adding one, it will still be there! Baller.
+
+## Aside: Using Auth0 With Your Vue.js App
+
+Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+
+We can easily set up authentication in our Vue.js apps by using the **[Lock Widget](https://auth0.com/lock)**.
+
+![auth0 lock vuejs](https://cdn.auth0.com/blog/node-knockout/node-knockout-1.png)
+
+### Step 1: Include Auth0's Lock Widget
+
+```html
+  <!-- index.html -->
+
+  ...
+
+  <!-- Auth0 Lock script -->
+  <script src="http://cdn.auth0.com/js/lock-9.2.min.js"></script>`
+
+  ...
+```
+
+### Step 2: Instantiate Lock in index.js
+
+```js
+// src/index.js
+
+...
+
+// Instantiate a Lock
+export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
+
+...
+```
+
+### Step 3: Call the Lock Widget from a Vue.js Component
+
+```html
+  <!-- src/components/Login.vue -->
+
+  <template>
+    <div class="col-sm-4 col-sm-offset-4">
+      <h2>Log In</h2>
+      <p>Log In with Auth0's Lock Widget.</p>
+      <button class="btn btn-primary" @click="login()">Log In</button>
+    </div>
+  </template>
+
+  <script>
+  // Import the Lock instance
+  import {lock} from '../index'
+
+  export default {
+
+    methods: {
+      
+      login() {
+
+        // Show the Lock Widget and save the user's JWT on a successful login
+        lock.show((err, profile, id_token) => {
+
+          localStorage.setItem('profile', JSON.stringify(profile))
+          localStorage.setItem('id_token', id_token)
+
+        })
+      },
+
+      logout() {
+
+        // Remove the profile and token from localStorage
+        localStorage.removeItem('profile')
+        localStorage.removeItem('id_token')
+
+      }
+    }
+    
+  }
+
+  </script>
+```
 
 ## Where do we go from here?
 

@@ -111,7 +111,6 @@ import {Signup} from '../signup/signup';
 ])
 
 export class App {
-  
   constructor() {}
 }
 ```
@@ -178,7 +177,7 @@ export class LoggedInRouterOutlet extends RouterOutlet {
     super(_viewContainerRef, _loader, _parentRouter, nameAttr);
 
     this.parentRouter = _parentRouter;
-    // The Boolean following each route below 
+    // The Boolean following each route below
     // denotes whether the route requires authentication to view
     this.publicRoutes = {
       'login': true,
@@ -218,6 +217,7 @@ let template = require('./login.html');
   template: template,
   styles: [ styles ]
 })
+
 export class Login {
   constructor(public router: Router, public http: Http) {}
 
@@ -384,7 +384,7 @@ If you don't already have any Auth0 account, [sign up](https://auth0.com/signup)
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    
+
   ...
 ```
 
@@ -450,13 +450,13 @@ export class Auth {
 We can use the methods from our authentication service in any of our components which means we can easily add a click handler to a "Login" and "Logout" button.
 
 ```html
-  <!-- src/client/app.component.html --> 
-  
+  <!-- src/client/app.component.html -->
+
   ...
-  
+
   <button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
   <button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-  
+
   ...
 ```
 
@@ -488,7 +488,7 @@ We can again use `AuthHttp` from [**anuglar2-jwt**](https://github.com/auth0/ang
         );
     }
   }
-  
+
 ...
 ```
 
@@ -503,5 +503,3 @@ In this article, we've learned how to create a multiple page Angular 2 app that 
 Before ending, I want to thank [David East](https://twitter.com/_davideast) for his support with some questions, [PatrickJS](https://twitter.com/gdi2290) for his help on coding parts of the example and to [Jesus Rodriguez](https://twitter.com/Foxandxss) for cleaning up some of the unused code.
 
 Happy hacking :).
-
-

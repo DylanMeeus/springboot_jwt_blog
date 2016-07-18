@@ -9,10 +9,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#203E62"
   image: https://cdn.auth0.com/blog/integrate-your-saas-tools/logo.png
-tags: 
+tags:
 - auth0-integration
 - auth0-rules
 - saas-tools
@@ -30,7 +30,7 @@ related:
 
 At Auth0 we do what we do best—user authentication.  SaaS is all about these types of specialities. Any SaaS company should concentrate on what it does best, and outsource the rest. You should use SaaS providers for your analytics, your customer communication, your storage, and, of course, your user authentication.
 
-This makes it all the more important that any SaaS provider you use integrates with others, sharing data, and providing both you and your customers with a seamless experience. That’s why we developed [Rules](https://auth0.com/docs/rules). 
+This makes it all the more important that any SaaS provider you use integrates with others, sharing data, and providing both you and your customers with a seamless experience. That’s why we developed [Rules](https://auth0.com/docs/rules).
 
 ## What Are Rules?
 
@@ -95,7 +95,7 @@ function(user, context, callback) {
 
   request.post( {
     url: 'https://api.mailgun.net/v3/{YOUR MAILGUN ACCOUNT}/messages',
-      auth: 
+      auth:
       {
         user: 'api',
         pass: '{YOUR MAILGUN KEY}'
@@ -131,6 +131,8 @@ Find this rule [here](https://github.com/auth0/rules/blob/master/rules/mailgun.m
 </div>
 
 Analytics are only as powerful as the underlying data. Adding an analytics Rule to your signing in process allows you to not only track individual logins with your preferred analytics SaaS provider, but also pass your analytics user-specific data to use.
+
+{% include tweet_quote.html quote_text="Analytics are only as powerful as the underlying data." %}
 
 This Rule sends [MixPanel](https://mixpanel.com/) a `Sign In` event and includes the application the user is signing in to as a property.
 
@@ -172,7 +174,7 @@ Customer Relationship Management (CRM) tools are a mainstay of modern sales. How
 
 Automating as much of the data entry process as possible is therefore important for sales teams. This Rule automates the generation of a new Lead in the Salesforce CRM when a user logs in to your app for the first time.
 
-It checks whether this is the first login, then calls the Salesforce API to record the contact as a new Lead. It is using Salesforce REST APIs and the `resource owner` flow to obtain an `access_token`. 
+It checks whether this is the first login, then calls the Salesforce API to record the contact as a new Lead. It is using Salesforce REST APIs and the `resource owner` flow to obtain an `access_token`.
 
 ```
 function (user, context, done) {
@@ -269,7 +271,7 @@ Find this rule [here](https://github.com/auth0/rules/blob/master/rules/creates-l
 <div class="" style="text-align: center;"><img style="margin: 0;" src="https://cdn.auth0.com/blog/integrate-your-saas-tools/Minfraud.png" alt="Minfraud" />
 </div>
 
-MinFraud identifies possible fraud in online transactions, as well as suspect account logins and signups. The service uses factors such as geolocation, IP address, email, device and proxies to determine the likelihood a transaction is fraudulent. 
+MinFraud identifies possible fraud in online transactions, as well as suspect account logins and signups. The service uses factors such as geolocation, IP address, email, device and proxies to determine the likelihood a transaction is fraudulent.
 
 This rule will send the user’s IP address, email address, and username (both in MD5 format) to MaxMind’s MinFraud API. The API will return the risk score for the transaction and this information can be leveraged within the Rule to block a login with a high risk score.
 
@@ -285,9 +287,9 @@ function (user, context, callback) {
     i: context.request.ip,
     user_agent: context.request.userAgent,
     license_key: 'YOUR_LICENSE_KEY',
-    emailMD5: user.email && 
+    emailMD5: user.email &&
         crypto.createHash('md5').update(user.email).digest("hex") || null,
-    usernameMD5: user.username && 
+    usernameMD5: user.username &&
         crypto.createHash('md5').update(user.username).digest("hex") || null
   };
 
@@ -308,10 +310,10 @@ function (user, context, callback) {
     }
 
     if (err) {
-      console.log('Error while attempting fraud check: ' + err.message); 
+      console.log('Error while attempting fraud check: ' + err.message);
     }
     if (res.statusCode !== 200) {
-      console.log('Unexpected error while attempting fraud check: ' + err.message); 
+      console.log('Unexpected error while attempting fraud check: ' + err.message);
     }
 
     // If the service is down, the request failed, or the result is OK just continue.

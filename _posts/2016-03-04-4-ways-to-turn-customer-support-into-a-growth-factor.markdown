@@ -8,10 +8,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#222228"
   image: https://cdn.auth0.com/blog/customer-support/logo.png
-tags: 
+tags:
 - customer-service
 - growth-hacking
 - customer-support
@@ -21,17 +21,17 @@ related:
 - 2016-02-03-getting-started-with-auth0-lock-series-implementing-lock
 ---
 
-Paul Graham, co-founder of prestigious startup fund Y Combinator, [believes](http://paulgraham.com/ds.html) that early founders don't try hard enough to delight their customers. 
+Paul Graham, co-founder of prestigious startup fund Y Combinator, [believes](http://paulgraham.com/ds.html) that early founders don't try hard enough to delight their customers.
 
-This is a bit counter-intuitive, especially since Y Combinator also expects its companies to grow at the tremendous rate of [5-7% a week](http://www.paulgraham.com/growth.html). When we think about that kind of growth, we often think in terms of massive land-grabs and clever hacks, trying to find huge, underutilized acquisition channels and milking them for all they're worth. 
+This is a bit counter-intuitive, especially since Y Combinator also expects its companies to grow at the tremendous rate of [5-7% a week](http://www.paulgraham.com/growth.html). When we think about that kind of growth, we often think in terms of massive land-grabs and clever hacks, trying to find huge, underutilized acquisition channels and milking them for all they're worth.
 
 Customer service, on the other hand, seems like something you work on down the line when you want to bump your retention numbers and build a referral program—not something you do for growth right now. But this is a misconception. Growth, whether now or in the future, [is all about retention](http://avc.com/2015/07/growth-vs-retention/). You can't grow unless you retain the users you acquire.
 
 For Graham, taking “extraordinary measures” to make your customers happy is one of the most powerful tools a startup has both for acquiring new users and retaining the ones it has. Do things to make every customer “feel that signing up with you was one of the best choices they ever made,” he says, and you'll have them for life. Plus, you’ll get their friends, and their friends, and their friends, and so on.
 
-Customer support is actually an incredible kind of growth hack—put a little more effort into it than everyone else, and you'll bend your retention curve up while bringing in new people and establishing a foundation for awesome growth. 
+Customer support is actually an incredible kind of growth hack—put a little more effort into it than everyone else, and you'll bend your retention curve up while bringing in new people and establishing a foundation for awesome growth.
 
-Here are four ways to get started. 
+Here are four ways to get started.
 
 ## 1. Create A Personalized, Educational Email Campaign
 
@@ -47,7 +47,7 @@ Good behavioral email campaigns rely on triggers, or specific user actions that 
 
 ![Customer.io automated emails](https://cdn.auth0.com/blog/customer-support/Customer-io-sample.png)
 
-With an email marketing manager like [Customer.io](http://customer.io/), you can set up even more specific triggers to automate your campaigns. For instance, you could have an email sent to everyone who used your product a half-dozen times or less, spent 3-5 minutes in your Help documentation, and then logged off. 
+With an email marketing manager like [Customer.io](http://customer.io/), you can set up even more specific triggers to automate your campaigns. For instance, you could have an email sent to everyone who used your product a half-dozen times or less, spent 3-5 minutes in your Help documentation, and then logged off.
 
 You can use Auth0 to get those metrics into your marketing tool easily, first use [rules](https://auth0.com/docs/rules) to [send your data](https://github.com/auth0/rules/blob/master/rules/send-events-segmentio.md) into Segment, then enable [Segment](http://segment.io/)'s integration with Customer.io. Once you do that, every action your users take will send an “event” to Segment with a timestamp, and you'll be free to use it in targeting your messaging with Customer.io. Here's the rule for sending a “Loggin in” or “Signed up” event:
 
@@ -96,18 +96,20 @@ Shopify knows the value of pre-emptive customer support: after you sign up, afte
 ![Shoppify Customer Support Onboarding Email](https://cdn.auth0.com/blog/customer-support/shoppify-onboarding-email.png)
 
 Even if you know exactly what you're doing with Shopify, this email works. It demonstrates that this company really cares about what you're trying to accomplish. It also implies that you will, in the future, have extremely easy access to help when you need it. That's the kind of messaging that's going to keep you from going to a competitor in the long run.
- 
+
 And that's not just intuition talking. Relevant, automated emails have been demonstrated to drive [18x more revenue](http://myemma.com/blog/article/21-must-know-email-automation-stats) than one-size-fits-all broadcast emails. They get more clicks, they lift conversions, and even those who don't buy are more likely to make larger purchases in the future.
 
 From building the beginnings of trust to upselling, email is one of the most powerful ways to turn the delight of your customers into revenue and growth.
 
 ## 2. Create A Customized Onboarding Flow
 
-Onboarding is another process that needs to be structured around how individual users interact with your product. 
+Onboarding is another process that needs to be structured around how individual users interact with your product.
 
-If you can't get your customers to their “aha! moments” fast enough, then you stand a good chance of losing them. After all, there's no momentum carrying them forward. They took a chance on your product, they're trying to see if it can do the job for them, and you need to show them that it can. 
+If you can't get your customers to their “aha! moments” fast enough, then you stand a good chance of losing them. After all, there's no momentum carrying them forward. They took a chance on your product, they're trying to see if it can do the job for them, and you need to show them that it can.
 
-Signposts that point out essential parts of your product's UI can be invaluable for getting a new user to see its core value quickly. If you want to know where people are having trouble finding it, you can either go quantitative and look at your analytics or go qualitative and try a [user test](https://www.usertesting.com/). That will let you watch people navigate your product in real time so you can track their experiences, warts and all. 
+{% include tweet_quote.html quote_text="If you can't get your customers to their “aha! moments” fast enough, then you might lose them." %}
+
+Signposts that point out essential parts of your product's UI can be invaluable for getting a new user to see its core value quickly. If you want to know where people are having trouble finding it, you can either go quantitative and look at your analytics or go qualitative and try a [user test](https://www.usertesting.com/). That will let you watch people navigate your product in real time so you can track their experiences, warts and all.
 
 Once they're ramped up, you can use in-app announcements and indicators to show that new features or other enhancements are available. The easiest way to keep your service at the front of a customer's mind is to be compulsively informative about changes you're making.   
 
@@ -129,7 +131,7 @@ That's just what they did. Realizing that most people couldn't even wrap their h
 
 ![Dropbox introduction video](https://cdn.auth0.com/blog/customer-support/dropbox-video.png)
 
-The move paid off with an immediate [10% jump in conversions](http://wistia.com/blog/explainify-five-benefits). But this kind of power is just scratching the surface of what video can do. 
+The move paid off with an immediate [10% jump in conversions](http://wistia.com/blog/explainify-five-benefits). But this kind of power is just scratching the surface of what video can do.
 
 As Wistia founder Chris Savage [points out](http://wistia.com/blog/evolution-of-video-goals), making videos that increase conversion rates is the first step—after that, you can use your videos to teach people about the problems your product solves and bring in *new *kinds of customers.
 
@@ -137,11 +139,13 @@ Using your subject matter expertise and experience to make videos about the *pro
 
 ![Wistia shooting video](https://cdn.auth0.com/blog/customer-support/wistia-tutorial.png)
 
-It's not about getting customers. It's not about conversions. It's about teaching people some valuable skill, and that's an incredibly powerful tool. 
+It's not about getting customers. It's not about conversions. It's about teaching people some valuable skill, and that's an incredibly powerful tool.
 
 “In the long term, teaching videos can save you time, automate conversions, and better educate your audience,” [Savage says](http://wistia.com/blog/evolution-of-video-goals), “It can mean the difference between working with your customers to help them achieve their goals, and being stuck helping them understand what the heck your product does in the first place.”
 
-Making videos like this will save your support staff time and energy responding to the kinds of questions that are better answered with videos, but it's also a great way to market your company. 
+{% include tweet_quote.html quote_text="In the long term, teaching videos can save you time, automate conversions, and better educate your audience." %}
+
+Making videos like this will save your support staff time and energy responding to the kinds of questions that are better answered with videos, but it's also a great way to market your company.
 
 People see a video like that and they think, “Wow, this company spent money making a video just to help me solve a problem”—now that's customer support as marketing.
 
@@ -149,7 +153,7 @@ People see a video like that and they think, “Wow, this company spent money ma
 
 You always think you know what's best for your product, but you're probably wrong. The truth is, you don't even really know what your product is *for *until people start using it and telling you. And they will—as soon as you launch, you'll start hearing customers request new features.  
 
-But these requests can be difficult to deal with. At some point, they can come to sound like a Greek chorus of various interpretations of your product: “x” user wants “y” while “z” user wants “b” and “a” doesn't want anything to change, etc. 
+But these requests can be difficult to deal with. At some point, they can come to sound like a Greek chorus of various interpretations of your product: “x” user wants “y” while “z” user wants “b” and “a” doesn't want anything to change, etc.
 
 What's important is to maintain perspective. Don't drop everything because one customer said so, but don't let that prevent you from paying attention when you have a critical mass of requests for something.
 
@@ -164,9 +168,9 @@ This way, they can actually track whether or not the features customers want are
 
 ![Email for New feature added](https://cdn.auth0.com/blog/customer-support/new-feature-added-statuspage.png)
 
-Not only is this a great way to show your customers that you take their input seriously, it can be a great opportunity to upsell. After all, no one's going to your pricing page over and over to see what new features you're offering.  If a customer is flexible on price, but won't upgrade unless a certain feature becomes available on the next tier, an email like this is the only way to *ensure *yourself a chance at that revenue boost. 
+Not only is this a great way to show your customers that you take their input seriously, it can be a great opportunity to upsell. After all, no one's going to your pricing page over and over to see what new features you're offering.  If a customer is flexible on price, but won't upgrade unless a certain feature becomes available on the next tier, an email like this is the only way to *ensure *yourself a chance at that revenue boost.
 
-When a technique lets you systematically add revenue and make your customers really happy at the same time, it's a no-brainer. 
+When a technique lets you systematically add revenue and make your customers really happy at the same time, it's a no-brainer.
 
 ## Make Customer Support Your Competitive Advantage
 
@@ -176,4 +180,4 @@ It can sometimes take a bit of work to overcome that mental hurdle. We're not us
 
 “Once you realize that existing conventions are not the upper bound on user experience,” [he says](http://paulgraham.com/ds.html), “it's interesting in a very pleasant way to think about how far you could go to delight your users.”
 
-It's interesting, yes. It can also be a driving factor in your company's revenues and growth, so pick one of these strategies, get started today, and let us know how it goes. 
+It's interesting, yes. It can also be a driving factor in your company's revenues and growth, so pick one of these strategies, get started today, and let us know how it goes.

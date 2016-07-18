@@ -26,6 +26,11 @@ tags:
 - authorization
 - roles
 - privacy
+related:
+- 2016-04-18-progressive-profiling
+- 2015-12-29-how-paypal-could-have-avoided-account-hack
+- 2016-04-26-using-https
+
 ---
 
 [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon) has been a subject of passion for grown-ups and youngsters alike for a long time. The newly released Pokémon GO app is no exception: it has been installed by thousands since its release a few days ago. What they don't know is that they have given [Niantic](https://www.nianticlabs.com/), the developer, full access to their Google accounts!  

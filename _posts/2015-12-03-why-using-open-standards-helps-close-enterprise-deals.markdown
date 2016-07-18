@@ -8,10 +8,10 @@ author:
   url: http://twitter.com/mgonto
   mail: gonto@auth0.com
   avatar: https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60
-design: 
+design:
   bg_color: "#004E8A"
   image: https://cdn.auth0.com/blog/using-open-standards/logo.png
-tags: 
+tags:
 - enterprise-deals
 - vendor-lock-in
 - startups
@@ -22,13 +22,15 @@ related:
 - 2014-02-26-openid-connect-final-spec-10
 ---
 
-It’s hard to close an enterprise software deal with a large company, but once you do, you have a customer for life . . . or so the logic goes. If a big company goes through all the trouble to run through the buying process, integrate its systems, train its people and more, it’ll be a cold day in hell before it even considers ripping your software out. 
+It’s hard to close an enterprise software deal with a large company, but once you do, you have a customer for life . . . or so the logic goes. If a big company goes through all the trouble to run through the buying process, integrate its systems, train its people and more, it’ll be a cold day in hell before it even considers ripping your software out.
 
-This is what’s called vendor lock-in, and it’s what makes the massive headache of selling to the enterprise worth it. 
+This is what’s called vendor lock-in, and it’s what makes the massive headache of selling to the enterprise worth it.
 
 But there’s a catch—because vendor lock-in is so advantageous to the vendor, it’s one of the biggest worries on an enterprise buyer’s mind. And if you’re a startup, enterprise buyers are going to be doubly worried. Getting locked in to software from a startup that might not exist in a year is their worst nightmare.
 
 It’s counterintuitive, but one of the ways we’ve been able to win at enterprise sales here at Auth0 is through *reducing* vendor lock-in. We build upon open standards rather than creating our own proprietary standards that force involuntary vendor lock-in. In the end, we acquire and keep our customers by making it possible for them to leave at any time.
+
+{% include tweet_quote.html quote_text="We build upon open standards rather than creating proprietary standards that force involuntary vendor lock-in." %}
 
 ## Open Standards in an App Built for the Enterprise
 
@@ -44,11 +46,11 @@ By connecting these protocols together, we can run identity through a central cl
 2. **Authenticate**: Auth0 will start the authentication against the requested identity provider. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
 3. **Getting the Access Token**: Upon successful authentication, the user will eventually return to your web site with a code (steps 3 and 4 in the diagram). Your web site will then call Auth0 again using the code with a request to obtain an "Access Token.” That Access Token can be used to further interact with Auth0’s API—for instance, to retrieve a user profile for the user.
 
-At every step, we’re connecting protocols together that are open standards and building on top of others like JSON Web Tokens. Conventional wisdom says that this would hurt us in enterprise sales, reducing our value in the eyes of big companies and making it easier for them to leave. 
+At every step, we’re connecting protocols together that are open standards and building on top of others like JSON Web Tokens. Conventional wisdom says that this would hurt us in enterprise sales, reducing our value in the eyes of big companies and making it easier for them to leave.
 
 Here are the 3 counterintuitive ways we approach selling to the enterprise having been built on open standards. In each case, conventional wisdom would say that our approach to open standards would lower our value in the eyes of enterprise buyers and make it all too likely that we would lose customers to competitors. We’ve been able to win by turning around each weakness into our source of strength.
 
-## Make your code easy to remove 
+## Make your code easy to remove
 
 Using open standards in Auth0 makes it easier for customers to adopt our product and hit the ground running, but it also makes it easier for a customer to rip our code out. If they’re unhappy with our product, they can drop us and go with a competitor in a heartbeat, without writing much more code to get a new solution up and running.
 
@@ -58,9 +60,12 @@ Big customers work in incredibly diverse environments with a ton of internal and
 
 Doing a deal in this kind of environment can be incredibly tricky. You’re only able to deliver value if you can integrate your service with every application—internal and 3rd party—that the customer is running. To make those assurances, companies often resort to building in a custom software development schedule into the enterprise deal.
 
-The problem is that custom software development consulting adds to deal complexity, making it more expensive, increasingly difficult to understand, and harder to execute. And we all know—time kills deals. 
+The problem is that custom software development consulting adds to deal complexity, making it more expensive, increasingly difficult to understand, and harder to execute. And we all know—time kills deals.
 
 Because at Auth0, we support open standards and integrate with everything, we need to do very little in terms of customization for enterprise deals. Customers are more confident purchasing our product because uncertainty, and extra costs like custom development are removed.
+
+{% include tweet_quote.html quote_text="Customers are more confident purchasing our product because uncertainty, and extra costs like custom development are removed." %}
+
 
 ### lock in via value-added functionality
 
@@ -80,15 +85,18 @@ Open standards come with the communities that maintain and grow them. Within tho
 
 ### Operate within your customer’s sphere of expertise
 
-However, giving up tight-fisted control over your product that provides you with an incredible amount of leverage, and this is particularly true in the realm of security. It can’t be overstated: security is hard. It’s much better to work with a community of cybersecurity experts who have a vested interest in finding and killing security holes than to go at it alone. Fundamentally, it’s the community behind open standards that gives enterprise buyers the confidence that your tech is built on solid ground, and will be easily supported. 
+However, giving up tight-fisted control over your product that provides you with an incredible amount of leverage, and this is particularly true in the realm of security. It can’t be overstated: security is hard. It’s much better to work with a community of cybersecurity experts who have a vested interest in finding and killing security holes than to go at it alone. Fundamentally, it’s the community behind open standards that gives enterprise buyers the confidence that your tech is built on solid ground, and will be easily supported.
 
 Your enterprise buyer will have internal experts on open standards as well, and that will give the buyer confidence to do the deal. They’ll know that they can maintain your app internally without having to hire an outside expert or train their existing team in a new technology. That helps reduce the most dangerous kind of uncertainty—”the unknown unknowns”—the things that you don’t know that you don’t know.
 
-### Choosing a better developer experience 
+### Choosing a better developer experience
 
 Instead of locking customers into technology that only you know how to use, do the opposite—build on open standards that whole communities of developers work on. You’ll earn customer loyalty by delivering more value on top of that, instead of locking them in.
 
 At Auth0, we offer customers [libraries and SDKs](https://auth0.com/docs) that make it easier to work with open standards in building your app. Developers then choose to work with Auth0 because we’re delivering value on top of what open standards offer. They want to use our tech—they’re not forced to use it.
+
+{% include tweet_quote.html quote_text="At Auth0, we offer customers libraries and SDKs that make it easier to work with open standards in building your app." %}
+
 
 ![How Auth0 works](https://cdn.auth0.com/blog/using-open-standards/rules.png)
 
@@ -121,6 +129,3 @@ That’s why we’ve taken the next step of setting up what’s known as softwar
 By eschewing the traditional notion of lock-in where your customers are forced to rely on you—an effect that engenders bitterness and resentment—you reduce the technological barriers to switching or leaving. While potentially having a disastrous effect on the economics of the business of enterprise software, we’ve seen it to have the opposite effect.
 
 Those constraints force you to get creative and build real value on top of what’s been commoditized and made open and free. When you do that, customers will actively choose you, and you’ll win more deals and build real customer loyalty based in free choice.
-
-
-

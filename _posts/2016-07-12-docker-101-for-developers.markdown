@@ -17,6 +17,10 @@ tags:
 - nodeJS
 - development
 - devops
+related:
+- 2016-06-20-jwt-101-webinar-video-learn-more-about-json-web-tokens
+- 2016-06-29-learn-more-about-our-jwt-chrome-debugger-extension
+- 2016-04-20-everything-you-wanted-to-know-about-oauth-2-but-were-too-afraid-to-ask
 ---
 
 <div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/kvrly7qp0n?seo=false&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>

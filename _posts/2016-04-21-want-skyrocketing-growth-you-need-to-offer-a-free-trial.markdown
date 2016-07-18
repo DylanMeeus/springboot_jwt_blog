@@ -8,10 +8,10 @@ author:
   mail: diego.poza@auth0.com
   url: https://twitter.com/diegopoza
   avatar: https://avatars3.githubusercontent.com/u/604869?v=3&s=200
-design: 
+design:
   bg_color: "#5C666F"
   image: https://cdn.auth0.com/blog/free-trial/free-trial-icon.png
-tags: 
+tags:
 - free-trial
 - growth-hacks
 related:
@@ -40,7 +40,7 @@ In this spirit, any feature we support is covered with our in-depth [documentati
 
 We’ve made available:
 
-* Guides for integrating all of our features - [Lock](https://auth0.com/lock), [SSO](https://auth0.com/docs/sso/single-sign-on), [Rules](https://auth0.com/docs/rules), and more 
+* Guides for integrating all of our features - [Lock](https://auth0.com/lock), [SSO](https://auth0.com/docs/sso/single-sign-on), [Rules](https://auth0.com/docs/rules), and more
 * Plugins for popular platforms - [Wordpress](https://auth0.com/docs/cms#wordpress-plugin), [Joomla](https://auth0.com/docs/cms#joomla-extension), [SharePoint](https://github.com/auth0/auth0-sharepoint)
 * Annotated back-end libraries for SDKs - [NodeJS](https://github.com/auth0/node-auth0), [Python](https://github.com/auth0/auth0-python), [PHP](https://github.com/auth0/auth0-php), [Ruby](https://github.com/auth0/ruby-auth0), and more
 * Strategies for implementing Auth0 in different use cases - [Integrating Auth0 with various SaaS tools](https://auth0.com/blog/2016/04/07/integrate-auth0-into-your-existing-saas-tools/)
@@ -51,6 +51,8 @@ All of this is critical because you want customers to be as successful as possib
 
 Your product creates its own value, and your content helps your customers see it. The question is, how long should you give your customers to find it?
 
+{% include tweet_quote.html quote_text="Your product creates its own value, and your content helps your customers see it." %}
+
 ## Why The Right Trial Period Is The Shortest One
 
 [41%](https://www.pierrelechelle.com/saas-free-trial) of SaaS companies offer 30 day free trials. The thinking typically goes that if you don’t give your customers enough time, their trial will run out before they see your product’s value, and they’ll leave thinking it was worthless. 30 days seems like a safe bet, in that light.
@@ -59,7 +61,7 @@ This is a terrible decision.
 
 Your trial period should be the minimum amount of time needed for a customer to get value from your product. If it only takes a week to see your product’s value, that’s how long the trial should be. In fact, Steli Efti, founder of the sales CRM [Close.io](http://close.io/), says that [99% of SaaS companies](http://blog.close.io/saas-startups-why-your-free-trials-are-way-too-long) should offer a trial no longer than 14 days.
 
- For sales-supported SaaS companies (SaaS with a sales team), this is obvious. Shorter trials mean shorter sales cycles, freeing teams up to engage with more customers. 
+ For sales-supported SaaS companies (SaaS with a sales team), this is obvious. Shorter trials mean shorter sales cycles, freeing teams up to engage with more customers.
 
 But what if you’re running a self-service model? [Price Intelligently](http://www.priceintelligently.com/), a price optimizing service for SaaS companies, points out that shortening your trial will still drive conversions by tapping into customers’ sense of [loss aversion](https://en.wikipedia.org/wiki/Loss_aversion)—our tendency to fear loss more than we covet gain.
 
@@ -67,7 +69,7 @@ For example, [Kashflow](https://www.kashflow.com/) had a 60-day free trial perio
 
 The exceptions to this are companies for whom value can only really be displayed over a longer period. Netflix, for example, is competing for your business with cable providers, which bill monthly. Netflix needs you to spend the whole month using their service so that when the time comes around for you to pay your cable bill, you feel like you’re wasting your money.
 
-For some companies, it makes more sense to use a free trial and a free plan in tandem. For instance, at Auth0, we offer a [22 day trial](https://auth0.com/pricing) of our advanced plans, alongside a permanent free plan which hosts [7,000 users](https://auth0.com/blog/2015/11/05/announcing-our-new-pricing-including-a-production-ready-free-account/). 
+For some companies, it makes more sense to use a free trial and a free plan in tandem. For instance, at Auth0, we offer a [22 day trial](https://auth0.com/pricing) of our advanced plans, alongside a permanent free plan which hosts [7,000 users](https://auth0.com/blog/2015/11/05/announcing-our-new-pricing-including-a-production-ready-free-account/).
 
 We want our customers to be familiar with the functionality our advanced plans provide, so that as their product grows, they’ll be able to identify when upgrading from the free plan makes the most sense for them.  
 
@@ -79,7 +81,7 @@ There are two do-or-die moments where you must engage with your customer: when t
 
 Reaching out immediately after a customer enrolls in a free trial simply has to be your first step. Customers who are engaged in the first 3 days of their trial are [4 times](https://www.chargify.com/blog/increase-free-trial-conversions/) as likely to convert later down the line. This is your chance to initiate a dialogue, personalizing the customer's experience with the product, and deepening their connection to it.
 
-Obviously, doing this yourself is impossible at scale. Instead, you should use software like [Customer.io](https://customer.io/) in conjunction with [Auth0’s Rules](https://auth0.com/blog/2016/04/07/integrate-auth0-into-your-existing-saas-tools/) to automatically trigger targeted email campaigns to customers at [particular lifecycle events](https://customer.io/blog/smart-lifecycle-emails.html). 
+Obviously, doing this yourself is impossible at scale. Instead, you should use software like [Customer.io](https://customer.io/) in conjunction with [Auth0’s Rules](https://auth0.com/blog/2016/04/07/integrate-auth0-into-your-existing-saas-tools/) to automatically trigger targeted email campaigns to customers at [particular lifecycle events](https://customer.io/blog/smart-lifecycle-emails.html).
 
 For example, [Auth0’s Segment Rule](https://auth0.com/blog/2015/09/11/7-ways-to-2x-your-revenue-growth-by-putting-your-user-data-to-work/) can track users’ activity and push that data to [Segment](https://segment.com/), a platform that collects customer data for other tools. By turning on the [Customer.io](http://customer.io/) integration in Segment, you can have your email campaigns instantly adapt to real-time data:
 
@@ -133,17 +135,16 @@ This gets back to Efti’s advice to shorten your trial periods. If you reach ou
 
 ## How A Good Free Trial Can Do More Than Drive Conversions
 
-The formula here is simple: 
+The formula here is simple:
 
-* Your content guarantees that customers see your product’s value. 
-* Your trial length keeps customers from taking your product for granted. 
+* Your content guarantees that customers see your product’s value.
+* Your trial length keeps customers from taking your product for granted.
 * Your targeted communication nudges customers towards conversion.
 
 Your desired outcome, in this situation, is conversions. You want customers to try your product, see its value, and become paying subscribers. However, each of these steps also presents secondary benefits.
 
 Good content marketing can do more than improve a free trial, it can bring new customers in droves. Optimizing your trial’s length can keep you from wasting extra resources on customers who aren’t paying. And sending personalized, targeted emails can do more than convert free trial customers, it can prevent your paying customers from churning.
 
-Not to mention, customers who try your free trial but won’t convert are still giving you usage data. 
+Not to mention, customers who try your free trial but won’t convert are still giving you usage data.
 
 That’s not a bad silver lining.
-

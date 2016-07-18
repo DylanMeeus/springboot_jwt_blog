@@ -89,3 +89,5 @@ With Passwordless Login you can use one-time codes or “magic links” delivere
 ## Conclusion
 
 Online services are getting hacked on a daily basis, and hackers are also getting smarter every day. We have seen several big companies like Slack, Paypal and LinkedIn experience data breaches. It is never too late to start guarding your users, data, money, and your precious reputation more seriously; until it is too late.
+
+{% include tweet_quote.html quote_text="Online services are getting hacked on a daily basis, and hackers are also getting smarter every day." %}
