@@ -415,19 +415,22 @@
           }
 
           function closeSticky($module, animation) {
-            $module.addClass('animated ' + animation);
-
-            setTimeout(function() {
-              $module.remove();
-
+            $module.addClass('animated ' + animation );
+            $module.on('animationend webkitAnimationEnd oAnimationEnd', function () {
+              $module.remove()
               $(document.body).trigger("sticky_kit:recalc");
-            }, 1000);
+            });
           }
 
           $('form.newsletter-subscriber').on('click', '[data-close]', function() {
             var $module = $(this).closest('form');
 
             closeSticky($module, 'fadeOutUp');
+          });
+
+          $('.guest-author-widget').on('click', '[data-close]', function() {
+            var $module = $(this).closest('section');
+            closeSticky($module, 'fadeOutRight');
           });
 
           $('form.newsletter-subscriber').on('submit', function(e) {
