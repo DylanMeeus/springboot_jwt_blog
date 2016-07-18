@@ -568,4 +568,4 @@ Building the Serverless Stories app with two different function-as-a-service pla
 
 Rebuilding the Serverless Stories with AWS Lambda gave us greater insight into Amazon's function-as-a-service platform. We walked through the process of combining multiple AWS services to create an API that we could call from our static website. We were able to recreate the app, but found that it required a lot of additional work when compared to our Webtask implementation. What do you think? Follow [this guide](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) to build Serverless Stories with Webtask and compare the experience yourself.
 
-{% include tweet_quote.html quote_text="AWS Lambda's strength is not necessarily in building serverless apps, but in augmenting the AWS ecosystem." %}
+{% include tweet_quote.html quote_text="Lambda's strength is not necessarily in building serverless apps, but in augmenting the AWS ecosystem." %}
