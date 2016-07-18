@@ -27,13 +27,13 @@ related:
 
 **TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with [Webtask](https://webtask.io). Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with Lambda and to compare and contrast the differences between Lambda and Webtask. 
 
-As always, get the sample code from our [GitHub repo](ADD URL) to follow along.
+As always, get the sample code from our [GitHub repo](https://github.com/auth0-blog/serverless-stories-lambda/) to follow along.
 
 ---
 
 [Lambda](https://aws.amazon.com/lambda/) is a Function-as-a-Service (FaaS) platform provided by [Amazon Web Services](http://aws.amazon.com/) (AWS). Lambda is tightly integrated into the AWS ecosystem and allows developers to build microservices that easily interact with other AWS services. For example, we can create a Lambda function that is executed every time a user signs up through the AWS Cognito service or we can trigger a Lambda function after a file is uploaded to S3. Combining Lambda with the [API Gateway](https://aws.amazon.com/api-gateway/), we can build microservices that can be accessed from outside the AWS ecosystem.
 
-{% include tweet_quote.html quote_text="Serverless platforms are gaining traction because they allow developers to build apps without worrying about infrastructure." %}
+{% include tweet_quote.html quote_text="Serverless platforms allow developers to build apps without worrying about infrastructure." %}
 
 Function-as-a-Service or serverless platforms are gaining traction because they allow developers to build applications without focusing on infrastructure. Check out our ["What is serverless"](https://auth0.com/blog/2016/06/09/what-is-serverless/) post to learn more what serverless is and how it can benefit you. In this post we will focus on writing a serverless application.
 
@@ -41,7 +41,7 @@ Function-as-a-Service or serverless platforms are gaining traction because they 
 
 ![Serverless Stories](https://cdn.auth0.com/blog/webtask/app.png)
 
-The serverless application [we built](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with Webtask was a news blog called Serverless Stories. Today, we will rebuild this application and use AWS Lambda for our backend. In the interest of time, we will omit building the user interface. Check out the code from our [GitHub repo](URL) for the user interface.
+The serverless application [we built](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with Webtask was a news blog called Serverless Stories. Today, we will rebuild this application and use AWS Lambda for our backend. In the interest of time, we will omit building the user interface. Check out the code from our [GitHub repo](https://github.com/auth0-blog/serverless-stories-lambda/) for the user interface.
 
 The Serverless Stories app is a static blog that covers all things serverless. We added the ability for users to sign up for a newsletter. Additionally, admins could login and access a secret page where they could retrieve the list of newsletter subscribers. To break down our requirements then, we'll need:
 
@@ -250,9 +250,9 @@ Before we implement Cognito in our application, let's edit the IAM role we just 
 
 ## Adding Serverless to Serverless Stories
 
-We are finally ready to start implementing our Lambda functions in the Serverless Stories app. There are many JavaScript libraries that will be required for our app to work with the AWS services so I strongly recommend you pull down the code from our [GitHub repo](URL).
+We are finally ready to start implementing our Lambda functions in the Serverless Stories app. There are many JavaScript libraries that will be required for our app to work with the AWS services so I strongly recommend you pull down the code from our [GitHub repo](https://github.com/auth0-blog/serverless-stories-lambda/).
 
-The first thing we'll do is add in the required JavaScript libraries to our `index.html` file. Unzip the file that we downloaded earlier containing our JavaScript SDK. The unzipped folder will contain many of the libraries we'll need. The others, you can either find on npm or get from our [GitHub repo]. If you are using our sample project from GitHub, be sure to still overwrite the `apigClient.js` file located under `./assets/gateway/` with your `apigClient.js` as this file contains code specific to your API Gateway API. Below is a list of libraries we'll be using:
+The first thing we'll do is add in the required JavaScript libraries to our `index.html` file. Unzip the file that we downloaded earlier containing our JavaScript SDK. The unzipped folder will contain many of the libraries we'll need. The others, you can either find on npm or get from our [GitHub repo](https://github.com/auth0-blog/serverless-stories-lambda/). If you are using our sample project from GitHub, be sure to still overwrite the `apigClient.js` file located under `./assets/gateway/` with your `apigClient.js` as this file contains code specific to your API Gateway API. Below is a list of libraries we'll be using:
 
 ```
 <head>
