@@ -4,10 +4,10 @@ title: "Announcing the Auth0 Partners Program"
 description: "The Auth0 Partners Program allows system integrators and digital agencies to offload identity management to Auth0 so they can focus on building business value. Learn how and join today!"
 date: 2016-07-18 08:30
 author: 
-  name: "Ado Kukic"
-  url: "https://twitter.com/kukicado"
-  mail: "ado@auth0.com"
-  avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
+  name: "Dan Arildson"
+  url: "https://www.linkedin.com/in/danarildson"
+  mail: "dan.arildson@auth0.com"
+  avatar: "https://cdn.auth0.com/blog/authors/danarildson.jpg"
 design: 
   bg_color: "#00386F"
   image: "https://cdn.auth0.com/blog/partners/logo.png"
