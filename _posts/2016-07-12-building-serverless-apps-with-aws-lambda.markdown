@@ -540,6 +540,8 @@ Once you have an authenticated user, navigate to `localhost:8080/admin` and if a
 
 We saw how we could use Cognito to handle user authentication. Before closing out the article, let's take a look at a second approach to user authentication. Auth0 can easily integrate into the AWS ecosystem and handle all of the user authentication duties and is much easier to implement than Cognito.
 
+We will use the Auth0 delegation API to exchange our Auth0 token for an AWS token. The delegation API we are using today is not limited to just AWS. It can be used with other serverless frameworks such as [Firebase](https://console.firebase.com) and more.
+
 ### AWS Configuration with Auth0
 
 First things first, [sign up](https://auth0.com/signup) for a free Auth0 account. In the Auth0 [management dashboard](https://dashboard.auth0.com), create a new application, then navigate to the Add-Ons tab. Here, we will just enable the Amazon Web Services add-on but flipping the switch to the "on" state.
