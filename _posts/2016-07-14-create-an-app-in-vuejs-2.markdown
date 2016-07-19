@@ -8,7 +8,7 @@ author:
   url: http://twitter.com/searsaw
   mail: alexwsears@gmail.com
   avatar: "https://s.gravatar.com/avatar/6c0654e56c8c73ffee8f76fe03d18ccf?s=80"
-design: 
+design:
   image: https://cdn.auth0.com/blog/vuejs/vue-logo.png
   bg_color: "#35495e"
   image_size: "80%"
@@ -27,7 +27,7 @@ related:
 
 > **TL;DR** VueJS has a new version coming out. Check out [all the changes here](https://github.com/vuejs/vue/issues/2873). There is a working example of [an application built using this new version here](https://vuejs2-authentication.herokuapp.com). The code can [be found on Github](https://github.com/searsaw/vue2-auth). Get out there and make something awesome!
 
-VueJS is coming out with a new version. For those of you who don't know about VueJS, you can check it [out on their website](https://vuejs.org/). It's *another* JavaScript framework that combines some things from the AngularJS and React frameworks. The first version of VueJS may have been best described as "AngularJS lite." It has a templating system that looks like Angular's and also used "dirty checking" to monitor things that needed to be changed in the DOM. However, it keeps its API small by not including extra utilities like AJAX, much like React does.
+VueJS is coming out with a new version. For those of you who don't know about VueJS, you can check it [out on their website](https://vuejs.org/). It's *another* JavaScript framework that combines some things from the AngularJS and React frameworks. The first version of VueJS may have been best described as "AngularJS lite." It has a templating system that looks like Angular's <span style="text-decoration: line-through">and used "dirty checking"</span> but uses ES5 getters and setters to monitor things that needed to be changed in the DOM instead of "dirty checking." However, it keeps its API small by not including extra utilities like AJAX, much like React does.
 
 However, in the next version, [it switches some things around](https://vuejs.org/2016/04/27/announcing-2.0/). It moves to a "Virtual DOM" model like React. It also opens the door for developers to use whatever kind of templating they choose. Because of this, the maintainers have also implemented streaming server-side rendering, which is always welcome in today's Web landscape. Luckily, the API itself hasn't really changed. Much of the tooling around VueJS development still needs to be updated to work with the new version, but we can use Vueify to develop components in one file still. For a good look at what is implemented in the current alpha versions and what has changed, read [this Github issue in the VueJS repository](https://github.com/vuejs/vue/issues/2873).
 
@@ -113,6 +113,8 @@ Also, make sure to add the following scripts to your `package.json` file. We wil
 "serve": "nodemon server.js"
 ```
 
+> Note: I am using Node 6.2 for building the server portion of this application so I can natively use most of the ES2015 syntax. If you aren't using Node 6+, then you will want to `npm install --save-dev babel-cli babel-preset-es2015`. Then the `serve` script will instead need to be `"serve": "nodemon --exec babel-node --presets=es2015 server.js"`. I would also recommend using [nvm](https://github.com/creationix/nvm) to make working with multiple Node version much easier.
+
 Create a file called `server.js`, and let's start putting some code in it.
 
 ```javascript
@@ -162,6 +164,8 @@ server.set('view engine', 'pug');
 ```
 
 Let's go through this slowly. First, we are bringing in our dependencies. Next, we are bringing in our JSON file as data to be used in our application. Normally, you would use some sort of external database, but for our uses, this will do fine. Lastly, we are creating an Express server and configuring it with sessions and body parsers. We also enable flash messages and a static server so we can serve our JavaScript files through our Node server. Then we add Pug as our templating engine we will use for the index page and our dashboard page.
+
+> Note: I am passing a `MongoStore` to the session middleware so sessions will be stored in Mongo. This is not required in development. Session will use `MemoryStore` by default. Just remove the `store` from the session configuration object if you don't need it.
 
 Next, let's configure Passport to give us local authentication. We will create the form that interacts with it later.
 
@@ -880,7 +884,7 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
   export default {
 
     methods: {
-      
+
       login() {
 
         // Show the Lock Widget and save the user's JWT on a successful login
@@ -900,7 +904,7 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
 
       }
     }
-    
+
   }
 
   </script>
