@@ -9,8 +9,8 @@ author:
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design: 
-  bg_color: "#333"
-  image: ""
+  bg_color: "#626262"
+  image: "https://cdn.auth0.com/blog/lambda-serverless/logo.png"
 tags: 
 - Lambda
 - Serverless
@@ -25,13 +25,13 @@ related:
 
 ---
 
-**TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with [Webtask](https://webtask.io). Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with Lambda and to compare and contrast the differences between Lambda and Webtask. 
+**TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with [Webtask](https://webtask.io). Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with AWS Lambda and to compare and contrast the differences between Lambda and Webtask. 
 
 As always, get the sample code from our [GitHub repo](https://github.com/auth0-blog/serverless-stories-lambda/) to follow along.
 
 ---
 
-[Lambda](https://aws.amazon.com/lambda/) is a Function-as-a-Service (FaaS) platform provided by [Amazon Web Services](http://aws.amazon.com/) (AWS). Lambda is tightly integrated into the AWS ecosystem and allows developers to build microservices that easily interact with other AWS services. For example, we can create a Lambda function that is executed every time a user signs up through the AWS Cognito service or we can trigger a Lambda function after a file is uploaded to S3. Combining Lambda with the [API Gateway](https://aws.amazon.com/api-gateway/), we can build microservices that can be accessed from outside the AWS ecosystem.
+[**Lambda**](https://aws.amazon.com/lambda/) is a Function-as-a-Service (FaaS) platform provided by [Amazon Web Services](http://aws.amazon.com/) (AWS). Lambda is tightly integrated into the AWS ecosystem and allows developers to build microservices that easily interact with other AWS services. For example, we can create a Lambda function that is executed every time a user signs up through the AWS Cognito service or we can trigger a Lambda function after a file is uploaded to S3. Combining Lambda with the [API Gateway](https://aws.amazon.com/api-gateway/), we can build microservices that can be accessed from outside the AWS ecosystem.
 
 {% include tweet_quote.html quote_text="Serverless platforms allow developers to build apps without worrying about infrastructure." %}
 
@@ -51,7 +51,7 @@ The Serverless Stories app is a static blog that covers all things serverless. W
 
 ### AWS Ecosystem
 
-To accomplish our goal, we will need to use multiple AWS services. We'll of course use Lambda to write our microservices, API Gateway will allow us to expose the Lambda functions we write to the Web. For handling user authentication, we'll rely on [Cognito](https://aws.amazon.com/cognito/) and [IAM](https://aws.amazon.com/iam/). [DynamoDB](https://aws.amazon.com/dynamodb/) will be our database of choice for storing the newsletter subscribers.
+To accomplish our goal, we will need to use multiple AWS services. We'll of course use **Lambda** to write our microservices, API Gateway will allow us to expose the Lambda functions we write to the Web. For handling user authentication, we'll rely on [Cognito](https://aws.amazon.com/cognito/) and [IAM](https://aws.amazon.com/iam/). [DynamoDB](https://aws.amazon.com/dynamodb/) will be our database of choice for storing the newsletter subscribers.
 
 ### Setting up DynamoDB
 
@@ -65,7 +65,7 @@ Head over to the DynamoDB [homepage](https://console.aws.amazon.com/dynamodb/hom
 
 Before closing out the database setup section, let's add some seed data. To do this, click on the **Tables** button in the DynamoDB dashboard, then select your newly created "Emails" table. Navigate to the **Items** tab and you will have the option to add new items. Add a few emails so we have some data to work with.
 
-### Creating Our Lambda Functions
+### Creating Our AWS Lambda Functions
 
 ![AWS Lambda](https://cdn.auth0.com/blog/lambda-serverless/lambda.png)
 
@@ -75,7 +75,7 @@ Writing Lambda functions is similar to how you would write [Webtask](https://web
 
 In addition to Node.js, Lambda supports Python and Java runtimes for writing our functions, but we'll stick to Node.js as that's what our Webtask implemantion used. We can write our functions inline within the Lambda dashboard or locally on our computer, zip it up and upload it. For our examples, we'll write the code inline.
 
-#### Store New Subscriber Lambda Function
+#### Store New Subscriber AWS Lambda Function
 
 Let's implement our first function. Navigate to the Lambda [homepage](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions?display=list) in the AWS dashboard and create a new Lambda function. You will be presented with many recipes that provide good starting points if you are new to the platform. Click the next button to create an empty Lambda function. We won't setup any triggers for now, so on this screen, just click the next button.
 
@@ -194,7 +194,7 @@ exports.handler = (event, context, callback) => {
 
 Before continuing on, let's test our function. You can easily test your Lambda functions by clicking the **Test** button at the top of the page. Your code will execute and display the results of the operation as well a log to help you debug any issues. If you got back a response with the seed data we stored earlier, you are good to continue on to the next section.
 
-### Expose Lambda Functions with API Gateway
+### Expose AWS Lambda Functions with API Gateway
 
 We have our Lambda functions created, but at the moment they are of little use to our Serverless Stories app. We cannot access them outside the AWS ecosystem. Let's change that by exposing our functions via the AWS API Gateway service. API Gateway allows us to expose our Lambda functions and access them over HTTP like any other RESTful API.
 
@@ -536,7 +536,185 @@ Once you have an authenticated user, navigate to `localhost:8080/admin` and if a
 
 ![Serverless Stories Admin](https://cdn.auth0.com/blog/lambda-serverless/admin.png)
 
-## Lambda vs Webtask Experience
+## Aside: Authentication for Serverless Apps with Auth0
+
+We saw how we could use Cognito to handle user authentication. Before closing out the article, let's take a look at a second approach to user authentication. Auth0 can easily integrate into the AWS ecosystem and handle all of the user authentication duties and is much easier to implement than Cognito.
+
+### AWS Configuration with Auth0
+
+First things first, [sign up](https://auth0.com/signup) for a free Auth0 account. In the Auth0 [management dashboard](https://dashboard.auth0.com), create a new application, then navigate to the Add-Ons tab. Here, we will just enable the Amazon Web Services add-on but flipping the switch to the "on" state.
+
+![Auth0 Add-Ons Dashboard](https://cdn.auth0.com/blog/lambda-serverless/auth0-config.png)
+
+Next, we'll need to download our SAML metadata. To do this, navigate to the **Settings** tab and scroll down until you see a "Show Advanced Settings" link. Click this link and select the **Endpoints** tab. Scroll down until you see the SAML options and copy the **SAML Metadata URL**. Visit this link and an XML file will download containing your Auth0 metadata which will be required to integrate with AWS.
+
+Now head over to your [AWS IAM dashboard](https://console.aws.amazon.com/iam/home?region=us-east-1#home). Select **Identity Providers** from the left-hand menu and then click the **Create Provider** button. The "Provider Type" will be SAML, you can name your provider anything, and the required "Metadata Document" will be the XML file we downloaded earlier. Click the next button and you will see a verification screen. If the "Provider Type" is SAML click the **Create** button to create the provider.
+
+![AWS Identity Provider Setup](https://cdn.auth0.com/blog/lambda-serverless/identity-provider.png)
+
+Next, we'll create a new IAM role for our Auth0 instance. Select the "Roles" menu and click the **Create New Role** button. Name the role, and on the following screen you will need to select a role type. Here you will select **Role for Identity Provider Access** and then **Grant API access to SAML providers**. The next step will have us set the SAML provider for our role, which will be the Identity Provider you created earlier. For the attribute field, select "SAML:iss" and finally for the value field, you'll set `urn:YOUR-ACCOUNT.auth0.com`. You can click through the rest of the settings to complete the setup.
+
+![AWS New IAM Role for Identity Provider](https://cdn.auth0.com/blog/lambda-serverless/new-iam-role.png)
+
+The final step we'll need to do before we can implement Auth0 in our app is update the permissions for the newly created IAM role. Click on the **Roles** menu and then your newly created role. We'll create a new inline policy and give it permissions to call our API Gateway service. Our policy will look like:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "execute-api:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
+```
+
+We will also need to edit the **Trust Relationship** so that our user can properly access the API Gateway. Edit the Trust Relationship policy by selecting the **Trust Relationship** tab and clicking the **Edit Trust Relationship** button. Here you will add an additional object to the `Statement` array. The additional object will be:
+
+```
+{
+  "Sid": "gateway",
+  "Effect": "Allow",
+  "Principal": {
+    "Service": "apigateway.amazonaws.com"
+  },
+  "Action": "sts:AssumeRole"
+}
+```
+
+### Implementing Auth0 Authentication with the Delegation API
+
+Now we are ready to integrate Auth0 in our Serverless Stories application. For our integration we'll use the excellent [Auth0 Lock](https://auth0.com/lock) widget to handle the user authentication and the [Auth0 JavaScript library](https://auth0.com/docs/libraries/auth0js) to handle our Auth0 to AWS token exchange. Let's add the two libraries to our `index.html` file so that we can use them in our application.
+
+```
+<head>
+  ...
+  <script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>
+  <script src="//cdn.auth0.com/js/lock-9.min.js"></script>
+  ...
+</head>
+```
+
+Next, we'll open up the `app.js` file located in the assets directory. As you may recall, this is where we implemented all of our application logic. The first thing we'll do here is strip out all the AWS Cognito related code. Once that is done, we'll configure our Auth0 code. Remember you will need an Auth0 account for this, so if you don't already have one, you can create one [here](https://auth0.com/signup).
+
+```
+var auth0 = new Auth0({
+    domain:       'YOUR-AUTH0-ACCOUNT.auth0.com',
+    clientID:     'YOUR-APP-CLIENT-ID',
+    callbackURL:  'localhost:8080',
+    callbackOnLocationHash: true
+  });
+var lock = new Auth0Lock('YOUR-APP-CLIENT-ID', 'YOUR-AUTH0-ACCOUNT.auth0.com');
+```
+
+Since we'll be using the Lock widget, we will no longer need the login page we created earlier. Instead, we'll just call a function to display the Lock widget and handle the user authentication there. Take a look at our new authentication implementation below:
+
+```
+function login(){
+  // Display the lock widget which will ask the user to login or register
+  lock.show(function(err, profile, id_token) {
+    if (err) {
+      return alert(err.message);
+    }
+    // If login is successful, we'll store the JWT in local storage
+    localStorage.setItem('token', JSON.stringify({token: id_token}));
+    
+    // We'll exchange our Auth0 JWT with AWS so that we can get our AWS credentials
+    // Once the token exchange is complete, we'll store the results in local storage
+    // if no errors occured.
+    auth0.getDelegationToken({id_token: id_token, api: 'aws'}, function(err,delegationResult){
+      if (!err){
+        // delegationResult.Credentials will contain our AWS Access Key, Secret Key and Session Token
+        localStorage.setItem('credentials', JSON.stringify(delegationResult.Credentials))
+      }
+    });
+    updateAuthenticationStatus();
+  });
+}
+```
+
+We will need to create a rule so that we can additionally pass two more parameters to complete the token exchange. Navigate to the Auth0 [dashboard](https://manage.auth0.com) and select **Rules** from the main menu. Next, click on the **Create Rule** button to create a new rule.
+
+We will need to add this rule so that we can securely pass our role and identity provider information for the token exchange. Our rule will look like:
+
+```
+function (user, context, callback) {
+  var options = {
+    role: "ARN-FOR-THE-IAM-ROLE-YOU-CREATED",
+    principal: "ARN-FOR-THE-IDENTITY-PROVIDER-YOU-CREATED"
+  };
+  
+  context.addonConfiguration = context.addonConfiguration || {};
+  context.addonConfiguration.aws = context.addonConfiguration.aws || {};
+  context.addonConfiguration.aws.role = options.role;
+  context.addonConfiguration.aws.principal = options.principal;
+  
+  // TODO: implement your rule
+  callback(null, user, context);
+}
+``` 
+
+Now that we have our `login()` function, let's update the `updateAuthenticationStatus()` function to call `login()` instead of navigating to the login page.
+
+```
+function updateAuthenticationStatus(){
+  $('#user').empty();
+  $('#login').empty();
+  var user = localStorage.getItem('token');
+  if(user){
+    $('#user').show().append('<a onclick="logout()">Log out</a>');
+    $('#login').hide();
+  } else {
+    $('#login').show().append('<a onclick="login()">Log in</a>');
+    $('#user').hide();
+  }
+}
+```
+
+Only one of our AWS Lambda functions requires user authentication. The function to subscribe to the newsletter does not need to be changed at all. It will continue working as is. For our admin route we'll update the code to the following:
+
+```
+function loadAdmin(){
+  if(window.location.pathname == '/admin/'){
+    if(localStorage.getItem('token')){
+      // We'll get the AWS Credentials we stored in localStorage
+      var credentials = JSON.parse(localStorage.getItem('credentials'));
+
+      // We'll pass in the correct credentials to our request
+      var client = apigClientFactory.newClient({
+        accessKey: credentials.AccessKeyId, 
+        secretKey: credentials.SecretAccessKey, 
+        sessionToken: credentials.SessionToken,
+        region: 'us-east-1'  
+      });
+      client.subscribersGet().then(function(data){
+        for(var i = 0; i < data.data.message.length; i++){
+          $('#subscribers').append('<h4>' + data.data.message[i].email + '</h4>');
+        }
+      })
+
+    } else {
+      window.location = '/';
+    }
+  }
+}
+```
+
+We are ready to test our application. Start it up by running the `http-server` command from your terminal and navigate to `localhost:8080`. Click on the **Login** button and you will see the Lock widget popup and ask you for authentication details. Login or register and you will be authenticated.
+
+![Lock Widget Login](https://cdn.auth0.com/blog/lambda-serverless/lock.png)
+
+Navigate to the secret `http://localhost:8080/admin` route and you will see the list of newsletter subscribers as before.
+
+![Serverless Stories Admin](https://cdn.auth0.com/blog/lambda-serverless/admin.png)
+
+## AWS Lambda vs Webtask Experience
 
 The goal of this article was to compare the development experience between AWS Lambda and Webtask when it came to building serverless applications. To close out the article I would like to share my experience writing the app in both Lambda and Webtask. 
 
