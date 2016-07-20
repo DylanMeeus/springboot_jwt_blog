@@ -29,7 +29,7 @@ related:
 
 ---
 
-Business challenges exist in all industries, which is a reality that organizations need to contend with and work past. However, for businesses that are strictly consumer-facing, such as retail, some challenges can be greater than they would be in others industries. For most companies, it doesn’t make any sense to target all consumers with a given offering because there’s no way to serve absolutely everyone. As the saying goes, if you try to cater everyone you’ll end up serving no one. What B2C companies are left with, then, is the need to get specific and target a subset.
+Business challenges exist in all industries, which is a reality that organizations need to contend with and work past. However, for businesses that are strictly consumer-facing, such as retail, some challenges can be greater than they would in others industries. For most companies, it doesn’t make any sense to target all consumers with a given offering because there’s no way to serve absolutely everyone. As the saying goes, if you try to cater to everyone you’ll end up serving no one. What B2C companies are left with, then, is the need to get specific and target a subset.
 
 Narrowing down to a smaller target audience isn’t a silver bullet though. Even at that point, it can be difficult to find optimizations for how to market to this subset because the crowd might still be quite diverse. Perhaps your retail business has stats that say your signature women’s jacket is most popular amongst 25 - 34 year olds in Europe. Chances are good that your total audience doesn’t solely consist of this niche group. A challenge that exists in this case is how to optimize the marketing process so that effort isn’t wasted on those who likely won’t be interested in your offering.
 
@@ -37,7 +37,7 @@ There are many different ways that B2C companies can optimize their marketing pr
 
 ## 1 - Build Up Your Customers’ Profiles with Social Data
 
-While it may be true that your customers are all unique individuals with their own hopes, fears, and dreams, there are some attributes that will be shared amongst some of them. Things like age, gender, location, and product preferences are just a few examples of user details that can be common to more than one of your customers. These are pretty typical details for companies to collect, so perhaps you’re already gathering this kind of information.
+While it may be true that your customers are all unique individuals with their own hopes, fears, and dreams, there are some attributes that will be shared amongst most of them. Things like age, gender, location, and product preferences are just a few examples of user details that can be common to more than one of your customers. These are pretty typical details for companies to collect, so perhaps you’re already gathering this kind of information.
 
 While this info is great to have and can be helpful, it really doesn’t give you the full picture of your customers. The good news, however, is that you can do better at building up a profile for your customers by leveraging their social data that comes from providers like Facebook, Google, and Twitter.
 
