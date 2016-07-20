@@ -26,6 +26,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react-dom.min.js"></script>
     <script src="//npmcdn.com/auth0-web-header@latest"></script>
     <link rel="stylesheet" href="//npmcdn.com/auth0-web-header@latest/dist/index.css" />
+    <script src="//npmcdn.com/auth0-contact-form@latest"></script>
+    <link rel="stylesheet" href="//npmcdn.com/auth0-contact-form@latest/dist/contact-form.css" />
     <script src="//cdn.auth0.com/js/m/metrics-1.min.js"></script>
     <script type="text/javascript">
       !function(){
@@ -172,6 +174,7 @@
       var React = window.React;
       var ReactDOM = window.ReactDOM;
       var Auth0WebHeader = window.Auth0WebHeader.default;
+      var Auth0ContactForm = window.Auth0ContactForm.default;
       var Header = React.createClass({
         getInitialState: function () {
           return {
@@ -185,10 +188,35 @@
             var logged = data.sso;
             _this.setState({ logged: logged });
           });
+
+          var ContactForm = Auth0ContactForm.ContactForm;
+          var contactFormOptions = {
+            onModalOpen: function () {
+              metricsLib.track('open:talk-to-sales');
+            },
+            onFormSuccess: function (metricsData) {
+              metricsLib.track('register:lead:pricing-contact-form', metricsData);
+              metricsLib.track('sent:talk-to-sales', metricsData);
+            },
+            onFormFail: function (metricsData) {
+              metricsLib.track('fail:register:lead:pricing-contact-form', metricsData);
+              metricsLib.track('fail-sent:talk-to-sales', metricsData);
+            }
+          };
+          var contactForm = new ContactForm(contactFormOptions);
+          this.setState({
+            showContactForm: function () {
+              contactForm.show();
+            }
+          });
         },
 
         render: function () {
-          var HeaderProps = { logged: this.state.logged, showLock: window.login };
+          var HeaderProps = {
+            logged: this.state.logged,
+            showLock: window.login,
+            showContactForm: this.state.showContactForm
+          };
           var Auth0WebHeaderProps = toAuth0WebHeaderProps(HeaderProps);
 
           return React.createElement(Auth0WebHeader, Auth0WebHeaderProps);
@@ -198,7 +226,8 @@
       function toAuth0WebHeaderProps(props) {
         var Auth0WebHeaderProps = {
           theme: 'dark',
-          secondaryButtonLink: 'https://auth0.com/?contact=true'
+          secondaryButtonLink: null,
+          secondaryButtonOnClick: props.showContactForm
         };
 
         if (props.logged) {
