@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Analyzing Social Login Data: What can we learn?"
-description: How To Use Social Logins To Improve Retention And Security
+title: "Analyzing Social Connections Data: What can we learn?"
+description: How To Use Social Connections To Improve Retention And Security
 date: 2016-07-21 12:45
 author: 
   name: Diego Poza
@@ -29,7 +29,7 @@ To determine how customers are using Auth0, data was collected throughout 2015 o
 
 ## What Are Social Connections?
 
-With social login, an external verification page authenticates the identity of the user. You use existing login information from a social network provider instead of creating a new account on the application/website. It's quick, it's frictionless, and that can have a powerful lift effect on conversion rates—as much as [8-60%](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/).
+With *social connections*, an external verification page authenticates the identity of the user. You use existing login information from a social network provider instead of creating a new account on the application/website. It's quick, it's frictionless, and that can have a powerful lift effect on conversion rates—as much as [8-60%](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/).
 
 Authenticating through social networks also means you can request specific types of data from your users, such as location, interests, and more. This is invaluable for [personalized marketing](https://auth0.com/learn/social-login/).
 
@@ -45,7 +45,7 @@ Throughout 2015, we collected data to find out which social connection options w
 
 **Findings:**
 
-* Google and Facebook represent more than **76%** of Social Logins.
+* Google and Facebook represent more than **76%** of Social Connections.
 * Google is the most popular (**51%**) and almost doubles Facebook (**26%**).
 * Twitter (**4.7%**) comes in 4th place after Windows Live (**6.7%**).
 
@@ -63,7 +63,7 @@ To personalize your app's experience, dig deeper than Google/Facebook and think 
 
 ## How Often Are Social Connections Used?
 
-Auth0 allows developers to use enterprise, conventional username/password, and Passwordless logins alongside Social Login. We will group Passwordless and Social Logins in the Single Sign On category. Here is the split of total users by connection type:
+Auth0 allows developers to use enterprise, conventional username/password, and Passwordless logins alongside Social Connections. We will group Passwordless and Social Connections in the Single Sign On category. Here is the split of total users by connection type:
 
 ![Total Users per Connection Type](https://cdn.auth0.com/blog/social-login-stats/total-users.png)
 
@@ -77,13 +77,13 @@ It's alarming that such a large percentage of logins are still username and pass
 
 * Most users don't bother coming up with a complicated password, use the same password for many accounts or share passwords with friends, making the “[security through obscurity](http://www.makeuseof.com/tag/usernames-passwords-thing-past-cope/)” of passwords ineffective.
 * If a username or password is forgotten, most of the times a long and [inconvenient](http://www.networkcomputing.com/network-security/why-we-need-move-beyond-passwords/1521264108) email recovery and reset process is necessary to recover that information.
-* Offering only username & password login is [less effective](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/) as companies who added additional login options, such as social logins, saw conversion rates increase up to 50%.
+* Offering only username & password login is [less effective](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/) as companies who added additional login options, such as social connections, saw conversion rates increase up to 50%.
 
 There needs to be an increased use of social connections and Passwordless authentication, especially for B2C companies.
 
 If your users are likely to have accounts on popular social providers and if your application can gain additional features by interacting with the social provider’s API, social authentication may prove beneficial. 
 
-By requesting additional user attributes through social login, such as location, birthday or friends, you can create an extremely [personal onboarding experience](https://auth0.com/blog/2016/05/13/7-lessons-that-will-save-your-user-onboarding). With such a [quick Aha! moment](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/), such as seeing which other friends are using the app, users are more likely to stay.
+By requesting additional user attributes through social connections, such as location, birthday or friends, you can create an extremely [personal onboarding experience](https://auth0.com/blog/2016/05/13/7-lessons-that-will-save-your-user-onboarding). With such a [quick Aha! moment](https://auth0.com/blog/2015/12/16/how-to-use-social-login-to-drive-your-apps-growth/), such as seeing which other friends are using the app, users are more likely to stay.
 
 ## Conclusion
 
@@ -91,8 +91,8 @@ Major findings:
 
 1. **Majority of social connections are Google or Facebook accounts**. Adding these can greatly increase retention.
 2. **Only 4.7% of all connections are social**. This means there's much room for growth, and the trend shows that the usage is constantly increasing.
-3. **Social logins can give you access to personalized data for better onboarding**.
-4. **Social logins still hold up against the rise of Passwordless because of this additional data.**
+3. **Social connections can give you access to personalized data for better onboarding**.
+4. **Social connections still hold up against the rise of Passwordless because of this additional data.**
 
 Moving forward, businesses can use social connection options, particularly Google and Facebook, to improve user retention. Getting away from username and password logins, toward either social connections or Passwordless login, is also the surest way to make apps more secure.
-The good news is that not only Auth0 can make your life easier when adding social login to your apps, but you can use the free tier and get social login with up to two providers. So if you pick Google and Facebook you got 76% of social logins covered for free! An excellent reason to try Auth0 today, so what are you waiting to click the button below 😄.
+The good news is that not only Auth0 can make your life easier when adding social connections to your apps, but you can use the free tier and get social connections with up to two providers. So if you pick Google and Facebook you got 76% of social connections covered for free! An excellent reason to try Auth0 today, so what are you waiting to click the button below 😄.
