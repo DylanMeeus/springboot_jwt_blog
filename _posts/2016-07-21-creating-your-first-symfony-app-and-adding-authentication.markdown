@@ -856,9 +856,9 @@ web_profiler:
 
 ```
 
-## Symfony Vs Other PHP Frameworks.
+## Symfony Vs Other PHP Frameworks
 
-Right now, Laravel is the most trending PHP framework in the world. Laravel thrives on an excellent and straight-forward documentation. It's also easier to learn. Symfony on the other hand is a very stable and matured framework. It's great for very large web projects. Symfony has been around for so long that several PHP projects and frameworks like Laravel depends on many of its components. Symfony forces you as a developer to learn Solid OOP. Many open source projects build on Symfony components thus allowing a developer that is well-versed in Symfony to easily work on other PHP projects. CakePHP has an awesome inbuilt ORM that makes building queries and relationships a piece of cake. All these frameworks are good. If you want an excellent comparison, check [here](http://zenofcoding.com/2015/11/16/the-great-php-mvc-framework-showdown-of-2016-cakephp-3-vs-symfony-2-vs-laravel-5-vs-zend-2/).
+Right now, Laravel is the most trending PHP framework in the world. Laravel thrives on an excellent and straight-forward documentation. It's also easier to learn. Symfony on the other hand is a very stable and matured framework. It's great for very large web projects. Symfony has been around for so long that several PHP projects and frameworks like Laravel depends on many of its components. Symfony forces you as a developer to learn Solid OOP. Many open source projects build on Symfony components thus allowing a developer that is well-versed in Symfony to easily work on other PHP projects. CakePHP has an awesome inbuilt ORM that makes building queries and relationships a piece of cake. If you want an excellent comparison of Symfony and other PHP frameworks, check [here](http://zenofcoding.com/2015/11/16/the-great-php-mvc-framework-showdown-of-2016-cakephp-3-vs-symfony-2-vs-laravel-5-vs-zend-2/).
 
 ## Aside: Using Auth0 with Symfony
 
@@ -928,6 +928,6 @@ With Auth0, you can have all your users information stored without having to run
 
 ## Wrapping Up
 
-You have just built your first app with Symfony 3. We just barely scratched the surface in this tutorial. This is designed to help you get started on building your own apps with Symfony framework. You can leverage the knowledge gained here to build bigger and better apps. Symfony teaches you a lot on how to develop good, transparent, well tested and well coded applications with PHP. When compared with other PHP frameworks, Symfony is very stable. In fact, several PHP frameworks depend on Symfony components. It’s one of the few frameworks out there bundled with good documentation and certifications for developers.
+You have just built your first app with Symfony 3. We just barely scratched the surface in this tutorial. This is designed to help you get started on building your own apps with Symfony framework. You can leverage the knowledge gained here to build bigger and better apps. Symfony teaches you a lot on how to develop good, transparent, well tested and well coded applications with PHP. When compared with other PHP frameworks, Symfony is very stable. In fact, several PHP frameworks depend on Symfony components. It’s one of the few frameworks out there bundled with good documentation and certifications for developers. Would you prefer Laravel over Symfony or vice-versa? Let me know your thoughts in the comment section 😊
 
-Please, let me know if you have any questions or observations in the comment section. 😊
+{% include tweet_quote.html quote_text="Symfony is one of the few frameworks out there with good documentation and certifications for developers." %}
