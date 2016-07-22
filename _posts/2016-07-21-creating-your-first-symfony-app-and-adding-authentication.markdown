@@ -2,7 +2,7 @@
 layout: post
 title: "Creating your first Symfony app and adding authentication"
 description: Learn how to build your first Symfony application and add authentication to it.
-date: 2016-07-21 5:00
+date: 2016-07-21 8:30
 author:
   name: Prosper Otemuyiwa
   url: https://twitter.com/unicodeveloper?lang=en
@@ -21,7 +21,6 @@ related:
 - 2015-11-13-build-an-app-with-vuejs
 - 2016-06-23-creating-your-first-laravel-app-and-adding-authentication
 - 2016-04-13-authentication-in-golang
-- 2016-06-02-ruby-authentication-secure-rack-apps-with-jwt
 ---
 
 ---
@@ -30,11 +29,11 @@ related:
 
 ---
 
-**Symfony Framework** has a vibrant community just like it's counterpart - **Laravel**. The Ecosystem around **Symfony Framework** thrives from the utmost significance of the plethora of reusable PHP components that **Symfony** provides. These components are used throughout **PHP** land. Tools like Wordpress, Drupal, PHPBB and Laravel depend on **Symfony Framework** components a lot. Well-known PHP projects such as [Silex](http://silex.sensiolabs.org/), [Twig](http://twig.sensiolabs.org/) and [Swiftmailer](http://swiftmailer.org/) originated from **Symfony** projects. One notable Symfony community is [Sensiolabs Connect](https://connect.sensiolabs.com/), it is an extensive professional network for Symfony developers.
+[Symfony Framework](https://symfony.com) has a vibrant community just like it's counterpart - **Laravel**. The ecosystem around **Symfony Framework** thrives from the utmost significance of the plethora of reusable PHP components that **Symfony** provides. These components are used throughout **PHP** land. Tools like Wordpress, Drupal, PHPBB and Laravel depend on **Symfony Framework** components a lot. Well-known PHP projects such as [Silex](http://silex.sensiolabs.org/), [Twig](http://twig.sensiolabs.org/) and [Swiftmailer](http://swiftmailer.org/) originated from **Symfony** projects. One notable Symfony community is [Sensiolabs Connect](https://connect.sensiolabs.com/), which is an extensive professional network for Symfony developers.
 
 ## Symfony Components
 
-**Symfony Framework** is a set of reusable PHP components. **Symfony** Components are a set of decoupled and reusable PHP libraries. Many PHP applications around the world make use of **Symfony Framework** components. You can use any of these components in your own applications independently from the Symfony Framework. These amazing components include:
+**Symfony Framework** consists of a set of reusable PHP components. **Symfony** Components are decoupled and reusable PHP libraries. Many PHP applications around the world make use of **Symfony Framework** components. You can use any of these components in your own applications independently from the Symfony Framework. These amazing components include:
 
 * [Asset](https://github.com/symfony/asset) - Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files
 * [Browserkit](https://github.com/symfony/browser-kit) - Simulates the behavior of a web browser
@@ -52,7 +51,7 @@ We'll be building a simple character listing app with **Symfony 3.1** like we di
 
 ## Let's Get Started
 
-Symfony utilizes [Composer](http://getcomposer.org/) to manage its dependencies. So, before using Symfony, make sure you have Composer installed on your machine. We can install Symfony Framework by issuing the `composer create-project` command in your terminal like so: `composer create-project symfony/framework-standard-edition GOT` or using the `symfony` installer. There are several Symfony distributions available, such as [Symfony Rest Edition](https://github.com/gimler/symfony-rest-edition), [Hello World Edition](https://github.com/symfony/symfony-hello-world) and [CMF Standard Edition](https://github.com/symfony-cmf/standard-edition). A developer is at liberty to choose one to get started with.
+Symfony utilizes [Composer](http://getcomposer.org/) to manage its dependencies. So, before using Symfony, make sure you have Composer installed on your machine. We can install Symfony Framework by issuing the `composer create-project` command in your terminal like so: `composer create-project symfony/framework-standard-edition GOT` or using the `symfony` installer. There are several Symfony distributions available, such as [Symfony Rest Edition](https://github.com/gimler/symfony-rest-edition), [Hello World Edition](https://github.com/symfony/symfony-hello-world) and [CMF Standard Edition](https://github.com/symfony-cmf/standard-edition). A developer is at liberty to choose any to get started with.
 
 It's faster to spin up a new app using the `symfony` command like so: `symfony new GOT` . Check out the Symfony [docs](https://symfony.com/doc/current/book/installation.html#main) to learn how to set up the Symfony installer.
 
@@ -99,7 +98,7 @@ The recommended purpose for each of these directories can be found below:
 
 ## Setting Up The Controllers
 
-Open up the `src/AppBundle/Controller` directory and delete the `DefaultController.php` file. We are going to create new controller files, so we don't actually need the `DefaultController`. Now, go ahead and create `ListController.php`, `RegistrationController.php` and `SecurityController.php` files inside the directory.
+Open up the `src/AppBundle/Controller` directory and delete the `DefaultController.php` file. We are going to create new controller files, so we don't actually need the `DefaultController`. Now, go ahead and create `ListController.php`, `RegistrationController.php`, and `SecurityController.php` files inside the directory.
 
 Open up `src/AppBundle/Controller/ListController.php` and configure it like so:
 
@@ -188,7 +187,7 @@ class RegistrationController extends Controller
 
 ```
 
-Here, we mapped this controller to the `register` route. The `registerAction` processes the User registration form and persist to database, if the form has not been submitted yet, it renders the the form created from `Symfony` FormBuilder. Next, let's create the FormBuilder.
+Here, we mapped this controller to the `register` route. The `registerAction` processes the user registration form and persists to database, if the form has not been submitted yet, it renders the the form created from `Symfony` FormBuilder. Next, let's create the FormBuilder.
 
 ### Creating User Type
 
@@ -292,7 +291,7 @@ Symfony Framework is configured in a way that you can use any ORM(Object Relatio
 
 ### Configure The Database
 
-Before we set up our Model Entity, let's configure our database connection. The default driver Symfony ships with is Mysql.
+Before we set up our model entity, let's configure our database connection. The default driver Symfony ships with is MySQL.
 
 Open up `app/config/parameters.yml`, set up your config like so:
 
@@ -563,7 +562,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
     public function getCredentials(Request $request)
     {
         if ($request->getPathInfo() != '/login_check') {
-            return;
+          return;
         }
 
         $email = $request->request->get('_email');
@@ -858,7 +857,7 @@ web_profiler:
 
 ## Symfony Vs Other PHP Frameworks
 
-Right now, Laravel is the most trending PHP framework in the world. Laravel thrives on an excellent and straight-forward documentation. It's also easier to learn. Symfony on the other hand is a very stable and matured framework. It's great for very large web projects. Symfony has been around for so long that several PHP projects and frameworks like Laravel depends on many of its components. Symfony forces you as a developer to learn Solid OOP. Many open source projects build on Symfony components thus allowing a developer that is well-versed in Symfony to easily work on other PHP projects. CakePHP has an awesome inbuilt ORM that makes building queries and relationships a piece of cake. If you want an excellent comparison of Symfony and other PHP frameworks, check [here](http://zenofcoding.com/2015/11/16/the-great-php-mvc-framework-showdown-of-2016-cakephp-3-vs-symfony-2-vs-laravel-5-vs-zend-2/).
+Right now, Laravel is the most trending PHP framework in the world. Laravel thrives on excellent and straight-forward documentation. It's also easier to learn. Symfony on the other hand is a very stable and mature framework. It's great for very large web projects. Symfony has been around for so long that several PHP projects and frameworks like Laravel depends on many of its components. Symfony forces you as a developer to learn Solid OOP. Many open source projects build on Symfony components thus allowing a developer that is well-versed in Symfony to easily work on other PHP projects. CakePHP has an awesome inbuilt ORM that makes building queries and relationships a piece of cake. If you want an excellent comparison of Symfony and other PHP frameworks, check [here](http://zenofcoding.com/2015/11/16/the-great-php-mvc-framework-showdown-of-2016-cakephp-3-vs-symfony-2-vs-laravel-5-vs-zend-2/).
 
 ## Aside: Using Auth0 with Symfony
 
@@ -923,7 +922,7 @@ _logged_in_user_
 ![Logged In User](https://cdn.auth0.com/blog/symfony/loggedin-user.png)
 
 
-With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI, It provides powerful analytics about users signing up on your platform such as, the browser the user logged in with, the location, device, number of logins and more out of the box!
+With Auth0, you can have all your users information stored without having to run your own database. You can configure the Lock UI to handle authentication. Auth0 provides powerful analytics about users signing up on your platform such as, the browser the user logged in with, the location, device, number of logins and more out of the box!
 
 
 ## Wrapping Up
