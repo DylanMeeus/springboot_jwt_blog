@@ -23,7 +23,7 @@ related:
 
 Facebook. Instagram. Twitter. Today, most of us have countless social media accounts that we use to stay connected.
 
-The average digital consumer has, in total, about [25 username and password combinations](http://blog.gemalto.com/security/2015/02/05/its-time-to-move-away-from-traditional-passwords-and-prioritize-online-security/). So, it shouldn't be surprising that when a new app asks them to come up with a new one, [86% of users](https://auth0.com/learn/social-login/) report being frustrated. To ease this frustration, Auth0 supports over 30 social networks as forms of authentication.???
+The average digital consumer has, in total, about [25 username and password combinations](http://blog.gemalto.com/security/2015/02/05/its-time-to-move-away-from-traditional-passwords-and-prioritize-online-security/). So, it shouldn't be surprising that when a new app asks them to come up with a new one, [86% of users](https://auth0.com/learn/social-login/) report being frustrated.
 
 To determine how customers are using Auth0, data was collected throughout 2015 on end user login choices. In this article we analyze which social connections were used most, how often they were used and how developers can continue to improve security through the use of social connections.
 
