@@ -859,7 +859,7 @@ web_profiler:
 
 Right now, Laravel is the most trending PHP framework in the world. Laravel thrives on excellent and straight-forward documentation. It's also easier to learn. Symfony on the other hand is a very stable and mature framework. It's great for very large web projects. Symfony has been around for so long that several PHP projects and frameworks like Laravel depends on many of its components. Symfony forces you as a developer to learn Solid OOP. Many open source projects build on Symfony components thus allowing a developer that is well-versed in Symfony to easily work on other PHP projects. CakePHP has an awesome inbuilt ORM that makes building queries and relationships a piece of cake. If you want an excellent comparison of Symfony and other PHP frameworks, check [here](http://zenofcoding.com/2015/11/16/the-great-php-mvc-framework-showdown-of-2016-cakephp-3-vs-symfony-2-vs-laravel-5-vs-zend-2/).
 
-## Aside: Using Auth0 with Symfony
+## Aside: Using Auth0 with Symfony Framework
 
 **Auth0** issues [JSON Web Tokens](https://jwt.io/) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
