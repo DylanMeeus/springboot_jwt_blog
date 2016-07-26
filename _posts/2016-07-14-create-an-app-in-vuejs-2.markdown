@@ -387,7 +387,7 @@ This is a basic HTML page. We are using bootstrap to give us some basic styles. 
 
 Now, if you start up the server using `npm run serve` and go to `localhost:3000` in your browser, you will see the login page.
 
-![Login Form](https://s3.amazonaws.com/vue2-pics/login_form.png)
+![Login Form](https://cdn.auth0.com/blog/vuejs2/login_form.png)
 
 Go ahead and login with one of the emails and passwords in the `data.json` file. Once you log in, though, you will get an error saying we don't have a dashboard template. So let's create that now!
 
@@ -578,7 +578,7 @@ In our script portion of the component, we export an object that designates the 
 
 If we view this in the browser, you will see that we can see all our exclamations. If we log in as Rachel, the delete button will show up for all of them, but Ross will only show a delete button for the ones he owns.
 
-![Single Column](https://s3.amazonaws.com/vue2-pics/single_column.png)
+![Single Column](https://cdn.auth0.com/blog/vuejs2/single_column.png)
 
 Since we have this button here, let's make it work! Since our parent component owns all the data, we will pass a function down to this child component that will delete the exclamation from the API and the local data in the parent component.
 
@@ -634,7 +634,7 @@ Here we have added the `v-on` directive with a `click` modifier. This is a nice 
 
 Now if you try and delete an exclamation, it will disappear from the list. If you refresh the page, it won't come back! Boom!
 
-![Deleting works](https://s3.amazonaws.com/vue2-pics/deletion.png)
+![Deleting works](https://cdn.auth0.com/blog/vuejs2/deletion.png)
 
 To see how cool this can be, let's create another list but only show the exclamations that the user owns. Add the following to the `ExclamationsViewer` component.
 
@@ -656,7 +656,7 @@ computed: {
 
 Now if you view our application in the browser, you will see we have two lists. The new one only shows the exclamations owned by the currently logged in user.
 
-![Second column](https://s3.amazonaws.com/vue2-pics/second_column.png)
+![Second column](https://cdn.auth0.com/blog/vuejs2/second_column.png)
 
 This is the power behind writing our code in components. We can easily reuse each component in multiple places.
 
@@ -753,7 +753,7 @@ View our handiwork in the browser! It still doesn't show...well of course not! W
 
 Now view it in the browser! We have a third column that has a list of exclamations with an input that allows us to filter what we see. Try typing `user:rac` in it. It should only show exclamations from Rachel. Boom.
 
-![Third Column with Filtering](https://s3.amazonaws.com/vue2-pics/third_column_filter.png)
+![Third Column with Filtering](https://cdn.auth0.com/blog/vuejs2/third_column_filter.png)
 
 We only have one piece left: the add form. Create a file at `src/exclamation_add_form.vue` and put the following in it.
 
@@ -826,7 +826,7 @@ We need to add this to our `ExclamationsViewer`.
 
 We added the add form to our template and pass it an `onAdd` prop. We also use `v-if` to conditionally show the form. It will only be shown if the user has the `add` scope. We have added the `onExclamationAdded` and `canAdd` methods to our configuration object, along with adding the component to the `components` object. `onExclamationAdded` sends the text as a POST request to the API. It then adds the exclamation that is returned to our array of exclamations. Luckily, everything else updates to show our new exclamation. Yay!
 
-![Add Form](https://s3.amazonaws.com/vue2-pics/add_form.png)
+![Add Form](https://cdn.auth0.com/blog/vuejs2/add_form.png)
 
 If we view our application in the browser, we can now add an exclamation. If you refresh the browser after adding one, it will still be there! Baller.
 
