@@ -2,7 +2,7 @@
 layout: post
 title: "Creating your first Symfony app and adding authentication"
 description: Learn how to build your first Symfony application and add authentication to it.
-date: 2016-07-21 8:30
+date: 2016-07-26 12:30
 author:
   name: Prosper Otemuyiwa
   url: https://twitter.com/unicodeveloper?lang=en
