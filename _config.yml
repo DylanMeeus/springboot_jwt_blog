@@ -1,7 +1,7 @@
 markdown: rdiscount
 paginate: 5
 exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, Rakefile]
-permalink: pretty
+permalink: /:title
 highlighter: pygments
 excerpt_separator: '<!-- more -->'
 url: 'https://auth0.com'
