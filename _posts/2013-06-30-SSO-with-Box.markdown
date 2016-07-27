@@ -3,6 +3,7 @@ layout: post
 title: "SSO with Box"
 date: 2013-06-30 7:09
 outdated: true
+alias: /2013/06/30/SSO-with-Box/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

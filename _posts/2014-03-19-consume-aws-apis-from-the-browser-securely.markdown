@@ -4,6 +4,7 @@ layout: post
 title: Using AWS APIs without a server
 date: "2014-03-25 12:30"
 outdated: true
+alias: /2014/03/19/consume-aws-apis-from-the-browser-securely/
 author:
   name: Matias Woloski
   mail: matias@auth0.com

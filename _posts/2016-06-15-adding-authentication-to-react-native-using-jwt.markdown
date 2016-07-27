@@ -3,6 +3,7 @@ layout: post
 title: "Adding Authentication to Your React Native App Using JSON Web Tokens"
 description: Using JWTs to authenticate your React Native app will help it to be both secure and easy to integrate with a variety of services.
 date: 2016-06-15 8:30
+alias: /2016/06/15/adding-authentication-to-react-native-using-jwt/
 author:
   name: "Jeff Smith"
   url: "https://twitter.com/jeffreylees"

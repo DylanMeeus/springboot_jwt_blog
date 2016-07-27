@@ -2,6 +2,7 @@
 layout: post
 title: "Big Milestone: $2.4M early funding and 8000 Subscribers"
 date: 2014-09-17 7:30
+alias: /2014/09/17/big-milestone/
 author:
   name: "Jon Gelsey"
   mail: jon@auth0.com

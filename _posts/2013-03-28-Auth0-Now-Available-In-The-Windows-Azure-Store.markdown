@@ -2,6 +2,7 @@
 layout: post
 title: "Auth0 now available in the Windows Azure Store"
 date: 2013-03-28 10:00
+alias: /2013/03/28/Auth0-Now-Available-In-The-Windows-Azure-Store/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

@@ -3,6 +3,7 @@ layout: post
 title: "SSO with New Relic"
 date: 2013-08-29 5:18
 outdated: true
+alias: /2013/08/29/SSO-with-New-Relic/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

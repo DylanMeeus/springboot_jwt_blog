@@ -3,7 +3,7 @@ layout: post
 title: "AngularJS Authentication Screencast Series - Part 4"
 description: "Learn how to add JWT authentication to your AngularJS 1.x app"
 date: 2016-04-25 08:30
-permalink: /2016/04/25/angularjs-authentication-screencast-series-part-4/
+alias: /2016/04/25/angularjs-authentication-screencast-series-part-4/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

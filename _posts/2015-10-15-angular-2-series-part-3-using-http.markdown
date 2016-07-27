@@ -3,6 +3,7 @@ layout: post
 title: "Angular 2 Series - Part 3: Using Http"
 description: "Learn the differences between $http in Angular 1.x and Http in Angular 2. Find out how to use the RxJS Observables that Http returns."
 date: 2015-10-15 16:00
+alias: /2015/10/15/angular-2-series-part-3-using-http/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

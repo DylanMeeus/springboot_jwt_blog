@@ -4,6 +4,7 @@ title: "Announcing Our New Pricing, Including a Production-Ready Free Account"
 description: "Introducing a 7,000 monthly active users plan, free unlimited open source plans, 70% price reduction for developers and small businesses, and support for both internal and external usage"
 date: 2015-11-05 08:30
 pinned: true
+alias: /2015/11/05/announcing-our-new-pricing-including-a-production-ready-free-account/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

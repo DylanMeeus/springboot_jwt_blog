@@ -3,6 +3,7 @@ layout: post
 title: "API Gateway. An Introduction to Microservices, Part 2"
 description: "Learn about API gateways and how they work in a microservice-based architecture"
 date: 2015-09-13 09:00
+alias: /2015/09/13/an-introduction-to-microservices-part-2-API-gateway/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

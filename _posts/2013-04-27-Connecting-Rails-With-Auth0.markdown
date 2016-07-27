@@ -3,6 +3,7 @@ layout: post
 title: "Connecting Rails With Auth0"
 date: 2013-04-27 10:15
 outdated: true
+alias: /2013/04/27/Connecting-Rails-With-Auth0/
 author:
   name: Ezequiel Morito
   mail: ezequiel@auth0.com

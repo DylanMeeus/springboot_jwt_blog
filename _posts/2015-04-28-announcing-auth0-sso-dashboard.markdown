@@ -3,6 +3,7 @@ layout: post
 title: "Announcing the Auth0 Open Source Single-Sign-On Dashboard"
 description: "Remembering usernames and passwords and login urls for all of these apps is a pain. With this app we take another step in simplifying the authentication experience."
 date: 2015-04-28 10:00
+alias: /2015/04/28/announcing-auth0-sso-dashboard/
 author:
   name: Nathan Totten
   url: http://twitter.com/ntotten

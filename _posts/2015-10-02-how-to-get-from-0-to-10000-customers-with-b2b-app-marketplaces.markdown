@@ -3,6 +3,7 @@ layout: post
 title: "How to Get from 0 to 10,000 Customers with B2B App Marketplaces"
 description: "Use single sign-on, polish your listing, do internationalization, and deepen your integration to grow your app acquisition through marketplaces"
 date: 2015-10-02 11:59
+alias: /2015/10/02/how-to-get-from-0-to-10000-customers-with-b2b-app-marketplaces/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

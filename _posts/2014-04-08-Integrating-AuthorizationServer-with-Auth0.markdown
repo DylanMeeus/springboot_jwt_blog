@@ -4,6 +4,7 @@ layout: post
 title: Integrating AuthorizationServer with Auth0
 date: "2014-04-08 10:33"
 outdated: true
+alias: /2014/04/08/Integrating-AuthorizationServer-with-Auth0/
 author:
   name: Dominick Baier
   url: https://twitter.com/leastprivilege

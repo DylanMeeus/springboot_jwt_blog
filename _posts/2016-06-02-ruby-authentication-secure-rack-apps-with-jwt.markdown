@@ -3,6 +3,7 @@ layout: post
 title: "Ruby Authentication: Secure Your Rack Application with JWT"
 description: JSON Web Tokens (JWT) provide an easy way to add authentication to Ruby apps. Learn all about how to secure your Rack API!
 date: 2016-06-02 8:30
+alias: /2016/06/02/ruby-authentication-secure-rack-apps-with-jwt/
 author:
   name: Alex Sears
   url: http://twitter.com/searsaw

@@ -3,6 +3,7 @@ layout: post
 title: "5 Ways to Make Your App More Secure in Less than 20 Minutes"
 description: "How to improve your app's security with features like MFA, encryption and more with just a few lines of Javascript."
 date: 2015-10-22 14:34
+alias: /2015/10/22/5-ways-to-make-your-app-more-secure-in-less-than-20-minutes/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

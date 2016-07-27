@@ -3,6 +3,7 @@ layout: post
 title: "How Passwordless SMS Authentication Can Improve Your App"
 description: Enhancing Your App's security through SMS Authentication in simple steps
 date: 2016-05-14 8:30
+alias: /2016/05/14/how-passwordless-sms-authentication-can-improve-your-app/
 author:
   name: Diego Poza
   mail: diego.poza@auth0.com

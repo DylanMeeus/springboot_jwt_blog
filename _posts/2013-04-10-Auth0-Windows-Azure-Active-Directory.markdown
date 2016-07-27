@@ -3,6 +3,7 @@ layout: post
 title: "Why Windows Azure AD is important and how Auth0 works with it"
 date: 2013-04-10 18:00
 outdated: true
+alias: /2013/04/10/Auth0-Windows-Azure-Active-Directory/
 author:
   name: Matias Woloski
   mail: matias@auth0.com

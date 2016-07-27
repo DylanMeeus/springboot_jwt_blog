@@ -3,6 +3,7 @@ layout: post
 title: "Handling JWTs on Angular is finally easier!"
 date: 2014-10-01 18:51
 outdated: true
+alias: /2014/10/01/handling-jwts-on-angular-is-finally-easier/
 author:
   name: Martin Gontovnikas
   url: https://twitter.com/mgonto

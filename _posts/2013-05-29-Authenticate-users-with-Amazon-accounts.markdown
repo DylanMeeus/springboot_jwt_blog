@@ -3,6 +3,7 @@ layout: post
 title: "Authenticate users with Amazon accounts"
 date: 2013-05-29 16:57
 outdated: true
+alias: /2013/05/29/Authenticate-users-with-Amazon-accounts/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

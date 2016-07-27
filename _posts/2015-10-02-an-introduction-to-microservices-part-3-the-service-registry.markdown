@@ -3,6 +3,7 @@ layout: post
 title: "An Introduction to Microservices, Part 3: The Service Registry"
 description: "How the service registry works in a microservice-based architecture"
 date: 2015-10-02 09:00
+alias: /2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

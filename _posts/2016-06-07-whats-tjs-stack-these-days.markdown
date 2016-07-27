@@ -3,6 +3,7 @@ layout: post
 title: "What's TJ Holowaychuk's Stack These Days?"
 description: "TJ Holowaychuk has been working on a new project called Apex. We caught up with him to get all the details!"
 date: 2016-06-07 8:30
+alias: /2016/06/07/whats-tjs-stack-these-days/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

@@ -3,6 +3,7 @@ layout: post
 title: "Angular 2 Series - Part 1: Working with Pipes"
 description: "Learn how to implement pipes (formerly known as filters) in your Angular 2 apps"
 date: 2015-09-03 11:00
+alias: /2015/09/02/angular2-series-working-with-pipes/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

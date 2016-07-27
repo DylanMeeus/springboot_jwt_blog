@@ -3,6 +3,7 @@ layout: post
 title: "Building Serverless Apps with Webtask.io"
 description: "Webtask is Function-as-a-Service platform for building serverless apps. Learn how to build applications without worrying about servers, and common use-cases where serverless shines."
 date: 2016-06-28 08:30
+alias: /2016/06/28/building-serverless-apps-with-webtask/
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"

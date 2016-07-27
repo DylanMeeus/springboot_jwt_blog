@@ -3,6 +3,7 @@ layout: post
 title: "Why Your Project Estimations Are Always Wrong"
 description: And how Auth0 can help you focus on your business
 date: 2016-07-08 8:30
+alias: /2016/07/08/why-your-project-estimations-are-always-wrong/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

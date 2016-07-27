@@ -3,6 +3,7 @@ layout: post
 title: "Using Auth0 &amp; Appery.io to build mobile apps with Identity Management"
 date: 2014-07-11 12:33
 outdated: true
+alias: /2014/07/11/using-auth0-and-appery-to-build-mobile-apps-with-identity-management/
 author:
   name: "Dmitry Zaytsev"
   url: "http://appery.io/"

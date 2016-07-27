@@ -3,6 +3,7 @@ layout: post
 title: "AMP Pages: What's the Fuss with Google's Accelerated Mobile Pages?"
 description: "Learn about Google's Accelerated Mobile Pages project and how to build a sample AMP page in this tutorial."
 date: 2015-10-12 16:00
+alias: /2015/10/09/whats-the-fuss-with-googles-accelerated-mobile-pages-amp/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

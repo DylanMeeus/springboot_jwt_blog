@@ -2,6 +2,7 @@
 layout: post
 title: "Announcing Auth0"
 date: 2013-02-10 10:00
+alias: /2013/02/10/announcing-auth0/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

@@ -3,6 +3,7 @@ layout: post
 title: "Adding Authentication to Shiny Open Source Edition"
 description: Learn how to leverage Auth0 to have Shiny Authentication for the open source version or another legacy website.
 date: 2015-09-24 09:00
+alias: /2015/09/24/adding-authentication-to-shiny-open-source-edition/
 author:
   name: Pablo Seibelt
   url: http://www.twitter.com/sicarul

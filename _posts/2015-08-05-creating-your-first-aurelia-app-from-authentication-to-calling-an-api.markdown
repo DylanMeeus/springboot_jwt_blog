@@ -3,6 +3,7 @@ layout: post
 title: "Creating your first Aurelia app: From authentication to calling an API"
 description: "Learn how to create a real world Aurelia app using ES6, aurelia-auth and much more! We'll implement from Authentication to calling an API and everything in between"
 date: 2015-08-05 18:28
+alias: /2015/08/05/creating-your-first-aurelia-app-from-authentication-to-calling-an-api/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

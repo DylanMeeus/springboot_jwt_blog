@@ -3,6 +3,7 @@ layout: post
 title: "WordPress Single Sign On with Auth0"
 date: 2014-07-02 09:01
 outdated: true
+alias: /2014/07/02/wordpress-single-sign-on/
 author:
   name: Ricardo Rauch
   mail: ricky@auth0.com

@@ -2,6 +2,7 @@
 layout: post
 title: "Auth0 for Heroku hosted apps"
 date: 2013-09-10 10:20
+alias: /2013/09/10/auth0-for-Heroku-hosted-apps/
 author:
   name: José F. Romaniello
   url: "http://joseoncode.com"

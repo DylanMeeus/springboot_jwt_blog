@@ -3,6 +3,7 @@ layout: post
 title: "4 Ways To Turn Customer Support Into A Growth Factor"
 description: Customer Support is crucial - Delight your users more than you think you need to and it will pay off big
 date: 2016-03-04 1:30
+alias: /2016/03/04/4-ways-to-turn-customer-support-into-a-growth-factor/
 author:
   name: Diego Poza
   mail: diego.poza@auth0.com

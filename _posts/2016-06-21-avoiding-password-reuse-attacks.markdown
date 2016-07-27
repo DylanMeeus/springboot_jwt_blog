@@ -3,6 +3,7 @@ layout: post
 title: "Avoiding Password Reuse Attacks with Auth0"
 description: Anomaly Detection can protect your users from password reuse attacks
 date: 2016-06-21 11:00
+alias: /2016/06/21/avoiding-password-reuse-attacks/
 author:
   name: Prosper Otemuyiwa
   url: https://twitter.com/unicodeveloper

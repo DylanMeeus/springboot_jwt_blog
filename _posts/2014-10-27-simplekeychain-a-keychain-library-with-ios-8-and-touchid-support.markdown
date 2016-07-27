@@ -3,6 +3,7 @@ layout: post
 title: "SimpleKeychain: A keychain library with iOS 8 &amp; TouchID support"
 date: 2014-10-27 13:09
 outdated: true
+alias: /2014/10/27/simplekeychain-a-keychain-library-with-ios-8-and-touchid-support/
 author:
   name: Hernan Zalazar
   url: "https://twitter.com/hzalaz"

@@ -3,6 +3,7 @@ layout: post
 title: "How to Implement a Slack-like Magic Link Login on iOS with Auth0"
 description: "Take a look at one of the most convenient passwordless login strategies and implement it in your own iOS apps"
 date: 2015-12-04 13:00
+alias: /2015/12/04/how-to-implement-slack-like-login-on-ios-with-auth0/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

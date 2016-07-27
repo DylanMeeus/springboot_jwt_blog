@@ -3,6 +3,7 @@ layout: post
 title: "An Introduction to Microservices, Part 1"
 description: "Learn what are microservices and how they are used in the industry"
 date: 2015-09-04 18:00
+alias: /2015/09/04/an-introduction-to-microservices-part-1/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

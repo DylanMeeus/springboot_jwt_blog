@@ -3,6 +3,7 @@ layout: post
 title: "How to take your SaaS upmarket and grow your revenue by 20x"
 description: "Learn how to grow your revenue for your SaaS by offering enterprise features like SSO, MFA and Premium Support"
 date: 2015-08-18 17:15
+alias: /2015/08/18/how-to-go-upmarket-and-grow-your-revenue-by-20x/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

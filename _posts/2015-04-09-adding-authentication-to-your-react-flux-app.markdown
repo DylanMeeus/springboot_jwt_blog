@@ -4,6 +4,7 @@ title: "Adding authentication to your React Flux app"
 description: "Let’s face it. React is the new cool kid on the block. Add authentication to your React app by understanding just a few basic concepts."
 date: 2015-04-9 11:22
 date_override: "2015-10-07 12:30"
+alias: /2015/04/09/adding-authentication-to-your-react-flux-app/
 author:
   name: Martin Gontovnikas
   url: https://twitter.com/mgonto

@@ -3,6 +3,7 @@ layout: post
 title: "21 Tried-and-True Tips For Remote Working"
 description: How to Embrace Remote Working and Still Be Productive
 date: 2016-05-20 11:53
+alias: /2016/05/20/21-tips-for-remote-working/
 author:
   name: Diego Poza
   url: https://twitter.com/diegopoza

@@ -2,6 +2,7 @@
 layout: post
 title: "Real-World Windows Azure with Auth0 - Matias on CloudCover"
 date: 2013-03-03 15:53
+alias: /2013/03/03/Real-World-Windows-Azure-with-Auth0-Matias-on-CloudCover/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

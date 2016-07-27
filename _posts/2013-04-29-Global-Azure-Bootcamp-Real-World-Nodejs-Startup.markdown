@@ -2,6 +2,7 @@
 layout: post
 title: "Global Azure Bootcamp - Content Open Sourced and What's Next..."
 date: 2013-04-29 13:15
+alias: /2013/04/29/Global-Azure-Bootcamp-Real-World-Nodejs-Startup/
 author:
   name: Matias Woloski
   mail: matias@auth0.com

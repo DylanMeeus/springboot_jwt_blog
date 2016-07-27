@@ -2,6 +2,7 @@
 layout: post
 title: "See you at TechEd US 2013!"
 date: 2013-06-02 14:42
+alias: /2013/06/02/See-you-at-TechEd-US-2013/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

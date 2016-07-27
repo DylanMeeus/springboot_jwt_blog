@@ -3,6 +3,7 @@ layout: post
 title: "7 Crucial Lessons That Will Save Your User Onboarding"
 description: No two apps are identical, and so no two user onboarding processes should look the same. However, there are universal lessons to help you onboard new users.
 date: 2016-05-13 8:30
+alias: /2016/05/13/7-lessons-that-will-save-your-user-onboarding/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

@@ -3,7 +3,7 @@ layout: post
 title: "Securing your NodeBots with JSON Web Tokens"
 description: "Secure your internet-connected NodeBots projects with JSON Web Tokens."
 date: 2015-12-28 9:00
-permalink: /2015/12/22/securing-nodebots-with-JWT
+alias: /2015/12/22/securing-nodebots-with-JWT
 author:
   name: Kassandra Perch
   url: https://twitter.com/nodebotanist

@@ -3,6 +3,7 @@ layout: post
 title: "New Tutorial: Setting up Passwordless Authentication"
 description: "Have you ever wanted passwordless authentication in your Auth0 app? This post and screencast show you how to set those up in the Auth0 Dashboard."
 date: 2016-01-27 9:00
+alias: /2016/01/27/setting-up-passwordless-authentication-with-the-auth0-dashboard/
 author:
   name: "Kassandra Perch"
   url: "http://twitter.com/nodebotanist"

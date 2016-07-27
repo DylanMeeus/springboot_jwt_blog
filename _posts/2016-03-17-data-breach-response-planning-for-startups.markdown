@@ -3,6 +3,7 @@ layout: post
 title: "Data Breach Response Plan - Your Startup Needs one"
 description: Security is a challenge at most startups. Here's some advice on how to create a data breach response plan for the worst case scenario, a large-scale data breach.
 date: 2016-03-17 08:30
+alias: /2016/03/17/data-breach-response-planning-for-startups/
 author:
   name: Eugene Kogan
   url: https://twitter.com/eugk

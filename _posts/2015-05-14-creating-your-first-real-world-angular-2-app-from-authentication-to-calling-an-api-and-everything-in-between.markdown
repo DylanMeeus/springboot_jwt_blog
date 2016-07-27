@@ -6,6 +6,7 @@ reply:
  twitter: https://twitter.com/auth0/status/598909226111631360
 date: 2015-05-14 09:54AM
 date_override: "2015-10-07 12:30"
+alias: /2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

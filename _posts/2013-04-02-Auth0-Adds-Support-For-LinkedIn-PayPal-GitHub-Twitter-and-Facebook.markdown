@@ -3,6 +3,7 @@ layout: post
 title: "Auth0 adds support for LinkedIn, PayPal, GitHub, Twitter and Facebook"
 date: 2013-04-02 10:00
 outdated: true
+alias: /2013/04/02/Auth0-Adds-Support-For-LinkedIn-PayPal-GitHub-Twitter-and-Facebook/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

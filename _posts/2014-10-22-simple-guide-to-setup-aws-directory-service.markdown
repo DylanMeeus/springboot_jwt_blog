@@ -3,6 +3,7 @@ layout: post
 title: "Simple Guide to Setup AWS  Directory Service"
 date: 2014-10-22 18:01
 outdated: true
+alias: /2014/10/22/simple-guide-to-setup-aws-directory-service/
 author:
   name: José F. Romaniello
   url: "http://joseoncode.com"

@@ -2,6 +2,7 @@
 layout: post
 title: "Deploy Auth0 Anywhere"
 date: 2013-11-22 5:18
+alias: /2013/11/22/Deploy-Auth0-Anywhere/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com
