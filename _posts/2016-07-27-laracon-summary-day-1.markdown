@@ -129,6 +129,8 @@ Other notable things Taylor mentioned are as follows:
 * Laravel 5.3 sets you up with boilerplate to work with Vue.js straight out of the box
 * Laravel 5.3 packages will be able to register migrations to run with no work from the package user.
 
+Want to learn how to build your first app using Laravel? Check out this [tutorial](https://auth0.com/blog/2016/06/23/creating-your-first-laravel-app-and-adding-authentication/).
+
 {% include tweet_quote.html quote_text="This hopefully will make your life a lot easier - Taylor Otwell" %}
 
 ## Conclusion
