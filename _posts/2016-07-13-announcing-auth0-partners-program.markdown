@@ -3,16 +3,16 @@ layout: post
 title: "Announcing the Auth0 Partners Program"
 description: "The Auth0 Partners Program allows system integrators and digital agencies to offload identity management to Auth0 so they can focus on building business value. Learn how and join today!"
 date: 2016-07-18 08:30
-alias: /2016/07/13/announcing-auth0-partners-program/
-author: 
+alias: /2016/07/18/announcing-auth0-partners-program/
+author:
   name: "Dan Arildson"
   url: "https://www.linkedin.com/in/danarildson"
   mail: "dan.arildson@auth0.com"
   avatar: "https://cdn.auth0.com/blog/authors/danarildson.jpg"
-design: 
+design:
   bg_color: "#00386F"
   image: "https://cdn.auth0.com/blog/partners/logo.png"
-tags: 
+tags:
 - Partners
 - Partners-Program
 - Auth0-Partners
@@ -37,7 +37,7 @@ Partnering with Auth0 enables system integrators and digital agencies who develo
 
 Technology Partners leverage the Auth0 platform to integrate, market and sell their own software solutions including SaaS and mobile applications, or extend the Auth0 platform with value added capabilities.
 
-Our Technology Partners take two forms. ISV and SaaS providers who embed Auth0 to provide their identity management for their applications, and partners who extend the Auth0 platform through sophisticated identity scenarios that previously were not possible. 
+Our Technology Partners take two forms. ISV and SaaS providers who embed Auth0 to provide their identity management for their applications, and partners who extend the Auth0 platform through sophisticated identity scenarios that previously were not possible.
 
 ### Solution Partner
 

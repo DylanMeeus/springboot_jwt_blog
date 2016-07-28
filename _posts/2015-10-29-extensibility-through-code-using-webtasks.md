@@ -3,7 +3,7 @@ layout: post
 title: "Platform extensibility with custom code using webtasks"
 description: "Enable extensibility of your SaaS platform through custom code using webtasks. Developers will love you, and so will your CFO."
 date: 2015-10-29 09:00
-permalink: /2015/10/07/extensibility-through-code-using-webtasks/
+alias: /2015/10/07/extensibility-through-code-using-webtasks/
 author:
   name: Tomasz Janczuk
   url: https://twitter.com/tjanczuk?lang=en

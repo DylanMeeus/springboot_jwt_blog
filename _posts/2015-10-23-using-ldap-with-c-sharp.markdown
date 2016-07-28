@@ -3,7 +3,7 @@ layout: post
 title: "Using LDAP and Active Directory with C# 101"
 description: "In this tutorial learn how to integrate LDAP and Active Directory (AD) with your C# projects"
 date: 2015-10-28 10:00
-alias: /2015/10/23/using-ldap-with-c-sharp/
+alias: /2015/10/28/using-ldap-with-c-sharp/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

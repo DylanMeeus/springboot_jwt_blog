@@ -4,7 +4,7 @@ layout: post
 title: Connecting WS-Fed (WIF) based apps to Auth0
 date: "2013-10-18 19:50"
 outdated: true
-alias: /2013/11/01/connecting-ws-fed-wif-based-apps-to-auth0/
+alias: /2013/10/18/connecting-ws-fed-wif-based-apps-to-auth0/
 author:
   name: Sebastian Iacomuzzi
   mail: sebastian@auth0.com
