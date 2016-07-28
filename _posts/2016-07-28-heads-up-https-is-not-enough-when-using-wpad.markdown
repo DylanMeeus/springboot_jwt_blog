@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Is HTTPS enough? What you should know about Web-Proxy Auto Discovery (WPAD)"
-description: "Web Proxy Auto-Discovery considered harmful"
-date: 2016-07-28 12:00
+title: "Web-Proxy Auto Discovery (WPAD) Considered Harmful"
+description: "WPAD + Proxy Automatic Configuration (PAC) can be used to thwart HTTPS protected URLs"
+date: 2016-07-28 18:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
