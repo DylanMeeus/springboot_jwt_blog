@@ -2,7 +2,7 @@
 layout: post
 title: "Is HTTPS enough? What you should know about Web-Proxy Auto Discovery (WPAD)"
 description: "Web Proxy Auto-Discovery considered harmful"
-date: 2016-07-27 18:00
+date: 2016-07-28 12:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
