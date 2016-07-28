@@ -3,6 +3,7 @@ layout: post
 title: "Laracon 2016 Summary - Day One"
 description: "Laravel 5.3 is here. Learn more and get caught up on all the news coming out of Laracon US 2016."
 date: 2016-07-28 08:30
+alias: /2016/07/27/laracon-summary-day-1/
 author:
   name: "Prosper Otemuyiwa"
   url: "https://twitter.com/unicodeveloper"
