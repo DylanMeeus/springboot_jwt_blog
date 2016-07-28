@@ -16,7 +16,7 @@ design:
   image_bg_color: "transparent"
   image_size: "101%"
 
-permalink: /2015/06/08/design-at-auth0/
+alias: /2015/06/08/design-at-auth0/
 
 tags:
 - business

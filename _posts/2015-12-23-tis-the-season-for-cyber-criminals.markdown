@@ -3,6 +3,7 @@ layout: post
 title: "'Tis the Season for Cyber Criminals"
 description: The threats you might be exposed to this holiday season and what to do about them to stay safe online.
 date: 2015-12-23 14:30
+alias: /2015/12/23/tis-the-season-for-cyber-criminals/
 author:
   name: Diego Poza
   url: https://twitter.com/diegopoza

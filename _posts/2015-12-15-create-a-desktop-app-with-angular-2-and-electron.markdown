@@ -3,6 +3,7 @@ layout: post
 title: "Create a Desktop App with Angular 2 and Electron"
 description: "Build a simple image calculator app with Angular 2 and Electron"
 date: 2015-12-15 16:00
+alias: /2015/12/15/create-a-desktop-app-with-angular-2-and-electron/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

@@ -3,6 +3,7 @@ layout: post
 title: "Blacklisting JSON Web Token API Keys"
 description: "Learn how to blacklist a JWT API key so it is no longer valid."
 date: 2015-03-10 09:00
+alias: /2015/03/10/blacklist-json-web-token-api-keys/
 author:
   name: Damian Schenkelman
   url: "https://twitter.com/dschenkelman"

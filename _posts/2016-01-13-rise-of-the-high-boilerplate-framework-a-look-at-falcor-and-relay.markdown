@@ -3,6 +3,7 @@ layout: post
 title: "Rise of the High Boilerplate Framework: A Look at Falcor and Relay"
 description: "JavaScript modules and build steps are getting more numerous and complicated, but what about boilerplate in new frameworks?"
 date: 2016-01-13 16:00
+alias: /2016/01/13/rise-of-the-high-boilerplate-framework-a-look-at-falcor-and-relay/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

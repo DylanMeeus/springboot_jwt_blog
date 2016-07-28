@@ -3,6 +3,7 @@ layout: post
 title: "Windows Azure ACS Alternative"
 date: 2014-05-14 08:00
 outdated: true
+alias: /2014/05/14/windows-azure-acs-alternative-replacement/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

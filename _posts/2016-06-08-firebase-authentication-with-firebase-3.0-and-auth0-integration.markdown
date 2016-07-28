@@ -3,6 +3,7 @@ layout: post
 title: "Firebase Authentication with the Firebase 3.0 SDK and Auth0 Integration"
 description: "Build a serverless Firebase app using the new Firebase 3.0 SDK. Secure your app with Firebase authentication and learn about custom authentication through Auth0."
 date: 2016-06-08 08:30
+alias: /2016/06/08/firebase-authentication-with-firebase-3.0-and-auth0-integration/
 author: 
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"

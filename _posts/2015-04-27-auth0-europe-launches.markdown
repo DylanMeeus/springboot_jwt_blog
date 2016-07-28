@@ -3,6 +3,7 @@ layout: post
 title: "Auth0 Europe Launches"
 description: "With Auth0 Europe subscribers everywhere that have the compliance requirement of EU data residence can check that box."
 date: 2015-04-27 13:26
+alias: /2015/04/27/auth0-europe-launches/
 author:
   name: José F. Romaniello
   url: http://twitter.com/jfroma

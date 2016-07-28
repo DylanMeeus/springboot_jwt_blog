@@ -3,6 +3,7 @@ layout: post
 title: "Getting Started with Relay"
 description: "Learn how to get started with a Relay app and how to protect the GraphQL endpoint with JWT authentication."
 date: 2015-10-06 11:00
+alias: /2015/10/04/getting-started-with-relay/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

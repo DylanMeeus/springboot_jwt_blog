@@ -3,6 +3,7 @@ layout: post
 title: "On-Premises SharePoint Federated with Office 365 and Google"
 date: 2013-03-04 17:39
 outdated: true
+alias: /2013/03/05/On-Premises-SharePoint-Federated-with-Office-365-and-Google/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

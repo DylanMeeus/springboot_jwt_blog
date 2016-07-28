@@ -4,6 +4,7 @@ title: "Authenticate Azure Mobile Services Apps with Everything using Auth0"
 date: 2013-03-17 11:00
 outdated: true
 doc_reference: https://docs.auth0.com/wams
+alias: /2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

@@ -3,6 +3,7 @@ layout: post
 title: "7 Things You Should Know About WebAssembly"
 description: "Learn 7 things you should know about WebAssembly, one of the biggest changes the web will experience in the coming years."
 date: 2015-10-14 18:00
+alias: /2015/10/14/7-things-you-should-know-about-web-assembly/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

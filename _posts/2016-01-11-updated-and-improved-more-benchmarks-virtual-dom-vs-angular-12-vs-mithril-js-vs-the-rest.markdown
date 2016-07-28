@@ -3,7 +3,7 @@ layout: post
 title: "More Benchmarks: Virtual DOM vs Angular 1 & 2 vs Others"
 description: "We have updated our latest benchmark article to use array keys and see what happens!"
 date: 2016-01-12 13:00
-permalink: /2016/01/11/updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/
+alias: /2016/01/11/updated-and-improved-more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

@@ -3,6 +3,7 @@ layout: post
 title: "Using JSON Web Tokens as API Keys"
 date: 2014-12-02 12:00
 date_override: "2015-10-07 12:30"
+alias: /2014/11/28/using-json-web-tokens-as-api-keys/
 author:
   name: Damian Schenkelman
   url: "https://twitter.com/dschenkelman"

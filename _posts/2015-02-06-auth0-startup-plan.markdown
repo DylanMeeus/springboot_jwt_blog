@@ -3,6 +3,7 @@ layout: post
 title: "Auth0 Startup Plan"
 description: "Introducing the Startup Plan as part of our new pricing."
 date: 2015-02-06 08:00
+alias: /2015/02/06/auth0-startup-plan/
 author:
   name: "Gianpaolo Carraro"
   url:  http://www.twitter.com/gcarraro

@@ -3,6 +3,7 @@ layout: post
 title: "Safe Harbor May Be Dead, But It Still Matters"
 description: Why The Court's Decision Changes Nothing About Safe Harbor being a Good Security Practice
 date: 2016-03-21 13:30
+alias: /2016/03/21/safe-harbor-still-matters/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

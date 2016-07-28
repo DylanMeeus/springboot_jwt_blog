@@ -3,6 +3,7 @@ layout: post
 title: "Token-based Authentication to Git Servers"
 date: 2014-06-10 08:00
 outdated: true
+alias: /2014/06/10/authentication-with-browser-for-git-server-grack/
 author:
 author:
   name: José F. Romaniello

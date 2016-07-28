@@ -3,6 +3,7 @@ layout: post
 title: "Why Using Open Standards Helps Close More Enterprise Deals"
 description: Contrary to popular belief, reducing vendor lock-in helps gaining enterprise customers
 date: 2015-12-03 12:04
+alias: /2015/12/03/why-using-open-standards-helps-close-enterprise-deals/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

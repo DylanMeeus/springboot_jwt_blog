@@ -2,6 +2,7 @@
 layout: post
 title: "Integrating Auth0 with Amazon Cognito in iOS"
 date: 2015-01-08 12:27
+alias: /2015/01/08/integrating-auth0-with-amazon-cognito-in-ios/
 author:
   name: "Martin Gontovnikas"
   url: https://twitter.com/mgonto

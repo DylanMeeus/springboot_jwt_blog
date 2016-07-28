@@ -3,6 +3,7 @@ layout: post
 title: "Announcing the Auth0 Partners Program"
 description: "The Auth0 Partners Program allows system integrators and digital agencies to offload identity management to Auth0 so they can focus on building business value. Learn how and join today!"
 date: 2016-07-18 08:30
+alias: /2016/07/13/announcing-auth0-partners-program/
 author: 
   name: "Dan Arildson"
   url: "https://www.linkedin.com/in/danarildson"

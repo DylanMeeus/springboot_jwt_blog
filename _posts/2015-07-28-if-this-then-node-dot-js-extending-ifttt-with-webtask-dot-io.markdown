@@ -3,6 +3,7 @@ layout: post
 title: "If This Then Node.js"
 description: In this article we'll build a simple IFTTT channel to log words used in the headers and bylines of articles we save with Pocket.
 date: 2015-07-28 15:39
+alias: /2015/07/28/if-this-then-node-dot-js-extending-ifttt-with-webtask-dot-io/
 author:
   name: Milo Mordaunt
   url: https://twitter.com/bananaoomarang

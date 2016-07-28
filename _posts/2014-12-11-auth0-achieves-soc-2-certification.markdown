@@ -3,6 +3,7 @@ layout: post
 title: "Auth0 Achieves SOC 2 Certification"
 description: "Providing an always-on, highly secure identity service is core to the Auth0 brand promise."
 date: 2014-12-11 10:00
+alias: /2014/12/11/auth0-achieves-soc-2-certification/
 author:
   name: "Eugenio Pace"
   url:  http://www.twitter.com/eugenio_pace

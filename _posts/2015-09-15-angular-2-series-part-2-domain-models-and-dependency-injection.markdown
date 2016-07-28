@@ -3,6 +3,7 @@ layout: post
 title: "Angular 2 Series - Part 2: Domain Models and Dependency Injection"
 description: "Learn about Angular 2's new Dependency Injection system and how to use models to organize your app."
 date: 2015-09-17 11:00
+alias: /2015/09/15/angular-2-series-part-2-domain-models-and-dependency-injection/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

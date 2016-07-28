@@ -3,6 +3,7 @@ layout: post
 title: "Update of the user's details section"
 description: "Good news! We have redesigned the user's profile page in order to make use of the new API v2."
 date: 2015-04-15 15:57
+alias: /2015/04/15/update-of-the-user-details-section/
 author:
   name: Pablo Terradillos
   url: http://twitter.com/tehsis

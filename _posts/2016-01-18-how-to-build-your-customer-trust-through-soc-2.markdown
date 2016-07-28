@@ -3,6 +3,7 @@ layout: post
 title: "How to Build Customer Trust in Your SaaS Through SOC 2"
 description: Learn what SOC2 is and how we implemented it at Auth0
 date: 2016-01-18 13:30
+alias: /2016/01/18/how-to-build-your-customer-trust-through-soc-2/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto

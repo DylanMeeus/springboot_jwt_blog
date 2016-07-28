@@ -2,6 +2,7 @@
 layout: post
 title: "hello world!"
 date: 2012-01-27 15:14
+alias: /2012/01/27/hello-world/
 author:
   name: Matias Woloski
   mail: matias@auth0.com

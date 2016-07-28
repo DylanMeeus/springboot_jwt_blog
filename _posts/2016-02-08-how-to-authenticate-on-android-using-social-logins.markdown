@@ -3,6 +3,7 @@ layout: post
 title: "Authenticate on Android Using Social Logins"
 description: "Learn how to implement social logins on Android with Facebook, Google, Twitter and Instagram as providers"
 date: 2016-02-08 13:30
+alias: /2016/02/08/how-to-authenticate-on-android-using-social-logins/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

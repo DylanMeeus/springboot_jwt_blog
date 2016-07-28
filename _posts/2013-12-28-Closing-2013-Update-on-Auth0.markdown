@@ -4,6 +4,7 @@ layout: post
 title: Closing 2013 - Update on Auth0
 date: "2013-12-28 10:30"
 outdated: true
+alias: /2013/12/28/Closing-2013-Update-on-Auth0/
 author:
   name: Matias Woloski
   mail: matias@auth0.com

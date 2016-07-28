@@ -3,6 +3,7 @@ layout: post
 title: "How PayPal could have easily avoided the last account hack"
 description: In this post you'll learn 5 techniques that can prevent your users' accounts from being hacked and would have made Brian happier
 date: 2015-12-29 18:00
+alias: /2015/12/29/how-paypal-could-have-avoided-account-hack/
 author:
   name: Diego Poza
   url: https://twitter.com/diegopoza

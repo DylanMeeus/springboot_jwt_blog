@@ -3,6 +3,7 @@ published: "true"
 layout: post
 title: OpenID Connect specs are final!
 date: "2014-02-26 12:30"
+alias: /2014/02/26/openid-connect-final-spec-10/
 author:
   name: Matias Woloski
   mail: matias@auth0.com

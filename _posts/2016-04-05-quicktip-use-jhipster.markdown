@@ -3,7 +3,7 @@ layout: post
 title: "Easily Generate a Full-Stack Java + JavaScript App with JHipster"
 description: "See how easy it is to integrate Java's powerful backend technologies with the latest frontend libraries using Yeoman + JHipster"
 date: 2016-04-05 12:30
-permalink: /2016/04/05/quicktip-use-jhipster/
+alias: /2016/04/05/quicktip-use-jhipster/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

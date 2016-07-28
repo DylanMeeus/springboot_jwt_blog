@@ -1,15 +1,12 @@
 <section class="popular-posts">
   <h5 class="section-title">{% if page.is_post_index %}Popular{% else %}Related{% endif %} Posts</h5>
-
   {% if page.related %}
-
   {% for post in site.posts %}
-
   {% assign current = post %}
   {% capture current_slug %}{{ current.id | slugify }}{% endcapture %}
 
-  {% if page.related contains current_slug %}
-
+  {% for related in page.related %}
+  {% if related contains current_slug %}
   <article class="popular-post">
     <div class="image-container">
       {% include entry_image.html %}
@@ -19,13 +16,11 @@
       <span class="popular-post-author"><a href="#" rel="author">{{current.author.name}}</a></span>
     </div>
   </article>
-
   {% endif %}
-
   {% endfor %}
 
+  {% endfor %}
   {% endif %}
-
 </section>
 
 <script type="text/javascript">

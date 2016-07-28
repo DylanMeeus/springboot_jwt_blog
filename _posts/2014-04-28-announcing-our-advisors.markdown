@@ -2,6 +2,7 @@
 layout: post
 title: "Introducing Our New Advisors"
 date: 2014-04-28 15:00
+alias: /2014/04/28/announcing-our-advisors/
 author:
   name: Jon Gelsey
   mail: jon@auth0.com

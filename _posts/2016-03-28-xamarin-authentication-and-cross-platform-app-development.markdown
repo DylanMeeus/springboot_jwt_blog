@@ -3,6 +3,7 @@ layout: post
 title: "Xamarin Authentication and Cross-Platform Mobile App Development"
 description: "Learn how to build and authenticate cross-platform mobile apps written in C# with Xamarin"
 date: 2016-03-28 08:30
+alias: /2016/03/28/xamarin-authentication-and-cross-platform-app-development/
 author:
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"

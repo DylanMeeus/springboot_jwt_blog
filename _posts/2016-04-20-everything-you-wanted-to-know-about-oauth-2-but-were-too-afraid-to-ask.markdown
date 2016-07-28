@@ -3,6 +3,7 @@ layout: post
 title: "Everything You Wanted to Know About OAuth 2"
 description: This is the recording and transcription of a webinar we ran about OAuth 2 recently.
 date: 2016-04-20 10:00
+alias: /2016/04/20/everything-you-wanted-to-know-about-oauth-2-but-were-too-afraid-to-ask/
 author: 
   name: Kassandra Perch
   url: http://twitter.com/nodebotanist

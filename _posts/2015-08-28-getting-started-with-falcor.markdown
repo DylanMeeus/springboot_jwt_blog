@@ -3,6 +3,7 @@ layout: post
 title: "Getting Started With Falcor"
 description: "Learn the essentials of Falcor--the newly open-sourced library from Netflix that lets you represent your data as a single virtual JSON object."
 date: 2015-08-28 08:00
+alias: /2015/08/28/getting-started-with-falcor/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

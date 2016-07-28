@@ -3,6 +3,7 @@ layout: post
 title: "Using TouchID for Authentication in your React Native app"
 description: "Use our React Native module to authenticate with TouchID."
 date: 2015-04-03 17:47
+alias: /2015/04/03/using-touchid-for-authentication-in-your-react-native-app/
 author:
   name: Hernan Zalazar
   url: "https://twitter.com/hzalaz"

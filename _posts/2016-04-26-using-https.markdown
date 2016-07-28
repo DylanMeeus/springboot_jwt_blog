@@ -3,6 +3,7 @@ layout: post
 title: "Using HTTPS to Secure Your Websites: An Intro to Web Security"
 description: "Learn how HTTPS, TLS and SSL are fundamental to online security and how to use them in your own websites"
 date: 2016-04-26 12:30
+alias: /2016/04/26/using-https/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

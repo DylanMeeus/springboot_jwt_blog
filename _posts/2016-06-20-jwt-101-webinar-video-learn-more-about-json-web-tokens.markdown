@@ -3,6 +3,7 @@ layout: post
 title: "JWT 101 Webinar Video-- learn more about JSON Web Tokens"
 description: This is transcript and recording of a JSON Web Tokens 101 Webinar we ran a few weeks ago.
 date: 2016-06-20 11:23
+alias: /2016/06/20/jwt-101-webinar-video-learn-more-about-json-web-tokens/
 author: 
   name: Kassandra Perch
   url: http://twitter.com/nodebotanist

@@ -3,6 +3,7 @@ layout: post
 title: "Analyzing Social Connections Data: What can we learn?"
 description: How To Use Social Connections To Improve Retention And Security
 date: 2016-07-21 12:45
+alias: /2016/07/21/analysis-of-social-connection-data/
 author: 
   name: Diego Poza
   url: https://twitter.com/diegopoza

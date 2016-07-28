@@ -3,6 +3,7 @@ layout: post
 title: "7 Simple Hacks To Supercharge Your Registration Process"
 description: "The registration process for your app is super important for your business. Find out how to optimize the flow to work best for your customers and for you."
 date: 2016-04-19 13:30
+alias: /2016/04/19/supercharge-your-registration-process/
 author:
   name: Diego Poza
   mail: diego.poza@auth0.com

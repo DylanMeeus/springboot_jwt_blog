@@ -2,7 +2,7 @@
 layout: post
 title: "The New Trend of Artisanal Spam: Scamming Gets Smart"
 description: Spam email hardly ever makes it to your inbox, and even when it does, you can't be fooled by it, right? Think twice, as 'artisanal spam' has arrived.
-permalink: /2016/02/29/the-new-trend-of-artisanal-spam/
+alias: /2016/02/29/the-new-trend-of-artisanal-spam/
 date: 2016-03-02 13:30
 author:
   name: Martin Gontovnikas

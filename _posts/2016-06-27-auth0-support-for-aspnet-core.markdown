@@ -3,6 +3,7 @@ layout: post
 title: "Auth0 support for ASP.NET Core"
 description: Learn about our support for ASP.NET Core.
 date: 2016-06-27 8:30
+alias: /2016/06/27/auth0-support-for-aspnet-core/
 author:
   name: Jerrie Pelser
   mail: jerrie@auth0.com

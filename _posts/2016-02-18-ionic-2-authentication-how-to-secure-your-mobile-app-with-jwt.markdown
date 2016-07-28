@@ -3,6 +3,7 @@ layout: post
 title: "Ionic 2 Authentication: How to Secure Your Mobile App with JWT"
 description: "Ionic 2 Beta has been released. Learn how to add JWT authentication to your Ionic 2 app and make secure calls to an API."
 date: 2016-02-18 08:30
+alias: /2016/02/18/ionic-2-authentication-how-to-secure-your-mobile-app-with-jwt/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

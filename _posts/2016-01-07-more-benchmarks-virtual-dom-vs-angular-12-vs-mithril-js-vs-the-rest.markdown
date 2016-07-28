@@ -3,6 +3,7 @@ layout: post
 title: "More Benchmarks: Virtual DOM vs Angular 1 & 2 vs Others"
 description: "You asked? We listened! Benchmark series is back with even more frameworks and metrics!"
 date: 2016-01-07 13:00
+alias: /2016/01/07/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en

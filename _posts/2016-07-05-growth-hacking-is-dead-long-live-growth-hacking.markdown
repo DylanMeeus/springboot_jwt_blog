@@ -3,6 +3,7 @@ layout: post
 title: "Growth Hacking Is Dead, Long Live Growth Hacking"
 description: Doing more with less is timeless. Here's why growth hacking still matters
 date: 2016-07-05 8:30
+alias: /2016/07/05/growth-hacking-is-dead-long-live-growth-hacking/
 author: 
   name: Diego Poza
   url: https://twitter.com/diegopoza

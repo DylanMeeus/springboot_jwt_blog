@@ -3,6 +3,7 @@ layout: post
 title: "Automating SharePoint Federation Setup with Auth0"
 date: 2013-03-27 8:49
 outdated: true
+alias: /2013/03/27/Automating-SharePoint-Federation-Setup-With-Auth0/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

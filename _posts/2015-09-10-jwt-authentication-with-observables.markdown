@@ -3,6 +3,7 @@ layout: post
 title: "Authenticable Observables: Build a Reactive App with JWT Auth"
 description: "Learn how to make a reactive application and add authentication to it with RxJS and the Fetch API"
 date: 2015-09-10 11:00
+alias: /2015/09/10/jwt-authentication-with-observables/
 author:
   name: Ryan Chenkie
   url: https://twitter.com/ryanchenkie?lang=en

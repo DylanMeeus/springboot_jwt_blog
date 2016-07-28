@@ -3,6 +3,7 @@ layout: post
 title: "Create your first Ember 2.0 app: From authentication to calling an API"
 description: "Learn how to create your first Ember 2.0 app using ES6, ember-cli, ember-simple-auth and much more! We'll implement everything from Authentication to calling an API."
 date: 2015-08-11 11:51
+alias: /2015/08/11/create-your-first-ember-2-dot-0-app-from-authentication-to-calling-an-api/
 author:
   name: Diego Poza
   url: https://twitter.com/diegopoza

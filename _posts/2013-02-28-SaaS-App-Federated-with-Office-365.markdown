@@ -3,6 +3,7 @@ layout: post
 title: "SaaS App Federated with Office 365"
 date: 2013-02-28 10:00
 outdated: true
+alias: /2013/02/28/SaaS-App-Federated-with-Office-365/
 author:
   name: Eugenio Pace
   mail: eugeniop@auth0.com

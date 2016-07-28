@@ -3,6 +3,7 @@ layout: post
 title: "Much better insights into your users"
 date: 2013-10-4 8:15
 outdated: true
+alias: /2013/10/05/Much-better-insights-into-your-users/
 author:
   name: Matias Woloski
   mail: matias@auth0.com
