@@ -28,11 +28,13 @@ In today's short post, we'll recap all the big announcements coming out of Larac
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Programming by Wishful thinking, Let the tests guard you - <a href="https://twitter.com/adamwathan">@adamwathan</a> <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a> <a href="https://twitter.com/hashtag/TDDInLaravel?src=hash">#TDDInLaravel</a></p>&mdash; Prosper Otemuyiwa (@unicodeveloper) <a href="https://twitter.com/unicodeveloper/status/758293597892579328">July 27, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**[Evan You](https://twitter.com/youyuxi)** did a live demo on the new [Vuejs 2.0](https://vuejs.org/). Check out his slides for his Vue.js workshop [here](https://docs.google.com/presentation/d/16MpK3I2LZz47QdLg3uMNkCC3PqmM0znXF3-FdCEpics/edit#slide=id.g15faa8fa0f_0_60). Want to learn how to build a Vuejs 2.0 app? Check [here](https://auth0.com/blog/2016/07/14/create-an-app-in-vuejs-2/). If you want to learn how to add authentication to a Vuejs app, check out our [quickstarts](https://auth0.com/docs/quickstart/spa/vuejs).
+**[Evan You](https://twitter.com/youyuxi)** did a live demo on the new [Vuejs 2.0](https://vuejs.org/). Check out his slides for his Vue.js workshop [here](https://docs.google.com/presentation/d/16MpK3I2LZz47QdLg3uMNkCC3PqmM0znXF3-FdCEpics/edit#slide=id.g15faa8fa0f_0_60).
 
 <blockquote>
     Every component can be seen as a ViewModel, connecting a piece of DOM and a piece of state - Evan You
 </blockquote>
+
+Want to learn how to build a Vuejs 2.0 app? Check [here](https://auth0.com/blog/2016/07/14/create-an-app-in-vuejs-2/). If you want to learn how to add authentication to a Vuejs app, check out our [quickstarts](https://auth0.com/docs/quickstart/spa/vuejs).
 
 {% include tweet_quote.html quote_text="Re-rendering entire chunks of DOM is expensive and disruptive - Evan you" %}
 
