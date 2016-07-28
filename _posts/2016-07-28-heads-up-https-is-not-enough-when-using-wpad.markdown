@@ -32,6 +32,8 @@ related:
 
 [Dan Goodin from ArsTechnica](http://arstechnica.com/security/2016/07/new-attack-that-cripples-https-crypto-works-on-macs-windows-and-linux/) recently brought to light the subject of one of the talks from this year's BlackHat conference: [Crippling HTTPS With Unholy PAC](https://www.blackhat.com/us-16/briefings.html#crippling-https-with-unholy-pac). Although the conference will be carried out in the next few days, the abstract for the talk gives enough information to know what's going on: due to the way proxy automatic configuration (PAC) works, protected information may be leaked to observers, even when HTTPS is used. We'll talk about why you should care and what to do about it.
 
+{% include tweet_quote.html quote_text="Due to the way PAC works, HTTPS protected URLs can be leaked" %}
+
 -----
 
 ## Proxies and HTTPS
@@ -194,7 +196,7 @@ WPAD DNS lookups rely on using a "fake" URL to a potential WPAD file. The DNS se
 
 In other words, WPAD posses a security risk when enabled. Its semantics are not entirely clear, and implementations have been inconsistent across browsers, DNS servers and DHCP servers, opening the possibility for more attacks.
 
-## Aside ???
-
 ## Conclusion: WPAD considered harmful
 Malicious PAC files are a security problem. WPAD makes it possible for malicious PAC files to find their way to their system without users knowing. HTTPS connections provide adecuate protection against man-in-the-middle attacks, but implementation details regarding the use of PAC files make some browsers leak crucial information contained in URLs, information that should be protected by HTTPS. Until browsers correct this, the only sensible solution is to disable WPAD and setup proxies manually.
+
+{% include tweet_quote.html quote_text="The only sensible solution is to disable WPAD and setup proxies manually." %}
