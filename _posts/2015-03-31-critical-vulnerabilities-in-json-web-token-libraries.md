@@ -4,6 +4,7 @@ title: "Critical vulnerabilities in JSON Web Token libraries"
 description: "Which libraries are vulnerable to attacks and how to prevent them."
 date: 2015-03-31 09:00
 date_override: "2015-10-07 12:30"
+alias: /2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/
 author:
   name: Tim McLean
   url: https://timmclean.net

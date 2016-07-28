@@ -3,16 +3,16 @@ layout: post
 title: "Building Serverless Apps with AWS Lambda"
 description: "Learn how to build a serverless app with Lambda, the function-as-a-service platform from Amazon. Find out how AWS Lambda stacks up against Webtask."
 date: 2016-07-19 08:30
-alias: /2016/07/12/building-serverless-apps-with-aws-lambda/
-author: 
+alias: /2016/07/19/building-serverless-apps-with-aws-lambda/
+author:
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
-design: 
+design:
   bg_color: "#626262"
   image: "https://cdn.auth0.com/blog/lambda-serverless/logo.png"
-tags: 
+tags:
 - Lambda
 - Serverless
 - Webtask
@@ -26,7 +26,7 @@ related:
 
 ---
 
-**TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with [Webtask](https://webtask.io). Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with AWS Lambda and to compare and contrast the differences between Lambda and Webtask. 
+**TL;DR** A few weeks ago we showed how you can [build serverless apps](https://auth0.com/blog/2016/06/28/building-serverless-apps-with-webtask/) with [Webtask](https://webtask.io). Today, we are going to recreate our Serverless Stories app with AWS Lambda. The goal of this article is to showcase how you can build serverless apps with AWS Lambda and to compare and contrast the differences between Lambda and Webtask.
 
 As always, get the sample code from our [GitHub repo](https://github.com/auth0-blog/serverless-stories-lambda/) to follow along.
 
@@ -58,7 +58,7 @@ To accomplish our goal, we will need to use multiple AWS services. We'll of cour
 
 ![DynamoDB](https://cdn.auth0.com/blog/lambda-serverless/dynamodb.png)
 
-The first thing we'll do is create our database. DynamoDB is a NoSQL database offered by AWS that works nicely with Lambda. For our requirements, we just need to capture and store the provided email address. Let's set up our database. 
+The first thing we'll do is create our database. DynamoDB is a NoSQL database offered by AWS that works nicely with Lambda. For our requirements, we just need to capture and store the provided email address. Let's set up our database.
 
 Head over to the DynamoDB [homepage](https://console.aws.amazon.com/dynamodb/home?region=us-east-1#) and click on the **Create table** button. You can name your table anything you want, we'll keep it fairly generic and go with "Emails." Next, we'll need to setup a primary key. Since our database is going to be very minimalistic, we'll set this field to "email" and make it a type of string. Select the **Use default settings** checkbox as the defaults should be more than enough for our simple use case. Finally, click the **Create table** button and you should be good to go.
 
@@ -72,7 +72,7 @@ Before closing out the database setup section, let's add some seed data. To do t
 
 Now that we have our database setup, let's go ahead and implement our Lambda functions. We will be creating two Lambda functions. The first will store a user provided email address into our database and the second will retrieve the list of emails in the database.
 
-Writing Lambda functions is similar to how you would write [Webtask](https://webtask.io) functions. You export a function that accepts multiple parameters that help set the context of the request. Within the function, you write your implementation. To complete the operation, you call the callback function and pass into it data you would like to respond with. 
+Writing Lambda functions is similar to how you would write [Webtask](https://webtask.io) functions. You export a function that accepts multiple parameters that help set the context of the request. Within the function, you write your implementation. To complete the operation, you call the callback function and pass into it data you would like to respond with.
 
 In addition to Node.js, Lambda supports Python and Java runtimes for writing our functions, but we'll stick to Node.js as that's what our Webtask implemantion used. We can write our functions inline within the Lambda dashboard or locally on our computer, zip it up and upload it. For our examples, we'll write the code inline.
 
@@ -120,15 +120,15 @@ exports.handler = (event, context, callback) => {
   // Capture the email from our POST request
   // For now, we'll just set a fake email
   var email = event.body.email;;
-    
+
   if(!email){
     // If we don't get an email, we'll end our execution and send an error
     return callback(null, RESPONSE.ERROR);
   }
-    
+
   // If we do have an email, we'll set it to our model
   model.email.S = email;
-    
+
   // Insert the email into the database, but only if the email does not already exist.
   db.putItem({
     TableName: 'Emails',
@@ -287,8 +287,8 @@ The first thing we'll do is add in the required JavaScript libraries to our `ind
 ```
 
 Next, open up the `app.js` file located in the `assets` folder. This is the file that will contain our application logic. We already implemented the functionality in the Webtask implementation and below is a skeleton of the functions we'll need to implement for our Lambda example. Let's take a look at the code to get a better understanding of our scope.
- 
-``` 
+
+```
  $(document).ready(function(){
    // Any time a page is loaded we'll check to see what the authentication status is
    updateAuthenticationStatus();
@@ -296,27 +296,27 @@ Next, open up the `app.js` file located in the `assets` folder. This is the file
    // function that checks to see if we're on the super secret admin page
    loadAdmin();
  });
- 
+
  function logout(){
   // Here we'll implement the logic to log a user out
  };
- 
+
  function updateAuthenticationStatus(){
   // Our implementation of updating user authenticate state will go here
  }
- 
+
  function loadAdmin(){
   // In the loadAdmin() function we'll check to see if we're on the admin page
   // Additionally, if we are on the admin page and are authenticated we'll call
   // the subscribers Lambda function to retrieve the list of users that have
   // signed up for our newsletter
  }
- 
+
  $('#newsletter').submit(function(e){
-  // This method will call our subscribe Lambda function and try to register 
+  // This method will call our subscribe Lambda function and try to register
   // the email if it's unique
  })
- 
+
  $('#signin').submit(function(e){
   // This method will log the user in using the AWS Cognito service
  })
@@ -335,7 +335,7 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     // This will be the identity pool from your federated identity pool and not your user pool id.
     IdentityPoolId: 'us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
     Logins: {
-      // Here we'll set our Cognito user pool id. We'll check to see if a user logged in by getting the token from 
+      // Here we'll set our Cognito user pool id. We'll check to see if a user logged in by getting the token from
       // localStorage which we will implement later
       'cognito-idp.us-east-1.amazonaws.com/us-east-1_XXXXXXXXX': JSON.parse(localStorage.getItem('token'))
     }
@@ -349,7 +349,7 @@ Next, we'll implement our user authentication. We'll be using the AWS Cognito se
 ```
 $('#signin').submit(function(e){
   e.preventDefault();
-  
+
   // We'll set the global permissions first
   AWSCognito.config.region = 'us-east-1';
   AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -358,10 +358,10 @@ $('#signin').submit(function(e){
   });
   // Need to provide placeholder keys unless unauthorised user access is enabled for user pool
   AWSCognito.config.update({accessKeyId: 'anything', secretAccessKey: 'anything'});
-  
+
   // We'll additionally connect to our user pool through the app we created when we set up our
   // Cognito user pool.
-  var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool({ 
+  var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool({
     UserPoolId : 'us-east-1_XXXXXXXXX',
     ClientId : 'YOUR-APP-CLIENT-ID'
   });
@@ -371,18 +371,18 @@ $('#signin').submit(function(e){
     Username : $('#username').val(),
     Password : $('#password').val(),
   };
-  
+
   // Finally, we'll create an object that will contain the username and user pool data
   // which we'll use for the authentication
   var userData = {
     Username : $('#username').val(),
     Pool : userPool
   };
-  
+
   // Here we are invoking the Cognito services required to perform the authentication
   var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
   var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
-  
+
   // We'll do our user authentication here. If the authentication is successful, we'll grab the JWT
   // and store it in localStorage. If not, we'll display an error.
   // In a real application you'd probably want some better failure handling
@@ -399,7 +399,7 @@ $('#signin').submit(function(e){
 ```
 
 While we're on the subject of authentication, we might as well implement the other functions dealing with auth. Our `logout()`  implementation will be as follows:
- 
+
  ```
  // We'll clean out the localStorage
  // The Cognito service sets various items here, so we'll make sure to empty out everything to log a user out.
@@ -408,9 +408,9 @@ While we're on the subject of authentication, we might as well implement the oth
    window.location = '/';
  };
  ```
- 
+
  Next, we'll implement the `updateAuthenticationStatus()` function which handles our user state. Since we're not using a framework, we use a basic function that checks for existence of a JWT and displays either the login or logout link in the main navigation. Our implementation is below:
- 
+
 ```
  function updateAuthenticationStatus(){
    $('#user').empty();
@@ -436,11 +436,11 @@ The first Lambda function we'll implement is the one that deals with the user su
 ```
 $('#newsletter').submit(function(e){
   e.preventDefault();
-  
+
   // We'll set up a new API client.
   // This method comes from the SDK that was generated by API Gateway
   var client = apigClientFactory.newClient();
-  
+
   // The SDK contains helper methods for all of the API endpoints we created.
   // Here we are using the subscribePost method which talks to our /subscribe endpoint
   // The second parameter is the body of our request, so here we will capture the email
@@ -475,15 +475,15 @@ function loadAdmin(){
       AWS.config.credentials.get(function (err) {
         // We'll create an instance of our API Gateway client again
         // This time we'll pass in the required keys that will authenticate the request
-        // The API Gateway SDK will take care of transforming these keys into the appropriate 
+        // The API Gateway SDK will take care of transforming these keys into the appropriate
         // header and will send out the request to our endpoint.
         var client = apigClientFactory.newClient({
-          accessKey: AWS.config.credentials.accessKeyId, 
-          secretKey: AWS.config.credentials.secretAccessKey, 
+          accessKey: AWS.config.credentials.accessKeyId,
+          secretKey: AWS.config.credentials.secretAccessKey,
           sessionToken: AWS.config.credentials.sessionToken,
           region: 'us-east-1'  
         });
-        
+
         // Here we are calling the subscribersGet method that was generated for us
         // On a successful response we'll take the array of emails and display them
         // on our page.
@@ -500,7 +500,7 @@ function loadAdmin(){
 }
 ```
 
-We are ready to test our application. Launch the application by running `http-server` and your application will start on `localhost:8080`. On the homepage, you should be able to enter your email and submit a newsletter. 
+We are ready to test our application. Launch the application by running `http-server` and your application will start on `localhost:8080`. On the homepage, you should be able to enter your email and submit a newsletter.
 
 ![Serverless Stories Newsletter Signup](https://cdn.auth0.com/blog/webtask/subscribed.png)
 
@@ -508,20 +508,20 @@ Next, click on the **Login** button from the main menu. On the login page, login
 
 ```
   // We'll omit the config
-  
+
   // Additional user details
   var attributeList = [];
-  
+
   // Adding an email to the user account
   var dataEmail = {
     Name : 'email',
     Value : 'email@mydomain.com'
   };
-  
+
   var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
-    
+
   attributeList.push(attributeEmail);
-  
+
   // The signUp method that creates the user.
   userPool.signUp('USERNAME', 'PASSWORD', attributeList, null, function(err, result){
     if (err) {
@@ -627,7 +627,7 @@ function login(){
     }
     // If login is successful, we'll store the JWT in local storage
     localStorage.setItem('token', JSON.stringify({token: id_token}));
-    
+
     // We'll exchange our Auth0 JWT with AWS so that we can get our AWS credentials
     // Once the token exchange is complete, we'll store the results in local storage
     // if no errors occured.
@@ -652,16 +652,16 @@ function (user, context, callback) {
     role: "ARN-FOR-THE-IAM-ROLE-YOU-CREATED",
     principal: "ARN-FOR-THE-IDENTITY-PROVIDER-YOU-CREATED"
   };
-  
+
   context.addonConfiguration = context.addonConfiguration || {};
   context.addonConfiguration.aws = context.addonConfiguration.aws || {};
   context.addonConfiguration.aws.role = options.role;
   context.addonConfiguration.aws.principal = options.principal;
-  
+
   // TODO: implement your rule
   callback(null, user, context);
 }
-``` 
+```
 
 Now that we have our `login()` function, let's update the `updateAuthenticationStatus()` function to call `login()` instead of navigating to the login page.
 
@@ -691,8 +691,8 @@ function loadAdmin(){
 
       // We'll pass in the correct credentials to our request
       var client = apigClientFactory.newClient({
-        accessKey: credentials.AccessKeyId, 
-        secretKey: credentials.SecretAccessKey, 
+        accessKey: credentials.AccessKeyId,
+        secretKey: credentials.SecretAccessKey,
         sessionToken: credentials.SessionToken,
         region: 'us-east-1'  
       });
@@ -719,7 +719,7 @@ Navigate to the secret `http://localhost:8080/admin` route and you will see the 
 
 ## AWS Lambda vs Webtask Experience
 
-The goal of this article was to compare the development experience between AWS Lambda and Webtask when it came to building serverless applications. To close out the article I would like to share my experience writing the app in both Lambda and Webtask. 
+The goal of this article was to compare the development experience between AWS Lambda and Webtask when it came to building serverless applications. To close out the article I would like to share my experience writing the app in both Lambda and Webtask.
 
 ### Initial Setup
 
@@ -735,7 +735,7 @@ Writing the actual functions to perform our tasks was very similar between Lambd
 
 ### Accessing Our Functions
 
-When it came to accessing the functions we wrote, I feel that Webtask had a much better experience. Anytime we deployed a Webtask, we were immediately given a URL to access the function. With Lambda, we had to use the API Gateway which required a whole set of configuration options to expose an endpoint. Furthermore, API Gateway can be somewhat clunky to work with and get right the first time. 
+When it came to accessing the functions we wrote, I feel that Webtask had a much better experience. Anytime we deployed a Webtask, we were immediately given a URL to access the function. With Lambda, we had to use the API Gateway which required a whole set of configuration options to expose an endpoint. Furthermore, API Gateway can be somewhat clunky to work with and get right the first time.
 
 ### Securing Serverless Functions
 
