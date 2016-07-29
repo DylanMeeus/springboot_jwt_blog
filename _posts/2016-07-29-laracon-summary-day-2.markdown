@@ -87,4 +87,10 @@ He also talked about a **feature-first** approach in building software.
 
 ## Conclusion
 
-Day Two of Laracon US has been awesome. There are seven speakers lined up for the final day of Laracon US 2016. There will be more technical talks and hopefully Taylor will unveil some other Laravel and open-source goodness!
+Day Two of Laracon US has been awesome. Two speakers actually used Ruby code to drive home points in their presentations today. It amazingly brought a fresh perspective to the way we use code in the PHP land. I'll update this post as soon as I lay my hands on speaker slides that are currently not referenced here. There are seven speakers lined up for the final day of Laracon US 2016. There will be more technical talks and hopefully Taylor will unveil some other Laravel and open-source goodness!
+
+I'll leave you with a list of additional resources and links to help you both learn Laravel and stay up to date with the latest news and announcements.
+
+ * [Laravel news](https://laravel-news.com/) - Latest Laravel news, also maintains a live blog for Laracon
+ * [Laracasts](https://laracasts.com/series/whats-new-in-laravel-5-3) - Learn everything about PHP and what's new in laravel 5.3
+ * [Matt Stauffer's blog](https://mattstauffer.co/blog/series/new-features-in-laravel-5-3) - Learn about the latest Laravel 5.3 features
