@@ -19,13 +19,13 @@ tags:
 - LaraconUS
 ---
 
-Day Two of the  [Laravel US](http://laracon.us/) conference consisted of more talks and workshops. Seven speakers took to the stage, and we had the first soft talk of the conference. Check out our [recap of Day One](https://auth0.com/blog/laracon-summary-day-1/) to learn about the Laravel 5.3 overview by Taylor Otwell and the technical workshops that happened on the first day.
+Day Two of the  [Laravel US Conference](http://laracon.us/) consisted of more talks and workshops. Seven speakers took to the stage, and we had the first soft talk of the conference. Check out our [recap of Day One](https://auth0.com/blog/laracon-summary-day-1/) to learn about the Laravel 5.3 overview by Taylor Otwell and the technical workshops that happened on the first day.
 
-**[Evan You](https://twitter.com/youyuxi)** was back again with another live demo on *Single Page Applications with Vue, Vue Router & Vuex*. He demonstrated the importance of Vuex to Vuejs in relation to Redux with React. Check out the slides for his Vue.js workshop [here](https://docs.google.com/presentation/d/1wZWkSkMBsPtUmiGY8T4MnjCZ6xaKjElkK1MjJoj9C48/edit#slide=id.p).
+**[Evan You](https://twitter.com/youyuxi)** was back again with another live demo on *Single-Page Applications with Vue, Vue Router & Vuex*. He demonstrated the importance of Vuex to Vuejs in relation to Redux with React. Check out the slides for his Vue.js workshop [here](https://docs.google.com/presentation/d/1wZWkSkMBsPtUmiGY8T4MnjCZ6xaKjElkK1MjJoj9C48/edit#slide=id.p).
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">In Vue devtools, you can actually export the state of your app as a json file to send to another developer 😱😱😱😱😱😱 <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Prosper Otemuyiwa (@unicodeveloper) <a href="https://twitter.com/unicodeveloper/status/758668716808761344">July 28, 2016</a></blockquote>
 
-**[Jack McDade](https://twitter.com/jackmcdade)** presented the first soft talk of the conference. His presentation was on *Wizards, Lawnmowers, and Hovercrafts*. Very insightful presentation about product design, people culture and work perspectives. Check out the slides [here](https://speakerdeck.com/jackmcdade/wizards-lawnmowers-and-hovercrafts).
+**[Jack McDade](https://twitter.com/jackmcdade)** presented the first soft talk of the conference. His presentation was on *Wizards, Lawnmowers, and Hovercrafts*. Very insightful presentation about product design, people culture, and work perspectives. Check out the slides [here](https://speakerdeck.com/jackmcdade/wizards-lawnmowers-and-hovercrafts).
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Failure is an EVENT not a person. <a href="https://twitter.com/jackmcdade">@jackmcdade</a> at <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a></p>&mdash; John Kary (@johnkary) <a href="https://twitter.com/johnkary/status/758678689953349632">July 28, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -47,34 +47,34 @@ Day Two of the  [Laravel US](http://laracon.us/) conference consisted of more ta
 
 **Note:** The sound of Ramsey's voice has a strong resemblance with that of Tom Hanks!
 
-**[Zeev Suraski](https://twitter.com/zeevs)**, Co-architect of PHP talked about the *PHP 7 Story*. He talked about the history of PHP from the initial version up to PHP 7. He also highlighted benchmark performances of each PHP major version.
+**[Zeev Suraski](https://twitter.com/zeevs)**, co-architect of PHP, talked about the *PHP 7 Story*. He talked about the history of PHP from the initial version up to PHP 7. He also highlighted benchmark performances of each major PHP version.
 
 **Note:** Zeev is crazy about spicy foods!
 
-**[Amanda Folson](https://twitter.com/AmbassadaorAwsum)**, Developer Advocate @ Gitlab. Her talk was on building APIs with Lumen.
+**[Amanda Folson](https://twitter.com/AmbassadaorAwsum)**, developer advocate @ Gitlab. Her talk was on building APIs with Lumen.
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="und" dir="ltr">Example Pokédex API by <a href="https://twitter.com/AmbassadorAwsum">@AmbassadorAwsum</a> with <a href="https://twitter.com/hashtag/LumenPHP?src=hash">#LumenPHP</a>. <a href="https://twitter.com/hashtag/pokemon?src=hash">#pokemon</a> <a href="https://twitter.com/hashtag/php?src=hash">#php</a> <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a> <a href="https://twitter.com/hashtag/LaravelSF?src=hash">#LaravelSF</a> <a href="https://t.co/WqgVG5YCoG">pic.twitter.com/WqgVG5YCoG</a></p>&mdash; Paul Foryt (@pauly4it) <a href="https://twitter.com/pauly4it/status/758745145667747843">July 28, 2016</a></blockquote>
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">It’s a good idea to hide id’s in API results — <a href="https://twitter.com/AmbassadorAwsum">@AmbassadorAwsum</a></p>&mdash; Laravel News (@laravelnews) <a href="https://twitter.com/laravelnews/status/758745219944685571">July 28, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**[Matthew Machuga](https://twitter.com/machuga)**, Senior Developer at *Think Through Math* gave a talk on **Tests Should Tell a Story**. He gave some really good tips and tricks for testing like the ones below:
+**[Matthew Machuga](https://twitter.com/machuga)**, senior developer at *Think Through Math*, gave a talk on **Tests Should Tell a Story**. He gave some really good tips and tricks for testing, like the ones below:
 
-* Write failing test first
-* Write smallest amount of code
+* Write a failing test first
+* Write the smallest amount of code
 * Listen to feedback and refactor code and test in pieces.
 
-He also talked about **feature-first** approach in building software.
+He also talked about a **feature-first** approach in building software.
 
 * Build only what your client needs at that moment
 * Support slice plans
 * Waste few resources to test and idea
-* Provide readable, agreed upon specs for stakeholders
+* Provide readable, agreed-upon specs for stakeholders
 * Encourage collaboration
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">When we&#39;re building software, we need to ask the stakeholders questions. Details, details, details! <a href="https://twitter.com/machuga">@machuga</a> <a href="https://twitter.com/LaraconUS">@LaraconUS</a> <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Caryn Humphreys (@LadyCarni) <a href="https://twitter.com/LadyCarni/status/758764162977705985">July 28, 2016</a></blockquote>
 
-**[Sandi Metz](https://twitter.com/sandimetz)**, popular Rubyist and author of *Practical Object-oriented design in Ruby* gave a talk on **Get A Whiff of This**. She talked about the various types of code smells and practical object-oriented approach in writing good code. She also mentioned that every code smell can be mapped to a recipe that cures it via refactoring.
+**[Sandi Metz](https://twitter.com/sandimetz)**, popular Rubyist and author of *Practical Object-Oriented Design in Ruby* gave a talk on **Get A Whiff of This**. She talked about the various types of code smells and a practical object-oriented approach in writing good code. She also mentioned that every code smell can be mapped to a recipe that cures it via refactoring.
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I could seriously sit and listen to <a href="https://twitter.com/sandimetz">@sandimetz</a> talk about programming all day. This talk is _ultra_ illuminating. <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; CS (@cschmitz81) <a href="https://twitter.com/cschmitz81/status/758781530072289282">July 28, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -87,4 +87,4 @@ He also talked about **feature-first** approach in building software.
 
 ## Conclusion
 
-Day 2 of Laracon US has been awesome. There are seven speakers lined up for the final day of Laracon US 2016. There will be more technical talks and hopefully Taylor will unviel some other Laravel and open source goodness!
+Day Two of Laracon US has been awesome. There are seven speakers lined up for the final day of Laracon US 2016. There will be more technical talks and hopefully Taylor will unveil some other Laravel and open-source goodness!
