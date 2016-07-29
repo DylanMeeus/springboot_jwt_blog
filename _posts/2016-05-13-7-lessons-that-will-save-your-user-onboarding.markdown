@@ -3,7 +3,6 @@ layout: post
 title: "7 Crucial Lessons That Will Save Your User Onboarding"
 description: No two apps are identical, and so no two user onboarding processes should look the same. However, there are universal lessons to help you onboard new users.
 date: 2016-05-13 8:30
-alias: /2016/05/13/7-lessons-that-will-save-your-user-onboarding/
 author:
   name: Martin Gontovnikas
   url: http://twitter.com/mgonto
@@ -45,7 +44,7 @@ A great example of focusing onboarding around real life use-cases is Spring, the
 
 Spring’s onboarding could detail the behavioral analytics behind their recommendation engine, or the infrastructure behind their daily updates, but instead they focus on how users actually get value from their app.
 
-### key takeaway:
+### Key takeaway:
 
 Always focus your onboarding process on showing users how your app makes their lives better. If they can’t see a direct connection between the problems they face and the solutions your app provides, everything else is irrelevant. Your app's technical specs, development innovations, and success metrics should all take a backseat to the actual benefits it provides your users.
 
@@ -75,7 +74,7 @@ With Auth0’s social authentication, you can pull any information stored on the
 
 ![Socual Connections](https://cdn.auth0.com/blog/user-onboarding-lessons/social-connections.png)
 
-### key takeaway:
+### Key takeaway:
 
 The whole point of onboarding is to teach users how to get value from your app. Make it easier for them to relate the process to their own life by building it around their personal information, which easily attained via Auth0’s social connections. With Auth0, you can easily integrate information from over [30 social platforms](https://auth0.com/docs/identityproviders) by clicking a button.
 
@@ -95,7 +94,7 @@ Wistia’s own onboarding process reflects this. Instead of just giving you a se
 
 Users have someone personally walk them through the product, and it scales to any size.
 
-### key takeaway:
+### Key takeaway:
 
 The idea that you must sacrifice personal interaction for automation and scalability is a false dilemma. By including video instruction in your onboarding, you can scale human connection infinitely. Using video also allows you to demonstrate how your product works, condensing a ton of information into a relatively short period of time without overwhelming your users.
 
@@ -145,7 +144,7 @@ function(user, context, callback) {
 
 From within the Segment dashboard, you can toggle on the [Customer.io](http://customer.io/) integration to leverage Customer.io’s email automation. Engaging customers at the beginning of user onboarding will boost retention without you spending any extra time.
 
-### key takeaway:
+### Key takeaway:
 
 Personal engagement early in the useronboarding process lets users know you are invested in them, and increases the chances they’ll stick around. With targeted email automation, you can do this affordably and at scale. You can even take things a step farther and create a [custom rule](https://auth0.com/docs/rules) to target users based on more specific attributes, like recent activity or personal information.
 
@@ -163,7 +162,7 @@ This gradual collection of information is called [progressive profiling](https:/
 
 ![Progressive Profiling](https://cdn.auth0.com/blog/user-onboarding-lessons/progressive-profiling.png)
 
-### key takeaway:
+### Key takeaway:
 
 If you force users to make too many decisions up front, you will mentally exhaust them. That tiredness will translate into inactivity. Avoid this by collecting information progressively, on an as-needed basis. Not only will this boost retention, but it will improve the quality of the data you collect, as users are less likely to hurry through and submit fake data if they’re only filling out a couple forms.
 
@@ -186,6 +185,6 @@ The way to do that is by centralizing your information somewhere users can easil
 
 Instead of making returning users restart the whole onboarding process, they give them a map to the various resources they might need to brush up on.
 
-### key takeaway
+### Key takeaway
 
 Users are going to go away and come back. If you don’t make it easy for them to transition back into using your app, you’re making it easy for them to walk away entirely. Store your onboarding information in a format that allows returning users to go straight to the parts they don’t remember, and doesn’t force them to re-study the parts they already know.
