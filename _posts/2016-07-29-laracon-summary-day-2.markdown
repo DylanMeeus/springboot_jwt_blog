@@ -19,13 +19,13 @@ tags:
 - LaraconUS
 ---
 
-Day two of [Laravel US](http://laracon.us/) conference consisted of more talks and workshops. Seven speakers mounted the stage, and we had the first soft talk of the conference. Checkout our [recap of day one](https://auth0.com/blog/laracon-summary-day-1/) to learn about the Laravel 5.3 overview by Taylor Otwell and the technical workshops that happened on the first day.
+Day Two of the  [Laravel US](http://laracon.us/) conference consisted of more talks and workshops. Seven speakers took to the stage, and we had the first soft talk of the conference. Check out our [recap of Day One](https://auth0.com/blog/laracon-summary-day-1/) to learn about the Laravel 5.3 overview by Taylor Otwell and the technical workshops that happened on the first day.
 
-**[Evan You](https://twitter.com/youyuxi)** was back again with another live demo on *Single Page Applications with Vue, Vue Router and Vuex*. He demonstrated the importance of Vuex to Vuejs in relation to Redux with React. Check out his slides for his Vue.js workshop [here](https://docs.google.com/presentation/d/1wZWkSkMBsPtUmiGY8T4MnjCZ6xaKjElkK1MjJoj9C48/edit#slide=id.p).
+**[Evan You](https://twitter.com/youyuxi)** was back again with another live demo on *Single Page Applications with Vue, Vue Router & Vuex*. He demonstrated the importance of Vuex to Vuejs in relation to Redux with React. Check out the slides for his Vue.js workshop [here](https://docs.google.com/presentation/d/1wZWkSkMBsPtUmiGY8T4MnjCZ6xaKjElkK1MjJoj9C48/edit#slide=id.p).
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">In Vue devtools, you can actually export the state of your app as a json file to send to another developer 😱😱😱😱😱😱 <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Prosper Otemuyiwa (@unicodeveloper) <a href="https://twitter.com/unicodeveloper/status/758668716808761344">July 28, 2016</a></blockquote>
 
-**[Jack McDade](https://twitter.com/jackmcdade)** presented the first soft talk of the conference. His presentation was on *Wizards, Lawnmowers, and Hovercrafts*. Very insightful presentation about product design, people culture and work perspectives. Check out his slides [here](https://speakerdeck.com/jackmcdade/wizards-lawnmowers-and-hovercrafts).
+**[Jack McDade](https://twitter.com/jackmcdade)** presented the first soft talk of the conference. His presentation was on *Wizards, Lawnmowers, and Hovercrafts*. Very insightful presentation about product design, people culture and work perspectives. Check out the slides [here](https://speakerdeck.com/jackmcdade/wizards-lawnmowers-and-hovercrafts).
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Failure is an EVENT not a person. <a href="https://twitter.com/jackmcdade">@jackmcdade</a> at <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a></p>&mdash; John Kary (@johnkary) <a href="https://twitter.com/johnkary/status/758678689953349632">July 28, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -35,7 +35,7 @@ Day two of [Laravel US](http://laracon.us/) conference consisted of more talks a
 
 **Note:** Of all the presenters today, he had the finest slides!
 
-**[Ben Ramsey](https://twitter.com/ramsey)**, creator of the popular [UUID PHP library](https://github.com/ramsey/uuid) covered a lot about the history of HTTP and HTTP/2. He talked about the challenges and processes that occurred from the initial version of HTTP up until HTTP/2 came about. Check out his slides [here](https://speakerdeck.com/ramsey/http-is-dead-long-live-http2-laracon-2016). **HTTP is Dead. Long live HTTP/2!**
+**[Ben Ramsey](https://twitter.com/ramsey)**, creator of the popular [UUID PHP library](https://github.com/ramsey/uuid) covered a lot about the history of HTTP and HTTP/2. He talked about the challenges and processes that occurred from the initial version of HTTP up until HTTP/2 came about. Check out the slides [here](https://speakerdeck.com/ramsey/http-is-dead-long-live-http2-laracon-2016). **HTTP is Dead. Long live HTTP/2!**
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">No more image sprites or inline images with HTTP2 <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a></p>&mdash; Michael Dyrynda (@michaeldyrynda) <a href="https://twitter.com/michaeldyrynda/status/758697391167897600">July 28, 2016</a></blockquote>
 
