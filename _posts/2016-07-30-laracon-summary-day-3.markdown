@@ -51,11 +51,11 @@ You need to upgrade your Laravel app without moving a muscle? check out [laravel
 
 * On every model, create a defaults property and populate it with key value pairs of attribute and value. Merge with set values
 * Don't circumvent the abstraction layer provided by Eloquent
-* Use the source
+* Use the source!
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Cannot believe I am in the same room as big cat demarco!<a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Rob Drimmie (@RobDrimmie) <a href="https://twitter.com/RobDrimmie/status/759099135152840704">July 29, 2016</a></blockquote>
 
-**[Jeremy Lindblom](https://twitter.com/jeremeamia)**, an active contributor to [Guzzle](https://github.com/guzzle/guzzle) and [AWS SDK](https://github.com/aws/aws-sdk-php) and creator of [Superclosure](https://github.com/jeremeamia/super_closure) talked about *Lumen, Guzzle & Swagger*. He talked about API endpoints, HTTP methods, and how developers can leverage Swagger, Lumen, and Guzzle to develop great RESTFUL APIs and microservices.
+**[Jeremy Lindblom](https://twitter.com/jeremeamia)**, an active contributor to [Guzzle](https://github.com/guzzle/guzzle) and [AWS SDK](https://github.com/aws/aws-sdk-php) and creator of [Superclosure](https://github.com/jeremeamia/super_closure) talked about *Lumen, Guzzle & Swagger*. He talked about API endpoints, HTTP methods, and how developers can leverage Swagger, Lumen, and Guzzle to develop great RESTFUL APIs and microservices. Check out the slides [here](https://speakerdeck.com/jeremeamia/apis-with-lumen-guzzle-and-swagger).
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Swagger is a representation of your representational API that is a representation of your data&quot; <a href="https://twitter.com/jeremeamia">@jeremeamia</a> <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Sara Bine (@sara_bine) <a href="https://twitter.com/sara_bine/status/759126262937812992">July 29, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -83,6 +83,6 @@ _Tower of Interface Design_
 
 Laracon US 2016 is actually the first Laravel Conference to be 95 percent technical talks. All the speakers were great and the talks were educational and insightful.
 
-If you are just getting started in developing Laravel 5 apps, check out our [Laravel app tutorial](https://auth0.com/blog/2016/06/23/creating-your-first-laravel-app-and-adding-authentication/). Need an alternative means of adding authentication and authorization to your Laravel apps? Sign up for a free Auth0 account and get your user authentication set up in few minutes using our [Laravel quickstarts](https://auth0.com/docs/quickstart/webapp/laravel). Building an API using Laravel and wondering how to add authentication using JWT? Auth0 has got you covered. Check out our [Laravel API quickstarts](https://auth0.com/docs/quickstart/backend/php-laravel) to implement that in less than 10 minutes.
+If you are just getting started in developing Laravel 5 apps, check out our [Laravel app tutorial](https://auth0.com/blog/2016/06/23/creating-your-first-laravel-app-and-adding-authentication/). Need an alternative means of adding authentication and authorization to your Laravel apps? <a href="javascript:signup()">Sign up</a> for a free Auth0 account and get your user authentication set up in few minutes using our [Laravel quickstarts](https://auth0.com/docs/quickstart/webapp/laravel). Building an API using Laravel and wondering how to add authentication using JWT? Auth0 has got you covered. Check out our [Laravel API quickstarts](https://auth0.com/docs/quickstart/backend/php-laravel) to implement that in less than 10 minutes.
 
 Many developers are already getting their hands dirty with Laravel 5.3 using the *dev* version. You can also try it out and tell us what you think in the comment section! Hopefully, about two weeks from now, Laravel Scout, Laravel Passport, Laravel Notifications, Laravel Mailable, and Laravel 5.3 will be officially released to the public.
