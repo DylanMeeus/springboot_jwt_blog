@@ -19,20 +19,20 @@ tags:
 - LaraconUS
 ---
 
-Day three of [Laravel US Conference](http://laracon.us/) consisted of talks about design, performance tuning, software estimation, API tools and Laravel. Seven speakers took to the stage and it was a scintillating experience. Currently, a specific date has still not been set on the release of Laravel 5.3. Taylor made it known to everyone that it will be released in a couple of weeks. Check out our recap of [day one](https://auth0.com/blog/laracon-summary-day-1/) and [day two](https://auth0.com/blog/laracon-summary-day-2/) in case you missed them.
+Day Three of [Laravel US Conference](http://laracon.us/) consisted of talks about design, performance tuning, software estimation, API tools, and Laravel. Seven speakers took to the stage and it was a scintillating experience. Currently, a specific date has still not been set on the release of Laravel 5.3. Taylor made it known to everyone that it will be released in a couple of weeks. Check out our recap of [Day One](https://auth0.com/blog/laracon-summary-day-1/) and [Day Two](https://auth0.com/blog/laracon-summary-day-2/) in case you missed them.
 
-**[Adam Wathan](https://twitter.com/adamwathan)** was back again with a presentation on *Curing the Common Loop*. He talked about how for-loops and conditionals can be totally eliminated from a piece of code in place of higher-order functions that allows for elegant code expression. Adam did a live coding session where he eliminated for-loops, conditionals and temporary variables in an app and replaced them with Laravel Collection methods. Check out the slides for his workshop [here](https://speakerdeck.com/adamwathan/curing-the-common-loop).
+**[Adam Wathan](https://twitter.com/adamwathan)** was back again with a presentation on *Curing the Common Loop*. He talked about how for-loops and conditionals can be totally eliminated from a piece of code, instead using higher-order functions that allow for elegant code expression. Adam did a live coding session where he eliminated for-loops, conditionals, and temporary variables in an app and replaced them with Laravel Collection methods. Check out the slides from his workshop [here](https://speakerdeck.com/adamwathan/curing-the-common-loop).
 
-**[Fabien Potencier](https://twitter.com/fabpot)**, creator of Symfony and founder of Sensiolabs gave a talk on *PHP Performance Tuning with Blackfire*. He talked about performance issues with PHP and PHP frameworks. And he gave insightful advice about how to track down these issues with [Blackfire](https://blackfire.io/). Check out the turorial he made on using Blackfire in your applications [here](https://blackfire.io/docs/24-days/index). Blackfire is available now on [Laravel Forge](https://forge.laravel.com).
+**[Fabien Potencier](https://twitter.com/fabpot)**, creator of Symfony and founder of Sensiolabs, gave a talk on *PHP Performance Tuning with Blackfire*. He talked about performance issues with PHP and PHP frameworks. And he gave insightful advice about how to track down these issues with [Blackfire](https://blackfire.io/). Check out the turorial he made on using Blackfire in your applications [here](https://blackfire.io/docs/24-days/index). Blackfire is available now on [Laravel Forge](https://forge.laravel.com).
 
-{% include tweet_quote.html quote_text="40% of users abandon a website that takes more than 3 seconds to load - Fabian Potencier" %}
+{% include tweet_quote.html quote_text="40% of users abandon a website that takes more than 3 seconds to load - Fabien Potencier" %}
 
-**[Chuck Reeves](https://twitter.com/manchuck)** gave a talk on *Practical Software Estimation*. Chuck dropped nuggets of wisdom on how to provide estimates for a software project. He made an emphasis on why developers should estimate because they are the ones writing the code. Chuck compared developers to cardiologists and gave an example of how the latter can not be coerced into performing a surgical operation for 5 hours instead of 8. As a developer, if it takes you 5 hours to complete a task, do not negotiate for less! Check out the slides [here](http://www.slideshare.net/manchuck/stop-multiplying-by-4-laracon).
+**[Chuck Reeves](https://twitter.com/manchuck)** gave a talk on *Practical Software Estimation*. Chuck dropped nuggets of wisdom on how to provide estimates for a software project. He emphasized why developers should estimate because they are the ones writing the code. Chuck compared developers to cardiologists and gave an example of how the latter cannot be coerced into performing a surgical operation for five hours instead of eight. As a developer, if it takes you eight hours to complete a task, do not negotiate for less! Check out the slides [here](http://www.slideshare.net/manchuck/stop-multiplying-by-4-laracon).
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">No estimation talk ever will be complete without Bayes Theorem. When you get new info, the level of uncertainty will decrease <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a></p>&mdash; Michael Dyrynda (@michaeldyrynda) <a href="https://twitter.com/michaeldyrynda/status/759057447898054656">July 29, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**[Jason McCreary](https://twitter.com/gonedark)**, creator of [laravelshift.com](https://laravelshift.com/) gave a talk on *YAGNI With Laravel*. **YAGNI**, an acroynm for *You Aren't Gonna Need It*. It is a principle of extreme programming that states a programmer should not add functionality until deemed necessary. He advocated *KISS* - Keep it simple, stupid!. He talked about how programmers are always tempted to over-engineer solutions, how developers pride themselves on complex architectures. With **YAGNI**, you will:
+**[Jason McCreary](https://twitter.com/gonedark)**, creator of [laravelshift.com](https://laravelshift.com/), gave a talk on *YAGNI With Laravel*. **YAGNI**, an acroynm for *You Aren't Gonna Need It*, is a principle of extreme programming that states a programmer should not add functionality until deemed necessary. He advocated *KISS* - "Keep it simple, stupid!" He talked about how programmers are always tempted to over-engineer solutions and how developers pride themselves on complex architectures. With **YAGNI**, you will:
 
 * Know when to defer decisions until tomorrow
 * Trust your ability to pivot quickly
@@ -49,13 +49,13 @@ You need to upgrade your Laravel app without moving a muscle? check out [laravel
 
 **[Colin DeCarlo](https://twitter.com/colindecarlo)**, gave a talk on *Keeping Eloquent Eloquent*. Eloquent is Laravel's ORM. He talked about the mistakes he's made using Eloquent. He advocated the following when using Eloquent:
 
-* On every model, create a defaults property and populate with key value pairs of attribute and value. Merge with set values
+* On every model, create a defaults property and populate it with key value pairs of attribute and value. Merge with set values
 * Don't circumvent the abstraction layer provided by Eloquent
 * Use the source
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Cannot believe I am in the same room as big cat demarco!<a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Rob Drimmie (@RobDrimmie) <a href="https://twitter.com/RobDrimmie/status/759099135152840704">July 29, 2016</a></blockquote>
 
-**[Jeremy Lindblom](https://twitter.com/jeremeamia)**, Active contributor to [Guzzle](https://github.com/guzzle/guzzle), [AWS SDK](https://github.com/aws/aws-sdk-php), & creator of [Superclosure](https://github.com/jeremeamia/super_closure) talked about *Lumen, Guzzle & Swagger*. He talked about API endpoints, HTTP methods, and how developers can leverage Swagger, Lumen and Guzzle to develop great RESTFUL APIs and microservices.
+**[Jeremy Lindblom](https://twitter.com/jeremeamia)**, an active contributor to [Guzzle](https://github.com/guzzle/guzzle) and [AWS SDK](https://github.com/aws/aws-sdk-php) and creator of [Superclosure](https://github.com/jeremeamia/super_closure) talked about *Lumen, Guzzle & Swagger*. He talked about API endpoints, HTTP methods, and how developers can leverage Swagger, Lumen, and Guzzle to develop great RESTFUL APIs and microservices.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Swagger is a representation of your representational API that is a representation of your data&quot; <a href="https://twitter.com/jeremeamia">@jeremeamia</a> <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Sara Bine (@sara_bine) <a href="https://twitter.com/sara_bine/status/759126262937812992">July 29, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -66,7 +66,7 @@ You need to upgrade your Laravel app without moving a muscle? check out [laravel
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Which of the hundred different ways would you like to implement JSON? HATEOAS, HAL, JSON-LD, JSON-API, something else? <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a></p>&mdash; Michael Dyrynda (@michaeldyrynda) <a href="https://twitter.com/michaeldyrynda/status/759121971137228800">July 29, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**[Ryan Singer](https://twitter.com/rjs)**, Product Strategist at Basecamp, gave a talk on *Design: Case Study*. He talked about the processes involved in creating a product from rough sketch to a functional UI that's finally handed over to the developers.
+**[Ryan Singer](https://twitter.com/rjs)**, product strategist at Basecamp, gave a talk titled *Design: Case Study*. He talked about the processes involved in creating a product, from rough sketch to a functional UI that's finally handed over to the developers.
 
 ![Tower of Interface Design](https://pbs.twimg.com/media/CokFDq6UkAA7Gtl.jpg)
 _Tower of Interface Design_
@@ -81,8 +81,8 @@ _Tower of Interface Design_
 
 ## Conclusion
 
-Laracon US 2016 is actually the first Laravel Conference to have about 95% of technical talks. All the speakers were great and the talks were educative and insightful.
+Laracon US 2016 is actually the first Laravel Conference to be 95 percent technical talks. All the speakers were great and the talks were educational and insightful.
 
-If you are just getting started in developing Laravel 5 apps, check out our [laravel app tutorial](https://auth0.com/blog/2016/06/23/creating-your-first-laravel-app-and-adding-authentication/). You need an alternative means of adding authentication and authorization to your Laravel apps? Sign up for a free Auth0 account and get your user authentication set up in few minutes using our [laravel quickstarts](https://auth0.com/docs/quickstart/webapp/laravel). Building an api using Laravel and wondering how to add authentication using JWT? Auth0 got you covered. Check out our [laravel api quickstarts](https://auth0.com/docs/quickstart/backend/php-laravel) to implement that in less than 10 minutes.
+If you are just getting started in developing Laravel 5 apps, check out our [Laravel app tutorial](https://auth0.com/blog/2016/06/23/creating-your-first-laravel-app-and-adding-authentication/). Need an alternative means of adding authentication and authorization to your Laravel apps? Sign up for a free Auth0 account and get your user authentication set up in few minutes using our [Laravel quickstarts](https://auth0.com/docs/quickstart/webapp/laravel). Building an API using Laravel and wondering how to add authentication using JWT? Auth0 has got you covered. Check out our [Laravel API quickstarts](https://auth0.com/docs/quickstart/backend/php-laravel) to implement that in less than 10 minutes.
 
-Many developers are already getting their hands dirty with Laravel 5.3 using the *dev* version. You can also try it out and tell us what you think in the comment section! Hopefully, in about 2 weeks from now, Laravel Scout, Laravel Passport, Laravel Notifications, Laravel Mailable and Laravel 5.3 will be officially released to the public.
+Many developers are already getting their hands dirty with Laravel 5.3 using the *dev* version. You can also try it out and tell us what you think in the comment section! Hopefully, about two weeks from now, Laravel Scout, Laravel Passport, Laravel Notifications, Laravel Mailable, and Laravel 5.3 will be officially released to the public.
