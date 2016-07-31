@@ -928,4 +928,4 @@ With Auth0, you can have all your users' information stored without having to ru
 
 You have just built your first app with Symfony 3. We just barely scratched the surface in this tutorial. This is designed to help you get started in building your own apps with Symfony framework. You can leverage the knowledge gained here to build bigger and better apps. Symfony teaches you a lot about how to develop good, transparent, well-tested and well-coded applications with PHP. When compared with other PHP frameworks, Symfony is very stable. In fact, several PHP frameworks depend on Symfony components. It’s one of the few frameworks out there bundled with good documentation and certifications for developers. Would you prefer Laravel over Symfony or vice versa? Let me know your thoughts in the comment section 😊
 
-{% include tweet_quote.html quote_text="Symfony is one of the few frameworks out there with good documentation and certifications for developers." %}
+{% include tweet_quote.html quote_text="Symfony is one of the few frameworks out there with certifications for developers." %}
