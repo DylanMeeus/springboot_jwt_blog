@@ -51,7 +51,7 @@ Day Two of the  [Laravel US Conference](http://laracon.us/) consisted of more ta
 
 **Note:** Zeev is crazy about spicy foods!
 
-**[Amanda Folson](https://twitter.com/AmbassadaorAwsum)**, developer advocate @ Gitlab. Her talk was on building APIs with Lumen.
+**[Amanda Folson](https://twitter.com/AmbassadaorAwsum)**, developer advocate @ Gitlab. Her talk was on building APIs with Lumen. Check out the slides [here](https://speakerdeck.com/afolson/zero-to-api-with-lumen).
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="und" dir="ltr">Example Pokédex API by <a href="https://twitter.com/AmbassadorAwsum">@AmbassadorAwsum</a> with <a href="https://twitter.com/hashtag/LumenPHP?src=hash">#LumenPHP</a>. <a href="https://twitter.com/hashtag/pokemon?src=hash">#pokemon</a> <a href="https://twitter.com/hashtag/php?src=hash">#php</a> <a href="https://twitter.com/hashtag/laracon?src=hash">#laracon</a> <a href="https://twitter.com/hashtag/LaravelSF?src=hash">#LaravelSF</a> <a href="https://t.co/WqgVG5YCoG">pic.twitter.com/WqgVG5YCoG</a></p>&mdash; Paul Foryt (@pauly4it) <a href="https://twitter.com/pauly4it/status/758745145667747843">July 28, 2016</a></blockquote>
 
@@ -72,9 +72,11 @@ He also talked about a **feature-first** approach in building software.
 * Provide readable, agreed-upon specs for stakeholders
 * Encourage collaboration
 
+Check out the slides [here](https://speakerdeck.com/machuga/tests-should-tell-a-story).
+
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">When we&#39;re building software, we need to ask the stakeholders questions. Details, details, details! <a href="https://twitter.com/machuga">@machuga</a> <a href="https://twitter.com/LaraconUS">@LaraconUS</a> <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; Caryn Humphreys (@LadyCarni) <a href="https://twitter.com/LadyCarni/status/758764162977705985">July 28, 2016</a></blockquote>
 
-**[Sandi Metz](https://twitter.com/sandimetz)**, popular Rubyist and author of *Practical Object-Oriented Design in Ruby* gave a talk on **Get A Whiff of This**. She talked about the various types of code smells and a practical object-oriented approach in writing good code. She also mentioned that every code smell can be mapped to a recipe that cures it via refactoring.
+**[Sandi Metz](https://twitter.com/sandimetz)**, popular Rubyist and author of *Practical Object-Oriented Design in Ruby* gave a talk on **Get A Whiff of This**. She talked about the various types of code smells and a practical object-oriented approach in writing good code. She also mentioned that every code smell can be mapped to a recipe that cures it via refactoring. Check out the slides [here](https://speakerdeck.com/skmetz/get-a-whiff-of-this).
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I could seriously sit and listen to <a href="https://twitter.com/sandimetz">@sandimetz</a> talk about programming all day. This talk is _ultra_ illuminating. <a href="https://twitter.com/hashtag/Laracon?src=hash">#Laracon</a></p>&mdash; CS (@cschmitz81) <a href="https://twitter.com/cschmitz81/status/758781530072289282">July 28, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
