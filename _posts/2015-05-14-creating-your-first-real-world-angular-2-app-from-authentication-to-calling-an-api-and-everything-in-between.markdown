@@ -462,7 +462,7 @@ We can use the methods from our authentication service in any of our components 
 
 ### Step 4: Make Authenticated HTTP Requests
 
-We can again use `AuthHttp` from [**anuglar2-jwt**](https://github.com/auth0/angular2-jwt) to automatically have our JWTs sent in HTTP requests.
+We can again use `AuthHttp` from [**anuglar2-jwt**](https://github.com/auth0/angular2-jwt) to automatically have our JWTs sent in HTTP requests. You can read more over about [Angular 2 Http examples](https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/).
 
 ```js
 // src/home/home.ts
