@@ -45,12 +45,12 @@ We wanted to see which of these possible connections was most common among Enter
 
 * Most (53%) Enterprise connections are through Active Directory Federation Services (ADFS).
 * Another 35% are using Active Directory connections.
-* SAMLP (7%), Windows Azure Active Directory (3%), and Google Apps (2%) round out the top 5.
+* SAMLP (7%), Microsoft Azure Active Directory (3%), and Google Apps (2%) round out the top 5.
 
-These results show that logins via Windows Server architecture are still by far the most common connections made by Enterprise. These results tally with what we have said before—[hundreds of thousands of companies rely on Active Directory](https://auth0.com/blog/2013/04/10/Auth0-Windows-Azure-Active-Directory/). In fact, over 90% of all Enterprise connections through Auth0 are built on Windows architecture, either through AD directly, Windows Azure, or via Office 365 or Sharepoint.
+These results show that logins via Windows Server architecture are still by far the most common connections made by Enterprise. These results tally with what we have said before—[hundreds of thousands of companies rely on Active Directory](https://auth0.com/blog/2013/04/10/Auth0-Windows-Azure-Active-Directory/). In fact, over 90% of all Enterprise connections through Auth0 are built on Windows architecture, either through AD directly, Microsoft Azure, or via Office 365 or Sharepoint.
 
 
-{% include tweet_quote.html quote_text="Over 90% of all Enterprise connections through Auth0 are built on Windows architecture." %}
+{% include tweet_quote.html quote_text="Over 90 percent of all Enterprise connections through Auth0 are built on Windows architecture." %}
 
 
 ADFS is the part of Active Directory Services that allows for resource access across traditional boundaries: 
@@ -64,17 +64,17 @@ In this way, it acts as an easy and transparent way for a user in one organizati
 
 However, because Active Directory was designed to work on the internal corporate network, it isn’t best-suited for web-based services.
 
-### Moving Towards Windows Azure AD
+### Moving Towards Microsoft Azure AD
 
 Azure AD allows for greater adoption of modern identity architectures that work natively in the cloud. It is the [identity infrastructure of Microsoft’s future](http://windowsitpro.com/identity-management/windows-azure-active-directory-vs-windows-server-active-directory). 
 
-Therefore, the low contribution of Windows Azure to the overall numbers give cause for concern. As more and more services are delivered via web apps, Enterprise companies need to give their users easy access to these SaaS apps. This is what Azure AD was designed to do:
+Therefore, the low contribution of Microsoft Azure to the overall numbers give cause for concern. As more and more services are delivered via web apps, Enterprise companies need to give their users easy access to these SaaS apps. This is what Azure AD was designed to do:
 
 * It has a modern REST-based API.
 * It allows for multifactor authentication (MFA) for increased security.
 * It provides employees with SSO and secure remote access to on-site applications.
 
-Additionally, Windows Azure AD can be synced against an on-premises Active Directory. Therefore, companies can continue to use their Active Directory domain controller for internal authentication and access, while syncing to Azure AD to allow their users to connect easily to apps outside the company.
+Additionally, Microsoft Azure AD can be synced against an on-premises Active Directory. Therefore, companies can continue to use their Active Directory domain controller for internal authentication and access, while syncing to Azure AD to allow their users to connect easily to apps outside the company.
 
 ## How Much Are Enterprise Connections Used?
 
