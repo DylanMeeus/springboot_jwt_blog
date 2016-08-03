@@ -3,24 +3,23 @@ layout: post
 title: "What is HTTP/2 All About?"
 description: "HTTP/2 is the latest web standard that aims to improve the way we interact with the web. Learn all about HTTP/2 and how it affects you."
 date: 2016-08-05 08:30
-alias: /2016/08/05/what-is-http2-all-about/
 author:
   name: "Ado Kukic"
-  url: "https://twitter.com/kukicadnan"
+  url: "https://twitter.com/kukicado"
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design:
-  bg_color: "#00386F"
-  image: "https://cdn.auth0.com/blog/partners/logo.png"
+  bg_color: "#002444"
+  image: "https://cdn.auth0.com/blog/about-http/logo.png"
 tags:
 - HTTP
 - HTTP2
 - HyperTextTransferProtocol
 - Web
 related:
-- 2016-07-01-why-staying-agile-is-key-to-startup-success
-- 2016-04-21-want-skyrocketing-growth-you-need-to-offer-a-free-trial
-- 2016-04-14-safely-use-best-customer-retention-tactics
+- heads-up-https-is-not-enough-when-using-wpad
+- why-identity-federation-matters
+- cookies-vs-tokens-definitive-guide
 ---
 
 ---
@@ -55,6 +54,8 @@ HTTP/2 was designed for the modern web, but it remains backwards compatible with
 * **Prioritization** - Resources can have dependency levels allowing the server to prioritize which requests to fulfill first
 * **Binary** - HTTP/2 is a binary protocol making it a lot more efficient when transferring data
 
+HTTP/2 is especially useful when dealing with TLS connections. The TLS handshake can be quite long but thanks to reduced latency and multiplexing, other requests can do their work without being blocked.
+
 ## HTTP/2 In Action
 
 Two companies that are synonymous with web performance are [CloudFlare](https://cloudflare.com) and [Akamai](https://akamai.com). Both of these companies provide CDN and other solutions to improve the performance and reliability of websites and both support HTTP/2. To promote the adoption of HTTP/2, let's look at the demos they provide to showcase some of the benefits.
@@ -71,13 +72,15 @@ Two companies that are synonymous with web performance are [CloudFlare](https://
 
  ![Gopher HTTP/2 Demo](https://cdn.auth0.com/blog/about-http2/gopher-demo.png)
 
+ If you are curious to see which websites are leveraging HTTP/2, there are a couple of easy ways to check. The [HTTP/2 and SPDY Indicator](https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin?hl=en) Chrome extension is one way to easily be notified if a website has HTTP/2 enabled. If you would rather not install extensions, [HTTP/2 Test](https://tools.keycdn.com/http2-test) by KeyCDN provides a website where you can type in a URL and see if that domain has HTTP/2 enabled.
+
 ## Using HTTP/2 In Your Stack
 
 Implementations of the HTTP/2 protocol for many languages, servers and browsers have already been deployed. Browsers like Chrome and Firefox have support for HTTP/2. Microsoft's Edge and Apple's Safari browsers support HTTP/2 but only over secure connections. Chances are your users are capable of utilizing the protocol, and even if not, HTTP/2 is fully backwards compatible so you don't have to worry.
 
 When it comes to your technology stack, whether you are on [IIS](http://blogs.iis.net/davidso/http2), [Apache](https://httpd.apache.org/docs/2.4/mod/mod_http2.html), [nginx](https://www.nginx.com/blog/nginx-1-9-5/), or any of [these technologies](https://github.com/http2/http2-spec/wiki/Implementations), you can effortlessly enable HTTP/2. Since the HTTP/2 protocol is backwards compatible, you will not need to make any changes to your actual code.
 
-{% include tweet_quote.html quote_text="HTTP/2 implementations are available for most tech stacks for use today! What are you waiting for?" %}
+{% include tweet_quote.html quote_text="HTTP/2 implementations are available for most tech stacks in use today! What are you waiting for?" %}
 
 ## Future of HTTP/2
 
