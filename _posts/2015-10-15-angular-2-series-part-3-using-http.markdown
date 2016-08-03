@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Angular 2 Series - Part 3: Using Http"
+title: "Using Angular $Http and Angular 2 Http - Angular 2 Series Part 3"
 description: "Learn the differences between $http in Angular 1.x and Http in Angular 2. Find out how to use the RxJS Observables that Http returns."
 date: 2015-10-15 16:00
 alias: /2015/10/15/angular-2-series-part-3-using-http/
@@ -29,7 +29,7 @@ related:
 ---
 
 ---
-**TL;DR:** Making HTTP requests in Angular 2 apps looks somewhat different than what we're used to from Angular 1.x, a key difference being that Angular 2's **Http** returns **observables**. In this tutorial, we cover how to use Http to make requests and how to handle the responses. We'll also see how we can do basic authentication for an Angular 2 app. Check out [the repo](https://github.com/auth0/angular2-http) for the tutorial to see the code.
+**TL;DR:** Making **HTTP requests in Angular 2 apps** looks somewhat different than what we're used to from Angular 1.x, a key difference being that Angular 2's **Http** returns **observables**. In this tutorial, we cover how to use Http to make requests and how to handle the responses. We'll also see how we can do basic authentication for an Angular 2 app. Check out [the repo](https://github.com/auth0/angular2-http) for the tutorial to see the code.
 
 This is Part 3 in our Angular 2 series. Be sure to check out [Part 1 on Pipes](https://auth0.com/blog/2015/09/03/angular2-series-working-with-pipes/) and [Part 2 on Models](https://auth0.com/blog/2015/09/17/angular-2-series-part-2-domain-models-and-dependency-injection/).
 
@@ -37,13 +37,13 @@ This is Part 3 in our Angular 2 series. Be sure to check out [Part 1 on Pipes](h
 
 It's fair to say that most of Angular 2 looks and feels completely different than Angular 1.x, and the **Http** API is no exception. The **$http** service that Angular 1.x provides works very nicely for most use cases, and is fairly intuitive to use. Angular 2's Http requires that we learn some new concepts, including how to work with **observables**.
 
-In this tutorial, we'll look at some of the key differences in the way that Angular 1.x and 2 implement HTTP requests, and we'll also see how to make requests and handle responses. Incidentally, the sample we use to test out **Http** will also let us see the basics of adding authentication to an Angular 2 app.
+In this tutorial, we'll look at some of the key differences in the way that Angular 1.x and 2 implement **HTTP requests**, and we'll also see how to make requests and handle responses. Incidentally, the sample we use to test out **Http** will also let us see the basics of adding authentication to an Angular 2 app.
 
 It's important to note that the Http implementation for Angular 2 is still a [work in progress](https://github.com/angular/angular/issues/2793), and a lot of things are still in flux or aren't complete yet.
 
 ## Differences between Angular 1.x $http and Angular 2 Http
 
-Angular 2's Http implementation again provides a fairly straightforward way of handling requests, but there are some key differences. For starters, HTTP calls in Angular 2 by default return observables through [RxJS](https://github.com/Reactive-Extensions/RxJS), whereas $http in Angular 1.x returns promises. Using observable streams gives us the benefit of greater flexibility when it comes to handling the responses coming from HTTP requests. For example, we have the potential of tapping into useful RxJS operators like `retry` so that a failed HTTP request is automatically re-sent, which is useful for cases where users have poor or intermittent network communication. We'll see later in the article how we can implement RxJS operators in our Http observables.
+**Angular 2's Http implementation** again provides a fairly straightforward way of handling requests, but there are some key differences. For starters, **HTTP calls in Angular 2** by default return observables through [RxJS](https://github.com/Reactive-Extensions/RxJS), whereas $http in Angular 1.x returns promises. Using observable streams gives us the benefit of greater flexibility when it comes to handling the responses coming from HTTP requests. For example, we have the potential of tapping into useful RxJS operators like `retry` so that a failed HTTP request is automatically re-sent, which is useful for cases where users have poor or intermittent network communication. We'll see later in the article how we can implement RxJS operators in our Http observables.
 
 In Angular 2, Http is accessed as an injectable class from `angular2/http` and, just like other classes, we `import` it when we want to use it in our components. Angular 2 also comes with a set of injectable providers for Http, which are imported via `HTTP_PROVIDERS`. With these we get providers such as `RequestOptions` and `ResponseOptions`, which allow us to modify requests and responses by extending the base class for each. In Angular 1.x, we would do this by providing a `transformRequest` or `transformResponse` function to our `$http` options.
 
@@ -177,7 +177,7 @@ logError(err) {
 
 The `getRandomQuote` method starts off looking pretty familiar--we do an `http.get` request by passing in a URL as an argument. Remembering `$http` from Angular 1.x, this is where we would tap into the promise that gets returned by using `.then`, but as you can see here, we're doing something pretty different.
 
-As was mentioned earlier, HTTP calls in Angular 2 return observables, so we need to use RxJS methods to operate on them. The first thing we do is map the values that are returned as text, since our call to the `api/random-quote` endpoint returns text. If we were expecting a JSON response, we would call `res.json()` instead. After this, we need to **subscribe** to it so that we can **observe** values that are returned.
+As was mentioned earlier, **HTTP calls in Angular 2** return observables, so we need to use RxJS methods to operate on them. The first thing we do is map the values that are returned as text, since our call to the `api/random-quote` endpoint returns text. If we were expecting a JSON response, we would call `res.json()` instead. After this, we need to **subscribe** to it so that we can **observe** values that are returned.
 
 {% include tweet_quote.html quote_text="HTTP calls in Angular 2 return observables, so we need to use RxJS methods to operate on them." %}
 
@@ -185,7 +185,7 @@ An observable subscription takes three functions to handle what happens as the s
 
 Let's test that out to make sure it works.
 
-![angular2 http $http observables rxjs](https://cdn.auth0.com/blog/angular2-http/angular2-http-1.png)
+![angular2 http $http example](https://cdn.auth0.com/blog/angular2-http/angular2-http-1.png)
 
 ## POST Request with Modified Content Type
 
@@ -352,7 +352,7 @@ Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. Thi
 
 ## Wrapping Up
 
-HTTP requests in Angular 2 definitely look different than they did in Angular 1.x, but with the change comes a big boost in capability. Having requests return observables is great because we will be able to use RxJS's operators to get the returned streams behave the way we like. We'll be able to use operators like `retry` to automatically start a request again if there are network issues.
+**HTTP requests in Angular 2** definitely look different than they did in Angular 1.x, but with the change comes a big boost in capability. Having requests return observables is great because we will be able to use RxJS's operators to get the returned streams behave the way we like. We'll be able to use operators like `retry` to automatically start a request again if there are network issues.
 
 In this tutorial we saw how Http can be used to make `GET` and `POST` requests, but we can also use other HTTP verbs like `PUT`, `DELETE`, and `PATCH`. We also saw how we can customize the headers we send with the `Headers` class.
 
