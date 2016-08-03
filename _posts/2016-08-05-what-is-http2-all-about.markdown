@@ -56,7 +56,7 @@ HTTP/2 was designed for the modern web, but it remains backwards compatible with
 
 HTTP/2 is especially useful when dealing with TLS connections. The TLS handshake can be quite long but thanks to reduced latency and multiplexing, other requests can do their work without being blocked.
 
-## HTTP/2 In Action
+## HTTP/2 Performance
 
 Two companies that are synonymous with web performance are [CloudFlare](https://cloudflare.com) and [Akamai](https://akamai.com). Both of these companies provide CDN and other solutions to improve the performance and reliability of websites and both support HTTP/2. To promote the adoption of HTTP/2, let's look at the demos they provide to showcase some of the benefits.
 
@@ -74,11 +74,15 @@ Two companies that are synonymous with web performance are [CloudFlare](https://
 
  If you are curious to see which websites are leveraging HTTP/2, there are a couple of easy ways to check. The [HTTP/2 and SPDY Indicator](https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin?hl=en) Chrome extension is one way to easily be notified if a website has HTTP/2 enabled. If you would rather not install extensions, [HTTP/2 Test](https://tools.keycdn.com/http2-test) by KeyCDN provides a website where you can type in a URL and see if that domain has HTTP/2 enabled.
 
+## HTTP/2 Browser Support
+
+Implementations of the HTTP/2 protocol for many languages, servers and browsers have already been deployed. Browsers like Chrome and Firefox have full support for the HTTP/2 protocol. Microsoft's Edge and Apple's Safari browsers support HTTP/2 but only over secure connections. Mobile versions of Chrome and Safari also offer support for the HTTP/2 protocol.
+
+Chances are your users are capable of utilizing the protocol, and even if not, HTTP/2 is fully backwards compatible so you don't have to worry. To follow progress and stay up to date on browser support, you can check the [Can I Use HTTP/2 page](http://caniuse.com/#search=http2).
+
 ## Using HTTP/2 In Your Stack
 
-Implementations of the HTTP/2 protocol for many languages, servers and browsers have already been deployed. Browsers like Chrome and Firefox have support for HTTP/2. Microsoft's Edge and Apple's Safari browsers support HTTP/2 but only over secure connections. Chances are your users are capable of utilizing the protocol, and even if not, HTTP/2 is fully backwards compatible so you don't have to worry.
-
-When it comes to your technology stack, whether you are on [IIS](http://blogs.iis.net/davidso/http2), [Apache](https://httpd.apache.org/docs/2.4/mod/mod_http2.html), [nginx](https://www.nginx.com/blog/nginx-1-9-5/), or any of [these technologies](https://github.com/http2/http2-spec/wiki/Implementations), you can effortlessly enable HTTP/2. Since the HTTP/2 protocol is backwards compatible, you will not need to make any changes to your actual code.
+When it comes to your technology stack, whether you are on [IIS](http://blogs.iis.net/davidso/http2), [Apache](https://httpd.apache.org/docs/2.4/mod/mod_http2.html), [nginx](https://www.nginx.com/blog/nginx-1-9-5/), or any of [these technologies](https://github.com/http2/http2-spec/wiki/Implementations), you can effortlessly enable HTTP/2. Since the HTTP/2 protocol is backwards compatible, you will not need to make any changes to your actual code. As of the 1.6 release of Golang, the standard http library actually uses HTTP/2 by default when browser support is available.
 
 {% include tweet_quote.html quote_text="HTTP/2 implementations are available for most tech stacks in use today! What are you waiting for?" %}
 
