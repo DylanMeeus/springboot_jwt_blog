@@ -582,7 +582,7 @@ var jwtCheck = jwt({
 
 ### Step 4: Add Token Refreshing
 
-As it stands, users will need to re-authenticate once their token becomes expired. To keep users logged in, we can set up token refreshing. Have a look at the [Auth0 + Ionic 2 docs](https://auth0.com/docs/quickstart/native-mobile/ionic2/no-api#6-optional-implement-refresh-tokens) for instructions on how to set it up.
+As it stands, users will need to re-authenticate once their token becomes expired. To keep users logged in, we can set up token refreshing. Have a look at the [Auth0 + Ionic 2 docs](https://auth0.com/docs/quickstart/native/ionic2) for instructions on how to set it up.
 
 ### Done!
 
