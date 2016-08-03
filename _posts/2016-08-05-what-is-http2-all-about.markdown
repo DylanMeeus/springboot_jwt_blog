@@ -24,7 +24,7 @@ related:
 
 ---
 
-**TL;DR** HTTP/2 is a much needed upgrade to the HTTP protocol, used to manage the communication between web servers and browsers. The new standard paves the way for faster page loads through better data compression, multiplexing of requests, and other improvements. Many servers and browsers have support for HTTP/2 and developer can take advantage of these new capabilities today.
+**TL;DR** HTTP/2 is a much needed upgrade to the HTTP protocol, used to manage the communication between web servers and browsers. The new standard paves the way for faster page loads through better data compression, multiplexing of requests, and other improvements. Many servers and browsers have support for HTTP/2 and developers can take advantage of these new capabilities today.
 
 ---
 
