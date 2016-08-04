@@ -61,7 +61,7 @@ Before jumping into the code, I do want to point out that while idiomatic Go ten
 
 We will write our entire application in a file called `main.go`. The reason for this is so that we do not have to explicitly build the application every time we make changes to the code. We’ll simply run our application with the `go run` command from the terminal. With that said, let’s examine our initial setup:
 
-```
+```go
 package main
 
 // Import our dependencies. We'll use the standard http library as well as the gorilla router for this app
@@ -103,7 +103,7 @@ Let's make sure our server runs by running `go run main.go` from our terminal. I
 
 With the foundation in place, we’ll define our API routes. For our demo app, we’ll stick to `GET` and `POST` requests. In addition to defining the routes we’ll also implement a handler function called `NotImplemented`, which will be the default handler for routes that we have not yet added functionality to. Let's add this additional code to our `main.go` file now.
 
-```
+```go
 func main(){
   ...
 
@@ -132,7 +132,7 @@ Our Go API is shaping up nicely. Let's run the server again and try to access ea
 
 We have our routes in place, but currently they do nothing. Let’s change that. In this section we will add the expected functionality to each of the routes.
 
-```
+```go
 ...
 
 /* We will first create a new type called Product
@@ -200,7 +200,7 @@ var AddFeedbackHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Re
 
 With our functions in place, let's go back to the routes and update them with the appropriate handler functions.
 
-```
+```go
 ...
 
 func main(){
@@ -221,7 +221,7 @@ In Go, middleware is referred to as *handlers*. If you are not already familiar 
 
 We will use custom handlers further down in the tutorial to secure our API, but for now, let's implement a global handler that will provide some logging information about our requests. We will use a prebuilt handler from the `gorilla/handlers` package. Let's look at the implementation below:
 
-```
+```go
 package main
 
 import(
@@ -252,7 +252,7 @@ Let's secure our Golang API with JWT. We'll do this two ways. First, we'll do a 
 
 For the basic example, we'll have a route that will generate a new JWT for us. We'll then add middleware to secure our existing endpoints.
 
-```
+```go
   ...
   func main(){
     ...
@@ -282,7 +282,7 @@ For the basic example, we'll have a route that will generate a new JWT for us. W
 
 The code above will allow us to generate tokens and add claims to those tokens. As this is a fairly simple example, we've hard coded the claims as well as not required any authentication to get a token. We'll do this with Auth0 a little later in the tutorial. Now let's secure our API endpoints. The first thing we'll do is create a handler for verifying the token.
 
-```
+```go
 /* Handlers */
 
 ...
@@ -297,7 +297,7 @@ var jwtMiddleware = jwtmiddleware.New(jwtmiddleware.Options{
 
 Next, we'll update our routes to use this new middleware.
 
-```
+```go
 
 ...
 
@@ -500,7 +500,7 @@ Adding user authentication will allow us to protect our API. Since our app deals
 
 To start, let’s secure our API endpoints. We did this earlier with manual generation and verification of the JWT, but now we'll expand on the functionality here. We will utilize the `auth0/go-jwt-middleware` and `dgrijalva/jwt-go` libraries for dealing with the JWT. Additionally, we will utilize the `joho/godotenv` library so that we can store our Auth0 credentials outside of our `main.go` file. Let's see what our implemented code looks like.
 
-```
+```go
 package main
 
 import(
