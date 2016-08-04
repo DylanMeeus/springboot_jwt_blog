@@ -40,7 +40,7 @@ If we head over to the [Elm site](http://www.elm-lang.org), we're greeted with a
 
 ## Building an Elm Web App
 
-In the first half of this two-part tutorial, we're going to build a small Elm application that will call an API to retrieve random Chuck Norris quotes. In doing so, we'll learn Elm basics like how to compose an app with a view and a model, how to update application state,  and how to implement common real-world requirements like HTTP. In [part two of the tutorial](https://github.com/YiMihi/elm-with-jwt/blob/master/authentication-in-elm-adding-authentication.md), we'll add the ability to register, log in, and access protected quotes with JSON Web Tokens.
+In the first half of this two-part tutorial, we're going to build a small Elm application that will call an API to retrieve random Chuck Norris quotes. In doing so, we'll learn Elm basics like how to compose an app with a view and a model, how to update application state,  and how to implement common real-world requirements like HTTP. In part two of the tutorial, we'll add the ability to register, log in, and access protected quotes with JSON Web Tokens.
 
 If you're [familiar with JavaScript but new to Elm](http://elm-lang.org/docs/from-javascript) the language might look a little strange at first--but once we start building, we'll learn how the [Elm Architecture](http://guide.elm-lang.org/architecture/index.html), [types](http://guide.elm-lang.org/types), and [clean syntax](http://elm-lang.org/docs/syntax) can really streamline development. This tutorial is structured to help JavaScript developers get started with Elm without assuming previous experience with other functional or strongly typed languages. 
 
