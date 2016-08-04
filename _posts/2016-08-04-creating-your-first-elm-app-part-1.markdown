@@ -2,10 +2,10 @@
 layout: post
 title: "Creating Your First Elm App: From Authentication to Calling an API (Part 1)"
 description: Explore building an app in the functional, reactive front-end language Elm, complete with an API and JWT authentication.
-date: 2016-08-03 12:20
+date: 2016-08-04 13:30
 design:
-  bg_color: "#3B3B3B"
-  image: https://cdn.auth0.com/blog/Symfony/Logo.png
+  bg_color: "#2D2D2D"
+  image: https://cdn.auth0.com/blog/intro-to-elm/logo.png
 author:
   name: Kim Maida
   url: http://twitter.com/KimMaida
@@ -17,7 +17,7 @@ tags:
 - javascript
 - authentication
 related:
-- 2015-11-13-build-an-app-with-vuejs
+- 2016-07-14-create-an-app-in-vuejs-2
 - 2016-06-23-creating-your-first-laravel-app-and-adding-authentication
 - 2016-04-13-authentication-in-golang
 ---
@@ -54,7 +54,7 @@ We're going to use [Gulp](http://gulpjs.com) to build and serve our application 
 
 We also need the API. Clone the [NodeJS JWT Authentication sample API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) repository and follow the README to get it running.
 
-### Installing and Configuring Elm
+### Installing and Configuring Elm App
 
 To install Elm globally, run the following command:
 
@@ -183,7 +183,7 @@ The default `gulp` task will compile Elm, watch and copy files to a `/dist` fold
 
 Our development files should be located in a `/src` folder. Please create the `/dist` and `/src` folders at the root of the project. Our file structure now looks like this:
 
-![file structure](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/file-structure1.jpg)
+![Elm Application Structure](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/file-structure1.jpg)
 
 ### Syntax Highlighting
 
@@ -286,7 +286,7 @@ At the top of our app file, we need to import dependencies. We expose the `Html`
 
 Everything we're going to write is part of **The Elm Architecture**. In brief, this refers to the basic pattern of Elm application logic. It consists of `Model` (application state), `Update` (way to update the application state), and `View` (render the application state as HTML). You can read more about [The Elm Architecture in Elm's guide](http://guide.elm-lang.org/architecture).
 
-```js
+```elm
 main : Program Never
 main = 
     Html.program 
@@ -316,7 +316,7 @@ subscriptions = function() { ... }
 
 Next up are the model type alias and the `init` function:
 
-```js
+```elm
 {- 
     MODEL
     * Model type 
@@ -334,13 +334,13 @@ init =
 
 The first block is a multi-line comment. A single-line comment is represented like this:
 
-```js
+```elm
 -- Single-line comment
 ```
 
 Let's create a `type alias` called `Model`: 
 
-```js
+```elm
 type alias Model =
     { quote : String 
     }
@@ -352,7 +352,7 @@ We expect a record with a property of `quote` that has a string value. We've men
 
 Now we've come to the `init` function that we referenced in our `main` program:
 
-```js
+```elm
 init : (Model, Cmd Msg)
 init =
     ( Model "", Cmd.none )
@@ -364,7 +364,7 @@ Functions in Elm are defined with a name followed by a space and any arguments (
 
 Returning a tuple is the easiest way to get multiple results from a function. The first element in the tuple declares the initial values of the Model record. Strings are denoted with double quotes, so we're defining `{ quote = "" }` on initialization. The second element is `Cmd.none` because we're not sending a command (yet!). 
 
-```js
+```elm
 {-
     UPDATE
     * Messages
@@ -394,7 +394,7 @@ The `update` function accepts two arguments: a message and a model. If the `msg`
 
 The syntax for updating properties of a record is:
 
-```js
+```elm
 { recordName | property = updatedValue, property2 = updatedValue2 }
 ```
 
@@ -402,7 +402,7 @@ Elm uses `=` to set values. Colons `:` are reserved for type definitions. A `:` 
 
 We now have the logic in place for our application. How will we display the UI? We need to render a view:
 
-```js
+```elm
 {-
     VIEW
 -}
@@ -427,7 +427,7 @@ The `view` function describes the rendered view based on the model. The code for
 
 The structure of the functions somewhat resembles HTML, so it's pretty intuitive to write. The first list argument passed to each node function contains attribute functions with arguments. The second list contains the contents of the element. For example:
 
-```js
+```elm
 button [ class "btn btn-success", onClick GetQuote ] [ text "Grab a quote!" ]
 ```
 
@@ -457,7 +457,7 @@ Once we're successfully getting quotes, our source code will look like this:
 
 The first thing we need to do is import the dependencies necessary for making HTTP requests:
 
-```js
+```elm
 import Http
 import Task exposing (Task)
 ```
@@ -466,7 +466,7 @@ We'll need [Http](http://package.elm-lang.org/packages/evancz/elm-http/3.0.1/Htt
 
 Next we'll update our `init` function:
 
-```js
+```elm
 init : (Model, Cmd Msg)
 init =
     ( Model "", fetchRandomQuoteCmd )
@@ -474,7 +474,7 @@ init =
 
 Now instead of `Cmd.none` we have a command called `fetchRandomQuoteCmd`. A [command](http://package.elm-lang.org/packages/elm-lang/core/4.0.1/Platform-Cmd#Cmd) is a way to tell Elm to do some effect (like HTTP). We're commanding the application to fetch a random quote from the API on initialization. We'll define the `fetchRandomQuoteCmd` function shortly.
 
-```js
+```elm
 {-
     UPDATE
     * API routes
@@ -514,7 +514,7 @@ We'll do this in `fetchRandomQuoteCmd`. This function's type annotation declares
 
 `HttpError` and `FetchQuoteSuccess` are messages that don't exist yet, so let's create them:
 
-```js
+```elm
 -- Messages
 
 type Msg 
@@ -555,7 +555,7 @@ If you've been following along and writing your own code, you may have encounter
 
 Here's a small breakdown of some things you may see:
 
-```js
+```elm
 String -> a
 ```
 
@@ -567,4 +567,4 @@ Elm always infers types. If we've declared type definitions, Elm checks its infe
 
 ## Recap and Next Steps
 
-We've covered installing and using the Elm language and learned how to create our first app. We've also integrated with an external API through HTTP. You should now be familiar with Elm's basic syntax, type annotation, and compiler errors. If you'd like, take a little more time to familiarize with [Elm's documentation](http://elm-lang.org/docs). The [Elm FAQ](http://elm-community.github.io/elm-faq/) is another great resource from the Elm developer community. In the second half of this tutorial, we'll take a deeper dive into [authenticating our Chuck Norris Quoter app using JSON Web Tokens](https://github.com/YiMihi/elm-with-jwt/blob/master/authentication-in-elm-adding-authentication.md).
+We've covered installing and using the Elm language and learned how to create our first app. We've also integrated with an external API through HTTP. You should now be familiar with Elm's basic syntax, type annotation, and compiler errors. If you'd like, take a little more time to familiarize with [Elm's documentation](http://elm-lang.org/docs). The [Elm FAQ](http://elm-community.github.io/elm-faq/) is another great resource from the Elm developer community. In the second half of this tutorial (soon to come), we'll take a deeper dive into **authenticating our Chuck Norris Quoter app using JSON Web Tokens**. Stay tuned!
