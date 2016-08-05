@@ -24,7 +24,7 @@ related:
 
 ---
 
-**TL;DR:** We can write statically typed, functional, reactive SPAs on the front end with [Elm](http://www.elm-lang.org). Elm's compiler prevents runtime errors and compiles to JavaScript, making it an excellent choice for clean, speedy development. In part one of this tutorial, learn how to write your first Elm app and request data from an API. In part two, we'll add authentication using JSON Web Tokens. The full code is available at [this GitHub repository](https://github.com/YiMihi/elm-app-jwt-api).
+**TL;DR:** We can write statically typed, functional, reactive SPAs on the front end with [Elm](http://www.elm-lang.org). Elm's compiler prevents runtime errors and compiles to JavaScript, making it an excellent choice for clean, speedy development. In part one of this tutorial, learn how to write your first Elm app and request data from an API. In part two, we'll add authentication using JSON Web Tokens. The full code is available at [this GitHub repository](https://github.com/kmaida/elm-with-jwt-api).
 
 ---
 
@@ -34,7 +34,7 @@ Enter [Elm](http://www.elm-lang.org): a [functional](https://www.smashingmagazin
 
 ## Why Elm?
 
-Elm's creator [Evan Czaplicki](https://github.com/evancz) [positions Elm with several strong concepts](http://www.elmbark.com/2016/03/16/mainstream-elm-user-focused-design), but we'll touch on two in particular: gradual learning and usage-driven design. _Gradual learning_ is the idea that we can be productive with the language before diving deep. As we use Elm, we are able to gradually learn via development and build up our skillset, but we are not hampered in the beginner stage by a high barrier to entry. _Usage-driven design_ emphasizes starting with the minimimum viable solution and iteratively building on it, but Evan points out that it's best to keep it simple, and the minimum viable solution is often enough by itself.
+Elm's creator [Evan Czaplicki](https://github.com/evancz) [positions Elm with several strong concepts](http://www.elmbark.com/2016/03/16/mainstream-elm-user-focused-design), but we'll touch on two in particular: gradual learning and usage-driven design. _Gradual learning_ is the idea that we can be productive with the language before diving deep. As we use Elm, we are able to gradually learn via development and build up our skillset, but we are not hampered in the beginner stage by a high barrier to entry. _Usage-driven design_ emphasizes starting with the minimum viable solution and iteratively building on it, but Evan points out that it's best to keep it simple, and the minimum viable solution is often enough by itself.
 
 If we head over to the [Elm site](http://www.elm-lang.org), we're greeted with an attractive featureset highlighting "No runtime exceptions", "Blazing fast rendering", and "Smooth JavaScript interop". But what does this boil down to when writing real code? Let's take a look.
 
@@ -46,7 +46,7 @@ If you're [familiar with JavaScript but new to Elm](http://elm-lang.org/docs/fro
 
 ## Setup and Installation
 
-The full source code for our finished app can be [cloned on GitHub here](https://github.com/YiMihi/elm-app-jwt-api).
+The full source code for our finished app can be [cloned on GitHub here](https://github.com/kmaida/elm-with-jwt-api).
 
 We're going to use [Gulp](http://gulpjs.com) to build and serve our application locally and [NodeJS](https://nodejs.org/en) to serve our API and install dependencies through the Node Package Manager (npm). If you don't already have Node and Gulp installed, please visit their respective websites and follow instructions for download and installation. 
 
@@ -70,7 +70,7 @@ Once Elm is successfully installed, we need to set up our project's configuratio
 {
     "version": "0.1.0",
     "summary": "Build an App in Elm with JWT Authentication and an API",
-    "repository": "https://github.com/YiMihi/elm-app-jwt-api.git",
+    "repository": "https://github.com/kmaida/elm-with-jwt-api.git",
     "license": "MIT",
     "source-directories": [
         "src",
@@ -191,7 +191,7 @@ There's one more thing we should do before we start writing Elm, and that is to 
 
 ## Chuck Norris Quoter App
 
-We're going to build an app that does more than echo "Hello world". We're going to connect to an API to request and display data and [in part two](https://github.com/YiMihi/elm-with-jwt/blob/master/authentication-in-elm-adding-authentication.md), we'll add registration, login, and make authenticated requests--but we'll start simple. First we'll display a button that appends a string to our model each time it's clicked.
+We're going to build an app that does more than echo "Hello world". We're going to connect to an API to request and display data and in part two, we'll add registration, login, and make authenticated requests--but we'll start simple. First we'll display a button that appends a string to our model each time it's clicked.
 
 Once we've got things running, our app should look like this:
 
@@ -267,7 +267,7 @@ blockquote {
 
 We're ready to start writing Elm. Create a file in the `/src` folder called `Main.elm`. The full code for this step is available in the source repository on GitHub:
 
- **[Main.elm - Introduction to Elm](https://github.com/YiMihi/elm-app-jwt-api/blob/20dc6e6e8c049f68dbf47492933659b9d19103c1/src/Main.elm)**
+ **[Main.elm - Introduction to Elm](https://github.com/kmaida/elm-with-jwt-api/blob/20dc6e6e8c049f68dbf47492933659b9d19103c1/src/Main.elm)**
  
 Our file structure should now look like this:
 
@@ -453,7 +453,7 @@ Clicking the button will call the API to get and display random Chuck Norris quo
 
 Once we're successfully getting quotes, our source code will look like this: 
 
-**[Main.elm - Calling the API](https://github.com/YiMihi/elm-app-jwt-api/blob/7713fb80e9b2f48558395bf2df0cff891121fa7e/src/Main.elm)**
+**[Main.elm - Calling the API](https://github.com/kmaida/elm-with-jwt-api/blob/7713fb80e9b2f48558395bf2df0cff891121fa7e/src/Main.elm)**
 
 The first thing we need to do is import the dependencies necessary for making HTTP requests:
 
