@@ -63,11 +63,11 @@ Authentication and authorization are fundamental to multi-tenant architectures. 
 
 {% include tweet_quote.html quote_text="Authentication and authorization are fundamental to multi-tenant architectures." %}
 
-To build multi-tenant applications within Auth0, you only need to create separate applications for each of your tenants from Dashboard → Applications → Create App:
+Learn more about how to use multi-tenant applications within Auth0 in the following link: [Using Auth0 with Multi-tenant Apps](https://auth0.com/docs/saas-apps).
 
 ![Creating Auth0 Applications](https://cdn.auth0.com/blog/multi-tenancy/applications.png)
 
-You can then use the [Auth0 API](https://auth0.com/docs/auth-api) to authenticate and authorize users for each application easily:
+You can use the [Auth0 API](https://auth0.com/docs/auth-api) to authenticate and authorize users for each application easily:
 
 * **Authenticate** users established by their email address. This could either be through custom email/password combinations with a rule set up to determine the tenant via company email (home realm discovery), or via identity federation such as LDAP, Active Directory, or custom SAML providers.
 * **Authorize** users by assigning different roles within the company. This would be managed through metadata.
