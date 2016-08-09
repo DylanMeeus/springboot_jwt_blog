@@ -28,12 +28,12 @@ related:
 
 ---
 
-**TL;DR:** The JavaScript ecosystem has a plethora of libraries and frameworks for front-end development. ReactJS is one of the young and shiny new library on the block. Even though it's only a few years old, it has gained lots of traction from JavaScript developers around the world. One of ReactJS's selling points is the ability to easily build reusable components. Another salient point is that not only does it perform on the client side, it can also be rendered on the server side.
+**TL;DR:** The JavaScript ecosystem has a plethora of libraries and frameworks for front-end development. ReactJS is one of the young and shiny new libraries on the block. Even though it's only a few years old, it has gained lots of traction from JavaScript developers around the world. One of ReactJS's selling points is the ability to easily build reusable components. Another salient point is that not only does it perform on the client side, it can also be rendered on the server side.
 
 ---
 
 ## Why React?
-**ReactJS** was built by Facebook to solve one problem: building large applications with data that changes over time. It utilizes the concept of the Virtual DOM that selectively renders subtrees of nodes based upon state changes. The component based architecture that **ReactJs** emulates makes it incredible to work with. Components in **ReactJS** are self-contained views that get their data from triggered events or as inherited property from other components. There are basically two main ways of writing components. Props and States in **ReactJs** also makes it fun to work with. Learn more about the basic concepts of React [here](https://scotch.io/tutorials/learning-react-getting-started-and-concepts).
+**ReactJS** was built by Facebook to solve one problem: building large applications with data that changes over time. It utilizes the concept of the Virtual DOM that selectively renders subtrees of nodes based upon state changes. The component based architecture that **ReactJs** emulates makes it incredible to work with. Components in **ReactJS** are self-contained views that get their data from triggered events or as inherited property from other components. There are essentially two main ways of writing components, using `React.createClass` and extending `React.Component`. Props and States in **ReactJs** also makes it fun to work with. Learn more about the basic concepts of React [here](https://scotch.io/tutorials/learning-react-getting-started-and-concepts).
 
 _Using React.createClass Syntax_
 
@@ -110,7 +110,7 @@ The first step is to set up a development environment for your **ReactJS** proje
   * Run this command in your terminal:  `npm install react react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react webpack webpack-dev-server --save`
   * Create a `webpack.config.js` file. This file handles bundling all our assets, converting JSX to JS files and launching the development server. Bundling refers to combining, compiling and minimizing multiple files into just one file to be served to the client.
 
-**Note:** JSX is a JavaScript syntax extension that looks similar to XML. You can write concise HTML/XML-like structures in the same file as you write JavaScript code. With Babel, JSX files can be transpiled into actual javascript code.
+**Note:** [JSX](https://facebook.github.io/jsx/) is a JavaScript syntax extension that looks similar to XML. You can write concise HTML/XML-like structures in the same file as you write JavaScript code. With Babel, JSX files can be transpiled into actual javascript code.
 
 
 A sample _webpack.config.js_ is shown below:
@@ -196,11 +196,11 @@ To make things really easy, add a start option to the scripts object in `package
 }
 ```
 
-The code above shows we have added `--hot` option. This simply enables the the hot reloading once you start your app by running `npm run start`.
+The code above shows we have added the `--hot` option. This enables the hot reloading once you start your app by running `npm run start`.
 
 ## Routing
 
-Routing is a very essential part of any application. The most popular choice for doing this in a **ReactJS** application is [React Router](https://github.com/rackt/react-router). In fact, a lot of developers tip it as the official routing system for **ReactJS**. When you want to deal with routing, you have to install the React Router module in your project as shown below:
+Routing is an essential part of any application. The most popular choice for doing this in a **ReactJS** application is [React Router](https://github.com/rackt/react-router). In fact, a lot of developers consider it the official routing system for **ReactJS**. When you want to deal with routing, you have to install the React Router module in your project as shown below:
 
 ```bash
 npm install --save react-router
@@ -235,7 +235,7 @@ You actually might not need React Router. More info [here](https://medium.com/@t
 
 ## Internationalization (I18N)
 
-There are over 6 billion people in the world. These people speak different languages. One way of making your app available to billions of people around the world is providing support for native languages in your app. In a **ReactJS** project, you can easily achieve that with a very good and well tested library [react-intl](https://github.com/yahoo/react-intl). By default, [react-intl](https://github.com/yahoo/react-intl) ships with the locale data for English built-in to the library's runtime. This library provides React components and an API to format dates, numbers, and strings, including pluralization and handling translations. Oh, it supports over 150 languages!
+There are over 7 billion people in the world. These people speak different languages. One way of making your app available to billions of people around the world is providing support for native languages in your app. In a **ReactJS** project, you can easily achieve that with a very good and well tested library [react-intl](https://github.com/yahoo/react-intl). By default, [react-intl](https://github.com/yahoo/react-intl) ships with the locale data for English built-in to the library's runtime. This library provides React components and an API to format dates, numbers, and strings, including pluralization and handling translations. Oh, it supports over 150 languages!
 
 ![Internationalization Translation](https://cdn.auth0.com/blog/my-folder:intl-translation.png)
 
@@ -460,11 +460,11 @@ Facebook uses [Jest](https://github.com/facebook/jest) to test React application
 
 ## Generators and Boilerplates
 
-A lot of tools have been mentioned in this post in relation to setting up different parts of a **ReactJS** app. If you don't intend writing your app from scratch, there are lots of generators and boilerplates that tie all these tools together to give you a great starting point for your app. One fantastic one is [React Starter Kit](https://github.com/kriasoft/react-starter-kit). It has a [Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack). It's an isomorphic web app boilerplate that contains almost everything you need to build a **ReactJS** app. Another boilerplate is [React Static boilerplate](https://github.com/kriasoft/react-static-boilerplate), it helps you build a web app that can be hosted directly from CDNs like Firebase and Github Pages. Other alternatives are [React redux starter kit](https://github.com/davezuko/react-redux-starter-kit) and [React webpack generator](https://github.com/newtriks/generator-react-webpack).
+A lot of tools have been mentioned in this post in relation to setting up different parts of a **ReactJS** app. If you don't intend writing your app from scratch, there are lots of generators and boilerplates that tie all these tools together to give you a great starting point for your app. One fantastic example is [React Starter Kit](https://github.com/kriasoft/react-starter-kit). It has a [Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack). It's an isomorphic web app boilerplate that contains almost everything you need to build a **ReactJS** app. Another boilerplate is [React Static boilerplate](https://github.com/kriasoft/react-static-boilerplate), it helps you build a web app that can be hosted directly from CDNs like Firebase and Github Pages. Other alternatives are [React redux starter kit](https://github.com/davezuko/react-redux-starter-kit) and [React webpack generator](https://github.com/newtriks/generator-react-webpack).
 
 
 ## Conclusion
 
-There are several tools that will help bootstrap your React app, we looked at a couple that we consider are quite good, that will have your application up and running in no time. But feel free to search for your own tools, and if you think that we are missing something, let us know in the comments. Setting up a React project should be painless!
+There are several tools that will help bootstrap your React app, we looked at a couple that we consider quite good and will have your application up and running in no time. But feel free to search for your own tools, and if you think that we are missing something, let us know in the comments. Setting up a React project should be painless!
 
 {% include tweet_quote.html quote_text="Setting up a React project should be painless!" %}
