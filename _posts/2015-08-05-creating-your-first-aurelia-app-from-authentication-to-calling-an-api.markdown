@@ -39,7 +39,7 @@ Aurelia is a client-side JavaScript framework that has been gaining a lot of pop
 
 ## Getting Started
 
-Getting started with Aurelia is a piece of cake. The framework's [getting started guide](http://aurelia.io/get-started.html) offers an in-depth set of instructions and a [seed project](https://github.com/aurelia/skeleton-navigation/releases) that make it very simple to get up and running quickly.
+Getting started with Aurelia is a piece of cake. The framework's [getting started guide](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start/1) offers an in-depth set of instructions and a [seed project](https://github.com/aurelia/skeleton-navigation/releases) that make it very simple to get up and running quickly.
 
 This tutorial will expand upon the seed project and show how to add JWT authentication to a random quote application. We'll be using the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample) as our backend to show how we can retrieve a JWT upon login, save it in local storage, and send it along with every subsequent request. Our app will let all visitors retrieve a random quote, but logged-in users will be able to get a super-secret quote.
 
@@ -157,9 +157,9 @@ We'll now need to set up the application's routing configuration. Let's first se
   <template>
     <require from='./nav-bar'></require>
 
-    <nav-bar router.bind="router"></nav-bar>  
+    <nav-bar router.bind="router"></nav-bar>
 
-    <div class="container">      
+    <div class="container">
       <router-view></router-view>
     </div>
 
@@ -247,7 +247,7 @@ export default class {
       // they should be placed in the navigation bar
       config.map([
           { route: ['','welcome'], name: 'welcome', moduleId: './welcome', nav: true, title:'Welcome' },
-          { route: 'random-quote', name: 'random-quote', moduleId: './random-quote', nav: true, title:'Random Quote' },          
+          { route: 'random-quote', name: 'random-quote', moduleId: './random-quote', nav: true, title:'Random Quote' },
           // The secret-quote route is the only one that the user needs to be logged in to see,  so we set auth: true
           { route: 'secret-quote', name: 'secret-quote', moduleId: './secret-quote', nav: true, title:'Super Secret Quote', auth: true },
           { route: 'signup', name: 'signup', moduleId: './signup', nav: false, title:'Signup', authRoute: true },
@@ -295,7 +295,7 @@ Let's start at the top and setup the navigation bar.
     <li><a href="/#/logout">Logout</a></li>
   </ul>
 
-  ...      
+  ...
 ```
 Notice here that we're running a filter on the repeated navigation items with `authFilter: isAuthenticated`. This allows us to hide any nav menu items that are to be protected if the user isn't authenticated, and this is how we will hide the `super-secret-quote` menu item when the user isn't logged in. We're also conditionally showing the Signup, Login, and Logout links. See the [GitHub repo](https://github.com/chenkie/aurelia-jwt-auth/blob/master/client/src/nav-bar.html) for the rest of the markup.
 
@@ -468,7 +468,7 @@ With all this in place, we should now be able to signup, login, and logout users
 With signup, login, and logout in place, we now need to create the files for our quote routes. Let's first take care of the `random-quote` route.
 
 ```html
-  <!-- client/src/random-quote.js -->
+  <!-- client/src/random-quote.html -->
 
   <template>
     <section class="col-sm-12">
@@ -588,7 +588,7 @@ login() {
       localStorage.setItem('id_token', token);
       this.isAuthenticated = true;
     }
-  });   
+  });
 }
 
 ```
@@ -636,7 +636,7 @@ To log the user out, simply remove their profile and JWT from local storage.
 logout() {
   localStorage.removeItem('profile');
   localStorage.removeItem('id_token');
-  this.isAuthenticated = false;   
+  this.isAuthenticated = false;
 }
 ```
 
