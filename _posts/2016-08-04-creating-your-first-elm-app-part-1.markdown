@@ -17,8 +17,8 @@ tags:
 - javascript
 - authentication
 related:
+- 2016-08-09-creating-your-first-elm-app-part-2
 - 2016-07-14-create-an-app-in-vuejs-2
-- 2016-06-23-creating-your-first-laravel-app-and-adding-authentication
 - 2016-04-13-authentication-in-golang
 ---
 
@@ -567,4 +567,4 @@ Elm always infers types. If we've declared type definitions, Elm checks its infe
 
 ## Recap and Next Steps
 
-We've covered installing and using the Elm language and learned how to create our first app. We've also integrated with an external API through HTTP. You should now be familiar with Elm's basic syntax, type annotation, and compiler errors. If you'd like, take a little more time to familiarize with [Elm's documentation](http://elm-lang.org/docs). The [Elm FAQ](http://elm-community.github.io/elm-faq/) is another great resource from the Elm developer community. In the second half of this tutorial (soon to come), we'll take a deeper dive into **authenticating our Chuck Norris Quoter app using JSON Web Tokens**. Stay tuned!
+We've covered installing and using the Elm language and learned how to create our first app. We've also integrated with an external API through HTTP. You should now be familiar with Elm's basic syntax, type annotation, and compiler errors. If you'd like, take a little more time to familiarize with [Elm's documentation](http://elm-lang.org/docs). The [Elm FAQ](http://elm-community.github.io/elm-faq/) is another great resource from the Elm developer community. In the second half of this tutorial: [Creating your First Elm App - Part 2](https://auth0.com/blog/creating-your-first-elm-app-part-2/), we'll take a deeper dive into **authenticating our Chuck Norris Quoter app using JSON Web Tokens**.
