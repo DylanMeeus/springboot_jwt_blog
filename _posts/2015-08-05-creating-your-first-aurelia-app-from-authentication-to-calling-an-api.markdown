@@ -41,6 +41,8 @@ Aurelia is a client-side JavaScript framework that has been gaining a lot of pop
 
 Getting started with Aurelia is a piece of cake. The framework's [getting started guide](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start/1) offers an in-depth set of instructions and a [seed project](https://github.com/aurelia/skeleton-navigation/releases) that make it very simple to get up and running quickly.
 
+Aurela has a cli tool. You can run `npm install -g aurelia-cli` to get the new cli tool. Then just run `au new` and the CLI will setup your project and you'll have an app ready for deploy within a few minutes. You can read more about it in the [CLI documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli).
+
 This tutorial will expand upon the seed project and show how to add JWT authentication to a random quote application. We'll be using the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample) as our backend to show how we can retrieve a JWT upon login, save it in local storage, and send it along with every subsequent request. Our app will let all visitors retrieve a random quote, but logged-in users will be able to get a super-secret quote.
 
 ![](https://cdn.auth0.com/blog/aurelia/aurelia-welcome.png?dl=1)
