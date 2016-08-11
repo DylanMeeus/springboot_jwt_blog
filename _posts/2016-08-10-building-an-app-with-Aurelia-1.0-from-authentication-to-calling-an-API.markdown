@@ -29,7 +29,7 @@ related:
 
 -----
 
-**TL;DR**: Aurelia is a great client-side JavaScript framework and adding JWT authentication to Aurelia apps is easy with the [aurelia-auth package](https://github.com/paulvanbladel/aurelia-auth). Check out the [GitHub repo](https://github.com/chenkie/aurelia-jwt-auth) for this article to find out how to add authentication to your Aurelia app.
+**TL;DR**: Aurelia is a great client-side JavaScript framework and adding JWT authentication to Aurelia apps is easy with the [aurelia-auth package](https://github.com/paulvanbladel/aurelia-auth). Check out the [GitHub repo](https://github.com/auth0/aurelia-quote-app) for this article to find out how to add authentication to your Aurelia app.
 
 -----
 
@@ -41,7 +41,7 @@ Aurelia is a client-side JavaScript framework that has been gaining a lot of pop
 
 Getting started with Aurelia is a piece of cake. The framework's [getting started guide](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start/1) offers an in-depth set of instructions and a [seed project](https://github.com/aurelia/skeleton-navigation/releases) that make it very simple to get up and running quickly.
 
-A lot of work has gone into Aurelia 1.0. Here are a few that you should know:
+A lot of work has gone into Aurelia 1.0. Here are a few things that you should know:
 
 * Aurelia 1.0 now ships with a CLI tool. You can run `npm install -g aurelia-cli` to get the new CLI tool. Then just run `au new` and the CLI will setup your project and you'll have an app ready for deploy within a few minutes. You can read more about it in the [CLI documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli).
 * Aurelia now fully supports Webpack. As a result, there are two webpack skeletons, one for Babel and one for Typescript. You can read about it in the new [webpack documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/setup-webpack).
@@ -49,7 +49,7 @@ A lot of work has gone into Aurelia 1.0. Here are a few that you should know:
 
 You can check out everything you need to know about the Aurelia 1.0 release [here](http://blog.durandal.io/2016/07/27/aurelia-1-0-is-here/).
 
-This tutorial is simply an ugrade to Ryan's excellent article on [Creating your first Aurelia app](https://auth0.com/blog/creating-your-first-aurelia-app-from-authentication-to-calling-an-api/). We'll still focus on the same app but we'll build it out from the new Aurelia CLI and totally do away with having JSPM packages in our app.
+This tutorial is simply an ugrade to Ryan's excellent article on [Creating your first Aurelia app](https://auth0.com/blog/creating-your-first-aurelia-app-from-authentication-to-calling-an-api/). We'll still focus on building the same app but now from the Aurelia CLI and we'll totally do away with having JSPM packages in our app.
 
 This tutorial will show how to add JWT authentication to a random quote application. We'll be using the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample) as our backend to show how we can retrieve a JWT upon login, save it in local storage, and send it along with every subsequent request. Our app will let all visitors retrieve a random quote, but logged-in users will be able to get a super-secret quote. We will use the Aurelia CLI to build our app.
 
@@ -63,13 +63,17 @@ To help us with our token dealings on the front-end, we'll use the awesome [aure
 
 ### Using The CLI
 
-If you don't have the CLI installed, run `npm install -g aurelia-cli` to install the new tool. Then just run `au new` to get the CLI wizard started. Choose the custom option, select `Babel` as the default transpiler, select `none` for the CSS processor, select `no` for the unit testing, also select your editor, then go ahead to install the dependencies and create the project. Once the dependencies are installed (it will take a few minutes), your project is ready to go. Just change directory into the project folder and run it by typing `au run --watch`. This will run the app and watch the project's source for changes. Open a web browser and navigate to the url indicated in the CLI's output. If you've got everything setup correctly, you should see the message "Hello World!" in the browser.
+If you don't have the CLI installed, run `npm install -g aurelia-cli` to install the new tool. Then just run `au new` to get the CLI wizard started. Choose the custom option, select `Babel` as the default transpiler, select `none` for the CSS processor, select `no` for the unit testing, also select your editor, then go ahead to install the dependencies and create the project.
+
+Once the dependencies are installed (it will take a few minutes), your project is ready to go. Just change directory into the project folder and run it by typing `au run --watch`. This will run the app and watch the project's source for changes. Open a web browser and navigate to the url indicated in the CLI's output. If you've got everything setup correctly, you should see the message "Hello World!" in the browser.
 
 ![](https://cdn.auth0.com/blog/blog/aurelia-cli-1.png)
 
 ![](https://cdn.auth0.com/blog/blog/aurelia-cli-2.png)
 
 ![](https://cdn.auth0.com/blog/blog/aurelia-cli-3.png)
+
+_Aurelia CLI_
 
 ### Application Bootstrap Config
 
@@ -130,7 +134,7 @@ export function configure(aurelia) {
 
 ```
 
-You can see here that we're importing a file called `auth-config.js` and that it's the export from this file that is passed to the `baseConfig` for the plugin. The `auth-config` file will let us override the aurelia-auth plugin's defaults with our own specifics. Let's create it now:
+You can see here that we're importing a file called `auth-config.js` and that it's the export from this file that is passed to the `baseConfig` for the plugin. The `auth-config` file will let us override the aurelia-auth plugin's defaults with our own specifics. Worthy of mention is the `environment` file that we imported. With Aurelia 1.0, we can easily define the plugins and resources we want to load in either `debug`, `testing` or `production` mode. Now, Let's create the `auth-config` file:
 
 ```js
 // src/auth-config.js
@@ -723,8 +727,8 @@ For more details, including how to protect certain route in your app, check out 
 
 ## Wrapping Up
 
-Aurelia 1.0 shipped with great improvements to tooling, application set-up and focus on enhancing the ability to build mobile apps with it. An alternative to the `aurelia-auth` plugin is [https://github.com/SpoonX/aurelia-authentication](https://github.com/SpoonX/aurelia-authentication). You can definitely try it out while working your way through the tutorial.
+Aurelia 1.0 shipped with great improvements to tooling, application set-up and focus on enhancing the ability to build mobile apps with it. If you don't want to us the `aurelia-auth` plugin, there is a good alternative, which is [https://github.com/SpoonX/aurelia-authentication](https://github.com/SpoonX/aurelia-authentication). You can definitely try it out while working your way through the tutorial.
 
-The [Aurelia documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start) is a great place to checkout all the improvements and new things that came bundled with Aurelia 1.0.
+The [Aurelia documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start) is a great place to checkout all the improvements and new things that came bundled with Aurelia 1.0. Do you like the improvements? Have you started using it in production? Let me know your thoughts about Aurelia 1.0 in the comments section below 😊
 
 
