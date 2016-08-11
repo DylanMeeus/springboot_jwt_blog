@@ -37,95 +37,103 @@ Aurelia is a client-side JavaScript framework that has been gaining a lot of pop
 
 {% include tweet_quote.html quote_text="Aurelia anticipates common application needs and provides simple conventions for accomplishing them." %}
 
-## Getting Started
+## Aurelia 1.0 Overview
 
 Getting started with Aurelia is a piece of cake. The framework's [getting started guide](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start/1) offers an in-depth set of instructions and a [seed project](https://github.com/aurelia/skeleton-navigation/releases) that make it very simple to get up and running quickly.
 
-Aurela 1.0 ships with a cli tool. You can run `npm install -g aurelia-cli` to get the new cli tool. Then just run `au new` and the CLI will setup your project and you'll have an app ready for deploy within a few minutes. You can read more about it in the [CLI documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli).
+A lot of work has gone into Aurelia 1.0. Here are a few that you should know:
 
-In this tutorial, we will use the Aurelia CLI to build our app.
+* Aurelia 1.0 now ships with a CLI tool. You can run `npm install -g aurelia-cli` to get the new CLI tool. Then just run `au new` and the CLI will setup your project and you'll have an app ready for deploy within a few minutes. You can read more about it in the [CLI documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli).
+* Aurelia now fully supports Webpack. As a result, there are two webpack skeletons, one for Babel and one for Typescript. You can read about it in the new [webpack documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/setup-webpack).
+* The documentation now supports mobile devices and also new contents on data-binding, templating, router configuration and much more!
 
-This tutorial will expand upon the seed project and show how to add JWT authentication to a random quote application. We'll be using the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample) as our backend to show how we can retrieve a JWT upon login, save it in local storage, and send it along with every subsequent request. Our app will let all visitors retrieve a random quote, but logged-in users will be able to get a super-secret quote.
+You can check out everything you need to know about the Aurelia 1.0 release [here](http://blog.durandal.io/2016/07/27/aurelia-1-0-is-here/).
+
+This tutorial is simply an ugrade to Ryan's excellent article on [Creating your first Aurelia app](https://auth0.com/blog/creating-your-first-aurelia-app-from-authentication-to-calling-an-api/). We'll still focus on the same app but we'll build it out from the new Aurelia CLI and totally do away with having JSPM packages in our app.
+
+This tutorial will show how to add JWT authentication to a random quote application. We'll be using the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample) as our backend to show how we can retrieve a JWT upon login, save it in local storage, and send it along with every subsequent request. Our app will let all visitors retrieve a random quote, but logged-in users will be able to get a super-secret quote. We will use the Aurelia CLI to build our app.
 
 ![](https://cdn.auth0.com/blog/aurelia/aurelia-welcome.png?dl=1)
 
-### Two Ways to Get Going
+## Let's Get Started
 
-You can go through the [getting started](http://aurelia.io/get-started.html) guide that Aurelia provides and follow along, changing files in their seed project as we go. Alternatively, you can clone the [the project for this tutorial](https://github.com/chenkie/aurelia-jwt-auth) and follow along from there.
-
-If you are starting from Aurelia's seed project, be sure to split it out into two subdirectories, `client` and `server`. The `server` directory is where the [NodeJS JWT authentication sample](https://github.com/auth0/nodejs-jwt-authentication-sample) will go.
-
-To get the server setup, you can follow the instructions in the readme for the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample).
-
-### A Little Help from Aurelia-Auth
+Follow the instructions in the readme for the [NodeJS JWT Authentication Sample](https://github.com/auth0/nodejs-jwt-authentication-sample) and get the server running.
 
 To help us with our token dealings on the front-end, we'll use the awesome [aurelia-auth plugin](https://github.com/paulvanbladel/aurelia-auth) provided by Paul van Bladel, along with some pointers from his [sample app repo](https://github.com/paulvanbladel/aurelia-auth-sample).
 
-## Setting up the Client Config Files
+### Using The CLI
 
-There's a bit of configuration setup to do, but once it's in place, things will be a breeze.
+If you don't have the CLI installed, run `npm install -g aurelia-cli` to install the new tool. Then just run `au new` to get the CLI wizard started. Choose the custom option, select `Babel` as the default transpiler, select `none` for the CSS processor, select `no` for the unit testing, also select your editor, then go ahead to install the dependencies and create the project. Once the dependencies are installed (it will take a few minutes), your project is ready to go. Just change directory into the project folder and run it by typing `au run --watch`. This will run the app and watch the project's source for changes. Open a web browser and navigate to the url indicated in the CLI's output. If you've got everything setup correctly, you should see the message "Hello World!" in the browser.
 
-After doing `npm install` and `jspm install` to pull in all the dependencies, we'll need to also install the `aurelia-auth` plugin. We can do this with `jspm` within the client directory:
+![](https://cdn.auth0.com/blog/blog/aurelia-cli-1.png)
 
-  jspm install github:paulvanbladel/aurelia-auth
+![](https://cdn.auth0.com/blog/blog/aurelia-cli-2.png)
+
+![](https://cdn.auth0.com/blog/blog/aurelia-cli-3.png)
 
 ### Application Bootstrap Config
 
 Let's give our app the name `quotes-app` and reflect this in the `body` tag of `index.html` where the app loads.
 
 ```html
-  <!-- client/index.html -->
+  <!-- index.html -->
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Aurelia</title>
+    </head>
 
-  ...
-
-  <body aurelia-app="quotes-app">
-    <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
-    <script>
-      System.config({
-        "paths": {
-          "*": "dist/*.js"
-        }
-      });
-    </script>
-    <script>
-      System.import('aurelia-bootstrapper');
-    </script>
-  </body>
-
-  ...
+    <body aurelia-app="quotes-app">
+      <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+    </body>
+  </html>
 
 ```
+
+We only need to reference one script file `vendor-bundle.js`. There are two bundles that are defined by default in an app created via the CLI: `app-bundle.js`, which contains your code and `vendor-bundle.js` which contains all third party libraries.
 
 Aurelia looks for a JavaScript file with the same name in the `src` directory for the main app config details. Let's create that now:
 
 ```js
 
-// client/src/quotes-app.js
+// src/quotes-app.js
 
+import environment from './environment';
 import config from './auth-config';
 
-export function configure(aurelia) {
+//Configure Bluebird Promises.
+//Note: You may want to use environment-specific configuration.
+Promise.config({
+  warnings: {
+    wForgottenReturn: false
+  }
+});
 
-  // Here we provide configuration for our application and can
-  // bring in the configuration settings we put within auth-config.js
-  // that will tell the aureliauth plugin the specific settings
-  // for our application's authentication context.
+export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging()
-    .plugin('paulvanbladel/aureliauth', (baseConfig) => {
-         baseConfig.configure(config);
-    });
+    .plugin('aurelia-auth', (baseConfig) =>  {
+      baseConfig.configure(config);
+    })
+    .feature('resources');
 
-  aurelia.start().then(a => a.setRoot());
+  if (environment.debug) {
+    aurelia.use.developmentLogging();
+  }
+
+  if (environment.testing) {
+    aurelia.use.plugin('aurelia-testing');
+  }
+
+  aurelia.start().then(() => aurelia.setRoot());
 }
+
 ```
 
 You can see here that we're importing a file called `auth-config.js` and that it's the export from this file that is passed to the `baseConfig` for the plugin. The `auth-config` file will let us override the aurelia-auth plugin's defaults with our own specifics. Let's create it now:
 
 ```js
-// client/src/auth-config.js
+// src/auth-config.js
 
 // Specific settings for our application's
 // authentication context. These will override
@@ -150,14 +158,81 @@ var config = {
 export default config;
 ```
 
-The API is accessible at `localhost:3001`, so we set this as our `baseUrl`. Next, we set up the proper endpoints that we'll need for signing users up and logging them in. We also need to override the `tokenName` with what our API serves, which in this case is `id_token`. Finally, we say that we want to redirect the user to the `welcome` view once they login.
+The API is accessible at `localhost:3001`, so we set this as our `baseUrl`. Next, we will set up the proper endpoints needed for signing users up and logging them in. We also need to override the `tokenName` with what our API serves, which in this case is `id_token`. Finally, we say that we want to redirect the user to the `welcome` view once they login.
+
+## Set Up Dependencies
+
+In this tutorial, we'll need to pull in some external libraries to help us with authentication and beautification of the app. We need **bootstrap**, **jquery**, [aurelia-auth](https://github.com/paulvanbladel/aurelia-auth) and **aurelia-http-client**. To get them set up, we'll install them with NPM. So, execute the following on the terminal:
+
+```bash
+
+npm install aurelia-auth aurelia-http-client bootstrap jquery --save
+
+```
+
+With these libraries installed, we now need to tell **Aurelia** which application bundle they should be included in and how to properly configure them with the module system. Open up the `aurelia_project` directory, you'll see an `aurelia.json` file. This file contains all the information that the Aurelia CLI uses to build our project. Scroll down, you'll see a `bundles` section. Let's add our dependencies like so:
+
+```js
+"bundles": [
+      {
+        "name": "app-bundle.js",
+        "source": [
+          "[**/*.js]",
+          "**/*.{css,html}"
+        ]
+      },
+      {
+        "name": "vendor-bundle.js",
+        "prepend": [
+          "node_modules/bluebird/js/browser/bluebird.core.js",
+          "scripts/require.js"
+        ],
+        "dependencies": [
+        ...
+        ...
+        "aurelia-auth",
+        "aurelia-http-client",
+        "jquery",
+        "bootstrap",
+          {
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.min",
+            "deps": ["jquery"],
+            "exports": "$",
+            "resources": [
+              "css/bootstrap.css"
+            ]
+          },
+          {
+            "name": "aurelia-auth",
+            "path": "../node_modules/aurelia-auth/dist/amd",
+            "main": "aurelia-auth"
+          },
+          {
+            "name": "aurelia-fetch-client",
+            "path": "../node_modules/aurelia-fetch-client/dist/amd",
+            "main": "aurelia-fetch-client"
+          },
+          {
+            "name": "aurelia-http-client",
+            "path": "../node_modules/aurelia-http-client/dist/amd",
+            "main": "aurelia-http-client"
+          },
+          ....
+        ]
+      }
+    ]
+  ```
+
+You can read more about configuring 3rd party libraries in the documentation on the [Aurelia CLI](https://github.com/aurelia/cli).
 
 ### Application Routing Config
 
 We'll now need to set up the application's routing configuration. Let's first set up the HTML that will require and load our nav bar and other views:
 
 ```html
-  <!-- client/src/app.html -->
+  <!-- src/app.html -->
   <template>
     <require from='./nav-bar'></require>
 
@@ -173,29 +248,25 @@ We'll now need to set up the application's routing configuration. Let's first se
 Here, we are requiring the `nav-bar` and binding it to the router. We will serve our views from the `<router-view>` within our containing `<div>`.
 
 ```js
-// client/src/app.js
-
-import 'bootstrap';
-import 'bootstrap/css/bootstrap.css!';
-
+// src/app.js
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import HttpClientConfig from 'paulvanbladel/aureliauth/app.httpClient.config';
+import {FetchConfig} from 'aurelia-auth';
 import AppRouterConfig from 'router-config';
 
 // Using Aurelia's dependency injection, we inject Aurelia's router,
 // the aurelia-auth http client config, and our own router config
-// with the @inject decorator.
-@inject(Router, HttpClientConfig, AppRouterConfig)
+// with the @inject decorator
+@inject(Router, FetchConfig, AppRouterConfig)
 
 export class App {
 
-  constructor(router, httpClientConfig, appRouterConfig) {
+  constructor(router, fetchConfig, appRouterConfig) {
 
     this.router = router;
 
     // Client configuration provided by the aureliauth plugin
-    this.httpClientConfig = httpClientConfig;
+    this.fetchConfig = fetchConfig;
 
     // The application's configuration, including the
     // route definitions that we've declared in router-config.js
@@ -204,24 +275,24 @@ export class App {
 
   activate() {
 
-    // Here, we run the configuration when the app loads.
-    this.httpClientConfig.configure();
+    // Here we run the configuration when the app loads
+    console.log(this.fetchConfig);
+    this.fetchConfig.configure();
     this.appRouterConfig.configure();
 
   };
 }
 ```
 
-The HTTP configuration that `aurelia-auth` provides is what handles adding the JWT as a header if the user is authenticated. The `httpClientConfig` file has logic that checks for the existence of a token in `localstorage` and then adds an `Authorization` header with a value of `Bearer <token>` if one exists. The token will be sent for all HTTP requests to the API but will obviously only be needed for protected resources.
+The HTTP configuration that `aurelia-auth` provides is what handles adding the JWT as a header if the user is authenticated. The `fetchConfig` file has logic that checks for the existence of a token in `localstorage` and then adds an `Authorization` header with a value of `Bearer <token>` if one exists. The token will be sent for all HTTP requests to the API but will obviously only be needed for protected resources.
 
 ![](https://cdn.auth0.com/blog/aurelia/aurelia-auth-bearer.png?dl=1)
 
 We can keep our routing logic within the main `app.js` file, as is done in many Aurelia projects, but in our case, we'll put this configuration in a separate file called `router-config.js` that we are injecting. Let's set up this routing configuration:
 
 ```js
-// client/src/router-config.js
-
-import {AuthorizeStep} from 'paulvanbladel/aureliauth';
+// src/router-config.js
+import {AuthorizeStep} from 'aurelia-auth';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 
@@ -241,12 +312,12 @@ export default class {
 
       config.title = 'Random Quotes App';
 
-      // Here, we hook into the authorize extensibility point
+      // Here we hook into the authorize extensibility point
       // to add a route filter so that we can require authentication
       // on certain routes
       config.addPipelineStep('authorize', AuthorizeStep);
 
-      // Here, we describe the routes we want along with information about them
+      // Here we describe the routes we want along with information about them
       // such as which they are accessible at, which module they use, and whether
       // they should be placed in the navigation bar
       config.map([
@@ -301,14 +372,13 @@ Let's start at the top and setup the navigation bar.
 
   ...
 ```
-Notice here that we're running a filter on the repeated navigation items with `authFilter: isAuthenticated`. This allows us to hide any nav menu items that are to be protected if the user isn't authenticated, and this is how we will hide the `super-secret-quote` menu item when the user isn't logged in. We're also conditionally showing the Signup, Login, and Logout links. See the [GitHub repo](https://github.com/chenkie/aurelia-jwt-auth/blob/master/client/src/nav-bar.html) for the rest of the markup.
+Notice here that we're running a filter on the repeated navigation items with `authFilter: isAuthenticated`. This allows us to hide any nav menu items that are to be protected if the user isn't authenticated, and this is how we will hide the `super-secret-quote` menu item when the user isn't logged in. We're also conditionally showing the Signup, Login, and Logout links. See the [GitHub repo](https://github.com/auth0/aurelia-quote-app/blob/master/src/nav-bar.html) for the rest of the markup.
 
 ```js
-// client/src/nav-bar.js
-
+// src/nav-bar.js
 import {bindable} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
-import {AuthService} from 'paulvanbladel/aureliauth';
+import {AuthService} from 'aurelia-auth';
 
 @inject(AuthService)
 
@@ -327,30 +397,33 @@ export class NavBar {
     return this.auth.isAuthenticated();
   };
 }
+
 ```
 
 Here in the `nav-bar.js` file, we have a method that checks whether the user is logged in, which is what we hook into in the view.
 
-The Aurelia seed comes with a welcome route, but in our case, we can trim it down to be simpler.
+Create a new file `welcome.html` and add code to it like so:
 
 ```html
-  <!-- client/src/welcome.html -->
+  <!-- src/welcome.html -->
 
-  <template>
-    <section>
-      <h2>${heading}</h2>
+ <template>
+  <section class="au-animate">
+    <h2>${heading}</h2>
 
-      <div class="well">
-        <h4>${info}</h4>
-      </div>
+    <div class="well">
+      <h4>${info}</h4>
+    </div>
 
-    </section>
-  </template>
+  </section>
+ </template>
+
 ```
-The JavaScript becomes simpler as well.
+
+Create the javascript file `welcome.js` that will feed the html file with content.
 
 ```js
-// client/src/welcome.js
+// src/welcome.js
 
 export class Welcome {
 
@@ -367,7 +440,7 @@ Next, let's set up the `signup`, `login`, and `logout` routes.
 ### Signup
 
 ```html
-  <!-- client/src/signup.html -->
+  <!-- src/signup.html -->
 
   ...
 
@@ -390,10 +463,10 @@ Next, let's set up the `signup`, `login`, and `logout` routes.
 In this view, we're providing two `<input>`s that take the user's email and password. We've also got an alert box at the bottom to show the user any errors that are returned. We'll need to set up the view models for these next.
 
 ```js
-// client/src/signup.js
+// src/signup.js
 
 import {inject} from 'aurelia-framework';
-import {AuthService} from 'paulvanbladel/aureliauth';
+import {AuthService} from 'aurelia-auth';
 
 // Using Aurelia's dependency injection, we inject the AuthService
 // with the @inject decorator
@@ -437,12 +510,12 @@ The `signup()` method uses `aurelia-auth` to send a POST request to the API, whi
 
 ### Login
 
-The `login` route is pretty similar. You'll just need to swap out `submit.delegate="signup()"` for`submit.delegate="login()"` and adjust the other [pieces of markup](https://github.com/chenkie/aurelia-jwt-auth/blob/master/client/src/login.html) appropriately.
+The `login` route is pretty similar. You'll just need to swap out `submit.delegate="signup()"` for`submit.delegate="login()"` and adjust the other [pieces of markup](https://github.com/auth0/aurelia-quote-app/blob/master/src/login.html) appropriately.
 
 The JavaScript for `login` looks similar as well, but this time, we are sending the POST request to the `sessions/create` endpoint:
 
 ```js
-// client/src/login.js
+// src/login.js
 
 ...
 
@@ -461,9 +534,9 @@ The JavaScript for `login` looks similar as well, but this time, we are sending 
 
 ### Logout
 
-The `logout` route essentially follows the same pattern using `authService.logout()` to remove the user's JWT from `localstorage`. See [the repo](https://github.com/chenkie/aurelia-jwt-auth/blob/master/client/src/logout.js) for further detail.
+The `logout` route essentially follows the same pattern using `authService.logout()` to remove the user's JWT from `localstorage`. See [the repo](https://github.com/auth0/aurelia-quote-app/blob/master/src/logout.js) for further detail.
 
-With all this in place, we should now be able to signup, login, and logout users. Test it out to make sure that everything is running as expected. If everything is working properly, when the user logs in there will be a JWT set in `localstorage`.
+With all this in place, we should now be able to signup, login, and logout users. Test it out to make sure that everything is running as expected. If everything is working properly, when the user logs in there will be a JWT set in `localstorage` as `aurelia_id_token`.
 
 ![](https://cdn.auth0.com/blog/aurelia/aurelia-localstorage-token.png?dl=1)
 
@@ -472,7 +545,7 @@ With all this in place, we should now be able to signup, login, and logout users
 With signup, login, and logout in place, we now need to create the files for our quote routes. Let's first take care of the `random-quote` route.
 
 ```html
-  <!-- client/src/random-quote.html -->
+  <!-- src/random-quote.html -->
 
   <template>
     <section class="col-sm-12">
@@ -489,7 +562,7 @@ With signup, login, and logout in place, we now need to create the files for our
 This view simply displays the heading and the text of the quote that we retrieve.
 
 ```js
-// client/src/random-quote.js
+// src/random-quote.js
 
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
@@ -527,7 +600,7 @@ We want to fetch the quote when the route is hit, so within the `activate()` met
 The `super-secret-quote` route is pretty much the same, except that we make our requests to a different endpoint. For the view in `secret-quote.html`, make sure to change `${randomQuote}` to `${secretQuote}`
 
 ```js
-// client/src/secret-quote.js
+// src/secret-quote.js
 
 ...
 
@@ -650,6 +723,8 @@ For more details, including how to protect certain route in your app, check out 
 
 ## Wrapping Up
 
-Protecting routes that we want to limit to logged-in users is actually quite simple with the `aurelia-auth` plugin because we can set the app up such that, if users aren't logged in, they can't see or reach protected routes. If, for whatever reason, users were able to get to a route they shouldn't be at and they don't have a valid JWT, any HTTP requests they make will be denied by the server. Properly authenticated users will have a valid JWT in `localstorage`, which will be sent along as a header with all the requests they make which will give them access to protected resources.
+Aurelia 1.0 shipped with great improvements to tooling, application set-up and focus on enhancing the ability to build mobile apps with it. An alternative to the `aurelia-auth` plugin is [https://github.com/SpoonX/aurelia-authentication](https://github.com/SpoonX/aurelia-authentication). You can definitely try it out while working your way through the tutorial.
 
-Aurelia is a great next-generation JavaScript framework with a growing user base. As we have seen in this tutorial, we can easily get users signed up and authenticated using the `aurelia-auth` plugin.
+The [Aurelia documentation](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start) is a great place to checkout all the improvements and new things that came bundled with Aurelia 1.0.
+
+
