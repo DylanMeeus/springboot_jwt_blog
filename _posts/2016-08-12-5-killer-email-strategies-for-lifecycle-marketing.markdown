@@ -41,7 +41,7 @@ Here are our five most critical email tips for successful lifecycle marketing.
 
 ## 1. Enrich Your Customer Profiles Without Adding Friction
 
-Email targeting is a crucial piece of lifecycle marketing. You want to be able to personalize your emails to individual customers to create better engagement. In order to personalize your emails, however, you're going to need more personal data.
+Email targeting is a crucial piece of **lifecycle marketing**. You want to be able to personalize your emails to individual customers to create better engagement. In order to personalize your emails, however, you're going to need more personal data.
 
 Using Auth0's [Social Login](https://auth0.com/learn/social-login/), you can collect user data from their connected social media accounts and store it, along with a variety of other personal information, in their [User Profile](https://auth0.com/docs/user-profile). All of this can be done automatically without adding extra steps to their registration process and creating friction.
 
@@ -75,7 +75,7 @@ Airbnb knows that these little procedural details can be annoying, which is why 
 
 ## 3. Build A Personal Connection With A Separate Welcome Email
 
-One of the mistakes companies make with lifecycle emails is that they try to do too much at once. It's good to guide your customers through onboarding, and it's good to reach out personally, but trying to do both in one email can lead to a bloated, off-putting message that no one bothers to read.
+One of the mistakes companies make with **lifecycle marketing** emails is that they try to do too much at once. It's good to guide your customers through onboarding, and it's good to reach out personally, but trying to do both in one email can lead to a bloated, off-putting message that no one bothers to read.
 
 Instead, take a page out of IBM BlueMix's playbook and send multiple emails when a customer signs up.
 
@@ -115,9 +115,11 @@ The email platform Vero is a great example of this. If they've sent you all thei
 
 It's not confrontational, but it doesn't beat around the bush. Once a user is beyond discount offers and encouragement, you need to engage them head-on in order to get them back.
 
-## It's All About Automating Human Connection
+## Lifecycle Marketing It's All About Automating Human Connection
 
-At the core of any lifecycle marketing advice is the idea that customers need to be personally engaged with your product throughout their time with it. You want to make sure they are getting the most value out of it, and in turn, are more likely to be retained.
+At the core of any **lifecycle marketing** advice is the idea that customers need to be personally engaged with your product throughout their time with it. You want to make sure they are getting the most value out of it, and in turn, are more likely to be retained.
+
+{% include tweet_quote.html quote_text="Customers need to be personally engaged with your product throughout their time with it." %}
 
 This means a lot of personal interactions, and as your company grows, this can get harder and harder. The only manageable way to scale this personal connection is to automate as much of it as you can.
 
