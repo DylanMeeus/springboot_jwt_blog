@@ -254,7 +254,7 @@ With the `id_token` cookie in place, we can see that requests to the `secured/pi
 
 Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [Single Sign On](https://auth0.com/docs/sso/single-sign-on), User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. Auth0 is perfect for [Single Page Applications](https://auth0.com/docs/sequence-diagrams) and very easy to set up.
 
-As we saw in this tutorial, switching to JWT authentication from traditional session-based authentication is very easy, and there are many advantages to doing so. Using Auth0 for JWT authentication makes the process of switching to JWT authentication even easier. If you'd like to see how Auth0 can be used in your legacy application, feel free to [get in touch](mailto:support@auth0.com)-we're here to help!
+As we saw in this tutorial, switching to JWT authentication from traditional session-based authentication is very easy, and there are many advantages to doing so. Using Auth0 for JWT authentication makes the process of switching to JWT authentication even easier. If you'd like to see how Auth0 can be used in your legacy application, feel free to [open a support ticket](https://support.auth0.com)-we're here to help!
 
 ## Wrapping Up
 

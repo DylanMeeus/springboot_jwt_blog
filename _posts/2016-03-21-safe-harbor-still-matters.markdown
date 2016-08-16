@@ -125,7 +125,7 @@ That control also goes hand in hand with accountability. If you're able to acces
 
 ### How Auth0 does control
 
-First of all, we invite anyone with questions or issues having to do with our privacy policy to get in touch at [support@auth0.com](mailto:support@auth0.com). That same email can also be used to access or modify any kind of information stored in your account, or stop us from contacting you further.
+First of all, we invite anyone with questions or issues having to do with our privacy policy to get in touch at [open a support ticket](https://support.auth0.com). That same email can also be used to access or modify any kind of information stored in your account, or stop us from contacting you further.
 
 Additionally, [we provide](https://auth0.com/security) information such as the results of tests done by third parties on our encryption methods. If you want, you can do a live check on our implementation of SSL anytime you like. This test measures how vulnerable the Auth0 site is to attacks and hijackings. Here's a recent result:
 

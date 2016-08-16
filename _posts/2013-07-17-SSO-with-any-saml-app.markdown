@@ -45,6 +45,7 @@ We've even included an online __SAML debugger__ that shows exactly the `SAMLResp
 
 You can easily look for attributes, mappings, signatures and other SAML artifacts to quickly identify mis-configurations.
 
-So, if you don't see the app you need on our list, fear not! Use this feature or let us know: [support@auth0.com](mailto://support@auth0.com)
+So, if you don't see the app you need on our list, fear not! Use this feature or let us know:
+[open a support ticket](https://support.auth0.com)
 
 [Try Auth0 yourself!](https://auth0.com)

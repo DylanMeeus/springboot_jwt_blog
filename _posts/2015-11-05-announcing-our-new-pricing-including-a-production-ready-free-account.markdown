@@ -74,4 +74,4 @@ At Auth0 we’re shipping new pricing today 👏💸. As some of you may know, f
 
 ## Conclusion
 
-We think you’ll really like our new approach to pricing. We encourage you to go to the [new pricing page](https://auth0.com/pricing) and check it out 💥! Don’t hesitate to [shoot us an email](mailto:support@auth0.com) or [tweet at us](https://twitter.com/auth0) if you have any feedback.
+We think you’ll really like our new approach to pricing. We encourage you to go to the [new pricing page](https://auth0.com/pricing) and check it out 💥! Don’t hesitate to [open a support ticket](https://support.auth0.com) or [tweet at us](https://twitter.com/auth0) if you have any feedback.
