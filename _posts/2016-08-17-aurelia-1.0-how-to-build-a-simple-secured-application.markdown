@@ -2,7 +2,7 @@
 layout: post
 title: "Aurelia 1.0: How to build a simple secured application"
 description: "Aurelia 1.0 is out. Learn what's changed by building an application using ES6, aurelia-auth and much more!"
-date: 2016-08-17 8:30
+date: 2016-08-17 11:30
 alias: /2016/08/17/aurelia-1.0-how-to-build-a-simple-secured-application/
 author:
   name: Prosper Otemuyiwa
