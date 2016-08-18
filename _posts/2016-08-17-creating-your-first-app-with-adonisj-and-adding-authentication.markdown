@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Creating your first app with AdonisJS and adding authentication"
-description: Learn how to build your first AdonisJS application and add authentication to it.
+title: "Creating your first app with AdonisJs and adding authentication"
+description: Learn how to build your first AdonisJs application and add authentication to it.
 date: 2016-08-17 8:30
 alias: /2016/08/17/creating-your-first-adonisjs-app-and-adding-authentication/
 author:
@@ -108,6 +108,7 @@ Open up your terminal and run the command below to create a `ListController`.
 Open up `app/Http/Controllers/ListController.js` and configure it like so:
 
 ```js
+
 'use strict'
 
 class ListController {
@@ -147,7 +148,9 @@ where `<modelName>` represents the name of the Model you want to create.
 
 ## Setting Up The Routes
 
-Open up `app/Http/routes.php` and configure it like so:
+Open up `app/Http/routes.js` and configure it like so:
+
+```js
 
 'use strict'
 
@@ -229,7 +232,9 @@ _AdonisJs Auth Setup_
 As you can see, two migration and model files were created. `User.js` and `Token.js`.
 
 _User.js_
+
 ```js
+
 'use strict'
 
 const Lucid = use('Lucid')
@@ -245,7 +250,9 @@ class User extends Lucid {
 module.exports = User
 ```
 _Token.js_
+
 ```js
+
 'use strict'
 
 const Lucid = use('Lucid')
@@ -265,22 +272,26 @@ A user can have many api tokens, a token belongs to just one user. This is exact
 
 **Note:** If you are upgrading an old application, be careful enough to do the following:
 
-* 1. Run `npm i --save adonis-auth
-* 2. Register the authentication provider to the providers list in `bootstrap/app.js`
-* 3. Set up a global middleware in `app/Http/kernel.js` by adding `Adonis/Middleware/AuthInit` to the `globalMiddleware` variable.
+* Run `npm i --save adonis-auth`
+* Register the authentication provider to the providers list in `bootstrap/app.js`
+* Set up a global middleware in `app/Http/kernel.js` by adding `Adonis/Middleware/AuthInit` to the `globalMiddleware` variable.
 
 Next, open up `app/resources/views/welcome.njk` and configure it like so:
 
 {% highlight html %}
+{% raw %}
 {% extends 'master' %}
+{% endraw %}
 
+{% raw %}
 {% block content %}
+{% endraw %}
   <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-success">
                 <div class="panel-heading">List of Game of Thrones Characters</div>
-
+                    {% raw %}
                     {% if currentUser %}
                       <!-- Table -->
                       <table class="table">
@@ -295,14 +306,19 @@ Next, open up `app/resources/views/welcome.njk` and configure it like so:
                           {% endfor %}
                       </table>
                     {% endif %}
+                    {% endraw %}
             </div>
+            {% raw %}
             {% if not currentUser %}
               <a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
             {% endif %}
+            {% endraw %}
         </div>
     </div>
 </div>
+{% raw %}
 {% endblock %}
+{% endraw %}
 {% endhighlight %}
 
 Here, we are looping through the `characters` object passed from the `ListController` for appropriate rendering in the `welcome` view.
@@ -355,6 +371,7 @@ Currently the `master.njk` file doesn't have bootstrap configured and there is n
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+                    {% raw %}
                     {% if not currentUser %}
                         <li><a href="/login">Login</a></li>
                         <li><a href="/register">Register</a></li>
@@ -369,12 +386,14 @@ Currently the `master.njk` file doesn't have bootstrap configured and there is n
                             </ul>
                         </li>
                     {% endif %}
+                    {% endraw %}
                 </ul>
             </div>
         </div>
     </nav>
-
+    {% raw %}
     {% block content %}{% endblock %}
+    {% endraw %}
 
     <!-- JavaScript files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
@@ -388,6 +407,7 @@ Currently the `master.njk` file doesn't have bootstrap configured and there is n
 We need to add routes for `login`, `logout` and `register`. Open up `app/Http/routes.js` and configure it like so:
 
 ```js
+
 'use strict'
 
 /*
@@ -421,9 +441,13 @@ Let's create views for these routes. Create `app/resources/views/register.njk` f
 _register.njk_
 
 {% highlight html %}
+{% raw %}
 {% extends 'master' %}
+{% endraw %}
 
+{% raw %}
 {% block content %}
+{% endraw %}
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -470,7 +494,9 @@ _register.njk_
         </div>
     </div>
 </div>
+{% raw %}
 {% endblock %}
+{% endraw %}
 {% endhighlight %}
 
 Create `app/resources/views/login.njk` file and add this code below:
@@ -478,9 +504,13 @@ Create `app/resources/views/login.njk` file and add this code below:
 _login.njk_
 
 {% highlight html %}
+{% raw %}
 {% extends 'master' %}
+{% endraw %}
 
+{% raw %}
 {% block content %}
+{% endraw %}
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -519,7 +549,9 @@ _login.njk_
         </div>
     </div>
 </div>
+{% raw %}
 {% endblock %}
+{% endraw %}
 {% endhighlight %}
 
 Now that we have all the routes and views setup, we need to set up the controllers for our application.
@@ -538,6 +570,7 @@ Open up `app/Http/Controllers/RegisterController.js` and configure it like so:
 _RegisterController_
 
 ```js
+
 'use strict'
 
 class RegisterController {
@@ -552,6 +585,7 @@ module.exports = RegisterController
 _AuthController_
 
 ```js
+
 'use strict'
 
 class AuthController {
@@ -599,7 +633,9 @@ Now that our database tables have been successfully created, let's code up authe
 Open up `app/Http/Controllers/AuthController.js` and update it like so:
 
 _AuthController.js_
+
 ```js
+
 'use strict'
 
 const User = use('App/Model/User')
@@ -644,7 +680,9 @@ The login method takes in both the `request` and `response` object. The `request
 Open up `app/Http/Controllers/RegisterController.js` and update it like so:
 
 _RegisterController.js_
+
 ```js
+
 'use strict'
 
 const User = use('App/Model/User')
@@ -673,6 +711,7 @@ class RegisterController {
 
 module.exports = RegisterController
 ```
+
 Here, we got the user form input values, hashed the password and saved the user's details. Now try to register a user and log in, everything should work perfectly!
 
 _Page with list of GOT Characters_
@@ -687,6 +726,7 @@ Let's check out how the `auth` middleware works.
 Add a new route to your `routes.js` file like so:
 
 ```js
+
 Route.get('/got', function * (request, response) {
     response.status(200).json({ user: 'prosper' })
 }).middleware('auth')
