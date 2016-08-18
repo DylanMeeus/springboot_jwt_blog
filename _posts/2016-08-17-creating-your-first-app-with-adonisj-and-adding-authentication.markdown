@@ -10,8 +10,8 @@ author:
   avatar: https://en.gravatar.com/avatar/1097492785caf9ffeebffeb624202d8f?s=200
   mail: prosper.otemuyiwa@auth0.com
 design:
-  bg_color: "#4A4A4A"
-  image: https://cdn.auth0.com/blog/laravel-auth/logo.png
+  bg_color: "#533A5C"
+  image: https://cdn.auth0.com/blog/blog/AdonisJSLogo.png
 tags:
 - laravel
 - adonisjs
