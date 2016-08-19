@@ -27,11 +27,11 @@ related:
 
 ---
 
-**TL;DR:** AdonisJs is a Node.js MVC framework. Currently, AdonisJs has over 700 stars on [Github](https://github.com/adonisjs/adonis-framework). AdonisJs makes it easy for you to write web applications with less code. In this tutorial, I'll show you how easy it is to build a web application with AdonisJs and add authentication to it. Check out the [repo](https://github.com/auth0/adonisjs-got) to get the code.
+**TL;DR:** AdonisJs is a Node.js MVC framework. Currently, AdonisJs has over 700 stars on [GitHub](https://github.com/adonisjs/adonis-framework). AdonisJs makes it easy for you to write web applications with less code. In this tutorial, I'll show you how easy it is to build a web application with AdonisJs and add authentication to it. Check out the [repo](https://github.com/auth0/adonisjs-got) to get the code.
 
 ---
 
-**AdonisJs** is a full-stack, open-source Node.js framework that encapsulates all the tedious parts of web development and provides you a nice API to work with. **AdonisJs** saves you time and effort because it ships with a lot of features out of the box. These features include:
+**AdonisJs** is a full-stack, open-source Node.js framework that encapsulates all the tedious parts of web development and provides you a nice API to work with. **AdonisJs** saves you time and effort because it ships with a lot of features out of the box. These features include the following:
 
 * Lucid ORM (Effective Implementation of Active Record)
 * Database Migrations
@@ -39,18 +39,18 @@ related:
 * Mailing System
 * Data Validator
 
-**AdonisJs** makes good use of already written and well tested modules from the Javascript community. The [documentation](http://adonisjs.com/docs/3.0/overview) is very detailed and there is a vibrant community of users and collaborators that engage on [Gitter](https://gitter.im/adonisjs/adonis-framework), [Trello](https://trello.com/b/yzpqCgdl/adonis-for-humans), and [Twitter](https://twitter.com/adonisframework).
+**AdonisJs** makes good use of already written and well-tested modules from the JavaScript community. The [documentation](http://adonisjs.com/docs/3.0/overview) is very detailed, and there is a vibrant community of users and collaborators who engage on [Gitter](https://gitter.im/adonisjs/adonis-framework), [Trello](https://trello.com/b/yzpqCgdl/adonis-for-humans), and [Twitter](https://twitter.com/adonisframework).
 
-## AdonisJS | Laravel
+## AdonisJs | Laravel
 
-**AdonisJS** has a strikling resemblance with **Laravel**. In fact, the creator of AdonisJS [Aman Virk](https://twitter.com/AmanVirk1) admitted that the framework is inspired by **Laravel**. Aman Virk, had a [reason](https://medium.com/@amanvirk/i-am-the-creator-of-adonisjs-http-adonisjs-com-5bbdea7d82b3#.rn49s9bqg) for creating **AdonisJS**.
-Here are some of the similiarities with Laravel
+**AdonisJS** has a striking resemblance to **Laravel**. In fact, the creator of AdonisJs [Aman Virk](https://twitter.com/AmanVirk1) admitted that the framework was inspired by **Laravel**. Aman Virk had a [reason](https://medium.com/@amanvirk/i-am-the-creator-of-adonisjs-http-adonisjs-com-5bbdea7d82b3#.rn49s9bqg) for creating **AdonisJS**.
+Here are some of the similarities with Laravel:
 
 * Routing
 * IOC (Inversion of Control) and Dependency Injection (DI)
 * Scaffolding
 * Query Builder
-* Model factories & Database Seeding
+* Model Factories and Database Seeding
 * Directory Structure
 
 ![AdonisJs & Laravel Routes](https://cdn.auth0.com/blog/blog/adonisjs-laravel-routes.png)
@@ -65,11 +65,11 @@ _AdonisJs & Laravel Directory Structure_
 ![AdonisJs & Laravel Error Reporting](https://cdn.auth0.com/blog/blog:adonis-error-reporting.png)
 _AdonisJS error reporting Page, same as Laravel 4.2_
 
-We'll be building a simple character listing app with **AdonisJs 3.0**, just like we did with [Laravel](https://auth0.com/blog/creating-your-first-laravel-app-and-adding-authentication/). Our app will simply list **10 Game of Thrones characters** and their real names. Once we add authentication to the app, all logged-in users will have the privilege of knowing these celebrity characters personally.
+We'll be building a simple character-listing app with **AdonisJs 3.0**, just like we did with [Laravel](https://auth0.com/blog/creating-your-first-laravel-app-and-adding-authentication/). Our app will simply list **10 Game of Thrones characters** and their real names. Once we add authentication to the app, all logged-in users will have the privilege of knowing these celebrity characters personally.
 
-## Let's get started
+## Let's get started.
 
-AdonisJs utilizes [Npm](https://www.npmjs.com/) to manage its dependencies. So, before using AdonisJS, make sure you have [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your machine. We can install AdonisJs by cloning the repo from [Github](https://github.com/adonisjs/adonis-app) like so:
+AdonisJs uses [Npm](https://www.npmjs.com/) to manage its dependencies. So, before using AdonisJs, make sure you have [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your machine. We can install AdonisJs by cloning the repo from [GitHub](https://github.com/adonisjs/adonis-app) like so:
 
 ```bash
 
@@ -77,13 +77,13 @@ git clone --dissociate https://github.com/adonisjs/adonis-app GOT
 
 ```
 
-or using the `adonis-cli` installer. If you cloned from Github, then you have to run `npm install` immediately after the previous command to install all the dependencies.
+or using the `adonis-cli` installer. If you cloned from GitHub, then you have to run `npm install` immediately after the previous command to install all the dependencies.
 
-We'll spin up a new app using the `adonis` command like so: `adonis new GOT` . Check out the AdonisJs [docs](http://adonisjs.com/docs/3.0/installation) to learn how to set up the AdonisJs installer.
+We'll spin up a new app using the `adonis` command like so: `adonis new GOT`. Check out the AdonisJs [docs](http://adonisjs.com/docs/3.0/installation) to learn how to set up the AdonisJs installer.
 
 ## Explore Directory Structure
 
-AdonisJS applications follow the **Model-View-Controller** design pattern.
+AdonisJs applications follow the **Model-View-Controller** design pattern.
 
 ![Model View Controller Diagram](https://drscdn.500px.org/photo/152746175/m%3D900/9972f8c30c163f019a50ba15b8a70f9b)
 
@@ -91,13 +91,13 @@ AdonisJS applications follow the **Model-View-Controller** design pattern.
 
 In a nutshell,
 
-  * **Models** query your database and returns the necessary data.
+  * **Models** query your database and return the necessary data.
   * **Views** are pages that render data. In AdonisJs, they are `.njk` files.
-  * **Controllers** handle user requests, retrieve data from the Models and pass them unto the views.
+  * **Controllers** handle user requests, retrieve data from the models and pass them on to the views.
 
 Read more about [MVC](http://www.tomdalling.com/blog/software-design/model-view-controller-explained/) here.
 
-## Setting Up The Controller
+## Setting Up the Controller
 
 Open up your terminal and run the command below to create a `ListController`.
 
@@ -134,17 +134,17 @@ module.exports = ListController
 
 ```
 
-We are making use of ES2015 generators so we don't need to use callbacks. `yield` comes in handy to return the response with the aid of `sendView ` back to the `welcome.jnik` view. We'll create that view in the later part of this post.
+We are making use of ES2015 generators, so we don't need to use callbacks. `yield` comes in handy to return the response with the aid of `sendView ` back to the `welcome.jnik` view. We'll create that view in a later part of this post.
 
-## Setting Up The Model
+## Setting Up the Model
 
-AdonisJs Models are stored by default in the `app/Model` directory. Only the `User` model is needed in this application and it will be created when we run the `auth:setup` command later in this post. However, if you want to create more models, you can simply run the command below like so:
+AdonisJs models are stored by default in the `app/Model` directory. Only the `User` model is needed in this application, and it will be created when we run the `auth:setup` command later in this post. However, if you want to create more models, you can simply run the command below like so:
 
 ```bash
 ./ace make:model <modelName>
 ```
 
-where `<modelName>` represents the name of the Model you want to create.
+where `<modelName>` represents the name of the model you want to create.
 
 ## Setting Up The Routes
 
@@ -178,7 +178,7 @@ Once a request hits the `/` route, it invokes the `show` method of the `ListCont
 
 ## Setting Up Authentication
 
-AdonisJS provides us with a fully featured system to authenticate HTTP requests using multiple authenticators via the **AdonisJS Authentication Provider**. We'll configure the authentication provider to use the traditional session-based login system.
+AdonisJs provides us with a fully featured system for authenticating HTTP requests using multiple authenticators via the **AdonisJs Authentication Provider**. We'll configure the authentication provider to use the traditional session-based login system.
 
 Open up `config/auth.js` and ensure the `authenticator` is set to `session`.
 
@@ -220,7 +220,7 @@ Open up `config/auth.js` and ensure the `authenticator` is set to `session`.
 
 **Note:** It is configured to make use of `session` authenticator by default.
 
-The Authentication provider can generate required migrations for you using an `ace` command. Next, open up your terminal and run this command like so:
+The authentication provider can generate the required migrations for you using an `ace` command. Next, open up your terminal and run the following command like so:
 
 ```bash
 ./ace auth:setup
@@ -229,7 +229,7 @@ The Authentication provider can generate required migrations for you using an `a
 ![AdonisJs Auth Setup](https://cdn.auth0.com/blog/blog/adonis-auth-setup.png)
 _AdonisJs Auth Setup_
 
-As you can see, two migration and model files were created. `User.js` and `Token.js`.
+As you can see, two model files were created, `User.js` and `Token.js`. Two migration files were also created.
 
 _User.js_
 
@@ -268,12 +268,12 @@ class Token extends Lucid {
 module.exports = Token
 ```
 
-A user can have many api tokens, a token belongs to just one user. This is exactly how Laravel Eloquent Model relationships work. In **AdonisJs**, it is called `Lucid Models`.
+A user can have many API tokens, but a token belongs to just one user. This is exactly how the Laravel Eloquent Model relationships work. In **AdonisJs**, this is called `Lucid Models`.
 
-**Note:** If you are upgrading an old application, be careful enough to do the following:
+**Note:** If you are upgrading an old application, be careful to do the following:
 
 * Run `npm i --save adonis-auth`
-* Register the authentication provider to the providers list in `bootstrap/app.js`
+* Register the authentication provider to the providers list in `bootstrap/app.js`.
 * Set up a global middleware in `app/Http/kernel.js` by adding `Adonis/Middleware/AuthInit` to the `globalMiddleware` variable.
 
 Next, open up `app/resources/views/welcome.njk` and configure it like so:
@@ -323,9 +323,9 @@ Next, open up `app/resources/views/welcome.njk` and configure it like so:
 
 Here, we are looping through the `characters` object passed from the `ListController` for appropriate rendering in the `welcome` view.
 
-`request.currentUser` - This helper method returns the information for a currently logged-in user.You can check if a user is authenticated or not by just using the `if` condition to determine if it returns an actual object or a null value which is falsey.
+`request.currentUser` - This helper method returns the information for a currently logged-in user. You can check if a user has been authenticated or not by just using the `if` condition to determine if it returns an actual object or a null value, which is falsey.
 
-Currently the `master.njk` file doesn't have bootstrap configured and there is no navbar. So, open up `app/resources/views/master.njk` and configure it like so:
+Currently, the `master.njk` file doesn't have bootstrap configured and there is no navbar. So, open up `app/resources/views/master.njk` and configure it like so:
 
 {% highlight html %}
 <!doctype html>
@@ -402,9 +402,9 @@ Currently the `master.njk` file doesn't have bootstrap configured and there is n
 </html>
 {% endhighlight %}
 
-### Setting Up The Routes and Views
+### Setting Up the Routes and Views
 
-We need to add routes for `login`, `logout` and `register`. Open up `app/Http/routes.js` and configure it like so:
+We need to add routes for `login`, `logout`, and `register`. Open up `app/Http/routes.js` and configure it like so:
 
 ```js
 
@@ -436,7 +436,7 @@ Route.get('/register', 'RegisterController.index')
 Route.post('register', 'RegisterController.doRegister')
 ```
 
-Let's create views for these routes. Create `app/resources/views/register.njk` file and add this code below:
+Let's create views for these routes. Create a `app/resources/views/register.njk` file and add the code below:
 
 _register.njk_
 
@@ -499,7 +499,7 @@ _register.njk_
 {% endraw %}
 {% endhighlight %}
 
-Create `app/resources/views/login.njk` file and add this code below:
+Create `app/resources/views/login.njk` file and add the code below:
 
 _login.njk_
 
@@ -554,11 +554,11 @@ _login.njk_
 {% endraw %}
 {% endhighlight %}
 
-Now that we have all the routes and views setup, we need to set up the controllers for our application.
+Now that we have all the routes and views set up, we need to set up the controllers for our application.
 
 ### Setting Up Controllers
 
-From the terminal, run these commands to create the `RegisterController` and `AuthController` files.
+From the terminal, run these commands to create the `RegisterController` and `AuthController` files:
 
 ```bash
 ./ace make:controller Register
@@ -612,9 +612,9 @@ _Register Page_
 
 ### Run Migrations
 
-Migrations are like version control for your database, allowing a team to easily modify and share the application's database schema. In **AdonisJs**, they are placed in the `database/migrations` directory. Each migration file name contains a timestamp which allows **AdonisJs** to determine the order of the migrations. For the sake of simplicity, we will stick to `SQLite`. However, you are free to use `MYSQL` or `PostgreSQL`.
+Migrations are like version control for your database, allowing a team to easily modify and share the application's database schema. In **AdonisJs**, they are placed in the `database/migrations` directory. Each migration file name contains a timestamp that allows **AdonisJs** to determine the order of the migrations. For the sake of simplicity, we will stick to `SQLite`. However, you are free to use `MYSQL` or `PostgreSQL`.
 
-We already have the migration files needed, from the `auth:setup` command that we ran earlier. Check your `.env` file to ensure all the connection parameters are set up properly. Now, install `Sqlite3` from your terminal like so:
+We already have the migration files needed from the `auth:setup` command that we ran earlier. Check your `.env` file to ensure all the connection parameters are set up properly. Now, install `Sqlite3` from your terminal like so:
 
 ```bash
 npm i --save sqlite3
@@ -675,7 +675,7 @@ class AuthController {
 module.exports = AuthController
 ```
 
-The login method takes in both the `request` and `response` object. The `request` object contains the user's login details. These details are passed to the `request.auth.attempt` method to validate them against the database. If successful, they are logged-in and redirected back to the homepage else they are served an error on the login page. The logout method simply invokes the `request.auth.logout` helper method which destroys the user's session and redirects back to the homepage.
+The login method takes in both the `request` and `response` objects. The `request` object contains the user's login details. These details are passed to the `request.auth.attempt` method to validate them against the database. If successful, the user is logged in and redirected back to the homepage; otherwise the user is served an error on the login page. The logout method simply invokes the `request.auth.logout` helper method, which destroys the user's session and redirects back to the homepage.
 
 Open up `app/Http/Controllers/RegisterController.js` and update it like so:
 
@@ -712,14 +712,14 @@ class RegisterController {
 module.exports = RegisterController
 ```
 
-Here, we got the user form input values, hashed the password and saved the user's details. Now try to register a user and log in, everything should work perfectly!
+Here, we got the user form input values, hashed the password, and saved the user's details. Now try to register a user and log in. Everything should work perfectly!
 
 _Page with list of GOT Characters_
 ![List of GOT Characters](https://cdn.auth0.com/blog/blog/got.png)
 
 ## Using the Auth Middleware
 
-Middlewares provide a convenient mechanism for filtering HTTP requests entering your application. For example, **AdonisJs** includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further. The `app/Http/Kernel.js` contains a listing of the available middleware.
+Middlewares provide a convenient mechanism for filtering HTTP requests entering your application. For example, **AdonisJs** includes a middleware that verifies that the user of your application has been authenticated. If the user has not been authenticated, the middleware will redirect the user to the login screen. However, if the user has been authenticated, the middleware will allow the request to proceed further. The `app/Http/Kernel.js` contains a listing of the available middleware.
 
 Let's check out how the `auth` middleware works.
 
@@ -731,8 +731,8 @@ Route.get('/got', function * (request, response) {
     response.status(200).json({ user: 'prosper' })
 }).middleware('auth')
 ```
-Now, log out, then try to access that route, an `InvalidLoginException` will be thrown. Check out the [docs](http://adonisjs.com/docs/3.0/middleware) for more info on creating and customizing middleware in **AdonisJs**.
+Now, log out and then try to access that route. An `InvalidLoginException` will be thrown. Check out the [docs](http://adonisjs.com/docs/3.0/middleware) for more info on creating and customizing middleware in **AdonisJs**.
 
 ## Wrapping Up
 
-Congratulations! You have just built your first app with AdonisJs. If you already use Laravel, then you'll feel just at home with AdonisJs framework. You haven't used Laravel? check out this [excellent article](https://auth0.com/blog/creating-your-first-laravel-app-and-adding-authentication/) on building an app with it. One major challenge with using **AdonisJs** is the lack of adequate resources and tutorials on how to use the framework. The framework is still very young but promising. With the right amount of support from developers, it might turn out to be the next big thing in Javascript land. Have you built an app with AdonisJs? What are your thoughts about it? Let me know in the comment section.
+Congratulations! You have just built your first app with AdonisJs. If you already use Laravel, then you'll feel just at home with the AdonisJs framework. You haven't used Laravel? Check out this [excellent article](https://auth0.com/blog/creating-your-first-laravel-app-and-adding-authentication/) on building an app with it. One major challenge with using **AdonisJs** is the lack of adequate resources and tutorials on how to use the framework. The framework is still very young but promising. With the right amount of support from developers, it might turn out to be the next big thing in JavaScript land. Have you built an app with AdonisJs? What are your thoughts about it? Let me know in the comment section.
