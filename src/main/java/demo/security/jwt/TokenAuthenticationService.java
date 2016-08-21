@@ -29,7 +29,6 @@ public class TokenAuthenticationService {
     public Authentication getAuthentication(HttpServletRequest request)
     {
         String token = request.getHeader(headerString);
-
         if(token != null)
         {
             // parse the token.
@@ -38,7 +37,6 @@ public class TokenAuthenticationService {
                         .parseClaimsJws(token)
                         .getBody()
                         .getSubject();
-
             if(username != null) // we managed to retrieve a user
             {
                 return new AuthenticatedUser(username);
