@@ -384,8 +384,9 @@ class TodoList extends React.Component {
 }
 
 class TodoApp extends React.Component {
-  getInitialState() {
-    return {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
       items: [],
       text: ''
     };
