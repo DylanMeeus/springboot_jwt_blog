@@ -26,16 +26,16 @@ related:
 
 ---
 
-We are announcing a new feature for all of our users: [password breach detection](https://auth0.com/breached-passwords)! Read on to find out how it works and how to enable it for your account.
+Today, we are introducing a new feature for all of our users: [password breach detection](https://auth0.com/breached-passwords)! Read on to find out how it works and how to enable it for your account.
 
-{% include tweet_quote.html quote_text="We are announcing a new feature for all of our users: password breach detection!" %}
+{% include tweet_quote.html quote_text="Introducing a new feature for all Auth0 users: Password breach detection!" %}
 
 -----
 
 ## Protect your users from password leaks
 You have seen it [again](https://techcrunch.com/2016/06/08/twitter-hack/) and [again](http://arstechnica.com/security/2014/10/7-million-dropbox-usernamepassword-pairs-apparently-leaked/): passwords get leaked. Bad security practices, careless users, negligent password storage, reused passwords. All of these play a part in the big leaks. But when they happen, the first thing you need to do is *react fast*. Changing passwords, blocking access to compromised accounts can make all the difference between a scare and a big problem.
 
-{% include tweet_quote.html quote_text="When password leaks happen, the first thing you need to do is react fast" %}
+{% include tweet_quote.html quote_text="When password leaks happen, the first thing you need to do is react fast." %}
 
 This is why we have developed our password breach detection solution: to allow you and your users to react as quickly as possible.
 
