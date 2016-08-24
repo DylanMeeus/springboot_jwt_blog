@@ -28,7 +28,7 @@ related:
 - 2016-04-26-using-https
 ---
 
-We are announcing a new feature for all of our users: password breach detection! Read on to find out how it works and how to enable it for your account.
+We are announcing a new feature for all of our users: [password breach detection](https://auth0.com/breached-passwords)! Read on to find out how it works and how to enable it for your account.
 
 {% include tweet_quote.html quote_text="We are announcing a new feature for all of our users: password breach detection!" %}
 
@@ -58,6 +58,6 @@ To enable password breach protection, you only need to [toggle an option in the 
 
 ![Lock's password leak notification](https://cdn.auth0.com/blog/breach/enable.png)
 
-You can also [read the docs](https://auth0.com/docs/anomaly-detection).
+You can also read the docs and learn more about [Anomaly Detection](https://auth0.com/docs/anomaly-detection).
 
 If you haven't signed-up, do it now! <a href="javascript:signup()">Try Auth0 and password breach protection for free</a>.
