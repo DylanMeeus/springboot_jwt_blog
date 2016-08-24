@@ -46,7 +46,7 @@ This is why we have developed our password breach detection solution: to allow y
 Our security team keeps a keeps a keen eye on leaks in the wild. We have built a strong database of leaked passwords that gets updated every day. Whenever a user attempts to access his or her account, we first perform a check against our leaked password database. If a leak is suspected, the user is notified and action is taken.
 
 <video autoplay loop width="600">
-  <source src="https://cdn.auth0.com/blog/breach/lock.m4v"/>
+  <source src="https://cdn.auth0.com/blog/breach/lock-2.m4v"/>
 <img src="https://cdn.auth0.com/blog/breach/lock.gif"/>
 </video>
 
@@ -60,7 +60,7 @@ Of course, you can enable or disable these actions independently in the dashboar
 ## How to enable it
 To enable password breach protection, you only need to [toggle an option in the dashboard](https://manage.auth0.com/#/anomaly). It really is as simple as that!
 
-![Lock's password leak notification](https://cdn.auth0.com/blog/breach/enable.png)
+![Lock's password leak notification](https://cdn.auth0.com/blog/breach/enable-2.png)
 
 You can also read the docs and learn more about [Anomaly Detection](https://auth0.com/docs/anomaly-detection).
 
