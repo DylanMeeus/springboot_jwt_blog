@@ -44,7 +44,7 @@ You might be familiar with [TJ Holowaychuk](https://twitter.com/tjholowaychuk) f
 
 <span <span style="font-weight:700">Auth0:</span> Can you tell us more about Apex Ping? What is it and what does it do?
 
-<span <span style="font-weight:700">TJ:</span> [Apex Ping]((https://apex.sh/ping/) is an uptime and performance monitoring tool with rich reporting and alerting capabilities. Anyone maintaining a website, app, or API can create “checks”, HTTP requests performed against an HTTP end-point every minute from a number of selectable locations all over the globe.
+<span <span style="font-weight:700">TJ:</span> [Apex Ping][1] is an uptime and performance monitoring tool with rich reporting and alerting capabilities. Anyone maintaining a website, app, or API can create “checks”, HTTP requests performed against an HTTP end-point every minute from a number of selectable locations all over the globe.
 
 Alerts and weekly reporting keep the team informed so your customers are always provided with the best experience possible.
 
@@ -95,3 +95,5 @@ Going with <a href="javascript:signup()">Auth0</a> meant I didn’t have to spen
 <span <span style="font-weight:700">Auth0:</span> Thanks for taking the time to chat with us about your new project, we wish you all the best with it! Is there anything else readers can check out?
 
 <span <span style="font-weight:700">TJ:</span> Have a look at [Ping's features](https://apex.sh/ping/#features) and check out the [free plan](https://apex.sh/ping/#pricing) if you're interested. Keep an eye out for more [Apex](https://apex.sh/) projects to come!
+
+[1]:  https://apex.sh/ping/ "Apex Ping"

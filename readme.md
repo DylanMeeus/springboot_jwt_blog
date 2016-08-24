@@ -30,7 +30,7 @@ reply:
 
 ![](https://cldup.com/4hWdGjoZGc.png)
 
-To mark a post as outdated, add the `outdated` front matter. Aditionally, you can direct the link in the disclaimer to a specific page using the tag `doc_reference`, otherwise the link will go to the docs homepage.
+To mark a post as outdated, add the `outdated` front matter. Additionally, you can direct the link in the disclaimer to a specific page using the tag `doc_reference`, otherwise the link will go to the docs homepage.
 
 Example:
 ```

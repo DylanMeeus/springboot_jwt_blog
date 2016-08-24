@@ -153,7 +153,7 @@ Laravel Models are stored by default in the root of the `app` directory. The `Us
 php artisan make:model <modelName>
 ```
 
-where <modelName> represents the name of the Model you want to create.
+where `<modelName>` represents the name of the Model you want to create.
 
 ## Setting Up The Routes
 

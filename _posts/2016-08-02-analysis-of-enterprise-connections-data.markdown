@@ -64,17 +64,12 @@ In this way, it acts as an easy and transparent way for a user in one organizati
 
 However, because Active Directory was designed to work on the internal corporate network, it isn’t best-suited for web-based services.
 
-### Moving Towards Microsoft Azure AD
+### Why People Use Microsoft Azure Active Directory through Auth0?
+One of the perks of using Auth0 with Microsoft Azure Active Directory is that you gain access to more features not available in AAD standalone. By combining AAD with Auth0 you can take advantage of all our available SDKs and a better development experience.
 
-Azure AD allows for greater adoption of modern identity architectures that work natively in the cloud. It is the [identity infrastructure of Microsoft’s future](http://windowsitpro.com/identity-management/windows-azure-active-directory-vs-windows-server-active-directory). 
+Whether you are just getting started or already deep into a project - our SDKs will help you quickly integrate a solid authentication framework into your application. We provide SDKs for most major languages and frameworks including [Angular](https://auth0.com/docs/quickstart/spa/angularjs), [Node.js](https://github.com/auth0/node-auth0), [ASP.NET](https://github.com/auth0/auth0.net), [Java](https://auth0.com/docs/java-overview), and more. Our selection of quickstarts, seed projects, and tutorials showcase best practices and how-to’s to ensure you are up and running as quickly as possible.
 
-Therefore, the low contribution of Microsoft Azure to the overall numbers give cause for concern. As more and more services are delivered via web apps, Enterprise companies need to give their users easy access to these SaaS apps. This is what Azure AD was designed to do:
-
-* It has a modern REST-based API.
-* It allows for multifactor authentication (MFA) for increased security.
-* It provides employees with SSO and secure remote access to on-site applications.
-
-Additionally, Microsoft Azure AD can be synced against an on-premises Active Directory. Therefore, companies can continue to use their Active Directory domain controller for internal authentication and access, while syncing to Azure AD to allow their users to connect easily to apps outside the company.
+You also get access to rules, which are JavaScript code snippets that allow easy control and customization of the login process. Rules are an easy way to address that inevitable exception in an identity environment – integration with marketing or analytics tools, whitelisting and other forms of access control, triggering a webhook, and so on. You can check the [Rules documentation](https://auth0.com/docs/rules) for more information.
 
 ## How Much Are Enterprise Connections Used?
 
