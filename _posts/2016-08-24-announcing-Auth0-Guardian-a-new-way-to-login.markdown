@@ -26,9 +26,7 @@ tags:
 - two factor
 - two factor authentication
 related:
-- 2016-04-18-progressive-profiling
-- 2015-12-29-how-paypal-could-have-avoided-account-hack
-- 2016-04-26-using-https
+
 ---
 
 Today we are officially releasing our [Auth0 Guardian](https://auth0.com/docs/multifactor-authentication/guardian) app, a new and convenient way to perform multifactor authentication for logins. Read on to find out how it works and how you can use it in your projects!
