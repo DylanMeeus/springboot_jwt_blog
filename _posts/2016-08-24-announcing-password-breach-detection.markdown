@@ -9,10 +9,10 @@ author:
   mail: speyrott@auth0.com
   avatar: https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200
 design:
-  bg_color: "#305D92"
-  image: https://cdn.auth0.com/blog/wpad/logo.png
+  bg_color: "#222228"
+  image: https://cdn.auth0.com/blog/breach/logo.png
   image_size: "100%"
-  image_bg_color: "#222228"
+  image_bg_color: "#f5f7f9"
   blog_series: false
 tags:
 - security
@@ -23,9 +23,7 @@ tags:
 - detection
 - auth0
 related:
-- 2016-04-18-progressive-profiling
-- 2015-12-29-how-paypal-could-have-avoided-account-hack
-- 2016-04-26-using-https
+
 ---
 
 We are announcing a new feature for all of our users: password breach detection! Read on to find out how it works and how to enable it for your account.
@@ -44,7 +42,10 @@ This is why we have developed our password breach detection solution: to allow y
 ## How it works
 Our security team keeps a keeps a keen eye on leaks in the wild. We have built a strong database of leaked passwords that gets updated every day. Whenever a user attempts to access his or her account, we first perform a check against our leaked password database. If a leak is suspected, the user is notified and action is taken.
 
-![Lock's password leak notification](https://cdn.auth0.com/blog/breach/lock.gif)
+<video autoplay loop width="600">
+  <source src="https://cdn.auth0.com/blog/breach/lock.m4v"/>
+<img src="https://cdn.auth0.com/blog/breach/lock.gif"/>
+</video>
 
 What are the actions taken?
 
