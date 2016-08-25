@@ -31,5 +31,6 @@ ifndef WORKSPACE
 endif
 
 bundle:
+	gem cleanup
 	gem install bundler
 	bundle install
