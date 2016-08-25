@@ -39,12 +39,12 @@ Today we are officially releasing our [Auth0 Guardian](https://auth0.com/docs/mu
 There are good intros to [multifactor authentication (MFA)](https://auth0.com/docs/multifactor-authentication) out there, but here's a refresher:
 
 - A single authentication factor (such as username and password) is not safe enough. If credentials are leaked or stolen, that is all that is needed to impersonate a user.
-- Adding a second authentication factor increases security by making it harder to have both sets of credentials compromised at the same time.
-- Typical MFA systems rely on SMSs, e-mails, and time-based one-time passwords [TOTP](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/). These require the user to perform manual steps: opening an e-mail, copying a code, etc.
+- Adding a second authentication factor increases security by making it harder for both sets of credentials to be compromised at the same time.
+- Typical MFA systems rely on SMSs, e-mails, and time-based one-time passwords ([TOTP](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)). These require the user to perform manual steps: opening an e-mail, copying a code, etc.
 
 Manual steps in the MFA process are usually the main factor against its adoption. What if it was easier, quicker, simpler?
 
-{% include tweet_quote.html quote_text="What if MFA was easier, quicker, simpler?" %}
+{% include tweet_quote.html quote_text="What if MFA was easier, quicker, simpler? Enter Auth0 Guardian" %}
 
 ## Enter Auth0 Guardian
 Auth0 Guardian is our iOS and Android app for multifactor authentication. The best of it: it can work using push-notifications. That's right, no more SMSs or manual codes. Here, have a look:
