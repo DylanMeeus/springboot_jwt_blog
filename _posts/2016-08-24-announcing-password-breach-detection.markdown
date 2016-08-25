@@ -43,7 +43,7 @@ You have seen it [again](https://techcrunch.com/2016/06/08/twitter-hack/) and [a
 This is why we have developed our password breach detection solution: to allow you and your users to react as quickly as possible.
 
 ## How it works
-Our security team keeps a keeps a keen eye on leaks in the wild. We have built a strong database of leaked passwords that gets updated every day. Whenever a user attempts to access his or her account, we first perform a check against our leaked password database. If a leak is suspected, the user is notified and action is taken.
+Our security team keeps a keen eye on leaks in the wild. We have built a strong database of leaked passwords that gets updated every day. Whenever a user attempts to access his or her account, we first perform a check against our leaked password database. If a leak is suspected, the user is notified and action is taken.
 
 <video autoplay loop width="600">
   <source src="https://cdn.auth0.com/blog/breach/lock-2.m4v"/>
