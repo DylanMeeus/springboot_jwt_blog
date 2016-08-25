@@ -31,6 +31,7 @@ ifndef WORKSPACE
 endif
 
 bundle:
+	gem uninstall psych -v 2.0.17
 	gem list
 	gem install bundler
 	bundle install
