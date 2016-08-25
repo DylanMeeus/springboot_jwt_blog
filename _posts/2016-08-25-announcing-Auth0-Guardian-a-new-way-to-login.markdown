@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing Auth0 Guardian, Multifactor Made Easy"
 description: "Forget about SMSs or manually entering codes, try Guardian!"
-date: 2016-08-24 13:00
+date: 2016-08-25 13:00
 author:
   name: Sebastián Peyrott
   url: https://twitter.com/speyrott?lang=en
