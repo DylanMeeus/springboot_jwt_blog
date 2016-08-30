@@ -2,10 +2,10 @@
 layout: post
 title: "ASP.NET Core APIs on the fast-lane with Swagger and Autorest"
 description: Document your ASP.NET Core Web APIs with Swagger and auto-generate authenticated clients quickly and easily with Autorest.
-date: 2016-08-27 13:30
+date: 2016-08-29 22:00
 design:
   bg_color: "#000000"
-  image: https://cdn.auth0.com/blog/intro-to-elm/logo.png
+  image: https://cdn.auth0.com/blog/aspnet-core-web-apis/swagger.png
 author:
   name: Matías Quaranta
   url: http://twitter.com/ealsur
@@ -80,13 +80,13 @@ Let’s start by creating our simple **ASPNET Core Web API**. On your command-li
 yo aspnet
 ```
 
-IMAGE Yeoman
+![Running Yeoman to create the API](https://cdn.auth0.com/blog/aspnet-core-web-apis/yo.PNG)
 
 >The _Web API Application_ includes a _project.json_ with all the required dependencies set, a _Startup.cs_ file with the ASP.NET Core pipeline already configure for MVC routing and a sample _Controller_.
 
-We can try _restoring_ and _running_ the API project to check if everything was created successfully with `dotnet restore`, `dotnet run` and opening a browser pointing to `http://localhost:5000 /values`.
+We can try _restoring_ and _running_ the API project to check if everything was created successfully with `dotnet restore`, `dotnet run` and opening a browser pointing to `http://localhost:5000/values`.
 
-IMAGE localhost
+![Default API route](https://cdn.auth0.com/blog/aspnet-core-web-apis/api.PNG)
 
 Once that’s done, we’ll proceed edit our App’s dependencies on the `project.json` file and add [Swashbuckle](https://github.com/domaindrivendev/Ahoy):
 
@@ -144,7 +144,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 The first one will make sure that the route to your _Swagger.json_ file is handled correctly, the second one will handle routing to the Swagger UI, which will work, by default, on `http://localhost:5000/swagger/ui` (or `http://yourapidomain/swagger/ui`).
 
-IMAGE swaggerui
+![SwaggerUI View](https://cdn.auth0.com/blog/aspnet-core-web-apis/swaggerui.PNG)
 
 The Swagger UI is quite handy to test your methods and check their correct responses without needing tools like [Postman](https://www.getpostman.com/).
 
@@ -164,7 +164,7 @@ And make sure to return an **ObjectResult**.
 
 On the Swagger UI we will see this reflected as a _Model Schema_:
 
-IMAGE swaggerui schema
+![Swagger Schema](https://cdn.auth0.com/blog/aspnet-core-web-apis/swaggeruiget.PNG)
 
 ### Securing our endpoints
 
@@ -193,11 +193,11 @@ The first step is to add the [JwtBearer Nuget package](https://www.nuget.org/pac
 
 For our next step, you will need your **Auth0 ClientId and Domain** which you can obtain from your Dashboard:
 
-IMAGE auth0 client domain
+![Getting our Auth0 credentials](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0credentials.PNG)
 
 On the same Settings pane, go to the _Advanced Settings_ > _OAuth_ and enable a **JWT Signature Algorithm**:
 
-IMAGE jwt signature
+![Configuring JWT on Auth0](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0jwt.PNG)
 
 Then, let’s modify our **ASP.NET Core pipeline** to include the Jwt Token authentication on the Configure method in your Startup.cs file:
 
@@ -241,7 +241,7 @@ Next, we’ll create an **authenticated client** that can access our API easily 
 
 Using Yeoman one more time, we’ll create a **Web Application Basic**:
 
-IMAGE webapp Basic
+![Creating a Web App with Yeoman](https://cdn.auth0.com/blog/aspnet-core-web-apis/yoweb.PNG)
 
 This creates a simple ASP.NET Core MVC Web application you can try by running `dotnet restore` and `dotnet run` on the created folder (you can also follow these steps with a pre-existing ASP.NET Core application).
 
@@ -255,7 +255,7 @@ The _AddCredentials_ toggle will tell Autorest that our Api needs to send authen
 
 If you browse that folder, you’ll find two important files, the wrapper Api class, which has all the necessary methods to call all your Api routes and actions, and an Interface:
 
-IMAGE directorio
+![Autorest results](https://cdn.auth0.com/blog/aspnet-core-web-apis/autorestresult.PNG)
 
 The interface is useful if you want to use [Dependency Injection](https://docs.asp.net/en/latest/fundamentals/dependency-injection.html) in your ASP.NET Core client application.
 
@@ -383,7 +383,7 @@ public IActionResult Login(string returnUrl = "/")
 
 Finally, we need to setup on our **Auth0 account** the **authorized callback Urls**, this is found in your Dashboard > Settings section and should point to your Web applications running domain, if you are trying it locally, remember to add a line for http://localhost too along with your deployed domain:
 
-IMAGE auth0 callback
+![Configuring Auth0 Callback Urls](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0callback.PNG)
 
 Now, going back to our App and browsing the _Login_ url (http://your_site/account/login or http://localhost:yourport/account/login), we should be redirected to the Auth0 Lock:
 
