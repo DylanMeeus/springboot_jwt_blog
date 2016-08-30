@@ -387,7 +387,7 @@ Finally, we need to setup on our **Auth0 account** the **authorized callback Url
 
 ![Configuring Auth0 Callback Urls](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0callback.PNG)
 
->For a more detailed and in-depth guide on authentication for ASP.NET Core Web Apps, visit the [ASP.NET Core SDK Quickstart](https://auth0.com/docs/quickstart/webapp/aspnet-core)
+>For a more detailed and in-depth guide on authentication for ASP.NET Core Web Apps, visit the [ASP.NET Core Quickstart](https://auth0.com/docs/quickstart/webapp/aspnet-core)
 
 Now, going back to our App and browsing the _Login_ url (http://your_site/account/login or http://localhost:yourport/account/login), we should be redirected to the Auth0 Lock:
 
