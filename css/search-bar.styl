@@ -1,5 +1,11 @@
 .search-bar
-  margin-bottom: 40px;
+  .form-group
+    padding: 14px 0;
+    margin-bottom: 0;
+
+  .form-control
+    background-color: rgba(255,255,255,0.2)
+    border: 0;
 
   .title
     color black
@@ -12,15 +18,32 @@
     position relative
 
     i
-      position: absolute;
-      top: 6px;
-      left: 16px;
-      opacity: .5;
+      position absolute
+      top 20px
+      left 16px
+      opacity .5
+      color #ffffff
 
     input
-      padding: 8px 16px;
-      box-shadow: none;
-      height: 35px;
-      text-indent: 26px;
-      -webkit-transition: all .5 ease;
-      transition: all .5 ease;
+      height 35px
+      padding 8px 16px
+      box-shadow none
+      text-indent 26px
+      color: rgba(255, 255, 255, 0.8)
+      -webkit-transition all .5 ease
+      transition all .5 ease
+
+      &:focus
+        background: rgba(255, 255, 255, 0.25)
+
+      &::-webkit-input-placeholder
+        color rgba(255, 255, 255, 0.7)
+
+      &::-moz-placeholder
+        color rgba(255, 255, 255, 0.7)
+
+      &:-ms-input-placeholder
+        color rgba(255, 255, 255, 0.7)
+
+      &:-moz-placeholder
+        color rgba(255, 255, 255, 0.7)
