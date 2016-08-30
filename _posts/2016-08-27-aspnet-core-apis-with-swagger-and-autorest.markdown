@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ASP.NET Core APIs on the fast-lane with Swagger and Autorest"
+title: "ASP.NET Core APIs in the fast lane with Swagger and Autorest"
 description: Document your ASP.NET Core Web APIs with Swagger and auto-generate authenticated clients quickly and easily with Autorest.
 date: 2016-08-30 15:00
 design:
@@ -26,21 +26,21 @@ related:
 
 ---
 
-**TL;DR:** Swagger is the most used API Specification Framework. In this article we'll guide you in creating Swagger-documented APIs and automatically-generated clients with Autorest. The full code is available at [this GitHub repository](https://github.com/ealsur/auth0swagger).
+**TL;DR:** Swagger is the most used API specification framework. In this article we'll guide you in creating Swagger-documented APIs and automatically generated clients with Autorest. The full code is available at [this GitHub repository](https://github.com/ealsur/auth0swagger).
 
 ---
 
-Since the very beginning, there has always been a way of **documenting** or describing your web-exposed services. Whether it was [SOAP](https://en.wikipedia.org/wiki/SOAP) on XML Web Services or Contracts for [WCF-enabled](https://msdn.microsoft.com/library/ms731082(v=vs.110).aspx) Services, there has always been some way to ease the complicated task of service-integration, but **what about REST APIs?**
+Since the very beginning, there has always been a way of **documenting** or describing your web-exposed services. Whether it was [SOAP](https://en.wikipedia.org/wiki/SOAP) on XML Web Services or Contracts for [WCF-enabled](https://msdn.microsoft.com/library/ms731082(v=vs.110).aspx) Services, there has always been some way to ease the complicated task of service integration, but **what about REST APIs?**
 
 ## Enter Swagger
 
-[Swagger](http://swagger.io/) is an [Open Source API Specification Framework](https://github.com/OAI/OpenAPI-Specification) that enables interactive documentation, discoverability and SDK generation over your existing REST API. Consisting mainly of a **Swagger.json** file which describes your API, this means that you don’t actually have to change anything in your current REST API methods and calls to take advantage of Swagger. There are [plenty of tools](http://swagger.io/tools/) to generate and consume a Swagger definition.
+[Swagger](http://swagger.io/) is an [open source API specification framework](https://github.com/OAI/OpenAPI-Specification) that enables interactive documentation, discoverability and SDK generation over your existing REST API. Consisting mainly of a **Swagger.json** file which describes your API, this means that you don’t actually have to change anything in your current REST API methods and calls to take advantage of Swagger. There are [plenty of tools](http://swagger.io/tools/) to generate and consume a Swagger definition.
 
 By the end of this article, and using a subset of these tools, you will be able to document and consume your APIs entirely on **ASP.NET Core**, speeding up integrations with any possible authenticated client.
 
 ## Tools of the trade
 
-Since we will be working on ASP.NET Core (you can obtain the Runtime and Client tools [here](http://get.asp.net/) for any platform), everything I mention on this article will be Open Source, and at the end, you will have all the code available at the [Github repository](https://github.com/ealsur/auth0swagger).
+Since we will be working on ASP.NET Core (you can obtain the Runtime and Client tools [here](http://get.asp.net/) for any platform), everything I mention on this article will be open source, and at the end, you will have all the code available at the [Github repository](https://github.com/ealsur/auth0swagger).
 
 As a starting point we will be using [Yeoman](http://yeoman.io/)’s [ASP.NET generator](https://github.com/OmniSharp/generator-aspnet). We could use a Visual Studio template or even run a `dotnet new`, but Yeoman is probably the most widely used scaffolding tool nowadays.
 
@@ -74,7 +74,7 @@ docker pull azuresdk/autorest:latest
 
 ### Creating our API
 
-Let’s start by creating our simple **ASPNET Core Web API**. On your command-line, run Yeoman’s generator:
+Let’s start by creating our simple **ASPNET Core Web API**. On your command line, run Yeoman’s generator:
 
 ```bash
 yo aspnet
@@ -82,13 +82,13 @@ yo aspnet
 
 ![Running Yeoman to create the API](https://cdn.auth0.com/blog/aspnet-core-web-apis/yo.PNG)
 
->The _Web API Application_ includes a _project.json_ with all the required dependencies set, a _Startup.cs_ file with the ASP.NET Core pipeline already configure for MVC routing and a sample _Controller_.
+>The _Web API Application_ includes a _project.json_ with all the required dependencies set, a _Startup.cs_ file with the ASP.NET Core pipeline already configured for MVC routing and a sample _Controller_.
 
 We can try _restoring_ and _running_ the API project to check if everything was created successfully with `dotnet restore`, `dotnet run` and opening a browser pointing to `http://localhost:5000/values`.
 
 ![Default API route](https://cdn.auth0.com/blog/aspnet-core-web-apis/api.PNG)
 
-Once that’s done, we’ll proceed edit our App’s dependencies on the `project.json` file and add [Swashbuckle](https://github.com/domaindrivendev/Ahoy):
+Once that’s done, we’ll proceed to edit our app’s dependencies in the `project.json` file and add [Swashbuckle](https://github.com/domaindrivendev/Ahoy):
 
 ```json
 "dependencies": {
@@ -110,7 +110,7 @@ Once that’s done, we’ll proceed edit our App’s dependencies on the `projec
 
 That will effectively extend our API to allow for automatic Swagger documentation generation, but first, we need to _configure_ it in the **ASP.NET Core pipeline**.
 
-To achieve this, we go to our **Startup.cs** file and on the **ConfigureServices** method call the **AddSwaggerGen** extension:
+To achieve this, we go to our **Startup.cs** file and in the **ConfigureServices** method call the **AddSwaggerGen** extension:
 
 ```cs
 public void ConfigureServices(IServiceCollection services)
@@ -146,7 +146,7 @@ The first one will make sure that the route to your _Swagger.json_ file is handl
 
 ![SwaggerUI View](https://cdn.auth0.com/blog/aspnet-core-web-apis/swaggerui.PNG)
 
-The Swagger UI is quite handy to test your methods and check their correct responses without needing tools like [Postman](https://www.getpostman.com/).
+The Swagger UI is quite handy for testing your methods and checking their correct responses without needing tools like [Postman](https://www.getpostman.com/).
 
 Our next step is to decorate our API methods so the Swagger documentation reflects the correct **object definitions**. This is quite easy since Swashbuckle automatically detects input objects. For output definition, just add the `[Produces]` and `[SwaggerResponse]` attributes describing the **Type** returned, like this:
 
@@ -168,7 +168,7 @@ On the Swagger UI we will see this reflected as a _Model Schema_:
 
 ### Securing our endpoints
 
-In a real world scenario, you probably don’t want your API (or part of it) to be exposed publicly. We will now take advantage of **Auth0**’s authentication to secure our API with [Jwt Tokens](https://jwt.io/).
+In a real-world scenario, you probably don’t want your API (or part of it) to be exposed publicly. We will now take advantage of **Auth0**’s authentication to secure our API with [Jwt Tokens](https://jwt.io/).
 
 The first step is to add the [JwtBearer Nuget package](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/) to our dependencies:
 
@@ -191,7 +191,7 @@ The first step is to add the [JwtBearer Nuget package](https://www.nuget.org/pac
 }
 ```
 
-For our next step, you will need your **Auth0 ClientId and Domain** which you can obtain from your Dashboard:
+For our next step, you will need your **Auth0 ClientId and Domain**, which you can obtain from your Dashboard:
 
 ![Getting our Auth0 credentials](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0credentials.PNG)
 
@@ -199,7 +199,7 @@ On the same Settings pane, go to the _Advanced Settings_ > _OAuth_ and set the *
 
 ![Configuring JWT on Auth0](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0jwt.PNG)
 
-Then, let’s modify our **ASP.NET Core pipeline** to include the Jwt Token authentication on the Configure method in your Startup.cs file:
+Then, let’s modify our **ASP.NET Core pipeline** to include the Jwt Token authentication in the Configure method in your Startup.cs file:
 
 ```cs
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -253,13 +253,13 @@ We’ll open a **Command Prompt** on the application’s folder and use **Autore
 autorest -Input http://your_api_domain/swagger/v1/swagger.json -OutputDirectory Api -AddCredentials true
 ```
 
-The _AddCredentials_ toggle will tell Autorest that our Api needs to send authentication information on the requests, _Input_ points to the running Api swagger file (it needs to be a running or deployed Api) and _OutputDirectory_ tells Autorest where to put the automatically created files.
+The _AddCredentials_ toggle will tell Autorest that our API needs to send authentication information on the requests, _Input_ points to the running Api swagger file (it needs to be a running or deployed API) and _OutputDirectory_ tells Autorest where to put the automatically created files.
 
-If you browse that folder, you’ll find two important files, the wrapper Api class, which has all the necessary methods to call all your Api routes and actions, and an Interface:
+If you browse that folder, you’ll find two important files, the wrapper API class, which has all the necessary methods to call all your API routes and actions, and an Interface:
 
 ![Autorest results](https://cdn.auth0.com/blog/aspnet-core-web-apis/autorestresult.PNG)
 
-The interface is useful if you want to use [Dependency Injection](https://docs.asp.net/en/latest/fundamentals/dependency-injection.html) in your ASP.NET Core client application.
+The interface is useful if you want to use [dependency injection](https://docs.asp.net/en/latest/fundamentals/dependency-injection.html) in your ASP.NET Core client application.
 
 After generating our client, Autorest will let you know that you will need the [Microsoft.Rest.ClientRuntime](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime/) Nuget package on our dependencies.
 
@@ -290,7 +290,7 @@ First, let’s add the required Nuget packages, [Microsoft.AspNetCore.Authentica
 }
 ```
 
-Then, we’ll setup authentication on our **Startup.cs** file by adding the Cookie scheme to **ConfigureServices**:
+Then, we’ll set up authentication on our **Startup.cs** file by adding the Cookie scheme to **ConfigureServices**:
 
 ```cs
 public void ConfigureServices(IServiceCollection services)
@@ -301,7 +301,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-And setting up the pipeline on the **Configure** method:
+And setting up the pipeline in the **Configure** method:
 
 ```cs
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, IOptions<Auth0Settings> auth0Settings)
@@ -374,7 +374,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, IOptions
 }
 ```
 
-The next step is to add a **Login route**, as an example, we could use an AccountController and Login method:
+The next step is to add a **Login route**; as an example, we could use an AccountController and Login method:
 
 ```cs
 public IActionResult Login(string returnUrl = "/")
@@ -383,7 +383,7 @@ public IActionResult Login(string returnUrl = "/")
 }
 ```
 
-Finally, we need to setup on our **Auth0 account** the **authorized callback Urls**, this is found in your Dashboard > Settings section and should point to your Web applications running domain, if you are trying it locally, remember to add a line for http://localhost too along with your deployed domain:
+Finally, we need to set up in our **Auth0 account** the **authorized callback URLs**, this is found in your Dashboard > Settings section and should point to your Web applications running domain; if you are trying it locally, remember to add a line for http://localhost too along with your deployed domain:
 
 ![Configuring Auth0 Callback Urls](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0callback.PNG)
 
@@ -395,9 +395,9 @@ Now, going back to our App and browsing the _Login_ url (http://your_site/accoun
 
 ### Passing up the credentials
 
-Now we have a running Web Application with an authenticated user that needs to call our secured Web API, passing up the credentials is extremely easy!
+Now that we have a running Web Application with an authenticated user that needs to call our secured Web API, passing up the credentials is extremely easy!
 
-Let’s say we want to call our API from an MVC Action that would list all the values from the API. First, we obtain the token from the current logged in user with:
+Let’s say we want to call our API from an MVC Action that would list all the values from the API. First, we obtain the token from the current logged-in user with:
 
 ```cs
 User.Claims.First(x=>x.Type == "id_token").Value
@@ -425,6 +425,6 @@ _And that’s it!_ We don’t need to mess with headers and serialization, the *
 
 ## Conclusion
 
-Documenting our Web APIs with Swagger enables rapid client generation with Autorest, which supports a wide variety of languages. Imagine how easily it would be to create **multi-client scenario** by running Autorest to create a client for your Web App in C# and a client for your Android app in Java or by simply allowing any customer to create a client in its preferred language.
+Documenting our Web APIs with Swagger enables rapid client generation with Autorest, which supports a wide variety of languages. Imagine how easy it would be to create a **multi-client scenario** by running Autorest to create a client for your Web App in C# and a client for your Android app in Java or by simply allowing any customer to create a client in its preferred language.
 
-The [entire code of this guide is available on Github](https://github.com/ealsur/auth0swagger), with a sample Web API and Web application you can use by just setting your Auth0 account information on the configuration files.
+The [entire code of this guide is available on Github](https://github.com/ealsur/auth0swagger), with a sample Web API and Web application you can use by just setting your Auth0 account information in the configuration files.
