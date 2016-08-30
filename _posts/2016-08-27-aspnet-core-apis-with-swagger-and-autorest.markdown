@@ -2,7 +2,7 @@
 layout: post
 title: "ASP.NET Core APIs on the fast-lane with Swagger and Autorest"
 description: Document your ASP.NET Core Web APIs with Swagger and auto-generate authenticated clients quickly and easily with Autorest.
-date: 2016-08-29 22:00
+date: 2016-08-30 15:00
 design:
   bg_color: "#000000"
   image: https://cdn.auth0.com/blog/aspnet-core-web-apis/swagger.png
@@ -195,7 +195,7 @@ For our next step, you will need your **Auth0 ClientId and Domain** which you ca
 
 ![Getting our Auth0 credentials](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0credentials.PNG)
 
-On the same Settings pane, go to the _Advanced Settings_ > _OAuth_ and enable a **JWT Signature Algorithm**:
+On the same Settings pane, go to the _Advanced Settings_ > _OAuth_ and set the **JWT Signature Algorithm** to **RS256**:
 
 ![Configuring JWT on Auth0](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0jwt.PNG)
 
@@ -234,6 +234,8 @@ public IActionResult GetAll()
 ```
 
 And that’s it! Your API is **secured** and only clients authenticated by Auth0 can access it.
+
+>For more information on securing an ASP.NET Core Web API with Auth0, please refer to the [Auth0 ASP.NET Core Web API Quickstart](https://auth0.com/docs/quickstart/backend/aspnet-core-webapi)
 
 ### Streamlining clients
 
@@ -385,6 +387,8 @@ Finally, we need to setup on our **Auth0 account** the **authorized callback Url
 
 ![Configuring Auth0 Callback Urls](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0callback.PNG)
 
+>For a more detailed and in-depth guide on authentication for ASP.NET Core Web Apps, visit the [ASP.NET Core SDK Quickstart](https://auth0.com/docs/quickstart/webapp/aspnet-core)
+
 Now, going back to our App and browsing the _Login_ url (http://your_site/account/login or http://localhost:yourport/account/login), we should be redirected to the Auth0 Lock:
 
 ![Logging with Auth0 Lock](https://cdn.auth0.com/blog/aspnet-core-web-apis/auth0lock.PNG)
@@ -410,7 +414,7 @@ Finally, we use our _Autorest generated client_ to easily obtain the information
 ```cs
 [Authorize]
 public async Task<IActionResult> List()
-{
+{J
     var auth = new Microsoft.Rest.TokenCredentials(User.Claims.First(x=>x.Type == "id_token").Value);
     var api = new Auth0SwaggerSampleAPI(new Uri("http://localhost:5000"), auth); 
     return View(await api.ValuesGetAsync());
