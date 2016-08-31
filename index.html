@@ -13,15 +13,21 @@ latest_tab: active
 <div class="container" id="container">
   <div class="row sticky-container">
     <div class="col-md-8 content-column">
-      <ul class="archive">
-        {% for post in paginator.posts %}
-        {% unless post.draft %}
-        {% include archive_post.html %}
-        {% endunless %}
-        {% endfor %}
-      </ul>
+      <div id="search">
+        <h1>Search Results</h1>
+        <div id="results-container"></div>
+      </div>
+      <div id="archive-container">
+        <ul class="archive" id="archive">
+          {% for post in paginator.posts %}
+          {% unless post.draft %}
+          {% include archive_post.html %}
+          {% endunless %}
+          {% endfor %}
+        </ul>
 
-      {% include paging.html %}
+        {% include paging.html %}
+      </div>
     </div>
     <div class="col-md-4 sidebar-column" data-sticky-padding="90">
       {% include newsletter.html %}
