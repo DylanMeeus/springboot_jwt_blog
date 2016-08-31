@@ -119,12 +119,6 @@ If, god forbid, your startup doesn’t work out, you’ll have done your custome
 
 Open standards have seen thousands of companies come and go. They were around before your company existed, and they’ll be around after. SAML—a protocol that allows you to login once and have that login you into a number of separate websites—was first created in 2001. So when you build on open standards, you get a succession plan for your startup for free.
 
-### How to live on past your startup’s death
-
-In the end, when you build a product that your customers can’t live without, you have lock-in. They are guaranteed to be disappointed that you’re shutting down regardless of whether you’ve built on open standards.
-
-That’s why we’ve taken the next step of setting up what’s known as software escrow or technology escrow. A copy of our application—including source code, documentation, data, production environment, everything—is provided to a trusted third party. In the case that our company dies or we get acquired and shut down, our customers will continue to receive our service as a SaaS product run by the trusted third party. Enterprise customers would perceive no interruption in service while they search for a more permanent solution.
-
 ## Go from Lock-In to Customer Loyalty
 
 By eschewing the traditional notion of lock-in where your customers are forced to rely on you—an effect that engenders bitterness and resentment—you reduce the technological barriers to switching or leaving. While potentially having a disastrous effect on the economics of the business of enterprise software, we’ve seen it to have the opposite effect.
