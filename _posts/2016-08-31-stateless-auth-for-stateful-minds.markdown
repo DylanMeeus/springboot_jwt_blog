@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Stateless Sessions for Stateful Minds: JWTs Explained and How You Can Do The Switch"
+title: "Stateless Sessions for Stateful Minds: JWTs Explained and How You Can Make The Switch"
 description: "If you are interested in migrating to a stateless sessions approach, here's your guide!"
 date: 2016-08-31 13:00
 author:
