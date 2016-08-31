@@ -66,9 +66,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKb2huIERvZSdzIHVzZXIgSUQiLCJuYW1
 
 Head over to [jwt.io](https://jwt.io), paste the JWT and have a look at its contents. The shared secret is “secret” (no quotes). You will notice a typical JWT is composed of three parts:
 
-Header: a small JSON object describing the algorithm and the type of JWT in question.
-Payload: the actual usable data, a JSON object of arbitrary content (although some fields are defined by the JWT spec).
-Signature: what makes a JWT safe to use: both the header and the data can be validated against tampering using this.
+- **Header**: a small JSON object describing the algorithm and the type of JWT in question.
+- **Payload**: the actual usable data, a JSON object of arbitrary content (although some fields are defined by the JWT spec).
+- **Signature**: what makes a JWT safe to use: both the header and the data can be validated against tampering using this.
 
 Each part is separated by a dot (.). By making use of a convenient data representation such as JSON, JWTs have ensured ease of use in many different languages and frameworks. JSON is also lightweight when it comes to syntax, which helps in keeping the token as small as possible.
 
@@ -88,9 +88,9 @@ Of course, none of this could be trusted if the JWT weren’t signed. JWTs allow
 
 For the most part, JWTs are usually just signed. However, if your JWT contains data that must not be visible to third parties, then encrypting it using JWE is your only choice. A typical encryption scheme uses an already signed JWT as the payload for encryption. This is known as a nested JWT. It is acceptable to use the same key for encryption and validation.
 
-A word of caution: although JWTs aim to reduce the complexities involved in developing your own solution, care is still needed. A rather common attack against signed JWTs involves stripping the signature and then changing the header to reflect a lack of signature. If you are not enforcing a check for the presence of a signature in your server, a forged JWT could pass as a valid one. Arguably, proper API design on the part of JWT library developers could help in this case.
+**A word of caution**: although JWTs aim to reduce the complexities involved in developing your own solution, care is still needed. A rather common attack against signed JWTs involves stripping the signature and then changing the header to reflect a lack of signature. If you are not enforcing a check for the presence of a signature in your server, a forged JWT could pass as a valid one. Arguably, proper API design on the part of JWT library developers could help in this case.
 
-### Going Stateless: Updating a Stateful Architecture for Stateless Operation
+## Going Stateless: Updating a Stateful Architecture for Stateless Operation
 First things first: before going stateless, make sure this is appropriate for your architecture. Although we have talked about the benefits of keeping state client-side in the form of signed tokens, there are use cases where this is not the best option. Item 10 in [10 Things You Should Know About Tokens and Cookies](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/) makes a good point: if you find yourself requiring ever bigger tokens to accomplish something, then the disadvantages probably outweigh the advantages.
 
 A typical (simplified) stateful architecture will look like this:
