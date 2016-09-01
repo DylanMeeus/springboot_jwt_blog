@@ -118,7 +118,7 @@ We’re going to need a few parts. For simplicity’s sake, we’ll have one, ve
 
 The crux of this demo app, of course, is authenticating our React Native app with JSON Web Tokens. When a user signs up, or logs in, the backend API’s response will be a JWT. Any request to the protected quotes endpoint will include the current user’s saved JWT - if there is one - and this will prove to the backend that the user is, in fact, a logged in, authenticated session and grant them access. So we’ll be using [AsyncStorage][6] for that.
 
-AsyncStorage provides a way to locally store tokens and data. It can be, in some ways, compared to a `LocalStorage` option. In full production applications, it is recommended to not access AsyncStorage directly, but instead, to use an abstraction layer, as AsyncStorage is shared with other apps using the same browser, and thus an ill-conceieved removal of all items from storage could impair the functioning of neighboring apps.
+AsyncStorage provides a safe way to locally store tokens and data. It can be, in some ways, compared to a `LocalStorage` option. In iOs, all applications live in their own sandbox, so all of the files and data associated with an application are secured, they can't be accessed by other applications. One very important thing to note is that it's only secured for non-jailbreak iOs devices.
 
 The `async` keyword prepended to some of our function names will allow us, primarily, to use the `await` keyword in turn. Using `await` essentially tells our script to leave the function and return when the following task is done. This is particularly useful when we're storing and retrieving items from AsyncStorage, as it allows us to finish doing so before proceeding with our function.
 
@@ -296,7 +296,7 @@ render() {
           type={Person}
           options={options}
         />
-      </View>    
+      </View>
       <View style={styles.row}>
         <TouchableHighlight style={styles.button} onPress={this._userSignup} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Signup</Text>
@@ -305,7 +305,7 @@ render() {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
       </View>
-      <View style={styles.row}>    
+      <View style={styles.row}>
         <TouchableHighlight onPress={this._getProtectedQuote} style={styles.button}>
           <Text style={styles.buttonText}>Get a Chuck Norris Quote!</Text>
         </TouchableHighlight>
