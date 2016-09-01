@@ -847,7 +847,7 @@ We can easily set up authentication in our Vue.js apps by using the **[Lock Widg
   ...
 
   <!-- Auth0 Lock script -->
-  <script src="http://cdn.auth0.com/js/lock-9.2.min.js"></script>`
+  <script src="http://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 
   ...
 ```
