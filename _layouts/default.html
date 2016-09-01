@@ -469,8 +469,8 @@
         }
 
         function initBlogSubscriber() {
-          if(localStorage.isBlogSubscriber) {
-            $('form.newsletter-subscriber').addClass('hide');
+          if(localStorage.isBlogSubscriber !== true) {
+            $('form.newsletter-subscriber').removeClass('hide');
           }
 
           function closeSticky($module, animation) {
