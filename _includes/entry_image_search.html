@@ -1,12 +1,10 @@
 <a href="{{ site.baseurl }}{url}"
-  style="{{image_bg_color}} {{bg_merge}}"
   class="entry-thumbnail">
   <div class="holder" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
     <img
-    style="{{opacity}} {{size}} {{top}} {{left}}"
     src="{image}"
     alt="{title}">
-    <meta itemprop="url" content="{% if current.design.image %}{{ current.design.image }}{% else %}{{ current.design.image_default }}{% endif %}">
+    <meta itemprop="url" content="{image }">
     <meta itemprop="width" content="128">
     <meta itemprop="height" content="128">
   </div>

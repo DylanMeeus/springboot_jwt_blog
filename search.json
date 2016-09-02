@@ -11,7 +11,11 @@ layout: null
      "author_url"    : "{{ post.author.url }}",
      "tags"          : "{{ post.tags | first }}",
      "url"           : "{{ post.url }}",
+   {% if post.design.image %}
      "image"         : "{{ post.design.image }}",
+   {% else %}
+     "image"         : "{{ post.design.image_default }}",
+   {% endif %}
      "date"          : "{{ post.date | date: "%B %d, %Y" }}"
    } {% unless forloop.last %},{% endunless %}
  {% endfor %}

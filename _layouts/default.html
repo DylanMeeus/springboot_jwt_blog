@@ -299,12 +299,12 @@
         json: '{{ site.baseurl }}/search.json',
         searchResultTemplate: `{% include results_post.html %}`,
         noResultsText: 'No results found',
-        limit: 5,
         fuzzy: false,
         exclude: ['Welcome']
       })
     </script>
     <!-- end jekyll-search-->
+
     <script type="text/javascript">
     try {
       window.abTestingLib.load({ fetchFn: function () { return $.get("https://ab.it.auth0.com/"); }});
