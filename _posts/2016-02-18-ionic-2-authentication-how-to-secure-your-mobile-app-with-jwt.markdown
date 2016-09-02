@@ -215,7 +215,7 @@ export class ProfilePage {
   error: string;
   jwtHelper: JwtHelper = new JwtHelper();
   local: Storage = new Storage(LocalStorage);
-  user: string;  
+  user: string;
 
   constructor(private http: Http) {
     this.auth = AuthService;
@@ -299,7 +299,7 @@ Let's now create the view.
           </ion-item>
 
           <div padding>
-            <button block type="submit">Login</button>        
+            <button block type="submit">Login</button>
           </div>
 
         </form>
@@ -323,7 +323,7 @@ Let's now create the view.
       </div>
 
       <div padding>
-        <p *ngIf="error" class="error">{{ "{{ error._body " }}}}</p>  
+        <p *ngIf="error" class="error">{{ "{{ error._body " }}}}</p>
       </div>
 
   </ion-content>
@@ -333,7 +333,7 @@ Let's now create the view.
       <div padding>
         <h1>Welcome, {{ "{{ user " }}}}</h1>
         <button block (click)="logout()">Logout</button>
-      </div>  
+      </div>
     </div>
   </ion-content>
 ```
@@ -472,7 +472,7 @@ file://\*
   ...
 
   <!-- Auth0 Lock script -->
-  <script src="https://cdn.auth0.com/js/lock-9.0.min.js"></script>
+  <script src="//cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -492,11 +492,13 @@ declare var Auth0Lock: any;
 @Page({
   templateUrl: 'build/pages/profile/profile.html',
 })
+
 export class ProfilePage {
   auth: AuthService;
   lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
   local: Storage = new Storage(LocalStorage);
   user: Object;
+  self = this;
 
   constructor() {
     this.auth = AuthService;
@@ -505,27 +507,30 @@ export class ProfilePage {
     }).catch(error => {
       console.log(error);
     });
+
+    this.lock.on("authenticated", authResult => {
+      self.lock.getProfile(authResult.idToken, (error, profile) => {
+        if (error) {
+          alert(error);
+          return;
+        }
+
+        self.local.set('id_token', authResult.idToken);
+        self.local.set('profile', JSON.stringify(profile));
+        self.user = profile;
+      });
+    });
   }
 
   login() {
-    this.lock.show((err, profile, token) => {
-      if (err) {
-        alert(err);
-        return;
-      }
-
-      this.local.set('profile', JSON.stringify(profile));
-      this.local.set('id_token', token);
-      this.user = profile;
-
-    });
+    this.lock.show();
   }
 
   logout() {
     this.local.remove('profile');
     this.local.remove('id_token');
     this.user = null;
-  }  
+  }
 }
 ```
 
