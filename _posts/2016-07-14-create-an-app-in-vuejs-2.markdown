@@ -884,17 +884,26 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
 
   export default {
 
+    ready() {
+
+      lock.on("authenticated", function(authResult) {
+          lock.getProfile(authResult.idToken, function(error, profile) {
+
+              localStorage.setItem('profile', JSON.stringify(profile))
+              localStorage.setItem('id_token', authResult.idToken)
+
+          })
+      })
+
+    },
+
     methods: {
 
       login() {
 
-        // Show the Lock Widget and save the user's JWT on a successful login
-        lock.show((err, profile, id_token) => {
+        // Show the lock widget
+        lock.show();
 
-          localStorage.setItem('profile', JSON.stringify(profile))
-          localStorage.setItem('id_token', id_token)
-
-        })
       },
 
       logout() {
