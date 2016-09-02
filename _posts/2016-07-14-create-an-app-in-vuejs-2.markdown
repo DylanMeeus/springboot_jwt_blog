@@ -889,11 +889,16 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
       lock.on("authenticated", function(authResult) {
           lock.getProfile(authResult.idToken, function(error, profile) {
 
-              localStorage.setItem('profile', JSON.stringify(profile))
-              localStorage.setItem('id_token', authResult.idToken)
+            if (error) {
+              // handle error
+              return;
+            }
 
-          })
-      })
+            localStorage.setItem('profile', JSON.stringify(profile))
+            localStorage.setItem('id_token', authResult.idToken)
+
+          });
+      });
 
     },
 
@@ -909,8 +914,8 @@ export var lock = new Auth0Lock(YOUR_CLIENT_ID, YOUR_CLIENT_DOMAIN)
       logout() {
 
         // Remove the profile and token from localStorage
-        localStorage.removeItem('profile')
-        localStorage.removeItem('id_token')
+        localStorage.removeItem('profile');
+        localStorage.removeItem('id_token');
 
       }
     }
