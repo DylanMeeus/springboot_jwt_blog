@@ -275,6 +275,14 @@
     <!-- jekyll-search -->
     <script src="{{ site.baseurl }}/js/vendor/jekyll-search.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+      $('#search-input').focus( function() {
+        $('.search-icon').hide();
+      });
+
+      $('#search-input').blur( function() {
+        $('.search-icon').show();
+      });
+
       $('#search-input').keyup(function(){
         if(this.value === ''){
           $('#archive-container').show();
