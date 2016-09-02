@@ -508,8 +508,8 @@ export class ProfilePage {
       console.log(error);
     });
 
-    this.lock.on("authenticated", function(authResult) {
-      self.lock.getProfile(authResult.idToken, function(error, profile) {
+    this.lock.on("authenticated", authResult => {
+      self.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error) {
           alert(error);
           return;
