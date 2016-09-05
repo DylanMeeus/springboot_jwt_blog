@@ -416,6 +416,10 @@ h1,h2,h3,h4,h5
     position static
 
 .blog-navigation
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #232228;
+  transform translate3d(0px,0px,0px)
+
   .jump-to
     outline: none;
     display: block;
@@ -439,7 +443,6 @@ h1,h2,h3,h4,h5
 
   #navigation_menu
     background-color: #232228;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   ul, li, &
     list-style: none;
@@ -450,7 +453,7 @@ h1,h2,h3,h4,h5
     z-index: 200;
     position: relative;
     min-height: 65px;
-    text-align: center;
+    text-align: left;
 
   [data-sticky]
     &:after
@@ -465,7 +468,7 @@ h1,h2,h3,h4,h5
       z-index: 1000;
       background-color: rgba(35, 34, 40, 0.87)
 
-  > ul
+  .nav-list
   	+breakpoint("desktop")
   		height: auto !important;
   		display: block !important;
@@ -545,6 +548,7 @@ ul.archive
     margin: 40px 0;
     word-wrap: normal;
     padding: 20px;
+    overflow-x: scroll;
 
     code
       font-size: 13px;
@@ -593,7 +597,7 @@ ul.archive
     height: auto;
     max-width: 100%;
     margin: 40px 0;
-  
+
   video
     max-width 100%
 
@@ -756,3 +760,13 @@ pre.prettyprint
         margin-top 0
         margin-right 0
         margin-left 0
+
+.search
+  display none
+
+.results-container
+  min-height 870px
+  
+#close-search
+  display none
+  cursor pointer

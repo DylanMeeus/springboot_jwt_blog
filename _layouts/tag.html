@@ -11,16 +11,23 @@ is_tag_index: true
   <div class="row sticky-container">
     <section class="col-md-8 content-column">
       <main>
-        <div class="archive">
-          {% for post in paginator.posts limit: 4 %}
-          {% unless post.draft %}
-          {% include archive_post.html %}
-          {% endunless %}
-          {% endfor %}
+        <div id="search" class="search">
+          <h1>Search Results</h1>
+          <div id="results-container" class="results-container"></div>
+        </div>
+        <div id="archive-container">
+          <div class="archive" id="archive" >
+            {% for post in paginator.posts limit: 4 %}
+            {% unless post.draft %}
+            {% include archive_post.html %}
+            {% endunless %}
+            {% endfor %}
+          </div>
+          
+          {% include paging.html %}
         </div>
       </main>
 
-      {% include paging.html %}
     </section>
     <aside class="col-md-4 sidebar-column" data-sticky-padding="90">
       {% include newsletter.html %}

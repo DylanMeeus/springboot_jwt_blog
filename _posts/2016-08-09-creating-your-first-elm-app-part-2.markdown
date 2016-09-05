@@ -24,7 +24,7 @@ related:
 
 ---
 
-**TL;DR:** In the first part of this tutorial, we introduced the Elm language by building a [simple Elm Application that called an API](https://auth0.com/blog/creating-your-first-elm-app-part-1/). Now we'll authenticate with JSON Web Tokens to make protected API requests. The full code is available in [this GitHub repository](https://github.com/kmaida/elm-with-jwt-api).
+**TL;DR:** In the first part of this tutorial, we introduced the Elm language by building a [simple Elm Application that called an API](https://auth0.com/blog/creating-your-first-elm-app-part-1/). Now we'll authenticate with JSON Web Tokens to make protected API requests. The full code is available in [this GitHub repository](https://github.com/kmaida/auth0-elm-with-jwt-api).
 
 ---
 
@@ -46,7 +46,7 @@ After the user has registered, we'll display a welcome message:
 
 Here's the complete `Main.elm` code for this step:
 
-**[Main.elm - Registering a User](https://github.com/kmaida/elm-with-jwt-api/blob/master/src/Main.elm)**
+**[Main.elm - Registering a User](https://github.com/kmaida/auth0-elm-with-jwt-api/blob/step-3/src/Main.elm)**
 
 Starting with new imports:
 
@@ -218,14 +218,14 @@ update msg model =
             ( model, authUserCmd model registerUrl )
 
         GetTokenSuccess newToken ->
-            ( { model | token = newToken, errorMsg = "" } |> Debug.log "got new token", Cmd.none )
+            ( { model | token = newToken, password = "", errorMsg = "" } |> Debug.log "got new token", Cmd.none )
 ```  
 
 We want to display authentication errors to the user. Unlike the `HttpError` message we implemented earlier, `AuthError` won't discard its argument. The type of the `error` argument is [`Http.Error`](http://package.elm-lang.org/packages/evancz/elm-http/3.0.1/Http#Error). As you can see from the docs, this is a union type that could be a few different errors. For the sake of simplicity, we're going to convert the error to a string and update the model's `errorMsg` with that string. A good exercise later would be to translate the different errors to more user-friendly messaging.
 
 The `SetUsername` and `SetPassword` messages are for sending form field values to update the model. `ClickRegisterUser` is the `onClick` for our "Register" button. It runs the `authUserCmd` command we just created and passes the model and the API route for new user creation. 
 
-`GetTokenSuccess` is the success function for the `authUser` task. Its argument is the token string. We'll update our model with the token so we can use it to request protected quotes later. This is a good place to verify that everything is working as expected, so let's log the updated model to the browser console using the `|>` forward function application alias and a [`Debug.log`](http://package.elm-lang.org/packages/elm-lang/core/4.0.1/Debug#log): `{ model | token = newToken, errorMsg = "" } |> Debug.log "got new token"`.
+`GetTokenSuccess` is the success function for the `authUser` task. Its argument is the token string. We'll update our model with the token so we can use it to request protected quotes later. We've also authenticated the user now, so we can clear the password and any errors. This is a good place to verify that everything is working as expected, so let's log the updated model to the browser console using the `|>` forward function application alias and a [`Debug.log`](http://package.elm-lang.org/packages/elm-lang/core/4.0.1/Debug#log): `{ model | token = newToken, password = "", errorMsg = "" } |> Debug.log "got new token"`. After verifying our expectations in the browser console, we should remove the `Debug.log`.
 
 ```elm
 {-
@@ -343,7 +343,7 @@ We also need the ability to log out.
 
 The full `Main.elm` code with login and logout implemented will look like this:
 
-**[Main.elm - Logging In and Logging Out](https://github.com/kmaida/elm-with-jwt-api/blob/master/src/Main.elm)**
+**[Main.elm - Logging In and Logging Out](https://github.com/kmaida/auth0-elm-with-jwt-api/blob/step-4/src/Main.elm)**
 
 Login works like Register (and uses the same request body), so creating its functionality should be straightforward. 
 
@@ -383,10 +383,10 @@ update msg model =
         ...
             
         LogOut ->
-            ( { model | username = "", password = "", protectedQuote = "", token = "", errorMsg = "" }, Cmd.none )
+            ( { model | username = "", protectedQuote = "", token = "" }, Cmd.none )
 ```
 
-`ClickLogIn` runs the `authUserCmd` command with the appropriate arguments. `LogOut` resets authentication-related data in the model record to empty strings.
+`ClickLogIn` runs the `authUserCmd` command with the appropriate arguments. `LogOut` resets authentication-related data in the model record to empty strings. We don't need to reset the `password` or `errorMsg` because we already did so when we successfully retrieved a token in `GetTokenSuccess`.
 
 ```elm
 ...
@@ -429,7 +429,7 @@ If a user is logged in, they'll be able to click a button to make API requests t
 
 Here's the completed `Main.elm` code for this step:
 
-**[Main.elm - Getting Protected Quotes](https://github.com/kmaida/elm-with-jwt-api/blob/master/src/Main.elm)**
+**[Main.elm - Getting Protected Quotes](https://github.com/kmaida/auth0-elm-with-jwt-api/blob/step-5/src/Main.elm)**
 
 We're going to need a new package:
 
@@ -600,7 +600,7 @@ We don't want our logged-in users to lose their data if they refresh their brows
 
 When we're done, our completed `Main.elm` will look like this:
 
-**[Main.elm - Persisting Logins with Local Storage](https://github.com/kmaida/elm-with-jwt-api/blob/master/src/Main.elm)**
+**[Main.elm - Persisting Logins with Local Storage](https://github.com/kmaida/auth0-elm-with-jwt-api/blob/step-6/src/Main.elm)**
 
 The first things you may notice are changes to our `Main` module and program:
 
@@ -681,14 +681,14 @@ update msg model =
             setStorageHelper { model | protectedQuote = newPQuote }
             
         LogOut ->
-            ( { model | username = "", password = "", protectedQuote = "", token = "", errorMsg = "" }, removeStorage model )    
+            ( { model | username = "", protectedQuote = "", token = "" }, removeStorage model )    
 ```                
 
 We need to define the type annotation for our `setStorage` and `removeStorage` ports. They'll take a model and return a command. The lowercase `msg` is significant because this is an [effect manager](http://guide.elm-lang.org/effect_managers) and its type is actually `Cmd a`. It does not send messages back to the program. Keep in mind that using `Cmd Msg` here will result in a compiler error.
 
 Finally, we're going to replace some of our `update` returns with the `setStorageHelper` and use the `removeStorage` command for logging out. This helper will return the tuple that our `update` function expects from all branches so we won't have to worry about type mismatches.
 
-We will call `setStorageHelper` and pass the model updates that we want to propagate to the app and save to local storage. We're saving the model to storage when the user is successfully granted a token and when they get a protected quote. `GetTokenSuccess` will now also clear the password and error message; there is no reason to save these to storage. On logout, we'll remove the `localStorage` `model` item.
+We will call `setStorageHelper` and pass the model updates that we want to propagate to the app and save to local storage. We're saving the model to storage when the user is successfully granted a token and when they get a protected quote. On logout, we'll remove the `localStorage` `model` item.
 
 Now when we authenticate, local storage will keep our data so when we refresh or come back later, we won't lose our login state.
 
