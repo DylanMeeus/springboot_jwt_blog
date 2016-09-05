@@ -22,7 +22,7 @@ related:
 - 2015-11-05-announcing-our-new-pricing-including-a-production-ready-free-account
 ---
 
-Following last month's [new pricing announcement](https://auth0.com/pricing) and new free and full-featured [developer plan](https://auth0.com/signup), today we are adding a **Startup Plan** to our pricing. 
+Following last month's [new pricing announcement](https://auth0.com/pricing) and new free and full-featured [developer plan](https://auth0.com/signup), today we are adding a **Startup Plan** to our pricing.
 
 ### Startup Plan
 
@@ -36,4 +36,4 @@ you get unrestricted usage of Auth0 for 1 year for $99 per month.
 
 It's that simple.
 
-Email [startup@auth0.com](mailto:startup@auth0.com) to request a Startup plan.
+[Contact sales](https://auth0.com/?contact=true) to request a Startup plan.
