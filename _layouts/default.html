@@ -270,6 +270,23 @@
       {% include footer.html %}
     </div>
 
+    <!-- jekyll-search -->
+    <script src="{{ site.baseurl }}/js/vendor/jekyll-search.min.js" type="text/javascript"></script>
+    <script src="{{ site.baseurl }}/js/search.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '{{ site.baseurl }}/search.json',
+        searchResultTemplate: `{% include results_post.html %}`,
+        noResultsText: 'No results found',
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+    <!-- end jekyll-search-->
+
     <script type="text/javascript">
     try {
       window.abTestingLib.load({ fetchFn: function () { return $.get("https://ab.it.auth0.com/"); }});
@@ -442,8 +459,8 @@
         }
 
         function initBlogSubscriber() {
-          if(localStorage.isBlogSubscriber) {
-            $('form.newsletter-subscriber').addClass('hide');
+          if(localStorage.isBlogSubscriber !== true) {
+            $('form.newsletter-subscriber').removeClass('hide');
           }
 
           function closeSticky($module, animation) {
