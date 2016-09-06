@@ -18,7 +18,7 @@ tags:
 - nginx-jwt
 related:
 - heads-up-https-is-not-enough-when-using-wpad
-- why-identity-federation-matters
+- stateless-auth-for-stateful-minds
 - cookies-vs-tokens-definitive-guide
 ---
 
