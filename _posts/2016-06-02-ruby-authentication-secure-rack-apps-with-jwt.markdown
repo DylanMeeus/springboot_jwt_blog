@@ -414,7 +414,7 @@ For example, the callbacks we have created will be reached at `http://yourUrl/au
 There are multiple ways you can trigger the login flow in your application. For example, you could use the Auth0 Lock widget, Passwordless, or some custom UI. Here is what the code would look like to use the Lock widget in modal form.
 
 ```html
-  <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+  <script src=“https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
   <script type="text/javascript">
 
     var lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_NAMESPACE');
