@@ -724,19 +724,34 @@ In our `index.html` file, we'll use JavaScript to implement ports that instantia
     <body>
     </body>
     
-    <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+    <script src="http://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script>
-        var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>);
+        var options = {
+            allowedConnections: ['Username-Password-Authentication']
+        };
+        var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>, options);
         var storedProfile = localStorage.getItem('profile');
         var storedToken = localStorage.getItem('token');
         var authData = storedProfile && storedToken ? { profile: JSON.parse(storedProfile), token: storedToken } : null;
         var elmApp = Elm.Main.fullscreen(authData);
 
+        // Show Auth0 lock subscription
         elmApp.ports.auth0showLock.subscribe(function(opts) {
-            opts.connections = ['Username-Password-Authentication'];
+            lock.show();
+        });
 
-            lock.show(opts, function(err, profile, token) {
+        // Log out of Auth0 subscription
+        elmApp.ports.auth0logout.subscribe(function(opts) {
+            localStorage.removeItem('profile');
+            localStorage.removeItem('token');
+        });
+
+        // Listening for the authenticated event
+        lock.on("authenticated", function(authResult) {
+            // Use the token in authResult to getProfile() and save it to localStorage
+            lock.getProfile(authResult.idToken, function(err, profile) {
                 var result = { err: null, ok: null };
+                var token = authResult.idToken;
 
                 if (!err) {
                     result.ok = { profile: profile, token: token };
@@ -753,11 +768,6 @@ In our `index.html` file, we'll use JavaScript to implement ports that instantia
                 elmApp.ports.auth0authResult.send(result);
             });
         });
-
-        elmApp.ports.auth0logout.subscribe(function(opts) {
-            localStorage.removeItem('profile');
-            localStorage.removeItem('token');
-        });
     </script>
 </html>    
 {% endhighlight html %}
@@ -771,13 +781,14 @@ First we need to add our compiled Elm files as well as the Auth0 lock widget Jav
 
 ...
 
-<script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 {% endhighlight html %}
 
 Then we'll instantiate a lock instance:
 
 ```js
-var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>);
+var options = { allowedConnections: ['Username-Password-Authentication'] };
+var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>, options);
 ```
 
 Next we'll set up the JS to instantiate the Elm application with flags and ports to interoperate with the lock widget and `localStorage`. We'll request a stored profile and token and if available, we'll recreate an object that matches the record we'll use in the `Auth0.elm` module for a `LoggedInUser`. Then we'll create ports to show the lock widget and perform logout, adding and removing items from local storage accordingly.
