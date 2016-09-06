@@ -87,7 +87,7 @@ import {Http} from 'angular2/http';
   providers: [ FORM_PROVIDERS ],
   directives: [ ROUTER_DIRECTIVES, FORM_DIRECTIVES ],
   pipes: [],
-  template: `    
+  template: `
     <div id="sidebar" class="col-sm-3">
       <div class="search">
         <input [ngFormControl]="searchTerm" class="form-control" placeholder='Seach for users' />
@@ -100,13 +100,13 @@ import {Http} from 'angular2/http';
           *ngFor="#user of users.items"
         >
           <img class="img-circle" src="{{ "{{user.avatar_url" }}}}"  />
-          <strong>{{ "{{user.login" }}}}</strong>          
+          <strong>{{ "{{user.login" }}}}</strong>
         </a>
       </div>
     </div>
     <div id="main" class="col-sm-9">
       <router-outlet></router-outlet>
-    </div>    
+    </div>
   `,
   styles: [`
       #main { margin: 10px 0 }
@@ -578,7 +578,8 @@ npm install angular2-jwt
 
 ```html
   <!-- Auth0 Lock script -->
-  <script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -604,19 +605,26 @@ export class AuthApp {
 
   lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN');
 
-  constructor() {}
+  constructor() {
+    // Add callback for lock `authenticated` event
+    var self = this;
+    this.lock.on("authenticated", authResult => {
+      self.lock.getProfile(authResult.idToken, (error, profile) => {
+
+        if (error) {
+          // handle error
+          return;
+        }
+
+        localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('id_token', authResult.idToken);
+
+      });
+    });
+  }
 
   login() {
-    this.lock.show(function(err: string, profile: string, id_token: string) {
-
-      if(err) {
-        throw new Error(err);
-      }
-
-      localStorage.setItem('profile', JSON.stringify(profile));
-      localStorage.setItem('id_token', id_token);
-
-    });
+    this.lock.show();
   }
 
   logout() {
