@@ -396,7 +396,7 @@ function login() {
 
         // Set the options to retreive a firebase delegation token
         var options = {
-          id_token : id_token,
+          id_token : authResult.idToken,
           api : 'firebase',
           scope : 'openid name email displayName',
           target: 'YOUR-AUTH0-CLIENT-ID'
