@@ -4,15 +4,15 @@ title: "Firebase Authentication with the Firebase 3.0 SDK and Auth0 Integration"
 description: "Build a serverless Firebase app using the new Firebase 3.0 SDK. Secure your app with Firebase authentication and learn about custom authentication through Auth0."
 date: 2016-06-08 08:30
 alias: /2016/06/08/firebase-authentication-with-firebase-3.0-and-auth0-integration/
-author: 
+author:
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
-design: 
+design:
   bg_color: "#003C6A"
   image: "https://cdn.auth0.com/blog/new-firebase/firebase_logo.png"
-tags: 
+tags:
 - Firebase
 - Firebase 3.0 SDK
 - Firebase Authentication
@@ -65,7 +65,7 @@ firebase.database().ref('posts').on('value', function(snapshot) {
 });
 ```
 
-Check out the [migration guide](https://firebase.google.com/support/guides/firebase-web) to learn about all the changes if you are migrating an existing Firebase app to the new SDK. Let's examine how the new Firebase makes developing apps awesome. 
+Check out the [migration guide](https://firebase.google.com/support/guides/firebase-web) to learn about all the changes if you are migrating an existing Firebase app to the new SDK. Let's examine how the new Firebase makes developing apps awesome.
 
 ### Develop
 
@@ -274,7 +274,7 @@ function addToStory(number) {
   })
 ```
 
-Now we are ready to test our application. Head over to `localhost:5000` and start writing your emoji masterpiece. Data is updated in real-time, so if you open up another browser window and add an emoji in the first window you'll see the change instantly reflected in the second window. Once your app is deployed and live, anyone will be able to collaboratively create stories with you and the changes will again be reflected in real time. 
+Now we are ready to test our application. Head over to `localhost:5000` and start writing your emoji masterpiece. Data is updated in real-time, so if you open up another browser window and add an emoji in the first window you'll see the change instantly reflected in the second window. Once your app is deployed and live, anyone will be able to collaboratively create stories with you and the changes will again be reflected in real time.
 
 We don't want just anyone to add stories to our app, so we'll set up a user authentication system and require users to be logged in to contribute. Let's do that next.
 
@@ -305,9 +305,9 @@ In our UI, let's add this function to the **Sign Up to Contribute** button. Next
 
 Uncomment the code we wrote earlier that watches for changes to user authentication. Once you've done this, the UI will change based on the user's state. If the user is logged in, they will be able to log out as well as contribute to the story. If they are logged out, they will only have the option to log in, see the current story being written, and see existing stories, but will not be able to contribute.
 
-With the `onAuthStateChanged()` observable, we are able to control the UI, but to further protect our database, let's update our Firebase database rules to only allow authenticated users to submit emoji to the story. We'll do this in the Firebase dashboard. Navigate to the **Database** section in the main nav, then the **Rules** tab. Here we can define **read** and **write** permissions for our database. 
+With the `onAuthStateChanged()` observable, we are able to control the UI, but to further protect our database, let's update our Firebase database rules to only allow authenticated users to submit emoji to the story. We'll do this in the Firebase dashboard. Navigate to the **Database** section in the main nav, then the **Rules** tab. Here we can define **read** and **write** permissions for our database.
 
-The default rule set allows anyone to read and write data to the entire database. Let's change this to allow anyone to read the contents of the database, but only authenticated users will be able to write. We can accomplish that with the following rule: 
+The default rule set allows anyone to read and write data to the entire database. Let's change this to allow anyone to read the contents of the database, but only authenticated users will be able to write. We can accomplish that with the following rule:
 
 ```
 { "rules":
@@ -321,9 +321,9 @@ The rules system can get pretty complex and you can learn a lot more about it in
 
 ## Aside: Firebase SDK 3.0 and Auth0
 
-Auth0 is fully compatible with the new Firebase 3.0 SDK. A big thank you to **Jacob Wegner** for helping with the integration. With Firebase authentication available, why integrate Auth0? While Firebase does have an authentication service, Auth0 can greatly enhance the user experience and add additional features that Firebase does not offer such as [single sign on](https://auth0.com/docs/sso/single-sign-on), [30+ social providers](https://auth0.com/docs/identityproviders), [multifactor authentication](https://auth0.com/learn/get-started-with-mfa/), [passwordless authentication](https://auth0.com/passwordless), and more. 
+Auth0 is fully compatible with the new Firebase 3.0 SDK. A big thank you to **Jacob Wegner** for helping with the integration. With Firebase authentication available, why integrate Auth0? While Firebase does have an authentication service, Auth0 can greatly enhance the user experience and add additional features that Firebase does not offer such as [single sign on](https://auth0.com/docs/sso/single-sign-on), [30+ social providers](https://auth0.com/docs/identityproviders), [multifactor authentication](https://auth0.com/learn/get-started-with-mfa/), [passwordless authentication](https://auth0.com/passwordless), and more.
 
-Let's see how we can integrate Auth0 with the new Firebase SDK. 
+Let's see how we can integrate Auth0 with the new Firebase SDK.
 
 ### Setting Up A Custom Provider with Firebase
 
@@ -344,9 +344,9 @@ A dialog will open with three different options: **QuickStart**, **Settings** an
 ![Firebase Addon Settings](https://cdn.auth0.com/blog/new-firebase/firebase-addon.png)
 
 We are now set to do the integration in our FireTeller app. Before continuing, be sure to add `localhost:5000` as well as `https://*.firebaseapp.com` domains to the list of allowed callback urls.
- 
+
 ### Adding Auth0 Authentication to FireTeller
- 
+
 We will be utilizing the Auth0 [Lock](https://auth0.com/lock) widget as well as the Auth0 [js library](https://auth0.com/docs/libraries/auth0js) to handle the user authentication and token exchange between Auth0 and Firebase. The Lock widget will give us a beautiful UI to handle sign in and sign up requests, while the Auth0 JS library will provide a helper function to get a delegation token which we will exchange for a Firebase auth token.
 
 First, let's update our `index.html` file to include these libraries.
@@ -354,7 +354,7 @@ First, let's update our `index.html` file to include these libraries.
 ```html
 ...
     <!-- Include the scripts from the auth0 CDN -->
-    <script src="https://cdn.auth0.com/js/lock-9.min.js"></script>
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script src="https://cdn.auth0.com/w2/auth0-6.7.js"></script>
 ...
   <body>
@@ -376,34 +376,41 @@ Next, we'll implement the login function in our `app.js` file.
 
 ``` js
 function login() {
-  // Instantiate the lock and auth0 libraries 
+  // Instantiate the lock and auth0 libraries
   var lock = new Auth0Lock('YOUR-AUTH0-CLIENT-ID', 'YOUR-AUTH0-DOMAIN.auth0.com');
   var auth0 = new Auth0({ domain : 'YOUR-AUTH0-DOMAIN.auth0.com', clientID: 'YOUR-AUTH0-CLIENT-ID'})
-  
+
   // Display the default lock widget
-  lock.show({}, function(err, profile, id_token) {
-      // If the login is successful, store the profile data in localstorage
-      localStorage.setItem('profile', JSON.stringify(profile));
-      
-      // Set the options to retreive a firebase delegation token
-      var options = {
-        id_token : id_token,
-        api : 'firebase',
-        scope : 'openid name email displayName',
-        target: 'YOUR-AUTH0-CLIENT-ID'
-      };
-      
-      // Make a call to the Auth0 '/delegate' 
-      auth0.getDelegationToken(options, function(err, result) {
-        if(!err) {
-          // Exchange the delegate token for a Firebase auth token
-          firebase.auth().signInWithCustomToken(result.id_token).catch(function(error) {
-            console.log(error);
-          });
+   lock.show();
+
+   lock.on("authenticated", function(authResult) {
+      lock.getProfile(authResult.idToken, function(error, profile) {
+
+        if (error) {
+          // handle error
+          return;
         }
+
+        localStorage.setItem('profile', JSON.stringify(profile))
+
+        // Set the options to retreive a firebase delegation token
+        var options = {
+          id_token : id_token,
+          api : 'firebase',
+          scope : 'openid name email displayName',
+          target: 'YOUR-AUTH0-CLIENT-ID'
+        };
+
+        // Make a call to the Auth0 '/delegate'
+        auth0.getDelegationToken(options, function(err, result) {
+          if(!err) {
+            // Exchange the delegate token for a Firebase auth token
+            firebase.auth().signInWithCustomToken(result.id_token).catch(function(error) {
+              console.log(error);
+            });
+          }
+        });
       });
-    }, function() {
-      // Error callback
     });
 }
 
