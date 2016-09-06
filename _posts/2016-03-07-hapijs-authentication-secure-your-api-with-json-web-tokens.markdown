@@ -213,7 +213,7 @@ module.exports = {
     validate: {
       payload: createUserSchema
     }
-  }  
+  }
 }
 ```
 
@@ -393,7 +393,7 @@ module.exports = {
     validate: {
       payload: authenticateUserSchema
     }
-  }  
+  }
 }
 ```
 
@@ -535,7 +535,7 @@ First, add the Lock library to your front end.
   ...
 
   <!-- Auth0Lock script -->
-  <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -551,25 +551,27 @@ Next, configure an instance of `Auth0Lock`.
 var lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN');
 ```
 
-You can attach an event listener to a button click and call `lock.show` to open the Lock widget.
+You can attach an event listener to a button click and call `lock.show` to open the Lock widget. Then, we listen on the `authenticated` event and call the `getProfile` method to retrieve the profile and the token.
 
 ```js
 // app.js
 
 document.getElementById('btn-login').addEventListener('click', function() {
-  lock.show(function(err, profile, token) {
-    if (err) {
-      // Error callback
-      console.error("Something went wrong: ", err);
-    } else {
-      // Success calback  
+  lock.show();
+});
 
-      // Save the JWT token.
-      localStorage.setItem('id_token', token);
-      // Save the profile
-      localStorage.setItem('userProfile', JSON.stringify(profile));
-    }
-  });
+lock.on("authenticated", function(authResult) {
+    lock.getProfile(authResult.idToken, function(error, profile) {
+
+      if (error) {
+        // Error callback
+        console.error("Something went wrong: ", err);
+      }
+
+      localStorage.setItem('userProfile', JSON.stringify(profile))
+      localStorage.setItem('id_token', authResult.idToken)
+
+    });
 });
 ```
 
