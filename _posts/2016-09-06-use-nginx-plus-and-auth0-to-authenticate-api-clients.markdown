@@ -9,8 +9,8 @@ author:
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
 design:
-  bg_color: "#002444"
-  image: "https://cdn.auth0.com/blog/about-http/logo.png"
+  bg_color: "#171717"
+  image: "https://cdn.auth0.com/blog/nginx-plus/nginx-logo.png"
 tags:
 - nginx
 - nginx-plus
