@@ -383,6 +383,7 @@ function login() {
   // Display the default lock widget
    lock.show();
 
+  // listen to when the user gets authenticated and then save the profile
    lock.on("authenticated", function(authResult) {
       lock.getProfile(authResult.idToken, function(error, profile) {
 
