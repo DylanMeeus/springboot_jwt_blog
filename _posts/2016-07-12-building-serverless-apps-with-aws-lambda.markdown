@@ -617,7 +617,7 @@ var auth0 = new Auth0({
 var lock = new Auth0Lock('YOUR-APP-CLIENT-ID', 'YOUR-AUTH0-ACCOUNT.auth0.com');
 ```
 
-Since we'll be using the Lock widget, we will no longer need the login page we created earlier. Instead, we'll just call a function to display the Lock widget and listen to the `authentiated` event that will be triggered during user authentication. Take a look at our new authentication implementation below:
+Since we'll be using the Lock widget, we will no longer need the login page we created earlier. Instead, we'll just call a function to display the Lock widget and listen to the `authenticated` event that will be triggered during user authentication. Take a look at our new authentication implementation below:
 
 ```
 function login(){
