@@ -78,7 +78,7 @@ a2enmod auth_openidc
 
 If you don't already have an Auth0 Account, [create one here](http://auth0.com/signup) and set up the type of connections you want to allow. The default settings allow anyone to sign up, but you can set up a better scheme. For example, if you use Google Apps, you can just connect that and [allow only those from your domain to access the server](https://manage.auth0.com/#/connections/enterprise). Alternatively, you can use [rules](https://manage.auth0.com/#/rules) to decide which users are allowed access.
 
-You can [browse the docs](https://auth0.com/docs) or [ask for help](https://auth0.com/support) setting up the best scheme for your scenario.
+You can [browse the docs](https://auth0.com/docs) or [ask for help](https://support.auth0.com) setting up the best scheme for your scenario.
 
 ## Configure Apache to Serve Shiny with Auth0
 

@@ -32,7 +32,7 @@ Today we are very pleased to announce Auth0 [new pricing](https://auth0.com/pric
 
 ### New Pricing
 
-<p class="alert alert-warning"><i class="icon icon-budicon-179"></i>Heads up! We now have even <b>newer</b> pricing. Check out the <a href="https://auth0.com/blog/2015/11/05/announcing-our-new-pricing-including-a-production-ready-free-account/">details</a> and <a href="mailto:support@auth0.com">get in touch</a> if you have any questions!</p>
+<p class="alert alert-warning"><i class="icon icon-budicon-179"></i>Heads up! We now have even <b>newer</b> pricing. Check out the <a href="https://auth0.com/blog/2015/11/05/announcing-our-new-pricing-including-a-production-ready-free-account/">details</a> and <a href="https://support.auth0.com">get in touch</a> if you have any questions!</p>
 
 Based on the feedback we received over the last few months, we have modified our pricing structure to be much more **flexible**, allowing you to create **custom packages** that best fit your needs.
 
@@ -81,7 +81,7 @@ __Active users__ are counted "per application". For example, if you have two dis
 
 Note that we define an application as a _client id_ and _client secret_ pair, if multiple applications (say one on iOS and one on Android) share the same _client id_ and _client secret_ pair, they are a single app in this definition.
 
-You can choose up to 100,000 Social or Social+ __active__ users and up to 5,000 enterprise __active__ users through our self service platform.  For higher volumes or specific needs please [contact us](mailto: sales@auth0.com).
+You can choose up to 100,000 Social or Social+ __active__ users and up to 5,000 enterprise __active__ users through our self service platform.  For higher volumes or specific needs please [contact us](https://auth0.com/?contact=true).
 
 #### (3) Choose optional features
 
@@ -89,7 +89,7 @@ You can choose up to 100,000 Social or Social+ __active__ users and up to 5,000 
 Auth0 is regularly audited for [SOC 2 compliance](https://auth0.com/blog/2014/12/11/auth0-achieves-soc-2-certification/) to demonstrate the trust we've earned from our worldwide base of sophisticated and exacting subscribers. We now also offer [Premium Support](https://auth0.com/docs/premium-support) and a [Guaranteed SLA](https://auth0.com/docs/sla) as optional features.
 
 ##### Public Cloud, Private Cloud or On-Prem
-The vast majority of Auth0 subscribers' needs are fulfilled by our public cloud service.  However, if you have compliance or other constraints that require a private cloud or on-premises deployment, please [contact us](mailto:sales@auth0.com).
+The vast majority of Auth0 subscribers' needs are fulfilled by our public cloud service.  However, if you have compliance or other constraints that require a private cloud or on-premises deployment, please [contact us](https://auth0.com/?contact=true).
 
 ### Existing Subscribers
 If you are an existing subscriber, you have two options:
@@ -101,4 +101,4 @@ As per those of you currently in trial mode, you will automatically be moved to 
 
 ### Conclusion
 
-We are very excited about both our new [new pricing](https://auth0.com/pricing) and our new free and full-featured [developer plan](https://auth0.com/signup). Give them a go and do not hesitate to [share your feedback](mailto:sales@auth0.com).  
+We are very excited about both our new [new pricing](https://auth0.com/pricing) and our new free and full-featured [developer plan](https://auth0.com/signup). Give them a go and do not hesitate to [share your feedback](https://auth0.com/?contact=true).  
