@@ -84,7 +84,7 @@ We'll spin up a new app using the `adonis` command like so: `adonis new GOT`. Ch
 
 AdonisJs applications follow the **Model-View-Controller** design pattern.
 
-![Model View Controller Diagram](https://drscdn.500px.org/photo/152746175/m%3D900/9972f8c30c163f019a50ba15b8a70f9b)
+![Model View Controller Diagram](https://cdn.auth0.com/blog/adonis/MVC-Flow-Chart.jpg)
 
 *(Source: [AdonisJs.com](http://adonisjs.com/docs/3.0/overview))*
 
