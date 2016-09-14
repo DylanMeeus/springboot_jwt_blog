@@ -27,7 +27,7 @@ related:
 
 Whenever you get a cool idea to create an app, the mere thought of preparing and maintaining a server always gets you down. Not to mention all the security considerations you have to think through. The advent of PaaS services like Heroku solved this to some extent. Now that serverless technologies have come into the mainstream, bringing your ideas into reality is easier than ever.
 
-Serverless platforms allows you to focus more on the code and get real work done without worrying about managing servers. Many people prefer the term FaaS (Function-as-a-Service) to serverless, because what essentially functions are the unit of application logic in this realm. Auth0's [Webtask](https://webtask.io/) is a hassle-free serverless platform to deploy and run your functions.
+Serverless platforms allow you to focus more on the code and get real work done without worrying about managing servers. Many people prefer the term FaaS (Function-as-a-Service) to serverless, because what essentially functions are the unit of application logic in this realm. Auth0's [Webtask](https://webtask.io/) is a hassle-free serverless platform to deploy and run your functions.
 
 At Auth0, we tend to solve most of our problems using Webtasks. Here's an example of how we used them to create a Slack bot to tackle a pressing need we had.
 
@@ -187,9 +187,11 @@ In Zendesk, go to Settings > Extensions and create a new HTTP target with the we
 
 Now go to Settings > Triggers and create a new trigger with 'Ticket: Comment text...' as the condition, "Contains the following string" as the op, and `<@` as the string. The performed action should be 'Notifications: Notify target' set to the HTTP Target created above. Set the JSON body as follows:
 
-```
+{% highlight json %}
+{% raw %}
 { "id": "{{ticket.id}}", "title": "{{ticket.title}}", "comment": "{{ticket.latest_comment}}", "author": "{{ticket.latest_comment.author.name}}", "tags": "{{ticket.tags}}" }
-```
+{% endraw %}
+{% endhighlight %}
 
 ## Test it!
 
