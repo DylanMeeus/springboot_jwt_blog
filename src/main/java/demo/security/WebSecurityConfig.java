@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // disable caching
-        http.headers().cacheControl();
+    /*    http.headers().cacheControl();
 
         http.csrf().disable() // disable csrf for our requests.
         .authorizeRequests()
@@ -29,15 +29,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
         // And filter other requests to check the presence of JWT in header
         .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-    }
+    */}
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         // Create a default account
-        auth.inMemoryAuthentication()
+       /* auth.inMemoryAuthentication()
                 .withUser("admin")
                 .password("password")
                 .roles("ADMIN");
+                */
     }
 
 }
