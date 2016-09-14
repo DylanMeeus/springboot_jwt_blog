@@ -183,9 +183,9 @@ After the webtask is deployed the CLI will present you with its unique URL. We w
 
 The last step is to tell Zendesk to call our webtask when it sees a comment that might have a mention in it. You need to be an admin in Zendesk to do this. If you are not, reach out to your friendly Zendesk admin and don't forget to give them a cookie.
 
-In Zendesk, go to Settings > Extensions and create a new HTTP target with the webtask's URL as URL (obtained in Step 2), POST as the method and JSON as the content type.
+In Zendesk, go to **Settings > Extensions** and create a new HTTP target with the webtask's URL as URL (obtained in Step 2), POST as the method and JSON as the content type.
 
-Now go to Settings > Triggers and create a new trigger with 'Ticket: Comment text...' as the condition, "Contains the following string" as the op, and `<@` as the string. The performed action should be 'Notifications: Notify target' set to the HTTP Target created above. Set the JSON body as follows:
+Now go to **Settings > Triggers** and create a new trigger with _'Ticket: Comment text...'_ as the condition, _"Contains the following string"_ as the op, and `<@` as the string. The performed action should be _'Notifications: Notify target'_ set to the HTTP Target created above. Set the JSON body as follows:
 
 {% highlight json %}
 {% raw %}
@@ -211,4 +211,4 @@ That's it! You can customize the trigger and the webtask to suit your company's 
 
 The next time you have the need to create a bot, automate something or write any program, keep in mind that you can use a webtask to say no to [yak shaving](http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx) and focus only on your code.
 
-You can start experimenting with webtasks by creating a free Auth0 account below, or heading directly to https://webtask.io. Enjoy!
+You can start experimenting with webtasks by creating a free Auth0 account below, or heading directly to [https://webtask.io](https://webtask.io). Enjoy!
