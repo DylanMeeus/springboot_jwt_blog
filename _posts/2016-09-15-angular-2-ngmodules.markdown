@@ -9,7 +9,7 @@ author:
   mail: "gonto@auth0.com"
   avatar: "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
 design:
-  image: https://angular.io/resources/images/logos/standard/shield-large.png
+  image: https://cdn.auth0.com/blog/angular/logo.png
   image_size: "75%"
   image_bg_color: "rgb(1, 70, 166)"
   bg_color: "rgb(1, 70, 166)"
