@@ -30,7 +30,7 @@ related:
 
 ---
 
-[Angular 2](https://angular.io/) is inching closer and closer to the official 2.0 release. The Release Candidate (RC) 5 version of the framework introduced many new features that will make developing Angular 2 applications easier but also run better and faster. Among the new features is lazy loading support for the official router, Ahead-of-Time (AoT) compilation for components and services, a new and improved forms module, and a new decorator called @NgModule. 
+[Angular 2](https://angular.io/) has officially reached a major milestone, the [final 2.0 release](http://angularjs.blogspot.com/2016/09/angular2-final.html). The Release Candidate (RC) 5 version of the framework, released just a few weeks ago, introduced many new features that will make developing Angular 2 applications easier but also run better and faster. Among the new features is lazy loading support for the official router, Ahead-of-Time (AoT) compilation for components and services, a new and improved forms module, and a new decorator called @NgModule. 
 
 **NgModule** aims to simplify the way you define and manage dependencies in your Angular 2 applications. Using `@NgModule` you can consolidate different components and services into cohesive blocks of functionality.  
 
@@ -337,6 +337,8 @@ export class AppComponent {
 ```
 
 That is it. We did create a `secret-heroes.component.ts` and `secret-hero-details.component.ts` components, but their functionality is equivalent to that of the regular `heroes.component.ts` and `hero-details.component.ts` components. Download the full Tour of Secret Heroes app from our [GitHub repo](https://github.com/auth0-blog/angular2-tour-of-heroes).
+
+Stay tuned. We will be releasing a follow up post early next week that will walk you through building the Tour of Secret Heroes app from scratch and will go into further detail on how to add authentication to your Angular 2.0 apps.
 
 ## Conclusion
 
