@@ -63,7 +63,7 @@ Aha! While replaying John's session, an error pops up in the developer console. 
 
 ## How does this work?
 
-Implementing this in your own Flux applications is really easy. In our [previous Flux blog post](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/), we explain what a typical Flux application looks like. Actions are dispatched to stores, and stores will notify components to update themselves. So if we want to keep track of all actions, we'll need to start with the dispatcher:
+Implementing this in your own Flux applications is really easy. In our blog post about [ReactJS authentication](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/) using Flux, we explain what a typical Flux application looks like. Actions are dispatched to stores, and stores will notify components to update themselves. So if we want to keep track of all actions, we'll need to start with the dispatcher:
 
 ```javascript
 import Dispatcher from './dispatcher';

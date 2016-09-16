@@ -29,7 +29,7 @@ related:
 
 > Adding authentication to any single page app comes with a set of challenges, and this includes apps built with AngularJS. Auth0 makes the process a lot easier with some open source libraries for saving and sending JSON Web Tokens, as well as a full authentication service that removes the need to write authentication logic yourself. If you want to get all the details of how to add auth to your AngularJS 1.x app, this screencast series is for you. If you'd like, you can go straight to the [code](https://github.com/auth0-blog/angular-auth) or checkout the [AngularJS + Auth0 docs](https://auth0.com/docs/quickstart/spa/angularjs/no-api).
 
-In the first part of the screencast series, we'll take a look at how authentication works for round-trip apps, and the challenges that exist when it comes to using these traditional methods in single page apps. We'll then learn about [JSON Web Tokens](https://jwt.io/introduction), which provide a better way to do [authentication in AngularJS apps](https://auth0.com/learn/angular-authentication/).
+In the first part of the screencast series, we'll take a look at how authentication works for round-trip apps, and the challenges that exist when it comes to using these traditional methods in single page apps. We'll then learn about [JSON Web Tokens](https://jwt.io/introduction), which provide a better way to do [authentication in AngularJS apps](https://auth0.com/learn/angularjs-authentication/).
 
 * **<a class="screencast-anchor" href="#what-well-build" target="_self">What We'll Build</a>**
 * **<a class="screencast-anchor" href="#traditional-authentication" target="_self">Traditional Authentication</a>**

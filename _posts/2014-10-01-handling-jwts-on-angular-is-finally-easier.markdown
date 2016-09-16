@@ -130,3 +130,4 @@ angular.module('app', ['angular-jwt'])
 These are only some of the things that you can do with [angular-jwt](https://github.com/auth0/angular-jwt).
 
 Now, add angular-jwt to your `bower.json` or `package.json` and start hacking!
+Learn more about [AngularJS Authentication](https://auth0.com/learn/angularjs-authentication/)

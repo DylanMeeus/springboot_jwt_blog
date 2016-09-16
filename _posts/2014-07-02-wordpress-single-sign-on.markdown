@@ -85,4 +85,6 @@ We would love to hear your feedback. Feel free to join us in our chat room <http
 
 We would like to thanks the crew from [LaunchPeople](http://launchpeople.dk/) who did the initial work for this plugin.
 
+Learn more about [Single Sign On Authentication](https://auth0.com/blog/what-is-and-how-does-single-sign-on-work/).
+
 Happy auth!

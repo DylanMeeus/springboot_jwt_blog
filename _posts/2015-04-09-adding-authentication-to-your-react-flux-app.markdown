@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Adding authentication to your React Flux app"
-description: "Let’s face it. React is the new cool kid on the block. Add authentication to your React app by understanding just a few basic concepts."
+description: "ReactJS authentication gets easy if you understand just a few basic concepts. Because, let’s face it. React is the new cool kid on the block."
 date: 2015-04-9 11:22
 date_override: "2015-10-07 12:30"
 alias: /2015/04/09/adding-authentication-to-your-react-flux-app/
@@ -50,7 +50,7 @@ As we learned in a [previous blog post](https://auth0.com/blog/2014/01/07/angula
 {% include tweet_quote.html quote_text="Learning how to conduct authentication in a Single Page App can get super complex" %}
 
 
-![Image](https://docs.google.com/drawings/d/12Y8gWirtVhvrHrlyc1Z7P59c2NkY6m3zThsSL1L0gP0/pub?w=959&h=638)
+![ReactJS Authentication](https://docs.google.com/drawings/d/12Y8gWirtVhvrHrlyc1Z7P59c2NkY6m3zThsSL1L0gP0/pub?w=959&h=638)
 
 <!-- more -->
 
@@ -58,7 +58,7 @@ As we learned in a [previous blog post](https://auth0.com/blog/2014/01/07/angula
 
 We’ll be coding our React app using ES6 thanks to [Browserify](http://browserify.org/) and [Babelify](https://github.com/babel/babelify), and we’ll be using npm for build tools and installing dependencies. If you want to start a project with the same architecture, just clone [this seed project](https://github.com/auth0/react-browserify-spa-seed).
 
-## Let’s code!
+## Coding ReactJS Authentication!
 
 ### Login page
 #### The Login component
@@ -106,7 +106,7 @@ reactMixin(Login.prototype, React.addons.LinkedStateMixin);
 ```
 
 #### The AuthService & the LoginAction
-![Authseervice and login action](https://docs.google.com/drawings/d/1FFBWhfS7hqtq4qcXXsNEtOW2T8f5RkEiq50D4MTlDyw/pub?w=959&h=638)
+![AuthService role in ReactJS Authentication](https://docs.google.com/drawings/d/1FFBWhfS7hqtq4qcXXsNEtOW2T8f5RkEiq50D4MTlDyw/pub?w=959&h=638)
 
 Our AuthService is in charge of calling our [login API](https://github.com/auth0/nodejs-jwt-authentication-sample/blob/master/user-routes.js#L37-L54). The server will validate the username and password and return a token [(JWT)](http://jwt.io/) back to our app. Once we get it, we’ll create a [LoginAction](https://facebook.github.io/flux/docs/todo-list.html#creating-semantic-actions) and send it to all the [Stores](https://facebook.github.io/flux/docs/todo-list.html#creating-stores) using the [Dispatcher](https://facebook.github.io/flux/docs/todo-list.html#creating-a-dispatcher) from Flux.
 
