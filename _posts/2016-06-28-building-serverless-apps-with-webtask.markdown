@@ -4,15 +4,15 @@ title: "Building Serverless Apps with Webtask.io"
 description: "Webtask is Function-as-a-Service platform for building serverless apps. Learn how to build applications without worrying about servers, and common use-cases where serverless shines."
 date: 2016-06-28 08:30
 alias: /2016/06/28/building-serverless-apps-with-webtask/
-author: 
+author:
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
-design: 
+design:
   bg_color: "#5F3237"
   image: "https://cdn.auth0.com/blog/webtask/logo.png"
-tags: 
+tags:
 - Serverless
 - Webtask
 - Webtask.io
@@ -29,7 +29,7 @@ related:
 
 **TL;DR** Webtask.io allows you to build applications without thinking about infrastructure. Simply write your server-side logic, deploy your functions via the Webtask CLI, and access your serverless backend over HTTP. Preferring code to configuration, the Webtask platform comes with a familiar programming model, excellent authentication and authorization support, and more to ensure a pleasant development experience.
 
-For our tutorial today, we'll enhance a static blog with some dynamic functionality that would normally require a traditional backend. Check out the [Github repo](https://github.com/auth0-blog/serverless-stories) for the code to follow along. 
+For our tutorial today, we'll enhance a static blog with some dynamic functionality that would normally require a traditional backend. Check out the [Github repo](https://github.com/auth0-blog/serverless-stories) for the code to follow along.
 
 ---
 
@@ -40,7 +40,7 @@ Webtasks are secure, self-contained functions accessed over the HTTPS protocol t
 ## Serverless? Function as a Service? What?
 
 Serverless computing is a fairly recent trend is software development that allows developers to focus on writing application logic and not worry about provisioning and managing servers. It's akin to the Platform-as-a-Service (PaaS) architecture where a company provides an API that developers use to accomplish their goals. In fact, serverless computing is a level of abstraction higher than the traditional PaaS - and is often referred to as Function-as-a-Service.
- 
+
 Serverless, and by extension Webtask, is there for you when you need it and out of the way when you don't. You can extend your current backend with Webtask, build your entire backend around Webtask functions and never provision any servers or set up infrastructure yourself, or use it for more specialized cases such as webhooks. To learn more about serverless computing, check out this [blog post](https://auth0.com/blog/2016/06/09/what-is-serverless/).
 
 ## Serverless Use Cases
@@ -65,7 +65,7 @@ Our blog is comprised of HTML, CSS and JS files. We don't have a backend nor do 
 
 ![Serverless Stories Homepage](https://cdn.auth0.com/blog/webtask/app.png)
 
-Our blog has three views. The **homepage**, where we can see a list of stories and subscribe to the newsletter. An **article** page, which contains the full content for each article. Finally, a secret **admin** page, where authenticated users can see who has subscribed to the newsletter. We'll use [Bootstrap](http://getbootstrap.com/) to help us build out a clean UI. 
+Our blog has three views. The **homepage**, where we can see a list of stories and subscribe to the newsletter. An **article** page, which contains the full content for each article. Finally, a secret **admin** page, where authenticated users can see who has subscribed to the newsletter. We'll use [Bootstrap](http://getbootstrap.com/) to help us build out a clean UI.
 
 We will omit the HTML code for brevity. Pull the code from the [Github repo](https://github.com/auth0-blog/serverless-stories) to follow along.
 
@@ -79,7 +79,7 @@ To start working with Webtasks we will need to install the Webtask CLI. You will
 
 {% include tweet_quote.html quote_text="Write your application logic. Run wt create webtask_name. Done. You can deploy a Webtask faster than it took to write this tweet." %}
 
-With the Webtask CLI installed, our next step is to get a Webtask account. To get an account, run the `wt init` command. You will prompted to enter a phone number or email address. Once you provide a phone number or email address, you'll get a confirmation code. Input this confirmation code, and you will be ready to start creating Webtasks. 
+With the Webtask CLI installed, our next step is to get a Webtask account. To get an account, run the `wt init` command. You will prompted to enter a phone number or email address. Once you provide a phone number or email address, you'll get a confirmation code. Input this confirmation code, and you will be ready to start creating Webtasks.
 
 In the future, if you want to log in to a different account, run the `wt init` command and you'll have the option to login with a new account.
 
@@ -147,7 +147,7 @@ const RESPONSE = {
 module.exports = function(context, cb){
   // We use the context to extract the email query string.
   var email = context.query.email;
-  
+
   // If we get an email, we proceed, otherwise we stop execution and send error message
   if(email){
     // Each Webtask comes with 500kb of storage
@@ -158,9 +158,9 @@ module.exports = function(context, cb){
       if(err){
         cb(null, RESPONSE.ERROR);
       }
-      
+
       data = data || [];
-      
+
       // We use the lodash library we required earlier to check if the email sent already exists in our storage
       // If it does not, we'll add it.
       if(_.indexOf(data, email)){
@@ -185,9 +185,9 @@ module.exports = function(context, cb){
 };
 ```
 
-To see this Webtask in action, we can deploy it by running the `wt create {name}` command - so in your terminal execute `wt create newsletter.js`. In a few seconds, you'll see a link to your Webtask in the format of `https://webtask.it.auth0.com/api/run/{YOUR_ACCOUNT}/newsletter?webtask_no_cache=1`. Navigate to the URL and you will see the error response we wrote displayed. This is because we did not add the email query string. Let's try again, but this time append `&email=john.doe@email.com` so the URL looks like `https://webtask.it.auth0.com/api/run/{YOUR_ACCOUNT}/newsletter?webtask_no_cache=1&email=john.doe@email.com`. Now you should see a message saying that the email was successfully added. If you try it again with the same email address, you'll get the email exists error message. So far so good. 
+To see this Webtask in action, we can deploy it by running the `wt create {name}` command - so in your terminal execute `wt create newsletter.js`. In a few seconds, you'll see a link to your Webtask in the format of `https://webtask.it.auth0.com/api/run/{YOUR_ACCOUNT}/newsletter?webtask_no_cache=1`. Navigate to the URL and you will see the error response we wrote displayed. This is because we did not add the email query string. Let's try again, but this time append `&email=john.doe@email.com` so the URL looks like `https://webtask.it.auth0.com/api/run/{YOUR_ACCOUNT}/newsletter?webtask_no_cache=1&email=john.doe@email.com`. Now you should see a message saying that the email was successfully added. If you try it again with the same email address, you'll get the email exists error message. So far so good.
 
-### Webtask to Retrieve Subscribers 
+### Webtask to Retrieve Subscribers
 
 The email capture Webtask was fairly simple. For our next Webtask, we'll make use of some of the more advanced features of the platform. We'll secure our Webtask, set up additional routes, and use the Express framework in our Webtask. Let's take a look at the code and explanation below. We'll update our existing Webtask to support this new functionality. Let's walk through the code.
 
@@ -235,9 +235,9 @@ app.post('/subscribe', function(req, res){
         res.writeHead(400, { 'Content-Type': 'application/json'});
         res.end(JSON.stringify(RESPONSE.ERROR));
       }
-      
+
       data = data || [];
-      
+
       if(_.indexOf(data, email) == -1){
         data.push(email);
         req.webtaskContext.storage.set(data, function(err){
@@ -292,9 +292,9 @@ Our updated Webtask has a lot more going on. Since we are adding Auth0 to the We
 Once you have created your Auth0 account, navigate to the [management dashboard](https://manage.auth0.com) and navigate into your newly created app. From here you will want to get the **Client ID**, **Client Secret** and **Domain**. Now, we'll deploy a new version of our newsletter Webtask with our Auth0 app credentials. Let's see how to do this:
 
 ```bash
-wt create newsletter.js 
+wt create newsletter.js
     -s AUTH0_CLIENT_ID=YOUR_AUTH0_CLIENT_ID
-    -s AUTH0_CLIENT_SECRET=YOUR_AUTHO_CLIENT_SECRET 
+    -s AUTH0_CLIENT_SECRET=YOUR_AUTHO_CLIENT_SECRET
     -s AUTH0_DOMAIN=YOUR_AUTH0_DOMAIN.auth0.com
 ```
 
@@ -338,7 +338,7 @@ If all went well, after you enter an email address and hit the **Submit** button
 Auth0 provides an intuitive and easy to use widget called [Lock](https://auth0.com/lock) that can handle both user login and registration. We'll use Lock in our application. We'll use the hosted Lock off the Auth0 CDN, so in your `index.html` files, add the following snippet:
 
 ```html
- <script src="https://cdn.auth0.com/js/lock-9.min.js"></script>
+ <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 ```
 
 Let's use the Auth0 Lock widget in our HTML5 application. Open up the `app.js` file to get started.
@@ -350,15 +350,22 @@ var lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN.auth0.com');
 // The login function once invoked will display the Lock widget
 // Upon successful login, we'll store the user profile and token in localStorage
 function login(){
-  lock.show(function(err, profile, id_token) {
-    if (err) {
-      return alert(err.message);
+  lock.show();
+};
+
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+
+    if (error) {
+       return alert(error.message);
     }
-    localStorage.setItem('profile', JSON.stringify(profile));
-    localStorage.setItem('token', id_token);
+
+    localStorage.setItem('profile', JSON.stringify(profile))
+    localStorage.setItem('token', authResult.idToken)
     updateAuthenticationStatus();
   });
-};
+});
+
 
 // The logout function, will remove the user information and token from localStorage
 function logout(){

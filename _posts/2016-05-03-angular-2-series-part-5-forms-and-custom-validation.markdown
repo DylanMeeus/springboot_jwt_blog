@@ -412,7 +412,7 @@ If you don't already have any Auth0 account, [sign up](https://auth0.com/signup)
   ...
 
   <!-- Auth0 Lock script -->
-  <script src="https://cdn.auth0.com/js/lock-9.0.min.js"></script>
+  <script src=“https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -424,7 +424,7 @@ If you don't already have any Auth0 account, [sign up](https://auth0.com/signup)
 
 It's best to set up an injectable service for authentication that can be used across the application.
 
-With Auth0, we get access to the user's profile and JWT in the `lock.show` callback and these items can be saved in local storage for use later.
+With Auth0, we get access to the user's profile and JWT in the `lock.on` callback where we listen for the `authenticated` event that is fired when a user succesfully logs in and these items can be saved in local storage for use later.
 
 ```js
 // src/client/shared/auth.service.ts
@@ -446,6 +446,24 @@ export class Auth {
   constructor(private authHttp: AuthHttp, zone: NgZone, private router: Router) {
     this.zoneImpl = zone;
     this.user = JSON.parse(localStorage.getItem('profile'));
+
+    // Add callback for lock `authenticated` event
+    var self = this;
+    this.lock.on("authenticated", authResult => {
+      self.lock.getProfile(authResult.idToken, (error, profile) => {
+
+        if (error) {
+          // handle error
+          return;
+        }
+
+        // If authentication is successful, save the items
+        // in local storage
+        localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('id_token', authResult.idToken);
+        self.zoneImpl.run(() => self.user = profile);
+      });
+    });
   }
 
   public authenticated() {
@@ -455,17 +473,7 @@ export class Auth {
 
   public login() {
     // Show the Auth0 Lock widget
-    this.lock.show({}, (err, profile, token) => {
-      if (err) {
-        alert(err);
-        return;
-      }
-      // If authentication is successful, save the items
-      // in local storage
-      localStorage.setItem('profile', JSON.stringify(profile));
-      localStorage.setItem('id_token', token);
-      this.zoneImpl.run(() => this.user = profile);
-    });
+    this.lock.show();
   }
 
   public logout() {

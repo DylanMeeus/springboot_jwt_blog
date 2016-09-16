@@ -481,7 +481,7 @@ function loadAdmin(){
           accessKey: AWS.config.credentials.accessKeyId,
           secretKey: AWS.config.credentials.secretAccessKey,
           sessionToken: AWS.config.credentials.sessionToken,
-          region: 'us-east-1'  
+          region: 'us-east-1'
         });
 
         // Here we are calling the subscribersGet method that was generated for us
@@ -599,7 +599,8 @@ Now we are ready to integrate Auth0 in our Serverless Stories application. For o
 <head>
   ...
   <script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>
-  <script src="//cdn.auth0.com/js/lock-9.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+
   ...
 </head>
 ```
@@ -616,22 +617,30 @@ var auth0 = new Auth0({
 var lock = new Auth0Lock('YOUR-APP-CLIENT-ID', 'YOUR-AUTH0-ACCOUNT.auth0.com');
 ```
 
-Since we'll be using the Lock widget, we will no longer need the login page we created earlier. Instead, we'll just call a function to display the Lock widget and handle the user authentication there. Take a look at our new authentication implementation below:
+Since we'll be using the Lock widget, we will no longer need the login page we created earlier. Instead, we'll just call a function to display the Lock widget and listen to the `authenticated` event that will be triggered during user authentication. Take a look at our new authentication implementation below:
 
 ```
 function login(){
   // Display the lock widget which will ask the user to login or register
-  lock.show(function(err, profile, id_token) {
-    if (err) {
-      return alert(err.message);
+  lock.show();
+}
+
+// Handle user authentication, listen to the authenticated event fired when the user logs in
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+
+    if (error) {
+      // handle error
+       return alert(error.message);
     }
+
     // If login is successful, we'll store the JWT in local storage
-    localStorage.setItem('token', JSON.stringify({token: id_token}));
+    localStorage.setItem('token', JSON.stringify({token: authResult.idToken}));
 
     // We'll exchange our Auth0 JWT with AWS so that we can get our AWS credentials
     // Once the token exchange is complete, we'll store the results in local storage
     // if no errors occured.
-    auth0.getDelegationToken({id_token: id_token, api: 'aws'}, function(err,delegationResult){
+    auth0.getDelegationToken({id_token: authResult.idToken, api: 'aws'}, function(err,delegationResult){
       if (!err){
         // delegationResult.Credentials will contain our AWS Access Key, Secret Key and Session Token
         localStorage.setItem('credentials', JSON.stringify(delegationResult.Credentials))
@@ -639,7 +648,8 @@ function login(){
     });
     updateAuthenticationStatus();
   });
-}
+});
+
 ```
 
 We will need to create a rule so that we can additionally pass two more parameters to complete the token exchange. Navigate to the Auth0 [dashboard](https://manage.auth0.com) and select **Rules** from the main menu. Next, click on the **Create Rule** button to create a new rule.
@@ -694,7 +704,7 @@ function loadAdmin(){
         accessKey: credentials.AccessKeyId,
         secretKey: credentials.SecretAccessKey,
         sessionToken: credentials.SessionToken,
-        region: 'us-east-1'  
+        region: 'us-east-1'
       });
       client.subscribersGet().then(function(data){
         for(var i = 0; i < data.data.message.length; i++){

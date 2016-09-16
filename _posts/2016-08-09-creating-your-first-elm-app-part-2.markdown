@@ -38,11 +38,11 @@ Now we'll continue to build out our Chuck Norris Quoter app to add user registra
 
 Last time, we finished up by retrieving Chuck Norris quotes from the API. We also need registration so users can be issued [JSON Web Tokens](https://auth0.com/learn/json-web-tokens) with which to access protected quotes. We'll create a form that submits a `POST` request to the API to create a new user and return a token.
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step3a.jpg)
+![elm quote](https://cdn.auth0.com/blog/elm-auth/step3a.jpg)
 
 After the user has registered, we'll display a welcome message:
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step3b.jpg)
+![elm quote](https://cdn.auth0.com/blog/elm-auth/step3b.jpg)
 
 Here's the complete `Main.elm` code for this step:
 
@@ -335,11 +335,11 @@ Now we can register new users in our app. When successfully registered, the user
 
 Now that users can register, they need to be able to log in with existing accounts.
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step4a.jpg) 
+![elm authentication quote log in](https://cdn.auth0.com/blog/elm-auth/step4a.jpg) 
 
 We also need the ability to log out.
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step4b.jpg)
+![elm authentication quote log out](https://cdn.auth0.com/blog/elm-auth/step4b.jpg)
 
 The full `Main.elm` code with login and logout implemented will look like this:
 
@@ -421,11 +421,11 @@ Registered users can now log in and log out. Our application is really coming to
 
 It's time to make authorized requests to the API to get protected quotes for authenticated users. Our logged out state will look like this:
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step5a.jpg) 
+![elm authentication get quote](https://cdn.auth0.com/blog/elm-auth/step5a.jpg) 
 
 If a user is logged in, they'll be able to click a button to make API requests to get protected quotes:
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step5b-6.jpg)
+![elm authentication get protected quote](https://cdn.auth0.com/blog/elm-auth/step5b-6.jpg)
 
 Here's the completed `Main.elm` code for this step:
 
@@ -700,7 +700,7 @@ Auth0 provides registration, login, and authentication with JSON Web Tokens. We 
 
 These modules are great resources to help you implement Auth0 with Elm. We will introduce and build on them in a new app to demonstrate how to use Auth0's lock widget with JSON Web Tokens. The modules will be imported into our `Main.elm` file and we'll use JS interop to interface with [Auth0's lock component](https://auth0.com/docs/libraries/lock).
 
-![elm with Auth0](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/aside-auth0.jpg)
+![elm with Auth0](https://cdn.auth0.com/blog/elm-auth/aside-auth0.jpg)
 
 ### Auth0 Lock Interop and Local Storage
 
@@ -724,19 +724,34 @@ In our `index.html` file, we'll use JavaScript to implement ports that instantia
     <body>
     </body>
     
-    <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+    <script src="http://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script>
-        var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>);
+        var options = {
+            allowedConnections: ['Username-Password-Authentication']
+        };
+        var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>, options);
         var storedProfile = localStorage.getItem('profile');
         var storedToken = localStorage.getItem('token');
         var authData = storedProfile && storedToken ? { profile: JSON.parse(storedProfile), token: storedToken } : null;
         var elmApp = Elm.Main.fullscreen(authData);
 
+        // Show Auth0 lock subscription
         elmApp.ports.auth0showLock.subscribe(function(opts) {
-            opts.connections = ['Username-Password-Authentication'];
+            lock.show();
+        });
 
-            lock.show(opts, function(err, profile, token) {
+        // Log out of Auth0 subscription
+        elmApp.ports.auth0logout.subscribe(function(opts) {
+            localStorage.removeItem('profile');
+            localStorage.removeItem('token');
+        });
+
+        // Listening for the authenticated event
+        lock.on("authenticated", function(authResult) {
+            // Use the token in authResult to getProfile() and save it to localStorage
+            lock.getProfile(authResult.idToken, function(err, profile) {
                 var result = { err: null, ok: null };
+                var token = authResult.idToken;
 
                 if (!err) {
                     result.ok = { profile: profile, token: token };
@@ -753,11 +768,6 @@ In our `index.html` file, we'll use JavaScript to implement ports that instantia
                 elmApp.ports.auth0authResult.send(result);
             });
         });
-
-        elmApp.ports.auth0logout.subscribe(function(opts) {
-            localStorage.removeItem('profile');
-            localStorage.removeItem('token');
-        });
     </script>
 </html>    
 {% endhighlight html %}
@@ -771,13 +781,14 @@ First we need to add our compiled Elm files as well as the Auth0 lock widget Jav
 
 ...
 
-<script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 {% endhighlight html %}
 
 Then we'll instantiate a lock instance:
 
 ```js
-var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>);
+var options = { allowedConnections: ['Username-Password-Authentication'] };
+var lock = new Auth0Lock(<YOUR_CLIENT_ID>, <YOUR_CLIENT_DOMAIN>, options);
 ```
 
 Next we'll set up the JS to instantiate the Elm application with flags and ports to interoperate with the lock widget and `localStorage`. We'll request a stored profile and token and if available, we'll recreate an object that matches the record we'll use in the `Auth0.elm` module for a `LoggedInUser`. Then we'll create ports to show the lock widget and perform logout, adding and removing items from local storage accordingly.

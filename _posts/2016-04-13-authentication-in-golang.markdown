@@ -4,15 +4,15 @@ title: "Authentication in Golang with JWTs"
 description: "Learn Go by building and authenticating a RESTful API with JSON Web Tokens (JWTs) and pick up some best practices along the way."
 date: 2016-04-13 08:30
 alias: /2016/04/13/authentication-in-golang/
-author: 
+author:
   name: "Ado Kukic"
   url: "https://twitter.com/kukicadnan"
   mail: "ado@auth0.com"
   avatar: "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
-design: 
+design:
   bg_color: "#333333"
   image: "https://cdn.auth0.com/blog/go-auth/gopher-main.png"
-tags: 
+tags:
 - Go
 - Golang
 - Go-API
@@ -555,7 +555,7 @@ Next, we’ll implement the login system on the frontend that will allow users t
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>We R VR</title>
-    <script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>
+    <script src=“https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script type="text/javascript" src="static/js/auth0-variables.js"></script>
     <!-- ... existing libraries ... -->
   </head>

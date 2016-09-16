@@ -482,7 +482,7 @@ Which yields:
 
 Auth0 issues [JSON Web Tokens](http://jwt.io) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [Single Sign On](https://auth0.com/docs/sso/single-sign-on), User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
-Auth0 provides an easy way to add authentication to your Falcor app. The set up is simple and relies on the middelware provided by `express-jwt`. Have a look at the [documentation and seed project](https://auth0.com/docs/quickstart/backend/falcor/) to get started and, as always, feel free to [get in touch](mailto:support@auth0.com) if you have any questions.
+Auth0 provides an easy way to add authentication to your Falcor app. The set up is simple and relies on the middelware provided by `express-jwt`. Have a look at the [documentation and seed project](https://auth0.com/docs/quickstart/backend/falcor/) to get started and, as always, feel free to [open a support ticket](https://support.auth0.com) if you have any questions.
 
 
 ## Wrapping Up

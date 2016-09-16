@@ -49,7 +49,7 @@ You'll see a welcome message from [Matias](https://twitter.com/woloski) and link
 
 ![azure store addon](https://s3.amazonaws.com/blog.auth0.com/img/auth0-azurestore-auth0portal-welcome.png)
 
-That's it! Feedback is very much welcome. Please connect with us on the [our chat room](http://chat.auth0.com) or send us a [message](mailto:support@auth0.com).
+That's it! Feedback is very much welcome. Please connect with us on the [our chat room](http://chat.auth0.com) or [open a support ticket](https://support.auth0.com).
 
 We want to thank the Windows Azure team for their support in getting this done. A special thanks to [Bilal Aslam](http://www.linkedin.com/in/bilalaslam)!
 

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   function toggle_search(active){
     if(active){
@@ -36,4 +37,16 @@ $(document).ready(function() {
     toggle_search(false);
     $(this).hide();
   });
+  
+  function sendMetrics(){
+    if($('#search-input').val().length > 1 && $('#search-input').val() !== ''){
+      var blogSearchData={
+        searchText: $('#search-input').val(),
+        resultsCount: $('.post-result').length
+      };
+      metricsLib.track('blog:search', blogSearchData);
+    };
+  };
+
+  $('#search-input').keyup( $.debounce( 1500, sendMetrics ) );
 });

@@ -281,6 +281,7 @@
         json: '{{ site.baseurl }}/search.json',
         searchResultTemplate: `{% include results_post.html %}`,
         noResultsText: 'No results found',
+        limit: 20,
         fuzzy: false,
         exclude: ['Welcome']
       })
@@ -371,7 +372,7 @@
     <script async src="{{ site.baseurl }}/js/vendor/html2canvas.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/selection-sharer.min.js"></script>
     <script src="{{ site.baseurl }}/js/vendor/jquery.sticky-kit.min.js"></script>
-
+    <script src="{{ site.baseurl }}/js/vendor/jquery.ba-throttle-debounce.min.js"></script>
     <script type="text/javascript">
       var getBasicInfo = function () {
         return {
@@ -518,7 +519,7 @@
             }
 
             function onFail(response) {
-              $module.find('.fields').html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="mailto:support@auth0.com">contact support</a>.</p>');
+              $module.find('.fields').html('<p class="subscription-failed">There’s a problem subscribing to the list right now. Please try again later or <a href="https://support.auth0.com">contact support</a>.</p>');
             }
 
             function onSuccess(response) {

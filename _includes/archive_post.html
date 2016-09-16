@@ -18,8 +18,9 @@ Archives include: "by tags" and "by time" archives.
   </div>
   <div class="text-container">
     <a href="{{ site.baseurl }}{{current.url}}" title="Published: {{ current.date | date: "%B %d, %Y" }}" itemprop="url">
+      <time datetime="{{ current.date | date: "%B %d, %Y" }}" class="post-time published updated">{{ current.date | date: "%B %d, %Y" }}</time>
+      <meta itemprop="datePublished" content='{{ current.date | date: "%Y-%m-%d" }}'/>
       <span class="post-category" itemprop="articleSection">{% for tags in current.tags limit: 1 %}{{ tags }}{% endfor %}</span>
-
       <h1 class="post-title" itemprop="headline">
         {{ current.title }}
       </h1>
@@ -33,8 +34,6 @@ Archives include: "by tags" and "by time" archives.
       <div class="post-author">
         <a href="{{current.author.url}}" target="_blank" rel="author"><img src="{{current.author.avatar}}" width="27" height="27"> <span class="name" itemprop="author">{{current.author.name}}</span></a>
       </div>
-      <time datetime="{{ current.date | date: "%B %d, %Y" }}" class="post-time published updated">{{ current.date | date: "%B %d, %Y" }}</time>
-      <meta itemprop="datePublished" content='{{ current.date | date: "%Y-%m-%d" }}'/>
       <div class="post-social">
         {% include social_buttons.html %}
       </div>

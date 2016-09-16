@@ -183,7 +183,7 @@ The default `gulp` task will compile Elm, watch and copy files to a `/dist` fold
 
 Our development files should be located in a `/src` folder. Please create the `/dist` and `/src` folders at the root of the project. Our file structure now looks like this:
 
-![Elm Application Structure](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/file-structure1.jpg)
+![Elm Application Structure](https://cdn.auth0.com/blog/elm-auth/file-structure1.jpg)
 
 ### Syntax Highlighting
 
@@ -195,7 +195,7 @@ We're going to build an app that does more than echo "Hello world". We're going 
 
 Once we've got things running, our app should look like this:
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step1.jpg)
+![elm quote](https://cdn.auth0.com/blog/elm-auth/step1.jpg)
 
 Let's fire up our Gulp task. This will start a local server and begin watching for file changes:
 
@@ -271,7 +271,7 @@ We're ready to start writing Elm. Create a file in the `/src` folder called `Mai
  
 Our file structure should now look like this:
 
-![file structure 2](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/file-structure2.jpg)
+![file structure 2](https://cdn.auth0.com/blog/elm-auth/file-structure2.jpg)
 
 If you're already familiar with Elm you can skip ahead. If Elm is brand new to you, keep reading: we'll introduce The Elm Architecture and Elm's language syntax by thoroughly breaking down this code. Make sure you have a good grasp of this section before moving on; the next sections will assume an understanding of the syntax and concepts.
 
@@ -447,7 +447,7 @@ Now we're ready to fill in some of the blanks we left earlier. In several places
 
 When this step is done, our application should look like this:
 
-![elm quote](https://raw.githubusercontent.com/YiMihi/elm-with-jwt/master/article-assets/step2.jpg)
+![elm quote](https://cdn.auth0.com/blog/elm-auth/step2.jpg)
 
 Clicking the button will call the API to get and display random Chuck Norris quotes. Make sure you have [the API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) running at [http://localhost:3001](http://localhost:3001) so it's accessible to our app.
 

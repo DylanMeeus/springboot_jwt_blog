@@ -48,6 +48,6 @@ If you’d like to move from the US region to the EU region, simply let us know 
 Auth0 has always and will continue to comply with the U.S.-EU Safe Harbor Framework and the U.S.-Swiss Safe Harbor Framework as set forth by the US Department of Commerce regarding the collection, use and retention of personal information from European Union member countries and Switzerland. Auth0 has certified that it adheres to the Safe Harbor Privacy Principles of notice, choice, onward transfer, security, data integrity, access, and enforcement. To learn more about the Safe Harbor program, and to view our certification page, please visit http://www.export.gov/safeharbor/.
 
 ## We're here to help.
-As always, we'd be happy to answer any questions or provide assistance related to the new European region, or anything else. Send an email to <a href="mailto:support@auth0.com">support@auth0.com</a>, chat with us at https://chat.auth0.com or ask questions at ask.auth0.com.
+As always, we'd be happy to answer any questions or provide assistance related to the new European region, or anything else. <a href="https://support.auth0.com">Open a support ticket</a>, chat with us at https://chat.auth0.com or ask questions at ask.auth0.com.
 
 We look forward to hearing from you!

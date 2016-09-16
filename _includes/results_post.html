@@ -1,5 +1,5 @@
 
-<article class="post {% if current.design.blog_series %} blog-series{% endif %}" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post post-result {% if current.design.blog_series %} blog-series{% endif %}" itemscope itemtype="http://schema.org/BlogPosting">
   <link itemprop="mainEntityOfPage" href="https://auth0.com{{ site.baseurl }}{url}" />
   <div class="image-container">
     <div class="backdrop" {% if current.design.bg_color %}style="background: {{current.design.bg_color}}"{% endif %}></div>
@@ -7,6 +7,8 @@
   </div>
   <div class="text-container">
     <a href="{{ site.baseurl }}{url}" title="Published: {date}" itemprop="url">
+      <time datetime="{date}" class="post-time published updated">{date}</time>
+      <meta itemprop="datePublished" content='{date}'/>
       <span class="post-category" itemprop="articleSection">{tags}</span>
 
       <h1 class="post-title" itemprop="headline">
@@ -20,8 +22,6 @@
       <div class="post-author">
         <a href="{{author_url}}" target="_blank" rel="author"><img src="{author_avatar}" width="27" height="27"> <span class="name" itemprop="author">{author_name}</span></a>
       </div>
-      <time datetime="{date}" class="post-time published updated">{date}</time>
-      <meta itemprop="datePublished" content='{date}'/>
     </div>
   </div>
   <div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
