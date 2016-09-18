@@ -42,7 +42,7 @@ Just in case you've never heard of them, NodeBots refers to any project that run
 
 ## JSON Web Tokens
 
-If you've never used JSON Web Tokens, there is some great introductory material [at jwt.io](https://jwt.io/introduction).
+If you've never used JSON Web Tokens, there is some great introductory material [at jwt.io](https://auth0.com/learn/json-web-tokens/).
 
 When using your own Node server for robotics control and code, JSON Web Tokens can provide an extra level of security-- especially when you're stuck on HTTP. JSON Web Tokens use a payload, encryption, and either a secret or private/public key pair in order to provide a signed token that allows you to verify that your NodeBots APIs are only being used by you (or other NodeBots and users that you approve)!
 

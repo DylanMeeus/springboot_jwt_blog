@@ -349,7 +349,7 @@ Again, we haven't included the styles for this sample page above, but they are i
 
 Even content sites often require authentication. As was mentioned, we can't put input elements in an AMP document, nor can we use any custom JavaScript. Because of this, it will be necessary to have a login page or box that redirects to an AMP document that is content only.
 
-This can be done in less than 10 minutes using [Auth0](https://auth0.com)'s hosted login box. For example, if your account name is `samples`, you can just link people to `https://samples.auth0.com/login?client=BUIJSW9x60sIHBw8Kd9EmCbj8eDIFxDC&redirect_uri=YOUR_AMP_APP` and replace the `YOUR_AMP_APP_URL` with the correct one. Once the user authenticated successfully, you'll get a [JWT](http://jwt.io/introduction/) in your AMP app, with which you can do authenticated requests to your API :boom:. Check out an [existing Login box here](https://samples.auth0.com/login?client=BUIJSW9x60sIHBw8Kd9EmCbj8eDIFxDC). Time to <a href="javascript:signup()">signup to your Auth0 account!</a>
+This can be done in less than 10 minutes using [Auth0](https://auth0.com)'s hosted login box. For example, if your account name is `samples`, you can just link people to `https://samples.auth0.com/login?client=BUIJSW9x60sIHBw8Kd9EmCbj8eDIFxDC&redirect_uri=YOUR_AMP_APP` and replace the `YOUR_AMP_APP_URL` with the correct one. Once the user authenticated successfully, you'll get a [JWT](https://auth0.com/learn/json-web-tokens/) in your AMP app, with which you can do authenticated requests to your API :boom:. Check out an [existing Login box here](https://samples.auth0.com/login?client=BUIJSW9x60sIHBw8Kd9EmCbj8eDIFxDC). Time to <a href="javascript:signup()">signup to your Auth0 account!</a>
 
 ## Wrapping Up
 

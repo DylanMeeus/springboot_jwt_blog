@@ -323,7 +323,7 @@ if (jwt) {
 
 ## Aside: Using React with Auth0
 
-Auth0 issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. We implemented a tight integration with React. You can read the [documentation here](https://auth0.com/docs/client-platforms/react) or you can checkout the [Github example](https://github.com/auth0/auth0-react)
+Auth0 issues [**JSON Web Tokens**](https://auth0.com/learn/json-web-tokens/) on every login for your users. That means that you can have a solid identity infrastructure, including Single Sign On, User Management, support for Social (Facebook, Github, Twitter, etc.), Enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code. We implemented a tight integration with React. You can read the [documentation here](https://auth0.com/docs/client-platforms/react) or you can checkout the [Github example](https://github.com/auth0/auth0-react)
 
 <img src="https://docs.google.com/drawings/d/13-mY6bPAJ-4DtAhGh6cwBbxf92qS-6yGYT9xt4BqkGg/pub?w=1219&amp;h=559" style="border: 1px solid #ccc;padding: 10px;">
 
