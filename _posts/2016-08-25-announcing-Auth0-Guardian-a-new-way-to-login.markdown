@@ -22,9 +22,9 @@ tags:
 - mfa
 - 2fa
 - multifactor
-- multifactor authentication
-- two factor
-- two factor authentication
+- multifactor-authentication
+- two-factor
+- two-factor-authentication
 related:
 - 2016-08-24-announcing-password-breach-detection
 - 2016-06-21-avoiding-password-reuse-attacks

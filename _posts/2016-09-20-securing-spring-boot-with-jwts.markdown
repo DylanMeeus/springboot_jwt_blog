@@ -12,12 +12,13 @@ design:
   bg_color: "#222228"
   image: https://cdn.auth0.com/blog/spring-boot-auth/logo.png
 tags:
-- Spring-Boot
-- JWT
-- Java
+- spring-boot
+- jwt
+- java
 related:
-- 2016-06-02-ruby-authentication-secure-rack-apps-with-jwt
 - 2016-06-23-creating-your-first-laravel-app-and-adding-authentication
+- creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between
+- 2016-06-02-ruby-authentication-secure-rack-apps-with-jwt
 ---
 
 ---
@@ -43,7 +44,7 @@ When we head over to the quick start webpage, we are presented with a few option
 
 Next, we can search for dependencies. Searching for dependencies is a handy feature once you have used Spring Boot several times and are aware of the available dependencies. Because this is our first project, however, we can click on the link at the bottom that says *switch to full version*. After doing this, we have a webpage with checkboxes for all the available dependencies. Because we want to create a web project, we'll tick that checkbox under the *web* heading.
 
-![Spring-boot start page](https://cdn.auth0.com/blog/spring-boot-auth/springboot-start.png)
+![Spring boot start page](https://cdn.auth0.com/blog/spring-boot-auth/springboot-start.png)
 
 There are a lot of dependencies available that work with Spring Boot out of the box. Many of the common technologies are provided here, such as dependencies for HATEOAS, JPA, MongoDB, and Thymeleaf. If we are going to use one of the common Java technologies, chances are good that it can easily be included in our Spring Boot project.
 
