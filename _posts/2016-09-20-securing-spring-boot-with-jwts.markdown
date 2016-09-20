@@ -10,7 +10,7 @@ author:
   avatar: https://en.gravatar.com/userimage/67902576/25a6df871f404218103361055634917f.jpeg
 design: 
   bg_color: "#222228"
-  image: https://assets.toptal.io/uploads/blog/category/logo/59/spring.png
+  image: https://cdn.auth0.com/blog/spring-boot-auth/logo.png
 tags:
 - Spring-Boot
 - JWT
@@ -43,7 +43,7 @@ When we head over to the quick start webpage, we are presented with a few option
 
 Next, we can search for dependencies. Searching for dependencies is a handy feature once you have used Spring Boot several times and are aware of the available dependencies. Because this is our first project, however, we can click on the link at the bottom that says *switch to full version*. After doing this, we have a webpage with checkboxes for all the available dependencies. Because we want to create a web project, we'll tick that checkbox under the *web* heading.
 
-![Spring-boot start page](http://it-ca.net/auth0_images/springboot-start.png)
+![Spring-boot start page](https://cdn.auth0.com/blog/spring-boot-auth/springboot-start.png)
 
 There are a lot of dependencies available that work with Spring Boot out of the box. Many of the common technologies are provided here, such as dependencies for HATEOAS, JPA, MongoDB, and Thymeleaf. If we are going to use one of the common Java technologies, chances are good that it can easily be included in our Spring Boot project.
 
@@ -323,11 +323,11 @@ public class AccountCredentials {
 
 Our application is now secured and supports authentication with a JWT, so we can go ahead and run our application again. When our server is up and running, we can test this out by querying `localhost:8080/users`, and we should get a message saying "Access Denied." To authenticate ourselves, we will send a POST request to `/login` with our user's data in the body: `{"username":"admin","password":"password"}`.. 
 
-![POST with username-password](http://it-ca.net/auth0_images/postman.png)
+![POST with username-password](https://cdn.auth0.com/blog/spring-boot-auth/postman.png)
 
 In the response to this request, we will get a token as part of the _Authorization_ header, prefixed by "Bearer." We can copy this token to issue the next GET request to our `/users` path. To do this, alter the request to `/users` to include a header called `Authorization`, paste the JWT in this field, and launch the request! If all went well, we should once again be presented with the users. 
 
-![JWT in Header request](http://it-ca.net/auth0_images/getusers.png)
+![JWT in Header request](https://cdn.auth0.com/blog/spring-boot-auth/getusers.png)
 
 
 ## Advantages of using Spring Boot
