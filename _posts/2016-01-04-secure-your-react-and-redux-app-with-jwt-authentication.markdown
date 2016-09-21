@@ -938,7 +938,8 @@ With these actions in place, we can now add them to our reducer to handle authen
 ...
 ```
 
-Make sure you import the method in your App Component and add a constructor that calls the doAuthentication function
+Make sure you import the method in your App Component and add a constructor that calls the doAuthentication function like so:
+
 ```js
 // App.js
 import { loginUser, fetchQuote, doAuthentication, fetchSecretQuote } from '../actions'
