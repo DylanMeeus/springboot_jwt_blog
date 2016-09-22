@@ -29,18 +29,18 @@ related:
 
 ---
 
-**TL;DR** Angular 2 introduces a reinvented change detection system that drops digest cycles in favor of one-way flow. Additionally, it can now be controlled to take most of the framework's performance.
+**TL;DR** Angular 2 introduces a reinvented change detection system that drops digest cycles in favor of one-way flow. Additionally, it can now be controlled to take the most of the framework's performance.
 
 ---
 
 ## Introduction to change detection
-Angular 2 is somewhere near a final release. You've probably heard about some of the important changes due to the major version bump: its completely rewritten core, TypeScript as the language of choice, reinvented forms, RxJS, a completely new router, etc. But in my opinion, the most valuable thing is the redesign of the core change detection system. As you may remember, the digest loop performance of AngularJS (aka Angular 1) was the issue. Now it's not.
+Angular 2 final was released. You've probably heard about some of the important changes due to the major version bump: its completely rewritten core, TypeScript as the language of choice, reinvented forms, RxJS, a completely new router, etc. But in my opinion, the most valuable thing is the redesign of the core change detection system. As you may remember, the digest loop performance of AngularJS (aka Angular 1) was the issue. Now it's not.
 
 ### Why do we need it?
 The question is: why do I have to bother? Generally, the power of modern JavaScript frameworks works in a similar manner: something changes in the model and makes this change visible in the UI. That's where change detection comes in. Something has to trigger this propagation to the view. As mentioned before, in Angular 1 we had digest loops that checked every single reference that was set to be watched for value changes. When Angular found out that everything was stable (no infinite loops, etc.), it propagated changes to the view. Although that was not efficient, it worked for a long time. Also, the problem was tracking asynchronous events. You also probably used `$scope.$apply(...)` if you tried Angular 1. To understand why it was needed, let's start from the beginning.
 
 ### How Javascript works
-JavaScript runtime works on a single threaded engine. You've probably heard about stack (also from other programming languages). But that's everything that JS is about. Let's take the code below:
+JavaScript runtime works on a single threaded engine. You've probably heard about the stack (also from other programming languages). But that's everything that JS is about. Let's take the code below:
 
 ```js
 console.log('Hey')
@@ -197,15 +197,172 @@ You can try it on Plunker and see the difference.
 
 <iframe src="http://embed.plnkr.co/d9b07qginx7z9hGYyeME/" width="100%" height="800"></iframe>
 
- The huge improvement is that there's now only one getter call for one change! We didn't nothing more as our input data are strings that are being changed, so that reference on input changes. The reference for the rest of the components hasn't changed, so Angular doesn't even look at it.
+ The huge improvement is that there's now only one getter call for one change! We didn't need anything more as our input data are strings that are being changed, so that reference on input changes. The reference for the rest of the components hasn't changed, so Angular doesn't even look at it.
 
 ### App structure
 How can we build an app to make the most performant one? With Angular 2, it's actually quite easy. As in all of the component frameworks nowadays, you should have dumb and smart components. The dumb components, which are meant only for displaying data from the input or handling user events, are ideal volunteers for having the `OnPush` strategy. On the other hand, smart components will sometimes require that you watch for more things than the input and the events, so be careful with setting the `OnPush` strategy everywhere.
 
+
+## Aside: Using Angular 2 with Auth0
+
+Auth0 issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including single sign-on, user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+
+You can add Auth0 to the an Angular2 app really easily. There are just a few simple steps:
+
+### Step 0: Sign Up for Auth0 and Configure
+
+If you don't already have any Auth0 account, [sign up](https://auth0.com/signup) for one now to follow along with the other steps.
+
+### Step 1: Add Auth0Lock to Your App
+
+[Lock](https://auth0.com/lock) is the beautiful (and totally customizable) login box widget that comes with Auth0. The script for it can be brought in from a CDN link or with npm.
+
+> Note: If you use npm to get Auth0Lock, you will need to include it in your build step.
+
+```html
+
+  <!-- src/client/index.html -->
+
+  ...
+
+  <!-- Auth0 Lock script -->
+  <script src=“https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+
+  <!-- Setting the right viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  ...
+```
+
+### Step 2: Add an Authentication Service
+
+It's best to set up an injectable service for authentication that can be used across the application.
+
+With Auth0, we get access to the user's profile and JWT in the `lock.on` callback where we listen for the `authenticated` event that is fired when a user succesfully logs in and these items can be saved in local storage for use later.
+
+```js
+// src/client/shared/auth.service.ts
+
+import {Injectable, NgZone} from 'angular2/core';
+import {Router} from 'angular2/router';
+import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
+
+// Avoid name not found warnings
+declare var Auth0Lock: any;
+
+@Injectable()
+export class Auth {
+  lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
+  refreshSubscription: any;
+  user: Object;
+  zoneImpl: NgZone;
+
+  constructor(private authHttp: AuthHttp, zone: NgZone, private router: Router) {
+    this.zoneImpl = zone;
+    this.user = JSON.parse(localStorage.getItem('profile'));
+
+    // Add callback for lock `authenticated` event
+    var self = this;
+    this.lock.on("authenticated", authResult => {
+      self.lock.getProfile(authResult.idToken, (error, profile) => {
+
+        if (error) {
+          // handle error
+          return;
+        }
+
+        // If authentication is successful, save the items
+        // in local storage
+        localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('id_token', authResult.idToken);
+        self.zoneImpl.run(() => self.user = profile);
+      });
+    });
+  }
+
+  public authenticated() {
+    // Check if there's an unexpired JWT
+    return tokenNotExpired();
+  }
+
+  public login() {
+    // Show the Auth0 Lock widget
+    this.lock.show();
+  }
+
+  public logout() {
+    localStorage.removeItem('profile');
+    localStorage.removeItem('id_token');
+    this.zoneImpl.run(() => this.user = null);
+    this.router.navigate(['Home']);
+  }
+}
+```
+
+### Step 3: Add a Click Handler to Login
+
+We can use the methods from our authentication service in any of our components which means we can easily add a click handler to a "Login" and "Logout" button.
+
+```html
+  <!-- src/client/app.component.html -->
+
+  ...
+
+  <button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+  <button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+
+  ...
+```
+
+Once the user logs in, a [JSON Web Token](https://jwt.io/introduction) will be saved for them in local storage. This JWT can then be used to make authenticated HTTP requests to an API.
+
+### Step 4: Make Authenticated HTTP Requests
+
+With [**anuglar2-jwt**](https://github.com/auth0/angular2-jwt), we can automatically have our JWTs sent in HTTP requests. To do so, we need to inject and use `AuthHttp`.
+
+```js
+// src/client/ping/ping.component.ts
+
+import {Component} from 'angular2/core';
+import {Http} from 'angular2/http';
+
+import {AuthHttp} from 'angular2-jwt';
+import {Auth} from './auth.service';
+import 'rxjs/add/operator/map';
+
+@Component({
+  selector: 'ping',
+  template: `
+    <h1>Send a Ping to the Server</h1>
+    <button class="btn btn-primary" (click)="securedPing()" *ngIf="auth.authenticated()">Secured Ping</button>
+    <h2>{{message}}</h2>
+  `
+})
+export class Ping {
+  API_URL: string = 'http://localhost:3001';
+  message: string;
+
+  constructor(private http: Http, private authHttp: AuthHttp, private auth: Auth) {}
+
+  securedPing() {
+    this.authHttp.get(`${this.API_URL}/secured/ping`)
+      .map(res => res.json())
+      .subscribe(
+        data => this.message= data.text,
+        error => this.message = error._body
+      );
+  }
+}
+```
+
+### Step 5: Done!
+
+That's all there is to it to add authentication to your Angular 2 app with Auth0!
+
 ## Conclusions
 
 ### Performance can increase a lot
-One of the big advantages of using stricter change detection is the performance gain. Angular is meant to be used for rather big applications that can end up handling a lot of dynamic data. What we really did there was take the responsibility from Angular to the programmer. By default, every change should be reflected on the UI, as Angular takes care of that, but the price is the performance. Immutable or reactive code is harder to write but easier to maintain and reason out. The choice is yours.
+One of the big advantages of using stricter change detection is the performance gain. Angular is meant to be used for rather big applications that can end up handling a lot of dynamic data. What they really did there was take the responsibility from Angular to the programmer. By default, every change should be reflected on the UI, as Angular takes care of that, but the price is the performance. Immutable or reactive code is harder to write but easier to maintain and reason out. The choice is yours.
 
 ### Eventually Angular can be tweaked
 The good thing is that we eventually have a choice. In Angular 1, it was impossible to. The was some level where you had to use React or another library to render UI instead of Angular templates, as it was mainly too slow for the greater amount of dynamic data. Now, you have a complete solution with much more control over the internal behavior. However, this, in combination with the other changes made to Angular 2, also makes the learning curve of the framework steeper.
