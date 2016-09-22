@@ -207,7 +207,7 @@ How can we build an app to make the most performant one? With Angular 2, it's ac
 
 Auth0 issues **JSON Web Tokens** on every login for your users. That means that you can have a solid identity infrastructure, including single sign-on, user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
-You can add Auth0 to the an Angular2 app really easily. There are just a few simple steps:
+You can add Auth0 to an Angular2 app really easily. There are just a few simple steps:
 
 ### Step 0: Sign Up for Auth0 and Configure
 
@@ -251,7 +251,7 @@ import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
 declare var Auth0Lock: any;
 
 @Injectable()
-export class Auth {
+export class AuthService {
   lock = new Auth0Lock('YOUR_AUTH0_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
   refreshSubscription: any;
   user: Object;
@@ -301,22 +301,60 @@ export class Auth {
 
 ### Step 3: Add a Click Handler to Login
 
-We can use the methods from our authentication service in any of our components which means we can easily add a click handler to a "Login" and "Logout" button.
+To be able to use the "Login" and "Logout" methods, we need to inject the Auth service in the `app.components.ts` file.
+
+```
+ <!-- src/client/app.components.ts -->
+import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
+
+...
+```
+
+In your root NgModule, declare the service provider, as shown in the following code.
+
+```
+ <!-- src/client/app.module.ts -->
+
+...
+import { AuthService } from './auth.service';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    routing,
+    HttpModule
+  ],
+  declarations: [
+    AppComponent
+  ],
+  providers: [
+    AUTH_PROVIDERS,
+    AuthService
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+
+Now, we can use the methods from our authentication service in any of our components which means we can easily add a click handler to a "Login" and "Logout" button.
 
 ```html
-  <!-- src/client/app.component.html -->
+  <!-- src/client/app.component.ts -->
 
   ...
 
-  <button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-  <button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+  <button (click)="authService.login()" *ngIf="!authService.authenticated()">Log In</button>
+  <button (click)="authService.logout()" *ngIf="authService.authenticated()">Log Out</button>
 
   ...
 ```
 
 Once the user logs in, a [JSON Web Token](https://jwt.io/introduction) will be saved for them in local storage. This JWT can then be used to make authenticated HTTP requests to an API.
 
-### Step 4: Make Authenticated HTTP Requests
+### Step 5: Make Authenticated HTTP Requests
 
 With [**anuglar2-jwt**](https://github.com/auth0/angular2-jwt), we can automatically have our JWTs sent in HTTP requests. To do so, we need to inject and use `AuthHttp`.
 
@@ -361,7 +399,7 @@ That's all there is to it to add authentication to your Angular 2 app with Auth0
 
 ## Conclusions
 
-### Performance can increase a lot
+### Performance advantages
 One of the big advantages of using stricter change detection is the performance gain. Angular is meant to be used for rather big applications that can end up handling a lot of dynamic data. What they really did there was take the responsibility from Angular to the programmer. By default, every change should be reflected on the UI, as Angular takes care of that, but the price is the performance. Immutable or reactive code is harder to write but easier to maintain and reason out. The choice is yours.
 
 ### Eventually Angular can be tweaked
