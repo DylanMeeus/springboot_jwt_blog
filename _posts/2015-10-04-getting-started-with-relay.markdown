@@ -39,7 +39,7 @@ Often, crafting application data sources can come down to trade-offs between per
 
 To address these issues, Relay allows us to specify exactly the shape of the data that we want from the server for a given component. Because we can place our queries within our components, we can better reason about the data associations for each component.
 
-{% include tweet_quote.html quote_text="Relay allows us to specify exactly the shape of the data that we want from the server for a given component." %}
+{% include tweet_quote.html quote_text="Relay let us specify exactly the shape of the data that we want from the server for a given component." %}
 
 Without Relay, components make requests to many different endpoints.
 

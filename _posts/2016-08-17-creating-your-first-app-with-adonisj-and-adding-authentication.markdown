@@ -730,6 +730,14 @@ Route.get('/got', function * (request, response) {
 ```
 Now, log out and then try to access that route. An `InvalidLoginException` will be thrown. Check out the [docs](http://adonisjs.com/docs/3.0/middleware) for more info on creating and customizing middleware in **AdonisJs**.
 
+
+## Aside: Using Auth0 with AdonisJS
+
+**Auth0** issues [JSON Web Tokens](https://jwt.io/) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social identity providers (Facebook, Github, Twitter, etc.), enterprise identity providers (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+
+We can easily set up authentication in our AdonisJS apps by using the [Lock Widget](https://auth0.com/lock). If you don't already have an Auth0 account, [sign up](https://auth0.com/signup) for one now. Navigate to the Auth0 [management dashboard](https://manage.auth0.com/), select **Applications** from the navigational menu, then select the app you want to connect with **AdonisJS**. Now head over to the [Nodejs Quickstart docs](https://auth0.com/docs/quickstart/webapp/nodejs) and follow the steps highlighted there.
+
+
 ## Wrapping Up
 
 Congratulations! You have just built your first app with AdonisJs. If you already use Laravel, then you'll feel just at home with the AdonisJs framework. You haven't used Laravel? Check out this [excellent article](https://auth0.com/blog/creating-your-first-laravel-app-and-adding-authentication/) on building an app with it. One major challenge with using **AdonisJs** is the lack of adequate resources and tutorials on how to use the framework. The framework is still very young but promising. With the right amount of support from developers, it might turn out to be the next big thing in JavaScript land. Have you built an app with AdonisJs? What are your thoughts about it? Let me know in the comment section.

@@ -567,7 +567,7 @@ export default class Login extends Component {
     const password = this.refs.password
     const creds = { username: username.value.trim(), password: password.value.trim() }
     this.props.onLoginClick(creds)
-  }		
+  }
 }
 
 Login.propTypes = {
@@ -838,7 +838,7 @@ First, add the Auth0 Lock script to your `index.html` file.
   ...
 
   <!-- Auth0Lock script -->
-  <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+  <script src=“https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -883,26 +883,39 @@ function lockError(err) {
 ...
 ```
 
-Now we need a function that handles showing Lock and saving the returned token and user profile.
+Now we need a function that handles showing Lock and also a function for saving the returned token and user profile when the user has been authenticated.
 
 ```js
 // actions.js
 
 ...
 
+const lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_CLIENT_DOMAIN');
+
 export function login() {
-  const lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_CLIENT_DOMAIN');
+  // display lock widget
   return dispatch => {
-    lock.show((err, profile, token) => {
-      if(err) {
-        dispatch(lockError(err))
-        return
-      }
-      localStorage.setItem('profile', JSON.stringify(profile))
-      localStorage.setItem('id_token', token)
-      dispatch(lockSuccess(profile, token))
-    })
+    lock.show();
   }
+}
+
+// Listen to authenticated event and get the profile of the user
+export function doAuthentication() {
+    return dispatch => {
+      lock.on("authenticated", function(authResult) {
+            lock.getProfile(authResult.idToken, function(error, profile) {
+
+              if (error) {
+                // handle error
+                return dispatch(lockError(error))
+              }
+
+              localStorage.setItem('profile', JSON.stringify(profile))
+              localStorage.setItem('id_token', authResult.idToken)
+              return dispatch(lockSuccess(profile))
+            });
+      });
+    }
 }
 
 ...
@@ -923,6 +936,19 @@ With these actions in place, we can now add them to our reducer to handle authen
 />
 
 ...
+```
+
+Make sure you import the method in your App Component and add a constructor that calls the doAuthentication function like so:
+
+```js
+// App.js
+import { loginUser, fetchQuote, doAuthentication, fetchSecretQuote } from '../actions'
+
+// add a constructor
+constructor(props) {
+    super(props)
+    this.props.doAuthentication()
+  }
 ```
 
 ## Wrapping Up
