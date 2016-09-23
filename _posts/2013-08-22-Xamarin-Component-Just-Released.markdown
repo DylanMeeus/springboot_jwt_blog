@@ -47,7 +47,7 @@ The code above will display the [Auth0 login widget](https://docs.auth0.com/logi
 
 It is delivered as a [component](http://components.xamarin.com/), so you can get it straight into Xamarin Studio.
 
-What you get back after login is the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](http://docs.auth0.com/jwt) you can use to authenticate calls with your API.
+What you get back after login is the [normalized user profile](https://docs.auth0.com/user-profile) and [Json Web Token](https://auth0.com/learn/json-web-tokens/) you can use to authenticate calls with your API.
 
 Here's a quick end to end demo (use full screen):
 

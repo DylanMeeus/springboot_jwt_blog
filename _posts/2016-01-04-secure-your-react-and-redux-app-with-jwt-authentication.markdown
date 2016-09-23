@@ -61,7 +61,7 @@ Since all data flow is strictly one-way, and because data is never mutated, Redu
 
 ## Redux Authentication App - Getting Started
 
-To get a sense for using JWT authentication with Redux, we'll build a simple app that retrieves Chuck Norris quotes. The app will let users log in and get a JWT that can be used to access protected endpoints with JWT middleware. We've already explored how to [add JWT authentication to a React and Flux app](https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/) on the blog, so feel free to check that out as well.
+To get a sense for using JWT authentication with Redux, we'll build a simple app that retrieves Chuck Norris quotes. The app will let users log in and get a JWT that can be used to access protected endpoints with JWT middleware. We've already explored [ReactJS Authentication while using Flux](https://auth0.com/blog/adding-authentication-to-your-react-flux-app/) on the blog, so feel free to check that out as well.
 
 ![react redux authentication](https://cdn.auth0.com/blog/redux-auth/redux-auth-1.png)
 
