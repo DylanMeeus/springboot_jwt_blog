@@ -2,7 +2,7 @@
 layout: post
 title: "Understanding Angular 2 change detection"
 description: "Angular 2 introduces a new change detection system that makes apps much faster and allows developers fine-tune the process."
-date: 2016-09-22 8:30
+date: 2016-09-23 8:30
 author:
   name: "Wojciech Kwiatek"
   url: "https://twitter.com/WojciechKwiatek"
@@ -119,7 +119,7 @@ But exactly how is Angular notified of the change? Angular uses its own version 
 ## Make Use of Change Detection In Your App
 Everything described above is going on under the hood. Equally important is how we can make use of it. Unlike Angular 1, Angular 2 gives us the possibility of controlling the change detection. However, the Angular team claims that even without any performance tweaking, it's 3 to 10 times faster than the previous one, and for most apps this will be fast enough. But it can be much faster. Let's look at an example.
 
-<iframe src="http://embed.plnkr.co/HR7ssEuPaWwlVKJPzZtJ/" width="100%" height="800"></iframe>
+<iframe src="https://embed.plnkr.co/HR7ssEuPaWwlVKJPzZtJ/" width="100%" height="800"></iframe>
 
 Here's a very typical problem: rendering a list. There's one component containing a list of other components that have some input data. Generally, we have a container with data and a dumb component just for rendering a single list item. Nothing fancy here, just the getter and `ngOnChange`. What's being done here? `ngOnChange` reacts on every input change, and the getter adds additional logging each time `rowData` are fetched. Note that we're not using it anywhere outside of the template.
 
@@ -195,7 +195,7 @@ export class RowComponent {
 
 You can try it on Plunker and see the difference.
 
-<iframe src="http://embed.plnkr.co/d9b07qginx7z9hGYyeME/" width="100%" height="800"></iframe>
+<iframe src="https://embed.plnkr.co/d9b07qginx7z9hGYyeME/" width="100%" height="800"></iframe>
 
  The huge improvement is that there's now only one getter call for one change! We didn't need anything more as our input data are strings that are being changed, so that reference on input changes. The reference for the rest of the components hasn't changed, so Angular doesn't even look at it.
 
