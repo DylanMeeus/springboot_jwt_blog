@@ -48,6 +48,16 @@ The **[Polymer Element Catalog](https://elements.polymer-project.org/)** provide
 
 Polymer has comprehensive documentation at the [Polymer Project Devguide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview) and can be used with or without the custom elements in the Element Catalog. We'll build our simple single page application (SPA) with Polymer and Polymer elements.
 
+## What We'll Build
+
+We're going to build a simple Polymer app that does the following:
+
+* Calls an external Node API to get Chuck Norris quotes
+* Posts to the API to register and log in users
+* Use JSON Web Tokens to fetch protected Chuck Norris quotes for authenticated users
+* Store tokens and user data with local storage
+* Log out
+
 ## Setup and Installation
 
 We're going to use the new [Polymer CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli) to scaffold our Polymer web app with the [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/). By beginning with the starter kit, we'll gain the advantages of routing, app layout, Material Design, and many core utilities right away. 
@@ -70,6 +80,8 @@ Now install the Polymer CLI:
 npm install -g polymer-CLI
 ```
 
+Finally, we need to have our external Node API running in order to send requests. Clone the [NodeJS JWT Authentication sample repo](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and follow instructions in the README to get it up and running on [http://localhost:8001](http://localhost:8001).
+
 ### Initializing the App
 
 Create a new directory and navigate to it in your terminal or command prompt. Use the following command to initialize the Polymer starter kit in your new folder:
@@ -88,10 +100,17 @@ The site runs at [http://localhost:8080](http://localhost:8080). Adding the opti
 
 If you want to see the shadow DOM nodes in action in the inspector during development, [Chrome](https://www.google.com/chrome/) is recommended. The app works in all modern browsers thanks to Polymer's inclusion of shady DOM and polyfills, but Chrome currently has the best native support for web components. 
 
-You should see a screen like this:
+When viewing your app in the browser, it looks like this:
 
-[SCREENSHOT OF STARTER KIT APP]
+> INSERT IMAGE: [screenshot_starterkit.jpg]
 
-Your file structure should look like this:
+Your starter kit project's file structure should look like this:
 
-[starter-kit-files.png]
+> INSERT IMAGE: [starter-kit-files.png]
+
+## Customizing the Starter Kit
+
+You can see that our app has several views. Let's start looking at the code to understand how Polymer applications and elements are composed and how we can modify the code to suit our needs.
+
+### Naming our Views
+
