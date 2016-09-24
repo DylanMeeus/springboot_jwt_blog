@@ -71,7 +71,7 @@ If your app in Auth0 is created as __Windows Azure Mobile Services__:
 
 ![](https://puu.sh/3kCLH.png)
 
-Then the _Json Web Token_ will be compatible with what __Mobile Services__ expects. See [this previous](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) post for more details.
+Then the [_Json Web Token_](https://auth0.com/learn/json-web-tokens/) will be compatible with what __Mobile Services__ expects. See [this previous](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) post for more details.
 
 An end to end tutorial is available [here](https://docs.auth0.com/android-tutorial).
 

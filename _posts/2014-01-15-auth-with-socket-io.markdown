@@ -52,7 +52,7 @@ In our previous article, we wrote about the benefits of a token-based architectu
 
 ## Authenticating Sockets using Tokens
 
-By now you should not be surprised if we proposed a different alternative to cookies: using tokens. Let's look at a simple sample that uses [express](http://expressjs.com/), [socket.io](http://socket.io) and handles authentication using Json Web Tokens (JWT).
+By now you should not be surprised if we proposed a different alternative to cookies: using tokens. Let's look at a simple sample that uses [express](http://expressjs.com/), [socket.io](http://socket.io) and handles authentication using [Json Web Tokens (JWT)](https://auth0.com/learn/json-web-tokens/).
 
 ### Server Side
 

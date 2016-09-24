@@ -35,7 +35,7 @@ Above all, Spring Boot is meant to make it *easy* to get a project running, star
 
 If you can't wait to see the result, feel free to check out the full code on this [github repository](https://github.com/DylanMeeus/springboot_jwt_blog).
 
-## Setting up the project
+## Setting up the Spring Boot project
 ### Getting an application
 
 There are various ways to get started with a Spring Boot project. They provide both a [quick start](http://start.spring.io/) and a CLI tool. If we didn't want to use those, we could also set up a project with Spring Boot manually, using either Maven or Gradle and adding the necessary dependencies ourselves. In this post we will set up a project using the quick start, which can be found at [start.spring.io](http://start.spring.io/).
@@ -52,7 +52,7 @@ For now, all we really need is the *Web* dependency, which gives us several thin
 
 {% include tweet_quote.html quote_text="Setting up a Spring Boot project is a matter of minutes!" %}
 
-## Our first application
+## Our first Spring Boot application
 
 Once we have downloaded our zip file, the project can be imported into our favorite editor. At this point, some code is already generated for us. Let's first take a look at some of the code, to understand what Spring Boot has prepared for us.
 
@@ -147,11 +147,11 @@ We have some pretty similar code to our original 'Hello World', but now we are r
  }
 ```
 
-## Securing our application with JWT
+## Securing our Spring Boot application with JWT
 
 At this point, our application is exposed to everyone. Anyone can query our webserver and request a list of all the users. We'd prefer that it's only exposed to people who are logged in. For this purpose, we will secure our application with JSON Web Tokens.
 
-JWT is a relatively new technology, defined in [rfc-7519](https://tools.ietf.org/html/rfc7519). It defines a compact, URL-safe way of sharing data between parties using a JSON object. The information is signed with either a secret (using an HMAC) or a public/private key-pair using RSA. If you want to learn more about JWTs, [we've got you covered!](https://auth0.com/learn/json-web-tokens/)
+JWT is a relatively new technology, defined in [rfc-7519](https://tools.ietf.org/html/rfc7519). It defines a compact, URL-safe way of sharing data between parties using a JSON object. The information is signed with either a secret (using an HMAC) or a public/private key-pair using RSA. If you want to learn more about [JWTs](https://auth0.com/learn/json-web-tokens/), we've got you covered!
 
 ### Adding secure routes
 
@@ -230,7 +230,7 @@ The great thing here is that we have now secured our application without having 
 
 At this point, we have some missing classes. Our JWTLoginFilter and JWTAuthenticationFilter still need to be created. They will handle logging in a user and authenticating a user, respectively. Before we can use these classes, however, we need to create a class that can handle JWTs. 
 
-### Creating a JWT service
+### Creating a JWT service for our Spring Boot project
 
 Our JWT service will deal with the creation and verification of our tokens. In this example, we will create a token based on a username and an expiration time, and then sign it with a secret (using an HMAC). We will use `io.jsonwebtoken.Jwts` here for creating and verifying our tokens; they also provide a bunch of algorithms we can use to sign our secret.
 
@@ -320,15 +320,15 @@ public class AccountCredentials {
 }
 ```
 
-### Running our application
+### Running our Spring Boot application
 
-Our application is now secured and supports authentication with a JWT, so we can go ahead and run our application again. When our server is up and running, we can test this out by querying `localhost:8080/users`, and we should get a message saying "Access Denied." To authenticate ourselves, we will send a POST request to `/login` with our user's data in the body: `{"username":"admin","password":"password"}`.. 
+Our Spring Boot application is now secured and supports authentication with a JWT, so we can go ahead and run our application again. When our server is up and running, we can test this out by querying `localhost:8080/users`, and we should get a message saying "Access Denied." To authenticate ourselves, we will send a POST request to `/login` with our user's data in the body: `{"username":"admin","password":"password"}`.. 
 
 ![POST with username-password](https://cdn.auth0.com/blog/spring-boot-auth/postman.png)
 
 In the response to this request, we will get a token as part of the _Authorization_ header, prefixed by "Bearer." We can copy this token to issue the next GET request to our `/users` path. To do this, alter the request to `/users` to include a header called `Authorization`, paste the JWT in this field, and launch the request! If all went well, we should once again be presented with the users. 
 
-![JWT in Header request](https://cdn.auth0.com/blog/spring-boot-auth/getusers.png)
+![JWT in Spring Boot Application](https://cdn.auth0.com/blog/spring-boot-auth/getusers.png)
 
 
 ## Advantages of using Spring Boot
@@ -357,7 +357,7 @@ Being well documented is important, and Pivotal has great documentation on how t
 
 One of the advantages of Spring Boot lies with microservices. Microservices are a successor of the SOA, service oriented architecture. A microservice is responsible for managing a single data domain and the functions thereof. Spring Boot is actually a great example of this principle, as it consists of many different modules that we can use. Recall that during the setup of our application, we could choose between a whole range of these dependencies, dependencies that could be added to our project by including a simple reference to them in our pom.xml file. Each of these dependencies can be thought of as a microservice. Each project would function as a self-contained service that we could then use in other projects.
 
-![Typical microservices diagram](https://cdn.auth0.com/blog/microservices/Microservices2.png)
+![Spring Boot and MicroServices](https://cdn.auth0.com/blog/microservices/Microservices2.png)
 
 _Typical microservices diagram_
 

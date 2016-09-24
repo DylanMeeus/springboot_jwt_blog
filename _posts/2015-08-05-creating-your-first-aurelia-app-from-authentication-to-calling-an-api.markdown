@@ -547,7 +547,7 @@ As you can see, the only real difference here is that the GET request we're maki
 
 ## Aside: Using Aurelia with Auth0
 
-Auth0 issues [JSON Web Tokens](http://jwt.io/introduction) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
+Auth0 issues [JSON Web Tokens](https://auth0.com/learn/json-web-tokens/) on every login for your users. This means that you can have a solid [identity infrastructure](https://auth0.com/docs/identityproviders), including [single sign-on](https://auth0.com/docs/sso/single-sign-on), user management, support for social (Facebook, Github, Twitter, etc.), enterprise (Active Directory, LDAP, SAML, etc.) and your own database of users with just a few lines of code.
 
 You can use [Lock](https://auth0.com/docs/libraries/lock) to integrate [Auth0](https://auth0.com) with Aurelia as well and avoid having to deal with authentication!
 
