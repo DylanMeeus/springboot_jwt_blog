@@ -766,7 +766,17 @@ pre.prettyprint
 
 .results-container
   min-height 870px
-  
+
 #close-search
   display none
   cursor pointer
+
+.autocomplete
+  position absolute
+  cursor default
+  z-index 99999999999999 !important
+  max-height 150px
+  overflow-y auto
+  height 150px
+  /* prevent horizontal scrollbar */
+  overflow-x hidden
