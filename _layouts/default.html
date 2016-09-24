@@ -279,11 +279,7 @@
             input: document.getElementById('search-input'),
             filters: ['author'],
             json: '{{ site.baseurl }}/filters.json',
-            autoCompleteOptions: {
-              classes: {
-                "ui-autocomplete": "autocomplete"
-              }
-            },
+            autoCompleteOptions: {},
             selectCallback: RenderSearch
           });
 
