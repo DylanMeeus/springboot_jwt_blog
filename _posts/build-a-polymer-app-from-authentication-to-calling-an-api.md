@@ -288,23 +288,23 @@ Click between the routes to make sure everything works. We're now ready to start
 
 ## Building an Element
 
-We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it just contains some lorem ipsum and no JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
+We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
 
 ### HTML Imports
 
 The first thing we'll do is install some Polymer elements. We can leverage [iron-ajax](https://elements.polymer-project.org/elements/iron-ajax) to call the API and [paper-button](https://elements.polymer-project.org/elements/paper-button) for the UI.
 
-We can install these components using Bower:
+We'll install these components using Bower:
 
 ```
 bower install PolymerElements/iron-ajax PolymerElements/paper-button --save
 ```
 
-Now we need to import the elements into `home-quotes` using [HTML imports](http://webcomponents.org/articles/introduction-to-html-imports/). Since we're building components, we want to import all the dependencies for a specific element in that element's HTML file. We don't want to rely on a parent element loading them first--that could create a missing dependency somwhere down the line. 
+Now we need to import the elements into `home-quotes` using [HTML imports](http://webcomponents.org/articles/introduction-to-html-imports/). Since we're building web components, we want to import all the dependencies for a specific element in that element's HTML file. We don't want to rely on a parent element loading them first--that could create a missing dependency somwhere down the line. 
 
-Doing this would be dangerous if we were loading scripts in the traditional way: we might get the same dependency called multiple times throughout the app. We would need to centralize file requests or use a dependency manager. However, with web components, we don't need to worry about loading the same imports multiple times across the app because HTML imports dedupe: if an HTML import has already been loaded, it skips loading it again.
+Doing this would be dangerous if we were loading scripts in the traditional way: we might get the same dependency called multiple times throughout the app. We would need to centralize file requests or use a dependency manager. However, with web components, we don't need to worry about loading the same imports multiple times because HTML imports dedupe: if an HTML import has already been loaded, it skips loading it again.
 
-The Polymer library and the `shared-styles` element are already being imported in our `home-quotes` element. We'll add the two elements we just installed with Bower:
+The Polymer library and `shared-styles` element are already being imported in our `home-quotes` element. We'll add the two elements we just installed with Bower:
 
 ```html
 <link rel="import" href="../bower_components/polymer/polymer.html">
@@ -313,5 +313,20 @@ The Polymer library and the `shared-styles` element are already being imported i
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 ```
 
+Now we can take advantage of these elements.
 
+### Calling an API with iron-ajax
 
+We're going to call the API using HTML. The only JavaScript we'll write in this element is a simple handler to re-send the Ajax request and get a new quote when a button is clicked. Pretty cool, eh?
+
+Below the closing `</style>` tag (we'll come back to styling shortly), add the following [iron-ajax](https://elements.polymer-project.org/elements/iron-ajax) element:
+
+```html
+<iron-ajax
+	id="getQuoteAjax"
+	auto 
+	url="http://localhost:3001/api/random-quote"
+	method="get"
+	handle-as="text"
+	last-response="{{quote}}"></iron-ajax>
+```
