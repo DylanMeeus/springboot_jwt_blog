@@ -1,47 +1,33 @@
 {
   "author" : [
-    "Dylan Meeus",
-    "Martin Gontovnikas",
-    "Thameera Senanayaka",
-    "Diego Poza",
-    "Ado Kukic",
-    "Matías Quaranta",
-    "Sebastián Peyrott",
-    "Prosper Otemuyiwa",
-    "Kim Maida",
-    "Ryan Chenkie",
-    "Dan Arildson",
-    "Alex Sears",
-    "Kassandra Perch",
-    "Jerrie Pelser",
-    "Radek Karpowicz",
-    "Jeff Smith",
-    "Tomasz Janczuk",
-    "Eugene Kogan",
-    "Damian Schenkelman",
-    "Clayton Moulynox",
-    "Kelsey Flittner",
-    "Ajden Towfeek",
-    "Pablo Terradillos",
-    "Matias Woloski",
-    "Pablo Seibelt",
-    "José F. Romaniello",
-    "Sandrino Di Mattia",
-    "Milo Mordaunt",
-    "Ben Schwarz",
-    "Hernan Zalazar",
-    "Jon Gelsey",
-    "Ricky Rauch",
-    "Nathan Totten",
-    "Tim McLean",
-    "Gianpaolo Carraro",
-    "Eugenio Pace",
-    "Dmitry Zaytsev",
-    "Ricardo Rauch",
-    "Taiseer Joudeh",
-    "Dominick Baier",
-    "Alberto Pose",
-    "Sebastian Iacomuzzi",
-    "Ezequiel Morito"
+    {
+      "label": "Dylan Meeus",
+      "value": "Dylan Meeus",
+      "avatar": "https://en.gravatar.com/userimage/67902576/25a6df871f404218103361055634917f.jpeg"
+    },
+
+    {
+      "label": "Martin Gontovnikas",
+      "value": "Martin Gontovnikas",
+      "avatar": "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764?size=200"
+    },
+    {
+      "label": "Thameera Senanayaka",
+      "value": "Thameera Senanayaka",
+      "avatar": "https://en.gravatar.com/userimage/11371420/54f3fecf3ce3bbef2d7a62b4f0496de2.jpg?size=200"
+
+    },
+    {
+      "label": "Diego Poza",
+      "value": "Diego Poza",
+      "avatar": "https://avatars3.githubusercontent.com/u/604869?v=3&s=200"
+
+    },
+    {
+      "label": "Ado Kukic",
+      "value": "Ado Kukic",
+      "avatar": "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
+    }
+
   ]
 }

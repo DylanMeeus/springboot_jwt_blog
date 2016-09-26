@@ -27,20 +27,27 @@ var SearchFilters = function(options){
     $.get(url).then(function(res){
        var data = res[filter];
        if(data != undefined){
-         autocompleteInit(input, data);
+         autocompleteInit(input, data, filter);
        }
      });
   }
 
-  function autocompleteInit(input, data){
+  function autocompleteInit(input, data, filter){
+    var renderItem = function(ul, item) {
+      return $("<li>")
+      .append("<div><img class='ui-item-avatar " + filter + "' src=" + item.avatar +  "><span  class='ui-item-label'>" + item.label + "</span></div>")
+      .appendTo(ul);
+    };
+
     $(input).autocomplete({
       minLength:0,
       source: data
     }).keypress(function(){
-        $(input).autocomplete(optionsMerge(input, data));
-    })
+      $(input).autocomplete(optionsMerge(input, data)).autocomplete( "instance" )._renderItem = renderItem
+    }).autocomplete( "instance" )._renderItem = renderItem
     $(input).autocomplete('search', '');
   }
+
 
   function optionsMerge(input, data){
     var defaultOptions = {
@@ -58,14 +65,15 @@ var SearchFilters = function(options){
           };
           var matcher = new RegExp($.ui.autocomplete.escapeRegex( val[2] ), "i" );
           response($.grep( data, function( item ){
-            return matcher.test( item );
+            return matcher.test( item.label );
           }));
       },
       minLength: 0,
       select: function(event, ui) {
         event.preventDefault();
         $(input).val(ui.item.label);
-
+        clearAutocomplete(input);
+        $(input).attr("autocomplete","off");
         if(selectCallback){
           selectCallback();
         }
