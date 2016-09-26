@@ -27,7 +27,7 @@ related:
 
 ## What Are Web Components?
 
-Many frameworks use the term "components" (ie., [Angular 2](http://learnangular2.com/components/), [React](https://facebook.github.io/react/docs/reusable-components.html), [Ember](http://emberjs.com/api/classes/Ember.Component.html)). In general, _components_ are commonly understood to be modular pieces of code that provide UI and/or scripting in a reusable package. However, to understand Polymer, we'll do a brief crash-course on a specific kind of component: _web_ components. 
+_Components_ are commonly understood to be modular pieces of code that provide UI and/or scripting in a reusable package. Many JS frameworks use the term "components" (ie., [Angular 2](http://learnangular2.com/components/), [React](https://facebook.github.io/react/docs/reusable-components.html), [Ember](http://emberjs.com/api/classes/Ember.Component.html)). However, to understand Polymer, we'll do a brief crash-course on a specific kind of component: _web_ components. 
 
 **Web components** are [reusable](http://webcomponents.org) [widgets](https://developer.mozilla.org/en-US/docs/Web/Web_Components) that can be assembled like building blocks in web documents and apps. They are a set of browser features and are being added to the [W3C HTML and DOM specification](https://www.w3.org/standards/techs/components). A web component is composed of four standards: 
 
@@ -44,7 +44,7 @@ Web components can be used natively _without_ any additional libraries or toolse
 
 **[Polymer](https://www.polymer-project.org/1.0/)** is a library created by Google that enables us to build cross-browser compatible apps and elements with web components. It provides syntactic sugar to native web components as well as [polyfills for browsers](https://www.polymer-project.org/1.0/docs/browsers) that don't support web components yet. Shadow DOM is difficult and costly to polyfill, so Polymer uses [shady DOM](https://www.polymer-project.org/1.0/blog/shadydom) to [implement the features of shadow DOM](https://www.polymer-project.org/1.0/blog/shadydom#shadow-dom-is-awesome-why-is-there-a-shady-dom) in browsers that lack support.
 
-The **[Polymer Element Catalog](https://elements.polymer-project.org/)** provides many [pre-built custom elements that can be easily implemented](https://elements.polymer-project.org/guides/using-elements) in any Polymer project. They provide useful utilities like [Ajax](https://elements.polymer-project.org/elements/iron-ajax), [media queries](https://elements.polymer-project.org/elements/iron-media-query), and [single page application routing](https://elements.polymer-project.org/elements/app-route) as well as the [visual "Paper" elements](https://elements.polymer-project.org/browse?package=paper-elements) of [Google's Material Design](https://material.google.com/).
+The **[Polymer Element Catalog](https://elements.polymer-project.org/)** provides many [pre-built custom elements that can be easily implemented](https://elements.polymer-project.org/guides/using-elements) in any Polymer project. They provide useful utility elements like [Ajax](https://elements.polymer-project.org/elements/iron-ajax), [media queries](https://elements.polymer-project.org/elements/iron-media-query), and [single page application routing](https://elements.polymer-project.org/elements/app-route) as well as the [visual "Paper" elements](https://elements.polymer-project.org/browse?package=paper-elements) of [Google's Material Design](https://material.google.com/).
 
 Polymer has comprehensive documentation at the [Polymer Project Devguide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview) and can be used with or without the custom elements in the Element Catalog. We'll build our simple single page application (SPA) with Polymer and Polymer elements.
 
@@ -68,7 +68,7 @@ Let's get started!
 
 First, make sure that you have [node.js](https://nodejs.org/en/download/) installed. 
 
-Next, if you don't have [Bower](https://bower.io/) yet, install it globally with the following command: 
+Next, install [Bower](https://bower.io/) globally with the following command if you don't already have it: 
 
 ```
 npm install -g bower
@@ -80,7 +80,7 @@ Now install the Polymer CLI:
 npm install -g polymer-CLI
 ```
 
-Finally, we need to have our external Node API running in order to send requests. Clone the [NodeJS JWT Authentication sample repo](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and follow instructions in the README to get it up and running on [http://localhost:8001](http://localhost:8001).
+Finally, we need to have our external Node API running in order to send requests. Clone the [NodeJS JWT Authentication sample repo](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and follow the instructions in the README to get it up and running on [http://localhost:8001](http://localhost:8001).
 
 ### Initializing the App
 
@@ -96,7 +96,7 @@ This command installs the starter kit app, tests, and necessary Bower components
 polymer serve
 ```
 
-The site runs at [http://localhost:8080](http://localhost:8080). Adding the optional flag `--open` will automatically launch that address in your default browser.
+The site runs at [http://localhost:8080](http://localhost:8080). Adding the optional `--open` flag will automatically launch that address in your default browser.
 
 If you want to see the shadow DOM nodes in action in the inspector during development, [Chrome](https://www.google.com/chrome/) is recommended. The app works in all modern browsers thanks to Polymer's inclusion of shady DOM and polyfills, but Chrome currently has the best native support for web components. 
 
@@ -112,5 +112,106 @@ Your starter kit project's file structure should look like this:
 
 You can see that our app has several views. Let's start looking at the code to understand how Polymer applications and elements are composed and how we can modify the code to suit our needs.
 
-### Naming our Views
+### Naming Elements
+
+Let's open the `/src` folder and take a look at its contents. These are the elements / views that make up the application. You may notice that the file names are all hyphenated (ie., `my-app`, `my-view1`, etc.). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). 
+
+> Custom element names must contain _at least one hyphen_.
+
+The `my-app.html` file contains the main module that renders the other views based on the route (with [iron-pages](https://elements.polymer-project.org/elements/iron-pages)). This name suits our purposes so we'll leave it as-is. The same goes for `my-icons.html` and `shared-styles.html`. However, `my-view1.html` is not a very descriptive name. We'll rename these files and in doing so, learn a little bit about the other Polymer elements used to display these views.
+
+### Rename Files
+
+Our app is composed of the following pages:
+
+1. A home view that lets visitors click a button to get random Chuck Norris quotes.
+2. A view with a form that lets visitors register or log into the app.
+3. A view where authenticated users can click a button to get random protected Chuck Norris quotes.
+
+We want to rename the starter kit views 
+
+The `/src` folder currently looks like this:
+
+> INSERT IMAGE: [rename-files1.jpg]
+
+We're going to rename these files:
+
+```
+/src
+  |-- my-view1.html
+  |-- my-view2.html
+  |-- my-view3.html
+  |-- my-view404.html
+```
+
+To:
+
+```
+/src
+  |-- home-quotes.html
+  |-- register-login.html
+  |-- secret-quotes.html
+  |-- not-found.html
+```
+
+Our final file `/src` folder file structure should look like this:
+
+> INSERT IMAGE: [rename-files2.jpg]
+
+### Edit the Views
+
+We've renamed the HTML files and now we need to rename the actual elements. For _each_ of the updated views, open the file and do the following:
+
+#### Update `<dom-module>` ID
+
+Locate the `<dom-module>` tag (near the top of the file). This specifies the start of an [element's local DOM](https://www.polymer-project.org/1.0/docs/devguide/local-dom#template-stamping). The `<dom-module>` is the [declarative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change its ID to match the new file name. 
+
+For example: 
+
+```html
+<dom-module id="my-view1">
+``` 
+
+becomes: 
+
+```html
+<dom-module id="home-quotes">
+```
+
+#### Update `Polymer()` Call
+
+Locate the `<script>` tag (near the bottom of the file). The `Polymer()` function is the [imperative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element defnition. Change the `is` property to the new element name. 
+
+For example: 
+
+```js
+Polymer({ 
+	is: 'my-view1',
+``` 
+
+becomes: 
+
+```js
+	is: 'home-quotes',
+```
+
+### Update `my-app.html`
+
+Our elements are renamed, but now we need to update references to them. The view elements are called in the `/src/my-app.html` file, so we'll open this up and make the necessary changes while exploring the contents of the file.
+
+First, locate the [`<app-drawer>`](https://elements.polymer-project.org/elements/app-layout) element. This is the menu sidebar and contains the links to the old routes, like so:
+
+```html
+<a name="view1" href="/view1">View One</a>
+```
+
+You may notice that the hyphenation (`my-`) is missing. This is being added programmatically, so we'll need to remove that as well. First, change the links in the `<iron-selector>` element to match our renaming scheme:
+
+```html
+<iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+	<a name="home-quotes" href="/home-quotes">Home</a>
+	<a name="register-login" href="/register-login">Register / Login</a>
+	<a name="secret-quotes" href="/Secret Quotes">Secret Quotes</a>
+</iron-selector>
+```
 
