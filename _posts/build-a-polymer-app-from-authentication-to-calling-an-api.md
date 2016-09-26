@@ -60,6 +60,8 @@ We're going to build a simple Polymer app that does the following:
 
 ## Setup and Installation
 
+The full source code for the completed app can be [cloned at this GitHub repo](https://github.com/auth0-blog/polymer-with-jwt-api).
+
 We're going to use the new [Polymer CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli) to scaffold our Polymer web app with the [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/). By beginning with the starter kit, we'll gain the advantages of routing, app layout, Material Design, and many core utilities right away. 
 
 Let's get started!
@@ -102,11 +104,7 @@ If you want to see the shadow DOM nodes in action in the inspector during develo
 
 When viewing your app in the browser, it looks like this:
 
-> INSERT IMAGE: [screenshot_starterkit.jpg]
-
-Your starter kit project's file structure should look like this:
-
-> INSERT IMAGE: [starter-kit-files.png]
+![Polymer starter kit](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_starterkit.jpg)
 
 ## Customizing the Starter Kit
 
@@ -114,25 +112,21 @@ You can see that our app has several views. Let's start looking at the code to u
 
 ### Naming Elements
 
-Let's open the `/src` folder and take a look at its contents. These are the elements / views that make up the application. You may notice that the file names are all hyphenated (ie., `my-app`, `my-view1`, etc.). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). 
+Let's open the `/src` folder and take a look at its contents. These are the elements / views that make up the application. You may notice that the file names are all hyphenated (ie., `my-app`, `my-view1`, etc.). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). Custom element names must contain _at least one hyphen_.
 
-> Custom element names must contain _at least one hyphen_.
+The `my-app.html` file contains the main module that renders the other views based on the route (with [app-route](https://www.polymer-project.org/1.0/toolbox/routing) and [iron-pages](https://elements.polymer-project.org/elements/iron-pages)). `my-app` suits our purposes so we'll leave it as-is. The same goes for `my-icons` and `shared-styles`. However, `my-view1` is not a very descriptive name. We'll rename these files and in doing so, learn about the other Polymer elements used to display these views.
 
-The `my-app.html` file contains the main module that renders the other views based on the route (with [iron-pages](https://elements.polymer-project.org/elements/iron-pages)). This name suits our purposes so we'll leave it as-is. The same goes for `my-icons.html` and `shared-styles.html`. However, `my-view1.html` is not a very descriptive name. We'll rename these files and in doing so, learn a little bit about the other Polymer elements used to display these views.
+### Rename HTML Files
 
-### Rename Files
+Our app will be composed of the following views:
 
-Our app is composed of the following pages:
-
-1. A home view that lets visitors click a button to get random Chuck Norris quotes.
+1. A home view that lets visitors click a button to display random Chuck Norris quotes.
 2. A view with a form that lets visitors register or log into the app.
 3. A view where authenticated users can click a button to get random protected Chuck Norris quotes.
 
-We want to rename the starter kit views 
+We want to rename the generic starter kit views to  match our planned view structure. The `/src` folder currently looks like this:
 
-The `/src` folder currently looks like this:
-
-> INSERT IMAGE: [rename-files1.jpg]
+![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/rename-files1.jpg)
 
 We're going to rename these files:
 
@@ -144,7 +138,7 @@ We're going to rename these files:
   |-- my-view404.html
 ```
 
-To:
+to the following:
 
 ```
 /src
@@ -156,7 +150,7 @@ To:
 
 Our final file `/src` folder file structure should look like this:
 
-> INSERT IMAGE: [rename-files2.jpg]
+![Polymer starter kit Chuck Norris app src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/rename-files2.jpg)
 
 ### Edit the Views
 
@@ -180,7 +174,7 @@ becomes:
 
 #### Update `Polymer()` Call
 
-Locate the `<script>` tag (near the bottom of the file). The `Polymer()` function is the [imperative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element defnition. Change the `is` property to the new element name. 
+Locate the `<script>` tag (near the bottom of the file). The `Polymer()` function is the [imperative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element defnition. Change the `is` property to the new element name.
 
 For example: 
 
@@ -192,26 +186,132 @@ Polymer({
 becomes: 
 
 ```js
+Polymer({
 	is: 'home-quotes',
 ```
 
 ### Update `my-app.html`
 
-Our elements are renamed, but now we need to update references to them. The view elements are called in the `/src/my-app.html` file, so we'll open this up and make the necessary changes while exploring the contents of the file.
+Our elements are renamed but now we need to update references to them. The view elements are called in the `/src/my-app.html` file, so we'll open this up and make the necessary changes while exploring the contents of the file.
 
-First, locate the [`<app-drawer>`](https://elements.polymer-project.org/elements/app-layout) element. This is the menu sidebar and contains the links to the old routes, like so:
+Routing is handled by `<app-location>`, `<app-route>`, and `<iron-pages>`. Consult the documentation to learn more about [Polymer routing](https://www.polymer-project.org/1.0/toolbox/routing). 
+
+To get our renamed views working with routing, locate the [`<app-drawer>`](https://elements.polymer-project.org/elements/app-layout) element. This is the menu sidebar and currently contains links to the old routes, like so:
 
 ```html
 <a name="view1" href="/view1">View One</a>
 ```
 
-You may notice that the hyphenation (`my-`) is missing. This is being added programmatically, so we'll need to remove that as well. First, change the links in the `<iron-selector>` element to match our renaming scheme:
+You may notice that the hyphenation (`my-`) is missing. This is being added programmatically, so we'll need to remove that as well. First, change the anchor links inside the `<iron-selector>` element to match our renamed views:
 
 ```html
 <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
 	<a name="home-quotes" href="/home-quotes">Home</a>
-	<a name="register-login" href="/register-login">Register / Login</a>
+	<a name="register-login" href="/register-login">Log In</a>
 	<a name="secret-quotes" href="/Secret Quotes">Secret Quotes</a>
 </iron-selector>
 ```
+
+We've successfully updated the links in the menu. 
+
+However, the Log In link might be better if it was located in the header instead of the sidebar, so let's move it. Cut the `<a name="register-login" href="/register-login">Log In</a>` line so we can shift it to the header.
+
+Locate the [header layout](https://www.polymer-project.org/1.0/toolbox/app-layout#header-layout) elements `<app-header>` and `<app-toolbar>`. Paste the login anchor tag after the `<div main-title>My App</div>` element. While we're here, let's change the main title to "Chuck Norris" as well. When we're done, the `<app-toolbar>` element should look like this:
+
+```html
+<app-toolbar>
+	<paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+	<div main-title>Chuck Norris</div>
+	<a name="register-login" href="/register-login">Log In</a>
+</app-toolbar>
+```
+
+We still need to update the markup that places our view elements in the DOM. Locate the [`<iron-pages>`](https://elements.polymer-project.org/elements/iron-pages) tag. This element shows one of its children at a time and is used in conjunction with `app-route` to display views based on the URL. Update the  elements inside this tag to reflect the renaming of our view elements:
+
+```html
+<iron-pages
+	selected="[[page]]"
+	attr-for-selected="name"
+	fallback-selection="not-found"
+	role="main">
+	<home-quotes name="home-quotes"></home-quotes>
+	<register-login name="register-login"></register-login>
+	<secret-quotes name="secret-quotes"></secret-quotes>
+	<not-found name="not-found"></not-found>
+</iron-pages>
+```
+
+We now need to make some changes in the Polymer function. This method takes an object prototype for a new element. You can read more about [Defining elements](https://www.polymer-project.org/1.0/docs/devguide/registering-elements) in the docs.
+
+In the `<script>` tag, locate the `_routePageChanged` function and change the default `this.page` to `home-quotes`:
+
+```js
+_routePageChanged: function(page) {
+    this.page = page || 'home-quotes';
+},
+```
+
+Next, locate the `_pageChanged` function. This is where the page URL is being prefixed with `my-`. We need to remove this. Update the `resolvedPageUrl` variable:
+
+```js
+_pageChanged: function(page) {
+    // Load page import on demand. Show 404 page if fails
+    var resolvedPageUrl = this.resolveUrl(page + '.html');
+```
+
+Finally, update the `_showPage404` function's `this.page` declaration to `not-found` to match our renamed element:
+
+```js
+_showPage404: function() {
+    this.page = 'not-found';
+}
+```
+
+### Update `polymer.json`
+
+Open the `/polymer.json` file. This file contains the [build settings](https://www.polymer-project.org/1.0/docs/tools/polymer-cli#build) for our app when using the Polymer CLI. We'll update the `fragments` array with our renamed views. These are HTML files that are loaded on-demand or asynchronously.
+
+```js
+"fragments": [
+	"src/home-quotes.html",
+	"src/register-login.html",
+	"src/secret-quotes.html",
+	"src/not-found.html"
+  ],
+```
+
+Our app now looks like this in the browser:
+
+![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_routing.jpg)
+
+Click between the routes to make sure everything works. We're now ready to start building out the features of our app.
+
+## Building an Element
+
+We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it just contains some lorem ipsum and no JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
+
+### HTML Imports
+
+The first thing we'll do is install some Polymer elements. We can leverage [iron-ajax](https://elements.polymer-project.org/elements/iron-ajax) to call the API and [paper-button](https://elements.polymer-project.org/elements/paper-button) for the UI.
+
+We can install these components using Bower:
+
+```
+bower install PolymerElements/iron-ajax PolymerElements/paper-button --save
+```
+
+Now we need to import the elements into `home-quotes` using [HTML imports](http://webcomponents.org/articles/introduction-to-html-imports/). Since we're building components, we want to import all the dependencies for a specific element in that element's HTML file. We don't want to rely on a parent element loading them first--that could create a missing dependency somwhere down the line. 
+
+Doing this would be dangerous if we were loading scripts in the traditional way: we might get the same dependency called multiple times throughout the app. We would need to centralize file requests or use a dependency manager. However, with web components, we don't need to worry about loading the same imports multiple times across the app because HTML imports dedupe: if an HTML import has already been loaded, it skips loading it again.
+
+The Polymer library and the `shared-styles` element are already being imported in our `home-quotes` element. We'll add the two elements we just installed with Bower:
+
+```html
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+```
+
+
 
