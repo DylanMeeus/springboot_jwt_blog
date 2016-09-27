@@ -226,7 +226,7 @@ Locate the [header layout](https://www.polymer-project.org/1.0/toolbox/app-layou
 </app-toolbar>
 ```
 
-We still need to update the markup that places our view elements in the DOM. Locate the [`<iron-pages>`](https://elements.polymer-project.org/elements/iron-pages) tag. This element shows one of its children at a time and is used in conjunction with `app-route` to display views based on the URL. Update the  elements inside this tag to reflect the renaming of our view elements:
+We still need to update the markup that places our view elements in the DOM. Locate the [`<iron-pages>`](https://elements.polymer-project.org/elements/iron-pages) tag. This element shows one of its children at a time and is used in conjunction with `<app-route>` to display views based on the URL. Update the  elements inside this tag to reflect the renaming of our view elements:
 
 ```html
 <iron-pages
@@ -288,7 +288,7 @@ Click between the routes to make sure everything works. We're now ready to start
 
 ## Building an Element
 
-We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
+We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. Open the `/src/home-quotes.html` file. This is our `<home-quotes>` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
 
 ### HTML Imports
 
@@ -317,9 +317,11 @@ Now we can take advantage of these elements.
 
 ### Calling an API with iron-ajax
 
-We're going to call the API using HTML. The only JavaScript we'll write in this element is a simple handler to re-send the Ajax request and get a new quote when a button is clicked. Pretty cool, eh?
+> Make sure you have the [Chuck Norris Node API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) cloned and running so that the API is accessible on [http://localhost:3001](http://localhost:3001).
 
-Below the closing `</style>` tag (we'll come back to styling shortly), add the following [iron-ajax](https://elements.polymer-project.org/elements/iron-ajax) element:
+We're going to call the API using HTML. The only JavaScript we need to write in this element will be a simple handler to re-send the Ajax request and get a new quote when a button is clicked. Pretty cool, huh?
+
+Below the closing `</style>` tag (we'll come back to styling shortly), add the following `<iron-ajax>` element:
 
 ```html
 <iron-ajax
@@ -330,3 +332,104 @@ Below the closing `</style>` tag (we'll come back to styling shortly), add the f
 	handle-as="text"
 	last-response="{{quote}}"></iron-ajax>
 ```
+
+> Note: It's always worthwhile to take a look at the [source code](https://github.com/PolymerElements/iron-ajax) for any custom elements you're getting from elsewhere, including [Polymer elements](https://github.com/PolymerElements).
+
+We gave the `<iron-ajax>` element a descriptive ID so we can access its instance in JS using `this.$.getQuoteAjax`. Setting the `auto` attribute re-sends the request anytime the URL or parameters change. For our purposes, this fetches a quote when the element first loads. Since we won't change the URL or parameters again after initialization, we'll generate subsequent requests with a button click handler. We're using the `GET` method. The API returns the response as a string, so we'll set `handle-as="text"` (other options include `xml`, `json`, `blob`, etc.). 
+
+Finally, `last-response` is the response to the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`{{quote}}`) as delimiters. `<iron-ajax>` uses another dependency element called [`<iron-request>`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the iron-ajax element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
+
+### Binding and Fetching Quotes
+
+We now have the response from calling the API. We need to display the quote in the view. Locate the card div `<div class="card">` and delete its contents. We don't want the lipsum anymore.
+
+Add a heading and a `<blockquote>`. Inside the blockquote element, one-way bind the `quote` API response using [double square bracket delimiters](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`[[quote]]`). We're using one-way binding here because data is flowing downward from host to target but not upwards:
+
+```html
+<div class="card">
+	<h1>Quotes</h1>
+	<blockquote>[[quote]]</blockquote>
+</div>
+```
+
+The quote fetched from the API now displays in the view. In order to get new quotes, let's add a button below the blockquote:
+
+```html
+<paper-button raised>Get a New Quote</paper-button>
+```
+
+Check out the [paper-button documentation](https://elements.polymer-project.org/elements/paper-button) to read about styling and API. Right now, we have a very basic button but it doesn't do anything. We need to add an [event listener](https://www.polymer-project.org/1.0/docs/devguide/events) so when we click or tap the button, we can request another quote from the API.
+
+We'll add an [`on-tap` attribute](https://www.polymer-project.org/1.0/docs/devguide/events#annotated-listeners) to the button and give it a handler function to run when the button is clicked or tapped:
+
+```html
+<paper-button raised on-tap="getQuote">Get a New Quote</paper-button>
+```
+
+In our Polymer function, we need to add the `getQuote()` function:
+
+```js
+Polymer({
+	is: 'home-quotes',
+	getQuote: function() {
+		// get a quote from the API
+	}
+});
+```
+
+Now we need to generate another Ajax request in the `getQuote()` handler. We'll use the iron-ajax method [generateRequest()](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference our iron-ajax instance by its ID:
+
+```js
+getQuote: function() {
+	this.$.getQuoteAjax.generateRequest();
+}
+```
+
+You should now be able to click the "Get a New Quote" button in your app to get and display random Chuck Norris quotes.
+
+### Styling
+
+Web component elements use [shadow DOM styling rules](https://developers.google.com/web/fundamentals/primers/shadowdom/#styling). Styles defined in the shadow root are local, which means we can target IDs and classes within our custom element without contaminating the rest of the page or application. 
+
+Our blockquote and button don't look great right now, so let's give them a little bit of CSS. Head back up to the top of the `/src/home-quotes.html` file and find the `<style>` tag. Notice that this tag `include`s the `shared-styles` element. Since we'll be using the blockquote and button styles elsewhere in the app for the `secret-quotes` element too, we'll want to put our styles somewhere they can be accessed by both `secret-quotes` and `home-quotes`.
+
+Open the `/src/shared-styles.html` file. We can add our common styles here as well as clean up some styles that we won't be using anymore.
+
+Delete the `.circle` ruleset and add the following:
+
+```css
+:root {
+	--primary-color: #4285f4;
+}
+paper-button {
+	color: #fff;
+	font-weight: bold;
+}
+paper-button.primary {
+	background: var(--primary-color);
+}
+blockquote {
+	border-left: 4px solid #eee;
+	margin-left: 4px;
+	padding-left: 20px;
+}
+```
+
+As you can see, we can use [custom CSS properties](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-css-properties) with Polymer:
+
+```css
+:root {
+	--primary-color: #4285f4;
+}
+...
+paper-button.primary {
+	background: var(--primary-color);
+}
+```
+
+Many of [Polymer's Material Design Paper elements](https://elements.polymer-project.org/browse?package=paper-elements) can be styled with variables. We can also create our own. We'll set the primary color on the `:root` selector so that it [applies to all custom elements](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style). We'll then use the variable to style our paper button element with `.primary` class.
+
+> Aside: We'll be using and styling [paper-input-container](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container#styling) later, and by setting the `--primary-color` now, the focus color for inputs is preset as well.
+
+
+
