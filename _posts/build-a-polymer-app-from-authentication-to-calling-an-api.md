@@ -481,7 +481,7 @@ First we'll set up the basic markup for the form with a username and password. L
 
 Delete the lorem ipsum inside the `<div class="card">` element. We'll replace this with our code. We want to create two potential UIs for this area: one for if the user is authenticated and one for if they aren't. We'll start with the unauthenticated view, which is the register / login form.
 
-We'll first add a container for our unauthenticated UI and then add input elements using [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container), which comes bundled with `paper-input`. The reason we aren't using `paper-input` by itself is because `iron-input` allows us to two-way bind input values. It also provides validation options. We won't do validation right now, but using this element provides more room for extensibility. Using `paper-input-container` applies Material Design styles to labels and inputs. This way we can utilize both the iron element utilities _and_ the paper element styles.
+We'll create a container for our unauthenticated UI and add input elements using [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container), which comes bundled with `paper-input`. The reason we aren't using `paper-input` by itself is because `iron-input` allows us to two-way bind input values. It also provides validation options. We won't do validation right now, but using this element provides more room for extensibility. Using `paper-input-container` applies Material Design styles to labels and inputs. This way we can utilize both the iron element utilities _and_ the paper element styles.
 
 Our initial code should look like this:
 
@@ -510,7 +510,7 @@ Our initial code should look like this:
 </div>
 ```
 
-We'll also add some CSS in the `<style>` tags to support this markup:
+We'll also add some local CSS in the `<style>` tags to support this markup:
 
 ```css
 .wrapper-btns {
@@ -520,3 +520,23 @@ paper-button.link {
 	color: #757575;
 }
 ```
+
+Now we have a form, but it doesn't do anything. We'll wire it up with JS to take advantage of `iron-input` and bind the values to data we can submit to the API with Ajax.
+
+...
+
+### Submit Form with Ajax
+
+We'll use `iron-ajax` again to post our form data to the API to register or log in users:
+
+```html
+<iron-ajax
+	id="registerLoginAjax"
+	method="post"
+	content-type="application/json"
+	handle-as="text"
+	on-response="handleUserResponse"
+	on-error="handleUserError"></iron-ajax>
+```
+
+We'll use the `POST` method and set the content type to JSON. We're going to handle the response as text because although a successful login returns JSON, a failure returns a string. This way we can parse a JSON string on success or handle plain text in case of an error.
