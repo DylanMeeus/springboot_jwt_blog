@@ -26,21 +26,21 @@ related:
 
 ---
 
-**TL;DR** Angular 2.0 has finally been released. In this tutorial we are going to look at how to build applications with Angular 2 as well as how to add token based authentication to Angular 2 apps the right way. Check out the completed code example from our [Github repo]().
+**TL;DR** Angular 2.0 has finally been released. In this tutorial we are going to look at how to build applications with Angular 2 as well as how to add token based authentication to Angular 2 apps the right way. Check out the completed code example from our [Github repo](https://github.com/auth0-blog/angular-2-authentication-tutorial).
 
 ---
 
-[Angular 2](https://angular.io/) finally hit the major [2.0 release](http://angularjs.blogspot.com/2016/09/angular2-final.html) milestone just a few weeks ago. The final release of Angular 2 did not have many breaking changes. The Release Candidate 5 (RC5) release, released just a few weeks prior to final, introduced major breaking changes and additions such as the [@NgModule decorator](https://angular.io/docs/ts/latest/guide/ngmodule.html), [Ahead-of-Time (AOT)](http://blog.mgechev.com/2016/08/14/ahead-of-time-compilation-angular-offline-precompilation/) compiler and more.
+[Angular 2](https://angular.io/) finally hit the major [2.0 release](http://angularjs.blogspot.com/2016/09/angular2-final.html) milestone just a few weeks ago. The final release of Angular 2 did not have many breaking changes. The Release Candidate 5 (RC5) release, made available just a few weeks prior to final, introduced major breaking changes and additions such as the [@NgModule decorator](https://angular.io/docs/ts/latest/guide/ngmodule.html), [Ahead-of-Time (AOT)](http://blog.mgechev.com/2016/08/14/ahead-of-time-compilation-angular-offline-precompilation/) compiler and more.
 
-In today's tutorial, we are going to utilize some of these new features to build an entire Angular 2 application. We'll make use of the new @NgModule decorator, use some of the latest features like route guards, services and more. Finally, we'll implement token based authentication with [Auth0](https://auth0.com).
+In today's tutorial, we are going to utilize some of these new features to build an entire Angular 2 application. Components, @NgModule, route guards, services, and more are just some of the topics we'll touch on. Finally, we'll implement token based authentication with [Auth0](https://auth0.com).
 
 ## The Angular 2 Ecosystem
 
-[Angular 1.x](https://angularjs.org/) was highly regarded as a powerful framework for building single page applications (SPAs). It did a lot of things well, fell short on some, but overall allowed developers to quickly build powerful applications.
+[Angular 1.x](https://angularjs.org/) was highly regarded as a robust framework for building single page applications (SPAs). It did a lot of things well, fell short on some, but overall allowed developers to quickly build powerful applications.
 
-While Angular 1.x is a framework, [Angular 2](https://angular.io/) is an entire platform for building modern applications. Alongside the core Angular 2 library, the platform ships with a powerful Command Line Interface (CLI), called [Angular CLI](https://cli.angular.io), that allows developers to easily scaffold their applications as well as control the build system. [Angular Universal](https://universal.angular.io) brings server-side rendering to Angular 2 applications. [Angular Material 2](https://material.angular.io) is the official implementation of the Material Design which allows developers to build beautiful applications with ease.
+While Angular 1.x is a framework, [Angular 2](https://angular.io/) is an entire platform for building modern applications. Alongside the core Angular 2 library, the platform ships with a powerful Command Line Interface (CLI) called [Angular CLI](https://cli.angular.io) that allows developers to easily scaffold their applications as well as control the build system. [Angular Universal](https://universal.angular.io) brings server-side rendering to Angular 2 applications. [Angular Material 2](https://material.angular.io) is the official implementation of [Google Material Design](https://material.google.com/) which allows developers to build beautiful applications with ease.
 
-Angular 2.0 has officially shipped, but the other components of the platform are still in alpha and beta stages. For our application today, we will make use of the Angular CLI and the core Angular 2 framework, we'll let the other components bake a little longer.  
+Angular 2.0 has officially shipped, but the other components of the platform are still in alpha and beta stages. For our application today, we will make use of the Angular CLI and the core Angular 2 framework, but we'll let the other components bake a little longer.  
 
 {% include tweet_quote.html quote_text="While Angular 1 is a framework, Angular 2 is an entire platform for building modern applications" %}
 
@@ -48,11 +48,11 @@ Angular 2.0 has officially shipped, but the other components of the platform are
 
 ![Daily Deals App](https://cdn.auth0.com/blog/angular2-auth-dd/daily-deals.png)
 
-The app we are building today is called Daily Deals. The Daily Deals app displays a list of deals and discounts on various products. We'll have a list of publically available deals that anyone can see and a list of private deals available only to registered members. The private deals are exclusive to registered members, and should hopefully be better.
+The app we are building today is called Daily Deals. The Daily Deals app displays a list of deals and discounts on various products. We'll have a list of publicly available deals that anyone can see and a list of private deals available only to registered members. The private deals are exclusive to registered members, and should hopefully be better.
 
 ### Serving the Daily Deals
 
-We'll have to get our daily deals from somewhere. Let's build a very simple [Node.js](https://nodejs.org) backend to serve the deals. We'll have a publically accessible route serving public deals and a protected private route that can only be called by authenticated users. For now, we'll make both of the routes public and worry about the authentication piece later. Take a look at our implementation below:
+We'll have to get our daily deals from somewhere. Let's build a very simple [Node.js](https://nodejs.org) backend to serve the deals. We'll have a publically accessible route serving public deals and a protected route that can only be called by authenticated users. For now, we'll make both of the routes public and worry about the authentication piece later. Take a look at our implementation below:
 
 ```js
 'use strict';
@@ -83,7 +83,7 @@ app.listen(3001);
 console.log('Serving deals on localhost:3001');
 ```
 
-Both our server and the Angular 2 app we are building will require Node.js and [NPM](https://npmjs.com), so be sure to have those installed before continuing. Check out the [Github repo]() to get our list of daily deals or create your own. The model for each deal will be as follows:
+Both our server and the Angular 2 app we are building will require Node.js and [NPM](https://npmjs.com), so be sure to have those installed before continuing. Check out the [Github repo](https://github.com/auth0-blog/angular-2-authentication-tutorial) to get our list of daily deals or create your own. The model for each deal will be as follows:
 
 ```js
  {
@@ -294,7 +294,7 @@ Finally, let's add a custom style. In the `public-deals.component.css` file add 
 
 This will ensure that each of the products displays nicely on our page.
 
-Our private deals component will look very similar. For posterity, we won't display the scaffold. We'll cover the changes a little later on. If you'd like to see what it looks like, you can view it from our [Github repo]().
+Our private deals component will look very similar. For posterity, we won't display the scaffold. We'll cover the changes a little later on. If you'd like to see what it looks like, you can view it from our [Github repo](https://github.com/auth0-blog/angular-2-authentication-tutorial).
 
 ### Accessing our Deals API
 
