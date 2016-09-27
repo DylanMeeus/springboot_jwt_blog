@@ -292,7 +292,7 @@ We'll start with the home view, which should call the [Chuck Norris API](https:/
 
 ![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_home-quotes.jpg)
 
-Open the `/src/home-quotes.html` file. This is our `<home-quotes>` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
+Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
 
 ### HTML Imports
 
@@ -325,7 +325,7 @@ Now we can take advantage of these elements.
 
 We're going to call the API using HTML. The only JavaScript we need to write in this element will be a simple handler to re-send the Ajax request and get a new quote when a button is clicked. Pretty cool, huh?
 
-Below the closing `</style>` tag (we'll come back to styling shortly), add the following `<iron-ajax>` element:
+Below the closing `</style>` tag (we'll come back to styling shortly), add the following `iron-ajax` element:
 
 ```html
 <iron-ajax
@@ -339,9 +339,9 @@ Below the closing `</style>` tag (we'll come back to styling shortly), add the f
 
 > Note: It's always worthwhile to take a look at the [source code](https://github.com/PolymerElements/iron-ajax) for any custom elements you're getting from elsewhere, including [Polymer elements](https://github.com/PolymerElements).
 
-We gave the `<iron-ajax>` element a descriptive ID so we can access its instance in JS using `this.$.getQuoteAjax`. Setting the `auto` attribute re-sends the request anytime the URL or parameters change. For our purposes, this fetches a quote when the element first loads. Since we won't change the URL or parameters again after initialization, we'll generate subsequent requests with a button click handler. We're using the `GET` method. The API returns the response as a string, so we'll set `handle-as="text"` (other options include `xml`, `json`, `blob`, etc.). 
+We gave `iron-ajax` a descriptive ID so we can access its instance in JS using `this.$.getQuoteAjax`. Setting the `auto` attribute re-sends the request anytime the URL or parameters change. For our purposes, this fetches a quote when the element first loads. Since we won't change the URL or parameters again after initialization, we'll generate subsequent requests with a button click handler. We're using the `GET` method. The API returns the response as a string, so we'll set `handle-as="text"` (other options include `xml`, `json`, `blob`, etc.). 
 
-Finally, `last-response` is the response to the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`{{quote}}`) as delimiters. `<iron-ajax>` uses another dependency element called [`<iron-request>`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the iron-ajax element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
+Finally, `last-response` is the response to the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`{{quote}}`) as delimiters. `iron-ajax` uses another dependency element called [`iron-request`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the iron-ajax element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
 
 ### Binding and Fetching Quotes
 
@@ -431,11 +431,11 @@ paper-button.primary {
 }
 ```
 
-Many of [Polymer's Material Design Paper elements](https://elements.polymer-project.org/browse?package=paper-elements) can be styled with variables. We can also create our own. We'll set the primary color on the `:root` selector so that it [applies to all custom elements](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style). We'll then use the variable to style our paper button element with `.primary` class.
+Many of [Polymer's Material Design Paper elements](https://elements.polymer-project.org/browse?package=paper-elements) can be styled with variables. We can also create our own. We'll set the primary color on the `:root` selector so that it [applies to all custom elements](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style). We'll then use the variable to style our `paper-button` element with a `.primary` class.
 
 > Note: By setting the `--primary-color` variable now, the focus color for inputs will also be preset when we use [paper-input-container](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container#styling) later.
 
-We now need to add the `.primary` class to our button. Go to `/src/home-quotes.html` and apply this class to the `<paper-button>` element we created.
+We now need to add the `.primary` class to our button. Go to `/src/home-quotes.html` and apply this class to the `paper-button` element we created.
 
 ```html
 <paper-button raised on-tap="getQuote" class="primary">Get a New Quote</paper-button>
@@ -443,12 +443,80 @@ We now need to add the `.primary` class to our button. Go to `/src/home-quotes.h
 
 Our app now gets and displays quotes and has some custom styling.
 
-## Register and Log In Users
+## Authenticating Users
 
-We want to be able to register users so they can log in and access secret quotes. To do this, we'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to be able to handle sign up and login errors. Finally, we'll show a greeting and a log out link when the user is authenticated. 
+We want to be able to register users so they can log in and access secret quotes. To do this, we'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to handle sign up and login errors as well as save to local storage to persist logins. Finally, we'll show a greeting and a log out link when the user is authenticated. 
 
 When this step is complete, our app will look like this:
 
 > INSERT IMAGE: screenshot of register/login screen
 
 ### Creating the User Credentials Form
+
+Open `/src/register-login.html`. This is our `register-login` element. We're going to use some more Polymer elements from the catalog, so let's start by installing [iron-input](https://elements.polymer-project.org/elements/iron-input) and [paper-input](https://elements.polymer-project.org/elements/paper-input):
+
+```
+bower install PolymerElements/iron-input PolymerElements/paper-input --save
+```
+
+Now we'll import these dependencies. We'll also import `iron-ajax`, `paper-button`, and `iron-localstorage`. We don't need to install `iron-localstorage` with Bower because it came packaged with the starter kit. 
+
+> Note: You can check your `/bower_components` directory to see what other Polymer components are automatically installed.
+
+The HTML imports for `register-login` should now look like this:
+
+```html
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+```
+
+First we'll set up the basic markup for the form with a username and password. Logging in and signing up require the same fields so we'll use the same form for both. 
+
+> Aside: A potential future enhancement might be to split register and login into separate views and add a Confirm Password field when signing up.
+
+Delete the lorem ipsum inside the `<div class="card">` element. We'll replace this with our code. We want to create two potential UIs for this area: one for if the user is authenticated and one for if they aren't. We'll start with the unauthenticated view, which is the register / login form.
+
+We'll first add a container for our unauthenticated UI and then add input elements using [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container), which comes bundled with `paper-input`. The reason we aren't using `paper-input` by itself is because `iron-input` allows us to two-way bind input values. It also provides validation options. We won't do validation right now, but using this element provides more room for extensibility. Using `paper-input-container` applies Material Design styles to labels and inputs. This way we can utilize both the iron element utilities _and_ the paper element styles.
+
+Our initial code should look like this:
+
+```html
+<div class="card">
+	<div id="unauthenticated">
+		<h1>Log In</h1>
+
+		<p><strong>Log in</strong> or <strong>sign up</strong> to access secret Chuck Norris quotes!</p>
+		
+		<paper-input-container>
+			<label>Username</label>
+			<input is="iron-input" id="username" type="text">
+		</paper-input-container>
+
+		<paper-input-container>
+			<label>Password</label>
+			<input is="iron-input" id="password" type="password">
+		</paper-input-container>
+
+		<div class="wrapper-btns">
+			<paper-button raised class="primary">Log In</paper-button>
+			<paper-button class="link">Sign Up</paper-button>
+		</div>
+	</div>	
+</div>
+```
+
+We'll also add some CSS in the `<style>` tags to support this markup:
+
+```css
+.wrapper-btns {
+	margin-top: 15px;
+}
+paper-button.link {
+	color: #757575;
+}
+```
