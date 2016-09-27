@@ -46,6 +46,8 @@ Angular 2.0 has officially shipped, but the other components of the platform are
 
 ## Our App: Daily Deals
 
+![Daily Deals App](https://cdn.auth0.com/blog/angular2-auth-dd/daily-deals.png)
+
 The app we are building today is called Daily Deals. The Daily Deals app displays a list of deals and discounts on various products. We'll have a list of publically available deals that anyone can see and a list of private deals available only to registered members. The private deals are exclusive to registered members, and should hopefully be better.
 
 ### Serving the Daily Deals
@@ -243,43 +245,43 @@ export class PublicDealsComponent implements OnInit {
 Next, let's build the view of our public deals component. We'll do this in the `public-deals.component.html` file. Our view will be a mixture of HTML and Angular 2 sugar. Let's take a look at our implementation.
 
 ```html
-<h3 class="text-center">Daily Deals</h3>
+  <h3 class="text-center">Daily Deals</h3>
 
-<!-- We are going to get an array of deals stored in the publicDeals variable. We'll loop over that variable here using the ngFor directive -->
-<div class="col-sm-4" *ngFor="let deal of publicDeals">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{deal.name}}</h3>
-    </div>
-    <div class="panel-body">
-      {{deal.description}}
-    </div>
-    <div class="panel-footer">
-      <ul class="list-inline">
-        <li>Original</li>
-        <li class="pull-right">Sale</li>
-      </ul>
-      <ul class="list-inline">
-        <li><a class="btn btn-danger">${{deal.originalPrice | number}}</a></li>
-        <li class="pull-right"><a class="btn btn-success">${{deal.salePrice | number}}</a></li>
-      </ul>
+  <!-- We are going to get an array of deals stored in the publicDeals variable. We'll loop over that variable here using the ngFor directive -->
+  <div class="col-sm-4" *ngFor="let deal of publicDeals">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{deal.name}}</h3>
+      </div>
+      <div class="panel-body">
+        {{deal.description}}
+      </div>
+      <div class="panel-footer">
+        <ul class="list-inline">
+          <li>Original</li>
+          <li class="pull-right">Sale</li>
+        </ul>
+        <ul class="list-inline">
+          <li><a class="btn btn-danger">${{deal.originalPrice | number}}</a></li>
+          <li class="pull-right"><a class="btn btn-success">${{deal.salePrice | number}}</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- We are going to use the authService.loggedIn() method to see if the user is logged in or not. If they are not logged in we'll encourage them to login, otherwise if they are logged in, we'll provide a handy link to private deals. We haven't implemented the authService yet, so don't worry about the functionality just yet -->
-<div class="col-sm-12" *ngIf="!authService.loggedIn()">
-  <div class="jumbotron text-center">
-    <h2>Get More Deals By Logging In</h2>
+  <!-- We are going to use the authService.loggedIn() method to see if the user is logged in or not. If they are not logged in we'll encourage them to login, otherwise if they are logged in, we'll provide a handy link to private deals. We haven't implemented the authService yet, so don't worry about the functionality just yet -->
+  <div class="col-sm-12" *ngIf="!authService.loggedIn()">
+    <div class="jumbotron text-center">
+      <h2>Get More Deals By Logging In</h2>
+    </div>
   </div>
-</div>
 
-<div class="col-sm-12" *ngIf="authService.loggedIn()">
-  <div class="jumbotron text-center">
-    <h2>View Private Deals</h2>
-    <a class="btn btn-lg btn-success" routerLink="/special">Private Deals</a>
+  <div class="col-sm-12" *ngIf="authService.loggedIn()">
+    <div class="jumbotron text-center">
+      <h2>View Private Deals</h2>
+      <a class="btn btn-lg btn-success" routerLink="/special">Private Deals</a>
+    </div>
   </div>
-</div>
 ```
 
 Finally, let's add a custom style. In the `public-deals.component.css` file add the following:
@@ -466,6 +468,8 @@ console.log('Listening on localhost:3001');
 ```
 
 That's all we'll need to do on the server. Restart the server and try to navigate to `localhost:3001/api/deals/private` and you'll see an error message saying missing authorization header. Our private API route is now secured. Let's get to implementing authentication in our Angular 2 app.
+
+![API with No Auth Token](https://cdn.auth0.com/blog/angular2-auth-dd/no-auth-token.png)
 
 ### Adding Authentication to the Front-end
 
@@ -695,9 +699,15 @@ We need to update the call to the `/api/deals/private` to include our JWT. There
   }
 ```
 
+![Auth0 Lock Widget](https://cdn.auth0.com/blog/angular2-auth-dd/lock.png)
+
 That's it. We are now ready to test our application. If your Node.js server is not running, make sure to start it up first. Head over to `localhost:4200` and you should automatically be redirected to `localhost:4200/deals` and see the list of public deals.
 
+![Daily Deals Authenticated](https://cdn.auth0.com/blog/angular2-auth-dd/authenticated.png)
+
 Next, click on the login screen and you will be presented with the Lock widget. Login or sign up and you will be redirected back to the deals page, but now the UI will look slightly different. The main menu will have a new option for Private Deals, and the message at the bottom will also show you a link to the private deals. Instead of the Login link in the navbar, you'll also be presented with a Logout link instead. Finally click on the Public Deals link to see our list of exclusive private deals. 
+
+![Exclusive Daily Deals](https://cdn.auth0.com/blog/angular2-auth-dd/secret-deals.png)
 
 You just wrote and authenticated an Angular 2.0 app. Congrats!
 
