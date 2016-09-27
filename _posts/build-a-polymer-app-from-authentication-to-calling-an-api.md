@@ -108,7 +108,11 @@ When viewing your app in the browser, it looks like this:
 
 ## Customizing the Starter Kit
 
-You can see that our app has several views. Let's start looking at the code to understand how Polymer applications and elements are composed and how we can modify the code to suit our needs.
+You can see that our app has several views. We want to customize the starter kit to fit our app's purpose. When we've finished customizing the structure and naming, our app should look like this:
+
+![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_routing.jpg)
+
+Let's start looking at the code to understand how Polymer applications and elements are composed and how we can modify the code to suit our needs.
 
 ### Naming Elements
 
@@ -280,15 +284,15 @@ Open the `/polymer.json` file. This file contains the [build settings](https://w
   ],
 ```
 
-Our app now looks like this in the browser:
-
-![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_routing.jpg)
-
 Click between the routes to make sure everything works. We're now ready to start building out the features of our app.
 
 ## Building an Element
 
-We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. Open the `/src/home-quotes.html` file. This is our `<home-quotes>` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
+We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. The user should be able to click a button to get a new quote. When we're finished with this step, our app should look like this:  
+
+![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_home-quotes.jpg)
+
+Open the `/src/home-quotes.html` file. This is our `<home-quotes>` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
 
 ### HTML Imports
 
@@ -429,7 +433,22 @@ paper-button.primary {
 
 Many of [Polymer's Material Design Paper elements](https://elements.polymer-project.org/browse?package=paper-elements) can be styled with variables. We can also create our own. We'll set the primary color on the `:root` selector so that it [applies to all custom elements](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style). We'll then use the variable to style our paper button element with `.primary` class.
 
-> Aside: We'll be using and styling [paper-input-container](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container#styling) later, and by setting the `--primary-color` now, the focus color for inputs is preset as well.
+> Note: By setting the `--primary-color` variable now, the focus color for inputs will also be preset when we use [paper-input-container](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container#styling) later.
 
+We now need to add the `.primary` class to our button. Go to `/src/home-quotes.html` and apply this class to the `<paper-button>` element we created.
 
+```html
+<paper-button raised on-tap="getQuote" class="primary">Get a New Quote</paper-button>
+```
 
+Our app now gets and displays quotes and has some custom styling.
+
+## Register and Log In Users
+
+We want to be able to register users so they can log in and access secret quotes. To do this, we'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to be able to handle sign up and login errors. Finally, we'll show a greeting and a log out link when the user is authenticated. 
+
+When this step is complete, our app will look like this:
+
+> INSERT IMAGE: screenshot of register/login screen
+
+### Creating the User Credentials Form
