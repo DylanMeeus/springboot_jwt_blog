@@ -41,7 +41,15 @@ var SearchFilters = function(options){
 
     $(input).autocomplete({
       minLength:0,
-      source: data
+      source: data,
+      select: function(event, ui) {
+        event.preventDefault();
+        $(input).val(ui.item.label);
+        if(selectCallback){
+          selectCallback();
+        }
+        clearAutocomplete(input)
+      }
     }).keypress(function(){
       $(input).autocomplete(optionsMerge(input, data)).autocomplete( "instance" )._renderItem = renderItem
     }).autocomplete( "instance" )._renderItem = renderItem
@@ -72,11 +80,10 @@ var SearchFilters = function(options){
       select: function(event, ui) {
         event.preventDefault();
         $(input).val(ui.item.label);
-        clearAutocomplete(input);
-        $(input).attr("autocomplete","off");
         if(selectCallback){
           selectCallback();
         }
+        clearAutocomplete(input)
       }
     };
 
@@ -85,6 +92,8 @@ var SearchFilters = function(options){
 
   function clearAutocomplete(input){
     $(input).autocomplete( "destroy" );
+    $(input).attr('autocomplete', 'off');
+
   }
 
 }
