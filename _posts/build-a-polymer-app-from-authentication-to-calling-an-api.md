@@ -646,7 +646,65 @@ We're adding two more properties: `storedUser` (object) to store name, token, an
 
 Next we'll handle a successful API response: `handleUserResponse()`. Recall that we're handling all responses as text, so on success, we need to parse the JSON. If a token is present, we'll clear any errors from previous failures, define the `storedUser` object and its properties, and reset `formData` to an empty object.
 
-We've also defined a handler for errors: `handleUserError()`. When the sample API fails, it returns an error message as a string. We'll set the `error` property to this XHR response. You can console log the `event` objects in these two event handlers to become more familiar with their structure.
+We've also defined a handler for errors: `handleUserError()`. When the sample API fails, it returns an error message as a string. We'll set the `error` property to this XHR response. You can console log the `event` parameter in these two handlers to become more familiar with its structure.
+
+Now we have the error message but we're not displaying it to the user. Let's add some markup before the first form input to support this:
+
+```html
+<template is="dom-if" if="[[error]]">
+	<p class="alert-error"><strong>Error:</strong> [[error]]</p>
+</template>
+```
+
+Templates with `is="dom-if"` are [conditionally stamped](https://www.polymer-project.org/1.0/docs/devguide/templates#dom-if) when their `if` property is truthy. 
+
+You can see an error message if you try to submit empty or invalid credentials to the API. Let's add some styling to make error messages more prominent. Add the following ruleset to the `register-login` element's local `<style>` tag:
+
+```css
+.alert-error {
+	background: #ffcdd2;
+	border: 1px solid #f44336;
+	border-radius: 3px;
+	color: #333;
+	font-size: 14px;
+	padding: 10px;
+}
+```
+
+### Saving Data to Local Storage
+
+To save our logged in users to local storage, add the [`iron-localstorage`](https://elements.polymer-project.org/elements/iron-localstorage) element near the top of our element markup:
+
+```html
+<iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
+```
+
+Now our app will persist logins so that users don't have to log in again after every refresh.
+
+### Showing UI Based on Authentication State
+
+We are now successfully authenticating, but there's no indication to the user that they're logged in. We'll hide the form and show a message upon successful authentication.
+
+Add a `hidden` attribute to the `#authenticated` div:
+
+```html
+<div id="unauthenticated" hidden$="[[storedUser.loggedin]]">
+```
+
+We want `hidden` to have a binding and be conditionally applied. If we don't do this, its presence implies truthiness regardless of its value. In order to [bind to an attribute](https://www.polymer-project.org/1.0/docs/devguide/data-binding#attribute-binding), we need to add a `$` after the attribute name.
+
+Next we want to show the user a logged-in UI if they're authenticated. Add another div below the `#unauthenticated` element:
+
+```html
+<div id="authenticated" hidden$="[[!storedUser.loggedin]]">
+	<h2>Hello, [[storedUser.name]]!</h2>
+	<p>You are currently logged in. You can access <a href="/secret-quotes">Secret Quotes</a>!</p>
+</div>
+```
+
+Now when the user logs in, they won't see the form anymore and will see this greeting instead. However, we can take this one step further and redirect them to the Secret Quotes view on successful authentication.
+
+### Redirecting on Authentication
 
 ...WHEN IT COMES UP:
 
