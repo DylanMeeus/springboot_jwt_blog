@@ -735,3 +735,94 @@ handleUserResponse: function(event) {
 ```
 
 > Note: Using `this.set('property.subproperty', ...)` instead of `this.property.subproperty =` ensures that [we're making observable changes](https://www.polymer-project.org/1.0/docs/devguide/data-system#make-observable-changes) to object subproperties.
+
+### Making User Data Available Globally
+
+What if we want to access and manipulate the authentication state of our user from other areas of the app? For instance, the header still says "Log In" even when the user is already authenticated. We should change this to a greeting and a "Log Out" button. We can also see "Secret Quotes" in the menu while logged out. This should be hidden from unauthenticated users. But most importantly, we need to use the authenticated user's token to access the protected API to get secret quotes.
+
+Recall that `iron-localstorage` is bound to `storedUser` which is a property of the `register-login` element. That property is not available everywhere else in the app, so even though the local storage is accessible globally, we don't have a straightforward way to set the data in it from elsewhere and be sure that changes notify and are observed properly on all parents and children.
+
+Polymer 1.0 does not have an elegant, out-of-the-box solution to this problem at this time. This is one thing that any full-featured JS framework would make short work of, but it's important to remember that Polymer isn't an MV* framework: it's a library that helps us leverage web components.
+
+We're going to add a little element called `app-data`. This element notifies instances when its data is changed.
+
+Create a file in `/src` called `app-data.html`. Add the following code:
+
+```js
+<!-- app-data.html -->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="app-data">
+	<script>
+		(function() {
+			var instances = [];
+			var vars = Object.create(Polymer.Base);
+
+			Polymer({
+				is: 'app-data',
+				
+				properties: {
+					data: {
+						type: Object,
+						value: '',
+						notify: true,
+						readonly: false,
+						observer: '_data_changed'
+					},
+					key: String
+				},
+
+				created: function() {
+					key = this.getAttribute('key');
+					if (!key) {
+						console.log(this);
+						throw('app-data element requires key');
+					}
+					instances.push({key:key, instance:this});
+				},
+
+				detached: function() {
+					key = this.getAttribute('key');
+					var i = instances.indexOf({key:key, instance:this});
+					if (i >= 0) {
+						instances.splice(i, 1);
+					}
+				},
+
+				_data_changed: function(newvalue, oldvalue) {
+					key = this.getAttribute('key');
+					if (!key) {
+						throw('_data_changed: app-data element requires key');
+					}
+					vars.set(key, newvalue);
+
+					// notify the instances with the correct key
+					for (var i = 0; i < instances.length; i++) {
+						if (instances[i].key == key) {
+							instances[i].instance.notifyPath('data', newvalue);
+						}
+					}
+				}
+			});
+		}());
+	</script>
+</dom-module>
+```
+
+> Note: To learn more about `app-data` and its origins, [check out this Stack Overflow answer](http://stackoverflow.com/a/31771240) to a question about [global variables in Polymer 1.0](http://stackoverflow.com/questions/30849816/polymer-1-0-global-variables).
+
+In `/src/register-login.html`, import the new `app-data` dependency:
+
+```html
+<link rel="import" href="app-data.html">
+```
+
+Add the `app-data` element to the markup near the `iron-localstorage` element. We need to supply an identifying `key` and the `data` we want is, of course, the `storedUser` object.
+
+```html
+<app-data key="userData" data="{{storedUser}}"></app-data>
+```
+
+We can now add the `app-data` element whereever we need access to this global data. All instances will be notified when the data is changed.
+
