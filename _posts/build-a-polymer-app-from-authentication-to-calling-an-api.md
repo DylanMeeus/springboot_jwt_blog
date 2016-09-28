@@ -374,7 +374,7 @@ In our Polymer function, we need to add the `getQuote()` function:
 
 ```js
 Polymer({
-	is: 'home-quotes',
+	...
 	getQuote: function() {
 		// get a quote from the API
 	}
@@ -494,17 +494,17 @@ Our initial code should look like this:
 		
 		<paper-input-container>
 			<label>Username</label>
-			<input is="iron-input" id="username" type="text">
+			<input is="iron-input" id="username" type="text" bind-value="{{formData.username}}">
 		</paper-input-container>
 
 		<paper-input-container>
 			<label>Password</label>
-			<input is="iron-input" id="password" type="password">
+			<input is="iron-input" id="password" type="password" bind-value="{{formData.password}}">
 		</paper-input-container>
 
 		<div class="wrapper-btns">
-			<paper-button raised class="primary">Log In</paper-button>
-			<paper-button class="link">Sign Up</paper-button>
+			<paper-button raised class="primary" on-tap="postLogin">Log In</paper-button>
+			<paper-button class="link" on-tap="postRegister">Sign Up</paper-button>
 		</div>
 	</div>	
 </div>
@@ -521,11 +521,36 @@ paper-button.link {
 }
 ```
 
-Now we have a form, but it doesn't do anything. We'll wire it up with JS to take advantage of `iron-input` and bind the values to data we can submit to the API with Ajax.
+Now we have a form, but it doesn't do anything. We'll wire it up with JS to take advantage of `iron-input` and bind the values to data that we can submit to the API. Let's create a property that holds an object for our form data:
 
+```js
+Polymer({
+	is: 'register-login',
+	
+	properties: {
+		formData: {
+			type: Object,
+			value: {}
+		}
+	}
+```
+
+[Polymer properties](https://www.polymer-project.org/1.0/docs/devguide/properties) are members of the element's public API and should be declared on the prototype. We'll set the default value of `formData` to an empty object so we can add properties to it simply by typing in the input fields once we set their bindings.
+
+> Note: Why weren't we required to declare `quote` as a property in the `home-quotes` element? Because the fetched `quote` is not a member of the element's public API, did not need a default value or options, and was not manipulated in both the template and the JS. The `quote` property could be added as type `String` to `home-quotes` to no ill effect, but it was left off to demonstrate that Polymer will bind without it and there is no need to expose it to the element's API. We won't set the quote as an attribute when calling the `<home-quotes>` element.
+
+We bound the `formData` object to the inputs in the HTML using `bind-value` attributes:
+
+```html
+<input is="iron-input" id="username" type="text" bind-value="{{formData.username}}">
 ...
+<input is="iron-input" id="password" type="password" bind-value="{{formData.password}}">
 
-### Submit Form with Ajax
+```
+
+This allows the data to flow between the markup and the JS.
+
+### Submit the Form with Ajax
 
 We'll use `iron-ajax` again to post our form data to the API to register or log in users:
 
@@ -539,4 +564,81 @@ We'll use `iron-ajax` again to post our form data to the API to register or log 
 	on-error="handleUserError"></iron-ajax>
 ```
 
-We'll use the `POST` method and set the content type to JSON. We're going to handle the response as text because although a successful login returns JSON, a failure returns a string. This way we can parse a JSON string on success or handle plain text in case of an error.
+We'll use the `POST` method and set the content type to JSON. We're going to handle the response as text because although a successful login returns JSON, a failure returns a string. This way we can easily parse a JSON string on success or handle plain text in case of an error.
+
+There is no `url` attribute on our `iron-ajax` element this time. This is because we'll set the URL based on whether the user clicks "Log In" or "Sign Up". Let's add `on-tap` attributes to the two buttons to implement this:
+
+```html
+<paper-button raised class="primary" on-tap="postLogin">Log In</paper-button>
+<paper-button class="link" on-tap="postRegister">Sign Up</paper-button>
+```
+
+Now we'll add the corresponding `postLogin` and `postRegister` event handlers to the JS. We also need to set the request body containing the form data when the user clicks a button to submit. Then we'll generate the Ajax request.
+
+```js
+...
+properties: {
+	formData: {
+		type: Object,
+		value: {}
+	}
+},
+
+_setReqBody: function() {
+	this.$.registerLoginAjax.body = this.formData;
+},
+
+postLogin: function() {
+	this.$.registerLoginAjax.url = 'http://localhost:3001/sessions/create';
+	this._setReqBody();
+	this.$.registerLoginAjax.generateRequest();
+},
+
+postRegister: function() {
+	this.$.registerLoginAjax.url = 'http://localhost:3001/users';
+	this._setReqBody();
+	this.$.registerLoginAjax.generateRequest();
+}
+```
+
+We're successfully `POST`ing to the API. Next we need to handle the API response. At this time, we have listener methods defined in the markup but not in the JS:
+
+```html
+<iron-ajax
+	...
+	on-response="handleUserResponse"
+	on-error="handleUserError"></iron-ajax>
+```
+
+Let's add `handleUserResponse()` and `handleUserError()`:
+
+```js
+properties: {
+	...
+	storedUser: Object,
+	error: String
+},
+...
+handleUserResponse: function(event) {
+	var response = JSON.parse(event.detail.response);
+
+	if (response.id_token) {
+		this.error = '';
+		this.set('storedUser', {
+			name: this.formData.username,
+			token: response.id_token,
+			loggedin: true
+		});
+
+		// redirect to Secret Quotes
+		this.set('route.path', '/secret-quotes');
+	}
+
+	// reset form data
+	this.formData = {};
+},
+
+handleUserError: function(event) {
+	this.error = event.detail.request.xhr.response;
+}
+```
