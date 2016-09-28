@@ -27,6 +27,6 @@ Crucial concepts in security have subtly different definitions. And understandin
 
 That’s why we've put together a glossary of terms for newcomers and seasoned developers alike to put any remaining confusion to rest!
 
-[Identity Glossary](https://cdn.auth0.com/blog/identity-glossary/identity-glossary.png)
+![Identity Glossary](https://cdn.auth0.com/blog/identity-glossary/identity-glossary.png)
 
 You can find the [Identity Glossary here](https://auth0.com/identity-glossary). Let us know your thoughts and if we are missing a concept you would like to see!
