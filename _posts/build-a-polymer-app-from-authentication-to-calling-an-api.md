@@ -550,7 +550,7 @@ We bound the `formData` object to the inputs in the HTML using `bind-value` attr
 
 This allows the data to flow between the markup and the JS.
 
-### Submit the Form with Ajax
+### Submitting the Form with Ajax
 
 We'll use `iron-ajax` again to post our form data to the API to register or log in users:
 
@@ -601,6 +601,8 @@ postRegister: function() {
 }
 ```
 
+### Handling API Responses
+
 We're successfully `POST`ing to the API. Next we need to handle the API response. At this time, we have listener methods defined in the markup but not in the JS:
 
 ```html
@@ -624,14 +626,11 @@ handleUserResponse: function(event) {
 
 	if (response.id_token) {
 		this.error = '';
-		this.set('storedUser', {
+		this.storedUser = {
 			name: this.formData.username,
 			token: response.id_token,
 			loggedin: true
-		});
-
-		// redirect to Secret Quotes
-		this.set('route.path', '/secret-quotes');
+		};
 	}
 
 	// reset form data
@@ -642,3 +641,13 @@ handleUserError: function(event) {
 	this.error = event.detail.request.xhr.response;
 }
 ```
+
+We're adding two more properties: `storedUser` (object) to store name, token, and state of an authenticated user, and `error` (string) to display when the API returns a failure. Later, we'll put `storedUser` into local storage and access it in other areas of the app. We can use shorthand `property: Type` because we don't need any additional options set.
+
+Next we'll handle a successful API response: `handleUserResponse()`. Recall that we're handling all responses as text, so on success, we need to parse the JSON. If a token is present, we'll clear any errors from previous failures, define the `storedUser` object and its properties, and reset `formData` to an empty object.
+
+We've also defined a handler for errors: `handleUserError()`. When the sample API fails, it returns an error message as a string. We'll set the `error` property to this XHR response. You can console log the `event` objects in these two event handlers to become more familiar with their structure.
+
+...WHEN IT COMES UP:
+
+Using `this.set('property.subproperty', ...)` instead of `this.property.subproperty =` ensures that [we're making observable changes](https://www.polymer-project.org/1.0/docs/devguide/data-system#make-observable-changes) to object subproperties.
