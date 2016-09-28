@@ -829,3 +829,45 @@ Add the `app-data` element to the markup near the `iron-localstorage` element. W
 ```
 
 We can now add the `app-data` element to any other components that need access to this global data. All instances will be notified when the data is changed. (Don't forget `iron-localstorage` is also necessary in such cases to prevent incorrect authentication behavior on return visits.)
+
+## Creating a Log Out Element
+
+Now that we can register and authenticate users, we need a way for them to log out. We'd like this to be a component that can live in a couple of locations, so we're going to build a new element.
+
+Create a new file, `/src/log-out.html`, and import Polymer, `iron-localstorage`, `paper-button`, and `app-data`:
+
+```html
+<!-- log-out.html -->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="app-data.html">
+```
+
+Now we'll scaffold out our new element by adding `<dom-module id="log-out">`. We'll set up the `template`, `style`, and `script` tags as well. The host styles should have no margin or padding.
+
+```html
+<dom-module id="log-out">
+	<template>
+		<style>
+			:host {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		
+		<!-- Markup goes here -->
+	</template>
+
+	<script>
+		(function() {
+			Polymer({
+				is: 'log-out'
+			});
+		}());
+	</script>
+</dom-module>
+
+```
+
