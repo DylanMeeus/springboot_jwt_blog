@@ -810,7 +810,7 @@ Create a file in `/src` called `app-data.html`. Add the following code:
 </dom-module>
 ```
 
-> Note: To learn more about `app-data` and its origins, [check out this Stack Overflow answer](http://stackoverflow.com/a/31771240) to a question about [global variables in Polymer 1.0](http://stackoverflow.com/questions/30849816/polymer-1-0-global-variables).
+> Note: To learn more about `app-data` and its origins, check out this [Stack Overflow question about global variables in Polymer 1.0](http://stackoverflow.com/questions/30849816/polymer-1-0-global-variables) and specifically, [this answer](http://stackoverflow.com/a/31771240).
 
 In `/src/register-login.html`, import the new `app-data` dependency:
 
@@ -824,5 +824,4 @@ Add the `app-data` element to the markup near the `iron-localstorage` element. W
 <app-data key="userData" data="{{storedUser}}"></app-data>
 ```
 
-We can now add the `app-data` element whereever we need access to this global data. All instances will be notified when the data is changed.
-
+We can now add the `app-data` element to any other components that need access to this global data. All instances will be notified when the data is changed. (Don't forget `iron-localstorage` is also necessary in such cases to prevent incorrect authentication behavior on return visits.)
