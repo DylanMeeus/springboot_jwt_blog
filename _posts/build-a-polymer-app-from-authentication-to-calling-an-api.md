@@ -537,7 +537,7 @@ Polymer({
 
 [Polymer properties](https://www.polymer-project.org/1.0/docs/devguide/properties) are members of the element's public API and should be declared on the prototype. We'll set the default value of `formData` to an empty object so we can add properties to it simply by typing in the input fields once we set their bindings.
 
-> Note: Why weren't we required to declare `quote` as a property in the `home-quotes` element? Because the fetched `quote` is not a member of the element's public API, did not need a default value or options, and was not manipulated in both the template and the JS. The `quote` property could be added as type `String` to `home-quotes` to no ill effect, but it was left off to demonstrate that Polymer will bind without it and there is no need to expose it to the element's API. We won't set the quote as an attribute when calling the `<home-quotes>` element.
+> Note: Why weren't we required to declare `quote` as a property in the `home-quotes` element? Because the fetched `quote` is not a member of the element's public API, did not need a default value or options. The `quote` property could be added as type `String` to `home-quotes` to no ill effect, but it was left off to demonstrate that Polymer will bind without it and there is no need to expose it to the element's API: we won't set the quote as an attribute when calling the `<home-quotes>` element.
 
 We bound the `formData` object to the inputs in the HTML using `bind-value` attributes:
 
@@ -679,7 +679,7 @@ To save our logged in users to local storage, add the [`iron-localstorage`](http
 <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
 ```
 
-Now our app will persist logins so that users don't have to log in again after every refresh.
+Now our app will persist users so they don't have to log in again after every refresh or return visit.
 
 ### Showing UI Based on Authentication State
 
@@ -704,8 +704,34 @@ Next we want to show the user a logged-in UI if they're authenticated. Add anoth
 
 Now when the user logs in, they won't see the form anymore and will see this greeting instead. However, we can take this one step further and redirect them to the Secret Quotes view on successful authentication.
 
-### Redirecting on Authentication
+### Redirecting After Authentication
 
-...WHEN IT COMES UP:
+To redirect the user to another view with Polymer app routing in place, we need to include the [`app-location`](https://elements.polymer-project.org/elements/app-route?active=app-location) element. This synchronizes browser location and application state and gives us access to a `route` object. 
 
-Using `this.set('property.subproperty', ...)` instead of `this.property.subproperty =` ensures that [we're making observable changes](https://www.polymer-project.org/1.0/docs/devguide/data-system#make-observable-changes) to object subproperties.
+Add `app-location` to the imports at the top of the file. It's already installed because it came bundled with the starter kit (we've seen it in `/src/my-app.html`):
+
+```html
+<link rel="import" href="../bower_components/app-route/app-location.html">
+```
+
+Now add the element:
+
+```html
+<app-location route="{{route}}"></app-location>
+```
+
+In our `handleUserResponse()` function, we can now set the `route.path` to the path we want to redirect to:
+
+```js
+handleUserResponse: function(event) {
+	...
+	if (response.id_token) {
+		...
+		// redirect to Secret Quotes
+		this.set('route.path', '/secret-quotes');
+	}
+	...
+},
+```
+
+> Note: Using `this.set('property.subproperty', ...)` instead of `this.property.subproperty =` ensures that [we're making observable changes](https://www.polymer-project.org/1.0/docs/devguide/data-system#make-observable-changes) to object subproperties.
