@@ -290,7 +290,7 @@ Click between the routes to make sure everything works. We're now ready to start
 
 We'll start with the home view, which should call the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and retrieve random quotes for display. The user should be able to click a button to get a new quote. When we're finished with this step, our app should look like this:  
 
-![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_home-quotes.jpg)
+![Polymer app element home quotes](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_home-quotes.jpg)
 
 Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it just contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
 
@@ -449,7 +449,7 @@ We want to be able to register users so they can log in and access secret quotes
 
 When this step is complete, our app will look like this:
 
-> INSERT IMAGE: screenshot of register/login screen
+![Polymer register login app view](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_login.jpg)
 
 ### Creating the User Credentials Form
 
@@ -648,7 +648,11 @@ Next we'll handle a successful API response: `handleUserResponse()`. Recall that
 
 We've also defined a handler for errors: `handleUserError()`. When the sample API fails, it returns an error message as a string. We'll set the `error` property to this XHR response. You can console log the `event` parameter in these two handlers to become more familiar with its structure.
 
-Now we have the error message but we're not displaying it to the user. Let's add some markup before the first form input to support this:
+Now we have the error message but we're not displaying it to the user. We'd like to show something like this:
+
+![Polymer register login app view](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_login-error.jpg)
+
+Let's add some markup before the first form input to support this:
 
 ```html
 <template is="dom-if" if="[[error]]">
