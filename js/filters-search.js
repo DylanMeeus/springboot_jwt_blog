@@ -42,6 +42,12 @@ var SearchFilters = function(options){
     $(input).autocomplete({
       minLength:0,
       source: data,
+      open: function() {
+        $(this).autocomplete("widget").appendTo(".search-bar");
+          var position = $(".search-bar").position();
+          var left = position.left, top = position.top;
+          $(".search-bar > ul").css({ left: left + 0 + "px", top: top + 55 + "px"});
+      },
       select: function(event, ui) {
         event.preventDefault();
         $(input).val(ui.item.label);
@@ -77,6 +83,12 @@ var SearchFilters = function(options){
           }));
       },
       minLength: 0,
+      open: function() {
+        $(this).autocomplete("widget")
+               .appendTo(".search-bar");
+                var position = $(".search-bar").position(), left = position.left, top = position.top;
+                $(".search-bar > ul").css({ left: left + 0 + "px", top: top + 55 + "px" });
+      },
       select: function(event, ui) {
         event.preventDefault();
         $(input).val(ui.item.label);
@@ -87,7 +99,7 @@ var SearchFilters = function(options){
       }
     };
 
-    return _.merge({},defaultOptions,autoCompleteOptions);;
+    return _.merge({},defaultOptions,autoCompleteOptions);
   }
 
   function clearAutocomplete(input){
