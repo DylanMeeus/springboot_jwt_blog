@@ -899,6 +899,8 @@ Keeping these requirements in mind, let's build out our element, starting with t
 
 This should look familiar as there are no new concepts here. We're accessing the `app-data` so that when we log out, changes to the data are set throughout the app. We'll check for a `link` property and if it's false, show a button. If it's true, show a link. Both the link and button will call the same `on-tap` handler, `logout()`.
 
+> Note: You may have noticed that we didn't include `iron-localstorage`. Changes to `storedUser` in `log-out` use `app-data` to notify other instances which update `iron-localstorage`. In turn, local storage is retrieved by the parent upon app initialization and the property is then sent to the child `log-out` via its `stored-user` attribute.
+
 Now we'll set up the JS to facilitate this:
 
 ```
@@ -920,8 +922,123 @@ Polymer({
 });
 ```
 
-The `storedUser` object will be passed into the element from the parent, but we'll need to manipulate it to perform logout. The `link` property will be true if it's present as an attribute on the `<log-out>` element. The default value of a boolean property must be set to false in order for it to function as an [attribute](https://www.polymer-project.org/1.0/docs/devguide/properties#configuring-boolean-properties) that can be set in the markup for the element instance.
+The `storedUser` object will be passed into the element from the parent but we'll need to manipulate it to perform logout. The `link` property will be true if it's present as an attribute on the `<log-out>` element. The default value of a boolean property must be set to false in order for it to function as an [attribute](https://www.polymer-project.org/1.0/docs/devguide/properties#configuring-boolean-properties) that can be configured by markup.
 
 To log out, all we need to do is set the `storedUser` object to `null`.
 
-> Note: You may have noticed that we didn't include `iron-localstorage`. Changes to `storedUser` in `log-out` use `app-data` to notify other instances, which update `iron-localstorage`. In turn, local storage is retrieved by the parent upon app initialization and the property is then sent to the child `log-out` via its `stored-user` attribute.
+Now let's finish up by adding some styles so our link and button look good. 
+
+```css
+/* paper-button.html */
+
+paper-button {
+	background: #f44336;
+	color: #fff;
+	font-weight: bold;
+}
+a {
+	color: #fff;
+	display: inline-block;
+	font-size: 13px;
+}
+```
+
+The link will display in the blue header area so the text should be white. If we need to add additional links in other contexts, we can always adjust the styling to add variables or other options.
+
+Now that we have our `log-out` element, let's add it to the `register-login` view:
+
+```html
+<!-- register-login.html -->
+<div id="authenticated" hidden$="[[!storedUser.loggedin]]">
+	...
+	<log-out stored-user="{{storedUser}}"></log-out>
+</div>
+```
+
+Our authenticated `register-login` view now looks like this in the browser:
+
+![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_logout.jpg)
+
+Recall that after a successful login, users are redirected to the `secret-quotes` view. We'll also replace the "Log In" link in the header shortly--but the `/register-login` route is still accessible regardless. The user can access it via the URL or the browser Back button. If they hit this route while authenticated, they'll see this message and be able to log out.
+
+## Fetching Secret Quotes
+
+It's time to access the protected API to get secret quotes. Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, `iron-localstorage`, `paper-button`, and `app-data`. Clean up the contents of the `<div class="card">` element:
+
+```html
+<!-- secret-quotes.html -->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="app-data.html">
+<link rel="import" href="shared-styles.html">
+...
+<div class="card">
+	<h1>Secret Quotes</h1>
+</div>
+...
+```
+
+Add the `iron-localstorage` and `app-data` elements:
+
+```html
+<iron-localstorage 
+	name="user-storage" 
+	value="{{storedUser}}" 
+	on-iron-localstorage-load="initStoredUser"></iron-localstorage>
+
+<app-data key="userData" data="{{storedUser}}"></app-data>
+```
+
+We'll use the `on-iron-localstorage-load` event to get a quote automatically if an authenticated user enters the app on this page.
+
+Next add `iron-ajax`:
+
+```html
+<iron-ajax 
+	id="getSecretQuoteAjax"
+	method="get"
+	url="http://localhost:3001/api/protected/random-quote"
+	handle-as="text"
+	last-response="{{secretQuote}}"></iron-ajax>
+```
+
+This looks similar to the `iron-ajax` element we used to get public quotes in the `home-quotes` element except that we're not using the `auto` attribute. We'll add authorization to this request in the JS when we generate the request.
+
+We'll display the quotes in the UI. We want to show authenticated users a greeting and private quotes. If an unauthenticated user accesses this route, we should show a message instructing them to log in.
+
+```html
+<div class="card">
+	<h1>Secret Quotes</h1>
+
+	<div hidden$="[[!storedUser.loggedin]]">
+		<p>Hello, [[storedUser.name]]! You have access to secret quotes:</p>
+		<blockquote>[[secretQuote]]</blockquote>
+		<paper-button class="primary" raised on-tap="getSecretQuote">Get a New Secret Quote</paper-button>
+	</div>
+
+	<p hidden$="[[storedUser.loggedin]]">You must <a href="/register-login">log in</a> to access secret quotes!</p>
+</div>
+```
+
+In the JS, add the `storedUser` property and functions to `initStoredUser()` and `getSecretQuote()`:
+
+```js
+Polymer({
+	is: 'secret-quotes',
+
+	properties: {
+		storedUser: Object
+	},
+
+	initStoredUser: function() {
+		// if entering site on the secret quotes page, verify if logged in and if so, preload a secret quote
+	},
+
+	getSecretQuote: function() {
+		// add token authorization and generate Ajax request
+	}
+});
+```
