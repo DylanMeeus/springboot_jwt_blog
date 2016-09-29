@@ -1,33 +1,214 @@
 {
-  "author" : [
+  "author": [
     {
-      "label": "Dylan Meeus",
-      "value": "Dylan Meeus",
-      "avatar": "https://en.gravatar.com/userimage/67902576/25a6df871f404218103361055634917f.jpeg"
-    },
-
-    {
-      "label": "Martin Gontovnikas",
-      "value": "Martin Gontovnikas",
-      "avatar": "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764?size=200"
+      "label": "Ado Kukic",
+      "value": "Ado Kukic",
+      "avatar": "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
     },
     {
-      "label": "Thameera Senanayaka",
-      "value": "Thameera Senanayaka",
-      "avatar": "https://en.gravatar.com/userimage/11371420/54f3fecf3ce3bbef2d7a62b4f0496de2.jpg?size=200"
-
+      "label": "Ajden Towfeek",
+      "value": "Ajden Towfeek",
+      "avatar": "https://secure.gravatar.com/avatar/f7144da08aeb41a93256f8ae88f507d2?s=64"
+    },
+    {
+      "label": "Alberto Pose",
+      "value": "Alberto Pose",
+      "avatar": "https://www.gravatar.com/avatar/9d6add4b3a385afde6c23d6d56fbf838?size=200"
+    },
+    {
+      "label": "Alex Sears",
+      "value": "Alex Sears",
+      "avatar": "https://s.gravatar.com/avatar/6c0654e56c8c73ffee8f76fe03d18ccf?s=80"
+    },
+    {
+      "label": "Ben Schwarz",
+      "value": "Ben Schwarz",
+      "avatar": "https://www.gravatar.com/avatar/42e2ec6a72627f8c15115e279a5f7d8e.png?size=80"
+    },
+    {
+      "label": "Clayton Moulynox",
+      "value": "Clayton Moulynox",
+      "avatar": "https://s.gravatar.com/avatar/ef2eecee7655f814bd7a9228ba0c6992?s=200"
+    },
+    {
+      "label": "Damian Schenkelman",
+      "value": "Damian Schenkelman",
+      "avatar": "https://www.gravatar.com/avatar/1c9619a22f32012221bd59296dc9a1a2??s=60"
+    },
+    {
+      "label": "Dan Arildson",
+      "value": "Dan Arildson",
+      "avatar": "https://cdn.auth0.com/blog/authors/danarildson.jpg"
     },
     {
       "label": "Diego Poza",
       "value": "Diego Poza",
       "avatar": "https://avatars3.githubusercontent.com/u/604869?v=3&s=200"
-
     },
     {
-      "label": "Ado Kukic",
-      "value": "Ado Kukic",
-      "avatar": "https://s.gravatar.com/avatar/99c4080f412ccf46b9b564db7f482907?s=200"
+      "label": "Dmitry Zaytsev",
+      "value": "Dmitry Zaytsev",
+      "avatar": "https://cloudup.com/csgyy2LVyeE+"
+    },
+    {
+      "label": "Dominick Baier",
+      "value": "Dominick Baier",
+      "avatar": "https://avatars1.githubusercontent.com/u/1454075?s=400"
+    },
+    {
+      "label": "Dylan Meeus",
+      "value": "Dylan Meeus",
+      "avatar": "https://en.gravatar.com/userimage/67902576/25a6df871f404218103361055634917f.jpeg"
+    },
+    {
+      "label": "Eugene Kogan",
+      "value": "Eugene Kogan",
+      "avatar": "https://s.gravatar.com/avatar/667b1c82b6cc2241ff176d50c65da603?s=200"
+    },
+    {
+      "label": "Eugenio Pace",
+      "value": "Eugenio Pace",
+      "avatar": "https://secure.gravatar.com/avatar/702d07476c482418b948b911504137a5?s=60"
+    },
+    {
+      "label": "Ezequiel Morito",
+      "value": "Ezequiel Morito",
+      "avatar": "https://secure.gravatar.com/avatar/6c62cc9e6d7c17e49debf1bc3755fe3a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
+    },
+    {
+      "label": "Gianpaolo Carraro",
+      "value": "Gianpaolo Carraro",
+      "avatar": "https://www.gravatar.com/avatar/aad435650eb4a93583d6aaa19f3a91f4.png?s=60"
+    },
+    {
+      "label": "Hernan Zalazar",
+      "value": "Hernan Zalazar",
+      "avatar": "https://www.gravatar.com/avatar/b93af62499ed0f76f280acb37913f15d.png?size=200"
+    },
+    {
+      "label": "Jeff Smith",
+      "value": "Jeff Smith",
+      "avatar": "https://secure.gravatar.com/avatar/d5365965372e0c5843d836f660b51a84?size=200"
+    },
+    {
+      "label": "Jerrie Pelser",
+      "value": "Jerrie Pelser",
+      "avatar": "https://secure.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=60"
+    },
+    {
+      "label": "Jon Gelsey",
+      "value": "Jon Gelsey",
+      "avatar": "https://auth0.com/lib/about/img/jon.png"
+    },
+    {
+      "label": "José F. Romaniello",
+      "value": "José F. Romaniello",
+      "avatar": "https://www.gravatar.com/avatar/4d44bd6c8bbd97dfeb5e9c299aaa68c5"
+    },
+    {
+      "label": "Kassandra Perch",
+      "value": "Kassandra Perch",
+      "avatar": "https://s.gravatar.com/avatar/bc94ff6211e645a2bdb4fdc60e23ad85.jpg?s=200"
+    },
+    {
+      "label": "Kelsey Flittner",
+      "value": "Kelsey Flittner",
+      "avatar": "https://s.gravatar.com/avatar/2ffc83fcccf746c783f921f186d1e619?s=60"
+    },
+    {
+      "label": "Kim Maida",
+      "value": "Kim Maida",
+      "avatar": "https://en.gravatar.com/userimage/20807150/4c9e5bd34750ec1dcedd71cb40b4a9ba.png"
+    },
+    {
+      "label": "Martin Gontovnikas",
+      "value": "Martin Gontovnikas",
+      "avatar": "https://www.gravatar.com/avatar/df6c864847fba9687d962cb80b482764??s=60"
+    },
+    {
+      "label": "Matias Woloski",
+      "value": "Matias Woloski",
+      "avatar": "https://secure.gravatar.com/avatar/0cd73f2f2f39709bd03646e9225cc3d3?s=200"
+    },
+    {
+      "label": "Matías Quaranta",
+      "value": "Matías Quaranta",
+      "avatar": "https://s.gravatar.com/avatar/7752008352217db815996ab04aec46e6?s=80"
+    },
+    {
+      "label": "Milo Mordaunt",
+      "value": "Milo Mordaunt",
+      "avatar": "https://en.gravatar.com/userimage/24343392/119d3a13b6da0d9eabbcde831f163c4b.jpeg"
+    },
+    {
+      "label": "Nathan Totten",
+      "value": "Nathan Totten",
+      "avatar": "https://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=60"
+    },
+    {
+      "label": "Pablo Seibelt",
+      "value": "Pablo Seibelt",
+      "avatar": "https://secure.gravatar.com/avatar/bb9128fac91692ad4f46a785d772dd39?s=200"
+    },
+    {
+      "label": "Pablo Terradillos",
+      "value": "Pablo Terradillos",
+      "avatar": "https://s.gravatar.com/avatar/647b1eea820b3fc8a5aee0383930b888"
+    },
+    {
+      "label": "Prosper Otemuyiwa",
+      "value": "Prosper Otemuyiwa",
+      "avatar": "https://en.gravatar.com/avatar/1097492785caf9ffeebffeb624202d8f?s=200"
+    },
+    {
+      "label": "Radek Karpowicz",
+      "value": "Radek Karpowicz",
+      "avatar": "https://s.gravatar.com/avatar/71313b369e8f23b7ec7b4614acdf3031?s=200"
+    },
+    {
+      "label": "Ricky Rauch",
+      "value": "Ricky Rauch",
+      "avatar": "https://www.gravatar.com/avatar/27396b3fa24389198ef5d3e7e410e9c4?size=60"
+    },
+    {
+      "label": "Ryan Chenkie",
+      "value": "Ryan Chenkie",
+      "avatar": "https://www.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?size=200"
+    },
+    {
+      "label": "Sandrino Di Mattia",
+      "value": "Sandrino Di Mattia",
+      "avatar": "https://secure.gravatar.com/avatar/e8a46264ec428f6b37018e1b962b893a?s=200"
+    },
+    {
+      "label": "Sebastian Iacomuzzi",
+      "value": "Sebastian Iacomuzzi",
+      "avatar": "https://secure.gravatar.com/avatar/c35416d45481332127c88e4cd355555f?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
+    },
+    {
+      "label": "Sebastián Peyrott",
+      "value": "Sebastián Peyrott",
+      "avatar": "https://en.gravatar.com/userimage/92476393/001c9ddc5ceb9829b6aaf24f5d28502a.png?size=200"
+    },
+    {
+      "label": "Taiseer Joudeh",
+      "value": "Taiseer Joudeh",
+      "avatar": "https://cloudup.com/ckum6xYMhmE+"
+    },
+    {
+      "label": "Thameera Senanayaka",
+      "value": "Thameera Senanayaka",
+      "avatar": "https://en.gravatar.com/userimage/11371420/54f3fecf3ce3bbef2d7a62b4f0496de2.jpg?size=200"
+    },
+    {
+      "label": "Tim McLean",
+      "value": "Tim McLean",
+      "avatar": "https://www.gravatar.com/avatar/dfea5c5f769cc4a6cce74d3eda20bba3?size=200"
+    },
+    {
+      "label": "Tomasz Janczuk",
+      "value": "Tomasz Janczuk",
+      "avatar": "https://s.gravatar.com/avatar/53f70144dc9d7c76455fa91f858d4cec?s=200"
     }
-
   ]
 }
