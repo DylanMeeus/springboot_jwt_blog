@@ -1116,3 +1116,49 @@ As you can see, we've moved the `name` attributes to the containing divs and add
 
 ### Authentication State in Header
 
+Let's update the `<app-header>`'s `<app-toolbar>` to show the "Log In" link when the user is logged out and a greeting and the `log-out` element with `link` attribute when authenticated:
+
+```html
+<app-header condenses reveals effects="waterfall">
+	<app-toolbar>
+		...
+		<a name="register-login" href="/register-login" hidden$="[[storedUser.loggedin]]">Log In</a>
+		<div hidden$="[[!storedUser.loggedin]]">
+			<span class="greeting">Hi [[storedUser.name]]!</span>
+			<log-out stored-user="{{storedUser}}" link></log-out>
+		</div>
+	</app-toolbar>
+</app-header>
+```
+
+Add the `storedUser` object to the Polymer properties:
+
+```js
+Polymer({
+	is: 'my-app',
+
+	properties: {
+		...,
+		storedUser: Object
+	},
+	...
+```
+
+Finally, we'll add some styles:
+
+```css
+...
+app-header .greeting,
+app-header a {
+	color: #fff;
+	font-size: 13px;
+}
+app-header .greeting {
+	border-right: 1px solid rgba(255,255,255,.5);
+	display: inline-block;
+	padding-right: 6px;
+}
+...
+```
+
+We now have a functioning user state in the global header. When we log in or out, no matter what view we're on, the header and menu will update according to authentication status.
