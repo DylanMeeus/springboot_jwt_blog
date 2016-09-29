@@ -405,9 +405,15 @@ Delete the `.circle` ruleset and add the following:
 :root {
 	--primary-color: #4285f4;
 }
+a,
+paper-button {
+	font-weight: bold;
+}
+a {
+	color: var(--primary-color);
+}
 paper-button {
 	color: #fff;
-	font-weight: bold;
 }
 paper-button.primary {
 	background: var(--primary-color);
@@ -424,6 +430,10 @@ As you can see, we can use [custom CSS properties](https://www.polymer-project.o
 ```css
 :root {
 	--primary-color: #4285f4;
+}
+...
+a {
+	color: var(--primary-color);
 }
 ...
 paper-button.primary {
@@ -963,7 +973,11 @@ Recall that after a successful login, users are redirected to the `secret-quotes
 
 ## Fetching Secret Quotes
 
-It's time to access the protected API to get secret quotes. Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, `iron-localstorage`, `paper-button`, and `app-data`. Clean up the contents of the `<div class="card">` element:
+It's time to access the protected API to get secret quotes. When we're finished with this step, our app will look like this:
+
+![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_secret-quotes.jpg)
+
+Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, `iron-localstorage`, `paper-button`, and `app-data`. Clean up the contents of the `<div class="card">` element:
 
 ```html
 <!-- secret-quotes.html -->
@@ -1007,7 +1021,11 @@ Next add `iron-ajax`:
 
 This looks similar to the `iron-ajax` element we used to get public quotes in the `home-quotes` element except that we're not using the `auto` attribute. We'll add authorization to this request in the JS when we generate the request.
 
-We'll display the quotes in the UI. We want to show authenticated users a greeting and private quotes. If an unauthenticated user accesses this route, we should show a message instructing them to log in.
+We'll display the quotes in the UI. We want to show authenticated users a greeting and private quotes. If an unauthenticated user accesses this route, we should show a message instructing them to log in:
+
+![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_secret-quotes_unauth.jpg)
+
+Add the following markup:
 
 ```html
 <div class="card">
@@ -1023,22 +1041,78 @@ We'll display the quotes in the UI. We want to show authenticated users a greeti
 </div>
 ```
 
+We can use `hidden` because although the authenticated content is stamped in the template on initiation, unauthenticated users cannot access the protected quotes API.
+
+> Note: Using `hidden` is much faster than creating and destroying elements with `dom-if`. Using `dom-if` can cause noticeable runtime latency. You can read more about this in the [dom-if Polymer docs](https://www.polymer-project.org/1.0/docs/devguide/templates#dom-if) (below the code example).
+
 In the JS, add the `storedUser` property and functions to `initStoredUser()` and `getSecretQuote()`:
 
 ```js
 Polymer({
 	is: 'secret-quotes',
-
 	properties: {
 		storedUser: Object
 	},
-
 	initStoredUser: function() {
 		// if entering site on the secret quotes page, verify if logged in and if so, preload a secret quote
+		if (this.storedUser.loggedin) {
+			this.getSecretQuote();
+		}
 	},
-
 	getSecretQuote: function() {
 		// add token authorization and generate Ajax request
 	}
 });
 ```
+
+`getSecretQuote()` is executed when the user clicks the button to fetch a new quote from the API. Like `home-quotes`, we'll use the `generateRequest()` method, but first we need to provide authorization with the user's token. An `Authorization` header can be added to the request:
+
+```js
+...
+getSecretQuote: function() {
+	// add token authorization and generate Ajax request
+	this.$.getSecretQuoteAjax.headers['Authorization'] = 'Bearer ' + this.storedUser.token;
+	this.$.getSecretQuoteAjax.generateRequest();
+}
+```
+
+Authenticated users can now get secret quotes!
+
+## Header and Menu States
+
+The last thing we'll do is improve the user experience a little bit.
+
+When the user is authenticated, let's hide the Secret Quotes link and add a greeting and log out link in the header. Open `/src/my-app.html`.
+
+Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `<iron-localstorage>` and `<app-data>` elements to the DOM:
+
+```html
+<!-- my-app.html -->
+...
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="app-data.html">
+<link rel="import" href="log-out.html">
+...
+<iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
+<app-data key="userData" data="{{storedUser}}"></app-data>
+```
+
+### Hiding Secret Quotes in Menu
+
+Locate the `<iron-selector>` element inside the `<app-drawer>`. Each `<a>` tag  needs to be wrapped in its own container element in order to be hidden and shown conditionally. You can read more about [iron-selector here](https://elements.polymer-project.org/elements/iron-selector).
+
+Change the code to:
+
+```html
+<div name="home-quotes">
+	<a href="/home-quotes">Home</a>
+</div>
+<div name="secret-quotes" hidden$="[[!storedUser.loggedin]]">
+	<a href="/secret-quotes">Secret Quotes</a>
+</div>
+```
+
+As you can see, we've moved the `name` attributes to the containing divs and added a `hidden` attribute to the Secret Quotes link.
+
+### Authentication State in Header
+
