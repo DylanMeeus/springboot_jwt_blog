@@ -1167,3 +1167,17 @@ app-header .greeting {
 ```
 
 We now have a functioning user state in the global header. When we log in or out, no matter what view we're on, the header and menu will update according to authentication status.
+
+## Aside: Authenticating a Polymer App With Auth0
+
+Let's explore authenticating a Polymer app with a more robust solution. We'll do a quick implementation of [Auth0's lock widget](https://auth0.com/docs/libraries/lock) to manage user identity. We'll leverage local storage and `app-data` again to ensure users aren't logged out unexpectedly. 
+
+Here's what we'll be building:
+
+![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/auth0-lock.jpg)
+
+Create a new directory and init a fresh Polymer starter kit app:
+
+```
+polymer init starter-kit
+```
