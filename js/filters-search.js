@@ -1,17 +1,17 @@
 
 var SearchFilters = function(options){
   this.options = options || {};
-  var autoCompleteOptions = this.options.autoCompleteOptions || {};
-  var selectCallback = this.options.selectCallback;
-  var filters= this.options.filters;
+  var autoCompleteOptions = this.options.autoCompleteOptions || {},
+      selectCallback = this.options.selectCallback,
+      filters= this.options.filters;
 
   this.render= function(){
-    var input = this.options.input;
-    var url = this.options.json;
+    var input = this.options.input,
+        url = this.options.json;
     $(input).keypress(function(e){
       if(e.keyCode == 58){
-        var val = this.value.split(':');
-        var filter= val[0].toLowerCase();
+        var val = this.value.split(':'),
+            filter= val[0].toLowerCase();
         if(filters.indexOf(filter) >-1){
           fillMenu(input, filter, url);
         }else{
@@ -35,19 +35,15 @@ var SearchFilters = function(options){
   function autocompleteInit(input, data, filter){
     var renderItem = function(ul, item) {
       return $("<li>")
-      .append("<div><img class='ui-item-avatar " + filter + "' src=" + item.avatar +  "><span  class='ui-item-label'>" + item.label + "</span></div>")
+      .append("<div><img class='ui-item-avatar " + filter + "' src=" + item.avatar +
+              "><span  class='ui-item-label'>" + item.label + "</span></div>")
       .appendTo(ul);
     };
 
     $(input).autocomplete({
       minLength:0,
       source: data,
-      open: function() {
-        $(this).autocomplete("widget").appendTo(".search-bar");
-          var position = $(".search-bar").position();
-          var left = position.left, top = position.top;
-          $(".search-bar > ul").css({ left: left + 0 + "px", top: top + 55 + "px"});
-      },
+      open: widgetCss,
       select: function(event, ui) {
         event.preventDefault();
         $(input).val(ui.item.label);
@@ -61,7 +57,6 @@ var SearchFilters = function(options){
     }).autocomplete( "instance" )._renderItem = renderItem
     $(input).autocomplete('search', '');
   }
-
 
   function optionsMerge(input, data){
     var defaultOptions = {
@@ -83,12 +78,7 @@ var SearchFilters = function(options){
           }));
       },
       minLength: 0,
-      open: function() {
-        $(this).autocomplete("widget")
-               .appendTo(".search-bar");
-                var position = $(".search-bar").position(), left = position.left, top = position.top;
-                $(".search-bar > ul").css({ left: left + 0 + "px", top: top + 55 + "px" });
-      },
+      open: widgetCss,
       select: function(event, ui) {
         event.preventDefault();
         $(input).val(ui.item.label);
@@ -102,10 +92,15 @@ var SearchFilters = function(options){
     return _.merge({},defaultOptions,autoCompleteOptions);
   }
 
+  function widgetCss() {
+    $(this).autocomplete("widget").appendTo(".search-bar");
+    var position = $(".search-bar").position(), left = position.left, top = position.top;
+    $(".search-bar > ul").css({ left: left + 0 + "px", top: top + 55 + "px" });
+  }
+
   function clearAutocomplete(input){
     $(input).autocomplete( "destroy" );
     $(input).attr('autocomplete', 'off');
-
   }
 
 }
