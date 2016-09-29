@@ -483,9 +483,11 @@ Delete the lorem ipsum inside the `<div class="card">` element. We'll replace th
 
 We'll create a container for our unauthenticated UI and add input elements using [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container), which comes bundled with `paper-input`. The reason we aren't using `paper-input` by itself is because `iron-input` allows us to two-way bind input values. It also provides validation options. We won't do validation right now, but using this element provides more room for extensibility. Using `paper-input-container` applies Material Design styles to labels and inputs. This way we can utilize both the iron element utilities _and_ the paper element styles.
 
-Our initial code should look like this:
+Our initial markup should look like this:
 
 ```html
+<!-- register-login.html -->
+
 <div class="card">
 	<div id="unauthenticated">
 		<h1>Log In</h1>
@@ -744,11 +746,11 @@ handleUserResponse: function(event) {
 
 What if we want to access and manipulate the authentication state of our user from other areas of the app? For instance, the header still says "Log In" even when the user is already authenticated. We should change this to a greeting and a "Log Out" button. We can also see "Secret Quotes" in the menu while logged out. This should be hidden from unauthenticated users. But most importantly, we need to use the authenticated user's token to access the protected API to get secret quotes.
 
-Recall that `iron-localstorage` is bound to `storedUser` which is a property of the `register-login` element. That property is not available everywhere else in the app, so even though the local storage is accessible globally, we don't have a straightforward way to set the data in it from elsewhere and be sure that changes notify and are observed properly on all parents and children.
+Recall that `iron-localstorage` is bound to `storedUser` which is a property of the `register-login` element. Even though local storage is accessible globally, we don't have a simple way to be sure that changes are observed properly on all parents and children throughout the app.
 
-Polymer 1.0 does not have an elegant, out-of-the-box solution to this problem at this time. This is one thing that any full-featured JS framework would make short work of, but it's important to remember that Polymer isn't an MV* framework: it's a library that helps us leverage web components.
+Polymer 1.0 does not have an elegant, out-of-the-box solution to this problem at this time. This is one thing that any full-featured JS framework would make short work of, but it's important to remember that Polymer is _not_ an MV* framework: it's a library that helps us leverage web components.
 
-We're going to add a little element called `app-data`. This element notifies instances when its data is changed.
+To solve this, we're going to add an element called `app-data`. This element notifies instances when its data is changed.
 
 Create a file in `/src` called `app-data.html`. Add the following code:
 
@@ -828,26 +830,27 @@ Add the `app-data` element to the markup near the `iron-localstorage` element. W
 <app-data key="userData" data="{{storedUser}}"></app-data>
 ```
 
-We can now add the `app-data` element to any other components that need access to this global data. All instances will be notified when the data is changed. (Don't forget `iron-localstorage` is also necessary in such cases to prevent incorrect authentication behavior on return visits.)
+We can now add the `app-data` element to any other components that need access to this global data. All instances will be notified when the data is changed.
 
 ## Creating a Log Out Element
 
 Now that we can register and authenticate users, we need a way for them to log out. We'd like this to be a component that can live in a couple of locations, so we're going to build a new element.
 
-Create a new file, `/src/log-out.html`, and import Polymer, `iron-localstorage`, `paper-button`, and `app-data`:
+Create a new file: `/src/log-out.html`. Import Polymer, `paper-button`, and `app-data`:
 
 ```html
 <!-- log-out.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="app-data.html">
 ```
 
-Now we'll scaffold out our new element by adding `<dom-module id="log-out">`. We'll set up the `template`, `style`, and `script` tags as well. The host styles should have no margin or padding.
+Now we'll scaffold our new element by adding `<dom-module id="log-out">`. We'll set up the `<template>`, `<style>`, and `<script>` tags as well. The `:host` styles should have no margin or padding.
 
 ```html
+<!-- log-out.html -->
+...
 <dom-module id="log-out">
 	<template>
 		<style>
@@ -857,7 +860,7 @@ Now we'll scaffold out our new element by adding `<dom-module id="log-out">`. We
 			}
 		</style>
 		
-		<!-- Markup goes here -->
+		<!-- MARKUP GOES HERE -->
 	</template>
 
 	<script>
@@ -871,3 +874,54 @@ Now we'll scaffold out our new element by adding `<dom-module id="log-out">`. We
 
 ```
 
+Here are our plans for the `log-out` element:
+
+* Display a log out link in the app's global header when the user is authenticated.
+* Display a log out button in the authenticated `register-login` view.
+* When the link or button is clicked, clear the user's token and information from global app data.
+* We want to call the element like this: `<log-out stored-user="{{storedUser}}"></log-out>` and be able to add an optional `link` attribute to display as a link rather than a button.
+
+Keeping these requirements in mind, let's build out our element, starting with the markup:
+
+```html
+<!-- log-out.html -->
+...
+<app-data key="userData" data="{{storedUser}}"></app-data>
+
+<template is="dom-if" if="{{!link}}">
+	<paper-button raised on-tap="logout">Log Out</paper-button>
+</template>
+
+<template is="dom-if" if="{{link}}">
+	<a on-tap="logout" href>Log Out</a>
+</template>
+```
+
+This should look familiar as there are no new concepts here. We're accessing the `app-data` so that when we log out, changes to the data are set throughout the app. We'll check for a `link` property and if it's false, show a button. If it's true, show a link. Both the link and button will call the same `on-tap` handler, `logout()`.
+
+Now we'll set up the JS to facilitate this:
+
+```
+// log-out.html
+
+Polymer({
+	is: 'log-out',
+	properties: {
+		storedUser: Object,
+		link: {
+			type: Boolean,
+			value: false
+		}
+	},
+	logout: function() {
+		// remove user data
+		this.storedUser = null;
+	}
+});
+```
+
+The `storedUser` object will be passed into the element from the parent, but we'll need to manipulate it to perform logout. The `link` property will be true if it's present as an attribute on the `<log-out>` element. The default value of a boolean property must be set to false in order for it to function as an [attribute](https://www.polymer-project.org/1.0/docs/devguide/properties#configuring-boolean-properties) that can be set in the markup for the element instance.
+
+To log out, all we need to do is set the `storedUser` object to `null`.
+
+> Note: You may have noticed that we didn't include `iron-localstorage`. Changes to `storedUser` in `log-out` use `app-data` to notify other instances, which update `iron-localstorage`. In turn, local storage is retrieved by the parent upon app initialization and the property is then sent to the child `log-out` via its `stored-user` attribute.
