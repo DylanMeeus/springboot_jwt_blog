@@ -1082,7 +1082,9 @@ Authenticated users can now get secret quotes!
 
 The last thing we'll do is improve the user experience a little bit.
 
-When the user is authenticated, let's hide the Secret Quotes link and add a greeting and log out link in the header. Open `/src/my-app.html`.
+When the user is authenticated, let's hide the Secret Quotes link in the menu sidebar and add a greeting and log out link in the header. 
+
+Open `/src/my-app.html`.
 
 Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `<iron-localstorage>` and `<app-data>` elements to the DOM:
 
@@ -1097,7 +1099,7 @@ Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `
 <app-data key="userData" data="{{storedUser}}"></app-data>
 ```
 
-### Hiding Secret Quotes in Menu
+### Hiding "Secret Quotes" Link in Menu
 
 Locate the `<iron-selector>` element inside the `<app-drawer>`. Each `<a>` tag  needs to be wrapped in its own container element in order to be hidden and shown conditionally. You can read more about [iron-selector here](https://elements.polymer-project.org/elements/iron-selector).
 
@@ -1116,7 +1118,11 @@ As you can see, we've moved the `name` attributes to the containing divs and add
 
 ### Authentication State in Header
 
-Let's update the `<app-header>`'s `<app-toolbar>` to show the "Log In" link when the user is logged out and a greeting and the `log-out` element with `link` attribute when authenticated:
+We want our logged in user to see something like this in the app header:
+
+![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_quotes-header-auth.jpg)
+
+Let's update the `<app-header>` to show the "Log In" link when the user is logged out and a greeting and the `log-out` element (with `link` attribute) when authenticated.
 
 ```html
 <app-header condenses reveals effects="waterfall">
@@ -1131,12 +1137,11 @@ Let's update the `<app-header>`'s `<app-toolbar>` to show the "Log In" link when
 </app-header>
 ```
 
-Add the `storedUser` object to the Polymer properties:
+Add the `storedUser` object to the Polymer properties in the JS:
 
 ```js
 Polymer({
 	is: 'my-app',
-
 	properties: {
 		...,
 		storedUser: Object
