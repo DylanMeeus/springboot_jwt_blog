@@ -27,9 +27,9 @@ related:
 
 ## What Are Web Components?
 
-_Components_ are commonly understood to be modular pieces of code that provide UI and/or scripting in a reusable package. Many JS frameworks use the term "components" (ie., [Angular 2](http://learnangular2.com/components/), [React](https://facebook.github.io/react/docs/reusable-components.html), [Ember](http://emberjs.com/api/classes/Ember.Component.html)). However, to understand Polymer, we'll do a brief crash-course on a specific kind of component: _web_ components. 
+_Components_ are generally understood to be modular pieces of code that provide UI and/or scripting in a reusable package. Many JS frameworks use the term "components" (ie., [Angular 2](http://learnangular2.com/components/), [React](https://facebook.github.io/react/docs/reusable-components.html), [Ember](http://emberjs.com/api/classes/Ember.Component.html)). However, to understand Polymer, we'll do a quick crash-course on a specific kind of component: _web_ components. 
 
-**Web components** are [reusable](http://webcomponents.org) [widgets](https://developer.mozilla.org/en-US/docs/Web/Web_Components) that can be assembled like building blocks in web documents and apps. They are a set of browser features and are being added to the [W3C HTML and DOM specification](https://www.w3.org/standards/techs/components). A web component is composed of four standards: 
+**Web components** are [reusable](http://webcomponents.org) [widgets](https://developer.mozilla.org/en-US/docs/Web/Web_Components) that can be assembled like building blocks in web documents and apps. They are a set of browser features that are being added to the [W3C HTML and DOM specification](https://www.w3.org/standards/techs/components). A web component is composed of four standards: 
 
 * [Custom Elements](https://www.w3.org/TR/custom-elements/)
 * [HTML Templates](https://html.spec.whatwg.org/multipage/scripting.html#the-template-element)
@@ -52,11 +52,13 @@ Polymer has comprehensive documentation at the [Polymer Project Devguide](https:
 
 We're going to build a simple Polymer app that does the following:
 
-* Calls an external Node API to get Chuck Norris quotes
-* Posts to the API to register and log in users
-* Use JSON Web Tokens to fetch protected Chuck Norris quotes for authenticated users
-* Store tokens and user data with local storage
-* Log out
+* calls an external Node API to get Chuck Norris quotes
+* posts to the API to register and log in users
+* uses JSON Web Tokens to fetch protected Chuck Norris quotes for authenticated users
+* stores tokens and user data with local storage
+* logs users out by clearing tokens
+
+Let's get started!
 
 ## Setup and Installation
 
@@ -1168,7 +1170,7 @@ app-header .greeting {
 
 We now have a functioning user state in the global header. When we log in or out, no matter what view we're on, the header and menu will update according to authentication status.
 
-## Aside: Authenticating a Polymer App With Auth0
+## Aside: Authenticating a Polymer App with Auth0
 
 Let's explore authenticating a Polymer app with a more robust solution. We'll do a quick implementation of [Auth0's lock widget](https://auth0.com/docs/libraries/lock) to manage user identity. We'll leverage local storage and `app-data` again to ensure users aren't logged out unexpectedly. You can clone the full code from [this GitHub repo](https://github.com/auth0-blog/polymer-with-auth0).
 
@@ -1186,7 +1188,7 @@ The first thing you'll need is an Auth0 account. Follow these simple steps to ge
 
 ### Setup and Dependencies
 
-Create a new directory and `init` a fresh Polymer starter kit app, then `serve` it:
+Create a new directory, `init` a fresh Polymer starter kit app, then `serve` it:
 
 ```
 polymer init starter-kit
@@ -1220,6 +1222,8 @@ This is best practice in Polymer for loading external dependencies. This way, we
 Now we can build our `auth0-login` element:
 
 ```html
+<!-- auth0-login.html -->
+
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="app-data.html">
@@ -1324,9 +1328,15 @@ Now we can build our `auth0-login` element:
 </dom-module>
 ```
 
+You can read all about `lock.js` in the [Auth0 Lock library docs](https://auth0.com/docs/libraries/lock). 
+
+> Note: We're setting the profile image with JS rather than binding directly to `storedUser.profile.picture` because if we don't, the image `src` will populate as `undefined` and result in a 404 network error when it is not set.
+
+We now have a Lock element that can be launched by clicking a "Log In" link. Now we need to place it in our app and pass in the appropriate Auth0 configuration.
+
 ### Adding Lock to the App
 
-Open `/src/my-app.html` and import `iron-localstorage`, `app-data`, and `auth0-login` dependencies:
+Open `/src/my-app.html` and import the `iron-localstorage`, `app-data`, and `auth0-login` dependencies. Add the `<iron-localstorage>` and `<app-data>` elements to the DOM and add the `storedUser` object to the Polymer properties in the JS.
 
 ```html
 <!-- my-app.html -->
@@ -1334,5 +1344,50 @@ Open `/src/my-app.html` and import `iron-localstorage`, `app-data`, and `auth0-l
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="app-data.html">
 <link rel="import" href="auth0-login.html">
+...
+<iron-localstorage name="userData" value="{{storedUser}}"></iron-localstorage>
+<app-data key="userData" data="{{storedUser}}"></app-data>
+...
+Polymer({
+  is: 'my-app',
+  properties: {
+	storedUser: Object,
+	...
+  },
 ```
 
+Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Log In" link / user greeting in the header, just like we did in our previous Chuck Norris app.
+
+```html
+<app-header condenses reveals effects="waterfall">
+  <app-toolbar>
+    <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+    <div main-title>My App</div>
+    
+    <auth0-login 
+		client-id="[YOUR_CLIENT_ID]" 
+		domain="[YOUR_DOMAIN].auth0.com" 
+		redirect-url="http://localhost:8080"></auth0-login>
+		
+  </app-toolbar>
+</app-header>
+```
+
+To get your `client ID` and `domain`, find your app in the [Auth0 Dashboard](https://manage.auth0.com/#/clients) and look under **Settings**.
+
+Now users can sign up for an account, log in, and log out. You can utilize techniques we learned earlier to access protected API routes, show and hide UI, set up redirection, etc. Check out the [Auth0 Docs](https://auth0.com/docs) to read about features, APIs, guides, and more.
+
+## The Future of Web (Components)
+
+The beauty of web components is that they're composed of native DOM features: they're literally the future of the web. Web developers have a long history of struggling with DOM encapsulation and CSS scoping--and subsequently [inventing](https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/) [paradigms](http://getbem.com/introduction/) [to compensate](https://smacss.com/). Web components offer solutions.
+
+Remember that Polymer itself is _not a framework_. It's a library to facilitate easy, compatible web component usage. When you use Polymer, your framework is the DOM. It's also important to know that [JS frameworks like Angular 2 are currently leveraging web component concepts](http://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html). 
+
+{% include tweet_quote.html quote_text="When you use Polymer, your framework is the DOM." %}
+
+Custom elements are being built and shared with the community every day. In addition to the [Polymer Element Catalog](https://elements.polymer-project.org/), developers can also share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
+
+Web components may be the future, but there's no reason not to get started with them today. **Polymer** offers a great way to use them cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer on top of native features. It's easy and intuitive to learn and the knowledge taken away from learning it will be useful for many projects, frameworks, and libraries to come.
+
+
+ 
