@@ -1172,12 +1172,167 @@ We now have a functioning user state in the global header. When we log in or out
 
 Let's explore authenticating a Polymer app with a more robust solution. We'll do a quick implementation of [Auth0's lock widget](https://auth0.com/docs/libraries/lock) to manage user identity. We'll leverage local storage and `app-data` again to ensure users aren't logged out unexpectedly. You can clone the full code from [this GitHub repo](https://github.com/auth0-blog/polymer-with-auth0).
 
-Here's what we'll be building:
-
 ![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/auth0-lock.jpg)
 
-Create a new directory and init a fresh Polymer starter kit app:
+### Configuring Your Auth0 Client
+
+The first thing you'll need is an Auth0 account. Follow these simple steps to get started:
+
+1. Sign up for a [free Auth0 account](https://auth0.com/signup).
+2. In your **Auth0 Dashboard**, [create a new client](https://manage.auth0.com/#/clients/create). 
+3. Name your new app and select "Single Page Web Applications". 
+4. In the **Settings** section for your newly created app, add `http://localhost:8080` to the Allowed Callback URLs and Allowed Logout URLs.
+5. If you'd like, you can [set up some social connections](https://manage.auth0.com/#/connections/social). You can then enable them for your app in the **Client** options under the **Connections** tab. The example shown in the screenshot above uses username/password database, Facebook, and Google.
+
+### Setup and Dependencies
+
+Create a new directory and `init` a fresh Polymer starter kit app, then `serve` it:
 
 ```
 polymer init starter-kit
+polymer serve --open
 ```
+
+Create a new file in the `/src` folder for `app-data.html`. Follow the instructions from earlier in this tutorial to populate this element file, or [grab the code from the repo here](https://github.com/auth0-blog/polymer-with-auth0/blob/master/src/app-data.html).
+
+### Creating an Auth0 Lock Element
+
+Create a new file: `/src/auth0-login.html`. This will be our `auth0-login` custom element.
+
+> **Important note:** We should _not_ name this element `auth0-lock` because doing so will cause style conflicts in browsers that don't fully support shadow DOM. Instead of encapsulating with shadow DOM, a CSS class matching the element name is applied to all child nodes. The Auth0 Lock widget itself has a class called `.auth0-lock`, so this causes styling conflicts. We'll name the custom element `auth0-login` to ensure uniqueness.
+
+Our `auth0-login` element will include the following: 
+
+* An element containing [lock.js v10](https://cdn.auth0.com/js/lock/10.2/lock.min.js).
+* A link with event handler to open the Lock widget.
+* Properties to pass Auth0 configuration into the element.
+* A greeting with profile image and log out button when user is authenticated.
+
+Let's create the dependency element: `/src/lockjs.html`. Create a new file and add the following:
+
+```html
+<!-- lockjs.html -->
+<script src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
+```
+
+This is best practice in Polymer for loading external dependencies. This way, we can use HTML import to load this file and be certain that it will only be imported once. If it's called again, it will be deduped.
+
+Now we can build our `auth0-login` element:
+
+```html
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="app-data.html">
+<link rel="import" href="lockjs.html">
+
+<dom-module id="auth0-login">
+	<template>
+		<style>
+			:host {
+				color: #fff;
+				font-size: 13px;
+			}
+			.greeting {
+				border-right: 1px solid rgba(255,255,255,.5);
+				display: inline-block;
+				padding-right: 6px;
+			}
+			.greeting img {
+				border-radius: 100px;
+				display: inline-block;
+				height: 24px;
+				margin-right: 4px;
+				vertical-align: middle;
+				width: 24px;
+			}
+			a {
+				color: #fff;
+			}
+		</style>
+
+		<iron-localstorage 
+			name="userData" 
+			value="{{storedUser}}" 
+			on-iron-localstorage-load="_setProfileImg"></iron-localstorage>
+		<app-data key="userData" data="{{storedUser}}"></app-data>
+
+		<a hidden$="[[storedUser.loggedin]]" on-tap="showLock" href>Log In</a>
+
+		<div hidden$="[[!storedUser.loggedin]]">
+			<span class="greeting"><img src="[[profileImgSrc]]">[[storedUser.profile.nickname]]</span>
+			<a on-tap="logOut" href>Log Out</a>
+		</div>
+	</template>
+
+	<script>
+		(function() {
+			Polymer({
+				is: 'auth0-login',
+				properties: {
+					clientId: String,
+					domain: String,
+					redirectUrl: String,
+					storedUser: Object,
+					auth0Lock: Object,
+					profileImgSrc: {
+						type: String,
+						value: ''
+					}
+				},
+				ready: function() {
+					var _self = this;
+					var _lockOptions = {
+						auth: {
+							redirectUrl: _self.redirectUrl,
+							responseType: 'token'
+						}
+					};
+
+					// create Lock instance
+					_self.auth0Lock = new Auth0Lock(_self.clientId, _self.domain, _lockOptions);
+
+					_self.auth0Lock.on('authenticated', function(authResult) {
+						// save token
+						_self.set('storedUser', { token: authResult.idToken });
+
+						// get user's profile using token
+						_self.auth0Lock.getProfile(authResult.idToken, function(error, profile) {
+							if (error) {
+								console.error('Error getting profile:', error);
+								return;
+							}
+
+							_self.set('storedUser.loggedin', true);
+							_self.set('storedUser.profile', profile);
+							_self.set('profileImgSrc', profile.picture);
+						});
+					});
+				},
+				_setProfileImg: function() {
+					this.set('profileImgSrc', this.storedUser.profile.picture);
+				},
+				showLock: function() {
+					this.auth0Lock.show();
+				},
+				logOut: function() {
+					this.set('storedUser', null);
+					this.set('profileImgSrc', '');
+				}
+			});
+		}());
+	</script>
+</dom-module>
+```
+
+### Adding Lock to the App
+
+Open `/src/my-app.html` and import `iron-localstorage`, `app-data`, and `auth0-login` dependencies:
+
+```html
+<!-- my-app.html -->
+...
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="app-data.html">
+<link rel="import" href="auth0-login.html">
+```
+
