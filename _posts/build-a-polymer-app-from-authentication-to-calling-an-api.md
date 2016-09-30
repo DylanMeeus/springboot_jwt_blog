@@ -525,6 +525,7 @@ Our initial markup should look like this:
 		</div>
 	</div>	
 </div>
+...
 ```
 
 We'll also add some local CSS in the `<style>` tags to support this markup:
@@ -648,11 +649,11 @@ handleUserError: function(event) {
 }
 ```
 
-We're adding two more properties: `storedUser` (object) to store name, token, and state of an authenticated user, and `error` (string) to display when the API returns a failure. Later, we'll put `storedUser` into local storage and access it in other areas of the app. We can use shorthand `property: Type` because we don't need any additional options set.
+We're adding two more properties: `storedUser` (object) to store name, token, and state of an authenticated user, and `error` (string) to display when the API returns a failure. Later we'll add `storedUser` to local storage and access it in other areas of the app. We can use shorthand `property: [Type]` because we don't need any additional options set.
 
-Next we'll handle a successful API response: `handleUserResponse()`. Recall that we're handling all responses as text, so on success, we need to parse the JSON. If a token is present, we'll clear any errors from previous failures, define the `storedUser` object and its properties, and reset `formData` to an empty object.
+Next we'll handle a successful API response: `handleUserResponse()`. Recall that we're handling all responses as text, so we need to parse the JSON. If a token is present we'll clear any errors from previous failures, define the `storedUser` object and its properties, and reset `formData` to an empty object.
 
-We've also defined a handler for errors: `handleUserError()`. When the sample API fails, it returns an error message as a string. We'll set the `error` property to this XHR response. You can console log the `event` parameter in these two handlers to become more familiar with its structure.
+We've also defined a handler for errors: `handleUserError()`. When the sample API fails, it returns an error message as a string. We'll set the `error` property to this XHR response. You can `console.log()` the `event` parameter in these two handlers to become more familiar with its structure.
 
 Now we have the error message but we're not displaying it to the user. We'd like to show something like this:
 
@@ -661,16 +662,19 @@ Now we have the error message but we're not displaying it to the user. We'd like
 Let's add some markup before the first form input to support this:
 
 ```html
+...
 <template is="dom-if" if="[[error]]">
 	<p class="alert-error"><strong>Error:</strong> [[error]]</p>
 </template>
+...
 ```
 
 Templates with `is="dom-if"` are [conditionally stamped](https://www.polymer-project.org/1.0/docs/devguide/templates#dom-if) when their `if` property is truthy. 
 
-You can see an error message if you try to submit empty or invalid credentials to the API. Let's add some styling to make error messages more prominent. Add the following ruleset to the `register-login` element's local `<style>` tag:
+We can now see an error message if we try to submit empty or invalid credentials to the API. Let's add some styling to make error messages more prominent. Add the following ruleset to the `register-login` element's local `<style>` tag:
 
 ```css
+...
 .alert-error {
 	background: #ffcdd2;
 	border: 1px solid #f44336;
