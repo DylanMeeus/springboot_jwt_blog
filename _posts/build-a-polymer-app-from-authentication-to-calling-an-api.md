@@ -1385,9 +1385,9 @@ Remember that Polymer itself is _not a framework_. It's a library to facilitate 
 
 {% include tweet_quote.html quote_text="When you use Polymer, your framework is the DOM." %}
 
-Custom elements are being built and shared with the community every day. In addition to the [Polymer Element Catalog](https://elements.polymer-project.org/), developers can also share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
+Web components may be the future, but there's no reason not to get started with them today. Google uses Polymer in many of its sites, [GitHub uses web components](http://webcomponents.org/articles/interview-with-joshua-peek/), and [there are](https://youtu.be/fD2As5RmM8Q?t=15m56s) [many others](https://builtwithpolymer.org/) leveraging these technologies. Custom elements are being built and shared with the community every day. In addition to the [Polymer Element Catalog](https://elements.polymer-project.org/), developers can also share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
 
-Web components may be the future, but there's no reason not to get started with them today. **Polymer** offers a great way to use them cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer on top of native features. It's easy and intuitive to learn and the knowledge taken away from learning it will be useful for many projects, frameworks, and libraries to come.
+**Polymer** offers a great way to use web components cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer on top of native features. You can build something simple or something vastly complex with web components. Polymer is intuitive to learn and the experience will be useful for many projects, frameworks, and libraries to come.
 
 
  
