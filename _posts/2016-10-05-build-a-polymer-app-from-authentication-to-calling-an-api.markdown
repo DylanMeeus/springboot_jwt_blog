@@ -2,14 +2,14 @@
 layout: post
 title: "Build a Polymer App: From Authentication to Calling an API"
 description: "Build an app using web components and Polymer with an API and JSON Web Token authentication."
-date: 2016-09-22
+date: 2016-10-05 8:30
 author:
   name: "Kim Maida"
   url: "https://twitter.com/KimMaida"
   mail: "kim.maida@auth0.com"
   avatar: "https://en.gravatar.com/userimage/20807150/4c9e5bd34750ec1dcedd71cb40b4a9ba.png"
 design:
-  image: https://cdn.auth0.com/blog/polymer/polymer-logo.png
+  image: https://cdn.auth0.com/blog/polymer/Polymer-Logo-blog.png
   bg_color: "#324090"
 tags:
 - polymer
@@ -17,12 +17,10 @@ tags:
 - javascript
 related:
 - 2016-09-29-angular-2-authentication
-- 2016-07-14-create-an-app-in-vuejs-2
-- 2016-04-13-authentication-in-golang
+- 2016-06-15-adding-authentication-to-react-native-using-jwt
 
 ---
 
----
 
 **TL;DR** [Polymer](https://www.polymer-project.org/1.0/) is a library that provides syntactic sugar and polyfills for building elements and applications with web components. We'll build a web app using Polymer and its CLI, call an external API, and add authentication with [JSON Web Tokens](http://jwt.io). The full code is available at [this GitHub repo](https://github.com/auth0-blog/polymer-with-jwt-api).
 
@@ -137,7 +135,7 @@ We'll rename the generic starter kit views to match our planned view structure. 
 
 Let's rename these files:
 
-```
+```bash
 /src
   |-- my-view1.html
   |-- my-view2.html
@@ -147,7 +145,7 @@ Let's rename these files:
 
 to the following:
 
-```
+```bash
 /src
   |-- home-quotes.html
   |-- register-login.html
@@ -327,12 +325,12 @@ Doing this would be dangerous if we were loading scripts in the traditional way:
 
 The Polymer library and `shared-styles` element are already being imported in our `home-quotes` element. We'll add the two elements we just installed with Bower:
 
-```html
+{% highlight html %}
 <!-- home-quotes.html -->
 ...
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-```
+{% endhighlight html %}
 
 Now we can take advantage of these elements.
 
@@ -358,7 +356,7 @@ After the closing `</style>` tag (we'll come back to styling shortly), add the f
 
 We gave `iron-ajax` a descriptive `id` so we can access its instance in JS using `this.$.getQuoteAjax`. Setting the `auto` attribute re-sends the request anytime the URL or parameters change. For our purposes, this fetches a quote when the element first loads. Since we won't change the URL or parameters again after initialization, we'll generate subsequent requests with a button click handler. We're using the `GET` method. The API returns the response as a string, so we'll set `handle-as="text"` (other options include `xml`, `json`, `blob`, etc.). 
 
-Finally, `last-response` can bind the response from the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`{{quote}}`) as delimiters. `iron-ajax` is bundled with a dependency element called [`iron-request`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the `iron-ajax` element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
+Finally, `last-response` can bind the response from the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) as delimiters. `iron-ajax` is bundled with a dependency element called [`iron-request`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the `iron-ajax` element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
 
 ### Binding and Fetching Quotes
 
@@ -366,13 +364,13 @@ We now have the response from the API. We need to display the quote in the view.
 
 Add a heading and a `<blockquote>`. Inside the blockquote element, one-way bind the `quote` API response using [double square bracket delimiters](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`[[quote]]`). We're using one-way binding here because data is flowing downward from host to target but not upwards. In order to get new quotes, let's add a button below the blockquote.
 
-```html
+{% highlight html %}
 <div class="card">
 	<h1>Quotes</h1>
 	<blockquote>[[quote]]</blockquote>
 	<paper-button raised on-tap="getQuote" class="primary">Get a New Quote</paper-button>
 </div>
-```
+{% endhighlight html %}
 
 Check out the [paper-button documentation](https://elements.polymer-project.org/elements/paper-button) to read about button styling and API. We've added an [`on-tap`](https://www.polymer-project.org/1.0/docs/devguide/events#annotated-listeners) [event listener](https://www.polymer-project.org/1.0/docs/devguide/events) so when we click or tap the button, we can request another quote from the API by executing a function.
 
@@ -471,7 +469,7 @@ Now we'll import these new dependencies along with `iron-ajax`, `paper-button`, 
 
 The HTML imports for `register-login` should now look like this:
 
-```html
+{% highlight html %}
 <!-- register-login.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
@@ -481,7 +479,7 @@ The HTML imports for `register-login` should now look like this:
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
-```
+{% endhighlight html %}
 
 First we'll set up the basic markup for the form with a username and password. Logging in and signing up require the same fields so we'll use the same form for both. 
 
@@ -493,7 +491,7 @@ Create a container for the unauthenticated UI and add input elements using [`iro
 
 Our initial markup should look like this:
 
-```html
+{% highlight html %}
 <div class="card">
 	<div id="unauthenticated">
 		<h1>Log In</h1>
@@ -516,7 +514,7 @@ Our initial markup should look like this:
 		</div>
 	</div>	
 </div>
-```
+{% endhighlight html %}
 
 We'll also add some local CSS in the `<style>` tags:
 
@@ -688,9 +686,9 @@ We're now authenticating, but there's no indication to the user that they're log
 
 Add a `hidden` attribute to the `#authenticated` div:
 
-```html
+{% highlight html %}
 <div id="unauthenticated" hidden$="[[storedUser.loggedin]]">
-```
+{% endhighlight html %}
 
 We want `hidden` to have a binding and be conditionally applied. If we don't do this, its presence implies truthiness regardless of its value. To [bind to an attribute](https://www.polymer-project.org/1.0/docs/devguide/data-binding#attribute-binding), we need to add a dollar sign `$` after the attribute name.
 
@@ -750,7 +748,7 @@ To solve this, we're going to add an element called `app-data`. This element not
 
 Create a file in `/src` called `app-data.html`. Add the following code:
 
-```js
+{% highlight html %}
 <!-- app-data.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
@@ -810,7 +808,7 @@ Create a file in `/src` called `app-data.html`. Add the following code:
 		}());
 	</script>
 </dom-module>
-```
+{% endhighlight html %}
 
 > Note: To learn more about `app-data` and its origins, check out this [Stack Overflow question about global variables in Polymer 1.0](http://stackoverflow.com/questions/30849816/polymer-1-0-global-variables) and specifically, [this answer](http://stackoverflow.com/a/31771240).
 
@@ -834,13 +832,13 @@ Now that we can register and authenticate users, we need a way for them to log o
 
 Create a new file: `/src/log-out.html`. Import Polymer, `paper-button`, and `app-data`:
 
-```html
+{% highlight html %}
 <!-- log-out.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="app-data.html">
-```
+{% endhighlight html %}
 
 Now we'll scaffold our new element by adding `<dom-module id="log-out">`. We'll set up the `<template>`, `<style>`, and `<script>` tags as well. The `:host` styles should have no margin or padding.
 
@@ -865,7 +863,6 @@ Now we'll scaffold our new element by adding `<dom-module id="log-out">`. We'll 
 		}());
 	</script>
 </dom-module>
-
 ```
 
 Here are our plans for the `log-out` element:
@@ -895,7 +892,7 @@ This should look familiar. We're accessing `app-data` so when we log out, change
 
 Here's the JS to facilitate our required `log-out` behavior:
 
-```
+```js
 Polymer({
 	is: 'log-out',
 	properties: {
@@ -939,14 +936,14 @@ The link will display in the blue header area so the text should be white. If we
 
 Now that we have our `log-out` element, let's add it to the `/src/register-login.html` view:
 
-```html
+{% highlight html %}
 <!-- register-login.html -->
 
 <div id="authenticated" hidden$="[[!storedUser.loggedin]]">
 	...
 	<log-out stored-user="{{storedUser}}"></log-out>
 </div>
-```
+{% endhighlight html %}
 
 Our authenticated `register-login` now looks like this in the browser:
 
@@ -962,7 +959,7 @@ It's time to access the protected API to get secret quotes. When we're finished 
 
 Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, `iron-localstorage`, `paper-button`, and `app-data`. Clean up the contents of the `<div class="card">` element:
 
-```html
+{% highlight html %}
 <!-- secret-quotes.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
@@ -976,7 +973,7 @@ Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, 
 	<h1>Secret Quotes</h1>
 </div>
 ...
-```
+{% endhighlight html %}
 
 Add the `iron-localstorage` and `app-data` elements:
 
@@ -1010,7 +1007,7 @@ We'll display the quotes in the UI. We want to show authenticated users a greeti
 
 Add the following markup:
 
-```html
+{% highlight html %}
 <div class="card">
 	<h1>Secret Quotes</h1>
 
@@ -1022,7 +1019,7 @@ Add the following markup:
 
 	<p hidden$="[[storedUser.loggedin]]">You must <a href="/register-login">log in</a> to access secret quotes!</p>
 </div>
-```
+{% endhighlight html %}
 
 We can use `hidden` because although the authenticated content is stamped in the template on initiation, unauthenticated users cannot access the protected quotes API.
 
@@ -1060,7 +1057,7 @@ The last thing we'll do is improve the user experience. When the user is logged 
 
 Open `/src/my-app.html`. Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `<iron-localstorage>` and `<app-data>` elements to the DOM:
 
-```html
+{% highlight html %}
 <!-- my-app.html -->
 ...
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
@@ -1069,7 +1066,7 @@ Open `/src/my-app.html`. Import `iron-localstorage`, `app-data`, and `log-out` d
 ...
 <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
 <app-data key="userData" data="{{storedUser}}"></app-data>
-```
+{% endhighlight html %}
 
 ### Hiding "Secret Quotes" in the Menu
 
@@ -1077,7 +1074,7 @@ Locate the `<iron-selector>` element inside the `<app-drawer>`. Each `<a>` tag  
 
 Change the code to:
 
-```html
+{% highlight html %}
 ...
 <div name="home-quotes">
 	<a href="/home-quotes">Home</a>
@@ -1086,7 +1083,7 @@ Change the code to:
 	<a href="/secret-quotes">Secret Quotes</a>
 </div>
 ...
-```
+{% endhighlight html %}
 
 As you can see, we've moved the `name` attributes to the containing divs and added a `hidden` attribute to the Secret Quotes link.
 
@@ -1098,7 +1095,7 @@ We want our logged in user to see something like this in the app header:
 
 Let's update the `<app-header>` to show the "Log In" link when the user is logged out and a greeting with the `log-out` element when authenticated.
 
-```html
+{% highlight html %}
 ...
 <app-header condenses reveals effects="waterfall">
 	<app-toolbar>
@@ -1111,7 +1108,7 @@ Let's update the `<app-header>` to show the "Log In" link when the user is logge
 	</app-toolbar>
 </app-header>
 ...
-```
+{% endhighlight html %}
 
 Add the `storedUser` object to the Polymer properties in the JS:
 
@@ -1189,16 +1186,16 @@ Our `auth0-login` element will include the following:
 
 Let's create the dependency element: `/src/lockjs.html`. Create a new file and add the following:
 
-```html
+{% highlight html %}
 <!-- lockjs.html -->
 <script src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
-```
+{% endhighlight html %}
 
 This is best practice in Polymer for loading third party dependencies. This way, we can use HTML import to load this file and be certain that it will only be imported once. If it's called again, it will be deduped.
 
 Now we can build `/src/auth0-login.html`:
 
-```html
+{% highlight html %}
 <!-- auth0-login.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
@@ -1303,7 +1300,7 @@ Now we can build `/src/auth0-login.html`:
 		}());
 	</script>
 </dom-module>
-```
+{% endhighlight html %}
 
 You can read all about `lock.js` in the [Auth0 Lock library docs](https://auth0.com/docs/libraries/lock). 
 
@@ -1315,7 +1312,7 @@ We now have a Lock element that can be launched by clicking a "Log In" link. We 
 
 Open `/src/my-app.html` and import the `iron-localstorage`, `app-data`, and `auth0-login` dependencies. Add the `<iron-localstorage>` and `<app-data>` elements to the DOM and add the `storedUser` object to the Polymer properties in the JS.
 
-```html
+{% highlight html %}
 <!-- my-app.html -->
 ...
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
@@ -1331,7 +1328,7 @@ Polymer({
 	storedUser: Object,
 	...
   },
-```
+{% endhighlight html %}
 
 Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Log In" link / user greeting in the header, just like we did in the Chuck Norris app.
 
@@ -1352,7 +1349,7 @@ Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Lo
 ...
 ```
 
-To get your `client ID` and `domain`, find your app in the [Auth0 Dashboard](https://manage.auth0.com/#/clients) and look in its **Settings**.
+To get your `client ID` and `domain`, find your app in the [Auth0 Dashboard](https://manage.auth0.com/#/clients) and look in **Settings**.
 
 Now users can sign up for an account, log in, and log out. You can utilize the techniques we learned earlier to access protected API routes, show and hide UI, set up redirection, and more. Check out the [Auth0 Docs](https://auth0.com/docs) to read about features, APIs, guides, and more.
 
@@ -1366,7 +1363,7 @@ Remember that Polymer itself is _not a framework_. It's a library to facilitate 
 
 Web components may be the future, but there's no reason not to get started with them today. Google uses Polymer in many of its sites, [GitHub uses web components](http://webcomponents.org/articles/interview-with-joshua-peek/), and [there are](https://youtu.be/fD2As5RmM8Q?t=15m56s) [many others](https://builtwithpolymer.org/) leveraging these technologies. Custom elements are being built and shared with the community every day. In addition to Google's [Polymer Element Catalog](https://elements.polymer-project.org/), developers can share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
 
-**Polymer** delivers a way to use web components cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer coating over native features. You can build something simple or something vastly complex with web components. Polymer is intuitive to learn and the experience will be useful for many projects, frameworks, and libraries to come.
+**Polymer** delivers a way to use web components cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer over native features. You can build something simple or something vastly complex with web components. Polymer is intuitive to learn and the experience will be useful for many projects, frameworks, and libraries to come.
 
 
  
