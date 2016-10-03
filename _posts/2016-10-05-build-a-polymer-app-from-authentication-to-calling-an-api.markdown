@@ -157,11 +157,9 @@ Our final file `/src` folder file structure should look like this:
 
 ![Polymer starter kit Chuck Norris app src file structure](https://cdn.auth0.com/blog/polymer/rename-files2.jpg)
 
-### Editing the Views
+**Editing the Views**
 
 We've renamed the HTML files and now we need to rename the elements they contain. For _each_ of the updated views, open the file and do the following:
-
-#### Update `<dom-module>` ID
 
 Locate the `<dom-module>` tag near the top of the file. This specifies the start of an [element's local DOM](https://www.polymer-project.org/1.0/docs/devguide/local-dom#template-stamping). This is the [declarative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change its ID to match the new file name. 
 
@@ -176,8 +174,6 @@ becomes:
 ```html
 <dom-module id="home-quotes">
 ```
-
-#### Update `Polymer()`
 
 Locate the `<script>` tag near the bottom of the file. The `Polymer()` function is the [imperative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change the `is` property to the new element name.
 
