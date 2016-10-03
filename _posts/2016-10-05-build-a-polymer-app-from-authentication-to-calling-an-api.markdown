@@ -17,6 +17,7 @@ tags:
 - javascript
 related:
 - 2016-09-29-angular-2-authentication
+- 2016-08-17-aurelia-1.0-how-to-build-a-simple-secured-application
 - 2016-06-15-adding-authentication-to-react-native-using-jwt
 
 ---
@@ -45,7 +46,7 @@ Web components can be used natively _without_ any additional libraries or toolse
 
 The [Polymer Element Catalog](https://elements.polymer-project.org/) provides many prepackaged [custom elements that can be easily implemented](https://elements.polymer-project.org/guides/using-elements) in any Polymer project. They provide useful utility elements like [Ajax](https://elements.polymer-project.org/elements/iron-ajax), [media queries](https://elements.polymer-project.org/elements/iron-media-query), and [single page application routing](https://elements.polymer-project.org/elements/app-route) as well as the [visual "Paper" elements](https://elements.polymer-project.org/browse?package=paper-elements) of [Google's Material Design](https://material.google.com/).
 
-Polymer has comprehensive documentation at the [Polymer Project Devguide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview) and can be used with or without the custom elements in the Element Catalog. To speed development, we'll build our simple single page application (SPA) with a starter kit and Polymer elements.
+Polymer has comprehensive documentation at the [Polymer Project Devguide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview) and can be used with or without the custom elements in the Element Catalog. To speed development, we'll build our simple Single Page Application (SPA) with a starter kit and Polymer elements.
 
 ## What We'll Build
 
@@ -1360,6 +1361,3 @@ Remember that Polymer itself is _not a framework_. It's a library to facilitate 
 Web components may be the future, but there's no reason not to get started with them today. Google uses Polymer in many of its sites, [GitHub uses web components](http://webcomponents.org/articles/interview-with-joshua-peek/), and [there are](https://youtu.be/fD2As5RmM8Q?t=15m56s) [many others](https://builtwithpolymer.org/) leveraging these technologies. Custom elements are being built and shared with the community every day. In addition to Google's [Polymer Element Catalog](https://elements.polymer-project.org/), developers can share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
 
 **Polymer** delivers a way to use web components cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer over native features. You can build something simple or something vastly complex with web components. Polymer is intuitive to learn and the experience will be useful for many projects, frameworks, and libraries to come.
-
-
- 
