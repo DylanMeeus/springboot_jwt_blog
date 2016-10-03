@@ -116,19 +116,21 @@ Let's dig into the code to understand how Polymer applications and elements are 
 
 ### Element Naming
 
-Open the `/src` folder and take a look at its contents. These are the elements / views that make up the application. Notice that the file names are all hyphenated (ie., `my-app`, `my-view1`, etc.). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). Custom element names must contain _at least one hyphen_.
+Open the `/src` folder and take a look at its contents. These are the elements and views that make up the application. Notice that the file names are hyphenated (ie., `my-app`, `my-view1`). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). 
 
-The `my-app.html` file contains the main module that renders the other views based on the route (with [`app-route`](https://www.polymer-project.org/1.0/toolbox/routing) and [`iron-pages`](https://elements.polymer-project.org/elements/iron-pages)). The name `my-app` suits our purposes so we'll leave it as-is. The same goes for `my-icons` and `shared-styles`. However, `my-view1` is not a very descriptive name. We'll rename these files and in doing so, learn about the other Polymer elements used to display these views.
+> Custom element names must contain _at least one hyphen_.
+
+The `my-app.html` file contains the main module that renders the other views based on the route (with [`app-route`](https://www.polymer-project.org/1.0/toolbox/routing) and [`iron-pages`](https://elements.polymer-project.org/elements/iron-pages)). The name `my-app` suits our purposes so we'll leave it as-is. The same goes for `my-icons` and `shared-styles`. However, `my-view1` is not descriptive enough. We'll rename these files and in doing so, learn about more Polymer elements.
 
 ### Renaming HTML Files
 
 Our app will be composed of the following views:
 
-1. A home view that lets visitors click a button to display random Chuck Norris quotes.
-2. A view with a form that lets visitors register or log into the app.
-3. A view where authenticated users can click a button to get random, protected Chuck Norris quotes.
+1. A homepage that lets visitors click a button to display random Chuck Norris quotes.
+2. A signup and login page with a form that lets visitors register or log into the app.
+3. A secret quotes page where authenticated users can click a button to get protected Chuck Norris quotes.
 
-We want to rename the generic starter kit views to  match our planned view structure. The `/src` folder currently looks like this:
+We'll rename the generic starter kit views to match our planned view structure. The `/src` folder currently looks like this:
 
 ![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/rename-files1.jpg)
 
@@ -162,7 +164,7 @@ We've renamed the HTML files and now we need to rename the elements they contain
 
 #### Update `<dom-module>` ID
 
-Locate the `<dom-module>` tag (near the top of the file). This specifies the start of an [element's local DOM](https://www.polymer-project.org/1.0/docs/devguide/local-dom#template-stamping). The `<dom-module>` is the [declarative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change its ID to match the new file name. 
+Locate the `<dom-module>` tag near the top of the file. This specifies the start of an [element's local DOM](https://www.polymer-project.org/1.0/docs/devguide/local-dom#template-stamping). This is the [declarative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change its ID to match the new file name. 
 
 For example: 
 
@@ -178,7 +180,7 @@ becomes:
 
 #### Update `Polymer()`
 
-Locate the `<script>` tag (near the bottom of the file). The `Polymer()` function is the [imperative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change the `is` property to the new element name.
+Locate the `<script>` tag near the bottom of the file. The `Polymer()` function is the [imperative](https://medium.freecodecamp.com/imperative-vs-declarative-programming-283e96bf8aea) portion of the element definition. Change the `is` property to the new element name.
 
 For example: 
 
@@ -196,9 +198,11 @@ Polymer({
 	...
 ```
 
+> Note: Read more about an element's [local DOM in the Polymer docs](https://www.polymer-project.org/1.0/docs/devguide/local-dom).
+
 ### Modifying `my-app.html`
 
-Our elements are renamed but now we need to update references to them. The view elements are called in the `/src/my-app.html` file, so we'll open this up and make the necessary changes while exploring the contents of the file.
+Our elements are renamed. Now we need to update references to them. The view elements are called in `/src/my-app.html`, so we'll make the necessary changes while familiarizing with the contents of the file.
 
 Routing is handled by `<app-location>`, `<app-route>`, and `<iron-pages>`. Consult the documentation to learn more about [Polymer routing](https://www.polymer-project.org/1.0/toolbox/routing). 
 
@@ -208,7 +212,7 @@ To get our renamed views working with routing, locate the [`<app-drawer>`](https
 <a name="view1" href="/view1">View One</a>
 ```
 
-You may notice that the hyphenation (`my-`) is missing. This is being added programmatically, so we'll need to remove that as well. First, change the anchor links inside the `<iron-selector>` element to match our renamed views for `home-quotes` and `secret-quotes`:
+You may notice that the hyphenation (`my-`) is missing. It's being added programmatically and we'll need to remove it soon. First, change the anchor links inside the `<iron-selector>` element to match our renamed views for `home-quotes` and `secret-quotes`:
 
 ```html
 ...
@@ -219,7 +223,7 @@ You may notice that the hyphenation (`my-`) is missing. This is being added prog
 ...
 ```
 
-The "Log In" link might be better if it was located in the header instead of the sidebar menu. Locate the [header layout](https://www.polymer-project.org/1.0/toolbox/app-layout#header-layout) elements `<app-header>` and `<app-toolbar>`. Add a login anchor tag after the `<div main-title>My App</div>` element. While we're here, let's change the main title to "Chuck Norris" as well. When we're done, the `<app-toolbar>` element should look like this:
+The "Log In" link would be best located in the header. Find the [header layout](https://www.polymer-project.org/1.0/toolbox/app-layout#header-layout) elements `<app-header>` and `<app-toolbar>`. Add the Log In link after the `<div main-title>My App</div>` element. While we're here, let's change the main title to "Chuck Norris" too. When we're done, the `<app-toolbar>` element should look like this:
 
 ```html
 ...
@@ -231,7 +235,7 @@ The "Log In" link might be better if it was located in the header instead of the
 ...
 ```
 
-We still need to update the markup that places our view elements in the DOM. Locate the [`<iron-pages>`](https://elements.polymer-project.org/elements/iron-pages) tag. This element shows one of its children at a time and is used in conjunction with `<app-route>` to display views based on the URL. Update the elements inside this tag to reflect the renaming of our view elements:
+Now we'll update the markup that places our view elements in the DOM. Locate the [`<iron-pages>`](https://elements.polymer-project.org/elements/iron-pages) tag. This element shows one of its children at a time and is used in conjunction with `<app-route>` to display views based on the URL. Update the elements inside this tag to reflect the renaming of our view elements:
 
 ```html
 ...
@@ -260,7 +264,7 @@ _routePageChanged: function(page) {
 ...
 ```
 
-Next, locate the `_pageChanged()` function. This is where the page URL is being prefixed with `my-`. We need to remove this. Update the `resolvedPageUrl` variable:
+Next, find the `_pageChanged()` function. This is where the page URL is being prefixed with `my-`. Update the `resolvedPageUrl` variable:
 
 ```js
 ...
@@ -309,13 +313,13 @@ Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element.
 
 The first thing we'll do is install some Polymer elements. We can leverage [`iron-ajax`](https://elements.polymer-project.org/elements/iron-ajax) to call the API and [`paper-button`](https://elements.polymer-project.org/elements/paper-button) for the UI.
 
-We'll install these components using Bower:
+Install these components using Bower:
 
 ```
 bower install PolymerElements/iron-ajax PolymerElements/paper-button --save
 ```
 
-Now we need to import the elements into `home-quotes` using [HTML imports](http://webcomponents.org/articles/introduction-to-html-imports/). Since we're building web components, we want to import all the dependencies for a specific element in that element's HTML file. We don't want to rely on a parent element loading them first--that could create a missing dependency somwhere down the line. 
+We need to import the elements into `home-quotes` using [HTML imports](http://webcomponents.org/articles/introduction-to-html-imports/). Since we're building web components, we want to import all the dependencies for a specific element in that element's HTML file. We don't want to rely on a parent element loading them first--that could create a missing dependency somwhere down the line. 
 
 Doing this would be dangerous if we were loading scripts in the traditional way: we might get the same dependency called multiple times throughout the app. We would need to centralize file requests or use a dependency manager. However, with web components, we don't need to worry about loading the same imports multiple times because HTML imports dedupe: if an HTML import has already been loaded, it skips loading it again.
 
@@ -336,12 +340,9 @@ Now we can take advantage of these elements.
 
 We're going to call the API using HTML. The only JavaScript we need to write in this element will be a simple handler to re-send the Ajax request when a button is clicked. Pretty cool, huh?
 
-Below the closing `</style>` tag (we'll come back to styling shortly), add the following `iron-ajax` element:
+After the closing `</style>` tag (we'll come back to styling shortly), add the following `iron-ajax` element:
 
 ```html
-...
-</style>
-
 <iron-ajax
 	id="getQuoteAjax"
 	auto 
@@ -355,30 +356,25 @@ Below the closing `</style>` tag (we'll come back to styling shortly), add the f
 
 We gave `iron-ajax` a descriptive `id` so we can access its instance in JS using `this.$.getQuoteAjax`. Setting the `auto` attribute re-sends the request anytime the URL or parameters change. For our purposes, this fetches a quote when the element first loads. Since we won't change the URL or parameters again after initialization, we'll generate subsequent requests with a button click handler. We're using the `GET` method. The API returns the response as a string, so we'll set `handle-as="text"` (other options include `xml`, `json`, `blob`, etc.). 
 
-Finally, `last-response` can bind the response from the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`{{quote}}`) as delimiters. `iron-ajax` uses another dependency element called [`iron-request`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the `iron-ajax` element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
+Finally, `last-response` can bind the response from the most recent request. We're [automatic / two-way data binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding#two-way-bindings) it to a property called `quote` with [double curly braces](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`{{quote}}`) as delimiters. `iron-ajax` is bundled with a dependency element called [`iron-request`](https://github.com/PolymerElements/iron-ajax/blob/master/iron-request.html) which performs the Ajax request. The response needs to be two-way bound to communicate up and down between the request and our instance of the `iron-ajax` element. You can read more about [data flow in Polymer here](https://www.polymer-project.org/1.0/docs/devguide/data-system#data-flow).
 
 ### Binding and Fetching Quotes
 
 We now have the response from the API. We need to display the quote in the view. Locate the card div `<div class="card">` and delete the lipsum contents.
 
-Add a heading and a `<blockquote>`. Inside the blockquote element, one-way bind the `quote` API response using [double square bracket delimiters](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`[[quote]]`). We're using one-way binding here because data is flowing downward from host to target but not upwards:
+Add a heading and a `<blockquote>`. Inside the blockquote element, one-way bind the `quote` API response using [double square bracket delimiters](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`[[quote]]`). We're using one-way binding here because data is flowing downward from host to target but not upwards. In order to get new quotes, let's add a button below the blockquote.
 
 ```html
 <div class="card">
 	<h1>Quotes</h1>
 	<blockquote>[[quote]]</blockquote>
+	<paper-button raised on-tap="getQuote" class="primary">Get a New Quote</paper-button>
 </div>
 ```
 
-The quote fetched from the API now displays in the view. In order to get new quotes, let's add a button below the blockquote:
+Check out the [paper-button documentation](https://elements.polymer-project.org/elements/paper-button) to read about button styling and API. We've added an [`on-tap`](https://www.polymer-project.org/1.0/docs/devguide/events#annotated-listeners) [event listener](https://www.polymer-project.org/1.0/docs/devguide/events) so when we click or tap the button, we can request another quote from the API by executing a function.
 
-```html
-<paper-button raised on-tap="getQuote" class="primary">Get a New Quote</paper-button>
-```
-
-Check out the [paper-button documentation](https://elements.polymer-project.org/elements/paper-button) to read about styling and API. We've added an [`on-tap`](https://www.polymer-project.org/1.0/docs/devguide/events#annotated-listeners) [event listener](https://www.polymer-project.org/1.0/docs/devguide/events) so when we click or tap the button, we can request another quote from the API by executing a function.
-
-In our JS, we need to add the `getQuote()` function and generate another Ajax request in the `getQuote()` handler. We'll use the `iron-ajax` method [`generateRequest()`](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference this instance by its ID:
+In our JS, let's add the `getQuote()` function and generate another Ajax request in the `getQuote()` handler. We'll use the `iron-ajax` method [`generateRequest()`](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference this instance by its ID:
 
 ```js
 Polymer({
@@ -394,15 +390,17 @@ We should now be able to click the "Get a New Quote" button in our app to get an
 
 ### Styling
 
-Web component elements use [shadow DOM styling rules](https://developers.google.com/web/fundamentals/primers/shadowdom/#styling). Styles defined in the shadow root are local, which means we can target IDs and classes within our custom element without contaminating the rest of the page or application. 
+Web component elements use [shadow DOM styling rules](https://developers.google.com/web/fundamentals/primers/shadowdom/#styling). Styles defined in the shadow root are local. This means we can target IDs and classes within our custom element without contaminating the rest of the page or application. 
 
 The quote and button look a bit shabby, so let's spruce them up with CSS. Head back up to the top of the `/src/home-quotes.html` file and find the `<style>` tag. Notice that this tag `include`s the `shared-styles` element. Since we'll be using the `blockquote` and `paper-button` styles elsewhere in the app for the `secret-quotes` element too, we'll want to put our styles somewhere they can be accessed globally.
 
-Open the `/src/shared-styles.html` file. We can add our common styles here as well as clean up some styles we won't be using anymore.
+Open `/src/shared-styles.html`. We can add our common styles here as well as clean up some CSS we won't be using anymore.
 
 Delete the `.circle` ruleset and add the following:
 
 ```css
+/* shared-styles.html */
+...
 :root {
 	--primary-color: #4285f4;
 }
@@ -443,7 +441,7 @@ paper-button.primary {
 }
 ```
 
-Many of [Polymer's Material Design Paper elements](https://elements.polymer-project.org/browse?package=paper-elements) can be styled by setting variables. We can also create our own. We'll set the primary color on the `:root` selector so that it [applies to all custom elements](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style). We'll then use the variable to style our `paper-button` element with a `.primary` class.
+Many of [Polymer's Material Design Paper elements](https://elements.polymer-project.org/browse?package=paper-elements) can be customized by setting variables. We can also create our own. We'll set the primary color on the `:root` selector so that it [applies to all custom elements](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style). We'll then use the variable to style our `paper-button` element with a `.primary` class.
 
 > Note: By setting the `--primary-color` variable now, the focus color for inputs will also be preset when we use [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container#styling) later.
 
@@ -451,21 +449,21 @@ Now the `.primary` class that we added to our button will be styled in the `home
 
 ## Authenticating Users
 
-We want to be able to register users so they can log in and access secret quotes. To do this, we'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to handle sign up and login errors as well as save to local storage to persist logins. 
+Users should be able to register so they can log in and access secret quotes. We'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to handle sign up and login errors as well as save to local storage to persist logins. 
 
-When this step is complete, our app will look like this:
+When this step is complete, our login view will look like this:
 
 ![Polymer register login app view](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_login.jpg)
 
 ### Creating the User Credentials Form
 
-Open `/src/register-login.html`. This is our `register-login` element. We're going to use some more Polymer elements from the catalog, so let's start by installing [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input`](https://elements.polymer-project.org/elements/paper-input):
+Open `/src/register-login.html`. This is our `register-login` element. We'll use some more Polymer elements from the catalog, so let's start by installing [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input`](https://elements.polymer-project.org/elements/paper-input):
 
 ```
 bower install PolymerElements/iron-input PolymerElements/paper-input --save
 ```
 
-Now we'll import these dependencies. We'll also import `iron-ajax`, `paper-button`, and `iron-localstorage`. We don't need to install `iron-localstorage` with Bower because it came packaged with the starter kit.
+Now we'll import these new dependencies along with `iron-ajax`, `paper-button`, and `iron-localstorage`. We don't need to install `iron-localstorage` with Bower because it came packaged with the starter kit.
 
 > Note: You can check your `/bower_components` directory to see what other Polymer components are automatically installed.
 
@@ -489,12 +487,11 @@ First we'll set up the basic markup for the form with a username and password. L
 
 Delete the lorem ipsum inside the `<div class="card">` element. We want to create two potential UIs for this area: one for if the user is authenticated and one for if they aren't. We'll start with the unauthenticated view, which is the register / login form.
 
-We'll create a container for our unauthenticated UI and add input elements using [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container), which comes bundled with `paper-input`. The reason we aren't using `paper-input` by itself is because `iron-input` allows us to two-way bind input values. It also provides validation options. We won't do validation in this tutorial, but using this element provides more room for extensibility. Using `paper-input-container` applies Material Design styles to labels and inputs. This way we can utilize both the iron element utilities _and_ the paper element styles.
+Create a container for the unauthenticated UI and add input elements using [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input-container`](https://elements.polymer-project.org/elements/paper-input?active=paper-input-container), which comes bundled with `paper-input`. The reason we aren't using `paper-input` by itself is because `iron-input` allows us to two-way bind input values. It also provides validation options. We won't do validation in this tutorial, but using this element provides more room for extensibility. Using `paper-input-container` applies Material Design styles to labels and inputs. This way we can utilize both the iron element utilities _and_ the paper element styles.
 
 Our initial markup should look like this:
 
 ```html
-...
 <div class="card">
 	<div id="unauthenticated">
 		<h1>Log In</h1>
@@ -517,10 +514,9 @@ Our initial markup should look like this:
 		</div>
 	</div>	
 </div>
-...
 ```
 
-We'll also add some local CSS in the `<style>` tags to support this markup:
+We'll also add some local CSS in the `<style>` tags:
 
 ```css
 ...
@@ -530,10 +526,9 @@ We'll also add some local CSS in the `<style>` tags to support this markup:
 paper-button.link {
 	color: #757575;
 }
-...
 ```
 
-Now we have a form, but it doesn't do anything. We'll wire it up with JS to take advantage of `iron-input` and bind the values to data that we can submit to the API. In the JS, let's create a property that holds an object for our form data:
+Now we have a form, but it doesn't do anything. We'll wire it up with JS to take advantage of `iron-input` and bind the values to data that we can submit to the API. Create a property that holds an object for our form data:
 
 ```js
 Polymer({
@@ -559,7 +554,6 @@ We already bound the `formData` object to the inputs in the HTML using `bind-val
 We'll use `iron-ajax` again to post our form data to the API to register or log in users:
 
 ```html
-...
 <iron-ajax
 	id="registerLoginAjax"
 	method="post"
@@ -567,7 +561,6 @@ We'll use `iron-ajax` again to post our form data to the API to register or log 
 	handle-as="text"
 	on-response="handleUserResponse"
 	on-error="handleUserError"></iron-ajax>
-...
 ```
 
 We'll use the `POST` method and set the content type to JSON. We're going to handle the response as text because although a successful login returns JSON, a failure returns a string. This way we can easily parse the JSON on success or handle plain text in case of an error.
@@ -651,7 +644,7 @@ Now we have the error message but we're not displaying it to the user. We'd like
 
 ![Polymer register login app view](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_login-error.jpg)
 
-Let's add some markup before the first form input to support this:
+Let's add some markup after the instructions paragraph to support this:
 
 ```html
 ...
@@ -850,7 +843,6 @@ Create a new file: `/src/log-out.html`. Import Polymer, `paper-button`, and `app
 Now we'll scaffold our new element by adding `<dom-module id="log-out">`. We'll set up the `<template>`, `<style>`, and `<script>` tags as well. The `:host` styles should have no margin or padding.
 
 ```html
-<!-- log-out.html -->
 ...
 <dom-module id="log-out">
 	<template>
@@ -885,8 +877,6 @@ Here are our plans for the `log-out` element:
 Keeping these requirements in mind, let's build out our element, starting with the markup:
 
 ```html
-<!-- log-out.html -->
-...
 <app-data key="userData" data="{{storedUser}}"></app-data>
 
 <template is="dom-if" if="{{!link}}">
@@ -905,8 +895,6 @@ This should look familiar. We're accessing `app-data` so when we log out, change
 Here's the JS to facilitate our required `log-out` behavior:
 
 ```
-// log-out.html
-
 Polymer({
 	is: 'log-out',
 	properties: {
@@ -930,8 +918,6 @@ To log out, all we need to do is set the `storedUser` object to `null`.
 Now let's finish up by adding some styles: 
 
 ```css
-/* paper-button.html */
-
 :host {
 	margin: 0;
 	padding: 0;
@@ -1138,10 +1124,9 @@ Polymer({
 	...
 ```
 
-Finally, we'll add some styles:
+Finally, we'll add some CSS in the `<style>` block:
 
 ```css
-<style>
 ...
 app-header .greeting,
 app-header a {
