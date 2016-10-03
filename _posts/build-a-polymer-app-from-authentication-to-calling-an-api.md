@@ -62,13 +62,13 @@ The full source code for the completed app can be [cloned at this GitHub repo](h
 
 ## Setup and Installation
 
-We're going to use the new [Polymer CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli) to scaffold our Polymer web app with the [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/). By beginning with the starter kit, we'll gain the advantages of routing, app layout, Material Design, and many core utilities. 
+We'll use the new [Polymer CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli) to scaffold our Polymer web app with the [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/). With the starter kit, we'll gain the advantages of routing, app layout, Material Design, and many core utilities right away. 
 
 Let's get started!
 
 ### Dependencies
 
-First, make sure that you have [node.js](https://nodejs.org/en/download/) (packaged with NPM) installed. 
+First, make sure that you have [node.js](https://nodejs.org/en/download/) (with NPM) installed. 
 
 If you don't already have [Bower](https://bower.io/), install it globally with the following command: 
 
@@ -76,17 +76,17 @@ If you don't already have [Bower](https://bower.io/), install it globally with t
 npm install -g bower
 ```
 
-Now install the Polymer CLI: 
+Install the Polymer CLI: 
 
 ```
 npm install -g polymer-CLI
 ```
 
-Finally, we need to have our sample Node API running. Clone the [NodeJS JWT Authentication sample repo](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and follow the instructions in the README to get it up and running on [http://localhost:8001](http://localhost:8001).
+We also need to have a sample Node API running. Clone the [NodeJS JWT Authentication sample repo](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and follow the instructions in the README to get it up and running on [http://localhost:8001](http://localhost:8001).
 
 ### Initializing the App
 
-Create a new directory and navigate to it in your terminal or command prompt. Use the following command to initialize the Polymer starter kit in your new folder:
+Create a new directory and navigate to it in the terminal or command prompt. Use the following command to initialize the Polymer starter kit in your new folder:
 
 ```
 polymer init starter-kit
@@ -100,7 +100,7 @@ polymer serve
 
 The site runs at [http://localhost:8080](http://localhost:8080). Adding the optional `--open` flag will automatically launch that address in your default browser.
 
-If you want to see the shadow DOM nodes in action in the inspector during development, [Chrome](https://www.google.com/chrome/) is recommended. The app works in all modern browsers thanks to Polymer's inclusion of shady DOM and polyfills, but Chrome currently has the best native support for web components. 
+> Note: If you want to see the shadow DOM nodes in action in the inspector during development, [Chrome](https://www.google.com/chrome/) is recommended. The app works in all modern browsers thanks to Polymer's inclusion of shady DOM and polyfills, but Chrome currently has the best native support for web components. 
 
 When viewing your app in the browser, it looks like this:
 
@@ -108,15 +108,15 @@ When viewing your app in the browser, it looks like this:
 
 ## Customizing the Starter Kit
 
-You can see that the starter kit app has several views. We want to customize it to fit our app's purpose. When we've finished customizing the structure and naming, our app should look like this:
+You can see that the starter kit app has several views. We want to customize it. When we've finished updating the structure and naming, our app should look like this:
 
 ![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_routing.jpg)
 
-Let's start looking at the code to understand how Polymer applications and elements are composed and how we can modify  it to suit our needs.
+Let's dig into the code to understand how Polymer applications and elements are composed and how we can modify it to suit our needs.
 
 ### Element Naming
 
-Let's open the `/src` folder and take a look at its contents. These are the elements / views that make up the application. You may notice that the file names are all hyphenated (ie., `my-app`, `my-view1`, etc.). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). Custom element names must contain _at least one hyphen_.
+Open the `/src` folder and take a look at its contents. These are the elements / views that make up the application. Notice that the file names are all hyphenated (ie., `my-app`, `my-view1`, etc.). This follows the [W3C valid custom element naming spec](https://www.w3.org/TR/custom-elements/#valid-custom-element-name). Custom element names must contain _at least one hyphen_.
 
 The `my-app.html` file contains the main module that renders the other views based on the route (with [`app-route`](https://www.polymer-project.org/1.0/toolbox/routing) and [`iron-pages`](https://elements.polymer-project.org/elements/iron-pages)). The name `my-app` suits our purposes so we'll leave it as-is. The same goes for `my-icons` and `shared-styles`. However, `my-view1` is not a very descriptive name. We'll rename these files and in doing so, learn about the other Polymer elements used to display these views.
 
@@ -340,6 +340,8 @@ Below the closing `</style>` tag (we'll come back to styling shortly), add the f
 
 ```html
 ...
+</style>
+
 <iron-ajax
 	id="getQuoteAjax"
 	auto 
@@ -347,7 +349,6 @@ Below the closing `</style>` tag (we'll come back to styling shortly), add the f
 	method="get"
 	handle-as="text"
 	last-response="{{quote}}"></iron-ajax>
-...
 ```
 
 > Note: It's always worthwhile to take a look at the [source code](https://github.com/PolymerElements/iron-ajax) for any custom elements you're using, including [Polymer elements](https://github.com/PolymerElements).
@@ -363,12 +364,10 @@ We now have the response from the API. We need to display the quote in the view.
 Add a heading and a `<blockquote>`. Inside the blockquote element, one-way bind the `quote` API response using [double square bracket delimiters](https://www.polymer-project.org/1.0/docs/devguide/data-binding#binding-annotation) (`[[quote]]`). We're using one-way binding here because data is flowing downward from host to target but not upwards:
 
 ```html
-...
 <div class="card">
 	<h1>Quotes</h1>
 	<blockquote>[[quote]]</blockquote>
 </div>
-...
 ```
 
 The quote fetched from the API now displays in the view. In order to get new quotes, let's add a button below the blockquote:
@@ -379,23 +378,16 @@ The quote fetched from the API now displays in the view. In order to get new quo
 
 Check out the [paper-button documentation](https://elements.polymer-project.org/elements/paper-button) to read about styling and API. We've added an [`on-tap`](https://www.polymer-project.org/1.0/docs/devguide/events#annotated-listeners) [event listener](https://www.polymer-project.org/1.0/docs/devguide/events) so when we click or tap the button, we can request another quote from the API by executing a function.
 
-In our JS, we need to add the `getQuote()` function:
+In our JS, we need to add the `getQuote()` function and generate another Ajax request in the `getQuote()` handler. We'll use the `iron-ajax` method [`generateRequest()`](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference this instance by its ID:
 
 ```js
 Polymer({
 	...
 	getQuote: function() {
 		// get a quote from the API
+		this.$.getQuoteAjax.generateRequest();
 	}
 });
-```
-
-Now we need to generate another Ajax request in the `getQuote()` handler. We'll use the `iron-ajax` method [`generateRequest()`](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference this instance by its ID:
-
-```js
-getQuote: function() {
-	this.$.getQuoteAjax.generateRequest();
-}
 ```
 
 We should now be able to click the "Get a New Quote" button in our app to get and display random Chuck Norris quotes.
@@ -687,17 +679,17 @@ We can now see an error message if we try to submit empty or invalid credentials
 
 ### Saving Data to Local Storage
 
-To save our logged in users to local storage, add the [`iron-localstorage`](https://elements.polymer-project.org/elements/iron-localstorage) element near the top of our element markup:
+To persist user sessions, add the [`iron-localstorage`](https://elements.polymer-project.org/elements/iron-localstorage) element near the top of our element markup:
 
 ```html
 <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
 ```
 
-Now our app will persist users so they don't have to log in again after every refresh or return visit.
+Now users don't have to log in repeatedly after refresh or return visit.
 
 ### Showing UI Based on Authentication State
 
-We are now successfully authenticating, but there's no indication to the user that they're logged in. We'll hide the form and show a message upon successful authentication.
+We're now authenticating, but there's no indication to the user that they're logged in. We'll hide the form and show a message upon successful authentication.
 
 Add a `hidden` attribute to the `#authenticated` div:
 
@@ -705,11 +697,12 @@ Add a `hidden` attribute to the `#authenticated` div:
 <div id="unauthenticated" hidden$="[[storedUser.loggedin]]">
 ```
 
-We want `hidden` to have a binding and be conditionally applied. If we don't do this, its presence implies truthiness regardless of its value. In order to [bind to an attribute](https://www.polymer-project.org/1.0/docs/devguide/data-binding#attribute-binding), we need to add a `$` after the attribute name.
+We want `hidden` to have a binding and be conditionally applied. If we don't do this, its presence implies truthiness regardless of its value. To [bind to an attribute](https://www.polymer-project.org/1.0/docs/devguide/data-binding#attribute-binding), we need to add a dollar sign `$` after the attribute name.
 
-Next we want to show the user a logged-in UI if they're authenticated. Add another div below the `#unauthenticated` element:
+We'll show the user a logged-in UI if they're authenticated. Add another div:
 
 ```html
+...
 <div id="authenticated" hidden$="[[!storedUser.loggedin]]">
 	<h2>Hello, [[storedUser.name]]!</h2>
 	<p>You are currently logged in. You can access <a href="/secret-quotes">Secret Quotes</a>!</p>
@@ -752,11 +745,11 @@ handleUserResponse: function(event) {
 
 ### Making User Data Available Globally
 
-What if we want to access and manipulate the authentication state of our user from other areas of the app? For instance, the header still says "Log In" even when the user is already authenticated. We should change this to a greeting and a "Log Out" button. We can also see "Secret Quotes" in the menu while logged out. This should be hidden from unauthenticated users. But most importantly, we need to use the authenticated user's token to access the protected API to get secret quotes.
+What if we want to access and manipulate user authentication state from other areas of the app? For instance, the header still says "Log In" when the user is authenticated. We should change this to a greeting and a "Log Out" button. We can also see "Secret Quotes" in the menu while logged out. This should be hidden from unauthenticated users. But most importantly, we need to use the authenticated user's token to access the protected API to get secret quotes.
 
-Recall that `iron-localstorage` is bound to `storedUser` which is a property of the `register-login` element. Even though local storage is accessible globally, we don't have a simple way to be sure that changes are observed properly on all parents and children throughout the app.
+Recall that `iron-localstorage` has a binding to `storedUser` which is a property of the `register-login` element. Even though local storage is accessible globally, we don't have a _simple_ way to be sure that changes are observed on all parents and children throughout the app.
 
-Polymer 1.0 does not have an elegant, out-of-the-box solution to this problem at this time. This is one thing that any full-featured JS framework would make short work of, but it's important to remember that Polymer is _not_ an MV* framework: it's a library that helps us leverage web components.
+Polymer 1.0 does not have an elegant, out-of-the-box solution to this problem at this time. This is something any full-featured JS framework would make short work of, but it's important to remember that Polymer is _not_ a framework: it's a library that helps us leverage web components.
 
 To solve this, we're going to add an element called `app-data`. This element notifies instances when its data is changed.
 
@@ -832,7 +825,7 @@ In `/src/register-login.html`, import the new `app-data` dependency:
 <link rel="import" href="app-data.html">
 ```
 
-Add the `app-data` element to the markup near the `iron-localstorage` element. We need to supply an identifying `key` and the `data` we want is, of course, the `storedUser` object.
+Add the `app-data` element to the markup. We need to supply an identifying `key` and the `data` we want is, of course, the `storedUser` object.
 
 ```html
 <app-data key="userData" data="{{storedUser}}"></app-data>
@@ -842,7 +835,7 @@ We can now add the `app-data` element to any other components that need access t
 
 ## Creating a Log Out Element
 
-Now that we can register and authenticate users, we need a way for them to log out. We'd like this to be a component that can live in a couple of locations, so we're going to build a new element.
+Now that we can register and authenticate users, we need a way for them to log out. This should be a component that can live in a couple of locations, so we're going to build a new element.
 
 Create a new file: `/src/log-out.html`. Import Polymer, `paper-button`, and `app-data`:
 
@@ -887,7 +880,7 @@ Here are our plans for the `log-out` element:
 * Display a log out link in the app's global header when the user is authenticated.
 * Display a log out button in the authenticated `register-login` view.
 * When the link or button is clicked, clear the user's token and information from global app data.
-* We want to call the element like this: `<log-out stored-user="{{storedUser}}"></log-out>` and be able to add an optional `link` attribute to display as a link rather than a button.
+* Call the element like this: `<log-out stored-user="{{storedUser}}"></log-out>` and be able to add an optional `link` attribute to display an anchor tag instead of a button.
 
 Keeping these requirements in mind, let's build out our element, starting with the markup:
 
@@ -905,11 +898,11 @@ Keeping these requirements in mind, let's build out our element, starting with t
 </template>
 ```
 
-This should look familiar as there are no new concepts here. We're accessing the `app-data` so that when we log out, changes to the data are set throughout the app. We'll check for a `link` property and if it's false, show a button. If it's true, show a link. Both the link and button will call the same `on-tap` handler, `logout()`.
+This should look familiar. We're accessing `app-data` so when we log out, changes to the data are set throughout the app. We'll check for a `link` property and if it's false, show a button. If it's true, show a link. Both the link and button will call the same `on-tap` handler, `logout()`.
 
 > Note: You may have noticed that we didn't include `iron-localstorage`. Changes to `storedUser` in `log-out` use `app-data` to notify other instances which update `iron-localstorage`. In turn, local storage is retrieved by the parent upon app initialization and the property is then sent to the child `log-out` via its `stored-user` attribute.
 
-Now we'll set up the JS to facilitate this:
+Here's the JS to facilitate our required `log-out` behavior:
 
 ```
 // log-out.html
@@ -930,15 +923,19 @@ Polymer({
 });
 ```
 
-The `storedUser` object will be passed into the element from the parent but we'll need to manipulate it to perform logout. The `link` property will be true if it's present as an attribute on the `<log-out>` element. The default value of a boolean property must be set to false in order for it to function as an [attribute](https://www.polymer-project.org/1.0/docs/devguide/properties#configuring-boolean-properties) that can be configured by markup.
+The `storedUser` object will be passed into the element from the parent but we'll need to manipulate it to perform logout. The `link` property will be true if it's present as an attribute on the `<log-out>` element. The default value of a boolean property must be set to false in order for it to [function as an attribute](https://www.polymer-project.org/1.0/docs/devguide/properties#configuring-boolean-properties) that can be configured by markup.
 
 To log out, all we need to do is set the `storedUser` object to `null`.
 
-Now let's finish up by adding some styles so our link and button look good. 
+Now let's finish up by adding some styles: 
 
 ```css
 /* paper-button.html */
 
+:host {
+	margin: 0;
+	padding: 0;
+}
 paper-button {
 	background: #f44336;
 	color: #fff;
@@ -953,21 +950,22 @@ a {
 
 The link will display in the blue header area so the text should be white. If we need to add additional links in other contexts, we can always adjust the styling to add variables or other options.
 
-Now that we have our `log-out` element, let's add it to the `register-login` view:
+Now that we have our `log-out` element, let's add it to the `/src/register-login.html` view:
 
 ```html
 <!-- register-login.html -->
+
 <div id="authenticated" hidden$="[[!storedUser.loggedin]]">
 	...
 	<log-out stored-user="{{storedUser}}"></log-out>
 </div>
 ```
 
-Our authenticated `register-login` view now looks like this in the browser:
+Our authenticated `register-login` now looks like this in the browser:
 
 ![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_logout.jpg)
 
-Recall that after a successful login, users are redirected to the `secret-quotes` view. We'll also replace the "Log In" link in the header shortly--but the `/register-login` route is still accessible regardless. The user can access it via the URL or the browser Back button. If they hit this route while authenticated, they'll see this message and be able to log out.
+Recall that after login, users are redirected to the `secret-quotes` view. We'll replace the "Log In" link in the header shortly. However, the `/register-login` route will be accessible regardless of authentication state: the user can access it via the URL or the browser Back button. If they visit this route while logged in, they'll see this message and be able to log out.
 
 ## Fetching Secret Quotes
 
@@ -1019,7 +1017,7 @@ Next add `iron-ajax`:
 
 This looks similar to the `iron-ajax` element we used to get public quotes in the `home-quotes` element except that we're not using the `auto` attribute. We'll add authorization to this request in the JS when we generate the request.
 
-We'll display the quotes in the UI. We want to show authenticated users a greeting and private quotes. If an unauthenticated user accesses this route, we should show a message instructing them to log in:
+We'll display the quotes in the UI. We want to show authenticated users a greeting and private quotes. If an unauthenticated user visits this route, we should show a message instructing them to log in:
 
 ![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_secret-quotes_unauth.jpg)
 
@@ -1041,9 +1039,9 @@ Add the following markup:
 
 We can use `hidden` because although the authenticated content is stamped in the template on initiation, unauthenticated users cannot access the protected quotes API.
 
-> Note: Using `hidden` is much faster than creating and destroying elements with `dom-if`. Using `dom-if` can cause noticeable runtime latency. You can read more about this in the [dom-if Polymer docs](https://www.polymer-project.org/1.0/docs/devguide/templates#dom-if) (below the code example).
+> Note: Using `hidden` is much faster than creating and destroying elements with `dom-if`, which can cause noticeable runtime latency. You can read more about this in the [dom-if Polymer docs](https://www.polymer-project.org/1.0/docs/devguide/templates#dom-if).
 
-In the JS, add the `storedUser` property and functions to `initStoredUser()` and `getSecretQuote()`:
+In JS, add the `storedUser` property, `initStoredUser()`, and `getSecretQuote()`:
 
 ```js
 Polymer({
@@ -1059,32 +1057,21 @@ Polymer({
 	},
 	getSecretQuote: function() {
 		// add token authorization and generate Ajax request
+		this.$.getSecretQuoteAjax.headers['Authorization'] = 'Bearer ' + this.storedUser.token;
+		this.$.getSecretQuoteAjax.generateRequest();
 	}
 });
 ```
 
-`getSecretQuote()` is executed when the user clicks the button to fetch a new quote from the API. Like `home-quotes`, we'll use the `generateRequest()` method, but first we need to provide authorization with the user's token. An `Authorization` header can be added to the request:
-
-```js
-...
-getSecretQuote: function() {
-	// add token authorization and generate Ajax request
-	this.$.getSecretQuoteAjax.headers['Authorization'] = 'Bearer ' + this.storedUser.token;
-	this.$.getSecretQuoteAjax.generateRequest();
-}
-```
+`getSecretQuote()` is executed when the user clicks the button to fetch a new quote from the API. We'll use the `generateRequest()` method and provide an `Authorization` header with the user's token.
 
 Authenticated users can now get secret quotes!
 
 ## Header and Menu States
 
-The last thing we'll do is improve the user experience a little bit.
+The last thing we'll do is improve the user experience. When the user is logged in, let's hide the Secret Quotes link and add a greeting and log out link in the header. 
 
-When the user is authenticated, let's hide the Secret Quotes link in the menu sidebar and add a greeting and log out link in the header. 
-
-Open `/src/my-app.html`.
-
-Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `<iron-localstorage>` and `<app-data>` elements to the DOM:
+Open `/src/my-app.html`. Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `<iron-localstorage>` and `<app-data>` elements to the DOM:
 
 ```html
 <!-- my-app.html -->
@@ -1097,32 +1084,35 @@ Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `
 <app-data key="userData" data="{{storedUser}}"></app-data>
 ```
 
-### Hiding "Secret Quotes" Link in Menu
+### Hiding "Secret Quotes" in the Menu
 
 Locate the `<iron-selector>` element inside the `<app-drawer>`. Each `<a>` tag  needs to be wrapped in its own container element in order to be hidden and shown conditionally. You can read more about [iron-selector here](https://elements.polymer-project.org/elements/iron-selector).
 
 Change the code to:
 
 ```html
+...
 <div name="home-quotes">
 	<a href="/home-quotes">Home</a>
 </div>
 <div name="secret-quotes" hidden$="[[!storedUser.loggedin]]">
 	<a href="/secret-quotes">Secret Quotes</a>
 </div>
+...
 ```
 
 As you can see, we've moved the `name` attributes to the containing divs and added a `hidden` attribute to the Secret Quotes link.
 
-### Authentication State in Header
+### Authentication State in the Header
 
 We want our logged in user to see something like this in the app header:
 
 ![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_quotes-header-auth.jpg)
 
-Let's update the `<app-header>` to show the "Log In" link when the user is logged out and a greeting and the `log-out` element (with `link` attribute) when authenticated.
+Let's update the `<app-header>` to show the "Log In" link when the user is logged out and a greeting with the `log-out` element when authenticated.
 
 ```html
+...
 <app-header condenses reveals effects="waterfall">
 	<app-toolbar>
 		...
@@ -1133,6 +1123,7 @@ Let's update the `<app-header>` to show the "Log In" link when the user is logge
 		</div>
 	</app-toolbar>
 </app-header>
+...
 ```
 
 Add the `storedUser` object to the Polymer properties in the JS:
@@ -1150,6 +1141,7 @@ Polymer({
 Finally, we'll add some styles:
 
 ```css
+<style>
 ...
 app-header .greeting,
 app-header a {
@@ -1161,7 +1153,6 @@ app-header .greeting {
 	display: inline-block;
 	padding-right: 6px;
 }
-...
 ```
 
 We now have a functioning user state in the global header. When we log in or out, no matter what view we're on, the header and menu will update according to authentication status.
@@ -1179,7 +1170,7 @@ The first thing you'll need is an Auth0 account. Follow these simple steps to ge
 1. Sign up for a [free Auth0 account](https://auth0.com/signup).
 2. In your **Auth0 Dashboard**, [create a new client](https://manage.auth0.com/#/clients/create). 
 3. Name your new app and select "Single Page Web Applications". 
-4. In the **Settings** section for your newly created app, add `http://localhost:8080` to the Allowed Callback URLs and Allowed Logout URLs.
+4. In the **Settings** for your newly created app, add `http://localhost:8080` to the Allowed Callback URLs and Allowed Logout URLs.
 5. If you'd like, you can [set up some social connections](https://manage.auth0.com/#/connections/social). You can then enable them for your app in the **Client** options under the **Connections** tab. The example shown in the screenshot above uses username/password database, Facebook, and Google.
 
 ### Setup and Dependencies
@@ -1193,7 +1184,7 @@ polymer serve --open
 
 Create a new file in the `/src` folder for `app-data.html`. Follow the instructions from earlier in this tutorial to populate this element file, or [grab the code from the repo here](https://github.com/auth0-blog/polymer-with-auth0/blob/master/src/app-data.html).
 
-### Creating an Auth0 Lock Element
+### Creating the Auth0 Lock Element
 
 Create a new file: `/src/auth0-login.html`. This will be our `auth0-login` custom element.
 
@@ -1202,9 +1193,9 @@ Create a new file: `/src/auth0-login.html`. This will be our `auth0-login` custo
 Our `auth0-login` element will include the following: 
 
 * An element containing [lock.js v10](https://cdn.auth0.com/js/lock/10.2/lock.min.js).
-* A link with event handler to open the Lock widget.
+* A link with an event handler to open the Lock widget.
 * Properties to pass Auth0 configuration into the element.
-* A greeting with profile image and log out button when user is authenticated.
+* A greeting with profile image and logout button to show when the user is authenticated.
 
 Let's create the dependency element: `/src/lockjs.html`. Create a new file and add the following:
 
@@ -1213,9 +1204,9 @@ Let's create the dependency element: `/src/lockjs.html`. Create a new file and a
 <script src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
 ```
 
-This is best practice in Polymer for loading external dependencies. This way, we can use HTML import to load this file and be certain that it will only be imported once. If it's called again, it will be deduped.
+This is best practice in Polymer for loading third party dependencies. This way, we can use HTML import to load this file and be certain that it will only be imported once. If it's called again, it will be deduped.
 
-Now we can build our `auth0-login` element:
+Now we can build `/src/auth0-login.html`:
 
 ```html
 <!-- auth0-login.html -->
@@ -1326,9 +1317,9 @@ Now we can build our `auth0-login` element:
 
 You can read all about `lock.js` in the [Auth0 Lock library docs](https://auth0.com/docs/libraries/lock). 
 
-> Note: We're setting the profile image with JS rather than binding directly to `storedUser.profile.picture` because if we don't, the image `src` will populate as `undefined` and result in a 404 network error when it is not set.
+> Note: We're setting the profile image with JS rather than binding directly to `storedUser.profile.picture` because if we don't, the image `src` will populate as `undefined` and result in a 404 network error when not set.
 
-We now have a Lock element that can be launched by clicking a "Log In" link. Now we need to place it in our app and pass in the appropriate Auth0 configuration.
+We now have a Lock element that can be launched by clicking a "Log In" link. We need to place it in our app and pass in the appropriate Auth0 configuration.
 
 ### Adding Lock to the App
 
@@ -1352,9 +1343,10 @@ Polymer({
   },
 ```
 
-Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Log In" link / user greeting in the header, just like we did in our previous Chuck Norris app.
+Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Log In" link / user greeting in the header, just like we did in the Chuck Norris app.
 
 ```html
+...
 <app-header condenses reveals effects="waterfall">
   <app-toolbar>
     <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
@@ -1367,11 +1359,12 @@ Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Lo
 		
   </app-toolbar>
 </app-header>
+...
 ```
 
-To get your `client ID` and `domain`, find your app in the [Auth0 Dashboard](https://manage.auth0.com/#/clients) and look under **Settings**.
+To get your `client ID` and `domain`, find your app in the [Auth0 Dashboard](https://manage.auth0.com/#/clients) and look in its **Settings**.
 
-Now users can sign up for an account, log in, and log out. You can utilize techniques we learned earlier to access protected API routes, show and hide UI, set up redirection, etc. Check out the [Auth0 Docs](https://auth0.com/docs) to read about features, APIs, guides, and more.
+Now users can sign up for an account, log in, and log out. You can utilize the techniques we learned earlier to access protected API routes, show and hide UI, set up redirection, and more. Check out the [Auth0 Docs](https://auth0.com/docs) to read about features, APIs, guides, and more.
 
 ## The Future of Web (Components)
 
@@ -1381,9 +1374,9 @@ Remember that Polymer itself is _not a framework_. It's a library to facilitate 
 
 {% include tweet_quote.html quote_text="When you use Polymer, your framework is the DOM." %}
 
-Web components may be the future, but there's no reason not to get started with them today. Google uses Polymer in many of its sites, [GitHub uses web components](http://webcomponents.org/articles/interview-with-joshua-peek/), and [there are](https://youtu.be/fD2As5RmM8Q?t=15m56s) [many others](https://builtwithpolymer.org/) leveraging these technologies. Custom elements are being built and shared with the community every day. In addition to the [Polymer Element Catalog](https://elements.polymer-project.org/), developers can also share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
+Web components may be the future, but there's no reason not to get started with them today. Google uses Polymer in many of its sites, [GitHub uses web components](http://webcomponents.org/articles/interview-with-joshua-peek/), and [there are](https://youtu.be/fD2As5RmM8Q?t=15m56s) [many others](https://builtwithpolymer.org/) leveraging these technologies. Custom elements are being built and shared with the community every day. In addition to Google's [Polymer Element Catalog](https://elements.polymer-project.org/), developers can share web components on [customelements.io](http://customelements.io) and take advantage of [element libraries like Vaadin](https://vaadin.com/elements).
 
-**Polymer** offers a great way to use web components cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer on top of native features. You can build something simple or something vastly complex with web components. Polymer is intuitive to learn and the experience will be useful for many projects, frameworks, and libraries to come.
+**Polymer** delivers a way to use web components cross-browser while learning the native spec at the same time. Learning Polymer isn't like tackling a massive JS framework: it's a veneer coating over native features. You can build something simple or something vastly complex with web components. Polymer is intuitive to learn and the experience will be useful for many projects, frameworks, and libraries to come.
 
 
  
