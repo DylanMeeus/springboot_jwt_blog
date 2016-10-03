@@ -72,13 +72,13 @@ First, make sure that you have [node.js](https://nodejs.org/en/download/) (with 
 
 If you don't already have [Bower](https://bower.io/), install it globally with the following command: 
 
-```
+```bash
 npm install -g bower
 ```
 
 Install the Polymer CLI: 
 
-```
+```bash
 npm install -g polymer-CLI
 ```
 
@@ -289,6 +289,7 @@ _showPage404: function() {
 Open the `/polymer.json` file. This file contains the [build settings](https://www.polymer-project.org/1.0/docs/tools/polymer-cli#build) for our app when using the Polymer CLI. We'll update the `fragments` array with our renamed views. These are HTML files that are loaded on-demand or asynchronously.
 
 ```js
+// polymer.json
 ...
 "fragments": [
 	"src/home-quotes.html",
@@ -315,7 +316,7 @@ The first thing we'll do is install some Polymer elements. We can leverage [`iro
 
 Install these components using Bower:
 
-```
+```bash
 bower install PolymerElements/iron-ajax PolymerElements/paper-button --save
 ```
 
@@ -459,7 +460,7 @@ When this step is complete, our login view will look like this:
 
 Open `/src/register-login.html`. This is our `register-login` element. We'll use some more Polymer elements from the catalog, so let's start by installing [`iron-input`](https://elements.polymer-project.org/elements/iron-input) and [`paper-input`](https://elements.polymer-project.org/elements/paper-input):
 
-```
+```bash
 bower install PolymerElements/iron-input PolymerElements/paper-input --save
 ```
 
@@ -843,7 +844,6 @@ Create a new file: `/src/log-out.html`. Import Polymer, `paper-button`, and `app
 Now we'll scaffold our new element by adding `<dom-module id="log-out">`. We'll set up the `<template>`, `<style>`, and `<script>` tags as well. The `:host` styles should have no margin or padding.
 
 ```html
-...
 <dom-module id="log-out">
 	<template>
 		<style>
@@ -1166,7 +1166,7 @@ The first thing you'll need is an Auth0 account. Follow these simple steps to ge
 
 Create a new directory, `init` a fresh Polymer starter kit app, then `serve` it:
 
-```
+```bash
 polymer init starter-kit
 polymer serve --open
 ```
