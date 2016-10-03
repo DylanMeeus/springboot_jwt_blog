@@ -9,7 +9,7 @@ author:
   mail: "kim.maida@auth0.com"
   avatar: "https://en.gravatar.com/userimage/20807150/4c9e5bd34750ec1dcedd71cb40b4a9ba.png"
 design:
-  image: https://www.davevoyles.com/wp-content/uploads/2015/03/Polymer-logo.png
+  image: https://cdn.auth0.com/blog/polymer/polymer-logo.png
 tags:
 - polymer
 - web components
@@ -104,13 +104,13 @@ The site runs at [http://localhost:8080](http://localhost:8080). Adding the opti
 
 When viewing your app in the browser, it looks like this:
 
-![Polymer starter kit](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_starterkit.jpg)
+![Polymer app starter kit browser view](https://cdn.auth0.com/blog/polymer/screenshot_starterkit.jpg)
 
 ## Customizing the Starter Kit
 
 You can see that the starter kit app has several views. We want to customize it. When we've finished updating the structure and naming, our app should look like this:
 
-![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_routing.jpg)
+![Polymer starter kit after renaming for Chuck Norris app](https://cdn.auth0.com/blog/polymer/screenshot_routing.jpg)
 
 Let's dig into the code to understand how Polymer applications and elements are composed and how we can modify it to suit our needs.
 
@@ -132,7 +132,7 @@ Our app will be composed of the following views:
 
 We'll rename the generic starter kit views to match our planned view structure. The `/src` folder currently looks like this:
 
-![Polymer starter kit src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/rename-files1.jpg)
+![Polymer starter kit src file structure](https://cdn.auth0.com/blog/polymer/rename-files1.jpg)
 
 Let's rename these files:
 
@@ -156,7 +156,7 @@ to the following:
 
 Our final file `/src` folder file structure should look like this:
 
-![Polymer starter kit Chuck Norris app src file structure](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/rename-files2.jpg)
+![Polymer starter kit Chuck Norris app src file structure](https://cdn.auth0.com/blog/polymer/rename-files2.jpg)
 
 ### Editing the Views
 
@@ -305,7 +305,7 @@ Click between the routes to make sure everything works. We're now ready to start
 
 We'll start with the home view. When we're finished with this step, our app should look like this:  
 
-![Polymer app element home quotes](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_home-quotes.jpg)
+![Polymer app element home quotes](https://cdn.auth0.com/blog/polymer/screenshot_home-quotes.jpg)
 
 Open the `/src/home-quotes.html` file. This is our `home-quotes` custom element. Right now it contains some lorem ipsum and lacks JS functionality beyond instantiation. We'll add an Ajax call to the [Chuck Norris API](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and bindings to display the response on the page. We'll also add a button to get a new random quote when clicked.
 
@@ -453,7 +453,7 @@ Users should be able to register so they can log in and access secret quotes. We
 
 When this step is complete, our login view will look like this:
 
-![Polymer register login app view](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_login.jpg)
+![Polymer register login app view](https://cdn.auth0.com/blog/polymer/screenshot_login.jpg)
 
 ### Creating the User Credentials Form
 
@@ -642,7 +642,7 @@ We've also defined a handler for errors: `handleUserError()`. When the sample AP
 
 Now we have the error message but we're not displaying it to the user. We'd like to show something like this:
 
-![Polymer register login app view](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_login-error.jpg)
+![Polymer register login with error](https://cdn.auth0.com/blog/polymer/screenshot_login-error.jpg)
 
 Let's add some markup after the instructions paragraph to support this:
 
@@ -949,7 +949,7 @@ Now that we have our `log-out` element, let's add it to the `/src/register-login
 
 Our authenticated `register-login` now looks like this in the browser:
 
-![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_logout.jpg)
+![Polymer login view when authenticated show log out button](https://cdn.auth0.com/blog/polymer/screenshot_logout.jpg)
 
 Recall that after login, users are redirected to the `secret-quotes` view. We'll replace the "Log In" link in the header shortly. However, the `/register-login` route will be accessible regardless of authentication state: the user can access it via the URL or the browser Back button. If they visit this route while logged in, they'll see this message and be able to log out.
 
@@ -957,7 +957,7 @@ Recall that after login, users are redirected to the `secret-quotes` view. We'll
 
 It's time to access the protected API to get secret quotes. When we're finished with this step, our app will look like this:
 
-![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_secret-quotes.jpg)
+![Polymer secret quotes view when logged in](https://cdn.auth0.com/blog/polymer/screenshot_secret-quotes.jpg)
 
 Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, `iron-localstorage`, `paper-button`, and `app-data`. Clean up the contents of the `<div class="card">` element:
 
@@ -1005,7 +1005,7 @@ This looks similar to the `iron-ajax` element we used to get public quotes in th
 
 We'll display the quotes in the UI. We want to show authenticated users a greeting and private quotes. If an unauthenticated user visits this route, we should show a message instructing them to log in:
 
-![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_secret-quotes_unauth.jpg)
+![Polymer unauthenticated view of secret quotes](https://cdn.auth0.com/blog/polymer/screenshot_secret-quotes_unauth.jpg)
 
 Add the following markup:
 
@@ -1093,7 +1093,7 @@ As you can see, we've moved the `name` attributes to the containing divs and add
 
 We want our logged in user to see something like this in the app header:
 
-![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/screenshot_quotes-header-auth.jpg)
+![Polymer authenticated user state in header](https://cdn.auth0.com/blog/polymer/screenshot_quotes-header-auth.jpg)
 
 Let's update the `<app-header>` to show the "Log In" link when the user is logged out and a greeting with the `log-out` element when authenticated.
 
@@ -1146,7 +1146,11 @@ We now have a functioning user state in the global header. When we log in or out
 
 Let's explore authenticating a Polymer app with a more robust solution. We'll do a quick implementation of [Auth0's lock widget](https://auth0.com/docs/libraries/lock) to manage user identity. We'll leverage local storage and `app-data` again to ensure users aren't logged out unexpectedly. You can clone the full code from [this GitHub repo](https://github.com/auth0-blog/polymer-with-auth0).
 
-![Polymer register login app view with log out](file:///Users/kimmaida-auth0/Documents/Auth0/Blog/Polymer/Blog%20Code%20Steps/step%201/auth0-lock.jpg)
+![Polymer register login app view with Auth0 lock](https://cdn.auth0.com/blog/polymer/auth0-lock.jpg)
+
+When users are logged in, they'll see something like this:
+
+![Polymer logged in with Auth0](https://cdn.auth0.com/blog/polymer/auth0-loggedin.jpg)
 
 ### Configuring Your Auth0 Client
 
