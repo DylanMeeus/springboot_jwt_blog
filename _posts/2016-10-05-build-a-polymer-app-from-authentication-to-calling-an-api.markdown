@@ -690,13 +690,13 @@ We want `hidden` to have a binding and be conditionally applied. If we don't do 
 
 We'll show the user a logged-in UI if they're authenticated. Add another div:
 
-```html
+{% highlight html %}
 ...
 <div id="authenticated" hidden$="[[!storedUser.loggedin]]">
 	<h2>Hello, [[storedUser.name]]!</h2>
 	<p>You are currently logged in. You can access <a href="/secret-quotes">Secret Quotes</a>!</p>
 </div>
-```
+{% endhighlight html %}
 
 Now when the user logs in, they won't see the form anymore and will see this greeting instead. However, we can take this one step further and redirect them to the Secret Quotes view on successful authentication.
 
