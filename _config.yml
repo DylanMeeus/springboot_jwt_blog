@@ -15,8 +15,6 @@ stylus:
   path: ./css
 values:
   is_post_index: false
-gems:
-  - jekyll-sitemap
 defaults:
   -
     scope:
