@@ -41,11 +41,11 @@ We'll build a Contacts app. You can follow the example in [this repository](http
 
 The app has two screens: the first is a list of contacts, displayed in table view with their full name and a placeholder profile image.
 
-![Contacts Application](https://cdn.auth0.com/blog/mvvm-vs-viper/contacts.png)
+<img src="https://cdn.auth0.com/blog/mvvm-vs-viper/contacts.png" alt="Contacts Application" width="300">
 
 The second is an Add Contact screen, with first/last name text fields and cancel/done button items.
 
-![Adding a Contact](https://cdn.auth0.com/blog/mvvm-vs-viper/add-contact.png)
+<img src="https://cdn.auth0.com/blog/mvvm-vs-viper/add-contact.png" alt="Adding a Contact" width="300">
 
 ## MVVM
 
