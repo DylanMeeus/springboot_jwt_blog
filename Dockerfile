@@ -20,7 +20,6 @@ RUN gem install psych -v 2.0.5
 RUN gem install rdiscount -v 2.1.7.1
 RUN gem install stringex -v  2.5.2
 RUN gem install stylus -v  1.0.1
-RUN gem install jekyll-sitemap -v  0.8.1
 
 ADD . /data
 WORKDIR /data
