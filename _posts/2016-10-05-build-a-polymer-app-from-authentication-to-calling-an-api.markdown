@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Build a Polymer App: From Authentication to Calling an API"
-description: "Build an app using web components and Polymer with an API and JSON Web Token authentication."
+description: "Build an app using web components and Polymer that interacts with an API and authenticates users with JSON Web Tokens."
 date: 2016-10-05 8:30
 author:
   name: "Kim Maida"
@@ -13,7 +13,7 @@ design:
   bg_color: "#324090"
 tags:
 - polymer
-- web components
+- web-components
 - javascript
 related:
 - 2016-09-29-angular-2-authentication
@@ -46,7 +46,7 @@ Web components can be used natively _without_ any additional libraries or toolse
 
 The [Polymer Element Catalog](https://elements.polymer-project.org/) provides many prepackaged [custom elements that can be easily implemented](https://elements.polymer-project.org/guides/using-elements) in any Polymer project. They provide useful utility elements like [Ajax](https://elements.polymer-project.org/elements/iron-ajax), [media queries](https://elements.polymer-project.org/elements/iron-media-query), and [single page application routing](https://elements.polymer-project.org/elements/app-route) as well as the [visual "Paper" elements](https://elements.polymer-project.org/browse?package=paper-elements) of [Google's Material Design](https://material.google.com/).
 
-Polymer has comprehensive documentation at the [Polymer Project Devguide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview) and can be used with or without the custom elements in the Element Catalog. To speed development, we'll build our simple Single Page Application (SPA) with a starter kit and Polymer elements.
+Polymer has comprehensive documentation at the [Polymer Project Devguide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview) and can be used with or without the custom elements in the Element Catalog. To speed up development, we'll build our simple Single Page Application (SPA) with a starter kit and Polymer elements.
 
 ## What We'll Build
 
@@ -158,7 +158,7 @@ Our final file `/src` folder file structure should look like this:
 
 ![Polymer starter kit Chuck Norris app src file structure](https://cdn.auth0.com/blog/polymer/rename-files2.jpg)
 
-**Editing the Views**
+###Editing the Views
 
 We've renamed the HTML files and now we need to rename the elements they contain. For _each_ of the updated views, open the file and do the following:
 
