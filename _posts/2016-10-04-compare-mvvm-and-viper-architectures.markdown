@@ -9,7 +9,7 @@ author:
   mail: rafaelmsacchi@gmail.com
   avatar: http://www.gravatar.com/avatar/b7e1e53144c06ecfdef91f0e4229a08a
 design:
-  bg_color: "#2d5487"
+  bg_color: "#4A4A4A"
   image: https://cdn.auth0.com/blog/mvvm-vs-viper/logo.png
 tags:
 - mvvm
