@@ -1164,7 +1164,7 @@ We now have a functioning user state in the global header. When we log in or out
 
 Let's explore authenticating a Polymer app with a more robust solution. We'll do a quick implementation of [Auth0's Lock widget](https://auth0.com/docs/libraries/lock) to manage user identity. We'll leverage local storage and `app-data` again to ensure users aren't logged out unexpectedly. You can clone the full code from [this GitHub repo](https://github.com/auth0-blog/polymer-with-auth0).
 
-![Polymer register login app view with Auth0 lock](https://cdn.auth0.com/blog/polymer/auth0-lock.jpg)
+![Polymer register login app view with Auth0 Lock](https://cdn.auth0.com/blog/polymer/auth0-lock.jpg)
 
 When users are logged in, they'll see something like this:
 
@@ -1287,7 +1287,7 @@ Now we can build `/src/auth0-login.html`:
 						}
 					};
 
-					// create Lock instance
+					// create Auth0 Lock instance
 					_self.auth0Lock = new Auth0Lock(_self.clientId, _self.domain, _lockOptions);
 
 					_self.auth0Lock.on('authenticated', function(authResult) {
