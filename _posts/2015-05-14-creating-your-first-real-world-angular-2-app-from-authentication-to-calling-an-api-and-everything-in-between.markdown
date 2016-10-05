@@ -35,6 +35,12 @@ related:
 - 2015-04-09-adding-authentication-to-your-react-flux-app
 - 2015-08-05-creating-your-first-aurelia-app-from-authentication-to-calling-an-api
 ---
+
+<div class="alert" style="background-color:#daf4fd;color:#097093">
+  <i class="icon-budicon-390" style="top: 14px; left: 20px"></i>
+  <strong style="font-size: 18px">We just added a new updated article that covers the same topic. You can find it here: <a href="https://auth0.com/blog/angular-2-authentication/">Angular 2 Authentication Tutorial</a>.</strong>
+</div>
+
 ----
 
 **TL;DR:** Get the sample Angular 2 app from [this Github repository](https://github.com/auth0/angular2-authentication-sample). Also, check out [this talk](https://www.youtube.com/watch?v=pgFtp2LgwoE) I did where I explain and live-code this same example.

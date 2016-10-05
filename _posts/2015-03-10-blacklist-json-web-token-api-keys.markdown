@@ -36,7 +36,7 @@ related:
 
 <!-- more -->
 
-On a [previous post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) we proposed an approach to using JSON Web Tokens as API Keys, going over some of the benefits of doing so and also providing some examples based on our [API v2 scenarios](https://auth0.com/docs/apiv2). This post follows up by explaining an aspect that was not covered before: how to blacklist a JWT API key so it is no longer valid.
+On a [previous post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) we proposed an approach to using [JSON Web Tokens](https://auth0.com/learn/json-web-tokens/) as API Keys, going over some of the benefits of doing so and also providing some examples based on our [API v2 scenarios](https://auth0.com/docs/apiv2). This post follows up by explaining an aspect that was not covered before: how to blacklist a JWT API key so it is no longer valid.
 
 # A real world example
 Let's for a second assume that GitHub used JSON Web Tokens as API Keys and one of them was accidentally published on the web. You would want to make sure an app can no longer access your information by revoking that token:

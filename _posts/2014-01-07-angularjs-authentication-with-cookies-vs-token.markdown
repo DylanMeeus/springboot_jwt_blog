@@ -37,7 +37,7 @@ There are basically two different ways of implementing server side authenticatio
 
 * The most adopted one, is **Cookie-Based Authentication** (you can find an example [here](http://frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/)) that uses server side cookies to authenticate the user on every request.
 
-* A newer approach, **Token-Based Authentication**, relies on a signed token that is sent to the server on each request.
+* A newer approach, [**Token-Based Authentication**](https://auth0.com/learn/token-based-authentication-made-easy/), relies on a signed token that is sent to the server on each request.
 
 <!-- more -->
 
@@ -204,6 +204,7 @@ In upcoming posts we will revisit:
 ### Bottom Line
 
 When building Single Page Applications, consider using a token-based authentication design over cookie-based authentication. Leave a comment or [discuss on HN](https://news.ycombinator.com/item?id=7018529).
+Learn more about [AngularJS Authentication](https://auth0.com/learn/angularjs-authentication/).
 
 ### Aside: how it works with Auth0?
 

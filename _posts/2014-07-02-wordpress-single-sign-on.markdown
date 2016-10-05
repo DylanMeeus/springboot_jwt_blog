@@ -5,7 +5,7 @@ date: 2014-07-02 09:01
 outdated: true
 alias: /2014/07/02/wordpress-single-sign-on/
 author:
-  name: Ricardo Rauch
+  name: Ricky Rauch
   mail: ricky@auth0.com
   url: http://twitter.com/gravityonmars
   avatar: https://www.gravatar.com/avatar/27396b3fa24389198ef5d3e7e410e9c4?size=60
@@ -84,5 +84,7 @@ We would love to hear your feedback. Feel free to join us in our chat room <http
 **Plugin**: <http://WordPress.org/plugins/auth0/>
 
 We would like to thanks the crew from [LaunchPeople](http://launchpeople.dk/) who did the initial work for this plugin.
+
+Learn more about [Single Sign On Authentication](https://auth0.com/blog/what-is-and-how-does-single-sign-on-work/).
 
 Happy auth!

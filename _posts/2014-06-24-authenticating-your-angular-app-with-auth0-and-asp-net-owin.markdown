@@ -230,7 +230,7 @@ The Auth0 dashboard allows you to manage users registered in the applications yo
 
 <a href="http://bitoftech.net/wp-content/uploads/2014/06/NewUser.png"><img class="alignnone wp-image-552" src="http://bitoftech.net/wp-content/uploads/2014/06/NewUser.png" alt="Auth0 New User" width="500" height="360" /></a>
 
-Once the user is created we need to generate a JWT token so we can access the secured endpoint. To generate the JWT, we can send an HTTP POST to <a href="https://tjoudeh.auth0.com/oauth/ro" target="_blank">https://tjoudeh.auth0.com/oauth/ro</a>. This endpoint will work only for local database connections and AD/LDAP since other type of authentication require user's approval. You can check Auth0's API playground <a title="Auth0 api" href="https://docs.auth0.com/auth-api" target="_blank">here</a>. To get the JWT token, open your favorite REST client and issue a POST request as the image below:
+Once the user is created we need to generate a JWT token so we can access the secured endpoint. To generate the JWT, we can send an HTTP POST to <a href="https://tjoudeh.auth0.com/oauth/ro" target="_blank" rel="nofollow">https://tjoudeh.auth0.com/oauth/ro</a>. This endpoint will work only for local database connections and AD/LDAP since other type of authentication require user's approval. You can check Auth0's API playground <a title="Auth0 api" href="https://docs.auth0.com/auth-api" target="_blank">here</a>. To get the JWT token, open your favorite REST client and issue a POST request as the image below:
 
 <a href="http://bitoftech.net/wp-content/uploads/2014/06/JWTRequest.png"><img class="alignnone wp-image-554" src="http://bitoftech.net/wp-content/uploads/2014/06/JWTRequest.png" alt="JWT Request" width="500" height="573" /></a>
 

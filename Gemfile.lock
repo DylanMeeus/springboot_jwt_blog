@@ -59,7 +59,6 @@ GEM
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.2.1)
       sass (~> 3.2)
-    jekyll-sitemap (0.8.1)
     jekyll-watch (1.1.1)
       listen (~> 2.7)
     json (1.8.3)
@@ -107,7 +106,6 @@ DEPENDENCIES
   deb-s3
   fpm
   jekyll (= 2.4.0)
-  jekyll-sitemap (~> 0.8.1)
   psych (~> 2.0.5)
   rake
   rdiscount (~> 2.1.7.1)

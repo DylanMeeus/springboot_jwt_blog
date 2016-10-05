@@ -46,5 +46,10 @@ Although financial data may not have been leaked in the Yahoo data breach, Yahoo
 
 Auth0 provides breached password detection that can be enabled simply and easily. The Auth0 security team maintains a database of third party breached credentials. This database is updated daily. On each login, user credentials are checked against the leaked passwords database. If a breach is suspected, the user is notified and cannot log in until they change the compromised password.
 
+<video autoplay loop width="600">
+  <source src="https://cdn.auth0.com/blog/breach/lock-2.m4v"/>
+<img src="https://cdn.auth0.com/blog/breach/lock.gif"/>
+</video>
+
 Read about [Breached Passwords](https://auth0.com/breached-passwords) and [Anomaly Detection](https://auth0.com/docs/anomaly-detection) to learn more about how to protect users and their credentials with Auth0. You can also [sign up for a free Auth0 account](https://auth0.com/signup)!
 

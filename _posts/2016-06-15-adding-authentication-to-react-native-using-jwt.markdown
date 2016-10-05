@@ -33,7 +33,7 @@ We're going to look at getting started with a very simple React Native app and t
 
 Speaking of choices, we have many, many choices out there that can help us with user authentication. One such method of authentication in our React Native app is [JSON Web Tokens][7]. The advantages to using JWTs over other, more _traditional_ authentication methods are many. The app will be stateless, and we don’t have to worry about issues like load balancing with sessions, or cookie problems. We can authenticate users across multiple domains, integrate easily with other authentication services, and reduce the load on our servers. Sounds great, right?
 
-Here’s the thing. We, as developers, don’t need more complication in our apps, in our projects, or in our lives. User authentication is always a pain. _Someone_ always wants more SSO options. _Someone_ always wants better security. _Someone_ always finds vulnerabilities. And yes, there are vulnerabilities in any system. But mitigating the _chances_ of problems of all kinds - technical problems, server problems, cookie problems, hacking problems - is what we’re all trying to do all the time, isn’t it? An easy-to-implement token-based authentication system provides just that. If we’re building a React Native app, we are probably intending to cover multiple platforms with minimal changes. Let’s take it one step further and have the same stateless authentication procedures for all versions of our app, too.
+Here’s the thing. We, as developers, don’t need more complication in our apps, in our projects, or in our lives. User authentication is always a pain. _Someone_ always wants more [SSO authentication](https://auth0.com/blog/what-is-and-how-does-single-sign-on-work/)options. _Someone_ always wants better security. _Someone_ always finds vulnerabilities. And yes, there are vulnerabilities in any system. But mitigating the _chances_ of problems of all kinds - technical problems, server problems, cookie problems, hacking problems - is what we’re all trying to do all the time, isn’t it? An easy-to-implement token-based authentication system provides just that. If we’re building a React Native app, we are probably intending to cover multiple platforms with minimal changes. Let’s take it one step further and have the same stateless authentication procedures for all versions of our app, too.
 
 ### What We’re Building
 
@@ -387,6 +387,8 @@ We have an extremely simple demo app here, a single two-field form, and a query 
 But even this little dabble into JWT authentication makes us see how incredibly useful it could be for React Native app development. With React Native, developers are able to create applications that perform nearly identically across Android and iOS devices, and coupled with React development for the Web, a fiercely competitive, cross-platform suite emerges. With this amount of cross-device and cross-platform work available, the need for easy authentication emerges, and with JSON Web Tokens, the ease with which it can be implemented on diverse types of applications is incredible.
 
 Go ahead and implement JWT authentication in your own current React Native apps, or extend our demo app into something far greater, and get involved at [jwt.io][7]!
+
+You can also learn more about [ReactJS Authentication](https://auth0.com/blog/adding-authentication-to-your-react-flux-app/) while using Flux.
 
 [1]:  https://jwt.io/introduction/ "What are JSON Web Tokens?"
 [2]:  https://github.com/auth0-blog/nodejs-jwt-authentication-sample "Auth0 JWT Sample Authentication API"

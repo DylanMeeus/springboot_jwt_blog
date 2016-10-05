@@ -45,7 +45,7 @@ standard could help prevent future vulnerabilities.
 
 <!-- more -->
 
-For those who are unfamiliar, JSON Web Token (JWT) is a standard for creating
+For those who are unfamiliar, [JSON Web Token (JWT)](https://auth0.com/learn/json-web-tokens/) is a standard for creating
 tokens that assert some number of claims.  For example, a server could generate
 a token that has the claim "logged in as admin" and provide that to a client.
 The client could then use that token to prove that they are logged in as admin.
