@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Build a Polymer App: From Authentication to Calling an API"
+title: "Build Your First App with Polymer and Web Components"
 description: "Build an app using web components and Polymer that interacts with an API and authenticates users with JSON Web Tokens."
 date: 2016-10-05 8:30
 author:
@@ -19,11 +19,12 @@ related:
 - 2016-09-29-angular-2-authentication
 - 2016-08-17-aurelia-1.0-how-to-build-a-simple-secured-application
 - 2016-06-15-adding-authentication-to-react-native-using-jwt
+---
 
 ---
 
 
-**TL;DR** [Polymer](https://www.polymer-project.org/1.0/) is a library that provides syntactic sugar and polyfills for building elements and applications with web components. We'll build a web app using Polymer and its CLI, call an external API, and add authentication with [JSON Web Tokens](http://jwt.io). The full code is available at [this GitHub repo](https://github.com/auth0-blog/polymer-with-jwt-api).
+**TL;DR** [Google Polymer](https://www.polymer-project.org/1.0/) is a library that provides syntactic sugar and polyfills for building elements and applications with [web components](http://webcomponents.org/). We'll build a web app using Polymer and its CLI, call an external API, and add authentication with [JSON Web Tokens](http://jwt.io). The full code is available at [this GitHub repo](https://github.com/auth0-blog/polymer-with-jwt-api).
 
 ## What Are Web Components?
 
@@ -40,7 +41,7 @@ In a nutshell, web components allow us to architect and [import](http://www.html
 
 Web components can be used natively _without_ any additional libraries or toolsets. However, not all features are supported by all browsers. We need to leverage a library like **Polymer** or [polyfills, such as webcomponents.js](http://webcomponents.org/polyfills/), to bridge the gap between the current state of browser support and the future.
 
-## Enter Polymer
+## Enter Google Polymer
 
 **[Polymer](https://www.polymer-project.org/1.0/)** is a library created by Google that enables us to build cross-browser compatible apps and elements with web components. It provides syntactic sugar to native web components as well as [polyfills for browsers](https://www.polymer-project.org/1.0/docs/browsers) that don't support web components yet. Shadow DOM is difficult and costly to polyfill, so Polymer uses [shady DOM](https://www.polymer-project.org/1.0/blog/shadydom) to [implement the features of shadow DOM](https://www.polymer-project.org/1.0/blog/shadydom#shadow-dom-is-awesome-why-is-there-a-shady-dom) in browsers that lack support.
 
@@ -84,7 +85,7 @@ npm install -g polymer-CLI
 
 We also need to have a sample Node API running. Clone the [NodeJS JWT Authentication sample repo](https://github.com/auth0-blog/nodejs-jwt-authentication-sample) and follow the instructions in the README to get it up and running on [http://localhost:8001](http://localhost:8001).
 
-### Initializing the App
+### Initializing a Polymer App
 
 Create a new directory and navigate to it in the terminal or command prompt. Use the following command to initialize the Polymer starter kit in your new folder:
 
@@ -106,7 +107,7 @@ When viewing your app in the browser, it looks like this:
 
 ![Polymer app starter kit browser view](https://cdn.auth0.com/blog/polymer/screenshot_starterkit.jpg)
 
-## Customizing the Starter Kit
+## Customizing the Polymer Starter Kit App
 
 You can see that the starter kit app has several views. We want to customize it. When we've finished updating the structure and naming, our app should look like this:
 
@@ -298,7 +299,7 @@ Open the `/polymer.json` file. This file contains the [build settings](https://w
 
 Click between the routes to make sure everything works. We're now ready to start developing the features of our app.
 
-## Building an Element
+## Building a Polymer Element
 
 We'll start with the home view. When we're finished with this step, our app should look like this:  
 
@@ -444,7 +445,7 @@ Many of [Polymer's Material Design Paper elements](https://elements.polymer-proj
 
 Now the `.primary` class that we added to our button will be styled in the `home-quotes` element.
 
-## Authenticating Users
+## Authenticating Users in a Polymer App
 
 Users should be able to register so they can log in and access secret quotes. We'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to handle sign up and login errors as well as save to local storage to persist logins. 
 
@@ -1305,7 +1306,7 @@ You can read all about `lock.js` in the [Auth0 Lock library docs](https://auth0.
 
 We now have a Lock element that can be launched by clicking a "Log In" link. We need to place it in our app and pass in the appropriate Auth0 configuration.
 
-### Adding Lock to the App
+### Adding Auth0 Lock to a Polymer App
 
 Open `/src/my-app.html` and import the `iron-localstorage`, `app-data`, and `auth0-login` dependencies. Add the `<iron-localstorage>` and `<app-data>` elements to the DOM and add the `storedUser` object to the Polymer properties in the JS.
 
