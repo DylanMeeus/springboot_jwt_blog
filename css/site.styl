@@ -766,7 +766,46 @@ pre.prettyprint
 
 .results-container
   min-height 870px
-  
+
 #close-search
   display none
   cursor pointer
+
+.ui-autocomplete
+  position absolute
+  max-height 177px
+  padding 0
+  overflow hidden
+  border 1px solid #f1f1f1
+  border-radius 3px
+  background #fafafa
+  cursor default
+  z-index 999
+  overflow overlay
+
+  .ui-menu-item
+    padding 10px
+    background #FAFAFA
+    list-style-type none
+    border-top 1px solid #F1F1F1
+    cursor pointer
+    display block
+
+    &:first-child
+      border-top 1px solid transparent
+
+    &:hover,
+    &:focus
+      background-color #FFFFFF
+
+  .ui-item-avatar
+     border-radius 50%
+     width 37px
+     height 37px
+     display none
+
+  .ui-item-label
+     padding-left 10px
+
+  .author
+    display inline-block
