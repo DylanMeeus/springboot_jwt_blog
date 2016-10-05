@@ -374,7 +374,7 @@ Add a heading and a `<blockquote>`. Inside the blockquote element, one-way bind 
 
 Check out the [paper-button documentation](https://elements.polymer-project.org/elements/paper-button) to read about button styling and API. We've added an [`on-tap`](https://www.polymer-project.org/1.0/docs/devguide/events#annotated-listeners) [event listener](https://www.polymer-project.org/1.0/docs/devguide/events) so when we click or tap the button, we can request another quote from the API by executing a function.
 
-In our JS, let's add the `getQuote()` function and generate another Ajax request in the `getQuote()` handler. We'll use the `iron-ajax` method [`generateRequest()`](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference this instance by its ID:
+In our JS, let's add the `getQuote()` function and generate another Ajax request. We'll use the `iron-ajax` method [`generateRequest()`](https://elements.polymer-project.org/elements/iron-ajax#method-generateRequest) to do this. Remember, we can reference this instance by its ID:
 
 ```js
 Polymer({
@@ -392,7 +392,7 @@ We should now be able to click the "Get a New Quote" button in our app to get an
 
 Web component elements use [shadow DOM styling rules](https://developers.google.com/web/fundamentals/primers/shadowdom/#styling). Styles defined in the shadow root are local. This means we can target IDs and classes within our custom element without contaminating the rest of the page or application. 
 
-The quote and button look a bit shabby, so let's spruce them up with CSS. Head back up to the top of the `/src/home-quotes.html` file and find the `<style>` tag. Notice that this tag `include`s the `shared-styles` element. Since we'll be using the `blockquote` and `paper-button` styles elsewhere in the app for the `secret-quotes` element too, we'll want to put our styles somewhere they can be accessed globally.
+The quote and button look a bit shabby so let's spruce them up with CSS. Head back up to the top of the `/src/home-quotes.html` file and find the `<style>` tag. Notice that this tag `include`s the `shared-styles` element. Since we'll be using the `blockquote` and `paper-button` styles elsewhere in the app for the `secret-quotes` element too, we'll want to put our styles somewhere they can be accessed globally.
 
 Open `/src/shared-styles.html`. We can add our common styles here as well as clean up some CSS we won't be using anymore.
 
@@ -449,7 +449,7 @@ Now the `.primary` class that we added to our button will be styled in the `home
 
 ## Authenticating Users in a Polymer App
 
-Users should be able to register so they can log in and access secret quotes. We'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive an [access token](http://jwt.io). We also need to handle sign up and login errors as well as save to local storage to persist logins. 
+Users should be able to register so they can log in and access secret quotes. We'll create a form for visitors to enter credentials and `POST` data to the API to sign up or log in and receive a [JWT access token](http://jwt.io). We also need to handle sign up and login errors as well as save to local storage to persist logins. 
 
 When this step is complete, our login view will look like this:
 
@@ -535,7 +535,6 @@ Now we have a form, but it doesn't do anything. We'll wire it up with JS to take
 ```js
 Polymer({
 	is: 'register-login',
-	
 	properties: {
 		formData: {
 			type: Object,
@@ -573,23 +572,19 @@ Now we'll add the corresponding `postLogin()` and `postRegister()` event handler
 
 ```js
 ...
-
 _setReqBody: function() {
 	this.$.registerLoginAjax.body = this.formData;
 },
-
 postLogin: function() {
 	this.$.registerLoginAjax.url = 'http://localhost:3001/sessions/create';
 	this._setReqBody();
 	this.$.registerLoginAjax.generateRequest();
 },
-
 postRegister: function() {
 	this.$.registerLoginAjax.url = 'http://localhost:3001/users';
 	this._setReqBody();
 	this.$.registerLoginAjax.generateRequest();
 }
-
 ...
 ```
 
@@ -612,9 +607,7 @@ properties: {
 	storedUser: Object,
 	error: String
 },
-
 ...
-
 handleUserResponse: function(event) {
 	var response = JSON.parse(event.detail.response);
 
@@ -630,7 +623,6 @@ handleUserResponse: function(event) {
 	// reset form data
 	this.formData = {};
 },
-
 handleUserError: function(event) {
 	this.error = event.detail.request.xhr.response;
 }
