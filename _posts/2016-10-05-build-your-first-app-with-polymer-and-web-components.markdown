@@ -340,7 +340,8 @@ We're going to call the API using HTML. The only JavaScript we need to write in 
 
 After the closing `</style>` tag (we'll come back to styling shortly), add the following `iron-ajax` element:
 
-```html
+{% highlight html %}
+{% raw %}
 <iron-ajax
 	id="getQuoteAjax"
 	auto 
@@ -348,7 +349,8 @@ After the closing `</style>` tag (we'll come back to styling shortly), add the f
 	method="get"
 	handle-as="text"
 	last-response="{{quote}}"></iron-ajax>
-```
+{% endraw %}
+{% endhighlight %}
 
 > Note: It's always worthwhile to take a look at the [source code](https://github.com/PolymerElements/iron-ajax) for any custom elements you're using, including [Polymer elements](https://github.com/PolymerElements).
 
@@ -490,6 +492,7 @@ Create a container for the unauthenticated UI and add input elements using [`iro
 Our initial markup should look like this:
 
 {% highlight html %}
+{% raw %}
 <div class="card">
 	<div id="unauthenticated">
 		<h1>Log In</h1>
@@ -512,6 +515,7 @@ Our initial markup should look like this:
 		</div>
 	</div>	
 </div>
+{% endraw %}
 {% endhighlight html %}
 
 We'll also add some local CSS in the `<style>` tags:
@@ -672,9 +676,11 @@ We can now see an error message if we try to submit empty or invalid credentials
 
 To persist user sessions, add the [`iron-localstorage`](https://elements.polymer-project.org/elements/iron-localstorage) element near the top of our element markup:
 
-```html
+{% highlight html %}
+{% raw %}
 <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
-```
+{% endraw %}
+{% endhighlight %}
 
 Now users don't have to log in repeatedly after refresh or return visit.
 
@@ -714,9 +720,11 @@ Add `app-location` to the imports at the top of the file. It's already installed
 
 Now add the element:
 
-```html
+{% highlight html %}
+{% raw %}
 <app-location route="{{route}}"></app-location>
-```
+{% endraw %}
+{% endhighlight %}
 
 In our `handleUserResponse()` function, we can now set the `route.path` to the path we want to redirect to:
 
@@ -818,9 +826,11 @@ In `/src/register-login.html`, import the new `app-data` dependency:
 
 Add the `app-data` element to the markup. We need to supply an identifying `key` and the `data` we want is, of course, the `storedUser` object.
 
-```html
+{% highlight html %}
+{% raw %}
 <app-data key="userData" data="{{storedUser}}"></app-data>
-```
+{% endraw %}
+{% endhighlight %}
 
 We can now add the `app-data` element to any other components that need access to this global data. All instances will be notified when the data is changed.
 
@@ -868,11 +878,12 @@ Here are our plans for the `log-out` element:
 * Display a log out link in the app's global header when the user is authenticated.
 * Display a log out button in the authenticated `register-login` view.
 * When the link or button is clicked, clear the user's token and information from global app data.
-* Call the element like this: `<log-out stored-user="{{storedUser}}"></log-out>` and be able to add an optional `link` attribute to display an anchor tag instead of a button.
+* Call the element, pass in the `storedUser`, and be able to add an optional `link` attribute to display an anchor tag instead of a button.
 
 Keeping these requirements in mind, let's build out our element, starting with the markup:
 
-```html
+{% highlight html %}
+{% raw %}
 <app-data key="userData" data="{{storedUser}}"></app-data>
 
 <template is="dom-if" if="{{!link}}">
@@ -882,7 +893,8 @@ Keeping these requirements in mind, let's build out our element, starting with t
 <template is="dom-if" if="{{link}}">
 	<a on-tap="logout" href>Log Out</a>
 </template>
-```
+{% endraw %}
+{% endhighlight %}
 
 This should look familiar. We're accessing `app-data` so when we log out, changes to the data are set throughout the app. We'll check for a `link` property and if it's false, show a button. If it's true, show a link. Both the link and button will call the same `on-tap` handler, `logout()`.
 
@@ -935,12 +947,14 @@ The link will display in the blue header area so the text should be white. If we
 Now that we have our `log-out` element, let's add it to the `/src/register-login.html` view:
 
 {% highlight html %}
+{% raw %}
 <!-- register-login.html -->
 
 <div id="authenticated" hidden$="[[!storedUser.loggedin]]">
 	...
 	<log-out stored-user="{{storedUser}}"></log-out>
 </div>
+{% endraw %}
 {% endhighlight html %}
 
 Our authenticated `register-login` now looks like this in the browser:
@@ -975,27 +989,31 @@ Open `/src/secret-quotes.html` and add the following dependencies: `iron-ajax`, 
 
 Add the `iron-localstorage` and `app-data` elements:
 
-```html
+{% highlight html %}
+{% raw %}
 <iron-localstorage 
 	name="user-storage" 
 	value="{{storedUser}}" 
 	on-iron-localstorage-load="initStoredUser"></iron-localstorage>
 
 <app-data key="userData" data="{{storedUser}}"></app-data>
-```
+{% endraw %}
+{% endhighlight %}
 
 We'll use the `on-iron-localstorage-load` event to get a quote automatically if an authenticated user enters the app on this page.
 
 Next add `iron-ajax`:
 
-```html
+{% highlight html %}
+{% raw %}
 <iron-ajax 
 	id="getSecretQuoteAjax"
 	method="get"
 	url="http://localhost:3001/api/protected/random-quote"
 	handle-as="text"
 	last-response="{{secretQuote}}"></iron-ajax>
-```
+{% endraw %}
+{% endhighlight %}
 
 This looks similar to the `iron-ajax` element we used to get public quotes in the `home-quotes` element except that we're not using the `auto` attribute. We'll add authorization to this request in the JS when we generate the request.
 
@@ -1056,6 +1074,7 @@ The last thing we'll do is improve the user experience. When the user is logged 
 Open `/src/my-app.html`. Import `iron-localstorage`, `app-data`, and `log-out` dependencies and add the `<iron-localstorage>` and `<app-data>` elements to the DOM:
 
 {% highlight html %}
+{% raw %}
 <!-- my-app.html -->
 ...
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
@@ -1064,7 +1083,8 @@ Open `/src/my-app.html`. Import `iron-localstorage`, `app-data`, and `log-out` d
 ...
 <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
 <app-data key="userData" data="{{storedUser}}"></app-data>
-{% endhighlight html %}
+{% endraw %}
+{% endhighlight %}
 
 ### Hiding "Secret Quotes" in the Menu
 
@@ -1094,6 +1114,7 @@ We want our logged in user to see something like this in the app header:
 Let's update the `<app-header>` to show the "Log In" link when the user is logged out and a greeting with the `log-out` element when authenticated.
 
 {% highlight html %}
+{% raw %}
 ...
 <app-header condenses reveals effects="waterfall">
 	<app-toolbar>
@@ -1106,6 +1127,7 @@ Let's update the `<app-header>` to show the "Log In" link when the user is logge
 	</app-toolbar>
 </app-header>
 ...
+{% endraw %}
 {% endhighlight html %}
 
 Add the `storedUser` object to the Polymer properties in the JS:
@@ -1194,6 +1216,7 @@ This is best practice in Polymer for loading third party dependencies. This way,
 Now we can build `/src/auth0-login.html`:
 
 {% highlight html %}
+{% raw %}
 <!-- auth0-login.html -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
@@ -1298,6 +1321,7 @@ Now we can build `/src/auth0-login.html`:
 		}());
 	</script>
 </dom-module>
+{% endraw %}
 {% endhighlight html %}
 
 You can read all about `lock.js` in the [Auth0 Lock library docs](https://auth0.com/docs/libraries/lock). 
@@ -1311,6 +1335,7 @@ We now have a Lock element that can be launched by clicking a "Log In" link. We 
 Open `/src/my-app.html` and import the `iron-localstorage`, `app-data`, and `auth0-login` dependencies. Add the `<iron-localstorage>` and `<app-data>` elements to the DOM and add the `storedUser` object to the Polymer properties in the JS.
 
 {% highlight html %}
+{% raw %}
 <!-- my-app.html -->
 ...
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
@@ -1326,6 +1351,7 @@ Polymer({
 	storedUser: Object,
 	...
   },
+{% endraw %}
 {% endhighlight html %}
 
 Now we'll add our `<auth0-login>` element to the DOM. We want to display the "Log In" link / user greeting in the header, just like we did in the Chuck Norris app.
