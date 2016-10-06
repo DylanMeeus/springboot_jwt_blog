@@ -1,4 +1,9 @@
+
 .idea
 *.iml
-
-target/
+_drafts/
+_site/
+_site
+.DS_Store
+.idea
+.bundle/
